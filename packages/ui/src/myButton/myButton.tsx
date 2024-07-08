@@ -7,19 +7,11 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   appName: string;
 }
 
-export const Button = ({
-  children,
-  className,
-  appName,
-  ...others
-}: ButtonProps) => {
+const MyButton = ({ children, className, appName, ...others }: ButtonProps) => {
   return (
-    <button
-      className={className}
-      {...others}
-      onClick={() => alert(`Hello from your ${appName} app!`)}
-    >
+    <button className={className} {...others}>
       {children}
     </button>
   );
 };
+export default MyButton;

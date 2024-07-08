@@ -1,0 +1,9 @@
+@use "../utils/variables.module.scss";
+
+.button {
+  background-color: variables.$primary-color;
+  padding: 0.2rem;
+}
+.clicked {
+  background-color: variables.$accent-color;
+}
