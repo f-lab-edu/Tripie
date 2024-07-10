@@ -1,15 +1,23 @@
 "use client";
 
-import { ButtonHTMLAttributes, ReactNode } from "react";
+import classNames from "classnames/bind";
+import { ButtonHTMLAttributes, ReactNode, useState } from "react";
+import Style from "./mybutton.module.scss";
 
+const style = classNames.bind(Style);
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   appName: string;
 }
 
 const MyButton = ({ children, className, appName, ...others }: ButtonProps) => {
+  const [clicked, setClicked] = useState(false);
   return (
-    <button className={className} {...others}>
+    <button
+      className={style(className, "button", clicked && "clicked")}
+      onClick={() => setClicked(!clicked)}
+      {...others}
+    >
       {children}
     </button>
   );
