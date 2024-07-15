@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@repo/ui": "workspace:*",
+    "@tripie/design-system": "workspace:*",
     "classnames": "^2.5.1",
     "next": "15.0.0-rc.0",
     "react": "19.0.0-rc-f994737d14-20240522",
@@ -17,8 +17,8 @@
     "sass": "^1.77.6"
   },
   "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
+    "@tripie/eslint-config": "workspace:*",
+    "@tripie/typescript-config": "workspace:*",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -26,5 +26,6 @@
     "eslint-config-next": "15.0.0-rc.0",
     "node-sass": "^9.0.0",
     "typescript": "^5"
-  }
+  },
+  "type": "module"
 }

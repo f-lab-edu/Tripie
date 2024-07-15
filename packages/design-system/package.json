@@ -1,5 +1,5 @@
 {
-  "name": "@repo/ui",
+  "name": "@tripie/design-system",
   "version": "0.0.0",
   "private": true,
   "exports": {
@@ -18,8 +18,8 @@
     "generate:component": "turbo gen react-component"
   },
   "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
+    "@tripie/eslint-config": "workspace:*",
+    "@tripie/typescript-config": "workspace:*",
     "@storybook/react": "^8.1.11",
     "@turbo/gen": "^1.12.4",
     "@types/eslint": "^8.56.5",

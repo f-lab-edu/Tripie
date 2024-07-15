@@ -7,10 +7,9 @@ import Style from "./mybutton.module.scss";
 const style = classNames.bind(Style);
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
-  appName: string;
 }
 
-const MyButton = ({ children, className, appName, ...others }: ButtonProps) => {
+const MyButton = ({ children, className, ...others }: ButtonProps) => {
   const [clicked, setClicked] = useState(false);
   return (
     <button
