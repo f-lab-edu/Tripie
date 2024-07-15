@@ -26,5 +26,6 @@
     "eslint-config-next": "15.0.0-rc.0",
     "node-sass": "^9.0.0",
     "typescript": "^5"
-  }
+  },
+  "type": "module"
 }

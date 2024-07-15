@@ -1,12 +1,10 @@
-"use client";
-
-import { MyButton } from "@repo/ui";
+import { MyButton } from "@tripie/design-system";
 
 export default function Home() {
   return (
     <div>
       this is home
-      <MyButton appName="next">Click MyButton!</MyButton>
+      <MyButton>Click MyButton!</MyButton>
     </div>
   );
 }

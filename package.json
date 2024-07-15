@@ -18,5 +18,11 @@
   "engines": {
     "node": ">=20"
   },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint --cache --fix",
+      "prettier --cache --write"
+    ]
+  },
   "type": "module"
 }

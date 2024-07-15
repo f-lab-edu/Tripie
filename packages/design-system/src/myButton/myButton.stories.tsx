@@ -19,7 +19,6 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   name: "Button",
   args: {
-    appName: "Button",
     children: "I am a primary button.",
     type: "button",
     style: {

@@ -20,8 +20,8 @@ const nextConfig = {
 
     if (oneOf) {
       const moduleCssRule = oneOf.oneOf.find(
-        // (rule) => regexEqual(rule.test, /\.module\.css$/)
-        regexEqual(rule.test, /\.module\.(scss|sass)$/)
+        (rule) => regexEqual(rule.test, /\.module\.css$/)
+        // regexEqual(rule.test, /\.module\.(scss|sass)$/)
       );
 
       if (moduleCssRule) {
