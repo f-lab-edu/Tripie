@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "storybook dev -p 6006",
-    "build:storybook": "storybook build"
+    "build:storybook": "storybook build",
+    "chromatic": "pnpm dlx chromatic --project-token"
   },
   "dependencies": {
     "@tripie/design-system": "workspace:*",
@@ -28,6 +29,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "chromatic": "^11.5.5",
     "eslint": "^8",
     "eslint-config-next": "14.2.4",
     "eslint-plugin-storybook": "^0.8.0",

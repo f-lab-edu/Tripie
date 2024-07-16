@@ -1,3 +1,5 @@
+// @ts-check
+
 /**
  * https://nextjs.org/docs/app/building-your-application/styling/sass#customizing-sass-options
  */
