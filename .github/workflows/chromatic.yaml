@@ -32,7 +32,6 @@ jobs:
         shell: bash
         run: |
           echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-
       - name: Setup pnpm cache
         uses: actions/cache@v3
         with:
@@ -40,7 +39,6 @@ jobs:
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
-
       - name: Install Dependency
         run: pnpm install -no-frozen-lockfile
         working-directory: packages/design-system
@@ -49,7 +47,7 @@ jobs:
         id: chromatic
         uses: chromaui/action@v1
         with:
-          workingDir: packages/design-system/src
+          workingDir: apps/storybook
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.SECRET_GITHUB }}
 
