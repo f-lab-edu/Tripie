@@ -4,7 +4,7 @@ on:
   pull_request:
     branches: [main]
     paths:
-      - packages/storybook/src/**
+      - apps/storybook/src/**
 
 jobs:
   chromatic-deploy:
