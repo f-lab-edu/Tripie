@@ -4,7 +4,7 @@ on:
   pull_request:
     branches: [main]
     paths:
-      - packages/storybook/src/**
+      - apps/storybook/src/**
 
 jobs:
   chromatic-deploy:
@@ -27,6 +27,20 @@ jobs:
           version: 8
           run_install: false
 
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
       - name: Install Dependency
         run: pnpm install -no-frozen-lockfile
         working-directory: apps/storybook
@@ -35,13 +49,13 @@ jobs:
         id: chromatic
         uses: chromaui/action@v1
         with:
-          workingDir: apps/storybook/src
+          workingDir: packages/web-ui/src
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.SECRET_GITHUB }}
 
       - name: Create comment PR
         uses: thollander/actions-comment-pull-request@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.SECRET_GITHUB }}
         with:
           message: "🚀storybook: ${{ steps.chromatic.outputs.storybookUrl }}"
