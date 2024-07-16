@@ -49,7 +49,7 @@ jobs:
         id: chromatic
         uses: chromaui/action@v1
         with:
-          workingDir: packages/design-system/src
+          workingDir: apps/storybook
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.SECRET_GITHUB }}
 
