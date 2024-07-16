@@ -13,8 +13,7 @@
     "classnames": "^2.5.1",
     "next": "15.0.0-rc.0",
     "react": "19.0.0-rc-f994737d14-20240522",
-    "react-dom": "19.0.0-rc-f994737d14-20240522",
-    "sass": "^1.77.6"
+    "react-dom": "19.0.0-rc-f994737d14-20240522"
   },
   "devDependencies": {
     "@tripie/eslint-config": "workspace:*",
@@ -25,7 +24,7 @@
     "eslint": "^8",
     "eslint-config-next": "15.0.0-rc.0",
     "node-sass": "^9.0.0",
+    "sass": "^1.77.6",
     "typescript": "^5"
-  },
-  "type": "module"
+  }
 }

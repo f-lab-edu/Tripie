@@ -3,6 +3,7 @@
   "tasks": {
     "build:storybook": {
       "dependsOn": ["^build:storybook"],
+      "env": ["CHROMATIC_PROJECT_TOKEN"],
       "outputs": ["storybook-static/**"]
     }
   }
