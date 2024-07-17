@@ -1,0 +1,5 @@
+@use "../variables.module.scss";
+
+.large {
+  color: variables.$accent-color;
+}
