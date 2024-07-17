@@ -25,5 +25,14 @@ const config: StorybookConfig = {
     options: {},
   },
   staticDirs: ["../public"],
+  refs: {
+    // 👇 Upper-case characters not supported in the refs key
+    "chromatic-published-storybook": {
+      // The title of your Storybook
+      title: "Design System",
+      // The url provided by Chromatic when it was published
+      url: "https://<branch>--<appid>.chromatic.com",
+    },
+  },
 };
 export default config;

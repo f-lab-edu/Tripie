@@ -36,5 +36,8 @@
     "postcss": "^8",
     "storybook": "^8.2.2",
     "typescript": "^5"
+  },
+  "storybook": {
+    "url": "https://<branch>--<appid>.chromatic.com"
   }
 }
