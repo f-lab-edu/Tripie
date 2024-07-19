@@ -1,19 +1,6 @@
-import type { Metadata } from "next";
-// import localFont from "next/font/local";
 import "./globals.scss";
 
-// const maruBuri = localFont({
-//   src: [
-//     {
-//       path: "./fonts/MaruBuri-Bold.woff",
-//     },
-//   ],
-// });
-
-export const metadata: Metadata = {
-  title: "Trippie",
-  description: "AI Enhanced Trip Planner",
-};
+import Provider from "../provider/layout";
 
 export default function RootLayout({
   children,
@@ -22,14 +9,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      {/* <body className={maruBuri.className}> */}
-      <body>
-        <div className="background-container">
-          <div className="stars"></div>
-          <div className="twinkling"></div>
-        </div>
-        <div className="layout-wrap">{children}</div>
-      </body>
+      <Provider>{children}</Provider>
     </html>
   );
 }

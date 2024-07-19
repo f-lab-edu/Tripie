@@ -14,7 +14,6 @@ const config: StorybookConfig = {
     "../../../packages/design-system/src/**/*.stories.@(js|jsx|mjs|ts|tsx)",
   ],
   addons: [
-    getAbsolutePath("@storybook/addon-onboarding"),
     getAbsolutePath("@storybook/addon-links"),
     getAbsolutePath("@storybook/addon-essentials"),
     getAbsolutePath("@chromatic-com/storybook"),
@@ -24,6 +23,6 @@ const config: StorybookConfig = {
     name: getAbsolutePath("@storybook/nextjs"),
     options: {},
   },
-  staticDirs: ["../public", { from: "../public/fonts", to: "src/fonts" }],
+  staticDirs: ["../public"],
 };
 export default config;

@@ -1,5 +1,5 @@
 {
-  "name": "storybook",
+  "name": "@tripie/storybook",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -18,7 +18,6 @@
     "@storybook/addon-essentials": "^8.2.2",
     "@storybook/addon-interactions": "^8.2.2",
     "@storybook/addon-links": "^8.2.2",
-    "@storybook/addon-onboarding": "^8.2.2",
     "@storybook/addon-styling-webpack": "^1.0.0",
     "@storybook/blocks": "^8.2.2",
     "@storybook/nextjs": "^8.2.2",

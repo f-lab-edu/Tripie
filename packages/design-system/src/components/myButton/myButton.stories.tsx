@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import MyButton from "./myButton";
 
 const meta: Meta<typeof MyButton> = {
-  title: "Example/MyButton",
+  title: "tripie-ui/MyButton",
   component: MyButton,
   tags: ["autodocs"],
   argTypes: {
@@ -14,12 +14,13 @@ const meta: Meta<typeof MyButton> = {
 };
 
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const Custom: Story = {
   name: "Button",
   args: {
-    children: "I am a primary button.",
+    children: "button.",
     type: "button",
     style: {
       // color: "blue",

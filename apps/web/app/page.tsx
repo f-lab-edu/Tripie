@@ -1,11 +1,34 @@
-import { Fonts } from "@tripie/design-system";
+import { MyButton, Text } from "@tripie/design-system";
+import ThemeToggleButton from "../components/ThemeToggleButton";
 
 export default function Home() {
   return (
-    <div>
-      시험 텍스트를 입력해 보세요.
-      <Fonts>시험 텍스트를 입력해 보세요.</Fonts>
-      {/* <MyButton>Click MyButton!</MyButton> */}
-    </div>
+    <>
+      <MyButton>hi</MyButton>
+      <h1>:)</h1>
+      <h2>h2</h2>
+      <h3>h3</h3>
+      <Text>normal</Text>
+      <Text>
+        superlong text line-breaksuperlong text line-breaksuperlong text
+        line-breaksuperlong text line-breaksuperlong text line-breaksuperlong
+        text line-breaksuperlong text line-breaksuperlong text
+        line-breaksuperlong text line-breaksuperlong text line-breaksuperlong
+        text line-breaksuperlong text line-breaksuperlong text
+        line-breaksuperlong text line-breaksuperlong text line-breaksuperlong
+        text line-breaksuperlong text line-breaksuperlong text
+        line-breaksuperlong text line-breaksuperlong text line-breaksuperlong
+        text line-breaksuperlong text line-breaksuperlong text
+        line-breaksuperlong text line-breaksuperlong text line-breaksuperlong
+        text line-breaksuperlong text line-breaksuperlong text
+        line-breaksuperlong text line-breaksuperlong text line-breaksuperlong
+        text line-breaksuperlong text line-breaksuperlong text
+        line-breaksuperlong text line-breaksuperlong text line-breaksuperlong
+        text line-breaksuperlong text line-breaksuperlong text
+        line-breaksuperlong text line-breaksuperlong text line-breaksuperlong
+        text line-break
+      </Text>
+      <ThemeToggleButton />
+    </>
   );
 }

@@ -13,7 +13,8 @@ const MyButton = ({ children, className, ...others }: ButtonProps) => {
   const [clicked, setClicked] = useState(false);
   return (
     <button
-      className={style(className, "button", clicked && "clicked")}
+      type="button"
+      className={style(className, "button")}
       onClick={() => setClicked(!clicked)}
       {...others}
     >

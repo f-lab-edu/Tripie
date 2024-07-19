@@ -1,0 +1,67 @@
+@use "../../00_settings/" as *;
+@use "../../01_styles/" as *;
+@use "../../generator/" as *;
+
+.text {
+  // box-sizing: border-box;
+  // overflow-wrap: break-word;
+  // cursor: var(--cursor);
+  // display: var(--display, inline-block);
+  // font-weight: var(--font-weight, 500);
+  // text-align: var(--text-align, left);
+  // text-decoration: var(--text-decoration, none);
+  // white-space: var(--white-space, pre-line);
+  // word-break: var(--word-break);
+  @include generate-color-variables;
+  @include generate-default;
+  @include generate-styles;
+  @include generate-normalize;
+  @include text-ellipsis;
+
+  // @include font-family;
+  // @include font-size;
+  // @include font-weight;
+  @include word-wrap;
+  &.bold {
+    font-weight: bold;
+  }
+
+  &.center {
+    text-align: center;
+  }
+
+  &.strikethrough {
+    text-decoration: line-through;
+  }
+
+  &.underline {
+    text-decoration: underline;
+  }
+
+  &.inline {
+    display: inline;
+  }
+
+  &.inline-block {
+    display: inline-block;
+  }
+  &.tiny {
+    font-size: 0.6rem;
+  }
+  &.big {
+    font-size: 1.5rem;
+  }
+  &.huge {
+    font-size: 2rem;
+  }
+  &.large {
+    font-size: 1.8rem;
+  }
+}
+
+.text-title-base {
+  line-height: 1.2;
+  font-size: 24px;
+  font-weight: bold;
+  color: #3a3a3a;
+}

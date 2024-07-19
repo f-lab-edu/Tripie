@@ -1,2 +1,2 @@
-export { default as Fonts } from "./fonts";
-export { default as MyButton } from "./myButton";
+export { default as MyButton } from "./components/myButton";
+export * from "./components/text";

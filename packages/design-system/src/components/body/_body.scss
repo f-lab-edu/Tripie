@@ -1,0 +1,17 @@
+@use "../../generator/" as *;
+@use "../../01_styles" as *;
+@use "../../00_settings/" as *;
+@use "sass:map";
+@include generate-styles;
+@include generate-color-variables;
+@include generate-default;
+@include generate-normalize;
+
+.dark {
+  color: color(default, 800);
+  background-color: color(default, 50);
+}
+.light {
+  color: color(default, 800);
+  background-color: color(default, 50);
+}
