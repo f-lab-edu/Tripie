@@ -19,7 +19,7 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   name: "Button",
   args: {
-    children: "I am a primary button.",
+    children: "primary button",
     type: "button",
     style: {
       // color: "blue",
