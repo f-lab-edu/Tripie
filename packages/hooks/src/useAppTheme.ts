@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useLocalStorage, useMediaQuery } from "usehooks-ts";
 
 const COLOR_SCHEME_QUERY = "(prefers-color-scheme: dark)";
@@ -28,7 +28,8 @@ export const useAppTheme = (defaultValue?: TThemeMode): TUseAppThemeOutput => {
   );
 
   // Update darkMode if os prefers changes
-  useEffect(() => {
+  // useEffect(() => {
+  useCallback(() => {
     setThemeMode(osPrefersMode);
   }, [osPrefersMode]);
 
