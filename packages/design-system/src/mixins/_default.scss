@@ -1,0 +1,40 @@
+@use "../base/" as *;
+@use "../functions/" as *;
+
+/// 디폴트 믹스인
+/// box-sizing은 border-box로, html 패딩 마진 기본 설정, ios 폰트 크기 변경 방지
+@mixin generate-default {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    box-sizing: border-box;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+
+    // prevent iOS font size change
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-family: font-family("default");
+    font-size: font-size("default");
+    font-weight: font-weight("default");
+    line-height: line-height("default");
+    letter-spacing: letter-spacing("default");
+
+    @media (prefers-reduced-motion: no-preference) {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+  }
+}

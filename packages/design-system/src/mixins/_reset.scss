@@ -1,0 +1,70 @@
+// [참고] modern CSS reset https://piccalil.li/blog/a-modern-css-reset/
+@mixin generate-reset {
+  // Box sizing
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  // 디폴트 마진 제거
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  figure,
+  blockquote,
+  dl,
+  dd,
+  pre {
+    margin: 0;
+  }
+
+  // body 기본 높이
+  body {
+    min-height: 100vh;
+  }
+
+  // ul,ol 엘리먼트에 list role을 지닌 선택자의 디폴트 스타일 제거
+  // https://github.com/hankchizljaw/modern-css-reset/issues/30
+  ul[role="list"],
+  ol[role="list"] {
+    list-style: none;
+  }
+
+  // a 태그에 class가 없다면 링크 decoration 제거
+  a:not([class]) {
+    text-decoration-skip-ink: auto;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  li img,
+  p img {
+    display: inline-block;
+    vertical-align: sub;
+  }
+
+  // input과 button 태그 폰트 상속
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+    letter-spacing: inherit;
+    word-spacing: inherit;
+  }
+
+  // iframe 테두리 제거
+  iframe {
+    border: 0;
+  }
+}

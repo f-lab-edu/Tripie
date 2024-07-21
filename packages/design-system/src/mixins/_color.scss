@@ -1,0 +1,19 @@
+@use "sass:map";
+@use "../functions/" as *;
+@use "../base/" as *;
+
+/// 컬러 variable 생성
+/// @param {map} $colors : 컬러 맵
+/// @param {string} $selector : selector
+/// @return {string} : 생성된 컬러 variable
+@mixin generate-color-variables($colors: $colors, $selector: ":root") {
+  @each $key, $value in $colors {
+    #{$selector} {
+      @each $name, $color in $value {
+        @if $color {
+          --#{$internal-prefix}#{$key}-color-#{$name}: #{$color};
+        }
+      }
+    }
+  }
+}

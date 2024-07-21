@@ -1,0 +1,12 @@
+@use "../functions/" as *;
+
+/// z-index 설정 믹스인
+/// @param {string} $layer : `$z-indexes` 맵의 값
+/// @param {boolean} $important : `!important` 추가 여부
+@mixin z-index($layer: default, $important: false) {
+  @if $important == true {
+    z-index: z($layer) !important;
+  } @else {
+    z-index: z($layer);
+  }
+}

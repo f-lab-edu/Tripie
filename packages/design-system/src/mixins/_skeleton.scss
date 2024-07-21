@@ -1,0 +1,110 @@
+@use "sass:list";
+@use "sass:math";
+@use "sass:string";
+
+$skeleton-background: #e1e4e8;
+$shimmer: rgba(255, 255, 255, 0.6);
+
+/// 스켈레톤 콘텐츠 믹스인
+/// @param $lines : skeleton 줄의 개수 (길이는 랜덤)
+/// @param $line-height : 각 스켈레톤의 높이 (px)
+/// @param $line-gap : 각 스켈레톤 간의 간격(px)
+/// @param $background - Background color of the skeleton element
+/// @param $shimmer : 스켈레톤 빛 부분의 색
+/// @param $speed : 애니메이션 효과 속도
+/// @param $level : 믹스인을 적용할 selector "selector" 또는 "empty" 값을 가질 수 있다. Empty 선택시 empty pseudo 클래스에 적용
+/// @throws : $level이 "selector" or "empty"가 아닌 경우
+/// @example : @include skeleton(2, 16px, 8px, #dddddd, transparentize(255,255,255,.6), 2s)
+/// 모두 높이가 16px, 간격이 8px, 배경색이 #dddddd이고 빛부분 색이 transparentize(255,255,255,.6)인 스켈레톤 2 줄이 2초 속도로 애니메이션 보여줌
+@mixin skeleton(
+  $lines: 2,
+  $line-height: 24px,
+  $line-gap: 8px,
+  $background: $skeleton-background,
+  $shimmer: $shimmer,
+  $speed: 3s,
+  $level: "selector"
+) {
+  $key: string.unique-id();
+  $background-images: ();
+  $background-sizes: ();
+  $background-positions: ();
+  $background-blend-modes: ();
+  $background-images: list.append(
+    $background-images,
+    linear-gradient(115deg, transparent 20%, $shimmer 50%, transparent 80%),
+    comma
+  );
+  $background-sizes: list.append($background-sizes, 50% 100%, comma);
+  $background-positions: list.append($background-positions, -60% 0, comma);
+
+  @for $i from 1 through $lines {
+    $background-images: list.append(
+      $background-images,
+      linear-gradient($background 0%, $background 100%),
+      comma
+    );
+    $background-positions: list.append(
+      $background-positions,
+      0 (($i - 1) * ($line-height + $line-gap))
+    );
+
+    @if $i != $lines {
+      $background-sizes: list.append(
+        $background-sizes,
+        100% $line-height,
+        comma
+      );
+    }
+
+    @if $lines == 1 {
+      $background-sizes: list.append(
+        $background-sizes,
+        100% $line-height,
+        comma
+      );
+    } @else {
+      $background-sizes: list.append(
+        $background-sizes,
+        math.random(4) * 23% $line-height,
+        comma
+      );
+    }
+  }
+
+  $background-positions-animated: list.set-nth(
+    $background-positions,
+    1,
+    180% 0
+  );
+
+  @keyframes skeleton-shimmer-#{$key} {
+    to {
+      background-position: $background-positions-animated;
+    }
+  }
+
+  @if $level == "selector" {
+    display: block;
+    width: 100%;
+    min-height: $lines * ($line-height + $line-gap) - $line-gap;
+    background-image: $background-images;
+    background-repeat: no-repeat;
+    background-position: $background-positions;
+    background-size: $background-sizes;
+    animation: skeleton-shimmer-#{$key} $speed infinite;
+  } @else if $level == "empty" {
+    &:empty {
+      display: block;
+      width: 100%;
+      min-height: $lines * ($line-height + $line-gap) - $line-gap;
+      background-image: $background-images;
+      background-repeat: no-repeat;
+      background-position: $background-positions;
+      background-size: $background-sizes;
+      animation: skeleton-shimmer-#{$key} $speed infinite;
+    }
+  } @else {
+    @error "The argument `$level` one of the followings: `selector`, `empty`";
+  }
+}
