@@ -1,0 +1,12 @@
+@use "../functions" as *;
+
+/// border-radius으로 모양 설정하는 믹스인
+/// @param {string} $size : `$config-shape` 맵에서 사이즈 혹은 숫자인 border 사이즈
+/// @param {boolean} $important : 스타일 우선 순위 높이기 위한 `!important` 추가 여부
+@mixin shape($size: default, $important: false) {
+  @if $important == true {
+    border-radius: shape($size) !important;
+  } @else {
+    border-radius: shape($size);
+  }
+}
