@@ -1,34 +1,14 @@
-import { MyButton, Text } from "@tripie/design-system";
-import ThemeToggleButton from "../components/ThemeToggleButton";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "tripie",
+};
 
 export default function Home() {
-  return (
-    <>
-      <MyButton>hi</MyButton>
-      <h1>:)</h1>
-      <h2>h2</h2>
-      <h3>h3</h3>
-      <Text>normal</Text>
-      <Text>
-        superlong text line-breaksuperlong text line-breaksuperlong text
-        line-breaksuperlong text line-breaksuperlong text line-breaksuperlong
-        text line-breaksuperlong text line-breaksuperlong text
-        line-breaksuperlong text line-breaksuperlong text line-breaksuperlong
-        text line-breaksuperlong text line-breaksuperlong text
-        line-breaksuperlong text line-breaksuperlong text line-breaksuperlong
-        text line-breaksuperlong text line-breaksuperlong text
-        line-breaksuperlong text line-breaksuperlong text line-breaksuperlong
-        text line-breaksuperlong text line-breaksuperlong text
-        line-breaksuperlong text line-breaksuperlong text line-breaksuperlong
-        text line-breaksuperlong text line-breaksuperlong text
-        line-breaksuperlong text line-breaksuperlong text line-breaksuperlong
-        text line-breaksuperlong text line-breaksuperlong text
-        line-breaksuperlong text line-breaksuperlong text line-breaksuperlong
-        text line-breaksuperlong text line-breaksuperlong text
-        line-breaksuperlong text line-breaksuperlong text line-breaksuperlong
-        text line-break
-      </Text>
-      <ThemeToggleButton />
-    </>
-  );
+  if (process?.browser) {
+    console.log("Variant 2: Application is on client side");
+  } else {
+    console.log("Variant 2: Application is on server side");
+  }
+  return <>:)</>;
 }

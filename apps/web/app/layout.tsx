@@ -1,5 +1,6 @@
 import "./globals.scss";
 
+import ThemeToggleButton from "../components/ThemeToggleButton";
 import Provider from "../provider/layout";
 
 export default function RootLayout({
@@ -9,7 +10,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Provider>{children}</Provider>
+      <Provider>
+        <ThemeToggleButton />
+        {children}
+      </Provider>
     </html>
   );
 }
