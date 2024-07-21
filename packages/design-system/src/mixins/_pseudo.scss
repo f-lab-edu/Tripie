@@ -1,0 +1,39 @@
+@use "positioning" as *;
+
+/// Pseudo 엘리먼트 믹스인
+/// @param {string} $location : pseudo 엘리먼트의 위치
+/// @param {string} $content : ::before와 ::after pseudo 엘리먼트와 함께 쓰일 콘텐츠 property
+/// @param {string} $position : css 'position' 값 (static, relative, absolute, fixed, stick)
+/// @param {string} $top : absolute 박스를 포함하는 블록의 아래쪽과 absolute 박스의 top margin 간격
+/// @param {string} $right : absolute 박스를 포함하는 블록의 왼쪽과 absolute 박스의 오른쪽 margin 간격
+/// @param {string} $bottom : absolute 박스를 포함하는 블록의 위쪽과 absolute 박스의 아래쪽 margin 간격
+/// @param {string} $left : absolute 박스를 포함하는 블록의 오른쪽과 absolute 박스의 왼쪽 margin 간격
+/// @param {string} $axis : 엘리먼트를 가운데 정렬할 축 (both, horizontal, vertical)
+/// @return {mixin} : pseudo 엘리먼트 믹스인
+@mixin pseudo(
+  $location: before,
+  $content: "",
+  $position: absolute,
+  $top: 0,
+  $right: 0,
+  $bottom: 0,
+  $left: 0,
+  $axis: null
+) {
+  position: relative;
+
+  &::#{$location} {
+    @include position(
+      $position: $position,
+      $top: $top,
+      $right: $right,
+      $bottom: $bottom,
+      $left: $left,
+      $axis: $axis
+    );
+
+    content: $content;
+
+    @content;
+  }
+}
