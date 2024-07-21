@@ -1,0 +1,44 @@
+@use "sass:map";
+
+/**
+z-index 설정으로 엘리먼트 간에 겹칠 때 순서 지정
+
+deep : 맨 뒤로
+hide : 스크린에서 숨기기
+base : 기본 z-index
+masked: 기본 숨겨진 엘리먼트 
+mask :  엘리먼트 숨기기 위한 기본 z-index 
+sticky:  sticky 인터페이스용 기본 
+fixed:  고정된 엘리먼트 인터페이스용 기본 
+overlays: 모달, popup overlay, 백드롭용 
+loader : 스피너, overlay 앞에 보여줄 때 
+modal : overlay 위, 다른 요소 위에 보여지지만 popup 아래  
+popup :  모달, overlay 위에 보여질 popup 요소
+dropdown : 드랍다운 메뉴용
+notification : toast나 알림 메시지용   
+tool-tip :  Tooltip과 popover용 
+above-all : 맨 앞으로  
+*/
+
+$config-z-index: () !default;
+$config-z-index: map.deep-merge(
+  (
+    "deep": -999999,
+    "hide": -1,
+    "base": 0,
+    "default": 1,
+    "masked": 100,
+    "mask": 200,
+    "sticky": 300,
+    "fixed": 400,
+    "overlay": 500,
+    "loader": 600,
+    "modal": 700,
+    "popup": 750,
+    "dropdown": 800,
+    "notification": 900,
+    "tooltip": 950,
+    "above-all": 999999,
+  ),
+  $config-z-index
+);
