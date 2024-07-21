@@ -1,5 +1,5 @@
 /// 위치 믹스인
-/// @param {string} $position : css 'position' 값 (static, relative, absolute, fixed, stick)
+/// @param {string} $position_val : css 'position' 값 (static, relative, absolute, fixed, stick)
 /// @param {string} $top : absolute 박스를 포함하는 블록의 아래쪽과 absolute 박스의 top margin 간격
 /// @param {string} $right : absolute 박스를 포함하는 블록의 왼쪽과 absolute 박스의 오른쪽 margin 간격
 /// @param {string} $bottom : absolute 박스를 포함하는 블록의 위쪽과 absolute 박스의 아래쪽 margin 간격
@@ -7,7 +7,7 @@
 /// @param {string} $axis : 엘리먼트를 가운데 정렬할 축 (both, horizontal, vertical)
 /// @return {mixin} : 위치 믹스인
 @mixin position(
-  $position: absolute,
+  $position_val: absolute,
   $top: 0,
   $right: 0,
   $bottom: 0,
@@ -26,7 +26,7 @@
         if($axis == "both", translateY(-50%), null)
       );
   }
-  position: $position;
+  position: $position_val;
   top: if($axis == "vertical", 50%, if($axis == "both", 50%, $top));
   right: $right;
   bottom: $bottom;
