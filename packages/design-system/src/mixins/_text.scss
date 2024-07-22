@@ -1,0 +1,47 @@
+/// 여러 줄의 텍스트를 ellipsis(...)로 반환
+/// @param {number} $number-of-lines : 줄의 개수
+/// @return {mixin} : 텍스트 ellipsis 믹스인
+@mixin text-ellipsis($number-of-lines: 1) {
+  @if $number-of-lines == 1 {
+    white-space: nowrap;
+  } @else {
+    white-space: inherit;
+
+    @supports (-webkit-line-clamp: $number-of-lines) {
+      -webkit-box-orient: vertical;
+      display: box;
+      -webkit-line-clamp: $number-of-lines;
+    }
+  }
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/// 긴 string break
+/// @author Chris Coyier : https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/
+/// @return {mixin} : mixin word-wrap 믹스인
+@mixin word-wrap {
+  hyphens: auto;
+  word-break: break-word;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/// 텍스트 선택 동작
+/// @param {string} $color : 선택 텍스트의 색상
+/// @param {string} $background-color : 선택한 색상의 배경 색
+/// @param {boolean} $is-direct : true 시, 현재 엘리먼트에 적용, false라면 자식 엘리먼트에 적용
+/// @return {mixin} : 텍스트 선택 동작 믹스인
+@mixin text-selection($color, $background-color, $is-direct: true) {
+  @if $is-direct {
+    &::selection {
+      color: $color;
+      background-color: $background-color;
+    }
+  } @else {
+    ::selection {
+      color: $color;
+      background-color: $background-color;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+/// 버튼 기본 스타일 제거한 mixin
+/// @return {mixin} : 버튼 스타일을 제거한 기본 베이스 버튼 mixin
+@mixin clear-btn {
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  outline: inherit;
+  cursor: pointer;
+}
+
+/// list 기본 스타일 제거한 mixin
+/// @return {mixin} - list 스타일 제거한 기본 베이스 mixin
+@mixin clear-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
