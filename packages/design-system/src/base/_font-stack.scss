@@ -4,6 +4,7 @@ $config-font-stack: () !default;
 $config-font-stack: map.deep-merge(
   (
     "default": (
+      "maruBuri",
       "system-ui",
       "-apple-system",
       "Segoe UI",
