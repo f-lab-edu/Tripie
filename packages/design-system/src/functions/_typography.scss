@@ -1,0 +1,101 @@
+@use "sass:map";
+@use "sass:meta";
+@use "sass:math";
+@use "../base/" as *;
+
+/// 정의했던 font family로부터 폰트 반환
+/// @param {string} $family : font family
+/// @return {string} : 정의했던 font family
+@function font-family($family: default) {
+  $fetched-font-family: map.get($config-font-stack, $family);
+
+  @if meta.type-of($fetched-font-family) {
+    @return $fetched-font-family;
+  } @else {
+    @error "Font family `#{$family}` not found. Available font families: #{$config-font-stack}";
+  }
+}
+
+/// 주어진 범위의 폰트 크기 반환
+/// @param {number} $range : 폰트 크기
+/// @return {number} : 해당 폰트 스타일에 존재하는 폰트 크기
+@function font-size($range) {
+  $fetched-font-size: map.get($config-font-size, $range);
+
+  @if meta.type-of($range) == number {
+    @if $range == 0 {
+      @return 0;
+    }
+
+    @if math.is-unitless($range) {
+      @return $range * 1px;
+    } @else {
+      @return $range;
+    }
+  }
+
+  @if meta.type-of($fetched-font-size) {
+    @return $fetched-font-size;
+  } @else {
+    @error "Font size range `#{$range}` not found. Available font sizes: #{$config-font-size}";
+  }
+}
+
+/// 주어진 폰트 두께에 해당되는 font weight 반환
+/// @param {string} $weight - Font weight.
+/// @return {number} : 정의했던 font weight
+@function font-weight($weight: regular) {
+  $fetched-font-weight: map.get($config-font-weight, $weight);
+
+  @if meta.type-of($weight) == number {
+    @return $weight;
+  }
+
+  @if meta.type-of($fetched-font-weight) {
+    @return $fetched-font-weight;
+  } @else {
+    @error "Font weight `#{$weight}` not found. Available font weights: #{$config-font-weight}";
+  }
+}
+
+/// 주어진 범위의 line height 반환
+/// @param {number} $range : 폰트 스타일 범위
+/// @return {number} : 정의했던 line-height
+@function line-height($range: normal) {
+  $fetched-line-height: map.get($config-line-height, $range);
+
+  @if meta.type-of($range) == number {
+    @return $range;
+  }
+
+  @if meta.type-of($fetched-line-height) {
+    @return $fetched-line-height;
+  } @else {
+    @error "Line height `#{$range}` not found. Available line heights: #{$config-line-height}";
+  }
+}
+
+/// 정의했던 letter spacing에 해당 간격 반환
+/// @param {string} $letter-spacing : 문자 간격
+/// @return {number} : letter-spacing
+@function letter-spacing($letter-spacing: 0) {
+  $fetched-letter-spacing: map.get($config-letter-spacing, $letter-spacing);
+
+  @if meta.type-of($letter-spacing) == number {
+    @if $letter-spacing == 0 {
+      @return 0;
+    }
+
+    @if math.is-unitless($letter-spacing) {
+      @return $letter-spacing * 1px;
+    } @else {
+      @return $letter-spacing;
+    }
+  }
+
+  @if meta.type-of($fetched-letter-spacing) {
+    @return $fetched-letter-spacing;
+  } @else {
+    @error "letter spacing `#{$letter-spacing}` not found. Available letter spacings: #{$config-letter-spacing}";
+  }
+}
