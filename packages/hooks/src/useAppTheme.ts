@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocalStorage, useMediaQuery } from "usehooks-ts";
 
 const COLOR_SCHEME_QUERY = "(prefers-color-scheme: dark)";
@@ -18,36 +18,32 @@ type UseAppThemeOutput = {
   setMode: (mode: ThemeMode) => void;
 };
 
-export const useAppTheme = (defaultValue?: ThemeMode): UseAppThemeOutput => {
+export const useAppTheme = (): UseAppThemeOutput => {
   const isDarkOS = useMediaQuery(COLOR_SCHEME_QUERY);
   const [osPrefersMode] = useState(
     isDarkOS ? THEME_MODE.DARK : THEME_MODE.LIGHT
   );
-  const [themeMode, seThemeMode] = useLocalStorage<ThemeMode>(
-    "app-theme",
-    defaultValue ?? osPrefersMode ?? THEME_MODE.LIGHT
-  );
 
-  // os prefer 모드 변경 시 테마 변경
-  useCallback(() => {
-    seThemeMode(osPrefersMode);
-  }, [osPrefersMode]);
+  const [themeMode, setThemeMode] = useLocalStorage<ThemeMode>(
+    "app-theme",
+    osPrefersMode ?? THEME_MODE.LIGHT
+  );
 
   useEffect(() => {
     const root = document?.documentElement;
     if (root) {
       root.dataset.theme = themeMode;
     }
-  }, [themeMode]);
+  }, [themeMode, isDarkOS]);
 
   return {
     mode: themeMode,
     toggle: () =>
-      seThemeMode((previous) =>
+      setThemeMode((previous) =>
         previous === THEME_MODE.DARK ? THEME_MODE.LIGHT : THEME_MODE.DARK
       ),
-    setLight: () => seThemeMode(THEME_MODE.LIGHT),
-    setDark: () => seThemeMode(THEME_MODE.DARK),
-    setMode: (mode) => seThemeMode(mode),
+    setLight: () => setThemeMode(THEME_MODE.LIGHT),
+    setDark: () => setThemeMode(THEME_MODE.DARK),
+    setMode: (mode) => setThemeMode(mode),
   };
 };
