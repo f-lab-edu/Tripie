@@ -7,21 +7,18 @@ const meta: Meta<typeof Body> = {
   title: "tripie-ui/Body",
   tags: ["autodocs"],
   component: Body,
-  argTypes: { style: { height: "30rem" } },
+
   decorators: [
     (story, context) => {
-      const { mode, setMode } = useAppTheme();
+      const { mode, setMode, setControl } = useAppTheme();
       const selectedTheme = context.globals.theme || mode;
 
       useEffect(() => {
         setMode(selectedTheme);
+        setControl("user");
       }, [selectedTheme]);
 
-      return (
-        <div className={`${mode} ${context.args.className}`}>
-          body component
-        </div>
-      );
+      return <div className={`${context.globals.theme}`}>body component</div>;
     },
   ],
 };
