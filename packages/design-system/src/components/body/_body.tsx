@@ -1,9 +1,9 @@
 "use client";
 
-import { useAppTheme } from "@tripie/hooks";
 import classNames from "classnames";
 import localFont from "next/font/local";
 import { HTMLAttributes, ReactNode } from "react";
+import { useAppTheme } from "../../hooks";
 import "./_body.scss";
 
 export interface BodyProps extends HTMLAttributes<HTMLElement> {

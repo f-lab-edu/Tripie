@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { useAppTheme } from "@tripie/hooks";
+// import { useAppTheme } from "@tripie/hooks";
 import { useEffect } from "react";
+import { useAppTheme } from "../../hooks";
 import Body from "./_body";
 
 const meta: Meta<typeof Body> = {

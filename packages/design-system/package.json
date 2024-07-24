@@ -5,7 +5,8 @@
   "exports": {
     "./my-button": "./src/my-button.tsx",
     ".": [
-      "./src/index.ts"
+      "./src/index.ts",
+      "./src/index.tsx"
     ],
     "./*": [
       "./src/*.tsx",
@@ -13,7 +14,8 @@
       "./src/*/index.ts"
     ],
     "./*/*": [
-      "./src/*/*.tsx"
+      "./src/*/*.tsx",
+      "./src/*/*.ts"
     ]
   },
   "scripts": {
@@ -36,12 +38,12 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "@tripie/hooks": "workspace:*",
-    "next": "15.0.0-rc.0",
     "classnames": "^2.5.1",
     "local": "link:next/font/local",
+    "next": "15.0.0-rc.0",
     "postcss": "^8",
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "usehooks-ts": "^3.1.0"
   },
   "typesVersions": {
     "*": {

@@ -1,6 +1,5 @@
 "use client";
-import { MyButton } from "@tripie/design-system";
-import { useAppTheme } from "@tripie/hooks";
+import { MyButton, useAppTheme } from "@tripie/design-system";
 
 const ThemeButton = () => {
   const { setControl } = useAppTheme();
