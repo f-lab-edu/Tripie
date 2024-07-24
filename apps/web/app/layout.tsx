@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import ToggleThemeButton from "../components/ToggleThemeButton";
+
 import Provider from "../provider/layout";
 
 export const metadata: Metadata = {
@@ -15,10 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Provider>
-          <ToggleThemeButton />
-          {children}
-        </Provider>
+        <Provider>{children}</Provider>
       </body>
     </html>
   );

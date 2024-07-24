@@ -8,7 +8,13 @@ const THEME_MODE = {
   LIGHT: "light",
 } as const;
 
+const CONTROL_MODE = {
+  USER: "user",
+  OS_DEFAULT: "os_default",
+} as const;
+
 type ThemeMode = (typeof THEME_MODE)[keyof typeof THEME_MODE];
+type ControlMode = (typeof CONTROL_MODE)[keyof typeof CONTROL_MODE];
 
 type UseAppThemeOutput = {
   mode: ThemeMode;
@@ -16,6 +22,7 @@ type UseAppThemeOutput = {
   setLight: () => void;
   setDark: () => void;
   setMode: (mode: ThemeMode) => void;
+  setControl: (control: ControlMode) => void;
 };
 
 export const useAppTheme = (): UseAppThemeOutput => {
@@ -23,27 +30,35 @@ export const useAppTheme = (): UseAppThemeOutput => {
   const [osPrefersMode] = useState(
     isDarkOS ? THEME_MODE.DARK : THEME_MODE.LIGHT
   );
-
   const [themeMode, setThemeMode] = useLocalStorage<ThemeMode>(
     "app-theme",
-    osPrefersMode ?? THEME_MODE.LIGHT
+    osPrefersMode
+  );
+  const [themeControl, setThemeControl] = useLocalStorage<ControlMode>(
+    "control-theme",
+    CONTROL_MODE.OS_DEFAULT
   );
 
   useEffect(() => {
     const root = document?.documentElement;
-    if (root) {
-      root.dataset.theme = themeMode;
+
+    if (themeControl === "os_default") {
+      setThemeMode(isDarkOS ? THEME_MODE.DARK : THEME_MODE.LIGHT);
     }
-  }, [themeMode, isDarkOS]);
+    root.dataset.theme = themeMode;
+  }, [isDarkOS, osPrefersMode, themeControl, themeMode]);
 
   return {
     mode: themeMode,
-    toggle: () =>
+    toggle: () => {
+      setThemeControl("user");
       setThemeMode((previous) =>
         previous === THEME_MODE.DARK ? THEME_MODE.LIGHT : THEME_MODE.DARK
-      ),
+      );
+    },
     setLight: () => setThemeMode(THEME_MODE.LIGHT),
     setDark: () => setThemeMode(THEME_MODE.DARK),
     setMode: (mode) => setThemeMode(mode),
+    setControl: (control) => setThemeControl(control),
   };
 };
