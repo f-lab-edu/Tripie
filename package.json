@@ -1,6 +1,10 @@
 {
   "name": "tripie",
   "private": true,
+  "packageManager": "pnpm@9.0.0",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "build": "turbo build",
     "build:storybook": "turbo run build:storybook --filter=storybook",
@@ -14,10 +18,6 @@
     "prettier": "^3.2.5",
     "turbo": "^2.0.6",
     "typescript": "^5.4.5"
-  },
-  "packageManager": "pnpm@9.0.0",
-  "engines": {
-    "node": ">=20"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [

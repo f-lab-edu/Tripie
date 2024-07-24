@@ -1,10 +1,13 @@
-import { MyButton } from "@tripie/design-system";
+"use client";
+import ThemeButton from "../components/ThemeButton";
 
 export default function Home() {
   return (
     <div>
-      {/* this is home */}
-      <MyButton>Click MyButton!</MyButton>
+      <ThemeButton />
+      <ThemeButton.Toggle />
+
+      <h1>this is home</h1>
     </div>
   );
 }

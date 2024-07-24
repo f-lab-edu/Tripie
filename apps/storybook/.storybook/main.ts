@@ -14,7 +14,6 @@ const config: StorybookConfig = {
     "../../../packages/design-system/src/**/*.stories.@(js|jsx|mjs|ts|tsx)",
   ],
   addons: [
-    getAbsolutePath("@storybook/addon-onboarding"),
     getAbsolutePath("@storybook/addon-links"),
     getAbsolutePath("@storybook/addon-essentials"),
     getAbsolutePath("@chromatic-com/storybook"),
@@ -24,7 +23,7 @@ const config: StorybookConfig = {
     name: getAbsolutePath("@storybook/nextjs"),
     options: {},
   },
-  staticDirs: ["../public"],
+  staticDirs: ["../public", "../static"],
   refs: {
     // 👇 Upper-case characters not supported in the refs key
     "chromatic-published-storybook": {

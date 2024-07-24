@@ -1,0 +1,63 @@
+@use "sass:color";
+@use "sass:map";
+@use "sass:math";
+@use "../base/" as *;
+
+/// $colors또는 Sass map에서 컬러 값을 리턴
+/// @param {string} $type : base, primary, secondary 등등 컬러 그룹 타입
+/// @param {string} $key : 컬러의 이름
+/// @param {boolean} $only-color : true일 경우 컬러 값만 가져오기
+/// @return {$type} : $map : 컬러를 가져올 map
+@function color($type: "default", $key, $only-color: false, $map: $colors) {
+  @if not map.has-key($map, $type, $key) {
+    @error "The #{$key} key name doesn't exist under #{$type} at the specified map (default: $colors).";
+  }
+
+  @if not map.get($map, $type, $key) {
+    @return null;
+  }
+
+  @if $only-color {
+    @return map.get($map, $type, $key);
+  }
+
+  @return var(--#{$internal-prefix}#{$type}-color-#{$key});
+}
+
+/// $colors 컬러 map으로부터 아무 / 하나의 컬러 값만 반환
+/// @param {string} $type : 컬러 그룹의 타입 (base, primary, secondary 등등)
+/// @param {string} $key : 컬러의 키 이름
+/// @param {map} $map : 컬러를 가져올 map
+/// @return {color}: 컬러 값
+@function color-value($type: "default", $key, $map: $colors) {
+  @if not map.has-key($map, $type, $key) {
+    @error "The #{$key} key name doesn't exist under #{$type} at the specified map (default: $colors).";
+  }
+
+  @if not map.get($map, $type, $key) {
+    @return null;
+  }
+
+  @return map.get($map, $type, $key);
+}
+
+/// 흑/백 색 대조 리턴 (WCAG 기준)
+/// 참고 출처 : https://codepen.io/davidhalford/pen/ALrbEP
+/// @param {color} $color : 대조 바탕이 될 컬러
+/// @return {color} : 대조 컬러
+@function color-contrast($color) {
+  $color-brightness: math.round(
+    (color.red($color) * 299) + (color.green($color) * 587) +
+      math.div(color.blue($color) * 114, 1000)
+  );
+  $light-color: math.round(
+    (color.red(#ffffff) * 299) + (color.green(#ffffff) * 587) +
+      math.div(color.blue(#ffffff) * 114, 1000)
+  );
+
+  @if math.abs($color-brightness) < math.div($light-color, 2) {
+    @return hsl(0 0% 100%);
+  } @else {
+    @return hsl(0 100% 0%);
+  }
+}

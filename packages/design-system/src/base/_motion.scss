@@ -1,0 +1,35 @@
+@use "sass:map";
+
+/**
+기본 애니메이션 동작 정의
+ease-in : [주요 쓰임] 화면에서 요소 제거
+ease-out: [주요 쓰임] 화면에 요소 추가 혹은 유저 인풋에 따라 화면 상의 요소 변화 시
+*/
+
+$config-motion-timing: () !default;
+$config-motion-timing: map.deep-merge(
+  (
+    "ease-in": cubic-bezier(0.25, 0, 1, 1),
+    "ease-out": cubic-bezier(0, 0, 0.25, 1),
+    "standard": cubic-bezier(0.5, 0, 0.1, 1),
+    "excite": cubic-bezier(0.18, 0.67, 0.6, 1.22),
+    "overshoot": cubic-bezier(0.07, 0.28, 0.32, 1.22),
+    "anticipate": cubic-bezier(0.38, -0.4, 0.88, 0.65),
+    "linear": cubic-bezier(0.25, 0.25, 0.75, 0.75),
+  ),
+  $config-motion-timing
+);
+
+$config-motion-duration: () !default;
+$config-motion-duration: map.deep-merge(
+  (
+    "none": 0ms,
+    "fast": 100ms,
+    "standard": 200ms,
+    "base": 250ms,
+    "slow": 300ms,
+    "slower": 400ms,
+    "slowest": 500ms,
+  ),
+  $config-motion-duration
+);

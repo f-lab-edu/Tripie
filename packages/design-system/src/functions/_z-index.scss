@@ -1,0 +1,21 @@
+@use "sass:map";
+@use "sass:meta";
+@use "../base/" as *;
+
+/// config 맵으로부터 z-index 값 반환
+/// @param {string} $layer : `$z-indexes` 맵에서의 값
+/// @return {number} : z-index 값
+/// @throws {Error} : 없는 layer 옵션일 경우
+@function z($layer: default) {
+  $fetched-z-index: map.get($config-z-index, $layer);
+
+  @if meta.type-of($layer) == number {
+    @return $layer;
+  }
+
+  @if meta.type-of($fetched-z-index) {
+    @return $fetched-z-index;
+  } @else {
+    @error "Z-index with such layer `#{$layer}` not found. Available z-indexes: #{$config-z-index}";
+  }
+}
