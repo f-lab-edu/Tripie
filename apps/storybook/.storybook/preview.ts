@@ -1,5 +1,6 @@
 import type { Preview } from "@storybook/react";
 import { Body } from "@tripie/design-system";
+import maruBuri from "@tripie/design-system/components/typography/font";
 
 const preview: Preview = {
   parameters: {
@@ -15,6 +16,7 @@ const preview: Preview = {
       return Body({
         children: Story(),
         ...context.args.style,
+        className: maruBuri.className,
       });
     },
   ],

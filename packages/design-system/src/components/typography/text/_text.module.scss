@@ -1,0 +1,86 @@
+@use "../../../base/" as *;
+@use "../../../functions/" as *;
+@use "../../../generator/" as *;
+@use "../../../mixins/" as *;
+
+@use "sass:map";
+
+.text {
+  @include text-ellipsis(3);
+  @include word-wrap;
+  font-size: font-size(text);
+}
+
+.bold {
+  font-weight: font-weight(bold);
+}
+
+.full {
+  display: inline-block !important;
+}
+
+.title {
+  @include text-ellipsis(1);
+}
+
+.title.headline {
+  margin-top: 0;
+}
+
+.dim {
+  color: color(default, 500);
+  opacity: 0.9;
+}
+
+.primary {
+  color: color(primary, 900);
+}
+
+.secondary {
+  color: color(primary, 600);
+}
+
+.gray {
+  color: color(default, 500) !important;
+}
+.danger {
+  color: color(danger, 600);
+}
+.warning {
+  color: color(warning, 300);
+}
+.emphasize {
+  color: color(primary, 700);
+}
+.has-headline {
+  font-size: font-size(small);
+}
+
+.default {
+  font-size: font-size(default);
+}
+
+.h0 {
+  font-size: font-size(h0);
+}
+
+.h1 {
+  font-size: font-size(h1);
+}
+
+.h2 {
+  font-size: font-size(h2);
+}
+.h3 {
+  font-size: font-size(h3);
+}
+.h4 {
+  font-size: font-size(h4);
+}
+
+.small {
+  font-size: font-size(small);
+}
+.tiny {
+  font-size: font-size(tiny);
+}

@@ -1,23 +1,14 @@
 "use client";
 
 import classNames from "classnames";
-import localFont from "next/font/local";
 import { HTMLAttributes, ReactNode } from "react";
 import { useAppTheme } from "../../hooks";
+import maruBuri from "../typography/font";
 import "./_body.scss";
 
 export interface BodyProps extends HTMLAttributes<HTMLElement> {
   children: ReactNode;
 }
-
-const maruBuri = localFont({
-  src: [
-    {
-      path: "../../static/fonts/MaruBuri-Regular.woff",
-      style: "normal",
-    },
-  ],
-});
 
 const Body = ({ children, className, ...props }: BodyProps) => {
   const { mode } = useAppTheme();

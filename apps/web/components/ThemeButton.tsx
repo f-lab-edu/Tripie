@@ -1,10 +1,12 @@
 "use client";
-import { MyButton, useAppTheme } from "@tripie/design-system";
+import { MyButton, Text, useAppTheme } from "@tripie/design-system";
 
 const ThemeButton = () => {
   const { setControl } = useAppTheme();
   return (
-    <MyButton onClick={() => setControl("os_default")}>os default</MyButton>
+    <MyButton onClick={() => setControl("os_default")}>
+      <Text>os control</Text>
+    </MyButton>
   );
 };
 
@@ -12,7 +14,7 @@ const ToggleButton = () => {
   const { mode, toggle } = useAppTheme();
   return (
     <MyButton onClick={toggle}>
-      to {mode === "dark" ? "light" : "dark"}
+      <Text>to {mode === "dark" ? "light" : "dark"}</Text>
     </MyButton>
   );
 };
