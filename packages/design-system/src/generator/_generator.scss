@@ -1,0 +1,21 @@
+@use "../base/" as *;
+@use "../functions/" as *;
+@use "../mixins/" as *;
+
+/// 모든 스타일 생성
+@mixin generate-styles {
+  @include generate-reset;
+  @include generate-normalize;
+
+  @include generate-color-variables;
+
+  @each $key, $value in $config-theme {
+    @include generate-color-variables(
+      $colors: $value,
+      $selector: "[data-theme=#{$key}]:root"
+    );
+  }
+
+  @include generate-default;
+  @include generate-media;
+}

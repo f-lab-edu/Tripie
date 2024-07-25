@@ -21,13 +21,6 @@
     @return map.get($map, $type, $key);
   }
 
-  @if map.get($settings, color-fallback) {
-    @return var(
-      --#{$internal-prefix}#{$type}-color-#{$key},
-      #{map.get($map, $type, $key)}
-    );
-  }
-
   @return var(--#{$internal-prefix}#{$type}-color-#{$key});
 }
 
