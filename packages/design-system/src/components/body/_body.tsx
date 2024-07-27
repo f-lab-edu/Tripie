@@ -14,10 +14,7 @@ const Body = ({ children, className, ...props }: BodyProps) => {
   const { mode } = useAppTheme();
 
   return (
-    <section
-      className={classNames(className, mode, maruBuri.className)}
-      {...props}
-    >
+    <section className={classNames(mode, maruBuri.className)} {...props}>
       <div className="background-container">
         <div className="stars"></div>
         <div className="twinkling"></div>

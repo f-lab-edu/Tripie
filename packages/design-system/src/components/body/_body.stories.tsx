@@ -10,12 +10,11 @@ const meta: Meta<typeof Body> = {
 
   decorators: [
     (story, context) => {
-      const { mode, setMode, setControl } = useAppTheme();
+      const { mode, setMode } = useAppTheme();
       const selectedTheme = context.globals.theme || mode;
 
       useEffect(() => {
         setMode(selectedTheme);
-        setControl("user");
       }, [selectedTheme]);
 
       return <div className={`${context.globals.theme}`}>{story()}</div>;
