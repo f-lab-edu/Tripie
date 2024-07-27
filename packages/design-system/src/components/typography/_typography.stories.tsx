@@ -30,7 +30,6 @@ export const Default: Story = {
   args: {
     children: "default 기본",
     emphasize: false,
-    headline: null,
   },
 };
 
@@ -55,11 +54,20 @@ export const H0: Story = {
 
 export const H1WithHeadline: Story = {
   name: "H1WithHeadline",
-  args: {
-    children:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae? orem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae? \n\n orem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae? \n orem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae? orem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae? orem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae? orem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae? orem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae?",
-    headline: "Lorem ipsum dolor sit amet",
-  },
+
+  decorators: [
+    (story) => {
+      return (
+        <>
+          <Heading.Headline>headline of h1</Heading.Headline>
+          {story().type.H1({
+            children:
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae? orem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae? \n\n orem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae? \n orem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae? orem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae? orem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae? orem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae? orem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae?",
+          })}
+        </>
+      );
+    },
+  ],
 };
 
 export const H2: Story = {

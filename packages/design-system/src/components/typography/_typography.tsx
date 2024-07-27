@@ -7,73 +7,46 @@ import Style from "./text/_text.module.scss";
 
 interface HeadingProps extends TextProps {
   emphasize?: boolean;
-  headline?: string[] | null | string;
 }
 
 const style = classNames.bind(Style);
 
 const Heading = ({
   children,
-  headline = null,
   emphasize,
   bold,
-  isTitle = true,
   size = "h1",
+  multiLine,
 }: HeadingProps) => {
   return (
-    <>
-      {headline && (
-        <Text
-          size="default"
-          color="secondary"
-          dim={true}
-          bold={true}
-          hasHeadline={true}
-        >
-          {headline}
-        </Text>
-      )}
-      <Text
-        color={"primary"}
-        hasHeadline={true}
-        size={size}
-        bold={bold}
-        isTitle={isTitle}
-        emphasize={emphasize}
-      >
-        {children}
-      </Text>
-    </>
+    <Text
+      color={emphasize ? "emphasize" : "primary"}
+      size={size}
+      bold={bold}
+      multiLine={multiLine}
+    >
+      {children}
+    </Text>
   );
 };
 
-const H1 = ({ children, headline }: HeadingProps) => {
+const Headline = ({ children }: HeadingProps) => {
   return (
-    <>
-      {headline && (
-        <Text
-          size="default"
-          color="secondary"
-          dim={true}
-          bold={true}
-          hasHeadline={true}
-        >
-          {headline}
-        </Text>
-      )}
-      <h1
-        className={style(
-          "primary",
-          "h1",
-          "bold",
-          "hasHeadline",
-          "title",
-          "emphasize"
-        )}
-      >
-        {children}
-      </h1>
-    </>
+    <Text size="default" color="secondary" dim={true} bold={true}>
+      {children}
+    </Text>
+  );
+};
+
+const H1 = ({ children, emphasize }: HeadingProps) => {
+  return (
+    <Heading
+      color={emphasize ? "emphasize" : "primary"}
+      size="h1"
+      multiLine={false}
+    >
+      {children}
+    </Heading>
   );
 };
 
@@ -86,17 +59,30 @@ const H0 = ({ children }: { children: string[] | string }) => {
 };
 
 const H2 = ({ children }: { children: string[] | string }) => {
-  return <h3 className={style("title", "gray", "h2")}>{children}</h3>;
+  return (
+    <Heading size="h2" color="gray">
+      {children}
+    </Heading>
+  );
 };
 
 const H3 = ({ children }: { children: string[] | string }) => {
-  return <h3 className={style("title", "bold", "gray", "h3")}>{children}</h3>;
+  return (
+    <Heading bold={true} color={"gray"} size="h3">
+      {children}
+    </Heading>
+  );
 };
 
 const H4 = ({ children }: { children: string[] | string }) => {
-  return <h4 className={style("title", "bold", "secondary")}>{children}</h4>;
+  return (
+    <Heading color={"secondary"} bold={true} size="h4">
+      {children}
+    </Heading>
+  );
 };
 
+Heading.Headline = Headline;
 Heading.H0 = H0;
 Heading.H1 = H1;
 Heading.H2 = H2;

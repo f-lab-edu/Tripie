@@ -7,9 +7,7 @@ const style = classNames.bind(Style);
 
 export interface TextProps {
   children: string[] | string;
-  preLine?: boolean;
   dim?: boolean;
-  isTitle?: boolean;
   size?:
     | "default"
     | "h0"
@@ -20,43 +18,38 @@ export interface TextProps {
     | "text"
     | "small"
     | "tiny";
-  color?: "primary" | "secondary" | "danger" | "warning" | "gray";
-  hasHeadline?: boolean;
-  emphasize?: boolean;
+  color?: "primary" | "secondary" | "danger" | "warning" | "gray" | "emphasize";
   bold?: boolean;
+  multiLine?: boolean;
 }
 
 const Text = ({
   children,
-  preLine = true,
   dim = false,
   color = "primary",
-  isTitle = false,
   size = "text",
-  emphasize = false,
   bold = false,
-  hasHeadline = false,
+  multiLine = true,
 }: TextProps) => {
+  console.log(children);
   return (
-    <p
+    <div
       className={style(
+        "text",
         size,
         color,
-        isTitle ? "title" : "text",
-        preLine ?? "full",
         dim && "dim",
         bold ? "bold" : null,
-        emphasize && "emphasize",
-        hasHeadline && "has-headline"
+        multiLine === false && "oneLine"
       )}
     >
-      {children}
-    </p>
+      {`${children}`}
+    </div>
   );
 };
 
 const Paragraph = ({ children }: { children: string[] | string }) => {
-  return <p className={style("text", "full")}>{children}</p>;
+  return <p className={style("text", "full")}>{`${children}`}</p>;
 };
 
 Text.Paragraph = Paragraph;
