@@ -7,7 +7,7 @@
 
 @include generate-styles;
 
-.dark {
+html[data-theme="dark"]:root {
   color: color(default, 800);
   @include night-sky;
 }
