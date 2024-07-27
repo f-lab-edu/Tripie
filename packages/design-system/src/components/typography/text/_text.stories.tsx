@@ -9,12 +9,11 @@ const meta: Meta<typeof Text> = {
   component: Text,
   decorators: [
     (story, context) => {
-      const { mode, setMode, setControl } = useAppTheme();
-      const selectedTheme = context.globals.theme || mode;
+      const { mode, setMode } = useAppTheme();
+      const [selectedTheme] = context.globals.theme || mode;
 
       useEffect(() => {
         setMode(selectedTheme);
-        setControl("user");
       }, [selectedTheme]);
 
       return <div className={`${context.globals.theme}`}>{story()}</div>;
