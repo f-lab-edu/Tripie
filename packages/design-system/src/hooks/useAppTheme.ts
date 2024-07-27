@@ -27,7 +27,6 @@ export const useAppTheme = (): UseAppThemeOutput => {
   useEffect(() => {
     const root = document?.documentElement;
     if (themeMode == null) {
-      console.log(themeMode, isDarkOS);
       root.dataset.theme = isDarkOS ? THEME_MODE.DARK : THEME_MODE.LIGHT;
     } else {
       root.dataset.theme = themeMode;
