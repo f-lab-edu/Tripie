@@ -2,7 +2,7 @@
 import { MyButton, Text, useAppTheme } from "@tripie/design-system";
 
 const ThemeButton = () => {
-  const { setMode } = useAppTheme();
+  const { mode, setMode } = useAppTheme();
   return (
     <MyButton onClick={() => setMode(null)}>
       <Text>os control</Text>
@@ -12,9 +12,16 @@ const ThemeButton = () => {
 
 const ToggleButton = () => {
   const { mode, toggle } = useAppTheme();
+  if (mode == null) {
+    return (
+      <MyButton onClick={toggle}>
+        <Text>{`user control`}</Text>
+      </MyButton>
+    );
+  }
   return (
     <MyButton onClick={toggle}>
-      <Text>to {mode === "dark" || mode == null ? "light" : "dark"}</Text>
+      <Text>{`to ${mode === "dark" ? "light" : "dark"}`}</Text>
     </MyButton>
   );
 };
