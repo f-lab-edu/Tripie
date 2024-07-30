@@ -17,11 +17,6 @@
   }
 }
 
-.oneLine {
-  @include text-ellipsis(1);
-  white-space: nowrap !important;
-}
-
 .dim {
   color: color(default, 500);
 }
