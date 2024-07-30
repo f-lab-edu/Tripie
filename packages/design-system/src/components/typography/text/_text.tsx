@@ -19,7 +19,6 @@ export interface TextProps {
     | "tiny";
   color?: "primary" | "secondary" | "danger" | "warning" | "gray" | "emphasize";
   bold?: boolean;
-  multiLine?: boolean;
   children: string;
   className?: string;
 }

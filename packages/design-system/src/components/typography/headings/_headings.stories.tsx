@@ -30,7 +30,7 @@ export const H1: Story = {
   decorators: [
     (story) => {
       return story().type.H1({
-        children: "Heading 1 ,test",
+        children: "Heading 1",
       });
     },
   ],
@@ -63,6 +63,29 @@ export const H4: Story = {
     (story) => {
       return story().type.H4({
         children: "Heading 4",
+      });
+    },
+  ],
+};
+
+export const Headline: Story = {
+  name: "Headline",
+  decorators: [
+    (story) => {
+      return story().type.H4({
+        children: "Headline",
+      });
+    },
+  ],
+};
+
+export const HeadlineSecondary: Story = {
+  name: "Headline secondary",
+  decorators: [
+    (story) => {
+      return story().type.H4({
+        children: "Headline",
+        className: "secondary",
       });
     },
   ],

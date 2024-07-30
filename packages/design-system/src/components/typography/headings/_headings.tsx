@@ -10,26 +10,30 @@ interface HeadingProps extends TextProps {
 
 const style = classNames.bind(Style);
 
-const Heading = ({ children, className }: HeadingProps) => (
-  <Text className={style("default")}>{children}</Text>
+const Heading = ({ children, className }: TextProps) => (
+  <Text className={style("default", className)}>{children}</Text>
 );
 
-const H1 = ({ children, emphasize }: HeadingProps) => {
-  return <h1 className={style(emphasize ?? "emphasize")}>{children}</h1>;
+const H1 = ({ children, className }: TextProps) => {
+  return <h1 className={style(className)}>{children}</h1>;
 };
 
-const H2 = ({ children }: { children: string[] | string }) => {
-  return <h2 className={style("gray", "h2")}>{children}</h2>;
+const H2 = ({ children, className }: TextProps) => {
+  return <h2 className={style("h2", className)}>{children}</h2>;
 };
 
-const H3 = ({ children }: { children: string[] | string }) => {
-  return <h3 className={style("gray", "h2", "bold")}>{children}</h3>;
+const H3 = ({ children, className }: TextProps) => {
+  return <h3 className={style("h3", className)}>{children}</h3>;
 };
 
-const H4 = ({ children }: { children: string[] | string }) => {
-  return <h4 className={style("secondary", "bold", "h4")}>{children}</h4>;
+const H4 = ({ children, className }: TextProps) => {
+  return <h4 className={style("h4", className)}>{children}</h4>;
+};
+const Headline = ({ children, className }: TextProps) => {
+  return <h4 className={style("headline", className)}>{children}</h4>;
 };
 
+Heading.Headline = Headline;
 Heading.H1 = H1;
 Heading.H2 = H2;
 Heading.H3 = H3;

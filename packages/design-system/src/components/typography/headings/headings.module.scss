@@ -2,11 +2,11 @@
 @use "../../../functions/" as *;
 @use "../../../generator/" as *;
 @use "../../../mixins/" as *;
-@use "../text//text.module";
+@use "../text//text.module" as *;
 
 @use "sass:map";
 
-.text {
+.headings {
   @include text-ellipsis(1);
   @include word-wrap;
   font-size: font-size(text);
