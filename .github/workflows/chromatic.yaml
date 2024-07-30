@@ -2,7 +2,7 @@ name: "Chromatic Deployment"
 
 on:
   pull_request:
-    branches: ["21-design-system"]
+    branches: ["main", "21-design-system"]
     paths:
       - packages/design-system/src/**
 
@@ -64,5 +64,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.SECRET_GITHUB }}
         with:
-          pr_number : ${{ github.event.number }}
+          pr_number : ${{ github.head_ref || github.ref_name }} 
           message: "🚀storybook: ${{ steps.chromatic.outputs.storybookUrl }}"
