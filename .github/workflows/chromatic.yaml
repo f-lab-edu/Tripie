@@ -51,12 +51,18 @@ jobs:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.SECRET_GITHUB }}
 
-      - name: Create comment PR
-        uses: thollander/actions-comment-pull-request@v1
+      - name: Get PR number from branch name
+        id: get_pr_number
+        run: |
+          BRANCH_NAME=$(echo "${GITHUB_REF#refs/heads/}")
+          PR_NUMBER=$(echo "$BRANCH_NAME" | cut -d'-' -f1)
+          echo "PR_NUMBER=$PR_NUMBER" >> $GITHUB_ENV
+
+      - name: Add comment to original PR
+        run: |
+          PR_NUMBER=${{ env.PR_NUMBER }}
+          COMMENT="🚀 Storybook: ${{ steps.chromatic.outputs.storybookUrl }}"
+          gh pr comment $PR_NUMBER --body "$COMMENT"
         env:
-          GITHUB_TOKEN: ${{ secrets.SECRET_GITHUB }}
-        with:
-          message: "🚀storybook: ${{ steps.chromatic.outputs.storybookUrl }}"
-          pr_number: ${{ github.event.pull_request.number }}
-    
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
