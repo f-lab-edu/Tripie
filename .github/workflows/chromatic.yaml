@@ -54,7 +54,7 @@ jobs:
       - name: Get PR number from branch name
         id: get_pr_number
         run: |
-          BRANCH_NAME=$(echo "${GITHUB_REF#refs/heads/}")
+          BRANCH_NAME=${GITHUB_HEAD_REF}
           PR_NUMBER=$(echo "$BRANCH_NAME" | cut -d'-' -f1)
           echo "PR_NUMBER=$PR_NUMBER" >> $GITHUB_ENV
 
