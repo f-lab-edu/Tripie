@@ -54,7 +54,7 @@ export const AriaSelectedFalse: Story = {
 export const DisabledLink: Story = {
   name: "DisabledLink",
   args: {
-    children: "disabled link, 테스트",
+    children: "disabled link",
     href: "#",
     "aria-disabled": true,
   },
