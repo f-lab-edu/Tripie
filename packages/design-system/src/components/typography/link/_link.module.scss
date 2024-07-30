@@ -1,0 +1,25 @@
+@use "../../../base/" as *;
+@use "../../../functions/" as *;
+@use "../../../generator/" as *;
+@use "../../../mixins/" as *;
+@use "../text/text.module" as *;
+
+@use "sass:map";
+
+.link {
+  text-decoration: none;
+  color: color(default, 700);
+
+  &[aria-selected="false"] {
+    color: color(default, 500);
+    font-weight: font-weight(base);
+  }
+  &[aria-selected="true"] {
+    color: color(default, 900);
+    font-weight: font-weight(bold);
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
