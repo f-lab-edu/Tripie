@@ -30,7 +30,7 @@ export const H1: Story = {
   decorators: [
     (story) => {
       return story().type.H1({
-        children: "Heading 1",
+        children: "Heading 1 ,test",
       });
     },
   ],
