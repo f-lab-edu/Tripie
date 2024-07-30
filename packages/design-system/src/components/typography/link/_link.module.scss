@@ -22,4 +22,9 @@
   &:hover {
     text-decoration: underline;
   }
+
+  &[aria-disabled="true"] {
+    cursor: not-allowed !important;
+    color: color(default, 400) !important;
+  }
 }

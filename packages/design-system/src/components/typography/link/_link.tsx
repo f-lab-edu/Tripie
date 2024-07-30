@@ -12,11 +12,24 @@ export interface LinkProps extends React.RefAttributes<HTMLAnchorElement> {
   children: string;
   className?: string;
   "aria-selected"?: boolean;
+  "aria-disabled"?: boolean;
+  role?: string;
 }
 
-function UnstyledLink({ children, className, href, ...props }: LinkProps) {
+function UnstyledLink({
+  children,
+  className,
+  href,
+  role,
+  ...props
+}: LinkProps) {
   return (
-    <Link href={href} className={style("link", className)} {...props}>
+    <Link
+      href={href}
+      className={style("link", className)}
+      role={role}
+      {...props}
+    >
       <Text>{children}</Text>
     </Link>
   );

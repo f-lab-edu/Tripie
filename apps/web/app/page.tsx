@@ -1,5 +1,7 @@
 "use client";
 import { Headers, Text } from "@tripie/design-system";
+import UnstyledLink from "@tripie/design-system/components/typography/link/_link";
+import Paragraph from "@tripie/design-system/components/typography/paragraph/_paragraph";
 import ThemeButton from "../components/ThemeButton";
 
 export default function Home() {
@@ -17,7 +19,9 @@ export default function Home() {
       <Headers.H3>H3</Headers.H3>
       <Headers.H4>H4</Headers.H4>
       <Text>{text}</Text>
-      <Text.Paragraph>{text}</Text.Paragraph>
+      <Paragraph>{text}</Paragraph>
+
+      <UnstyledLink href="/">떡볶이</UnstyledLink>
     </div>
   );
 }

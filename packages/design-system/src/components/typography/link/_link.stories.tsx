@@ -50,3 +50,12 @@ export const AriaSelectedFalse: Story = {
     "aria-selected": false,
   },
 };
+
+export const DisabledLink: Story = {
+  name: "DisabledLink",
+  args: {
+    children: "disabled link",
+    href: "#",
+    "aria-disabled": true,
+  },
+};
