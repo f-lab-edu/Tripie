@@ -1,6 +1,3 @@
-rewrite the yaml below so the PR comment can be made to the current pr 
-
-
 name: "Chromatic Deployment"
 
 on:
