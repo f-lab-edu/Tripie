@@ -57,12 +57,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.SECRET_GITHUB }}
         with:
           message: "🚀storybook: ${{ steps.chromatic.outputs.storybookUrl }}"
-
-      - name: Add comment to original PR
-        run: |
-          PR_URL=$(gh pr view ${{ github.event.pull_request.number }} --json url -q .url)
-          NEW_PR_URL=$(gh pr list --head ${{ steps.create_branch.outputs.NEW_BRANCH_NAME }} --json url -q .[0].url)
-          COMMENT="A new PR has been created linking this branch: $NEW_PR_URL"
-          gh pr comment $PR_URL --body "🚀storybook: ${{ steps.chromatic.outputs.storybookUrl }}"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
