@@ -6,7 +6,6 @@ import Style from "./_text.module.scss";
 const style = classNames.bind(Style);
 
 export interface TextProps {
-  children: string[] | string;
   dim?: boolean;
   size?:
     | "default"
@@ -21,37 +20,19 @@ export interface TextProps {
   color?: "primary" | "secondary" | "danger" | "warning" | "gray" | "emphasize";
   bold?: boolean;
   multiLine?: boolean;
+  children: string;
+  className?: string;
 }
 
-const Text = ({
-  children,
-  dim = false,
-  color = "primary",
-  size = "text",
-  bold = false,
-  multiLine = true,
-}: TextProps) => {
-  console.log(children);
-  return (
-    <div
-      className={style(
-        "text",
-        size,
-        color,
-        dim && "dim",
-        bold ? "bold" : null,
-        multiLine === false && "oneLine"
-      )}
-    >
-      {`${children}`}
-    </div>
-  );
-};
-
-const Paragraph = ({ children }: { children: string[] | string }) => {
-  return <p className={style("text", "full")}>{`${children}`}</p>;
-};
-
-Text.Paragraph = Paragraph;
+function Text({ children, className, ...props }: TextProps) {
+  const splitText = `${children}`.split("\n").map((sentence, index) => {
+    return (
+      <span className={style(className, "text")} key={index + sentence}>
+        {sentence}
+      </span>
+    );
+  });
+  return <div>{splitText}</div>;
+}
 
 export default Text;

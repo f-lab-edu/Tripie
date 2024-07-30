@@ -31,34 +31,3 @@ export const Default: Story = {
     children: "default 기본",
   },
 };
-
-export const PreserveLine: Story = {
-  name: "PreserveLine",
-  args: {
-    children: "안녕하세요.\n줄바꿈이되나요?",
-  },
-};
-
-export const SuperLongText: Story = {
-  name: "SuperLongText/Ellipsis",
-  args: {
-    children:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae? orem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae? orem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae? orem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae? orem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae? orem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae? orem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae? orem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae?",
-  },
-};
-
-export const SuperLongTextPreserveLin: Story = {
-  name: "SuperLongText/PreserveLine",
-  args: {
-    children:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae? orem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae? \n\n orem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae? \n orem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae? orem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae? orem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae? orem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae? orem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae?",
-  },
-  decorators: [
-    (story) => {
-      return story().type.Paragraph({
-        children:
-          "Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae? orem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae? \n\n orem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae? \n orem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae? orem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae? orem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae? orem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae? orem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ea libero itaque sunt corrupti, nulla asperiores nesciunt distinctio sint ad harum quia minus soluta eveniet eius vero ducimus? Eum, quae?",
-      });
-    },
-  ],
-};
