@@ -12,7 +12,7 @@ export default function Home() {
       <ThemeButton />
       <ThemeButton.Toggle />
 
-      <Headers emphasize={true}>H1 emphasized</Headers>
+      <Headers>H1 emphasized</Headers>
       <Headers.H1>H1 with headlines</Headers.H1>
 
       <Headers.H2>H2</Headers.H2>
