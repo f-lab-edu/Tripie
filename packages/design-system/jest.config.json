@@ -1,0 +1,9 @@
+{
+  "preset": "ts-jest",
+  "testEnvironment": "jsdom",
+  "transform": {
+    "^.+\\.ts?$": "ts-jest",
+    "^.+\\.tsx?$": "ts-jest",
+    "^.+\\.scss$": "jest-scss-transform"
+  }
+}

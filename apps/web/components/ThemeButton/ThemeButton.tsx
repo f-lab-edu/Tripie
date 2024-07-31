@@ -2,7 +2,7 @@
 import { MyButton, Text, useAppTheme } from "@tripie/design-system";
 
 const ThemeButton = () => {
-  const { mode, setMode } = useAppTheme();
+  const { setMode } = useAppTheme();
   return (
     <MyButton onClick={() => setMode(null)}>
       <Text>os control</Text>

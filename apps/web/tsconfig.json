@@ -1,11 +1,14 @@
 {
-  "extends": "@tripie/typescript-config/nextjs.json",
+  "extends": "@tripie/typescript-config/react-library.json",
+  "jsdom": "react",
   "compilerOptions": {
     "plugins": [
       {
         "name": "next"
       }
-    ]
+    ],
+    "outDir": "dist",
+    "jsx": "react-jsxdev"
   },
   "include": [
     "next-env.d.ts",
@@ -14,5 +17,5 @@
     "**/*.tsx",
     ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist"]
 }
