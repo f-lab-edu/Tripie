@@ -1,7 +1,8 @@
 {
   "extends": "@tripie/typescript-config/react-library.json",
   "compilerOptions": {
-    "outDir": "dist"
+    "outDir": "dist",
+    "paths": { "web": ["/apps/web/"] }
   },
   "include": ["typings", "src"],
   "exclude": ["node_modules", "dist"],

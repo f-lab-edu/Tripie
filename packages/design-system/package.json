@@ -26,6 +26,10 @@
     "test:watch": "jest --watch"
   },
   "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.3",
+    "@babel/preset-react": "^7.24.7",
+    "babel-jest": "^29.7.0",
     "@jest/globals": "^29.7.0",
     "@storybook/react": "^8.1.11",
     "@testing-library/react": "^16.0.0",
@@ -44,7 +48,8 @@
     "jest-scss-transform": "^1.0.3",
     "node-sass": "^9.0.0",
     "ts-jest": "^29.2.3",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "@tripie/jest-config": "workspace:*"
   },
   "dependencies": {
     "classnames": "^2.5.1",

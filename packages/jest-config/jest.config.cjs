@@ -1,5 +1,7 @@
 const config = {
+  rootDir: ".",
   collectCoverage: true,
+  testRegex: "(/__(tests|specs)__/.*|(\\.|/)(test|spec))\\.([tj]sx?)$",
   // on node 14.x coverage provider v8 offers good speed and more or less good report
   coverageProvider: "v8",
   collectCoverageFrom: [
@@ -11,10 +13,11 @@ const config = {
     "!<rootDir>/*.config.js",
     "!<rootDir>/coverage/**",
   ],
+  modulePathIgnorePatterns: ["/dist/"],
   moduleNameMapper: {
     // Handle CSS imports (with CSS modules)
     // https://jestjs.io/docs/webpack#mocking-css-modules
-    "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
+    // "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
 
     // Handle CSS imports (without CSS modules)
     "^.+\\.(css|sass|scss)$": "<rootDir>/__mocks__/styleMock.cjs",
@@ -32,9 +35,11 @@ const config = {
     "next/font/(.*)": `<rootDir>/__mocks__/nextFontMock.cjs`,
     // Disable server-only
     // "server-only": `<rootDir>/__mocks__/empty.js`,
+    "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
+    // ...pathsToModuleNameMapper(compilerOptions.paths),
   },
   // Add more setup options before each test is run
-  // setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  // setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
   testPathIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/.next/"],
   testEnvironment: "jsdom",
   transform: {

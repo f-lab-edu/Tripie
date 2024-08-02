@@ -1,5 +1,5 @@
 {
   "compilerOptions": {
-    "paths": {}
+    "paths": { "web": ["/apps/web/"] }
   }
 }

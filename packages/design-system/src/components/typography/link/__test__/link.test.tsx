@@ -1,10 +1,6 @@
 import "@testing-library/jest-dom";
 import "@testing-library/jest-dom/jest-globals";
-import { cleanup, render, screen } from "@testing-library/react";
-
-afterEach(() => {
-  cleanup(); // Resets the DOM after each test suite
-});
+import { render, screen } from "@testing-library/react";
 
 import UnstyledLink, { LinkProps } from "../_link";
 

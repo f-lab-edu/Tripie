@@ -1,12 +1,13 @@
 "use client";
 
 import classNames from "classnames/bind";
-import { ButtonHTMLAttributes, ReactNode, useState } from "react";
+import { ButtonHTMLAttributes, useState } from "react";
+import Text from "../typography/text";
 import Style from "./mybutton.module.scss";
 
 const style = classNames.bind(Style);
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode;
+  children: string;
 }
 
 const MyButton = ({ children, className, ...others }: ButtonProps) => {
@@ -17,7 +18,7 @@ const MyButton = ({ children, className, ...others }: ButtonProps) => {
       onClick={() => setClicked(!clicked)}
       {...others}
     >
-      {children}
+      <Text>{children}</Text>
     </button>
   );
 };
