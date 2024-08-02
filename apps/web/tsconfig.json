@@ -1,6 +1,5 @@
 {
   "extends": "@tripie/typescript-config/react-library.json",
-  "jsdom": "react",
   "compilerOptions": {
     "plugins": [
       {
@@ -8,7 +7,7 @@
       }
     ],
     "outDir": "dist",
-    "jsx": "react-jsxdev",
+    "jsx": "preserve",
     "allowJs": true,
     "noEmit": true
   },
@@ -19,5 +18,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules", "dist"]
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }
