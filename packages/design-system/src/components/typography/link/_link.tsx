@@ -22,7 +22,7 @@ function UnstyledLink({
   href,
   role,
   ...props
-}: LinkProps) {
+}: Readonly<LinkProps>) {
   return (
     <Link
       href={href}
