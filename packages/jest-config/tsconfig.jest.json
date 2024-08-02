@@ -1,0 +1,20 @@
+{
+  "extends": "@tripie/typescript-config/react-library.json",
+  "jsdom": "react",
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "outDir": "dist",
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "noEmit": true,
+    "paths": {
+      "web/*": ["./apps/web/*"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}
