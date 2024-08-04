@@ -1,8 +1,12 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "rootDir": ".",
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "emitDeclarationOnly": true,
+    "jsx": "preserve",
+    "types": ["@testing-library/jest-dom"]
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["**/*.ts", "**/*.tsx", "../../typings", "jest.setup.cjs"],
   "exclude": ["dist"]
 }

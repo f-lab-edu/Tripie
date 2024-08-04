@@ -1,5 +1,5 @@
-"use client";
-import { MyButton, useAppTheme } from "@tripie/design-system";
+'use client';
+import { MyButton, useAppTheme } from '@tripie/design-system';
 
 const ThemeButton = () => {
   const { setMode } = useAppTheme();
@@ -12,11 +12,7 @@ const ToggleButton = () => {
   if (mode == null) {
     return <MyButton onClick={toggle}>user control</MyButton>;
   }
-  return (
-    <MyButton onClick={toggle}>
-      {`to ${mode === "dark" ? "light" : "dark"}`}
-    </MyButton>
-  );
+  return <MyButton onClick={toggle}>{`to ${mode === 'dark' ? 'light' : 'dark'}`}</MyButton>;
 };
 
 ThemeButton.Toggle = ToggleButton;

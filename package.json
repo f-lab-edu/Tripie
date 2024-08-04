@@ -1,7 +1,8 @@
 {
   "name": "tripie",
   "private": true,
-  "packageManager": "pnpm@9.0.0",
+  "packageManager": "pnpm@9.1.1",
+  "main": "index.js",
   "engines": {
     "node": ">=20"
   },
@@ -9,33 +10,34 @@
     "build": "turbo build",
     "build:storybook": "turbo run build:storybook --filter=storybook",
     "dev": "turbo dev",
-    "lint": "turbo lint",
+    "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
+    "lint:fix": "pnpm run lint --fix",
+    "prettier": "prettier --check '**/*.{ts,tsx,js,jsx,json}'",
+    "prettier:fix": "prettier --write '**/*.{ts,tsx,js,jsx,json}'",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "prepare": "husky",
     "test": "turbo run test",
     "test:watch": "turbo run test:watch"
   },
+  "dependencies": {
+    "eslint": "^9.8.0",
+    "prettier": "^3.3.3",
+    "react": "^18.3.1",
+    "ts-jest": "^29.2.4",
+    "turbo": "^2.0.11"
+  },
   "devDependencies": {
-    "@babel/core": "^7.25.2",
-    "@babel/preset-env": "^7.25.3",
-    "@babel/preset-react": "^7.24.7",
-    "@babel/preset-typescript": "^7.24.7",
-    "@jest/globals": "^29.7.0",
-    "@testing-library/jest-dom": "^6.4.8",
-    "@testing-library/react": "^16.0.0",
     "@types/eslint": "^8.56.5",
     "@types/jest": "^29.5.12",
     "babel-jest": "^29.7.0",
     "husky": "^9.0.11",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
+    "jest-canvas-mock": "^2.5.2",
     "jest-environment-jsdom": "^29.7.0",
     "jest-extended": "^4.0.2",
     "jest-scss-transform": "^1.0.3",
-    "node-sass": "^9.0.0",
     "prettier": "^3.2.5",
-    "ts-jest": "^29.2.3",
-    "ts-jest-resolver": "^2.0.1",
     "turbo": "^2.0.6",
     "typescript": "^5.4.5"
   },
@@ -44,6 +46,5 @@
       "eslint --cache --fix",
       "prettier --cache --write"
     ]
-  },
-  "type": "module"
+  }
 }
