@@ -4,8 +4,7 @@
     "rootDir": ".",
     "outDir": "./dist",
     "emitDeclarationOnly": true,
-    "jsx": "preserve",
-    "types": ["@testing-library/jest-dom"]
+    "jsx": "preserve"
   },
   "include": ["**/*.ts", "**/*.tsx", "../../typings", "jest.setup.cjs"],
   "exclude": ["dist"]

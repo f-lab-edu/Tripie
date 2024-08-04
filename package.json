@@ -6,6 +6,7 @@
   "engines": {
     "node": ">=20"
   },
+  "type": "module",
   "scripts": {
     "build": "turbo build",
     "build:storybook": "turbo run build:storybook --filter=storybook",
@@ -27,6 +28,11 @@
     "turbo": "^2.0.11"
   },
   "devDependencies": {
+    "@eslint/js": "^9.8.0",
+    "eslint-config-turbo": "^2.0.0",
+    "@typescript-eslint/parser": "^7.1.0",
+    "@typescript-eslint/eslint-plugin": "^7.1.0",
+    "@vercel/style-guide": "^5.2.0",
     "@types/eslint": "^8.56.5",
     "@types/jest": "^29.5.12",
     "babel-jest": "^29.7.0",

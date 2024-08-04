@@ -1,1 +1,1 @@
-export { default } from "./_body";
+export { default } from './_body';

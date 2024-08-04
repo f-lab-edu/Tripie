@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import classNames from "classnames";
-import { HTMLAttributes, ReactNode } from "react";
-import { useAppTheme } from "../../hooks";
-import maruBuri from "../typography/font";
-import "./_body.scss";
+import classNames from 'classnames';
+import { HTMLAttributes, ReactNode } from 'react';
+import { useAppTheme } from '../../hooks';
+import maruBuri from '../typography/font';
+import './_body.scss';
 
 export interface BodyProps extends HTMLAttributes<HTMLElement> {
   children: ReactNode;

@@ -1,12 +1,12 @@
-"use client";
-import { Headers, Text } from "@tripie/design-system";
-import UnstyledLink from "@tripie/design-system/components/typography/link/_link";
-import Paragraph from "@tripie/design-system/components/typography/paragraph/_paragraph";
-import ThemeButton from "../components/ThemeButton/ThemeButton";
+'use client';
+import { Headers, Text } from '@tripie/design-system';
+import UnstyledLink from '@tripie/design-system/components/typography/link/_link';
+import Paragraph from '@tripie/design-system/components/typography/paragraph/_paragraph';
+import ThemeButton from '../components/ThemeButton/ThemeButton';
 
 export default function Home() {
   const text =
-    "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis\npariatur, ab voluptates saepe eum at excepturi, eaque accusamus labore\ntemporibus ex nostrum in hic iure porro quod doloribus deleniti! Qui.\ntemporibus ex nostrum in hic iure porro quod doloribus deleniti!";
+    'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis\npariatur, ab voluptates saepe eum at excepturi, eaque accusamus labore\ntemporibus ex nostrum in hic iure porro quod doloribus deleniti! Qui.\ntemporibus ex nostrum in hic iure porro quod doloribus deleniti!';
   return (
     <div>
       <ThemeButton />

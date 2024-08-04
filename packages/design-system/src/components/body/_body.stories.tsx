@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { useEffect } from "react";
-import { useAppTheme } from "../../hooks";
-import Body from "./_body";
+import type { Meta, StoryObj } from '@storybook/react';
+import { useEffect } from 'react';
+import { useAppTheme } from '../../hooks';
+import Body from './_body';
 
 const meta: Meta<typeof Body> = {
-  title: "tripie-ui/Body",
-  tags: ["autodocs"],
+  title: 'tripie-ui/Body',
+  tags: ['autodocs'],
   component: Body,
 
   decorators: [
@@ -27,11 +27,11 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  name: "Default",
+  name: 'Default',
   args: {
-    children: "default theme",
+    children: 'default theme',
     style: {
-      width: "100%",
+      width: '100%',
     },
   },
 };

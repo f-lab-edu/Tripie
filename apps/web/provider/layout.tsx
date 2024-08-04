@@ -1,5 +1,5 @@
-import { ReactNode } from "react";
-import ThemeProvider from "./ThemeProvider";
+import { ReactNode } from 'react';
+import ThemeProvider from './ThemeProvider';
 
 export default function Provider({
   children,

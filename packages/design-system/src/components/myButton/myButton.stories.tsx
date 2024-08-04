@@ -1,16 +1,16 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { useEffect } from "react";
-import { useAppTheme } from "../../hooks";
-import MyButton from "./myButton";
+import type { Meta, StoryObj } from '@storybook/react';
+import { useEffect } from 'react';
+import { useAppTheme } from '../../hooks';
+import MyButton from './myButton';
 
 const meta: Meta<typeof MyButton> = {
-  title: "Example/MyButton",
+  title: 'Example/MyButton',
   component: MyButton,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     type: {
-      control: { type: "radio" },
-      options: ["button", "submit", "reset"],
+      control: { type: 'radio' },
+      options: ['button', 'submit', 'reset'],
     },
   },
   decorators: [
@@ -31,10 +31,10 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  name: "Button",
+  name: 'Button',
   args: {
-    children: "primary button",
-    type: "button",
+    children: 'primary button',
+    type: 'button',
     style: {
       // color: "blue",
       // border: "1px solid gray",

@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 
-import Provider from "../provider/layout";
+import Provider from '../provider/layout';
 
 export const metadata: Metadata = {
-  title: "Tripie ✈️",
-  description: "AI enhanced trip planner",
+  title: 'Tripie ✈️',
+  description: 'AI enhanced trip planner',
 };
 
 export default function RootLayout({

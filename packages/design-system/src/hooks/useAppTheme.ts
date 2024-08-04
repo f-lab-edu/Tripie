@@ -1,11 +1,11 @@
-import { useEffect } from "react";
-import { useLocalStorage, useMediaQuery } from "usehooks-ts";
+import { useEffect } from 'react';
+import { useLocalStorage, useMediaQuery } from 'usehooks-ts';
 
-const COLOR_SCHEME_QUERY = "(prefers-color-scheme: dark)";
+const COLOR_SCHEME_QUERY = '(prefers-color-scheme: dark)';
 
 const THEME_MODE = {
-  DARK: "dark",
-  LIGHT: "light",
+  DARK: 'dark',
+  LIGHT: 'light',
   OS_DEFAULT: null,
 } as const;
 
@@ -19,10 +19,7 @@ type UseAppThemeOutput = {
 
 export const useAppTheme = (): UseAppThemeOutput => {
   const isDarkOS = useMediaQuery(COLOR_SCHEME_QUERY);
-  const [themeMode, setThemeMode] = useLocalStorage<ThemeMode>(
-    "app-theme",
-    THEME_MODE.OS_DEFAULT
-  );
+  const [themeMode, setThemeMode] = useLocalStorage<ThemeMode>('app-theme', THEME_MODE.OS_DEFAULT);
 
   useEffect(() => {
     const root = document?.documentElement;
@@ -36,10 +33,8 @@ export const useAppTheme = (): UseAppThemeOutput => {
   return {
     mode: themeMode,
     toggle: () => {
-      setThemeMode((previous) =>
-        previous === THEME_MODE.DARK ? THEME_MODE.LIGHT : THEME_MODE.DARK
-      );
+      setThemeMode(previous => (previous === THEME_MODE.DARK ? THEME_MODE.LIGHT : THEME_MODE.DARK));
     },
-    setMode: (mode) => setThemeMode(mode),
+    setMode: mode => setThemeMode(mode),
   };
 };

@@ -13,10 +13,6 @@ module.exports = config => {
       ],
     },
     moduleNameMapper: {
-      // Handle @next/font
-      '@next/font/(.*)': `<rootDir>/__mocks__/nextFontMock.cjs`,
-      // Handle next/font
-      'next/font/(.*)': `<rootDir>/__mocks__/nextFontMock.cjs`,
       '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
     },
     testEnvironment: 'jsdom',

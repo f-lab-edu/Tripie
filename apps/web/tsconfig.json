@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "jsx": "preserve",
-    "lib": ["dom", "es2017"],
+    "lib": ["dom", "es2017", "dom.iterable", "esnext"],
     "baseUrl": ".",
     "paths": {
       "~/*": ["./src/*"]
