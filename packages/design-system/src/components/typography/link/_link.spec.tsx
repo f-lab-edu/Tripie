@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 import '@testing-library/jest-dom/jest-globals';
 import { render, screen } from '@testing-library/react';
 
-import UnstyledLink, { LinkProps } from '../_link';
+import UnstyledLink, { LinkProps } from './_link';
 
 jest.mock('next/link', () => {
   const { cloneElement } = jest.requireActual('react');

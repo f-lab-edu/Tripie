@@ -1,9 +1,10 @@
 {
   "name": "@tripie/design-system",
   "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
   "private": true,
   "exports": {
-    "./my-button": "./src/my-button.tsx",
     ".": [
       "./src/index.ts",
       "./src/index.tsx"
@@ -20,15 +21,16 @@
   },
   "scripts": {
     "build": "tsc",
-    "lint": "eslint . --max-warnings 0",
+    "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
+    "lint:fix": "pnpm run lint --fix",
     "generate:component": "turbo gen react-component",
     "test": "jest",
     "test:watch": "jest --watch"
   },
   "devDependencies": {
     "@storybook/react": "^8.1.11",
-    "@testing-library/react": "^16.0.0",
     "@testing-library/jest-dom": "^6.4.8",
+    "@testing-library/react": "^16.0.0",
     "@types/jest": "^29.5.12",
     "@types/node": "^20.11.24",
     "@types/react": "^18.2.61",
@@ -37,6 +39,7 @@
     "eslint": "^8.57.0"
   },
   "dependencies": {
+    "@turbo/gen": "^2.0.11",
     "classnames": "^2.5.1",
     "next": "15.0.0-rc.0",
     "postcss": "^8",

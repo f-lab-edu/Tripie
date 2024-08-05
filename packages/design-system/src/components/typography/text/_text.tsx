@@ -17,7 +17,7 @@ export interface TextProps {
 function Text({ children, className, ...props }: TextProps) {
   const splitText = `${children}`.split('\n').map((sentence, index) => {
     return (
-      <span className={style(className, 'text')} key={index + sentence}>
+      <span className={style(className, 'text')} key={index + sentence} {...props}>
         {sentence}
       </span>
     );

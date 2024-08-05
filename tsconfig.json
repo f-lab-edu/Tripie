@@ -4,7 +4,6 @@
     "module": "ESNext",
     "moduleResolution": "node",
     "strict": true,
-    "allowJs": true,
     "noEmit": false,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
@@ -23,5 +22,5 @@
     "incremental": true,
     "strictPropertyInitialization": false
   },
-  "exclude": ["dist", "**/*.cjs"]
+  "exclude": ["dist", "**/*.cjs", "storybook-static"]
 }

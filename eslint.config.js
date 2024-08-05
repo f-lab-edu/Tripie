@@ -1,60 +1,37 @@
-// const js = require('@eslint/js');
-
-// /** @type {import("eslint").Linter.Config} */
-// module.exports = {
-//   ...js.configs.recommended,
-//   //   ignores: ['.*.js', '*.(js|cjs|mjs|json)$', 'node_modules/', '**/.*', '**/*/dist/'],
-//   ignores: ['.*.js', '*.(js|cjs|mjs|json)$', 'node_modules/', '**/.*', '**/*/dist/', '**.*/'],
-
-//   //   globals: {
-// React: true,
-// JSX: true,
-//   //   },
-//   //   env: {
-//   //     node: true,
-//   //     browser: true,
-//   //   },
-//   //   plugins: ['only-warn'],
-//   //   settings: {
-//   //     'import/resolver': {
-//   //       typescript: {
-//   //         project,
-//   //       },
-//   //     },
-//   //   },
-//   //   ignorePatterns: [
-//   //     // Ignore dotfiles
-//   //     '.*.js',
-//   //     'node_modules/',
-//   //   ],
-//   overrides: [{ files: ['*.js?(x)', '*.ts?(x)'] }],
-// };
+/** https://stackoverflow.com/questions/74237042/how-to-correctly-configure-the-parser-plugins-with-eslints-new-flat-config 참고 */
+import ts from '@typescript-eslint/eslint-plugin';
+import tsParser from '@typescript-eslint/parser';
+import functional from 'eslint-plugin-functional';
+import pluginImport from 'eslint-plugin-import';
+import pluginReact from 'eslint-plugin-react';
+import globals from 'globals';
 
 export default [
   {
-    files: ['apps/**/*.ts?(x)'],
-    rules: {
-      semi: 'error',
-      'no-unused-vars': 'error',
+    files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
+    plugins: {
+      react: pluginReact,
+      functional,
+      import: pluginImport,
+      '@typescript-eslint': ts,
+      ts,
     },
-  },
-
-  {
-    files: ['packages/design-system/src/components/**/*.ts?(x)'],
     rules: {
-      'no-undef': 'error',
-      globals: {
-        React: true,
-        JSX: true,
+      'react/jsx-uses-react': 'error',
+    },
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+          modules: true,
+        },
+        projectService: true,
+        project: '../../tsconfig.json',
+        ecmaVersion: 'latest',
       },
-      semi: 'warn',
+      globals: { ...globals.browser, ...globals.node },
     },
-  },
-  {
-    files: ['packages/hooks/src/**/*.ts?(x)'],
-    rules: {
-      'no-undef': 'error',
-      semi: 'warn',
-    },
+    ignores: ['**/*.config.js', 'dist'],
   },
 ];

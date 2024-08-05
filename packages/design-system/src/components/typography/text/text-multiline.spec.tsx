@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import '@testing-library/jest-dom/jest-globals';
 import { cleanup, render, screen } from '@testing-library/react';
-import Text from '../_text';
+import Text from './_text';
 
 afterEach(() => {
   cleanup(); // Resets the DOM after each test suite
