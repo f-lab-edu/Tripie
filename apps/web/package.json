@@ -16,6 +16,7 @@
   "dependencies": {
     "@tripie/design-system": "workspace:*",
     "@tripie/hooks": "workspace:*",
+    "@types/react": "^18.3.3",
     "classnames": "^2.5.1",
     "local": "link:next/font/local",
     "next": "^14",
@@ -23,6 +24,8 @@
     "react-dom": "^18.3"
   },
   "devDependencies": {
+    "@testing-library/react": "^16.0.0",
+    "@testing-library/jest-dom": "^6.4.8",
     "@types/jest": "^29.5.12",
     "@types/node": "^20",
     "@types/react": "^18.3.3",
