@@ -14,6 +14,7 @@ const MyButton = ({ children, className, ...others }: ButtonProps) => {
   const [clicked, setClicked] = useState(false);
   return (
     <button
+      data-testid="my-button"
       className={style(className, 'button', clicked && 'clicked')}
       onClick={() => setClicked(!clicked)}
       {...others}

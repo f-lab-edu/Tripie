@@ -3,8 +3,7 @@ import { MyButton, useAppTheme } from '@tripie/design-system';
 
 const ThemeButton = () => {
   const { setMode } = useAppTheme();
-  // return <button onClick={() => setMode(null)}>os control</button>;
-  return <MyButton onClick={() => setMode(null)}>os control</MyButton>; //!! 🥲 <body><div /> </body>인 이유..?
+  return <MyButton onClick={() => setMode(null)}>os control</MyButton>;
 };
 
 const ToggleButton = () => {
