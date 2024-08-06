@@ -2,17 +2,26 @@ import classNames from "classnames/bind";
 import { PropsWithChildren } from "react";
 import Style from "./_layout.module.scss";
 
-interface LayoutProps extends PropsWithChildren {
+export interface LayoutProps extends PropsWithChildren {
   className?: string;
-  align?: "center" | "right";
+  align?: "left" | "center" | "right";
 }
 
 const style = classNames.bind(Style);
 
-const Layout = ({ children, className, align, ...props }: LayoutProps) => {
+const Layout = ({
+  children,
+  className,
+  align = "left",
+  ...props
+}: LayoutProps) => {
   return (
     <div
-      className={style(["layout", className, align ? style(align) : ""])}
+      className={style([
+        "layout",
+        className,
+        align == "left" ? "" : style(align),
+      ])}
       {...props}
     >
       {children}
