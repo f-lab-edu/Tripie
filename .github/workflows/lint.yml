@@ -1,20 +1,16 @@
 name: Code Check
-on:
-  - push
-  - pull_request
+on: [pull_request, push]
 
 jobs:
-  cache-and-install:
+  lint:
+    name: ⬣ ESLint, ʦ TypeScript, 💅 Prettier, and 🃏 Test
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
+      - name: ⬇️ Checkout repo
         uses: actions/checkout@v4
 
       - uses: pnpm/action-setup@v4
         name: Install pnpm
-        with:
-          run_install: false
 
       - name: Install Node.js
         uses: actions/setup-node@v4
@@ -24,12 +20,6 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
-  lint:
-    name: ⬣ ESLint, ʦ TypeScript, 💅 Prettier, and 🃏 Test
-    runs-on: ubuntu-latest
-    steps:
-      - name: ⬇️ Checkout repo
-        uses: actions/checkout@v4
 
       - name: 🔬 Lint
         run: pnpm lint
