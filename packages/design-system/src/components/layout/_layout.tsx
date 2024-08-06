@@ -4,33 +4,26 @@ import Style from "./_layout.module.scss";
 
 interface LayoutProps extends PropsWithChildren {
   className?: string;
+  align?: "center" | "right";
 }
 
 const style = classNames.bind(Style);
 
-const Layout = ({ children, className, ...props }: LayoutProps) => {
+const Layout = ({ children, className, align, ...props }: LayoutProps) => {
   return (
-    <div className={style(["layout", className])} {...props}>
+    <div
+      className={style(["layout", className, align ? style(align) : ""])}
+      {...props}
+    >
       {children}
     </div>
   );
 };
 
-const LayoutCenter = ({ children, className, ...props }: LayoutProps) => {
-  return (
-    <div className={style(["layout", className, "center"])} {...props}>
-      {children}
-    </div>
-  );
-};
-
-const LayoutRight = ({ children, className, ...props }: LayoutProps) => {
-  return (
-    <div className={style(["layout", className, "right"])} {...props}>
-      {children}
-    </div>
-  );
-};
+const LayoutCenter = (props: LayoutProps) => (
+  <Layout {...props} align="center" />
+);
+const LayoutRight = (props: LayoutProps) => <Layout {...props} align="right" />;
 
 Layout.Center = LayoutCenter;
 Layout.Right = LayoutRight;
