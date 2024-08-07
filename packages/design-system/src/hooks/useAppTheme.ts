@@ -21,7 +21,7 @@ export const useAppTheme = (): UseAppThemeOutput => {
   const isDarkOS = useMediaQuery(COLOR_SCHEME_QUERY);
   const [themeMode, setThemeMode] = useLocalStorage<ThemeMode>(
     "app-theme",
-    THEME_MODE.OS_DEFAULT
+    THEME_MODE.OS_DEFAULT,
   );
 
   useEffect(() => {
@@ -37,7 +37,7 @@ export const useAppTheme = (): UseAppThemeOutput => {
     mode: themeMode,
     toggle: () => {
       setThemeMode((previous) =>
-        previous === THEME_MODE.DARK ? THEME_MODE.LIGHT : THEME_MODE.DARK
+        previous === THEME_MODE.DARK ? THEME_MODE.LIGHT : THEME_MODE.DARK,
       );
     },
     setMode: (mode) => setThemeMode(mode),

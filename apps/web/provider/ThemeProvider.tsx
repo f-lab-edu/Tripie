@@ -6,7 +6,7 @@ import { ReactNode } from "react";
  */
 const ThemeWrapper = dynamic(
   () => import("@tripie/design-system/components/body/_body"),
-  { ssr: false }
+  { ssr: false },
 );
 
 export default function ThemeProvider({

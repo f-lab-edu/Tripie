@@ -15,19 +15,22 @@ export default function Home() {
 
       <Headers>H1 emphasized</Headers>
       <Headers.H1>H1 with headlines</Headers.H1>
-
       <Text>Wrapped by Layout - default</Text>
+      <Container align="center">
+        <Text>Wrapped by Layout - center</Text>
+      </Container>
 
-      <Text>Wrapped by Layout - center</Text>
-
-      <Text>Wrapped by Layout - right</Text>
-
+      <Container align="right">
+        <Text>Wrapped by Layout - right</Text>
+      </Container>
       <Headers.H2>H2</Headers.H2>
       <Headers.H3>H3</Headers.H3>
       <Headers.H4>H4</Headers.H4>
       <Container align="center">
         <Text>{text}</Text>
-        <Paragraph>{text}</Paragraph>
+        <Container applyMargin="top">
+          <Paragraph>{text}</Paragraph>
+        </Container>
       </Container>
       <UnstyledLink href="/">떡볶이</UnstyledLink>
     </Container>
