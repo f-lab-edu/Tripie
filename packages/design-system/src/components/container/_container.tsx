@@ -1,9 +1,11 @@
 import classNames from "classnames/bind";
-import Layout, { LayoutProps } from "../layout";
+import { ReactNode } from "react";
 import Style from "./_container.module.scss";
 
-export interface ContainerProps extends LayoutProps {
+export type ContainerProps = {
   margin?: "xl" | "l" | "m" | "sm" | "xsm";
+  align?: "left" | "center" | "right";
+  children?: ReactNode;
   applyMargin?:
     | "top-bottom"
     | "left-right"
@@ -12,7 +14,7 @@ export interface ContainerProps extends LayoutProps {
     | "right"
     | "top"
     | "bottom";
-}
+} & Omit<React.ComponentProps<"div">, "children">;
 
 const style = classNames.bind(Style);
 
@@ -24,20 +26,20 @@ const Container = ({
   applyMargin = "all",
   ...props
 }: ContainerProps) => {
-  const LayoutComponent =
-    align === "center"
-      ? Layout.Center
-      : align === "right"
-        ? Layout.Right
-        : Layout;
-
   return (
-    <LayoutComponent
-      className={style(["container", margin, applyMargin, className])}
+    <div
+      className={style(
+        "layout-fill-available",
+        `align-${align}`,
+        "container",
+        applyMargin,
+        margin,
+        className
+      )}
       {...props}
     >
-      {children}
-    </LayoutComponent>
+      <div>{children}</div>
+    </div>
   );
 };
 

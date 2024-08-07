@@ -1,6 +1,24 @@
 @use "../../functions/" as *;
 @use "sass:map";
 
+.layout-fill-available {
+  width: -moz-available;
+  width: -webkit-fill-available;
+  width: fill-available;
+}
+.align-center {
+  display: inline-flex;
+  justify-content: center;
+  align-content: stretch;
+  flex-wrap: nowrap;
+}
+.align-right {
+  display: inline-flex;
+  justify-content: flex-end;
+  align-content: stretch;
+  flex-wrap: nowrap;
+}
+
 $space-map: (
   xl: space(4rem),
   l: space(2rem),
@@ -15,14 +33,18 @@ $space-map: (
   } @else if ($direction == "left-right") {
     margin: 0 $size;
   } @else if ($direction == "left") {
+    margin: 0;
     margin-left: $size;
   } @else if ($direction == "right") {
+    margin: 0;
     margin-right: $size;
   } @else if ($direction == "top") {
+    margin: 0;
     margin-top: $size;
   } @else if ($direction == "bottom") {
+    margin: 0;
     margin-bottom: $size;
-  } @else {
+  } @else if ($direction == "all") {
     margin: $size;
   }
 }
