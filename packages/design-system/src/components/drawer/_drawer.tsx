@@ -17,7 +17,7 @@ const Drawer = ({ children, overlay = true }: DrawerProps) => {
 
   return (
     <>
-      <MyButton onClick={toggle}>Open drawer +{isOpen + ""}</MyButton>
+      <MyButton onClick={toggle}>Open</MyButton>
       {overlay ? (
         <div
           className={style(isOpen ? "is-open" : null)}
@@ -29,7 +29,7 @@ const Drawer = ({ children, overlay = true }: DrawerProps) => {
         <nav className={style("menu")}>
           <Container className={style("menu-item")}>
             <Container align="right" margin="none">
-              <MyButton onClick={() => close()}>닫기</MyButton>
+              <MyButton onClick={() => close()}>Close</MyButton>
               {/* !! 아이콘으로 변경하기 */}
             </Container>
             {children}
