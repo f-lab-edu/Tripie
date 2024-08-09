@@ -7,14 +7,14 @@ const DRAWER_MODE = {
 
 type DrawerMode = (typeof DRAWER_MODE)[keyof typeof DRAWER_MODE];
 
-export type UseAppThemeOutput = {
+export type useDrawerOutput = {
   isOpen: DrawerMode;
   toggle: () => void;
   open: () => void;
   close: () => void;
 };
 
-export const useDrawer = (): UseAppThemeOutput => {
+export const useDrawer = (): useDrawerOutput => {
   const [isOpen, setIsOpen] = useState<DrawerMode>(DRAWER_MODE.CLOSE);
 
   return {
