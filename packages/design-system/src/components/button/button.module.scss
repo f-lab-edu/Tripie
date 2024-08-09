@@ -1,0 +1,174 @@
+@use "sass:map";
+@use "../../functions/" as *;
+
+$tooltip-offset: space(24px);
+
+$size-map: (
+  xl: space(24rem),
+  l: space(12rem),
+  m: space(6rem),
+  sm: space(4rem),
+  xsm: space(3rem),
+  icon: space(1.5rem),
+);
+
+@mixin button-sizes($sizes, $size) {
+  width: $size;
+  // height: $size;
+  @if ($sizes== "icon") {
+    aspect-ratio: 1/1;
+  } @else {
+    padding: space("md");
+  }
+}
+
+@each $key, $value in $size-map {
+  .button.xl.#{$key} {
+    @include button-sizes("xl", $value);
+  }
+  .button.l.#{$key} {
+    @include button-sizes("l", $value);
+  }
+  .button.m.#{$key} {
+    @include button-sizes("m", $value);
+  }
+  .button.sm.#{$key} {
+    @include button-sizes("sm", $value);
+  }
+  .button.xsm.#{$key} {
+    @include button-sizes("xsm", $value);
+  }
+  .button.icon.#{$key} {
+    @include button-sizes("icon", $value);
+  }
+}
+
+@mixin theme($theme) {
+  @if ($theme == "light") {
+    background-color: color(default, 50);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: color(default, 800);
+  } @else if($theme == "dark") {
+    background-color: color(default, 800);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: color(default, 50);
+  }
+}
+
+@mixin theme-shadow($theme) {
+  $shadow-color: if(
+    $theme == "light",
+    rgba(0, 0, 0, 0.1),
+    rgba(255, 255, 255, 0.35)
+  );
+  box-shadow: $shadow-color 0 4px 12px;
+}
+
+.button {
+  &.light {
+    @include theme("light");
+  }
+  &.dark {
+    @include theme("dark");
+  }
+  align-items: center;
+  border-radius: shape("sm");
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+}
+
+.button:hover,
+.button:focus {
+  &.light {
+    @include theme-shadow("light");
+  }
+  &.dark {
+    @include theme-shadow("dark");
+  }
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.tooltip-button {
+  box-sizing: border-box;
+  &.light {
+    @include theme("light");
+  }
+  &.dark {
+    @include theme("dark");
+  }
+  position: relative;
+  outline: none;
+}
+
+.tooltip {
+  position: absolute;
+  opacity: 0;
+  visibility: 0;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  color: color(default, 50);
+  background-color: color(default, 800);
+  padding: space("md");
+  border-radius: shape("sm");
+  pointer-events: none;
+}
+
+.tooltip::before {
+  content: attr(data-text-initial);
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  bottom: calc(space("md") / 2 * -1);
+  width: space("md");
+  height: space("md");
+  background: inherit;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  z-index: z-index("deep");
+  pointer-events: none;
+}
+
+.tooltip-button svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.icon-after {
+  display: none;
+}
+
+.tooltip-button:hover .tooltip,
+.tooltip-button:focus:not(:focus-visible) .tooltip {
+  opacity: 1;
+  visibility: visible;
+  top: calc((100% + $tooltip-offset) * -1);
+}
+
+.tooltip-button:focus:not(:focus-visible) .tooltip::before {
+  content: attr(data-text-end);
+}
+
+.tooltip-button:focus:not(:focus-visible) .icon-before {
+  display: none;
+}
+
+.tooltip-button:focus:not(:focus-visible) .icon-after {
+  display: block;
+}
