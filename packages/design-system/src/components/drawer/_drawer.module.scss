@@ -1,0 +1,32 @@
+@use "../../functions/" as *;
+@use "../../mixins/" as *;
+@use "sass:map";
+
+.drawer-menu {
+  position: fixed;
+  z-index: z-index("modal");
+  width: min(100%, 32rem);
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: color(default, 50);
+  display: grid;
+}
+
+.drawer-menu.is-closed {
+  transform: translateX(-100%);
+}
+
+.is-open {
+  top: 0;
+  left: 0;
+  position: fixed;
+  background-color: color(default, 800);
+  width: 100vw;
+  height: 100vh;
+  z-index: z-index("overlay");
+  bottom: 0;
+  opacity: 0.85;
+}
