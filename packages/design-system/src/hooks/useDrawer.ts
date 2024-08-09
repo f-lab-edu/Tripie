@@ -10,7 +10,6 @@ type DrawerMode = (typeof DRAWER_MODE)[keyof typeof DRAWER_MODE];
 export type useDrawerOutput = {
   isOpen: DrawerMode;
   toggle: () => void;
-  open: () => void;
   close: () => void;
 };
 
@@ -22,7 +21,6 @@ export const useDrawer = (): useDrawerOutput => {
     toggle: () => {
       setIsOpen((previous) => !previous);
     },
-    open: () => setIsOpen(DRAWER_MODE.OPEN),
     close: () => setIsOpen(DRAWER_MODE.CLOSE),
   };
 };
