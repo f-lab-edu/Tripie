@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-// import { useAppTheme } from "@tripie/hooks";
 import { useEffect } from "react";
 import { useAppTheme } from "../../hooks";
 import Body from "./_body";
@@ -11,15 +10,14 @@ const meta: Meta<typeof Body> = {
 
   decorators: [
     (story, context) => {
-      const { mode, setMode, setControl } = useAppTheme();
+      const { mode, setMode } = useAppTheme();
       const selectedTheme = context.globals.theme || mode;
 
       useEffect(() => {
         setMode(selectedTheme);
-        setControl("user");
       }, [selectedTheme]);
 
-      return <div className={`${context.globals.theme}`}>body component</div>;
+      return <div className={`${context.globals.theme}`}>{story()}</div>;
     },
   ],
 };
