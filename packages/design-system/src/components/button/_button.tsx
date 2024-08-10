@@ -2,8 +2,8 @@
 
 import classNames from "classnames/bind";
 import { ButtonHTMLAttributes, ReactNode } from "react";
-import { useAppTheme } from "../../hooks";
-import Style from "./button.module.scss";
+
+import Style from "./_button.module.scss";
 
 const style = classNames.bind(Style);
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -42,13 +42,12 @@ const ToolTip = ({
   iconOnHover,
   ...others
 }: ToolTipButton) => {
-  const { mode } = useAppTheme();
   return (
     <button
       className={style(
         className,
         "button",
-        mode == null ? "os" : mode,
+
         size,
         "tooltip-button"
       )}

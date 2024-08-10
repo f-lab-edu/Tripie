@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useEffect } from "react";
 import { useAppTheme } from "../../hooks";
-import Button from "./button";
+import Button from "./_button";
 
 const meta: Meta<typeof Button> = {
   title: "tripie-ui/Button",
