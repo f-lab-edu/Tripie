@@ -40,11 +40,11 @@ export default function Home() {
         </Container>
       </Container>
       <UnstyledLink href="/">떡볶이</UnstyledLink>
-      <Drawer isOpen={isOpen} toggle={toggle} close={close}>
+      <Drawer isOpen={isOpen} toggle={toggle} close={close} overlay={false}>
         <div>show contents</div>
         <div>:)</div>
       </Drawer>
-      <MyButton onClick={open}>외부에서 open</MyButton>
+      <MyButton onClick={open}>토글</MyButton>
     </>
   );
 }

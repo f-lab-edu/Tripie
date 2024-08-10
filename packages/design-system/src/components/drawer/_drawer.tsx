@@ -8,6 +8,7 @@ import Style from "./_drawer.module.scss";
 export type DrawerProps = {
   children?: ReactNode;
   overlay?: boolean;
+
   withCloseButton?: boolean;
 } & Omit<React.ComponentProps<"div">, "children"> &
   Partial<useDrawerOutput>;
@@ -19,17 +20,13 @@ const Drawer = ({
   overlay = true,
   withCloseButton = true,
   isOpen,
-  toggle,
+
   close,
 }: DrawerProps) => {
   return (
     <>
-      <MyButton onClick={toggle}>Open</MyButton>
-      {overlay && close != null ? (
-        <div
-          className={style(isOpen ? "is-open" : null)}
-          onClick={() => close()}
-        />
+      {overlay ? (
+        <div className={style(isOpen ? "is-open" : null)} onClick={close} />
       ) : null}
 
       <aside className={style("drawer-menu", !isOpen && "is-closed")}>
