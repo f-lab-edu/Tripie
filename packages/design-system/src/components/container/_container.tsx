@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 import Style from "./_container.module.scss";
 
 export type ContainerProps = {
-  margin?: "xl" | "l" | "m" | "sm" | "xsm";
+  margin?: "xl" | "l" | "m" | "sm" | "xsm" | "none";
   align?: "left" | "center" | "right";
   children?: ReactNode;
   applyMargin?:
@@ -38,7 +38,8 @@ const Container = ({
       )}
       {...props}
     >
-      <div>{children}</div>
+      {children}
+      {/* <div>{children}</div> */}
     </div>
   );
 };
