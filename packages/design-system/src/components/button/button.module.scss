@@ -14,7 +14,6 @@ $size-map: (
 
 @mixin button-sizes($sizes, $size) {
   width: $size;
-  // height: $size;
   @if ($sizes== "icon") {
     aspect-ratio: 1/1;
   } @else {
@@ -43,12 +42,16 @@ $size-map: (
   }
 }
 
-@mixin theme($theme) {
-  @if ($theme == "light") {
+html[data-theme="light"] {
+  .button {
     background-color: color(default, 50);
     border: 1px solid rgba(0, 0, 0, 0.1);
     color: color(default, 800);
-  } @else if($theme == "dark") {
+  }
+}
+
+html[data-theme="dark"] {
+  .button {
     background-color: color(default, 800);
     border: 1px solid rgba(255, 255, 255, 0.1);
     color: color(default, 50);
@@ -65,12 +68,6 @@ $size-map: (
 }
 
 .button {
-  &.light {
-    @include theme("light");
-  }
-  &.dark {
-    @include theme("dark");
-  }
   align-items: center;
   border-radius: shape("sm");
   box-sizing: border-box;
@@ -101,12 +98,7 @@ $size-map: (
 
 .tooltip-button {
   box-sizing: border-box;
-  &.light {
-    @include theme("light");
-  }
-  &.dark {
-    @include theme("dark");
-  }
+
   position: relative;
   outline: none;
 }

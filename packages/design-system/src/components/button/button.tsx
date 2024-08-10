@@ -17,12 +17,8 @@ const Button = ({
   size = "m",
   ...others
 }: ButtonProps) => {
-  const { mode } = useAppTheme();
   return (
-    <button
-      className={style(className, "button", mode == null ? "os" : mode, size)}
-      {...others}
-    >
+    <button className={style(className, "button", size)} {...others}>
       {children}
     </button>
   );
