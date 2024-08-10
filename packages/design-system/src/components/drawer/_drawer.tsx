@@ -1,6 +1,6 @@
 import classNames from "classnames/bind";
 import { ReactNode } from "react";
-import { useDrawer } from "../../hooks";
+import { useDrawerOutput } from "../../hooks";
 import Container from "../container";
 import MyButton from "../myButton";
 import Style from "./_drawer.module.scss";
@@ -8,17 +8,24 @@ import Style from "./_drawer.module.scss";
 export type DrawerProps = {
   children?: ReactNode;
   overlay?: boolean;
-} & Omit<React.ComponentProps<"div">, "children">;
+  withCloseButton?: boolean;
+} & Omit<React.ComponentProps<"div">, "children"> &
+  Partial<useDrawerOutput>;
 
 const style = classNames.bind(Style);
 
-const Drawer = ({ children, overlay = true }: DrawerProps) => {
-  const { isOpen, toggle, close } = useDrawer();
-
+const Drawer = ({
+  children,
+  overlay = true,
+  withCloseButton = true,
+  isOpen,
+  toggle,
+  close,
+}: DrawerProps) => {
   return (
     <>
       <MyButton onClick={toggle}>Open</MyButton>
-      {overlay ? (
+      {overlay && close != null ? (
         <div
           className={style(isOpen ? "is-open" : null)}
           onClick={() => close()}
@@ -28,10 +35,12 @@ const Drawer = ({ children, overlay = true }: DrawerProps) => {
       <aside className={style("drawer-menu", !isOpen && "is-closed")}>
         <nav className={style("menu")}>
           <Container className={style("menu-item")}>
-            <Container align="right" margin="none">
-              <MyButton onClick={() => close()}>Close</MyButton>
-              {/* !! 아이콘으로 변경하기 */}
-            </Container>
+            {withCloseButton && close != null ? (
+              <Container align="right" margin="none">
+                <MyButton onClick={() => close()}>Close</MyButton>
+                {/* !! 아이콘으로 변경하기 */}
+              </Container>
+            ) : null}
             {children}
           </Container>
         </nav>

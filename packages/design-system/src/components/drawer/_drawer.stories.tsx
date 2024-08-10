@@ -45,3 +45,11 @@ export const NoOverLayDrawer: Story = {
     overlay: false,
   },
 };
+
+export const NoCloseButtonDrawer: Story = {
+  name: "No Close Button",
+  args: {
+    children: "Drawer No Close Button",
+    withCloseButton: false,
+  },
+};
