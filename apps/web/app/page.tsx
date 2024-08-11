@@ -1,6 +1,7 @@
 "use client";
 import {
   Drawer,
+  Gallery,
   Headers,
   MyButton,
   Text,
@@ -45,6 +46,16 @@ export default function Home() {
         <div>:)</div>
       </Drawer>
       <MyButton onClick={open}>토글</MyButton>
+
+      <Gallery
+        imgUrls={[
+          "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+          "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+          "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+          "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+          "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+        ]}
+      />
     </>
   );
 }

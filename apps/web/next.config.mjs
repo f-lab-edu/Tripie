@@ -14,6 +14,16 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "media.triple.guide",
+        port: "",
+        pathname: "/triple-cms/c_limit,f_auto,h_1024,w_1024/**",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
