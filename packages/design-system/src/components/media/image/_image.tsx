@@ -30,7 +30,7 @@ const Image = ({
   alt = "NO IMAGE",
   width = DEFAULT_IMAGE_SIZE_PX,
   height = DEFAULT_IMAGE_SIZE_PX,
-  variant,
+  variant = "default",
   sizes = "m",
   ...props
 }: ImageProps) => {
