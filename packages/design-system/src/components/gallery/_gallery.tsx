@@ -2,42 +2,48 @@ import classNames from "classnames/bind";
 import Image from "next/image";
 import Style from "./_gallery.module.scss";
 
-const MAX_IMAGE_SIZE = 4;
+const MAX_IMAGE_COUNT = 5;
 
 export type GalleryProps = {
-  imgUrls: string[];
+  urls: string[];
   displayLeftOverImgCount?: boolean;
+  variant?: "default" | "post";
 } & Omit<React.ComponentProps<"div">, "children">;
 
-const style = classNames.bind(Style);
+const cx = classNames.bind(Style);
+const DEFAULT_IMG_SIZE_PX = 1024;
 
 const Gallery = ({
-  imgUrls,
+  urls,
   className,
   displayLeftOverImgCount = false,
+  variant = "default",
   ...props
 }: GalleryProps) => {
-  const totalImgUrlCount = imgUrls.length;
+  const totalImgUrlCount = urls.length;
+  const displayedImages = urls.slice(0, MAX_IMAGE_COUNT);
+
   return (
     <div
-      className={style(
+      className={cx(
         "gallery",
-        `gallery-img-length-${imgUrls.slice(0, 5).length}`
+        variant,
+        `gallery-img-length-${displayedImages.length}`
       )}
       {...props}
     >
-      {imgUrls.slice(0, 5).map((url, index) =>
+      {displayedImages.map((url, index) =>
         displayLeftOverImgCount && index === 4 ? (
-          <div className={style("image-container")}>
-            <span className={style("display-leftover-img-count")}>
-              +{totalImgUrlCount - MAX_IMAGE_SIZE}
+          <div className={cx("image-container", variant)}>
+            <span className={cx("display-leftover-img-count", variant)}>
+              +{totalImgUrlCount - MAX_IMAGE_COUNT}
             </span>
             <Image
               src={url}
               alt={url}
-              width={300}
-              height={300}
-              className={style("gallery-item", "overlay")}
+              width={DEFAULT_IMG_SIZE_PX}
+              height={DEFAULT_IMG_SIZE_PX}
+              className={cx("gallery-item", "overlay", variant)}
               key={url + index}
             />
           </div>
@@ -45,9 +51,9 @@ const Gallery = ({
           <Image
             src={url}
             alt={url}
-            width={300}
-            height={300}
-            className={style("gallery-item")}
+            width={DEFAULT_IMG_SIZE_PX}
+            height={DEFAULT_IMG_SIZE_PX}
+            className={cx("gallery-item", variant)}
             key={url + index}
           />
         )
@@ -55,5 +61,11 @@ const Gallery = ({
     </div>
   );
 };
+
+const PostGallery = (props: Omit<GalleryProps, "variant">) => (
+  <Gallery {...props} variant="post" />
+);
+
+Gallery.Post = PostGallery;
 
 export default Gallery;

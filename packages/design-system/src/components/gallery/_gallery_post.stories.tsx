@@ -3,9 +3,9 @@ import { useEffect } from "react";
 import { useAppTheme } from "../../hooks";
 import Gallery from "./_gallery";
 
-const meta: Meta<typeof Gallery> = {
-  title: "tripie-ui/Gallery/Default",
-  component: Gallery,
+const meta: Meta<typeof Gallery.Post> = {
+  title: "tripie-ui/Gallery/Post",
+  component: Gallery.Post,
   tags: ["autodocs"],
   decorators: [
     (story, context) => {
