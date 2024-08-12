@@ -2,19 +2,11 @@ import classNames from "classnames/bind";
 import { useEffect, useRef } from "react";
 import Style from "./_video.module.scss";
 
-const URL = {
-  VIDEO_FALLBACK: "https://placehold.co/600x400?text=Video unavailable",
-};
-export type VideoProps = { fallback?: string } & React.ComponentProps<"video">;
+export type VideoProps = React.ComponentProps<"video">;
 
 const cx = classNames.bind(Style);
 
-const Video = ({
-  className,
-  src,
-  fallback = URL.VIDEO_FALLBACK,
-  ...props
-}: VideoProps) => {
+const Video = ({ className, src, ...props }: VideoProps) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   // 스크롤이 threshold를 벗어나면 재생하지 않도록
@@ -59,9 +51,9 @@ const Video = ({
   );
 };
 
-export type VideoSkeletonProps = {} & React.ComponentProps<"div">;
+export type SkeletonProps = React.ComponentProps<"div">;
 
-const VideoSkeleton = ({ className, ...props }: VideoSkeletonProps) => {
+const VideoSkeleton = ({ className, ...props }: SkeletonProps) => {
   return <div className={cx(className, "video", "skeleton")} {...props} />;
 };
 

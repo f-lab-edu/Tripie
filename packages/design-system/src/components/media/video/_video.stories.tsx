@@ -28,8 +28,6 @@ export const Default: Story = {
   name: "Default",
   args: {
     src: "https://media.triple.guide/triple-cms/video/upload/c_limit,h_1024,w_1024/75f93e5d-0737-4f75-83a0-942f60e6d33e.mp4",
-    fallback:
-      "https://media.triple.guide/triple-cms/video/upload/c_limit,f_auto,h_1024,w_1024/75f93e5d-0737-4f75-83a0-942f60e6d33e.jpeg",
   },
 };
 
