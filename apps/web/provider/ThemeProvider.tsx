@@ -1,18 +1,34 @@
-import dynamic from "next/dynamic";
-import { ReactNode } from "react";
+"use client";
+import classNames from "classnames";
+import { HTMLAttributes, ReactNode } from "react";
 
-/**
- * https://nextjs.org/docs/pages/building-your-application/optimizing/lazy-loading#with-no-ssr
- */
-const ThemeWrapper = dynamic(
-  () => import("@tripie/design-system/components/body/_body"),
-  { ssr: false },
-);
+export interface BodyProps extends HTMLAttributes<HTMLElement> {
+  children: ReactNode;
+}
+
+import localFont from "next/font/local";
+
+export const maruBuri = localFont({
+  src: [
+    {
+      path: "../styles/font/MaruBuri-Regular.woff2",
+      style: "normal",
+    },
+  ],
+});
 
 export default function ThemeProvider({
   children,
-}: Readonly<{
-  children: ReactNode;
-}>) {
-  return <ThemeWrapper>{children}</ThemeWrapper>;
+  className,
+  ...props
+}: BodyProps) {
+  return (
+    <section {...props}>
+      <div className={classNames("background-container")}>
+        <div className={classNames("stars")}></div>
+        <div className={classNames("twinkling")}></div>
+      </div>
+      <div className={classNames("layout-wrap")}>{children}</div>
+    </section>
+  );
 }

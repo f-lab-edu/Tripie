@@ -23,8 +23,12 @@ const config: StorybookConfig = {
     name: getAbsolutePath("@storybook/nextjs"),
     options: {},
   },
-  // 폰트 이미지 경로 "../static" // 적용 시도 중 ㅜㅜ
-  staticDirs: ["../public", "../static"],
+  staticDirs: [
+    // "../../web/styles/font/",
+    "../static",
+    // { from: "../../web/styles/font/", to: "../static" },
+  ],
+  // { from: "../../web/styles/font/", to: "./font" }],
   refs: {
     // 👇 Upper-case characters not supported in the refs key
     "chromatic-published-storybook": {

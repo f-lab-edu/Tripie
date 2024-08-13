@@ -8,7 +8,6 @@ import Style from "./_drawer.module.scss";
 export type DrawerProps = {
   children?: ReactNode;
   overlay?: boolean;
-
   withCloseButton?: boolean;
 } & Omit<React.ComponentProps<"div">, "children"> &
   Partial<useDrawerOutput>;
@@ -20,7 +19,6 @@ const Drawer = ({
   overlay = true,
   withCloseButton = true,
   isOpen,
-
   close,
 }: DrawerProps) => {
   return (

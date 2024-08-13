@@ -8,7 +8,7 @@ const meta: Meta<typeof Drawer> = {
   component: Drawer,
   tags: ["autodocs"],
   decorators: [
-    (story, context) => {
+    (Story, context) => {
       const { mode, setMode } = useAppTheme();
       const selectedTheme = context.globals.theme || mode;
 
@@ -17,11 +17,8 @@ const meta: Meta<typeof Drawer> = {
       }, [selectedTheme]);
 
       return (
-        <div
-          className={`${context.globals.theme}`}
-          style={{ height: "100vh", overflow: "hidden" }}
-        >
-          {story()}
+        <div className={`${context.globals.theme}`}>
+          <Story />
         </div>
       );
     },
@@ -35,6 +32,7 @@ export const Default: Story = {
   name: "Default",
   args: {
     children: "default Drawer",
+    isOpen: false,
   },
 };
 

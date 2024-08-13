@@ -1,0 +1,17 @@
+@use "../../../packages/design-system/src/base/" as *;
+@use "../../../packages/design-system/src/functions/" as *;
+@use "../../../packages/design-system/src/generator/" as *;
+@use "../../../packages/design-system/src/mixins/" as *;
+@use "../../../packages/design-system/src/custom/" as *;
+
+@use "sass:map";
+
+@include generate-styles;
+
+html[data-theme="dark"]:root {
+  color: color(default, 800);
+  @include night-sky;
+}
+html {
+  font-family: font-family(MaruBuri);
+}

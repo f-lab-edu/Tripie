@@ -6,17 +6,11 @@ $settings: map.deep-merge(
     // The prefix to use for all CSS variables.
     "prefix": null,
     // The paths to use for the images, icons and fonts.
-    // "paths":
-    //   (
-    //     "images": "./static/images",
-    //     "icons": "./static/icons",
-    //     "fonts": "./static/fonts",
-    //   )
     "paths":
       (
         "images": "/static/images",
         "icons": "/static/icons",
-        "fonts": "/static/fonts",
+        "fonts": "/static/font",
       )
   ),
   $settings
