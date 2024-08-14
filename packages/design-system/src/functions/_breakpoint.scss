@@ -1,0 +1,21 @@
+@use "sass:map";
+@use "sass:meta";
+@use "../base/" as *;
+
+/// config 맵으로부터 z-index 값 반환
+/// @param {string} $layer : `$z-indexes` 맵에서의 값
+/// @return {number} : z-index 값
+/// @throws {Error} : 없는 layer 옵션일 경우
+@function breakpoint($size: default) {
+  $fetched-breakpoint: map.get($config-breakpoint, $size);
+
+  @if meta.type-of($size) == number {
+    @return $size;
+  }
+
+  @if meta.type-of($fetched-breakpoint) {
+    @return $fetched-breakpoint;
+  } @else {
+    @error "Breakpoint with such  `#{$size}` not found. Available breakpoints: #{$config-breakpoint}";
+  }
+}
