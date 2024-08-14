@@ -59,16 +59,18 @@ const ProfileImage = ({
   sizes,
   src = URLS.NO_PROFILE,
   userName = "",
+  className,
   ...props
 }: ProfileProps) => (
   <Image
     {...props}
+    className={cx(className)}
     variant="profile"
     src={
       src == URLS.NO_PROFILE
         ? URLS.NO_PROFILE.replace(
             "?name=&size=250",
-            `?name=${userName}&size=250`
+            `?name=${encodeURI(userName)}&size=250`
           )
         : src
     }
