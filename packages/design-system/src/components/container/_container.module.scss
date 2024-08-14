@@ -25,7 +25,6 @@ $space-map: (
   m: space(1rem),
   sm: space(0.6rem),
   xsm: space(0.2rem),
-  none: space(0),
 );
 
 @mixin margins($direction, $size) {
