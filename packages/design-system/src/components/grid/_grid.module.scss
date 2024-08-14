@@ -8,14 +8,12 @@ $card-gallery-height: 200px;
   gap: space(lg);
   width: fit-content;
 
-  @media (max-width: #{breakpoint("sm")}) {
+  @media (min-width: #{breakpoint("sm")}) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (min-width: #{breakpoint("sm")}) {
-    grid-template-columns: repeat(1, 1fr);
-    a > div {
-      width: 100% !important;
-    }
+  grid-template-columns: repeat(1, 1fr);
+  a > div {
+    width: 100% !important;
   }
 }

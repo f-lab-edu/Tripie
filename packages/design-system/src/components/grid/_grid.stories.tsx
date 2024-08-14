@@ -31,7 +31,155 @@ export const Default: Story = {
   name: "Default Grid",
   args: {
     children: (
+      <Card.Post
+        coverImage={[
+          "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+          "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+          "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+          "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+          "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+        ]}
+        userName="하나"
+        href=""
+      >
+        <>
+          <Text dim={true}>xxx님의 일정</Text>
+          <Headings.H3>제목</Headings.H3>
+          <Text>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit
+            suscipit, tempora iure, sed assumenda consequuntur doloremque culpa
+            officia deleniti quos dolores at, ab corporis illum amet. Possimus
+            unde dolores omnis! Lorem, ipsum dolor sit amet consectetur
+            adipisicing elit. Saepe deleniti natus animi tempora ratione
+            doloremque veniam est, ducimus provident consequuntur minus at
+            reprehenderit nisi adipisci delectus minima velit maiores nemo?
+          </Text>
+        </>
+      </Card.Post>
+    ),
+  },
+};
+
+export const OddCount: Story = {
+  name: "Odd count ",
+  args: {
+    children: (
       <>
+        {" "}
+        <Card.Post
+          coverImage={[
+            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+          ]}
+          userName="하나"
+          href=""
+        >
+          <>
+            <Text dim={true}>xxx님의 일정</Text>
+            <Headings.H3>제목</Headings.H3>
+            <Text>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit
+              suscipit, tempora iure, sed assumenda consequuntur doloremque
+              culpa officia deleniti quos dolores at, ab corporis illum amet.
+              Possimus unde dolores omnis! Lorem, ipsum dolor sit amet
+              consectetur adipisicing elit. Saepe deleniti natus animi tempora
+              ratione doloremque veniam est, ducimus provident consequuntur
+              minus at reprehenderit nisi adipisci delectus minima velit maiores
+              nemo?
+            </Text>
+          </>
+        </Card.Post>{" "}
+        <Card.Post
+          coverImage={[
+            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+          ]}
+          userName="하나"
+          href=""
+        >
+          <>
+            <Text dim={true}>xxx님의 일정</Text>
+            <Headings.H3>제목</Headings.H3>
+            <Text>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit
+              suscipit, tempora iure, sed assumenda consequuntur doloremque
+              culpa officia deleniti quos dolores at, ab corporis illum amet.
+              Possimus unde dolores omnis! Lorem, ipsum dolor sit amet
+              consectetur adipisicing elit. Saepe deleniti natus animi tempora
+              ratione doloremque veniam est, ducimus provident consequuntur
+              minus at reprehenderit nisi adipisci delectus minima velit maiores
+              nemo?
+            </Text>
+          </>
+        </Card.Post>
+        <Card.Post
+          coverImage={[
+            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+          ]}
+          userName="하나"
+          href=""
+        >
+          <>
+            <Text dim={true}>xxx님의 일정</Text>
+            <Headings.H3>제목</Headings.H3>
+            <Text>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit
+              suscipit, tempora iure, sed assumenda consequuntur doloremque
+              culpa officia deleniti quos dolores at, ab corporis illum amet.
+              Possimus unde dolores omnis! Lorem, ipsum dolor sit amet
+              consectetur adipisicing elit. Saepe deleniti natus animi tempora
+              ratione doloremque veniam est, ducimus provident consequuntur
+              minus at reprehenderit nisi adipisci delectus minima velit maiores
+              nemo?
+            </Text>
+          </>
+        </Card.Post>
+      </>
+    ),
+  },
+};
+
+export const EvenCount: Story = {
+  name: "Even count ",
+  args: {
+    children: (
+      <>
+        <Card.Post
+          coverImage={[
+            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+          ]}
+          userName="하나"
+          href=""
+        >
+          <>
+            <Text dim={true}>xxx님의 일정</Text>
+            <Headings.H3>제목</Headings.H3>
+            <Text>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit
+              suscipit, tempora iure, sed assumenda consequuntur doloremque
+              culpa officia deleniti quos dolores at, ab corporis illum amet.
+              Possimus unde dolores omnis! Lorem, ipsum dolor sit amet
+              consectetur adipisicing elit. Saepe deleniti natus animi tempora
+              ratione doloremque veniam est, ducimus provident consequuntur
+              minus at reprehenderit nisi adipisci delectus minima velit maiores
+              nemo?
+            </Text>
+          </>
+        </Card.Post>
         <Card.Post
           coverImage={[
             "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
