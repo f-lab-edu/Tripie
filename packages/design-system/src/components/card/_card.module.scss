@@ -23,6 +23,7 @@ $profile-position: 225px;
   grid-column: span 1;
   grid-row: span 2;
   width: breakpoint("xs");
+  min-width: breakpoint("xs") !important;
   text-decoration: none;
   color: color(default, 800);
 
