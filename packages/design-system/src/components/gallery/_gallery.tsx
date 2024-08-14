@@ -28,6 +28,7 @@ const Gallery = ({
       className={cx(
         "gallery",
         variant,
+        className,
         `gallery-img-length-${displayedImages.length}`
       )}
       {...props}
