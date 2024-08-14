@@ -25,12 +25,11 @@ const nextConfig = {
         port: "",
         pathname: "/**",
       },
-
       {
         protocol: "https",
-        hostname: " /eu.ui-avatars.com/api",
+        hostname: "eu.ui-avatars.com",
         port: "",
-        pathname: "/**",
+        pathname: "/api/**",
       },
       {
         protocol: "https",
