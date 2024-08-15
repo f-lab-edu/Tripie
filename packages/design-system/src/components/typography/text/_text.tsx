@@ -23,10 +23,14 @@ export interface TextProps {
   className?: string;
 }
 
-function Text({ children, className, ...props }: TextProps) {
+function Text({ children, className, dim, ...props }: TextProps) {
   const splitText = `${children}`.split("\n").map((sentence, index) => {
     return (
-      <span className={style(className, "text")} key={index + sentence}>
+      <span
+        className={style(className, "text", { dim })}
+        key={index + sentence}
+        {...props}
+      >
         {sentence}
       </span>
     );
