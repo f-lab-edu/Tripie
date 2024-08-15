@@ -3,9 +3,9 @@
   "compilerOptions": {
     "rootDir": ".",
     "outDir": "./dist",
-    "emitDeclarationOnly": true,
-    "jsx": "preserve"
+    "types": ["jest", "react"],
+    "emitDeclarationOnly": true
   },
-  "include": ["**/*.ts", "**/*.tsx", "../../typings", "jest.setup.cjs"],
+  "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["dist"]
 }
