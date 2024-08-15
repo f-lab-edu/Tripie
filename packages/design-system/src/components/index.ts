@@ -1,4 +1,5 @@
 export { default as Body } from "./body";
+export { default as Button } from "./button";
 export { default as Drawer } from "./drawer";
 export { default as Gallery } from "./gallery";
 export { default as Image } from "./media/image";
