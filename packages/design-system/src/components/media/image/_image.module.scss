@@ -1,0 +1,30 @@
+@use "../../../functions/" as *;
+@use "sass:map";
+
+$size-map: (
+  l: space(60),
+  m: space(40),
+  sm: space(36),
+);
+
+@mixin size($size: "m", $value) {
+  width: $value;
+  height: $value;
+}
+
+@each $key, $value in $size-map {
+  .profile.#{$key} {
+    @include size($key, $value);
+  }
+}
+
+.image {
+  position: relative !important;
+}
+.default {
+  border-radius: shape(sm);
+}
+.profile {
+  border-radius: shape(circle);
+  object-fit: cover;
+}
