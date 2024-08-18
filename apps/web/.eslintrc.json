@@ -1,0 +1,13 @@
+{
+  "root": true,
+  "extends": ["next/core-web-vitals"],
+  "parser": "@typescript-eslint/parser",
+  "overrides": [
+    {
+      "files": ["src/components/*/__tests__/**/*"],
+      "env": {
+        "jest": true
+      }
+    }
+  ]
+}

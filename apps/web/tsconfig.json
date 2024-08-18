@@ -1,18 +1,21 @@
 {
-  "extends": "@tripie/typescript-config/nextjs.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "jsx": "preserve",
+    "lib": ["dom", "es2017", "dom.iterable", "esnext"],
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"]
+    },
+    "typeRoots": ["./node_modules/@types"],
+    "types": ["react", "node", "jest"],
     "plugins": [
       {
         "name": "next"
       }
-    ]
+    ],
+    "allowJs": true
   },
-  "include": [
-    "next-env.d.ts",
-    "next.config.mjs",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": ["node_modules"]
+  "include": ["next-env.d.ts", "typings", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules", "dist", ".next", "out", "*.mjs", "*.cjs"]
 }
