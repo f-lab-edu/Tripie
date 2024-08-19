@@ -1,0 +1,46 @@
+{
+  "name": "@tripie/firebase",
+  "description": "tripie firebase",
+  "sideEffects": false,
+  "version": "0.0.1",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": [
+      "./src/components/index.ts",
+      "./src/components/index.tsx"
+    ],
+    "./*": [
+      "./src/components/*.tsx",
+      "./src/components/*.ts",
+      "./src/components/*/index.ts"
+    ],
+    "./*/*": [
+      "./src/components/*/*.tsx",
+      "./src/components/*/*.ts"
+    ]
+  },
+  "scripts": {
+    "build:pkg": "rimraf dist && tsc && tsup",
+    "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
+    "prettier": "prettier --check '**/*.{ts,mts,cts,tsx,js,mjs,cjs,jsx,json,md}'",
+    "prettier:fix": "prettier --write '**/*.{ts,mts,cts,tsx,js,mjs,cjs,jsx,json,md}'",
+    "clean": "rm -rf ./node_modules && rm -rf ./.turbo && rm -rf ./dist"
+  },
+  "dependencies": {
+    "@firebase/firestore": "^4.7.0",
+    "firebase": "^10.13.0",
+    "usehooks-ts": "^3.1.0"
+  },
+  "devDependencies": {
+    "@types/lodash.debounce": "^4.0.9",
+    "@types/node": "^20",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18",
+    "react": "^18.2.0",
+    "tsup": "^8.1.2",
+    "typescript": "^5"
+  },
+  "peerDependencies": {
+    "react": "*"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "./dist",
+    "emitDeclarationOnly": true,
+    "jsx": "preserve"
+  },
+  "include": ["**/*.ts", "**/*.tsx", "../../typings", "jest.setup.cjs"],
+  "exclude": ["dist"]
+}
