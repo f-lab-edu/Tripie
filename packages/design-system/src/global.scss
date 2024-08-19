@@ -1,0 +1,38 @@
+@use './base/' as *;
+@use './functions/' as *;
+@use './generator/' as *;
+@use './mixins/' as *;
+@use './night-sky' as *;
+@use 'sass:map';
+
+@include generate-styles;
+
+@font-face {
+  font-family: 'MaruBuri';
+  src:
+    local('MaruBuri'),
+    url('./static/fonts/MaruBuri-Regular.woff2') format('woff2'),
+    url('./static/fonts/MaruBuri-Regular.woff') format('woff'),
+    url('./static/fonts/MaruBuri-Regular.otf') format('otf'),
+    url('./static/fonts/MaruBuri-Regular.eot') format('eot');
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'MaruBuri', sans-serif;
+}
+button,
+input {
+  font-family: inherit;
+  font-display: swap;
+}
+
+html[data-theme='dark']:root {
+  color: color(default, 800);
+  @include night-sky;
+}
