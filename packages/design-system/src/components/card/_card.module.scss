@@ -1,6 +1,6 @@
-@use "../../functions/" as *;
-@use "../../mixins/" as *;
-@use "sass:map";
+@use '../../functions/' as *;
+@use '../../mixins/' as *;
+@use 'sass:map';
 
 $card-gallery-height: 200px;
 $profile-position: 225px;
@@ -19,25 +19,25 @@ $profile-position: 225px;
 
 .card {
   display: inline-grid !important;
-  border-radius: shape("sm") !important;
+  border-radius: shape('sm') !important;
   grid-column: span 1;
   grid-row: span 2;
-  width: breakpoint("xs");
-  min-width: breakpoint("xs") !important;
+  width: breakpoint('xs');
+  min-width: breakpoint('xs') !important;
   text-decoration: none;
   color: color(default, 800);
 
-  // 호버 효과 light
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  // 호버 효과
+  box-shadow: color(shadow, 50);
   &:hover {
-    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: color(shadow, 100);
   }
 }
 
 .card-gallery {
   height: $card-gallery-height !important;
   :nth-child(1) {
-    border-top-left-radius: shape("sm") !important;
+    border-top-left-radius: shape('sm') !important;
   }
 
   img {
@@ -47,30 +47,30 @@ $profile-position: 225px;
 
 .card-5 {
   :nth-child(3) {
-    border-top-right-radius: shape("sm") !important;
+    border-top-right-radius: shape('sm') !important;
   }
 }
 .card-4,
 .card-3,
 .card-2 {
   :nth-child(2) {
-    border-top-right-radius: shape("sm") !important;
+    border-top-right-radius: shape('sm') !important;
   }
 }
 .card-1 {
   // overflow: hidden;
   :nth-child(1) {
-    border-top-right-radius: shape("sm") !important;
+    border-top-right-radius: shape('sm') !important;
   }
 }
 
 .card-profile-image {
   position: absolute;
-  z-index: z("default");
+  z-index: z('default');
   transform: translate(8px, 176px);
-  border-radius: shape("circle");
+  border-radius: shape('circle');
 
   background-color: color(default, 50);
-  padding: space("sm");
+  padding: space('sm');
   width: fit-content;
 }

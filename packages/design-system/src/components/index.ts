@@ -1,4 +1,3 @@
-export { default as Body } from './body';
 export { default as Button } from './button';
 export { default as Container } from './container';
 export { default as Drawer } from './drawer';
