@@ -15,9 +15,13 @@
     "clean": "rm -rf ./node_modules && rm -rf ./.turbo && rm -rf ./dist && rm -rf ./.next"
   },
   "dependencies": {
+    "@googlemaps/markerclusterer": "^2.5.3",
+    "@react-google-maps/api": "^2.19.3",
     "@tripie/design-system": "workspace:*",
     "@tripie/hooks": "workspace:*",
     "classnames": "^2.5.1",
+    "google": "^2.1.0",
+    "google-maps-react-markers": "^2.0.11",
     "next": "^14",
     "react": "^18.3",
     "react-dom": "^18.3"
@@ -26,13 +30,14 @@
     "@testing-library/jest-dom": "^6.4.8",
     "@testing-library/react": "^16.0.0",
     "@tripie/jest": "workspace:*",
+    "@types/google.maps": "^3.55.12",
     "@types/jest": "^29.5.12",
     "@types/node": "^20",
     "@types/react": "^18.3.3",
+    "babel-jest": "^29.7.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
     "msw": "^2.2.10",
-    "ts-jest": "^29.2.4",
-    "babel-jest": "^29.7.0",
-    "identity-obj-proxy": "^3.0.0"
+    "ts-jest": "^29.2.4"
   }
 }
