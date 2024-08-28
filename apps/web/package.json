@@ -19,6 +19,7 @@
     "@react-google-maps/api": "^2.19.3",
     "@tripie/design-system": "workspace:*",
     "@tripie/hooks": "workspace:*",
+    "@vis.gl/react-google-maps": "^1.1.0",
     "classnames": "^2.5.1",
     "google": "^2.1.0",
     "google-maps-react-markers": "^2.0.11",
