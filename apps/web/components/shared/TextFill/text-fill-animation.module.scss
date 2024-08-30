@@ -1,0 +1,10 @@
+@use '../../variables.scss' as *;
+
+.text-fill {
+  font-weight: bold;
+  background: linear-gradient(to top, $theme-600 2%, $theme-50);
+  background-clip: text;
+  color: transparent;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}

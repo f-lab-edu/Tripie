@@ -1,0 +1,22 @@
+$theme-50: var(--themes-color-50);
+$theme-100: var(--themes-color-100);
+$theme-200: var(--themes-color-200);
+$theme-300: var(--themes-color-300);
+$theme-400: var(--themes-color-400);
+$theme-500: var(--themes-color-500);
+$theme-600: var(--themes-color-600);
+$theme-700: var(--themes-color-700);
+
+$shadow-tint: rgb(8, 7, 7);
+
+$background-gradient-1: radial-gradient(
+  50% 39.900000000000006% at 50% 55.800000000000004%,
+  var(--themes-color-700) 0%,
+  var(--themes-color-500) 100%
+);
+$background-gradient-2: radial-gradient(75% 100% at 100% 0%, $theme-600 0%, $theme-500 100%);
+$background-gradient-3: radial-gradient(50% 50% at 50% 50%, $theme-700 0%, $theme-500 100%);
+$background-gradient-4: radial-gradient(75% 50% at 0% 100%, $theme-600 0%, $theme-500 100%);
+$background-gradient-5: radial-gradient(75% 50% at 0% 0%, $theme-600 0%, $theme-500 100%);
+
+$background-gradient-6: radial-gradient(50% 50% at 50% 50%, $theme-700 0%, $shadow-tint 100%);
