@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 
+import '@tripie/design-system/global';
+import { ReactNode } from 'react';
 import Provider from '../provider/layout';
 
 export const metadata: Metadata = {
@@ -10,7 +12,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html lang="en">
