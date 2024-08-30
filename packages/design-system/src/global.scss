@@ -2,7 +2,7 @@
 @use './functions/' as *;
 @use './generator/' as *;
 @use './mixins/' as *;
-@use './night-sky' as *;
+
 @use 'sass:map';
 
 @include generate-styles;
@@ -26,6 +26,7 @@ body,
   box-sizing: border-box;
   font-family: 'MaruBuri', sans-serif;
 }
+
 button,
 input {
   font-family: inherit;
@@ -34,5 +35,5 @@ input {
 
 html[data-theme='dark']:root {
   color: color(default, 800);
-  @include night-sky;
+  background-color: color(themes, 500);
 }
