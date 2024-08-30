@@ -14,7 +14,7 @@ export default function Loading() {
       transition={{ duration: 0.8, delay: 1 }}
     >
       <motion.div className={cx('title')}>
-        <TextFillAnimation>Tripie.</TextFillAnimation>
+        <TextFillAnimation.Title>Tripie.</TextFillAnimation.Title>
       </motion.div>
     </motion.section>
   );
