@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 
 import dynamic from 'next/dynamic';
+import { MapProvider } from './MapProvider';
 
 /**
  * https://nextjs.org/docs/pages/building-your-application/optimizing/lazy-loading#with-no-ssr
@@ -12,5 +13,9 @@ export default function Provider({
 }: Readonly<{
   children: ReactNode;
 }>) {
-  return <ThemeProvider>{children}</ThemeProvider>;
+  return (
+    <ThemeProvider>
+      <MapProvider>{children}</MapProvider>
+    </ThemeProvider>
+  );
 }

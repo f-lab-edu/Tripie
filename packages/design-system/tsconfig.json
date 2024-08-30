@@ -3,9 +3,8 @@
   "compilerOptions": {
     "rootDir": ".",
     "outDir": "./dist",
-    "emitDeclarationOnly": true,
     "jsx": "preserve"
   },
-  "include": ["**/*.ts", "**/*.tsx", "../../typings", "jest.setup.cjs"],
+  "include": ["**/*.ts", "**/*.tsx", "../../typings", "jest.setup.cjs", "~/*.ts", "~/*.tsx",],
   "exclude": ["dist"]
 }
