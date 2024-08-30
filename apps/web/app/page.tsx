@@ -1,6 +1,6 @@
 'use client';
 import { Button } from '@tripie/design-system';
-import ThemeButton from 'components/landing/ThemeButton';
+import ThemeButton from 'components/ThemeButton';
 import { useRouter } from 'next/navigation';
 
 export default function Home() {
