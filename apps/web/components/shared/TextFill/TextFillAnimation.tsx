@@ -1,48 +1,73 @@
 'use client';
 import classNames from 'classnames/bind';
-import { motion } from 'framer-motion';
-import { ReactNode } from 'react';
+import COLORS from 'constants/colors';
+import { MotionStyle, motion, useAnimation } from 'framer-motion';
+import { CSSProperties, ReactNode, useEffect, useRef } from 'react';
 import Style from './text-fill-animation.module.scss';
 
 const cx = classNames.bind(Style);
-const textAnimation = {
-  hidden: { opacity: 0, y: '-100%' },
-  visible: () => ({
-    opacity: 1,
-    y: 0,
-    color: '#973030f',
-    transition: {
-      // delay: i * 0.1,
-      duration: 0.5,
-      // repeat: Infinity,
-    },
-  }),
+
+type TextFillAnimationProps = {
+  text: string;
+  startColor: string;
+  endColor: string;
+  duration: number;
+  delay: number;
+  replays: boolean;
+  style: CSSProperties;
 };
 
 const TextFillAnimation = ({
-  children,
-}: Readonly<{
-  children: ReactNode;
-}>) => {
+  text,
+  startColor = COLORS[800],
+  endColor = COLORS[0],
+  duration = 1,
+  delay = 0,
+  replays = true,
+  style,
+}: Partial<TextFillAnimationProps>) => {
+  const controls = useAnimation();
+  const textRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(async ([entry]) => {
+      if (entry.isIntersecting) {
+        await new Promise(resolve => setTimeout(resolve, delay * 1000));
+        controls.start('visible');
+      } else if (!entry.isIntersecting && replays) {
+        controls.start('hidden');
+      }
+    });
+    if (textRef?.current != null) {
+      observer.observe(textRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [duration, controls, startColor, delay, replays]);
+
   return (
-    <div className={cx('text-container')}>
-      <motion.div initial={{ opacity: 0, y: '-100%' }} animate={{ opacity: 1, color: '#973030f', translateX: '10%' }}>
-        {children}
-      </motion.div>
-      {children}
-      {/* {children.split('').map((char, index) => (
+    <div className={cx('animation')} ref={textRef}>
+      <span className={cx('wrap')}>
+        {text}
         <motion.span
-          // key={index + textIndex}
-          key={index + textIndex}
           className={cx('text')}
-          custom={index}
-          variants={textAnimation}
-          initial="hidden"
-          animate="visible"
+          style={
+            {
+              color: endColor,
+              ...style,
+            } as MotionStyle
+          }
+          animate={controls}
+          initial={{ width: '0%' }}
+          variants={{
+            visible: { width: '100%' },
+            hidden: { width: '0%' },
+          }}
+          transition={{ duration: duration }}
         >
-          {char}
+          {text}
         </motion.span>
-      ))} */}
+      </span>
     </div>
   );
 };

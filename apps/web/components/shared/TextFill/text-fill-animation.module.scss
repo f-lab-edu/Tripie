@@ -1,39 +1,5 @@
 @use '../../variables.scss' as *;
 
-$base-text-color: #333333;
-
-// @mixin text-fill($variant: 'default') {
-//   font-weight: bold;
-
-//   background-clip: text;
-//   color: transparent;
-//   background-repeat: no-repeat;
-//   background-size: 100%;
-//   @if ($variant== 'title') {
-//     background: linear-gradient(to top, $theme-600 2%, $theme-50);
-//   } @else {
-//     background: linear-gradient(to top, #ffffff 2%, $theme-50);
-//   }
-// }
-
-.text-container {
-  display: inline-block;
-}
-
-.text {
-  display: inline-block;
-  font-size: 2rem;
-  font-weight: bold;
-  overflow: hidden;
-  white-space: pre;
-  color: transparent;
-  background: linear-gradient(to top, $theme-50 2%, $base-text-color);
-  // background-image: linear-gradient(90deg, #ff7a18, #af002d 70%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  transition: color 0.3s ease;
-}
-
 .title {
   font-weight: bold;
   background: linear-gradient(to top, $theme-600 2%, $theme-50);
@@ -43,15 +9,20 @@ $base-text-color: #333333;
   background-size: 100%;
 }
 
-.text-fill {
-  font-weight: bold;
-  background-color: $theme-50;
-  background: linear-gradient(to top, $theme-600 3%, $base-text-color);
-  background-clip: text;
-  color: transparent;
-  background-repeat: no-repeat;
-  background-size: 100%;
+.animation {
+  width: '100%';
+  white-space: 'nowrap';
+  color: $theme-600;
+}
+.wrap {
+  position: relative;
+  display: inline-block;
 }
 .text {
-  background-color: $base-text-color;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  width: 0%;
+  white-space: nowrap;
 }

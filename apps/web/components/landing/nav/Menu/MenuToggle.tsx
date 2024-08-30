@@ -1,11 +1,12 @@
 import classNames from 'classnames/bind';
+import COLORS from 'constants/colors';
 import { Cycle, SVGMotionProps, motion } from 'framer-motion';
 import Style from './menu-toggle.module.scss';
 
 const cx = classNames.bind(Style);
 
 const Path = (props: SVGMotionProps<SVGPathElement>) => (
-  <motion.path fill="transparent" strokeWidth="1" stroke="#d3ffca" strokeLinecap="round" {...props} />
+  <motion.path fill="transparent" strokeWidth="1" stroke={COLORS[0]} strokeLinecap="round" {...props} />
 );
 
 export const MenuToggle = ({ toggle }: { toggle: Cycle }) => (
