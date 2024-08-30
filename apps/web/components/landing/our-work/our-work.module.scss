@@ -1,0 +1,5 @@
+@use '../../mixins.scss' as *;
+
+.our-process {
+  @include background('5');
+}
