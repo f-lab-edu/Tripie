@@ -1,0 +1,6 @@
+@use '../../variables.scss' as *;
+@use '../../mixins.scss' as *;
+
+.our-process {
+  @include background('1');
+}
