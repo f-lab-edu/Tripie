@@ -7,12 +7,10 @@ const cx = classNames.bind(Style);
 
 const variants = {
   open: {
-    y: 0,
     opacity: 1,
     transition: { staggerChildren: 0.07, delayChildren: 0.2 },
   },
   closed: {
-    y: 0,
     opacity: 0,
     transition: { staggerChildren: 0.05, staggerDirection: -1 },
   },
