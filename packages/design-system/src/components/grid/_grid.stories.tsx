@@ -1,15 +1,15 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { useEffect } from "react";
-import { useAppTheme } from "../../hooks";
-import Card from "../card";
-import Headings from "../typography/headings";
-import Text from "../typography/text";
-import Grid from "./_grid";
+import type { Meta, StoryObj } from '@storybook/react';
+import { useEffect } from 'react';
+import { useAppTheme } from '../../hooks';
+import Card from '../card';
+import Headings from '../typography/headings';
+import Text from '../typography/text';
+import Grid from './_grid';
 
 const meta: Meta<typeof Grid> = {
-  title: "tripie-ui/Grid",
+  title: 'tripie-ui/Grid',
   component: Grid,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   decorators: [
     (story, context) => {
       const { mode, setMode } = useAppTheme();
@@ -28,16 +28,16 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  name: "Default Grid",
+  name: 'Default Grid',
   args: {
     children: (
       <Card.Post
         coverImage={[
-          "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
-          "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
-          "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
-          "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
-          "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+          'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
+          'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
+          'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
+          'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
+          'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
         ]}
         userName="하나"
         href=""
@@ -46,13 +46,11 @@ export const Default: Story = {
           <Text dim={true}>xxx님의 일정</Text>
           <Headings.H3>제목</Headings.H3>
           <Text>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit
-            suscipit, tempora iure, sed assumenda consequuntur doloremque culpa
-            officia deleniti quos dolores at, ab corporis illum amet. Possimus
-            unde dolores omnis! Lorem, ipsum dolor sit amet consectetur
-            adipisicing elit. Saepe deleniti natus animi tempora ratione
-            doloremque veniam est, ducimus provident consequuntur minus at
-            reprehenderit nisi adipisci delectus minima velit maiores nemo?
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit suscipit, tempora iure, sed assumenda
+            consequuntur doloremque culpa officia deleniti quos dolores at, ab corporis illum amet. Possimus unde
+            dolores omnis! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe deleniti natus animi tempora
+            ratione doloremque veniam est, ducimus provident consequuntur minus at reprehenderit nisi adipisci delectus
+            minima velit maiores nemo?
           </Text>
         </>
       </Card.Post>
@@ -61,18 +59,18 @@ export const Default: Story = {
 };
 
 export const OddCount: Story = {
-  name: "Odd count ",
+  name: 'Odd count ',
   args: {
     children: (
       <>
-        {" "}
+        {' '}
         <Card.Post
           coverImage={[
-            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
-            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
-            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
-            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
-            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+            'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
+            'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
+            'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
+            'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
+            'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
           ]}
           userName="하나"
           href=""
@@ -81,24 +79,21 @@ export const OddCount: Story = {
             <Text dim={true}>xxx님의 일정</Text>
             <Headings.H3>제목</Headings.H3>
             <Text>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit
-              suscipit, tempora iure, sed assumenda consequuntur doloremque
-              culpa officia deleniti quos dolores at, ab corporis illum amet.
-              Possimus unde dolores omnis! Lorem, ipsum dolor sit amet
-              consectetur adipisicing elit. Saepe deleniti natus animi tempora
-              ratione doloremque veniam est, ducimus provident consequuntur
-              minus at reprehenderit nisi adipisci delectus minima velit maiores
-              nemo?
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit suscipit, tempora iure, sed assumenda
+              consequuntur doloremque culpa officia deleniti quos dolores at, ab corporis illum amet. Possimus unde
+              dolores omnis! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe deleniti natus animi
+              tempora ratione doloremque veniam est, ducimus provident consequuntur minus at reprehenderit nisi adipisci
+              delectus minima velit maiores nemo?
             </Text>
           </>
-        </Card.Post>{" "}
+        </Card.Post>{' '}
         <Card.Post
           coverImage={[
-            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
-            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
-            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
-            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
-            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+            'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
+            'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
+            'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
+            'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
+            'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
           ]}
           userName="하나"
           href=""
@@ -107,24 +102,21 @@ export const OddCount: Story = {
             <Text dim={true}>xxx님의 일정</Text>
             <Headings.H3>제목</Headings.H3>
             <Text>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit
-              suscipit, tempora iure, sed assumenda consequuntur doloremque
-              culpa officia deleniti quos dolores at, ab corporis illum amet.
-              Possimus unde dolores omnis! Lorem, ipsum dolor sit amet
-              consectetur adipisicing elit. Saepe deleniti natus animi tempora
-              ratione doloremque veniam est, ducimus provident consequuntur
-              minus at reprehenderit nisi adipisci delectus minima velit maiores
-              nemo?
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit suscipit, tempora iure, sed assumenda
+              consequuntur doloremque culpa officia deleniti quos dolores at, ab corporis illum amet. Possimus unde
+              dolores omnis! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe deleniti natus animi
+              tempora ratione doloremque veniam est, ducimus provident consequuntur minus at reprehenderit nisi adipisci
+              delectus minima velit maiores nemo?
             </Text>
           </>
         </Card.Post>
         <Card.Post
           coverImage={[
-            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
-            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
-            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
-            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
-            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+            'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
+            'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
+            'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
+            'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
+            'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
           ]}
           userName="하나"
           href=""
@@ -133,14 +125,11 @@ export const OddCount: Story = {
             <Text dim={true}>xxx님의 일정</Text>
             <Headings.H3>제목</Headings.H3>
             <Text>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit
-              suscipit, tempora iure, sed assumenda consequuntur doloremque
-              culpa officia deleniti quos dolores at, ab corporis illum amet.
-              Possimus unde dolores omnis! Lorem, ipsum dolor sit amet
-              consectetur adipisicing elit. Saepe deleniti natus animi tempora
-              ratione doloremque veniam est, ducimus provident consequuntur
-              minus at reprehenderit nisi adipisci delectus minima velit maiores
-              nemo?
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit suscipit, tempora iure, sed assumenda
+              consequuntur doloremque culpa officia deleniti quos dolores at, ab corporis illum amet. Possimus unde
+              dolores omnis! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe deleniti natus animi
+              tempora ratione doloremque veniam est, ducimus provident consequuntur minus at reprehenderit nisi adipisci
+              delectus minima velit maiores nemo?
             </Text>
           </>
         </Card.Post>
@@ -150,17 +139,17 @@ export const OddCount: Story = {
 };
 
 export const EvenCount: Story = {
-  name: "Even count ",
+  name: 'Even count ',
   args: {
     children: (
       <>
         <Card.Post
           coverImage={[
-            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
-            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
-            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
-            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
-            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+            'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
+            'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
+            'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
+            'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
+            'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
           ]}
           userName="하나"
           href=""
@@ -169,24 +158,21 @@ export const EvenCount: Story = {
             <Text dim={true}>xxx님의 일정</Text>
             <Headings.H3>제목</Headings.H3>
             <Text>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit
-              suscipit, tempora iure, sed assumenda consequuntur doloremque
-              culpa officia deleniti quos dolores at, ab corporis illum amet.
-              Possimus unde dolores omnis! Lorem, ipsum dolor sit amet
-              consectetur adipisicing elit. Saepe deleniti natus animi tempora
-              ratione doloremque veniam est, ducimus provident consequuntur
-              minus at reprehenderit nisi adipisci delectus minima velit maiores
-              nemo?
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit suscipit, tempora iure, sed assumenda
+              consequuntur doloremque culpa officia deleniti quos dolores at, ab corporis illum amet. Possimus unde
+              dolores omnis! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe deleniti natus animi
+              tempora ratione doloremque veniam est, ducimus provident consequuntur minus at reprehenderit nisi adipisci
+              delectus minima velit maiores nemo?
             </Text>
           </>
         </Card.Post>
         <Card.Post
           coverImage={[
-            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
-            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
-            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
-            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
-            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+            'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
+            'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
+            'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
+            'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
+            'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
           ]}
           userName="하나"
           href=""
@@ -195,24 +181,21 @@ export const EvenCount: Story = {
             <Text dim={true}>xxx님의 일정</Text>
             <Headings.H3>제목</Headings.H3>
             <Text>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit
-              suscipit, tempora iure, sed assumenda consequuntur doloremque
-              culpa officia deleniti quos dolores at, ab corporis illum amet.
-              Possimus unde dolores omnis! Lorem, ipsum dolor sit amet
-              consectetur adipisicing elit. Saepe deleniti natus animi tempora
-              ratione doloremque veniam est, ducimus provident consequuntur
-              minus at reprehenderit nisi adipisci delectus minima velit maiores
-              nemo?
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit suscipit, tempora iure, sed assumenda
+              consequuntur doloremque culpa officia deleniti quos dolores at, ab corporis illum amet. Possimus unde
+              dolores omnis! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe deleniti natus animi
+              tempora ratione doloremque veniam est, ducimus provident consequuntur minus at reprehenderit nisi adipisci
+              delectus minima velit maiores nemo?
             </Text>
           </>
         </Card.Post>
         <Card.Post
           coverImage={[
-            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
-            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
-            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
-            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
-            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+            'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
+            'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
+            'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
+            'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
+            'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
           ]}
           userName="하나"
           href=""
@@ -221,24 +204,21 @@ export const EvenCount: Story = {
             <Text dim={true}>xxx님의 일정</Text>
             <Headings.H3>제목</Headings.H3>
             <Text>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit
-              suscipit, tempora iure, sed assumenda consequuntur doloremque
-              culpa officia deleniti quos dolores at, ab corporis illum amet.
-              Possimus unde dolores omnis! Lorem, ipsum dolor sit amet
-              consectetur adipisicing elit. Saepe deleniti natus animi tempora
-              ratione doloremque veniam est, ducimus provident consequuntur
-              minus at reprehenderit nisi adipisci delectus minima velit maiores
-              nemo?
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit suscipit, tempora iure, sed assumenda
+              consequuntur doloremque culpa officia deleniti quos dolores at, ab corporis illum amet. Possimus unde
+              dolores omnis! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe deleniti natus animi
+              tempora ratione doloremque veniam est, ducimus provident consequuntur minus at reprehenderit nisi adipisci
+              delectus minima velit maiores nemo?
             </Text>
           </>
         </Card.Post>
         <Card.Post
           coverImage={[
-            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
-            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
-            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
-            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
-            "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg",
+            'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
+            'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
+            'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
+            'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
+            'https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f4208212-7c76-4d0b-9872-9651faa1a735.jpeg',
           ]}
           userName="하나"
           href=""
@@ -247,14 +227,11 @@ export const EvenCount: Story = {
             <Text dim={true}>xxx님의 일정</Text>
             <Headings.H3>제목</Headings.H3>
             <Text>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit
-              suscipit, tempora iure, sed assumenda consequuntur doloremque
-              culpa officia deleniti quos dolores at, ab corporis illum amet.
-              Possimus unde dolores omnis! Lorem, ipsum dolor sit amet
-              consectetur adipisicing elit. Saepe deleniti natus animi tempora
-              ratione doloremque veniam est, ducimus provident consequuntur
-              minus at reprehenderit nisi adipisci delectus minima velit maiores
-              nemo?
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit suscipit, tempora iure, sed assumenda
+              consequuntur doloremque culpa officia deleniti quos dolores at, ab corporis illum amet. Possimus unde
+              dolores omnis! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe deleniti natus animi
+              tempora ratione doloremque veniam est, ducimus provident consequuntur minus at reprehenderit nisi adipisci
+              delectus minima velit maiores nemo?
             </Text>
           </>
         </Card.Post>

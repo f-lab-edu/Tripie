@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { useEffect } from "react";
-import { useAppTheme } from "../../../hooks";
-import Heading from "./_headings";
+import type { Meta, StoryObj } from '@storybook/react';
+import { useEffect } from 'react';
+import { useAppTheme } from '../../../hooks';
+import Heading from './_headings';
 
 const meta: Meta<typeof Heading> = {
-  title: "tripie-ui/Typography/Headings",
-  tags: ["autodocs"],
+  title: 'tripie-ui/Typography/Headings',
+  tags: ['autodocs'],
   component: Heading,
   decorators: [
     (story, context) => {
@@ -26,66 +26,66 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const H1: Story = {
-  name: "H1",
+  name: 'H1',
   decorators: [
-    (story) => {
+    story => {
       return story().type.H1({
-        children: "Heading 1",
+        children: 'Heading 1',
       });
     },
   ],
 };
 
 export const H2: Story = {
-  name: "H2",
+  name: 'H2',
   decorators: [
-    (story) => {
+    story => {
       return story().type.H2({
-        children: "Heading 2",
+        children: 'Heading 2',
       });
     },
   ],
 };
 
 export const H3: Story = {
-  name: "H3",
+  name: 'H3',
   decorators: [
-    (story) => {
+    story => {
       return story().type.H3({
-        children: "Heading 3",
+        children: 'Heading 3',
       });
     },
   ],
 };
 export const H4: Story = {
-  name: "H4",
+  name: 'H4',
   decorators: [
-    (story) => {
+    story => {
       return story().type.H4({
-        children: "Heading 4",
+        children: 'Heading 4',
       });
     },
   ],
 };
 
 export const Headline: Story = {
-  name: "Headline",
+  name: 'Headline',
   decorators: [
-    (story) => {
+    story => {
       return story().type.H4({
-        children: "Headline",
+        children: 'Headline',
       });
     },
   ],
 };
 
 export const HeadlineSecondary: Story = {
-  name: "Headline secondary",
+  name: 'Headline secondary',
   decorators: [
-    (story) => {
+    story => {
       return story().type.H4({
-        children: "Headline",
-        className: "secondary",
+        children: 'Headline',
+        className: 'secondary',
       });
     },
   ],

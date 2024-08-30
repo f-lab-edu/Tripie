@@ -1,30 +1,25 @@
-"use client";
+'use client';
 
-import classNames from "classnames/bind";
-import { ButtonHTMLAttributes, ReactNode } from "react";
+import classNames from 'classnames/bind';
+import { ButtonHTMLAttributes, ReactNode } from 'react';
 
-import Style from "./_button.module.scss";
+import Style from './_button.module.scss';
 
 const style = classNames.bind(Style);
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
-  size?: "xl" | "l" | "m" | "sm" | "xsm" | "icon";
+  size?: 'xl' | 'l' | 'm' | 'sm' | 'xsm' | 'icon';
 }
 
-const Button = ({
-  children,
-  className,
-  size = "m",
-  ...others
-}: ButtonProps) => {
+const Button = ({ children, className, size = 'm', ...others }: ButtonProps) => {
   return (
-    <button className={style(className, "button", size)} {...others}>
+    <button className={style(className, 'button', size)} {...others}>
       {children}
     </button>
   );
 };
 
-export interface ToolTipButton extends Omit<ButtonProps, "children"> {
+export interface ToolTipButton extends Omit<ButtonProps, 'children'> {
   icon?: string;
   tooltipContentOnHover?: ReactNode;
   tooltipContentOnClick?: ReactNode;
@@ -34,7 +29,7 @@ export interface ToolTipButton extends Omit<ButtonProps, "children"> {
 
 const ToolTip = ({
   className,
-  size = "icon",
+  size = 'icon',
   tooltipContentOnHover,
   tooltipContentOnClick,
   icon,
@@ -46,10 +41,10 @@ const ToolTip = ({
     <button
       className={style(
         className,
-        "button",
+        'button',
 
         size,
-        "tooltip-button"
+        'tooltip-button'
       )}
       {...others}
     >
@@ -57,7 +52,7 @@ const ToolTip = ({
         <span
           data-text-end={tooltipContentOnClick}
           data-text-initial={tooltipContentOnHover}
-          className={style("tooltip")}
+          className={style('tooltip')}
         />
       ) : null}
 
@@ -70,7 +65,7 @@ const ToolTip = ({
           width="20"
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"
-          className={style("icon-before")}
+          className={style('icon-before')}
         >
           <g>
             <path fill="currentColor" d={icon}></path>
@@ -84,14 +79,10 @@ const ToolTip = ({
           width="18"
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"
-          className={style("icon-after")}
+          className={style('icon-after')}
         >
           <g>
-            <path
-              data-original="#000000"
-              fill="currentColor"
-              d={iconOnHover}
-            ></path>
+            <path data-original="#000000" fill="currentColor" d={iconOnHover}></path>
           </g>
         </svg>
         <svg
@@ -102,14 +93,10 @@ const ToolTip = ({
           width="18"
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"
-          className={style("icon-after")}
+          className={style('icon-after')}
         >
           <g>
-            <path
-              data-original="#000000"
-              fill="currentColor"
-              d={iconOnClick}
-            ></path>
+            <path data-original="#000000" fill="currentColor" d={iconOnClick}></path>
           </g>
         </svg>
       </span>
