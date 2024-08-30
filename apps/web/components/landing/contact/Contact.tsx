@@ -5,5 +5,9 @@ import Style from './contact.module.scss';
 const cx = classNames.bind(Style);
 
 export default function Contact() {
-  return <section className={cx('contact', 'section')}>contact</section>;
+  return (
+    <section className={cx('contact', 'section')} id="Contact">
+      contact
+    </section>
+  );
 }

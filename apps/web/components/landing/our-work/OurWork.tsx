@@ -5,5 +5,9 @@ import Style from './our-work.module.scss';
 const cx = classNames.bind(Style);
 
 export default function OurWork() {
-  return <section className={cx('our-work')}>our work</section>;
+  return (
+    <section className={cx('our-work')} id="Work">
+      our work
+    </section>
+  );
 }

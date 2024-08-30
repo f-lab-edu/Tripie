@@ -1,5 +1,6 @@
 import classNames from 'classnames/bind';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { MenuItem } from './MenuItem';
 import Style from './navigation.module.scss';
 
@@ -18,8 +19,10 @@ const variants = {
 
 export const Navigation = () => (
   <motion.ul className={cx('navigation')} variants={variants}>
-    {itemIds.map(i => (
-      <MenuItem key={i}>{i}</MenuItem>
+    {itemIds.map(item => (
+      <MenuItem key={item}>
+        <Link href={`#${item}`}>{item}</Link>
+      </MenuItem>
     ))}
   </motion.ul>
 );
