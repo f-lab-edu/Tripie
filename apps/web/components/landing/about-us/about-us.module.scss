@@ -2,10 +2,8 @@
 @use '../../mixins.scss' as *;
 
 .about-us {
-  padding: 75px 0 50px;
-}
-.section {
   @include background('2');
-  align-content: center;
   align-items: center;
+  gap: 0.2rem;
+  font-size: 2rem;
 }
