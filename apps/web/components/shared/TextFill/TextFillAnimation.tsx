@@ -2,7 +2,7 @@
 import classNames from 'classnames/bind';
 import COLORS from 'constants/colors';
 import { MotionStyle, motion, useAnimation } from 'framer-motion';
-import { CSSProperties, ReactNode, useEffect, useRef } from 'react';
+import { ReactNode, useEffect, useRef } from 'react';
 import Style from './text-fill-animation.module.scss';
 
 const cx = classNames.bind(Style);
@@ -14,7 +14,6 @@ type TextFillAnimationProps = {
   duration: number;
   delay: number;
   replays: boolean;
-  style: CSSProperties;
 };
 
 const TextFillAnimation = ({
@@ -24,7 +23,6 @@ const TextFillAnimation = ({
   duration = 1,
   delay = 0,
   replays = true,
-  style,
 }: Partial<TextFillAnimationProps>) => {
   const controls = useAnimation();
   const textRef = useRef<HTMLDivElement | null>(null);
@@ -54,7 +52,6 @@ const TextFillAnimation = ({
           style={
             {
               color: endColor,
-              ...style,
             } as MotionStyle
           }
           animate={controls}
