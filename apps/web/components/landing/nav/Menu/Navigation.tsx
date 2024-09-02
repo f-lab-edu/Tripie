@@ -26,6 +26,11 @@ export const Navigation = () => (
         <Link href={`#${item}`}>{item}</Link>
       </MenuItem>
     ))}
+    {process.env.NODE_ENV === 'development' ? (
+      <MenuItem key={'dev'}>
+        <Link href={`/playground`}>Playground</Link>
+      </MenuItem>
+    ) : null}
   </motion.ul>
 );
 
