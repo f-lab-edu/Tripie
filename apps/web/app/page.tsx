@@ -1,4 +1,3 @@
-'use client';
 import AboutUs from 'components/landing/about-us/AboutUs';
 import Contact from 'components/landing/contact/Contact';
 import Faq from 'components/landing/faq/Faq';
