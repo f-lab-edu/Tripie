@@ -31,21 +31,17 @@ $border-accent: #d5ffcc40;
   cursor: pointer;
   background: none;
   z-index: 30;
+  border: none;
 }
-.styled {
+.with-border {
   width: 9rem !important;
   padding: 10px 25px;
   border-bottom-width: 1px;
   border-color: $border-accent !important;
-  // border-color: $theme-300!important; // light
   border-left-width: 1px;
   border-right-width: 1px;
   border-style: solid;
   border-top-width: 1px;
   opacity: 1;
   border-radius: 8px;
-}
-
-.no-style {
-  border: none;
 }

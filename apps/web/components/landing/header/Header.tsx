@@ -2,8 +2,8 @@
 import { Container } from '@tripie/design-system';
 import Heading from '@tripie/design-system/components/typography/headings/_headings';
 import classNames from 'classnames/bind';
+import AnimatedButton from 'components/shared/Button/AnimatedButton';
 import { motion } from 'framer-motion';
-import Button from '../../shared/Button/Button';
 import Nav from '../nav/Nav';
 import ParticleField from './Particle/ParticleField';
 import RotatingBlur from './RotatingBlur/RotatingBlur';
@@ -28,8 +28,8 @@ export default function Header() {
           </div>
         </motion.div>
         <div className={cx('button-wrap')}>
-          <Button>Our services</Button>
-          <Button>Get in touch</Button>
+          <AnimatedButton withBorder={true}>Our services</AnimatedButton>
+          <AnimatedButton withBorder={true}>Get in touch</AnimatedButton>
         </div>
       </div>
       <RotatingBlur />
