@@ -1,4 +1,5 @@
 import classNames from 'classnames/bind';
+import ROUTES from 'constants/routes';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { MenuItem } from './MenuItem';
@@ -21,12 +22,15 @@ const variants = {
 
 export const Navigation = () => (
   <motion.ul className={cx('navigation')} variants={variants}>
-    {itemIds.map(item => (
-      <MenuItem key={item}>
-        <Link href={`#${item}`}>{item}</Link>
+    {ROUTES.PAGE.LANDING.map(({ label, href }) => (
+      <MenuItem key={href}>
+        <Link href={href}>{label}</Link>
       </MenuItem>
     ))}
+    {process.env.NODE_ENV === 'development' ? (
+      <MenuItem key={'dev'}>
+        <Link href={ROUTES.PAGE.PLAYGROUND.href}>{ROUTES.PAGE.PLAYGROUND.label}</Link>
+      </MenuItem>
+    ) : null}
   </motion.ul>
 );
-
-const itemIds = ['Process', 'Services', 'Work', 'Plans', 'Contact'];
