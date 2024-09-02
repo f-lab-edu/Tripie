@@ -1,2 +1,2 @@
-export * from "./_gallery";
-export { default } from "./_gallery";
+export * from './_gallery';
+export { default } from './_gallery';

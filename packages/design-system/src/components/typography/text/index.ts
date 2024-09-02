@@ -1,2 +1,2 @@
-export * from "./_text";
-export { default } from "./_text";
+export * from './_text';
+export { default } from './_text';

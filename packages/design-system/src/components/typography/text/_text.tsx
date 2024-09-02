@@ -1,36 +1,23 @@
-"use client";
+'use client';
 
-import classNames from "classnames/bind";
-import Style from "./_text.module.scss";
+import classNames from 'classnames/bind';
+import Style from './_text.module.scss';
 
 const style = classNames.bind(Style);
 
 export interface TextProps {
   dim?: boolean;
-  size?:
-    | "default"
-    | "h0"
-    | "h1"
-    | "h2"
-    | "h3"
-    | "h4"
-    | "text"
-    | "small"
-    | "tiny";
-  color?: "primary" | "secondary" | "danger" | "warning" | "gray" | "emphasize";
+  size?: 'default' | 'h0' | 'h1' | 'h2' | 'h3' | 'h4' | 'text' | 'small' | 'tiny';
+  color?: 'primary' | 'secondary' | 'danger' | 'warning' | 'gray' | 'emphasize';
   bold?: boolean;
   children: string;
   className?: string;
 }
 
 function Text({ children, className, dim, ...props }: TextProps) {
-  const splitText = `${children}`.split("\n").map((sentence, index) => {
+  const splitText = `${children}`.split('\n').map((sentence, index) => {
     return (
-      <span
-        className={style(className, "text", { dim })}
-        key={index + sentence}
-        {...props}
-      >
+      <span className={style(className, 'text', { dim })} key={index + sentence} {...props}>
         {sentence}
       </span>
     );

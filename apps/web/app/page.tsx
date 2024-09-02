@@ -1,13 +1,14 @@
 'use client';
-import '@tripie/design-system/global';
-import { TestFramer } from 'components/home/TestFramer/TestFramer';
-import ThemeButton from 'components/home/ThemeButton';
+import { Button } from '@tripie/design-system';
+import ThemeButton from 'components/landing/ThemeButton';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
+  const router = useRouter();
   return (
     <>
+      <Button onClick={() => router.push('/playground/landing')}>to landing playground</Button>
       <ThemeButton.Toggle />
-      <TestFramer />
     </>
   );
 }
