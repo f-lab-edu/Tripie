@@ -1,5 +1,5 @@
-@use '../../variables.scss' as *;
-@use '../../mixins.scss' as *;
+@use '../../variables' as *;
+@use '../../mixins' as *;
 .faq {
   padding: 50px 0;
   @include background('1');
