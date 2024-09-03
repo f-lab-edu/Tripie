@@ -1,6 +1,7 @@
 'use client';
 
 import classNames from 'classnames/bind';
+import { ReactNode } from 'react';
 import Style from './_text.module.scss';
 
 const style = classNames.bind(Style);
@@ -10,7 +11,7 @@ export interface TextProps {
   size?: 'default' | 'h0' | 'h1' | 'h2' | 'h3' | 'h4' | 'text' | 'small' | 'tiny';
   color?: 'primary' | 'secondary' | 'danger' | 'warning' | 'gray' | 'emphasize';
   bold?: boolean;
-  children: string;
+  children: ReactNode;
   className?: string;
 }
 
