@@ -1,38 +1,32 @@
-@use '../../variables.scss' as *;
+@use '../../variables' as *;
+@use '../../mixins' as *;
 
-$bottom-shade: #08070700; // rgba(8, 7, 7, 0)
-$default-50: #ffffff; // rgba(8, 7, 7, 0)
+$bottom-shade: #08070700;
 
 .header {
   align-items: center;
-
   background: radial-gradient(50% 50% at 0% 0%, $theme-600 0%, $theme-500 100%); //dark
-
-  // background: radial-gradient(50% 50% at 0% 0%, $theme-50 0%, $default-50 100%);
   display: flex;
-  flex: none;
-  flex-direction: column;
+
   flex-wrap: nowrap;
   gap: 20px;
   height: 100vh;
   justify-content: center;
   overflow: hidden;
   padding: 0;
+  width: inherit;
   position: relative;
-  width: 100%;
 }
 .heading {
   display: inline-flex;
   gap: 7px;
 }
-.accented-text {
-  color: $theme-50;
+.accented {
+  @include accented;
 }
 
 .gradient-bottom {
   background: radial-gradient(75% 50% at 100% 100%, $theme-600 0%, $bottom-shade 100%); //dark
-  // background: radial-gradient(75% 50% at 100% 100%, $theme-50 0%, $default-50 100%);
-  flex: none;
   inset: 0;
   overflow: hidden;
   position: absolute;
