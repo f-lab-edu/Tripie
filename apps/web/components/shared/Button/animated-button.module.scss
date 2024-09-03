@@ -1,6 +1,5 @@
-@use '../../variables.scss' as *;
-
-$border-accent: #d5ffcc40;
+@use '../../variables' as *;
+@use '../../mixins' as *;
 
 .text {
   z-index: 30;
@@ -35,13 +34,5 @@ $border-accent: #d5ffcc40;
 }
 .with-border {
   width: 9rem !important;
-  padding: 10px 25px;
-  border-bottom-width: 1px;
-  border-color: $border-accent !important;
-  border-left-width: 1px;
-  border-right-width: 1px;
-  border-style: solid;
-  border-top-width: 1px;
-  opacity: 1;
-  border-radius: 8px;
+  @include with-border;
 }
