@@ -1,0 +1,59 @@
+@use '../../variables' as *;
+@use '../../mixins' as *;
+
+@mixin container {
+  position: absolute;
+  border-radius: inherit;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-repeat: repeat;
+  background-position: left top;
+  background-size: 128px auto;
+  background-image: url(https://framerusercontent.com/images/6mcf62RlDfRfU61Yg5vb2pefpi4.png);
+  border: 0;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.with-border {
+  @include with-border;
+}
+
+.inner-wrap {
+  @include flexbox(column);
+  opacity: 1;
+  height: min-content;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+
+  &.with-description {
+    align-items: flex-start;
+  }
+  z-index: 1;
+}
+
+.outer-wrap {
+  @include with-border;
+
+  @include flexbox(column);
+
+  border-radius: 10px;
+  padding: 20px;
+  // min-width: 476px;
+  // width: 100%;
+  height: min-content;
+  position: relative;
+  overflow: hidden;
+  min-width: 318px;
+
+  /* grid-template-columns: repeat(4, 1fr); */
+  /* grid-template-rows: repeat(2, 1fr)*/
+  // flex-basis: 318px;
+}
+
+.noise {
+  @include container;
+}
