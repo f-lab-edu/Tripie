@@ -10,25 +10,20 @@
   "scripts": {
     "build:pkg": "rimraf dist && tsc && tsup",
     "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
-    "lint:fix": "eslint '**/*.{js,jsx,ts,tsx}' --fix",
     "prettier": "prettier --check '**/*.{ts,mts,cts,tsx,js,mjs,cjs,jsx,json,md}'",
     "prettier:fix": "prettier --write '**/*.{ts,mts,cts,tsx,js,mjs,cjs,jsx,json,md}'",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf ./node_modules && rm -rf ./.turbo && rm -rf ./dist"
   },
   "dependencies": {
-    "tsup": "^8.1.2",
     "usehooks-ts": "^3.1.0"
   },
   "devDependencies": {
-    "@types/lodash.debounce": "^4.0.9",
+    "tsup": "^8.1.2",
     "react": "^18.2.0",
-    "@tripie/eslint-config": "workspace:*",
-    "@tripie/typescript-config": "workspace:*",
+    "@types/lodash.debounce": "^4.0.9",
     "@types/node": "^20",
-    "@types/react": "^18",
+    "@types/react": "^18.3.3",
     "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "15.0.0-rc.0",
     "typescript": "^5"
   },
   "peerDependencies": {

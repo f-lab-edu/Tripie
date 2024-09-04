@@ -2,30 +2,43 @@
   "name": "web",
   "version": "0.1.0",
   "private": true,
+  "description": "",
+  "main": "index.js",
   "scripts": {
     "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "clean": "rm -rf ./node_modules && rm -rf ./.turbo && rm -rf ./dist && rm -rf ./.next"
   },
   "dependencies": {
+    "@googlemaps/markerclusterer": "^2.5.3",
+    "@react-google-maps/api": "^2.19.3",
     "@tripie/design-system": "workspace:*",
     "@tripie/hooks": "workspace:*",
+    "@vis.gl/react-google-maps": "^1.1.0",
     "classnames": "^2.5.1",
-    "next": "15.0.0-rc.0",
-    "react": "19.0.0-rc-f994737d14-20240522",
-    "react-dom": "19.0.0-rc-f994737d14-20240522"
+    "google": "^2.1.0",
+    "google-maps-react-markers": "^2.0.11",
+    "next": "^14",
+    "react": "^18.3",
+    "react-dom": "^18.3"
   },
   "devDependencies": {
-    "@tripie/eslint-config": "workspace:*",
-    "@tripie/typescript-config": "workspace:*",
+    "@testing-library/jest-dom": "^6.4.8",
+    "@testing-library/react": "^16.0.0",
+    "@tripie/jest": "workspace:*",
+    "@types/google.maps": "^3.55.12",
+    "@types/jest": "^29.5.12",
     "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "15.0.0-rc.0",
-    "node-sass": "^9.0.0",
-    "sass": "^1.77.6",
-    "typescript": "^5"
+    "@types/react": "^18.3.3",
+    "babel-jest": "^29.7.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^29.7.0",
+    "msw": "^2.2.10",
+    "ts-jest": "^29.2.4"
   }
 }

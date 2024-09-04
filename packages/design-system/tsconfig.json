@@ -1,8 +1,11 @@
 {
-  "extends": "@tripie/typescript-config/react-library.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "outDir": "dist"
+    "rootDir": ".",
+    "outDir": "./dist",
+    "emitDeclarationOnly": true,
+    "jsx": "preserve"
   },
-  "include": ["typings", "src"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["**/*.ts", "**/*.tsx", "../../typings", "jest.setup.cjs"],
+  "exclude": ["dist"]
 }

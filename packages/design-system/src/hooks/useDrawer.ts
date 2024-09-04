@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 const DRAWER_MODE = {
   OPEN: true,
@@ -20,7 +20,7 @@ export const useDrawer = (): useDrawerOutput => {
   return {
     isOpen,
     toggle: () => {
-      setIsOpen((previous) => !previous);
+      setIsOpen(previous => !previous);
     },
     open: () => setIsOpen(DRAWER_MODE.OPEN),
     close: () => setIsOpen(DRAWER_MODE.CLOSE),
