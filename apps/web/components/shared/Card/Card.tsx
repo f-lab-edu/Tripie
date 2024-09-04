@@ -23,7 +23,7 @@ const Card = ({ duration, replays, delay = 0.3, children, className }: MotionSli
   );
 };
 
-const CardInnerWrap = ({
+const CardContent = ({
   children,
   className,
 }: Readonly<{
@@ -31,7 +31,7 @@ const CardInnerWrap = ({
   className?: string;
 }>) => {
   return (
-    <Container margin="none" className={cx('inner-wrap', className)}>
+    <Container margin="none" className={cx('with-border', 'inner-wrap', className)}>
       {children}
     </Container>
   );
@@ -51,7 +51,7 @@ const CardDescription = ({
   );
 };
 
-Card.Content = CardInnerWrap;
+Card.Content = CardContent;
 Card.Description = CardDescription;
 
 export default Card;
