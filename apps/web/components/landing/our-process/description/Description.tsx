@@ -7,9 +7,10 @@ const cx = classNames.bind(Style);
 
 const DescriptionTitle = (descriptionTitle: string) => {
   const [order, description_title] = descriptionTitle.split('.');
+
   return (
     <Headings.H3>
-      <span className={cx('accented')}>{order}.</span> {description_title}
+      <span className={cx('accented')}>{order.length === 1 ? '0' + order : order}.</span> {description_title}
     </Headings.H3>
   );
 };
