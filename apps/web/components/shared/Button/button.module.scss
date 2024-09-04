@@ -1,0 +1,51 @@
+@use '../../variables.scss' as *;
+
+$border-accent: #d5ffcc40;
+
+.text {
+  z-index: 30;
+  width: 9rem !important;
+  height: 3rem !important;
+}
+.hovered {
+  position: relative;
+  z-index: 30;
+  color: $theme-50;
+}
+
+.button {
+  height: 3rem;
+  overflow-y: hidden;
+  color: inherit;
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 12px;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  width: min-content;
+  cursor: pointer;
+  background: none;
+  z-index: 30;
+}
+.styled {
+  width: 9rem !important;
+  padding: 10px 25px;
+  border-bottom-width: 1px;
+  border-color: $border-accent !important;
+  // border-color: $theme-300!important; // light
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 1px;
+  opacity: 1;
+  border-radius: 8px;
+}
+
+.no-style {
+  border: none;
+}
