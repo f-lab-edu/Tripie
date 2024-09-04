@@ -1,0 +1,14 @@
+@use "../../../functions/" as *;
+@use "../../../mixins/" as *;
+@use "sass:map";
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: shape(sm);
+}
+
+.skeleton {
+  @include skeleton($lines: 1, $line-height: 1024);
+}
