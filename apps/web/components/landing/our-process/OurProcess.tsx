@@ -50,7 +50,9 @@ export default function OurProcess() {
             <Card key={label}>
               <Card.Content>{content}</Card.Content>
               <Card.Description>
-                <Description descriptionTitle={`${index + 1}. ${label}`}>{description}</Description>
+                <Description order={index + 1} descriptionTitle={label}>
+                  {description}
+                </Description>
               </Card.Description>
             </Card>
           ))}
