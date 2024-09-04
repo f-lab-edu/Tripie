@@ -21,7 +21,7 @@ const Gallery = ({ urls, className, displayLeftOverImgCount = false, variant = '
     <div className={cx('gallery', variant, className, `gallery-img-length-${displayedImages.length}`)} {...props}>
       {displayedImages.map((url, index) =>
         displayLeftOverImgCount && index === 4 ? (
-          <div className={cx('image-container', variant)}>
+          <div className={cx('image-container', variant)} key={url + index}>
             <span className={cx('display-leftover-img-count', variant)}>+{totalImgUrlCount - MAX_IMAGE_COUNT}</span>
             <Image
               src={url}

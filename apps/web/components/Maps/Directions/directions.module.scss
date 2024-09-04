@@ -1,0 +1,17 @@
+.directions {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background-color: wheat;
+  & ul {
+    margin: 0px;
+    padding: 0px;
+    margin-right: 1rem;
+  }
+  & li {
+    list-style-type: none;
+  }
+  &:not(.visible) {
+    z-index: -2;
+  }
+}
