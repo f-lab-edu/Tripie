@@ -22,26 +22,13 @@ $switch-background2: #0f0f0f;
 }
 
 .button {
-  // background-color: $theme-50;
-  // border-radius: 100%;
-  // flex: none;
-  // overflow: hidden;
-  // position: absolute;
-  // top: 7px;
-  // bottom: 7px;
-  // left: 7px;
-  // width: 26px;
-  // height: 26px;
-  // z-index: 3;
   background-color: $theme-50;
   border-radius: 100%;
   flex: none;
   overflow: hidden;
   position: absolute;
-  /* top: 7px; */
   bottom: 0.5rem;
   right: 3.2rem;
-  /* right: -2%; */
   width: 1.6rem;
   height: 1.6rem;
   z-index: 3;
