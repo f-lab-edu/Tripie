@@ -5,20 +5,25 @@ import Style from './description.module.scss';
 
 const cx = classNames.bind(Style);
 
-const DescriptionTitle = (descriptionTitle: string) => {
-  const [order, description_title] = descriptionTitle.split('.');
-
-  return (
-    <Headings.H3>
-      <span className={cx('accented')}>{order.length === 1 ? '0' + order : order}.</span> {description_title}
-    </Headings.H3>
-  );
-};
-
-const Description = ({ children, descriptionTitle }: { children: ReactNode; descriptionTitle?: string }) => {
+const Description = ({
+  children,
+  order,
+  descriptionTitle,
+}: {
+  children: ReactNode;
+  order?: number;
+  descriptionTitle?: string;
+}) => {
   return (
     <>
-      {descriptionTitle != null ? DescriptionTitle(descriptionTitle) : null}
+      {descriptionTitle != null ? (
+        <Headings.H3>
+          {order != null ? (
+            <span className={cx('accented')}>{order.toString.length === 1 ? '0' + order : order}. </span>
+          ) : null}
+          {descriptionTitle}
+        </Headings.H3>
+      ) : null}
       <Container className={cx('description')} margin="none">
         {children}
       </Container>
