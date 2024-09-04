@@ -39,7 +39,6 @@ $background-gradients: (
 
 @mixin with-border {
   padding: 10px 25px;
-
   font-size: 0.8rem;
   border-bottom-width: 1px;
   border-color: $border-accent;
@@ -73,7 +72,6 @@ $background-gradients: (
   padding: 40px;
   position: relative;
   width: 1px;
-  border-color: $theme-400;
 
   @media (max-width: 809px) {
     align-self: unset;
@@ -93,7 +91,6 @@ $background-gradients: (
   justify-content: $justify;
   gap: $gap;
   flex-wrap: nowrap;
-  flex: none;
 }
 @mixin grid($item-count: 5) {
   display: grid;
