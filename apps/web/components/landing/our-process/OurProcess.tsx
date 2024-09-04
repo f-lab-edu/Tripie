@@ -1,4 +1,8 @@
 import classNames from 'classnames/bind';
+import Card from 'components/shared/Card/Card';
+import MotionSlideUp from 'components/shared/MotionSlideUp/MotionSlideUp';
+import Description from './description/Description';
+import RotatingGlobe from './globe/RotatingGlobe';
 import Style from './our-process.module.scss';
 import Subscription from './subscription/Subscription';
 const cx = classNames.bind(Style);
@@ -30,9 +34,9 @@ const cards = [
   },
   {
     label: 'Become an industry leader',
-    content: 'content',
+    content: <RotatingGlobe />,
     description:
-      ' Continue requesting as many workflow-automations and AI-applications as you wish, and transform your organisation into a worldwide industry leader.',
+      'Continue requesting as many workflow-automations and AI-applications as you wish, and transform your organisation into a worldwide industry leader.',
   },
 ];
 
