@@ -1,56 +1,45 @@
 {
-  "name": "tripie",
+  "name": "web",
+  "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@9.0.0",
+  "description": "",
   "main": "index.js",
-  "type": "module",
-  "engines": {
-    "node": ">=20"
-  },
   "scripts": {
-    "build": "turbo build",
-    "build:storybook": "turbo run build:storybook --filter=storybook",
-    "dev": "turbo dev",
-    "lint": "turbo lint",
-    "lint:fix": "turbo lint:fix",
-    "prettier": "prettier --check '**/*.{ts,tsx,js,jsx,json}'",
-    "prettier:fix": "prettier --write '**/*.{ts,tsx,js,jsx,json}'",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "prepare": "husky",
-    "test": "turbo run test",
-    "test:watch": "turbo run test:watch",
-    "clean": "turbo run clean && rm -rf ./node_modules && pnpm i --frozen-lockfile"
+    "dev": "next dev --turbo",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "clean": "rm -rf ./node_modules && rm -rf ./.turbo && rm -rf ./dist && rm -rf ./.next"
   },
   "dependencies": {
-    "turbo": "^2.0.11"
+    "@googlemaps/markerclusterer": "^2.5.3",
+    "@react-google-maps/api": "^2.19.3",
+    "@tripie/design-system": "workspace:*",
+    "@tripie/hooks": "workspace:*",
+    "@vis.gl/react-google-maps": "^1.1.0",
+    "classnames": "^2.5.1",
+    "framer": "^2.4.1",
+    "framer-motion": "^11.3.30",
+    "google": "^2.1.0",
+    "next": "^14",
+    "react": "^18.3",
+    "react-dom": "^18.3"
   },
   "devDependencies": {
-    "@eslint/js": "^9.8.0",
-    "@next/eslint-plugin-next": "^14.2.5",
-    "@types/eslint": "^8.56.5",
-    "@types/eslint__js": "^8.42.3",
-    "@typescript-eslint/eslint-plugin": "^7.1.0",
-    "@typescript-eslint/parser": "^7.1.0",
-    "eslint": "^9.8.0",
-    "eslint-config-turbo": "^2.0.0",
-    "eslint-plugin-functional": "^6.6.3",
-    "eslint-plugin-next": "^0.0.0",
-    "eslint-plugin-react": "^7.35.0",
-    "eslint-plugin-react-hooks": "^4.6.2",
-    "globals": "^15.9.0",
-    "husky": "^9.0.11",
+    "@testing-library/jest-dom": "^6.4.8",
+    "@testing-library/react": "^16.0.0",
+    "@tripie/jest": "workspace:*",
+    "@types/google.maps": "^3.55.12",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20",
+    "@types/react": "^18.3.3",
+    "babel-jest": "^29.7.0",
     "identity-obj-proxy": "^3.0.0",
-    "prettier": "^3.3.3",
-    "rimraf": "^6.0.1",
-    "tsup": "^8.1.2",
-    "turbo": "^2.0.6",
-    "typescript": "^5.4.5",
-    "typescript-eslint": "^8.0.0"
-  },
-  "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx}": [
-      "eslint --cache --fix",
-      "prettier --cache --write"
-    ]
+    "jest": "^29.7.0",
+    "msw": "^2.2.10",
+    "ts-jest": "^29.2.4"
   }
 }
