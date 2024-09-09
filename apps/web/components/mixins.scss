@@ -1,12 +1,15 @@
 @use './variables' as *;
 
 $background-gradients: (
+  '0': $background-gradient-0,
   '1': $background-gradient-1,
   '2': $background-gradient-2,
   '3': $background-gradient-3,
   '4': $background-gradient-4,
   '5': $background-gradient-5,
   '6': $background-gradient-6,
+  '7': $background-gradient-7,
+  '8': $background-gradient-8,
 );
 
 @mixin background($variant) {
@@ -24,7 +27,6 @@ $background-gradients: (
   width: -moz-available; /* WebKit-based browsers will ignore this. */
   width: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
   padding: 100px 0 50px;
-  gap: 50px;
 
   background: map-get($background-gradients, $variant);
 
@@ -119,4 +121,33 @@ $background-gradients: (
   @media (max-width: 998px) {
     grid-auto-flow: row;
   }
+}
+
+@mixin flex {
+  display: inline-flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+@mixin list-wrap {
+  display: inline-flex;
+  gap: 1rem;
+
+  @media (min-width: 998px) {
+    flex-direction: row;
+  }
+
+  @media (max-width: 998px) {
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+}
+
+@mixin background-static {
+  background-repeat: repeat;
+  background-position: left top;
+  background-size: 128px auto;
+  background-image: url('../public/noise.png');
+  filter: brightness(30%);
 }
