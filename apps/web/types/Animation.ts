@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { DefaultProps } from './Props';
 
 export type AnimationProps = {
   duration: number;
@@ -8,4 +8,4 @@ export type AnimationProps = {
   startColor?: string;
   endColor?: string;
 };
-export type MotionSlideUpProps = Partial<AnimationProps> & Partial<{ children: ReactNode; className: string }>;
+export type MotionSlideUpProps = Partial<AnimationProps> & DefaultProps;
