@@ -8,14 +8,10 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background-repeat: repeat;
-  background-position: left top;
-  background-size: 128px auto;
-  background-image: url(https://framerusercontent.com/images/6mcf62RlDfRfU61Yg5vb2pefpi4.png);
+  @include background-static;
   border: 0;
   opacity: 0.2;
   z-index: 0;
-  filter: brightness(30%);
 }
 
 .with-border {
@@ -46,10 +42,11 @@
   @include flexbox(column);
   border-radius: 10px;
   padding: 1.2rem;
-  height: min-content;
+  // height: min-content;
   position: relative;
   overflow: hidden;
   min-width: 318px;
+  height: 100%;
 }
 
 .noise {
