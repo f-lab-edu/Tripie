@@ -41,6 +41,7 @@ const nextConfig = {
   },
   async redirects() {
     // dev 일 경우에만 playground 경로 접근
+
     if (process.env.NODE_ENV === 'production') {
       return [
         {
@@ -50,7 +51,7 @@ const nextConfig = {
         },
       ];
     }
-    return [];
+    return [{ source: '/', destination: '/home', permanent: true }];
   },
 };
 
