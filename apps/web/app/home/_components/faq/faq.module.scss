@@ -1,0 +1,21 @@
+@use 'shared/variables' as *;
+@use 'shared/mixins' as *;
+.faq {
+  @include background('1');
+  padding: 50px 0 100px;
+}
+.wrap {
+  background-color: $theme-200;
+  border-radius: 10px;
+  padding: 1rem;
+}
+.flex {
+  cursor: pointer;
+  width: 100%;
+  flex-wrap: nowrap;
+  display: inline-flex;
+  gap: 0.5rem;
+}
+.faq-icon {
+  width: 1rem;
+}
