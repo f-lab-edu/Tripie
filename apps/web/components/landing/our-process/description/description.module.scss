@@ -1,9 +1,0 @@
-@use '../../../variables' as *;
-@use '../../../mixins' as *;
-
-.accented {
-  @include accented;
-}
-.description {
-  color: $theme-40;
-}
