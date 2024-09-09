@@ -1,0 +1,25 @@
+@use 'shared/variables' as *;
+@use 'shared/mixins' as *;
+
+.background {
+  @include background('0');
+  align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  height: inherit;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0;
+  width: inherit;
+  position: relative;
+}
+
+.gradient-bottom {
+  @include background('7');
+  inset: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: 0;
+  height: inherit;
+}
