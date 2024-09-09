@@ -1,35 +1,42 @@
 import classNames from 'classnames/bind';
 
-import { Text } from '@tripie/design-system';
 import { ReactNode } from 'react';
 import Style from './chip.module.scss';
 
-import { Cycle, motion } from 'framer-motion';
-import { GLOW_VARIANT } from './variants';
+import { motion } from 'framer-motion';
+import { GLOW_VARIANT, SHINE_VARIANT } from './variants';
 
 const cx = classNames.bind(Style);
 
-type ChipProps = { children: ReactNode; className?: string; current?: string; cycle?: Cycle };
+type ChipProps = {
+  children: ReactNode;
+  className?: string;
+  current?: string;
+  cycle?: (state?: any) => void;
+  onClick?: () => void;
+};
 
-const Chip = ({ children, current, cycle, className }: Readonly<ChipProps>) => {
+const Chip = ({ children, className, onClick }: Readonly<ChipProps>) => {
   return (
-    <Text size="tiny" className={cx('chip', 'with-border', className)}>
+    <motion.button
+      whileHover={'shine'}
+      variants={SHINE_VARIANT}
+      onClick={onClick}
+      className={cx('chip', 'with-border', className)}
+    >
       {children}
-    </Text>
+    </motion.button>
   );
 };
 
-const AccentedChip = ({ children, current, className }: Readonly<ChipProps>) => {
+const AccentedChip = ({ children, current, className, onClick }: Readonly<ChipProps>) => {
   return (
-    <motion.div
+    <motion.button
       initial={'rest'}
-      transition={{
-        duration: 0.8,
-        ease: 'circInOut',
-      }}
       className={cx('wrap', 'with-border', current === 'on' ? 'selected' : 'chip', className)}
       variants={GLOW_VARIANT}
       whileHover={'glow'}
+      onClick={onClick}
     >
       <div className={cx('accented', current === 'on' ? 'selected' : 'chip')}>{children}</div>
       <motion.div
@@ -42,7 +49,7 @@ const AccentedChip = ({ children, current, className }: Readonly<ChipProps>) => 
           repeat: Infinity,
         }}
       />
-    </motion.div>
+    </motion.button>
   );
 };
 

@@ -5,10 +5,13 @@
   @include with-border;
   padding: 0.2rem 0.6rem;
   border-radius: 10px;
+  color: inherit;
 }
 .chip {
   border-color: $theme-400;
   background-color: $theme-200;
+  font-size: 0.8rem;
+  cursor: pointer;
 }
 
 .accented {
