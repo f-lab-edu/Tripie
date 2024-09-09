@@ -1,0 +1,47 @@
+@use 'shared/variables' as *;
+@use 'shared/mixins' as *;
+
+.heading {
+  display: inline-flex;
+  gap: 7px;
+}
+.accented {
+  @include accented;
+}
+
+.button-wrap {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 10px;
+  height: min-content;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  width: min-content;
+}
+
+.flex {
+  @include flex;
+}
+.center {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 25px;
+  height: min-content;
+  justify-content: center;
+  max-width: 1440px;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  z-index: 5;
+}
