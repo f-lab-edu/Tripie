@@ -1,9 +1,9 @@
 'use client';
 import { Container } from '@tripie/design-system';
-import Directions from 'components/Maps/Directions/Directions';
+import Directions from 'app/map/_components/Maps/Directions/Directions';
 
-import GoogleMap from 'components/Maps/GoogleMap';
-import Marker from 'components/Maps/Marker';
+import GoogleMap from 'app/map/_components/Maps/GoogleMap';
+import Marker from 'app/map/_components/Maps/Marker';
 import { TRAVEL_MODE } from 'constants/maps';
 
 const locations = [
