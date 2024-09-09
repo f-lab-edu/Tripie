@@ -1,0 +1,13 @@
+@use '../../mixins.scss' as *;
+@use '../../variables' as *;
+
+.wrap {
+  width: fit-content;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.divider {
+  cursor: pointer;
+  background-color: transparent;
+}
