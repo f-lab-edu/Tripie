@@ -1,4 +1,3 @@
-'use client';
 import Particle from './Particle';
 
 import classNames from 'classnames/bind';

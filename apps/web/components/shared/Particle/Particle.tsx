@@ -1,5 +1,3 @@
-'use client';
-
 import classNames from 'classnames/bind';
 import { motion } from 'framer-motion';
 
