@@ -1,0 +1,15 @@
+@use 'shared/mixins' as *;
+@use 'shared/variables' as *;
+
+.our-work {
+  @include background('5');
+  padding: 100px 0 50px;
+}
+.accented {
+  @include accented;
+}
+
+.flex {
+  display: inline-flex;
+  gap: 0.5rem;
+}
