@@ -183,7 +183,7 @@ importers:
         version: 2.1.0
       next:
         specifier: ^14
-        version: 14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)
+        version: 14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6)
       react:
         specifier: ^18.3
         version: 18.3.1
@@ -196,6 +196,9 @@ importers:
       react-intersection-observer:
         specifier: ^9.13.0
         version: 9.13.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      sass:
+        specifier: 1.77.6
+        version: 1.77.6
     devDependencies:
       '@testing-library/jest-dom':
         specifier: ^6.4.8
@@ -243,8 +246,8 @@ importers:
         specifier: ^8
         version: 8.4.39
       sass:
-        specifier: ^1.77.8
-        version: 1.77.8
+        specifier: ^1.77.6
+        version: 1.77.6
       usehooks-ts:
         specifier: ^3.1.0
         version: 3.1.0(react@18.2.0)
@@ -290,7 +293,7 @@ importers:
         version: 2.3.5(typescript@5.4.5)
       next:
         specifier: 15.0.0-rc.0
-        version: 15.0.0-rc.0(@babel/core@7.24.7)(react@18.2.0)(sass@1.77.8)
+        version: 15.0.0-rc.0(@babel/core@7.24.7)(react@18.2.0)(sass@1.77.6)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -6582,6 +6585,11 @@ packages:
         optional: true
       sass-embedded:
         optional: true
+
+  sass@1.77.6:
+    resolution: {integrity: sha512-ByXE1oLD79GVq9Ht1PeHWCPMPB8XHpBuz1r85oByKHjZY6qV6rWnQovQzXJXuQ/XyE1Oj3iPk3lo28uzaRA2/Q==}
+    engines: {node: '>=14.0.0'}
+    hasBin: true
 
   sass@1.77.8:
     resolution: {integrity: sha512-4UHg6prsrycW20fqLGPShtEvo/WyHRVRHwOP4DzkUrObWoWI05QBSfzU71TVB7PFaL104TwNaHpjlWXAZbQiNQ==}
@@ -14481,7 +14489,7 @@ snapshots:
       - '@babel/core'
       - babel-plugin-macros
 
-  next@14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8):
+  next@14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6):
     dependencies:
       '@next/env': 14.2.4
       '@swc/helpers': 0.5.5
@@ -14502,12 +14510,12 @@ snapshots:
       '@next/swc-win32-arm64-msvc': 14.2.4
       '@next/swc-win32-ia32-msvc': 14.2.4
       '@next/swc-win32-x64-msvc': 14.2.4
-      sass: 1.77.8
+      sass: 1.77.6
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
 
-  next@15.0.0-rc.0(@babel/core@7.24.7)(react@18.2.0)(sass@1.77.8):
+  next@15.0.0-rc.0(@babel/core@7.24.7)(react@18.2.0)(sass@1.77.6):
     dependencies:
       '@next/env': 15.0.0-rc.0
       '@swc/helpers': 0.5.11
@@ -14527,7 +14535,7 @@ snapshots:
       '@next/swc-win32-arm64-msvc': 15.0.0-rc.0
       '@next/swc-win32-ia32-msvc': 15.0.0-rc.0
       '@next/swc-win32-x64-msvc': 15.0.0-rc.0
-      sass: 1.77.8
+      sass: 1.77.6
       sharp: 0.33.4
     transitivePeerDependencies:
       - '@babel/core'
@@ -15531,11 +15539,18 @@ snapshots:
     optionalDependencies:
       sass: 1.77.8
 
+  sass@1.77.6:
+    dependencies:
+      chokidar: 3.6.0
+      immutable: 4.3.6
+      source-map-js: 1.2.0
+
   sass@1.77.8:
     dependencies:
       chokidar: 3.6.0
       immutable: 4.3.6
       source-map-js: 1.2.0
+    optional: true
 
   saxes@6.0.0:
     dependencies:
