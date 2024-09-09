@@ -1,0 +1,20 @@
+@use 'shared/variables' as *;
+@use 'shared/mixins' as *;
+
+.footer {
+  padding-bottom: 2rem;
+}
+
+.wrap {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.accented {
+  @include accented;
+}
+
+.list-item {
+  font-size: inherit;
+}
