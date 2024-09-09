@@ -27,9 +27,11 @@ export default function Footer() {
         </List>
         <Divider />
         <List>
-          {ROUTES.PAGE.LANDING.map(page => (
-            <li onClick={() => router.push(page.href)} key={page.label}>
-              <TextUnderLineAnimation className={cx('list-item')}>{page.label}</TextUnderLineAnimation>
+          {ROUTES.PAGE.LANDING.map(({ label, href }) => (
+            <li key={href}>
+              <button onClick={() => router.push(href)} className={cx('button')}>
+                <TextUnderLineAnimation className={cx('list-item')}>{label}</TextUnderLineAnimation>
+              </button>
             </li>
           ))}
         </List>
