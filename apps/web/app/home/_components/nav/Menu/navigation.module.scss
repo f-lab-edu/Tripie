@@ -1,0 +1,28 @@
+@use 'shared/variables' as *;
+@use 'shared/mixins' as *;
+
+.navigation {
+  border-bottom-width: 1px;
+  border-color: $theme-400;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 1px;
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  transform-origin: 50% 50% 0px;
+  will-change: auto;
+  padding: 0;
+  position: fixed;
+  top: 3px;
+  width: 12rem;
+  height: fit-content;
+  right: 5rem;
+}
+.menu-item {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  & > div {
+    width: 6.5rem;
+  }
+}
