@@ -1,12 +1,15 @@
 import { motion } from 'framer-motion';
 
 import { InView } from 'react-intersection-observer';
-import { MotionSlideUpProps } from 'types/Animation';
+import { DefaultProps } from 'types/Props';
+import { AnimationProps } from '../TextFill/TextFillAnimation';
 
 const cardMotion = {
   hidden: { opacity: 0, y: 50 },
   visible: { opacity: 1, y: 0 },
 };
+
+export type MotionSlideUpProps = Partial<AnimationProps> & DefaultProps;
 
 const MotionSlideUp = ({ duration = 1, delay = 0, replays = true, children, className }: MotionSlideUpProps) => {
   return (

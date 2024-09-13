@@ -1,10 +1,9 @@
 import classNames from 'classnames/bind';
 
-import { Container } from '@tripie/design-system';
+import { Container } from '@tripie-pyotato/design-system';
 import { ReactNode } from 'react';
-import MotionSlideUp from '../MotionSlideUp/MotionSlideUp';
+import MotionSlideUp, { MotionSlideUpProps } from '../MotionSlideUp/MotionSlideUp';
 
-import { MotionSlideUpProps } from 'types/Animation';
 import Style from './card.module.scss';
 
 const cx = classNames.bind(Style);

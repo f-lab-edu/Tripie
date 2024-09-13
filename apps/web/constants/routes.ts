@@ -1,5 +1,5 @@
 const ROUTES = {
-  API: {},
+  API: { BASE: '/api', CHATGPT: 'chat/completions', SEARCH_PLACE: 'place/textsearch/json' },
   PAGE: {
     LANDING: [
       { label: 'Process', href: '#Process' },

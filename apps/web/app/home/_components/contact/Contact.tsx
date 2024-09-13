@@ -1,6 +1,6 @@
 'use client';
 
-import { Container, Headings, Text } from '@tripie/design-system';
+import { Container, Headings, Text } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import ROUTES from 'constants/routes';
 import { useRouter } from 'next/navigation';
@@ -28,7 +28,7 @@ export default function Contact() {
               <span className={cx('small')}>Email</span>
               <TextUnderLineAnimation>
                 <div className={cx('text-wrap')}>
-                  mail@tripie.com <Icon src={ROUTES.RESOURCE.ARROW.src} className={cx('big-arrow')} />
+                  mail@tripie-pyotato.com <Icon src={ROUTES.RESOURCE.ARROW.src} className={cx('big-arrow')} />
                 </div>
               </TextUnderLineAnimation>
               <Divider />

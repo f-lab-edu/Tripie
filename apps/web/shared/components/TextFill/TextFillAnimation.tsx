@@ -5,10 +5,18 @@ import { MotionStyle, motion } from 'framer-motion';
 
 import { ReactNode } from 'react';
 import { InView } from 'react-intersection-observer';
-import { AnimationProps } from 'types/Animation';
 import Style from './text-fill-animation.module.scss';
 
 const cx = classNames.bind(Style);
+
+export type AnimationProps = {
+  duration: number;
+  delay: number;
+  replays: boolean;
+  text?: string;
+  startColor?: string;
+  endColor?: string;
+};
 
 const TextFillAnimation = ({
   text,
@@ -17,7 +25,7 @@ const TextFillAnimation = ({
   duration = 1,
   delay = 0,
   replays = true,
-}: Partial<AnimationProps>) => {
+}: AnimationProps) => {
   return (
     <InView>
       {({ inView, ref }) => (

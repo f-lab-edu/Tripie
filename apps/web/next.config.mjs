@@ -41,7 +41,6 @@ const nextConfig = {
   },
   async redirects() {
     // dev 일 경우에만 playground 경로 접근
-
     if (process.env.NODE_ENV === 'production') {
       return [
         {
@@ -52,6 +51,14 @@ const nextConfig = {
       ];
     }
     return [{ source: '/', destination: '/home', permanent: true }];
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/api/place/textsearch/json',
+        destination: 'https://maps.googleapis.com/maps/api/place/textsearch/json',
+      },
+    ];
   },
 };
 
