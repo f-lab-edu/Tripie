@@ -8,8 +8,8 @@
     "chromatic": "pnpm dlx chromatic --project-token"
   },
   "dependencies": {
-    "@tripie/design-system": "workspace:*",
-    "@tripie/hooks": "workspace:*",
+    "@tripie-pyotato/design-system": "workspace:*",
+    "@tripie-pyotato/hooks": "workspace:*",
     "next": "14.2.4",
     "react": "^18",
     "react-dom": "^18"

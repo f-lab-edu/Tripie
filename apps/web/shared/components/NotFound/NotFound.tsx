@@ -1,6 +1,6 @@
 'use client';
-import { Container } from '@tripie/design-system';
-import Heading from '@tripie/design-system/components/typography/headings/_headings';
+import { Container } from '@tripie-pyotato/design-system';
+import Heading from '@tripie-pyotato/design-system/components/typography/headings/_headings';
 import classNames from 'classnames/bind';
 
 import Chip from 'shared/components/Chip/Chip';

@@ -1,4 +1,4 @@
-require('@tripie/jest/polyfills')
-require('@tripie/jest').setup.dom()
+require('@tripie-pyotato/jest/polyfills');
+require('@tripie-pyotato/jest').setup.dom();
 
-module.exports = {}
+module.exports = {};

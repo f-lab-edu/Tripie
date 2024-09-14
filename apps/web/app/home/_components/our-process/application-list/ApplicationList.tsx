@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 
-import { Container } from '@tripie/design-system';
+import { Container } from '@tripie-pyotato/design-system';
 import Chip from 'shared/components/Chip/Chip';
 import Style from './application-list.module.scss';
 

@@ -1,4 +1,4 @@
-import { Container, Headings } from '@tripie/design-system';
+import { Container, Headings } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import { ReactNode } from 'react';
 import Style from './description.module.scss';

@@ -1,5 +1,5 @@
 'use client';
-import { Container } from '@tripie/design-system';
+import { Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import ROUTES from 'constants/routes';
 import { useRouter } from 'next/navigation';
@@ -23,7 +23,7 @@ export default function Footer() {
         </Container>
         <List>
           <li>© 2024</li>
-          <li>mail@tripie.com</li>
+          <li>mail@tripie-pyotato.com</li>
         </List>
         <Divider />
         <List>

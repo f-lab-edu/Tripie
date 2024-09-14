@@ -1,5 +1,5 @@
 'use client';
-import { Container } from '@tripie/design-system';
+import { Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import ROUTES from 'constants/routes';
 import Accordion from 'shared/components/Accordian/Accordian';

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import '@tripie/design-system/global';
+import '@tripie-pyotato/design-system/global';
 import { ReactNode } from 'react';
 import Provider from '../provider/layout';
 

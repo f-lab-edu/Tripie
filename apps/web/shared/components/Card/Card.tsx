@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 
-import { Container } from '@tripie/design-system';
+import { Container } from '@tripie-pyotato/design-system';
 import { ReactNode } from 'react';
 import MotionSlideUp from '../MotionSlideUp/MotionSlideUp';
 

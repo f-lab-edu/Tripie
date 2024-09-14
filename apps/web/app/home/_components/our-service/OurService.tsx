@@ -1,6 +1,6 @@
 'use client';
 
-import { Container, Headings } from '@tripie/design-system';
+import { Container, Headings } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import MotionSlideUp from 'shared/components/MotionSlideUp/MotionSlideUp';
 import ServiceList from './ServiceList';

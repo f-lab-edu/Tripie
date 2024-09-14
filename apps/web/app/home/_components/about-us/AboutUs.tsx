@@ -1,4 +1,4 @@
-import { Container } from '@tripie/design-system';
+import { Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import COLORS from 'constants/colors';
 import TextFillAnimation from 'shared/components/TextFill/TextFillAnimation';
