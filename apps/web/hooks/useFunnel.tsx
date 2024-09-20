@@ -47,9 +47,9 @@ function useFunnel<T>({ id, initial }: { id: string; initial: StepState<T> }) {
   const searchParams = useSearchParams();
 
   const createQueryString = useCallback(
-    (name: string, value: string) => {
+    (stepName: string, value: string) => {
       const params = new URLSearchParams(searchParams.toString());
-      params.set(name, value);
+      params.set(stepName, value);
       return params.toString();
     },
     [searchParams]
