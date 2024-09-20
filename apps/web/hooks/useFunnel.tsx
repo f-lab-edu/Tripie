@@ -81,9 +81,6 @@ function useFunnel<T>({ id, initial }: { id: string; initial: StepState<T> }) {
 
   const history = {
     push: (select: keyof T, context: Partial<T[keyof T]>) => {
-      console.log('select', select);
-      console.log('context', context);
-
       const updatedHistoryStateContext = {
         ...accumulatedHistory,
         ...context,
