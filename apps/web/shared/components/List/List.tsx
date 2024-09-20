@@ -1,5 +1,5 @@
 'use client';
-import { Container } from '@tripie/design-system';
+import { Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import { ReactNode } from 'react';
 import Style from './list.module.scss';

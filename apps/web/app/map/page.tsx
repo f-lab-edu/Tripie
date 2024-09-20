@@ -1,5 +1,5 @@
 'use client';
-import { Container } from '@tripie/design-system';
+import { Container } from '@tripie-pyotato/design-system';
 import Directions from 'app/map/_components/Maps/Directions/Directions';
 
 import GoogleMap from 'app/map/_components/Maps/GoogleMap';

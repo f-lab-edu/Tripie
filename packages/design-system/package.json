@@ -1,5 +1,5 @@
 {
-  "name": "@tripie/design-system",
+  "name": "@tripie-pyotato/design-system",
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
@@ -35,7 +35,7 @@
     "@storybook/react": "^8.2.6",
     "@testing-library/jest-dom": "^6.4.8",
     "@testing-library/react": "^16.0.0",
-    "@tripie/jest": "workspace:*",
+    "@tripie-pyotato/jest": "workspace:*",
     "@turbo/gen": "^2.0.11",
     "@types/jest": "^29.5.12",
     "@types/node": "^20.11.24",

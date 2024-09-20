@@ -1,5 +1,5 @@
 'use client';
-import { Button, Text, useAppTheme } from '@tripie/design-system';
+import { Button, Text, useAppTheme } from '@tripie-pyotato/design-system';
 
 const ThemeButton = () => {
   const { setMode } = useAppTheme();

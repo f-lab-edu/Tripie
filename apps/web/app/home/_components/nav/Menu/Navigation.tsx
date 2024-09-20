@@ -1,5 +1,5 @@
 'use client';
-// import { useAppTheme } from '@tripie/design-system';
+// import { useAppTheme } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import ROUTES from 'constants/routes';
 import { motion } from 'framer-motion';

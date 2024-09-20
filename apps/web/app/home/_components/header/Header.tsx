@@ -1,6 +1,6 @@
 'use client';
-import { Container } from '@tripie/design-system';
-import Heading from '@tripie/design-system/components/typography/headings/_headings';
+import { Container } from '@tripie-pyotato/design-system';
+import Heading from '@tripie-pyotato/design-system/components/typography/headings/_headings';
 import classNames from 'classnames/bind';
 import ROUTES from 'constants/routes';
 import AnimatedButton from 'shared/components/Button/AnimatedButton';

@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook/react';
 
-import '@tripie/design-system/global';
+import '@tripie-pyotato/design-system/global';
 import React from 'react';
 
 const preview: Preview = {
