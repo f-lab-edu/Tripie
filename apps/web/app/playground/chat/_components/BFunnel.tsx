@@ -19,7 +19,6 @@ export function BFunnel({ a, onNext }: Props) {
   });
   return (
     <>
-      {JSON.stringify(funnel.historySteps)}
       <funnel.Render
         B1={({ history }) => (
           <div>
