@@ -6,7 +6,6 @@ import listItem from 'app/api/firebase/getList';
 import Markdown from 'markdown-to-jsx';
 import { useEffect, useState } from 'react';
 import { setKey } from 'react-geocode';
-import Maps from './_components/Map';
 // import Maps from './_components/Map';
 
 type Token = {
@@ -78,7 +77,7 @@ export default function Playground() {
             example
           </button>
         </form>
-        <Maps places={places} />
+        {/* <Maps places={places} /> */}
         {/* <Maps places={places[0]} /> */}
       </div>
     </>

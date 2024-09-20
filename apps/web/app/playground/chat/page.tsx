@@ -1,51 +1,46 @@
 'use client';
 
-function Row({ isHighlighted }) {
-  return <div>{isHighlighted ? 'high-lighted' : null} step</div>;
-}
-
-const start = {
-  step: 'A',
-  context: { initial: 'hehe' },
-  history: {},
-  index: 0,
-  historySteps: [{ step: 'A', context: { initial: 'hehe' } }],
-};
-
-const next = {
-  step: 'B',
-  context: { initial: 'hehe', a: 'a' },
-  history: {},
-  index: 1,
-  historySteps: [
-    { step: 'A', context: { initial: 'hehe' } },
-    { step: 'B', context: { initial: 'hehe', a: 'a' } },
-  ],
-};
-
-const res = {
-  step: 'C',
-  context: { initial: 'hehe', a: 'a', b: 'Hello World from BFunnel' },
-  history: {},
-  index: 2,
-  historySteps: [
-    { step: 'A', context: { initial: 'hehe' } },
-    { step: 'B', context: { initial: 'hehe', a: 'a' } },
-    { step: 'C', context: { initial: 'hehe', a: 'a', b: 'Hello World from BFunnel' } },
-  ],
-};
+import useFunnel from 'hooks/useFunnel';
+import { BFunnel } from './_components/BFunnel';
 
 const Chat = () => {
-  // {"step":"A","context":{},"history":{},"index":0,"historySteps":[{"step":"A","context":{}}]}
-
+  const funnel = useFunnel<{
+    A: { a?: string; b?: string };
+    B: { a: string; b?: string };
+    C: { a: string; b: string };
+  }>({
+    id: 'main-funnel',
+    initial: {
+      step: 'A',
+      context: {},
+    },
+  });
   return (
     <>
-      {/* <List
-        items={steps}
-        renderItem={(product, isHighlighted) => (
-          <Row key={product.id} title={product?.step} isHighlighted={isHighlighted} />
+      {JSON.stringify(funnel.historySteps)}
+      <funnel.Render
+        A={({ context, history }) => (
+          <div>
+            <h1>A Step</h1>
+            <h3>{JSON.stringify(context)}</h3>
+            <button onClick={() => history.push('B', { a: 'a' })}>Next</button>
+          </div>
         )}
-      /> */}
+        B={({ context, history }) => (
+          <div>
+            <h1>B Step</h1>
+            <p>a: {context.a}</p>
+            <BFunnel a={context.a} onNext={b => history.push('C', { b })} />
+          </div>
+        )}
+        C={({ context }) => (
+          <div>
+            <h1>C Step</h1>
+            <p>a: {context.a}</p>
+            <p>b: {context.b}</p>
+          </div>
+        )}
+      />
     </>
   );
 };
