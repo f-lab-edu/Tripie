@@ -151,3 +151,29 @@ $background-gradients: (
   background-image: url('../public/noise.png');
   filter: brightness(30%);
 }
+
+@mixin chip {
+  min-width: fit-content;
+  padding: 1rem;
+}
+
+@mixin grid-wrap {
+  display: grid;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  list-style: none;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 0;
+  margin: 0;
+
+  @media (max-width: 880px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 730px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
