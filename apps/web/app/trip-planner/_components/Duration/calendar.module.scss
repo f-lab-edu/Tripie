@@ -1,0 +1,7 @@
+@use 'shared/variables' as *;
+@use 'shared/mixins' as *;
+.calendar-body {
+  & > :first-child {
+    background-color: $theme-800;
+  }
+}
