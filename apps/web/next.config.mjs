@@ -51,7 +51,14 @@ const nextConfig = {
         },
       ];
     }
-    return [{ source: '/', destination: '/home', permanent: true }];
+    return [
+      { source: '/', destination: '/home', permanent: true },
+      {
+        source: '/api/continentl/country-list',
+        destination: 'https://continentl.com/api/country-list',
+        permanent: true,
+      },
+    ];
   },
 };
 
