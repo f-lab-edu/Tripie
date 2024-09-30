@@ -9,6 +9,7 @@ import { GLOW_VARIANT, SHINE_VARIANT } from './variants';
 const cx = classNames.bind(Style);
 
 type ChipProps = {
+  selected?: boolean;
   children: ReactNode;
   className?: string;
   current?: string;
@@ -16,10 +17,12 @@ type ChipProps = {
   onClick?: () => void;
 };
 
-const Chip = ({ children, className, onClick }: Readonly<ChipProps>) => {
+const Chip = ({ children, className, onClick, selected }: Readonly<ChipProps>) => {
   return (
     <motion.button
       whileHover={'shine'}
+      whileTap={'shine'}
+      animate={selected ? 'selected' : 'rest'}
       variants={SHINE_VARIANT}
       onClick={onClick}
       className={cx('chip', 'with-border', className)}
