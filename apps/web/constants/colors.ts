@@ -11,6 +11,7 @@ const COLORS = {
   600: '#22261e',
   700: '#141712',
   800: '#333333',
+  TRANSPARENT: '#08080700',
 };
 
 export default COLORS;
