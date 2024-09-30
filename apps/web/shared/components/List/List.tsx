@@ -14,4 +14,14 @@ const List = ({ children, className }: { children: ReactNode; className?: string
   );
 };
 
+const GridList = ({ children, className }: { children: ReactNode; className?: string }) => {
+  return (
+    <Container margin="m" className={cx(className)} applyMargin="top-bottom">
+      <ul className={cx('list', 'wrap')}>{children}</ul>
+    </Container>
+  );
+};
+
+List.Grid = GridList;
+
 export default List;
