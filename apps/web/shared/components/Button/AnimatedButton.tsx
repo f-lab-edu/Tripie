@@ -21,13 +21,15 @@ const Text = ({
   );
 };
 
-const Button = ({
+const AnimatedButton = ({
   children,
   className,
+  otherChild = children,
   withBorder = false,
   onClick,
 }: Readonly<{
   children: ReactNode;
+  otherChild?: ReactNode;
   className?: string;
   withBorder?: boolean;
   onClick?: () => void;
@@ -38,14 +40,13 @@ const Button = ({
       className={cx('button', withBorder && 'with-border', className)}
       initial="rest"
       whileHover="hover"
+      whileTap="hover"
       animate="rest"
     >
       <Text>{children}</Text>
-      <Text className={cx('hovered')}>{children}</Text>
+      <Text className={cx('hovered')}>{otherChild}</Text>
     </motion.button>
   );
 };
-
-const AnimatedButton = motion(Button);
 
 export default AnimatedButton;

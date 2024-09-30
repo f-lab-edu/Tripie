@@ -13,6 +13,11 @@ const GLOW_VARIANT = {
 };
 
 const SHINE_VARIANT = {
+  rest: { boxShadow: 'none' } as Variant,
+  selected: {
+    backgroundColor: COLORS[100],
+    borderColor: COLORS[300],
+  } as Variant,
   shine: { backgroundColor: COLORS[100], borderColor: COLORS[300] } as Variant,
 };
 export { GLOW_VARIANT, SHINE_VARIANT };

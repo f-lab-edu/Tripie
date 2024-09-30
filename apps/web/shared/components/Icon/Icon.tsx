@@ -13,6 +13,7 @@ export type IconProps = {
   variants?: Variants;
   src: string;
   transition?: AnimationProps['transition'];
+  onTap?: () => void;
 };
 
 const Icon = ({
@@ -35,5 +36,33 @@ const Icon = ({
     </motion.div>
   );
 };
+
+export type NavigationIconProps = IconProps & { direction?: 'back' | 'front' };
+
+const NavigateIcon = ({
+  className,
+  onTapStart,
+  direction = 'back',
+  src,
+  animate,
+  variants = ICON_VARIANTS.NAVIGATE(direction),
+  transition,
+}: Readonly<NavigationIconProps>) => {
+  return (
+    <motion.div
+      onTapStart={onTapStart}
+      whileTap={'hover'}
+      className={cx('icon', className)}
+      variants={variants}
+      transition={transition}
+      initial={'closed'}
+      animate={animate}
+    >
+      <img src={src} />
+    </motion.div>
+  );
+};
+
+Icon.Navigate = NavigateIcon;
 
 export default Icon;
