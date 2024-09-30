@@ -57,7 +57,7 @@ function useFunnel<T>({ id, initial }: { id: string; initial: StepState<T> }) {
 
   // 새로 고침 시에도 현재 파람 정보를 로컬 스토리지에서 찾고, 현재 파람의 컴포넌트 랜더하기
   useEffect(() => {
-    const currentState = searchParams.get(`${state.id}.state`);
+    const currentState = searchParams.get(`${state.id}.step`);
 
     if (currentState != null) {
       setCurrentStep({
@@ -101,7 +101,7 @@ function useFunnel<T>({ id, initial }: { id: string; initial: StepState<T> }) {
       });
 
       // searchParam에 새로운 step 추가해주기
-      router.push(pathname + '?' + createQueryString(`${state.id}.state`, select as string));
+      router.push(pathname + '?' + createQueryString(`${state.id}.step`, select as string));
 
       // 로컬 스토리지에 step 정보 저장하기
       setFunnelStorage([
@@ -120,7 +120,6 @@ function useFunnel<T>({ id, initial }: { id: string; initial: StepState<T> }) {
     historySteps: state.historyState,
     Render: (key: FunnelRenderProps<T>) => {
       const StepComponent = key[currentStep.step];
-
       /**
        * <StepComponent context={currentStep.context} history={history}/> 로 바로 쓰일 경우 다음과 같은 에러 발생
        * Type '{ context: Partial<T[keyof T]>; history: { push: (select: keyof T, context: Partial<T[keyof T]>) => void; }; }'
