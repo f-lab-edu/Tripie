@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 
 import dynamic from 'next/dynamic';
 import { MapProvider } from './MapProvider';
+import TanstackQuery from './TanstackQueryProvider';
 
 /**
  * https://nextjs.org/docs/pages/building-your-application/optimizing/lazy-loading#with-no-ssr
@@ -15,7 +16,9 @@ export default function Provider({
 }>) {
   return (
     <ThemeProvider>
-      <MapProvider>{children}</MapProvider>
+      <TanstackQuery>
+        <MapProvider>{children}</MapProvider>
+      </TanstackQuery>
     </ThemeProvider>
   );
 }
