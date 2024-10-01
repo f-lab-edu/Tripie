@@ -52,6 +52,7 @@ const NavigateIcon = ({
     <motion.div
       onTapStart={onTapStart}
       whileTap={'hover'}
+      whileHover={'hover'}
       className={cx('icon', className)}
       variants={variants}
       transition={transition}
