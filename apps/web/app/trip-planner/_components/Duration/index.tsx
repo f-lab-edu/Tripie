@@ -2,7 +2,6 @@ import { Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import ROUTES from 'constants/routes';
 import { ContinentKeys } from 'hooks/useCountries';
-import { useRouter } from 'next/navigation';
 import Icon from 'shared/components/Icon/Icon';
 import Calendar from './Calendar';
 
@@ -16,16 +15,11 @@ interface Props {
 }
 
 const DurationFunnel = ({ context, onNext }: Props) => {
-  const navigate = useRouter();
-
-  const onNavigateBack = () => {
-    navigate.back();
-  };
   return (
     <>
       <Container margin="none">
         <Container margin="none">
-          <Icon.Navigate src={ROUTES.RESOURCE.ARROW['src']} onTapStart={onNavigateBack} />
+          <Icon.Navigate src={ROUTES.RESOURCE.ARROW['src']} />
         </Container>
         <h2>
           여행 <span className={cx('accented')}>기간</span>은?
