@@ -24,11 +24,13 @@ const Text = ({
 const AnimatedButton = ({
   children,
   className,
+  disabled = false,
   otherChild = children,
   withBorder = false,
   onClick,
 }: Readonly<{
   children: ReactNode;
+  disabled?: boolean;
   otherChild?: ReactNode;
   className?: string;
   withBorder?: boolean;
@@ -36,11 +38,12 @@ const AnimatedButton = ({
 }>) => {
   return (
     <motion.button
+      disabled={disabled}
       onClick={onClick}
       className={cx('button', withBorder && 'with-border', className)}
       initial="rest"
-      whileHover="hover"
-      whileTap="hover"
+      whileHover={disabled ? 'rest' : 'hover'}
+      whileTap={disabled ? 'rest' : 'hover'}
       animate="rest"
     >
       <Text>{children}</Text>
