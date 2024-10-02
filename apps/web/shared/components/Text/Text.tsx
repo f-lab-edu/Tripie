@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 import { motion } from 'framer-motion';
 import { ReactNode } from 'react';
 import Style from './animated-button.module.scss';
-import { BUTTON_VARIANTS } from './variants';
+import { VARIANTS } from './variants';
 
 const cx = classNames.bind(Style);
 
@@ -16,7 +16,7 @@ export const Text = ({
   className?: string;
 }>) => {
   return (
-    <motion.span className={cx('text', className)} variants={BUTTON_VARIANTS['TEXT']}>
+    <motion.span className={cx('text', className)} variants={VARIANTS['TEXT']}>
       {children}
     </motion.span>
   );
