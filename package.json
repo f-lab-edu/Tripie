@@ -22,7 +22,9 @@
     "clean": "turbo run clean && rm -rf ./node_modules && pnpm i --frozen-lockfile"
   },
   "dependencies": {
-    "turbo": "^2.0.11"
+    "prisma": "5.20.0",
+    "turbo": "^2.0.11",
+    "@prisma/client": "^5.20.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.8.0",
