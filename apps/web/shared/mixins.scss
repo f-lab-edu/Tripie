@@ -177,3 +177,19 @@ $background-gradients: (
     grid-template-columns: repeat(1, 1fr);
   }
 }
+
+@mixin submit-button {
+  width: 100%;
+}
+
+@mixin submit-button-long-text {
+  @media (max-width: 400) {
+    & > span {
+      transform: translateY(1.5rem) !important;
+    }
+  }
+}
+
+.flex {
+  @include flex;
+}

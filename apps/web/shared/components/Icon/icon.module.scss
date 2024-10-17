@@ -8,3 +8,14 @@
   align-items: center;
   cursor: pointer;
 }
+.plane {
+  width: 1rem;
+  position: absolute;
+  top: 50%;
+  z-index: 600;
+  height: 1rem;
+}
+.cloud {
+  width: 1rem;
+  height: 1rem;
+}

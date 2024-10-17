@@ -15,14 +15,14 @@ export default function Error() {
       <Container className={cx('center')} margin="none">
         <div>
           <Container className={cx('heading')} margin="none">
-            <Heading.H1 className={cx('accented')}>4</Heading.H1>
+            <Heading.H1 className={cx('accented')}>5</Heading.H1>
             <Heading.H1>0</Heading.H1>
-            <Heading.H1 className={cx('accented')}>4</Heading.H1>
+            <Heading.H1 className={cx('accented')}>0</Heading.H1>
           </Container>
         </div>
 
         <Container className={cx('button-wrap')} margin="none">
-          Oops, the page you're looking for doesn't exist.
+          Oops, something went wrong.
           <Chip.Accented>bring me back home</Chip.Accented>
         </Container>
       </Container>
