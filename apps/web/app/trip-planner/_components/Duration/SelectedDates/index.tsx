@@ -1,3 +1,4 @@
+'use client';
 import { Container, Headings } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import Card from 'shared/components/Card/Card';
