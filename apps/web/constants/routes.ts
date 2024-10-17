@@ -1,3 +1,4 @@
+// !!  api와 page 분리 필요
 const ROUTES = {
   API: {
     BASE: '/api',
@@ -28,6 +29,7 @@ const ROUTES = {
     CONTACT: { label: 'Contact', href: '/#Contact' },
     TRIP_PLANNER: { label: 'Trip Planner', href: '/trip-planner' },
   },
+  // 이미지 리소스 경로
   RESOURCE: {
     ARROW: { label: 'icon', src: '/arrow.png' },
     CHECK: { label: 'icon', src: '/check.png' },

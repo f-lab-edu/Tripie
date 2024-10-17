@@ -1,3 +1,7 @@
+/**
+ * 여행 일정 취향
+ * id는 트리플에서 데이터 가져오기 위해 트리플에서 부여된 id
+ */
 const PREFERENCE_LIST = {
   EXPERIENCE_ACTIVITY: { tag: '체험·액티비티', id: 'a97085c5-b3bd-4d64-bba7-83c9eade93a3' },
   SNS_HOT: { tag: 'SNS 핫플레이스', id: 'ed540421-1d9e-4e23-a513-5fa22dd77b74' },
