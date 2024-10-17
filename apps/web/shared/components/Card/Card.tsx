@@ -1,15 +1,27 @@
 import classNames from 'classnames/bind';
 
 import { Container } from '@tripie-pyotato/design-system';
+import { motion } from 'framer-motion';
 import { ReactNode } from 'react';
-import MotionSlideUp from '../MotionSlideUp/MotionSlideUp';
 
-import { MotionSlideUpProps } from 'types/Animation';
+import { SHINE_VARIANT } from '../Chip/variants';
+import MotionSlideUp from '../MotionSlideUp/MotionSlideUp';
 import Style from './card.module.scss';
 
 const cx = classNames.bind(Style);
 
-const Card = ({ duration, replays, delay = 0.3, children, className }: MotionSlideUpProps) => {
+export type CustomAnimationProps = {
+  duration: number;
+  delay: number;
+  replays: boolean;
+  text?: string;
+  startColor?: string;
+  endColor?: string;
+  children?: ReactNode;
+  className?: string;
+};
+
+const Card = ({ duration, replays, delay = 0.3, children, className }: Partial<CustomAnimationProps>) => {
   return (
     <MotionSlideUp
       delay={delay}
@@ -37,6 +49,31 @@ const CardContent = ({
   );
 };
 
+const ClickableCardContent = ({
+  children,
+  className,
+  onClick,
+  selected,
+}: Readonly<{
+  children: ReactNode;
+  className?: string;
+  onClick?: () => void;
+  selected?: boolean;
+}>) => {
+  return (
+    <motion.div
+      whileHover={'shine'}
+      whileTap={'shine'}
+      animate={selected ? 'selected' : 'rest'}
+      variants={SHINE_VARIANT}
+      onClick={onClick}
+      className={cx('chip', 'with-border', 'inner-wrap', className)}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
 const CardDescription = ({
   children,
   className,
@@ -52,6 +89,7 @@ const CardDescription = ({
 };
 
 Card.Content = CardContent;
+Card.ClickableContent = ClickableCardContent;
 Card.Description = CardDescription;
 
 export default Card;

@@ -5,7 +5,7 @@ import { MotionStyle, motion } from 'framer-motion';
 
 import { ReactNode } from 'react';
 import { InView } from 'react-intersection-observer';
-import { AnimationProps } from 'types/Animation';
+import { CustomAnimationProps } from '../Card/Card';
 import Style from './text-fill-animation.module.scss';
 
 const cx = classNames.bind(Style);
@@ -17,7 +17,7 @@ const TextFillAnimation = ({
   duration = 1,
   delay = 0,
   replays = true,
-}: Partial<AnimationProps>) => {
+}: Partial<CustomAnimationProps>) => {
   return (
     <InView>
       {({ inView, ref }) => (
