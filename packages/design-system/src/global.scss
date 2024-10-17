@@ -15,7 +15,7 @@
     url('./static/fonts/MaruBuri-Regular.woff') format('woff'),
     url('./static/fonts/MaruBuri-Regular.otf') format('otf'),
     url('./static/fonts/MaruBuri-Regular.eot') format('eot');
-  font-display: swap;
+  // font-display: swap;
 }
 
 html,
@@ -25,13 +25,13 @@ body,
   width: 100%;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'MaruBuri', sans-serif;
+  font-family: 'MaruBuri', sans-serif !important;
   scroll-behavior: smooth !important;
 }
 
 button,
 input {
-  font-family: inherit;
+  font-family: inherit !important;
   font-display: swap;
 }
 
