@@ -1,12 +1,17 @@
+'use client';
 import { Container } from '@tripie-pyotato/design-system';
+
 import classNames from 'classnames/bind';
-import { LOCAL } from 'constants/local';
 import ROUTES from 'constants/routes';
+
+import { ContinentKeys } from 'models/Continent';
 import { useCallback, useMemo, useState } from 'react';
+import { LooseValue } from 'react-calendar/dist/cjs/shared/types';
 import AnimatedButton from 'shared/components/Button/AnimatedButton';
 import Calendar from 'shared/components/Calendar';
 import CalendarHeader from 'shared/components/Calendar/CalendarHeader';
 import Icon from 'shared/components/Icon/Icon';
+import { localeString2Date } from 'utils/date';
 import SelectedDates from '../SelectedDates';
 import Style from './calendar.module.scss';
 
@@ -30,26 +35,46 @@ const yearlyCalendar = () => {
   });
 };
 
-const Calendars = ({ onNext }: { onNext: (duration: string) => void }) => {
+const Calendars = ({
+  onNext,
+  context,
+}: {
+  onNext: (duration: string) => void;
+  context?: {
+    continent: ContinentKeys;
+    country: string;
+    city: { all: string[]; selected: string[] };
+    duration?: string;
+    companion?: string;
+  };
+}) => {
   const [calendar, _] = useState(() => yearlyCalendar());
-  const [selected, setSelected] = useState<Value>(() => new Date());
+  const [selected, setSelected] = useState<Date[] | Date>(() =>
+    context?.duration != null ? localeString2Date(context.duration.split(' ~ ')) : new Date()
+  );
+
+  console.log(context, selected);
 
   /**
    *  여행 시작과 끝 날짜를 memoize한 값
    *  */
   const duration = useMemo(() => {
-    const dates = selected?.toLocaleString(LOCAL.KR).split(',');
+    const dates = selected?.toLocaleString().split(',');
     // 시작과 끝 날짜를 정한 경우
-    if (dates.length === 2) {
-      const [start, end] = dates;
-      return { start, end };
+    if (dates.length === 4) {
+      const [startDate, startTime, endDate, endTime] = dates;
+
+      return { start: startDate + startTime, end: endDate + endTime };
+    } else if (dates.length === 2) {
+      const [startDate, startTime] = dates;
+      return { start: startDate + startTime, end: '' };
     } else {
-      return { start: dates[0], end: '' };
+      return { start: '', end: '' };
     }
-  }, [selected]);
+  }, [selected, context]);
 
   const handleSubmit = useCallback(() => {
-    if (duration.end === '') {
+    if (duration.end === '' || duration.start === '') {
       return;
     } else {
       onNext(`${duration.start} ~ ${duration.end}`);
@@ -66,8 +91,10 @@ const Calendars = ({ onNext }: { onNext: (duration: string) => void }) => {
             <Calendar
               minDate={min}
               maxDate={max}
-              value={selected}
-              onChange={value => setSelected((Array.isArray(value) ? value : [value]) as Value)}
+              value={selected as LooseValue}
+              onChange={value => {
+                setSelected((Array.isArray(value) ? value : [value]) as Date[]);
+              }}
               onClickDay={setSelected}
               selectRange={true}
               key={days.toDateString()}
