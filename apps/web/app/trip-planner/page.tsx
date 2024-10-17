@@ -2,24 +2,61 @@
 
 import { Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
-
-import { ContinentKeys } from 'hooks/useCountries';
 import useFunnel from 'hooks/useFunnel';
-import DurationFunnel from './_components/Duration/Duration';
+import { ContinentKeys } from 'models/Continent';
+import ChatFunnel from './_components/Chat';
+import CompanionFunnel from './_components/Companion';
+import DurationFunnel from './_components/Duration';
 import { LocationFunnel } from './_components/Location/LocationFunnel';
+import PreferenceFunnel from './_components/Preference';
 import Style from './trip-planner.module.scss';
 
 const cx = classNames.bind(Style);
 
 const TripPlanner = () => {
   const funnel = useFunnel<{
-    LOCATION: { continent?: ContinentKeys; country?: string; city?: string; duration?: string };
-    DURATION: { continent: ContinentKeys; country: string; city: string; duration: string };
+    LOCATION: {
+      continent?: ContinentKeys;
+      country?: string;
+      city?: { all: string[]; selected: string[] };
+    };
+    DURATION: {
+      continent: ContinentKeys;
+      country: string;
+      city: { all: string[]; selected: string[] };
+      duration?: string;
+      companion?: string;
+      preference?: string;
+    };
+    COMPANION: {
+      continent: ContinentKeys;
+      country: string;
+      city: { all: string[]; selected: string[] };
+      duration: string;
+      companion: string;
+      preference?: string;
+    };
+    PREFERENCE: {
+      continent: ContinentKeys;
+      country: string;
+      city: { all: string[]; selected: string[] };
+      duration: string;
+      companion: string;
+      preference?: string;
+    };
+    CHAT: {
+      continent: ContinentKeys;
+      country: string;
+      city: { all: string[]; selected: string[] };
+      duration: string;
+      companion: string;
+      preference: string;
+    };
   }>({
     id: 'trip-plan',
     initial: {
       step: 'LOCATION',
-      context: {},
+      context: { continent: 'ALL' },
     },
   });
 
@@ -28,20 +65,22 @@ const TripPlanner = () => {
       <funnel.Render
         LOCATION={({ context, history }) => (
           <LocationFunnel
-            country={context.country}
-            onNext={location => history.push('DURATION', { country: location })}
+            mainContext={context}
+            onNext={location => {
+              history.push('DURATION', JSON.parse(location));
+            }}
           />
         )}
-        DURATION={({ context }) => (
-          <div>
-            <h1>Result</h1>
-            <p> {context.continent}</p>
-            <p> {context.country}</p>
-            <p> {context.city}</p>
-
-            <DurationFunnel />
-          </div>
+        DURATION={({ context, history }) => (
+          <DurationFunnel context={context} onNext={duration => history.push('COMPANION', { duration })} />
         )}
+        COMPANION={({ context, history }) => (
+          <CompanionFunnel context={context} onNext={companion => history.push('PREFERENCE', { companion })} />
+        )}
+        PREFERENCE={({ context, history }) => (
+          <PreferenceFunnel context={context} onNext={preference => history.push('CHAT', { preference })} />
+        )}
+        CHAT={({ context }) => <ChatFunnel context={context} />}
       />
     </Container>
   );
