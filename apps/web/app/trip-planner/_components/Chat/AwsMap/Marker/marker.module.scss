@@ -1,0 +1,22 @@
+@use 'shared/variables' as *;
+@use 'shared/mixins' as *;
+
+.restaurant {
+  background-color: red;
+}
+
+.hotel {
+  background-color: pink;
+}
+
+.attraction {
+  background-color: orange;
+}
+.marker {
+  display: inline-flex;
+  border-radius: 100%;
+
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
