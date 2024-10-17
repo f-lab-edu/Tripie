@@ -1,0 +1,49 @@
+@use 'shared/variables' as *;
+@use 'shared/mixins' as *;
+
+.text-left {
+  align-items: flex-start !important;
+}
+
+.card-wrap {
+  width: 100%;
+  @media (min-width: 501px) {
+    width: 40vw !important;
+  }
+  display: inline-block;
+  padding-right: 1rem;
+  background-color: inherit !important;
+}
+
+.trip-list-wrap {
+  @media (max-width: 500px) {
+    height: 40vh !important;
+    width: 100% !important;
+  }
+
+  // 스크롤 바 스타일
+  height: 85vh !important;
+  overflow-y: scroll !important;
+  position: relative !important;
+  scrollbar-color: $theme-50 $theme-300;
+  scrollbar-width: thin;
+}
+
+// 날짜 선택 칩 옆으로 스크롤
+.trip-days-chips-wrap {
+  overflow: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.trip-days-chips-wrap > ul {
+  display: inline-flex !important;
+  flex-direction: row;
+  flex-wrap: nowrap !important;
+  gap: 0.4rem;
+}
+
+.chip {
+  min-width: 4rem !important;
+  padding: 0.5rem !important;
+}
