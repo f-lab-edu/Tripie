@@ -1,19 +1,24 @@
-import { CONTINENTS } from 'constants/continents';
-import { ContinentKeys } from 'hooks/useCountries';
 import useFunnel from 'hooks/useFunnel';
-import { ContinentStep } from './Continents/Continents';
-import { Countries } from './Countries/Countries';
+import { ContinentKeys } from 'models/Continent';
+import CityFunnel from './Cities';
+import { ContinentStep } from './Continents';
+import { CountryStep } from './Countries';
 
 interface Props {
-  country?: string;
+  mainContext: {
+    continent?: ContinentKeys;
+    country?: string;
+    city?: { all: string[]; selected: string[] };
+    duration?: string;
+  };
   onNext: (b: string) => void;
 }
 
-export function LocationFunnel({ country, onNext }: Props) {
+export function LocationFunnel({ onNext }: Props) {
   const funnel = useFunnel<{
-    CONTINENT: { continent?: ContinentKeys; country?: string; city?: string };
-    COUNTRY: { continent: ContinentKeys; country?: string; city?: string };
-    CITY: { continent: ContinentKeys; country: string; city?: string };
+    CONTINENT: { continent?: ContinentKeys; country?: string; city?: { all: string[]; selected: string[] } };
+    COUNTRY: { continent: ContinentKeys; country?: string; city?: { all: string[]; selected: string[] } };
+    CITY: { continent: ContinentKeys; country: string; city: { all: string[]; selected: string[] } };
   }>({
     id: 'location',
     initial: {
@@ -21,30 +26,38 @@ export function LocationFunnel({ country, onNext }: Props) {
       context: {},
     },
   });
+
   return (
     <funnel.Render
       CONTINENT={({ context, history }) => (
         <ContinentStep
-          context={funnel}
-          continent={context.continent}
-          onNext={(selected: keyof typeof CONTINENTS) => history.push('COUNTRY', { continent: selected })}
+          context={context}
+          continent={context.continent == null ? 'ALL' : context.continent}
+          onNext={(selected: { continent?: ContinentKeys }) => {
+            history.push('COUNTRY', selected);
+          }}
         />
       )}
       COUNTRY={({ context, history }) => (
-        <Countries
-          onNext={(selected: string) => history.push('CITY', { country: selected })}
-          continent={context.continent}
+        <CountryStep
+          onNext={(selected: {
+            continent?: ContinentKeys;
+            country?: string;
+            city?: { all: string[]; selected: string[] };
+            duration?: string;
+          }) => {
+            history.push('CITY', { ...context, ...selected });
+          }}
+          context={context}
         />
       )}
       CITY={({ context }) => (
-        <div>
-          <h1>City</h1>
-          <button
-            onClick={() => onNext(`${context.continent} > ${context.country} > ${context.city} from LocationFunnel`)}
-          >
-            Next
-          </button>
-        </div>
+        <CityFunnel
+          onNext={(selected: string[]) => {
+            onNext(JSON.stringify({ ...context, city: { ...context.city, selected } }));
+          }}
+          context={context}
+        />
       )}
     />
   );
