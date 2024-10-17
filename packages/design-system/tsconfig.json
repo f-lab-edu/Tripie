@@ -5,6 +5,6 @@
     "outDir": "./dist",
     "jsx": "preserve"
   },
-  "include": ["**/*.ts", "**/*.tsx", "../../typings", "jest.setup.cjs", "~/*.ts", "~/*.tsx",],
+  "include": ["**/*.ts", "**/*.tsx", "../../typings", "jest.setup.cjs", "~/*.ts", "~/*.tsx"],
   "exclude": ["dist"]
 }
