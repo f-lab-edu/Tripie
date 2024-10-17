@@ -5,7 +5,7 @@
 // 월화수목금 표기는 첫달만 해줍니다.
 
 .react-calendar.react-calendar--selectRange.calendar-header {
-  background-color: $theme-transparent !important;
+  background-color: $theme-100000 !important;
   & .react-calendar__month-view__days {
     display: none !important;
   }

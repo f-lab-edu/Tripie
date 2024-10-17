@@ -19,7 +19,7 @@
   }
 }
 .calendar-body {
-  background-color: $theme-transparent !important;
+  background-color: $theme-100000 !important;
 }
 
 .react-calendar__tile--range {
@@ -28,6 +28,7 @@
 
 .react-calendar__tile--active:enabled:hover:focus {
   background-color: inherit !important;
+
   & > abbr {
     color: $theme-50 !important;
     border: 1px solid $theme-50;
@@ -41,6 +42,7 @@
 
 .react-calendar__tile:enabled:hover {
   background-color: inherit !important;
+
   & > abbr {
     color: $theme-500 !important;
     border: 1px solid $theme-500;
@@ -57,33 +59,39 @@
 }
 
 .react-calendar__tile--now {
-  background-color: $theme-transparent !important;
+  background-color: $theme-100000 !important;
   & > abbr {
     color: $theme-50 !important;
     border: 1px solid $theme-50;
     border-radius: 100%;
     width: 2.4rem;
     height: 2.4rem;
-    padding: 0.3rem 0.55rem;
+    padding: 0.3rem 0.55rem !important;
   }
 }
+
+// .react-calendar__tile.react-calendar__tile--now.react-calendar__tile--active.react-calendar__tile--range.react-calendar__month-view__days__day.in-range {
+//   flex: none !important;
+// }
 
 .react-calendar__tile.react-calendar__month-view__days__day.react-calendar__month-view__days__day--neighboringMonth:disabled,
 .react-calendar__tile.react-calendar__month-view__days__day:disabled {
   cursor: not-allowed;
-  background-color: $theme-transparent;
+  background-color: $theme-100000;
   & > abbr {
     color: $theme-300;
   }
 }
 
 .in-range {
-  background-color: $theme-transparent !important;
+  // background-color: $theme-100000 !important;
+  background-color: $theme-300 !important;
   color: inherit !important;
-
+  width: 100%;
   & > abbr {
-    background-color: $theme-300 !important;
-    width: 100%;
+    // background-color: $theme-300 !important;
+    // width: 100%;
+    width: 2.4rem;
     height: 2.4rem;
     display: inline-flex;
     align-items: center;
@@ -91,13 +99,38 @@
   }
 }
 
+.end-date {
+  border-top-right-radius: 30px !important;
+  border-bottom-right-radius: 30px !important;
+  &.react-calendar__tile--active {
+    & > abbr {
+      right: 30px;
+    }
+  }
+}
+
+.start-date {
+  border-top-left-radius: 30px !important;
+  border-bottom-left-radius: 30px !important;
+  &.react-calendar__tile--active {
+    & > abbr {
+      left: 30px;
+    }
+  }
+}
+
 .start-date,
 .end-date {
-  background-color: $theme-transparent !important;
+  // background-color: $theme-100000 !important;
+  background-color: $theme-300 !important;
+  position: relative;
+  // display: inline-flex;
+  width: 100%;
   color: inherit !important;
   &.react-calendar__tile--active {
     & > abbr {
       border: 1px solid $theme-50;
+
       background-color: $theme-100 !important;
       border-radius: 100%;
       width: 2.4rem;
@@ -117,6 +150,29 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+  }
+}
+
+button.react-calendar__tile.react-calendar__tile--hasActive.react-calendar__tile--range.react-calendar__tile--rangeEnd.react-calendar__month-view__days__day.end-date {
+  border-top-right-radius: 30px !important;
+  border-bottom-right-radius: 30px !important;
+  display: inline-block !important;
+  &.react-calendar__tile--active {
+    & > abbr {
+      left: 30px;
+    }
+  }
+}
+
+.react-calendar__tile.react-calendar__tile--active.react-calendar__tile--range.react-calendar__tile--rangeStart.react-calendar__tile--rangeEnd.react-calendar__tile--rangeBothEnds.react-calendar__month-view__days__day.start-date {
+  border-top-left-radius: 30px !important;
+  border-bottom-left-radius: 30px !important;
+  display: inline-block !important;
+  background-color: $theme-300 !important;
+  &.react-calendar__tile--active {
+    & > abbr {
+      left: 30px;
+    }
   }
 }
 
@@ -141,5 +197,5 @@
   color: inherit !important;
 }
 .react-calendar__tile.react-calendar__tile--active.react-calendar__tile--range.react-calendar__tile--rangeStart.react-calendar__tile--rangeEnd.react-calendar__tile--rangeBothEnds.react-calendar__month-view__days__day {
-  background-color: $theme-transparent !important;
+  background-color: $theme-100000 !important;
 }
