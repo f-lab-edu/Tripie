@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 import dynamic from 'next/dynamic';
-import { MapProvider } from './MapProvider';
+import AuthProvider from './NextAuthProvider';
 import TanstackQuery from './TanstackQueryProvider';
 
 /**
@@ -15,10 +15,10 @@ export default function Provider({
   children: ReactNode;
 }>) {
   return (
-    <ThemeProvider>
-      <TanstackQuery>
-        <MapProvider>{children}</MapProvider>
-      </TanstackQuery>
-    </ThemeProvider>
+    <AuthProvider>
+      <ThemeProvider>
+        <TanstackQuery>{children}</TanstackQuery>
+      </ThemeProvider>
+    </AuthProvider>
   );
 }
