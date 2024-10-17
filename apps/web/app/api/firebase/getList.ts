@@ -1,6 +1,6 @@
 import { collection, getDocs } from 'firebase/firestore';
 import db from 'firebase/store';
-import { Country } from 'hooks/useCountries';
+import { Country } from 'models/Country';
 
 const listItem = async (docName: string) => {
   try {

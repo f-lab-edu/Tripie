@@ -1,24 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import listItem from 'app/api/firebase/getList';
-import { CONTINENTS } from 'constants/continents';
-
-// https://www.typescriptlang.org/docs/handbook/2/mapped-types.html#mapping-modifiers
-export type CreateMutable<Type> = {
-  -readonly [Property in keyof Type]: Type[Property];
-};
-
-export type Continents = CreateMutable<typeof CONTINENTS>;
-
-export type ContinentKeys = keyof Continents;
-export type ContinentIds = Continents[ContinentKeys]['id'];
-
-export type Country = {
-  continent: string[];
-  id: string;
-  location: { lat: number; lng: number };
-  name: string;
-  code: string;
-};
+import { ContinentIds } from 'models/Continent';
 
 const useCountries = (continent: ContinentIds = 'all') => {
   const res = useQuery({

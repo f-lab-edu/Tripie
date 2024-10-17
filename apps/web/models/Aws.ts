@@ -1,4 +1,4 @@
-import { ContinentKeys } from 'hooks/useCountries';
+import { ContinentKeys } from './Continent';
 
 export type TripPlanner = {
   continent: ContinentKeys;
