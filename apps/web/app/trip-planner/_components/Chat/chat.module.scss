@@ -1,0 +1,15 @@
+@use 'shared/variables' as *;
+@use 'shared/mixins' as *;
+
+.accented {
+  @include accented;
+}
+
+.trip-content-wrap {
+  display: inline-flex;
+  width: 100%;
+  gap: 0.4rem;
+  @media (max-width: 500px) {
+    flex-wrap: wrap;
+  }
+}
