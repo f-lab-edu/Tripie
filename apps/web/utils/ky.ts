@@ -19,7 +19,7 @@ const api = ky.extend({
 });
 
 export const awsApi = ky.extend({
-  prefixUrl: 'http://localhost:3000' + ROUTES.API.BASE,
+  prefixUrl: process.env.NEXT_PUBLIC_BASE_URL + ROUTES.API.BASE,
   hooks: {
     afterResponse: [
       (_, __, res) => {
