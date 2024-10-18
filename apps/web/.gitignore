@@ -35,10 +35,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-<<<<<<< HEAD
-# playground
-playground
-=======
 # prisma
 prisma-client
->>>>>>> 4ef0f0a (feat: install dependencies)
