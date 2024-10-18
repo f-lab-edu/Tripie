@@ -5,7 +5,7 @@ import Style from './menu-toggle.module.scss';
 
 const cx = classNames.bind(Style);
 
-const Path = (props: SVGMotionProps<SVGPathElement>) => (
+export const Path = (props: SVGMotionProps<SVGPathElement>) => (
   <motion.path fill="transparent" strokeWidth="1" stroke={COLORS[0]} strokeLinecap="round" {...props} />
 );
 
