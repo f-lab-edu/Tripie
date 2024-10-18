@@ -13,7 +13,7 @@ const ROUTES = {
     LOCATION: 'location',
     AWS_LOCATION_TEXT: 'aws/text',
     AWS_LOCATION_SUGGESTED_PLACES: 'aws/suggested-places',
-    AWS_LOCATION_BY_PLACE_ID: 'aws/place-by-id-places',
+    AWS_LOCATION_BY_PLACE_ID: 'aws/place-by-id',
   },
   PAGE: {
     LANDING: [
