@@ -5,6 +5,7 @@ import { iso31661 } from 'iso-3166';
 import { TripContent, TripPlanner } from 'models/Aws';
 import { z } from 'zod';
 import { postAwsPlace } from '../aws/place';
+import { Continentl } from '../firebase/getContinentl';
 
 // openai api 키 등록
 const openai = createOpenAI({
@@ -16,9 +17,12 @@ export type AiTripPlanResponse = {
   trips: TripContent[];
 };
 
-export async function getTripPlan(context: TripPlanner) {
+export type TripPlannerContext = TripPlanner & { code: Continentl['code'] };
+
+export async function getTripPlan(context: TripPlannerContext) {
   const selectedCities =
     context.city.selected.join('.') === context.city.all.join('.') ? 'anywhere' : context.city.selected.join(', ');
+
   const result = await generateObject({
     model: openai('gpt-4o-2024-08-06', {
       structuredOutputs: true,
@@ -52,15 +56,18 @@ export async function getTripPlan(context: TripPlanner) {
         object.trips
           .map(place =>
             place.activities.map(
+              // https://docs.aws.amazon.com/location/latest/developerguide/category-filtering.html
               activity =>
-                `${activity.place} ${activity.label === 'restaurant' ? activity.label + ' ' + selectedCities : ''}`
+                activity.label === 'restaurant'
+                  ? { name: `${activity.label} ${activity.place}, ${selectedCities}`, pointOfInterest: activity.label }
+                  : { name: activity.place }
             )
           )
           .flat()
       ),
     ];
-    const country = iso31661.find(item => item.name === context.country)?.alpha3 as string;
-    const locations = await Promise.all(placeSet.map((place: string) => postAwsPlace(place, country)));
+    const country = iso31661.find(item => item.alpha2 === context.code)?.alpha3 as string;
+    const locations = await Promise.all(placeSet.map(place => postAwsPlace(place, country)));
     return { plans: object, placeSet, locations };
   });
 
