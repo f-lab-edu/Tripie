@@ -58,6 +58,24 @@ const nextConfig = {
         destination: 'https://continentl.com/api/country-list',
         permanent: true,
       },
+      {
+        source: '/api/continentl/country-list',
+        destination: 'https://continentl.com/api/country-list',
+        permanent: true,
+      },
+
+      // aws 지역 검색
+      {
+        source: '/api/aws/text',
+        destination: 'https://places.geo.ap-northeast-1.amazonaws.com/places/v0/indexes/explore.place.Esri/search/text',
+        permanent: true,
+      },
+      {
+        source: '/api/aws/suggested-places',
+        destination:
+          'https://places.geo.ap-northeast-1.amazonaws.com/places/v0/indexes/explore.place.Esri/search/suggestions',
+        permanent: true,
+      },
     ];
   },
 };
