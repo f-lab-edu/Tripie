@@ -17,7 +17,7 @@ const useContinentl = (country: string) => {
           }
         }
       }),
-    staleTime: 30_000,
+    staleTime: Infinity,
     notifyOnChangeProps: ['data'],
   });
   return res;
