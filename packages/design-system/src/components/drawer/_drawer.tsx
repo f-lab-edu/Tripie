@@ -15,21 +15,14 @@ export type DrawerProps = {
 
 const style = classNames.bind(Style);
 
-const Drawer = ({
-  children,
-  overlay = true,
-  withCloseButton = true,
-  isOpen,
-
-  close,
-}: DrawerProps) => {
+const Drawer = ({ children, overlay = true, withCloseButton = true, isOpen, className, close }: DrawerProps) => {
   return (
     <>
       {overlay ? <div className={style(isOpen ? 'is-open' : null)} onClick={close} /> : null}
 
-      <aside className={style('drawer-menu', !isOpen && 'is-closed')}>
+      <aside className={style(className, 'drawer-menu', !isOpen && 'is-closed')}>
         <nav className={style('menu')}>
-          <Container className={style('menu-item')}>
+          <Container className={style('menu-item')} margin="none">
             {withCloseButton && close != null ? (
               <Container align="right" margin="none">
                 <Button onClick={() => close()}>Close</Button>
