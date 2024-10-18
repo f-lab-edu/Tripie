@@ -19,7 +19,9 @@ const api = ky.extend({
 });
 
 export const awsApi = ky.extend({
-  prefixUrl: 'http://localhost:3000' + ROUTES.API.BASE,
+  // server functions
+  // https://stackoverflow.com/questions/73876919/why-do-i-need-to-put-http-localhost3000-for-fetching-from-api-routes-in-next
+  prefixUrl: process.env.NEXT_PUBLIC_BASE_URL + ROUTES.API.BASE,
   hooks: {
     afterResponse: [
       (_, __, res) => {
