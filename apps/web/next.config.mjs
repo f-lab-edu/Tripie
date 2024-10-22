@@ -69,6 +69,7 @@ const nextConfig = {
         destination: 'https://places.geo.ap-northeast-1.amazonaws.com/places/v0/indexes/explore.place.Esri/search/text',
         permanent: true,
       },
+      
       // 검색어 매칭 없을 경우: 유사 검색어로 찾기
       {
         source: '/api/aws/suggested-places',
@@ -76,7 +77,7 @@ const nextConfig = {
           'https://places.geo.ap-northeast-1.amazonaws.com/places/v0/indexes/explore.place.Esri/search/suggestions',
         permanent: true,
       },
-
+      
       // 유사 검색어로 찾은 placeId로 위치 검색
       // https://docs.aws.amazon.com/location/latest/APIReference/API_GetPlace.html
       // https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/location/command/GetPlaceCommand/
