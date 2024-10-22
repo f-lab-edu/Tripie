@@ -1,3 +1,6 @@
+/**
+ * 여행 지역 : 대륙 기준
+ */
 export const CONTINENTS = {
   ALL: { id: 'all', name: '전체' },
   ASIA: { id: 'Asia', name: '아시아' },

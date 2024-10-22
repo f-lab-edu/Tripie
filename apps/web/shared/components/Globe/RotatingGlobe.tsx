@@ -28,7 +28,7 @@ const RotatingGlobe = () => {
       <Globe
         height={500}
         ref={globeRef}
-        backgroundColor={COLORS[500]}
+        backgroundColor={COLORS['100000']}
         globeImageUrl="/earth-dark.jpeg"
         hexPolygonsData={countries.features}
         hexPolygonColor={() => COLORS[50]}
