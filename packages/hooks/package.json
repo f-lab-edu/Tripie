@@ -15,15 +15,16 @@
     "clean": "rm -rf ./node_modules && rm -rf ./.turbo && rm -rf ./dist"
   },
   "dependencies": {
+    "react-dom": "^18.3.1",
     "usehooks-ts": "^3.1.0"
   },
   "devDependencies": {
-    "tsup": "^8.1.2",
-    "react": "^18.2.0",
     "@types/lodash.debounce": "^4.0.9",
     "@types/node": "^20",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18",
+    "react": "^18.3.1",
+    "tsup": "^8.1.2",
     "typescript": "^5"
   },
   "peerDependencies": {
