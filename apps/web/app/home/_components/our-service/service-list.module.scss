@@ -25,3 +25,13 @@
 .max {
   width: 100%;
 }
+
+.card-wrap {
+  align-items: stretch !important;
+  height: auto !important;
+  justify-content: flex-start !important;
+}
+
+.card-content-wrap {
+  height: 28rem !important;
+}

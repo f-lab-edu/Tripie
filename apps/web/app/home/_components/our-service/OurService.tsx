@@ -5,6 +5,7 @@ import classNames from 'classnames/bind';
 import MotionSlideUp from 'shared/components/MotionSlideUp/MotionSlideUp';
 import ServiceList from './ServiceList';
 import Style from './our-service.module.scss';
+
 const cx = classNames.bind(Style);
 
 export default function OurService() {

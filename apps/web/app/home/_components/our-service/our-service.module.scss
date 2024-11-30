@@ -8,3 +8,6 @@
 .wrap {
   @include list-wrap;
 }
+.accented {
+  @include accented;
+}
