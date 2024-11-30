@@ -1,0 +1,45 @@
+'use client';
+
+import { Container, Headings } from '@tripie-pyotato/design-system';
+import classNames from 'classnames/bind';
+import RESOURCE from 'constants/resources';
+import ROUTE from 'constants/routes';
+import Icon from 'shared/components/Icon/Icon';
+import MotionSlideUp from 'shared/components/MotionSlideUp/MotionSlideUp';
+import Contact from './Contact';
+import Style from './contacts.module.scss';
+
+const cx = classNames.bind(Style);
+
+const contacts = {
+  Email: (
+    <div className={cx('text-wrap')}>
+      mail@tripie-pyotato.com <Icon src={RESOURCE.ARROW} className={cx('big-arrow')} />
+    </div>
+  ),
+  Github: (
+    <div className={cx('text-wrap')}>
+      <span className={cx('accented')}>@ </span>Pyotato
+      <Icon src={RESOURCE.ARROW} className={cx('big-arrow')} />
+    </div>
+  ),
+};
+
+export default function Contacts() {
+  return (
+    <section className={cx('contact')} id={ROUTE.CONTACT.label}>
+      <Container applyMargin="left-right" margin="m">
+        <MotionSlideUp>
+          <Headings.H2>
+            Get in <span className={cx('accented')}>touch</span>
+          </Headings.H2>
+        </MotionSlideUp>
+        <Container className={cx('wrap')} margin="l" applyMargin="top-bottom">
+          {Object.keys(contacts).map(key => (
+            <Contact sectionName={key} content={contacts[key as keyof typeof contacts]} key={key} />
+          ))}
+        </Container>
+      </Container>
+    </section>
+  );
+}

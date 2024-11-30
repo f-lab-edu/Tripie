@@ -1,6 +1,6 @@
 'use client';
 import AboutUs from 'app/home/_components/about-us/AboutUs';
-import Contact from 'app/home/_components/contact/Contact';
+import Contacts from 'app/home/_components/contacts/Contacts';
 import Faq from 'app/home/_components/faq/Faq';
 import Footer from 'app/home/_components/footer/Footer';
 import Header from 'app/home/_components/header/Header';
@@ -20,7 +20,7 @@ export default function Home() {
       <OurService />
       <OurWork />
       <Plan />
-      <Contact />
+      <Contacts />
       <Faq />
       <Footer />
     </>
