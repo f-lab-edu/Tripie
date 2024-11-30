@@ -22,6 +22,7 @@
     "clean": "turbo run clean && rm -rf ./node_modules && pnpm i --frozen-lockfile"
   },
   "dependencies": {
+    "@prisma/client": "^5.22.0",
     "turbo": "^2.0.11"
   },
   "devDependencies": {
