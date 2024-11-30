@@ -2,10 +2,11 @@
 import { Container } from '@tripie-pyotato/design-system';
 import Heading from '@tripie-pyotato/design-system/components/typography/headings/_headings';
 import classNames from 'classnames/bind';
-import ROUTES from 'constants/routes';
 import AnimatedButton from 'shared/components/Button/AnimatedButton';
 import Icon from 'shared/components/Icon/Icon';
 
+import RESOURCE from 'constants/resources';
+import ROUTE from 'constants/routes';
 import { useRouter } from 'next/navigation';
 import ParticleBackground from 'shared/components/Particle/ParticleBackground';
 import Nav from '../nav/Nav';
@@ -28,12 +29,12 @@ export default function Header() {
           </Container>
         </div>
         <Container className={cx('button-wrap')} margin="none">
-          <AnimatedButton withBorder={true} onClick={() => router.push(ROUTES.PAGE.SERVICES.href)}>
+          <AnimatedButton withBorder={true} onClick={() => router.push(ROUTE.SERVICES.href)}>
             Our services
           </AnimatedButton>
-          <AnimatedButton withBorder={true} onClick={() => router.push(ROUTES.PAGE.CONTACT.href)}>
+          <AnimatedButton withBorder={true} onClick={() => router.push(ROUTE.CONTACT.href)}>
             <Container margin="none" className={cx('flex')}>
-              Get in touch <Icon src={ROUTES.RESOURCE.ARROW['src']} />
+              Get in touch <Icon src={RESOURCE.ARROW} />
             </Container>
           </AnimatedButton>
         </Container>
