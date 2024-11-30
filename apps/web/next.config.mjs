@@ -37,6 +37,36 @@ const nextConfig = {
         port: '',
         pathname: '/triple-cms/c_limit,f_auto,h_1024,w_1024/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'blogthumb.pstatic.net',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'blogthumb.pstatic.net',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'http',
+        hostname: 'blogthumb.pstatic.net',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'http',
+        hostname: 'blogthumb2.naver.net',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'blogthumb2.naver.net',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
   async redirects() {
@@ -81,13 +111,27 @@ const nextConfig = {
       // https://docs.aws.amazon.com/location/latest/APIReference/API_GetPlace.html
       // https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/location/command/GetPlaceCommand/
       {
-        source: '/api/aws/place-by-id/:path*', // https://nextjs.org/docs/pages/api-reference/next-config-js/redirects
-        destination:
-          'https://places.geo.ap-northeast-1.amazonaws.com/places/v0/indexes/explore.place.Esri/places/:path*',
+        source: '/api/place', // https://nextjs.org/docs/pages/api-reference/next-config-js/redirects
+        destination: 'https://tripie-server.vercel.app/api/trip-advisor',
         permanent: true,
       },
+
+      // https://nextjs.org/docs/app/api-reference/next-config-js/redirects
+      //
     ];
   },
+  // async rewrites() {
+  //   return [
+  //     {
+  //       source: '/api/:path*',
+  //       destination: '/api/:path*',
+  //     },
+  //     {
+  //       source: '/(.*)',
+  //       destination: '/',
+  //     },
+  //   ];
+  // },
 };
 
 export default nextConfig;
