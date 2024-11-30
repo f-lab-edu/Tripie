@@ -1,6 +1,6 @@
 'use client';
 
-import ROUTES from 'constants/routes';
+import ROUTE from 'constants/routes';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { ComponentType, ReactNode, useCallback, useEffect, useMemo, useState } from 'react';
 import { useLocalStorage } from 'usehooks-ts';
@@ -72,7 +72,7 @@ function useFunnel<T>({ id, initial }: { id: string; initial: StepState<T> }) {
     const currentState = searchParams.get(`${state.id}.step`);
     const filtered = funnelStorage.filter(item => item.step === currentState)[0]?.context;
     if (filtered == null && funnelStorage.length === 0) {
-      router.replace(ROUTES.PAGE.TRIP_PLANNER.href);
+      router.replace(ROUTE.TRIP_PLANNER.href);
       return;
     }
 
