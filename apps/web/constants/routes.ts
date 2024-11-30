@@ -12,6 +12,7 @@ const ROUTE = {
   CONTACT: { label: 'Contact', href: '/#Contact' },
   TRIP_PLANNER: { label: 'Trip Planner', href: '/trip-planner' },
   REGIONS: { label: 'Region info', href: '/regions' },
+  SIGN_IN: { label: 'Sign in', href: '/api/auth/signin' },
 };
 
 export default ROUTE;
