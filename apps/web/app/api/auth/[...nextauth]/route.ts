@@ -3,7 +3,7 @@ import NextAuth, { DefaultSession, DefaultUser, Session } from 'next-auth';
 import { JWT } from 'next-auth/jwt';
 import GitHubProvider from 'next-auth/providers/github';
 import KakaoProvider from 'next-auth/providers/kakao';
-import prisma from '../../../../../../lib/prisma';
+import { prisma } from '../prisma';
 
 const options = {
   providers: [
@@ -18,7 +18,7 @@ const options = {
   ],
   allowDangerousEmailAccountLinking: true, //여러 계정, 한 이용자
   adapter: PrismaAdapter(prisma),
-  secret: process.env.SECRET,
+  secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     async session({
       session,
@@ -31,6 +31,8 @@ const options = {
     }) {
       session.user = user;
       session.token = token;
+      // return { session };
+      // console.log('', session);
       return session as Session | DefaultSession;
     },
   },
