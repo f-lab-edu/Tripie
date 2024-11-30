@@ -1,8 +1,8 @@
-import ROUTES from 'constants/routes';
+import API from 'constants/api-routes';
 import ky from 'ky';
 
 const api = ky.extend({
-  prefixUrl: ROUTES.API.BASE,
+  prefixUrl: API.BASE,
   hooks: {
     afterResponse: [
       (_, __, res) => {
@@ -19,7 +19,7 @@ const api = ky.extend({
 });
 
 export const awsApi = ky.extend({
-  prefixUrl: process.env.NEXT_PUBLIC_BASE_URL + ROUTES.API.BASE,
+  prefixUrl: process.env.NEXT_PUBLIC_BASE_URL + API.BASE,
   hooks: {
     afterResponse: [
       (_, __, res) => {
