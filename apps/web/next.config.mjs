@@ -67,6 +67,12 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'media.triple.guide',
+        port: '',
+        pathname: '/triple-cms/**',
+      },
     ],
   },
   async redirects() {
