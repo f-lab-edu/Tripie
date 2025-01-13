@@ -1,0 +1,41 @@
+'use client';
+import { Container } from '@tripie-pyotato/design-system';
+import classNames from 'classnames/bind';
+import ROUTE from 'constants/routes';
+import { useRouter } from 'next/navigation';
+import Divider from 'shared/components/Divider/Divider';
+import List from 'shared/components/List/List';
+import TextUnderLineAnimation from 'shared/components/TextUnderlineAnimation/TextUnderlineAnimation';
+import Style from './footer.module.scss';
+
+const cx = classNames.bind(Style);
+
+export default function Footer() {
+  const router = useRouter();
+  return (
+    <footer className={cx('footer')}>
+      <Container margin="m" applyMargin="left-right">
+        <Container margin="none" className={cx('wrap')}>
+          <TextUnderLineAnimation>
+            mail<span className={cx('accented')}>@</span>tripie.com
+          </TextUnderLineAnimation>
+          <Divider />
+        </Container>
+        <List>
+          <li>© 2024</li>
+          <li>mail@tripie-pyotato.com</li>
+        </List>
+        <Divider />
+        <List>
+          {ROUTE.LANDING.map(({ label, href }) => (
+            <li key={href}>
+              <button onClick={() => router.push(href)} className={cx('button')}>
+                <TextUnderLineAnimation className={cx('list-item')}>{label}</TextUnderLineAnimation>
+              </button>
+            </li>
+          ))}
+        </List>
+      </Container>
+    </footer>
+  );
+}

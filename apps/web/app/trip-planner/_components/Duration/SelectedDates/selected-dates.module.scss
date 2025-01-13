@@ -1,0 +1,14 @@
+@use 'shared/variables' as *;
+@use 'shared/mixins' as *;
+.start-end-card {
+  display: inline-flex;
+  flex-direction: row;
+
+  @media (max-width: 400) {
+    flex-wrap: wrap;
+  }
+}
+
+.not-selected {
+  color: $theme-50;
+}

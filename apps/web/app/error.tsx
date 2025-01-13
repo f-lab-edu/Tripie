@@ -1,4 +1,7 @@
-"use client";
+'use client';
+
+import Error from 'shared/components/Error/Error';
+
 export default function MainError() {
-  return <div>this is error</div>;
+  return <Error />;
 }

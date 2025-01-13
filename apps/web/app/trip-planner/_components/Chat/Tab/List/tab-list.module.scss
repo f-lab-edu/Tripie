@@ -1,0 +1,20 @@
+@use 'shared/variables' as *;
+@use 'shared/mixins' as *;
+
+.list-wrap {
+  & li {
+    margin-bottom: 1rem;
+  }
+}
+
+.accented {
+  @include accented;
+}
+
+.trip-item {
+  display: inline-flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  width: 100%;
+}

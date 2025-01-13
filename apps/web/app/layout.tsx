@@ -1,16 +1,18 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 
-import Provider from "../provider/layout";
+import '@tripie-pyotato/design-system/global';
+import { ReactNode } from 'react';
+import Provider from '../provider/layout';
 
 export const metadata: Metadata = {
-  title: "Tripie ✈️",
-  description: "AI enhanced trip planner",
+  title: 'Tripie ✈️',
+  description: 'AI enhanced trip planner',
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html lang="en">

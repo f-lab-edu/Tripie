@@ -1,0 +1,56 @@
+@use 'shared/variables' as *;
+@use 'shared/mixins' as *;
+
+.card-content-wrap {
+  // 스크롤 바 스타일
+  overflow-y: scroll !important;
+  position: relative !important;
+  scrollbar-color: $theme-50 $theme-300;
+  scrollbar-width: thin;
+}
+
+.card-list-wrap {
+  & > div > ul {
+    @media (min-width: 998px) {
+      grid-template-columns: repeat(1, 1fr) !important;
+    }
+  }
+}
+
+.card-region-wrap {
+  & div > div > div > ul {
+    @media (min-width: 998px) {
+      grid-template-columns: repeat(1, 1fr) !important;
+    }
+  }
+}
+
+.accented {
+  @include accented;
+}
+
+.card-wrap {
+  height: 100% !important;
+  & div {
+    height: 100% !important;
+  }
+}
+.flex {
+  @include flex;
+}
+
+.accordian-body {
+  height: 100% !important;
+}
+.chip-wrap {
+  display: inline-flex;
+  justify-content: center;
+}
+
+.chip {
+  // @include chip;
+}
+
+.animated-text {
+  padding: 0 !important;
+}

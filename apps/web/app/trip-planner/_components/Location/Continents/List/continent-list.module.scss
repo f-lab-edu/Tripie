@@ -1,0 +1,9 @@
+@use 'shared/mixins' as *;
+
+.chip {
+  // @include chip;
+}
+
+.wrap {
+  @include grid-wrap;
+}

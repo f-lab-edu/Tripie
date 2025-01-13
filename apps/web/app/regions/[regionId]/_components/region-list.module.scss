@@ -1,0 +1,15 @@
+@use 'shared/variables' as *;
+@use 'shared/mixins' as *;
+
+.article-card {
+  min-height: 24rem !important;
+  height: 100% !important;
+  padding: 0 !important;
+  justify-content: flex-start !important;
+  min-width: 12rem;
+  flex-wrap: wrap;
+}
+
+.thumbnail {
+  width: 100%;
+}

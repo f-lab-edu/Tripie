@@ -1,10 +1,19 @@
-import { ReactNode } from "react";
-import ThemeProvider from "./ThemeProvider";
+import { ReactNode } from 'react';
+
+import AuthProvider from './NextAuthProvider';
+import TanstackQuery from './TanstackQueryProvider';
+import ThemeProvider from './ThemeProvider';
 
 export default function Provider({
   children,
 }: Readonly<{
   children: ReactNode;
 }>) {
-  return <ThemeProvider>{children}</ThemeProvider>;
+  return (
+    <AuthProvider>
+      <ThemeProvider>
+        <TanstackQuery>{children}</TanstackQuery>
+      </ThemeProvider>
+    </AuthProvider>
+  );
 }

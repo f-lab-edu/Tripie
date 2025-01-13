@@ -1,0 +1,12 @@
+@use 'shared/variables' as *;
+@use 'shared/mixins' as *;
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.wrap {
+  @include grid-wrap;
+}

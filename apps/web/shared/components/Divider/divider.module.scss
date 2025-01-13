@@ -1,0 +1,36 @@
+@use 'shared/variables' as *;
+.accordion-button {
+  width: 2rem;
+}
+
+.accordion-header {
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: center;
+}
+.divider {
+  height: 1.5px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: $theme-400;
+}
+.accordion-body {
+  color: $theme-40;
+}
+
+.divider-hr1 {
+  background-color: $theme-50;
+  height: 2.4px;
+}
+
+.divider-hr2 {
+  background-color: $theme-50;
+  height: 2px;
+}
+
+.divider-hr3 {
+  background-color: transparent;
+  height: 1.8px;
+}

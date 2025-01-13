@@ -1,0 +1,37 @@
+@use 'shared/variables' as *;
+@use 'shared/mixins' as *;
+
+.title {
+  display: inline-flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.card-item {
+  height: fit-content !important;
+}
+
+.trip-activity {
+  align-items: flex-start !important;
+}
+
+// 여행 일정 지역에 따른 버튼 색깔
+.label {
+  border-radius: 100% !important;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.restaurant {
+  background-color: red !important;
+}
+
+.hotel {
+  background-color: pink !important;
+}
+
+.attraction {
+  background-color: orange !important;
+}

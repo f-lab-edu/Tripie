@@ -1,0 +1,236 @@
+@use './variables' as *;
+
+$background-gradients: (
+  '0': $background-gradient-0,
+  '1': $background-gradient-1,
+  '2': $background-gradient-2,
+  '3': $background-gradient-3,
+  '4': $background-gradient-4,
+  '5': $background-gradient-5,
+  '6': $background-gradient-6,
+  '7': $background-gradient-7,
+  '8': $background-gradient-8,
+);
+
+@mixin background($variant) {
+  align-content: flex-start;
+  align-items: flex-start;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: min-content;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  width: -moz-available; /* WebKit-based browsers will ignore this. */
+  width: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
+  padding: 100px 0 50px;
+
+  background: map-get($background-gradients, $variant);
+
+  @if $variant == '2' {
+    padding: 100px 0;
+  }
+}
+
+@mixin accented {
+  color: $theme-50;
+}
+
+@mixin with-border {
+  padding: 10px 25px;
+  font-size: 0.8rem;
+  border-bottom-width: 1px;
+  border-color: $border-accent;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 1px;
+  opacity: 1;
+  border-radius: 8px;
+}
+
+@mixin card {
+  border-bottom-width: 1px;
+  border-color: $theme-400;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 1px;
+  align-content: flex-start;
+  align-items: flex-start;
+  align-self: stretch;
+  border-radius: 10px;
+  display: flex;
+  flex: 1 0 0px;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 50px;
+  height: auto;
+  justify-content: center;
+  overflow: hidden;
+  padding: 40px;
+  position: relative;
+  width: 1px;
+
+  @media (max-width: 809px) {
+    align-self: unset;
+    flex: none;
+    height: min-content;
+    padding: 35px;
+  }
+}
+
+@mixin flexbox($direction: row, $align: center, $justify: center, $gap: 15px) {
+  display: flex;
+  width: 100%;
+  flex-basis: auto;
+
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+  gap: $gap;
+  flex-wrap: nowrap;
+}
+@mixin grid($item-count: 5) {
+  display: grid;
+  grid-gap: 10px;
+
+  @if ($item-count==5) {
+    @media (min-width: 998px) {
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      & > div {
+        grid-column: span 2;
+        grid-row: span 1;
+      }
+      & > div:nth-child(4),
+      & > div:nth-child(5) {
+        grid-column: span 3;
+        grid-row: span 1;
+      }
+    }
+  } @else {
+    @media (min-width: 998px) {
+      display: grid;
+      grid-auto-flow: column;
+    }
+  }
+  @media (max-width: 998px) {
+    grid-auto-flow: row;
+  }
+}
+
+@mixin flex {
+  display: inline-flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+@mixin list-wrap {
+  display: inline-flex;
+  gap: 1rem;
+
+  @media (min-width: 998px) {
+    flex-direction: row;
+  }
+
+  @media (max-width: 998px) {
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+}
+
+@mixin background-static {
+  background-repeat: repeat;
+  background-position: left top;
+  background-size: 128px auto;
+  background-image: url('../public/noise.png');
+  filter: brightness(30%);
+}
+
+@mixin chip {
+  min-width: fit-content;
+  padding: 1rem;
+}
+
+@mixin grid-wrap {
+  display: grid;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  list-style: none;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 0;
+  margin: 0;
+
+  @media (max-width: 880px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 730px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@mixin submit-button {
+  width: 100% !important;
+}
+
+@mixin submit-button-long-text {
+  @media (max-width: 400) {
+    & > span {
+      transform: translateY(1.5rem) !important;
+    }
+  }
+}
+
+.flex {
+  @include flex;
+}
+
+@mixin flex-items {
+  display: inline-flex;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  width: 100%;
+  list-style: none;
+  padding: 0;
+
+  // 스크롤 바 스타일
+  scrollbar-color: $theme-50 $theme-300;
+  scrollbar-width: thin;
+}
+
+@mixin map-marker($variant) {
+  display: inline-flex;
+  border-radius: 100%;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0.2rem !important;
+  @if $variant == 'restaurant' {
+    background-color: red;
+  }
+  @if $variant == 'hotel' {
+    background-color: pink;
+  }
+  @if $variant == 'attraction' {
+    background-color: orange;
+  }
+}
+
+@mixin scroll {
+  // 스크롤 바 스타일
+  overflow-y: scroll !important;
+  position: relative !important;
+  scrollbar-color: $theme-50 $theme-300;
+  scrollbar-width: thin;
+}

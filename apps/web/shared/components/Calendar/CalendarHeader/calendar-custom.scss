@@ -1,0 +1,17 @@
+// react-calendar는 module로 스타일 커스텀 불가하므로 scss로
+@use 'shared/variables' as *;
+@use 'shared/mixins' as *;
+
+// 월화수목금 표기는 첫달만 해줍니다.
+
+.react-calendar.react-calendar--selectRange.calendar-header {
+  background-color: $theme-100000 !important;
+  & .react-calendar__month-view__days {
+    display: none !important;
+  }
+}
+.react-calendar__month-view__weekdays__weekday {
+  & > abbr {
+    text-decoration: none;
+  }
+}

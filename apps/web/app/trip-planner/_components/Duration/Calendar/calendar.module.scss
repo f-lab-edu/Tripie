@@ -1,0 +1,22 @@
+@use 'shared/variables' as *;
+@use 'shared/mixins' as *;
+
+.calendar-wrap {
+  height: 60vh;
+  overflow: scroll;
+}
+
+.submit-button {
+  width: 100%;
+}
+
+.submit-button.long-text {
+  @media (max-width: 400) {
+    & > span {
+      transform: translateY(1.5rem) !important;
+    }
+  }
+}
+.flex {
+  @include flex;
+}

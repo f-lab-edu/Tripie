@@ -1,0 +1,25 @@
+@use 'shared/variables' as *;
+
+.accordion-button {
+  width: 2rem;
+}
+
+.accordion-header {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: center;
+}
+.divider {
+  height: 1.5px;
+}
+.accordion-body {
+  color: $theme-40;
+}
+.accordion {
+  width: 100%;
+}
+
+.article-card {
+  height: 24rem !important;
+}

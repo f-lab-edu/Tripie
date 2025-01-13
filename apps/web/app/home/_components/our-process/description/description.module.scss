@@ -1,0 +1,13 @@
+@use 'shared/variables' as *;
+@use 'shared/mixins' as *;
+
+.accented {
+  @include accented;
+}
+.description {
+  color: $theme-40;
+}
+
+.line-break {
+  white-space: pre-wrap;
+}

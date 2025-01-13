@@ -2,6 +2,8 @@
   "name": "tripie",
   "private": true,
   "packageManager": "pnpm@9.0.0",
+  "main": "index.js",
+  "type": "module",
   "engines": {
     "node": ">=20"
   },
@@ -10,20 +12,47 @@
     "build:storybook": "turbo run build:storybook --filter=storybook",
     "dev": "turbo dev",
     "lint": "turbo lint",
+    "lint:fix": "turbo lint:fix",
+    "prettier": "prettier --check '**/*.{ts,tsx,js,jsx,json}'",
+    "prettier:fix": "prettier --write '**/*.{ts,tsx,js,jsx,json}'",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test": "turbo run test",
+    "test:watch": "turbo run test:watch",
+    "clean": "turbo run clean && rm -rf ./node_modules && pnpm i --frozen-lockfile"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "turbo": "^2.0.11"
   },
   "devDependencies": {
+    "@eslint/js": "^9.8.0",
+    "@next/eslint-plugin-next": "^14.2.5",
+    "@types/eslint": "^8.56.5",
+    "@types/eslint__js": "^8.42.3",
+    "@typescript-eslint/eslint-plugin": "^7.1.0",
+    "@typescript-eslint/parser": "^7.1.0",
+    "eslint": "^9.8.0",
+    "eslint-config-turbo": "^2.0.0",
+    "eslint-plugin-functional": "^6.6.3",
+    "eslint-plugin-next": "^0.0.0",
+    "eslint-plugin-react": "^7.35.0",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "globals": "^15.9.0",
     "husky": "^9.0.11",
-    "prettier": "^3.2.5",
+    "identity-obj-proxy": "^3.0.0",
+    "prettier": "^3.3.3",
+    "prisma": "5.22.0",
+    "rimraf": "^6.0.1",
+    "tsup": "^8.1.2",
     "turbo": "^2.0.6",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^8.0.0"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
       "eslint --cache --fix",
       "prettier --cache --write"
     ]
-  },
-  "type": "module"
+  }
 }

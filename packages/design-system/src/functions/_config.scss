@@ -1,11 +1,11 @@
 @use "sass:map";
 @use "../base" as *;
 
-/// Get available value from $settings map.
-/// @param {string} $key - The key name.
-/// @param {string} $group - The group name.
-/// @return {string} - The value of the key.
-/// @throws {error} - If the key doesn't exist.
+/// $setting 맵으로부토 가능한 값 가져오기
+/// @param {string} $key : 키 이름
+/// @param {string} $group : 그룹 이름
+/// @return {string} : 키에 해당하는 값.
+/// @throws {error} : 키가 없을 경울 리턴
 @function config($key, $group: null) {
   @if $group {
     @if not map.has-key($settings, $group) {

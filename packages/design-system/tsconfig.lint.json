@@ -1,8 +1,0 @@
-{
-  "extends": "@tripie/typescript-config/react-library.json",
-  "compilerOptions": {
-    "outDir": "dist"
-  },
-  "include": ["src", "turbo", "typings"],
-  "exclude": ["node_modules", "dist"]
-}

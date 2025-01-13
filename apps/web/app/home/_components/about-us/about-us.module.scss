@@ -1,0 +1,13 @@
+@use 'shared/mixins' as *;
+@use 'shared/variables' as *;
+
+.about-us {
+  @include background('2');
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 2rem;
+}
+
+.wrap {
+  min-width: 368px;
+}

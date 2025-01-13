@@ -1,0 +1,46 @@
+@use 'shared/mixins' as *;
+@use 'shared/variables' as *;
+
+.flex {
+  @include flex;
+}
+
+.accented {
+  @include accented;
+}
+
+.cross {
+  text-decoration: line-through;
+  color: $theme-40;
+}
+.list-item {
+  gap: 0.5rem;
+  width: 100%;
+  justify-content: flex-start;
+}
+.left-align {
+  text-align: left;
+}
+
+.max {
+  width: 100%;
+}
+
+.card-wrap {
+  align-items: stretch !important;
+  height: auto !important;
+  justify-content: flex-start !important;
+}
+
+.card-content-wrap {
+  height: 28rem !important;
+}
+
+.wrap {
+  @include grid(5);
+  align-content: center;
+  height: min-content;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}

@@ -1,0 +1,23 @@
+@keyframes walking {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-2px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(0) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-2px) rotate(-1deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+.walking-svg {
+  display: inline-block;
+  animation: walking 1s linear infinite;
+  background-color: pink;
+}

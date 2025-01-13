@@ -1,0 +1,14 @@
+@use 'shared/mixins' as *;
+@use 'shared/variables' as *;
+
+.plan {
+  @include background('3');
+  padding: 50px 0;
+}
+.accented {
+  @include accented;
+}
+
+.wrap {
+  @include list-wrap;
+}
