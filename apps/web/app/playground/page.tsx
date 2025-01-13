@@ -1,3 +1,5 @@
+import PlaygroundButton from './_components/Button';
+
 export default function Playground() {
-  return <>this is playground</>;
+  return <PlaygroundButton />;
 }

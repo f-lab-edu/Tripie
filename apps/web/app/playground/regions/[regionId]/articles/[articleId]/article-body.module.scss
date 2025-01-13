@@ -1,0 +1,213 @@
+@use 'shared/variables' as *;
+@use 'shared/mixins' as *;
+
+.background {
+  @include background('0');
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  padding: 2rem 1rem;
+  min-height: 100%;
+  width: inherit;
+  gap: 1rem;
+  position: relative;
+}
+.fit-content {
+  height: fit-content !important;
+}
+
+.img-container {
+  margin-bottom: 0 !important;
+}
+
+.img-wrap {
+  padding: 0 !important;
+  height: 24rem !important;
+  overflow: hidden;
+  & > img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+}
+
+// .has-headline {
+//   margin-top: 0 !important;
+// }
+
+// .flex {
+//   display: inline-flex;
+// }
+
+// .card-img-wrap {
+//   padding: 0 !important;
+//   & > img {
+//     width: 100%;
+//   }
+// }
+
+// .flex-items {
+//   @include flex-items;
+// }
+
+// .link {
+//   font-size: 0.8rem !important;
+//   width: fit-content;
+//   font-weight: bold;
+//   & > a {
+//     text-decoration: none !important;
+//     color: $theme-50 !important;
+//   }
+// }
+
+// .link-wrap {
+//   display: inline-flex;
+//   gap: 1rem;
+//   flex-wrap: wrap;
+// }
+
+// .text-container {
+//   white-space: pre-line;
+// }
+
+// .carousel {
+//   position: relative;
+//   width: 100%;
+//   margin: auto;
+//   overflow: hidden;
+// }
+
+// .carousel-item {
+//   min-width: 100%; /* Each item takes full width of carousel */
+//   transition: opacity 0.5s ease-in-out;
+// }
+
+// .carousel-inner {
+//   display: flex;
+//   transition: transform 0.5s ease-in-out;
+//   width: 100%; /* Ensures images fit container width */
+// }
+
+// .img-source {
+//   position: absolute;
+//   right: 10px;
+//   bottom: 10px;
+//   display: inline-block;
+//   width: fit-content;
+//   max-width: 21rem; /* Set your desired width */
+//   & > div {
+//     display: inline;
+//   }
+//   & > div > span {
+//     white-space: nowrap;
+//     overflow: hidden;
+//     text-overflow: ellipsis;
+//   }
+// }
+
+// .source-url {
+//   text-wrap: nowrap !important;
+//   font-size: 0.8rem;
+// }
+
+// .embedded {
+//   width: 30rem !important;
+// }
+// // .embedded-card {
+// //   height: 27rem !important;
+// //   min-width: 18rem;
+// //   width: 60%;
+// //   max-width: 60%;
+// //   display: inline-flex;
+// //   flex-direction: column;
+// // }
+// .embedded-card-wrap {
+//   overflow-x: scroll;
+//   height: 100%;
+//   align-items: stretch !important;
+// }
+// .embedded-card-img {
+//   & > img {
+//     width: 100%;
+//     height: 100%;
+//     display: block;
+//     object-fit: cover;
+//   }
+// }
+// .poi-card {
+//   height: fit-content !important;
+//   max-height: 21rem;
+
+//   & > div:first-child {
+//     height: 12rem !important;
+//     overflow: hidden;
+//     display: block !important;
+//   }
+
+//   & > div {
+//     margin: 0 !important;
+//   }
+// }
+
+// .poi-img-source-ref {
+//   max-width: 8rem;
+//   font-size: 0.6rem;
+// }
+
+// // itinerary
+
+// .itinerary-path {
+//   border-top: 1px solid $theme-50;
+//   overflow-y: visible !important;
+// }
+
+// .timeline {
+//   display: inline-flex;
+//   justify-content: center;
+//   z-index: 100;
+//   width: 100%;
+// }
+
+// .itinerary-cards {
+//   overflow-y: visible !important;
+// }
+// .timeline-wrap {
+//   min-width: 18rem;
+//   width: 60%;
+// }
+
+// .timeline-divider {
+//   height: 4px !important;
+//   background-color: $theme-50 !important;
+//   position: absolute;
+//   top: 4rem;
+// }
+
+// .icon-wrap {
+//   display: inline-flex;
+//   justify-content: flex-end;
+//   transform: translate(8%, 100%);
+// }
+
+// .timeline-item-wrap {
+//   display: inline-flex;
+//   flex-direction: column;
+// }
+// .total-wrap:last-child {
+//   display: inline-flex;
+//   flex-direction: column;
+//   justify-content: flex-end;
+// }
+
+// .flag {
+//   position: sticky;
+//   top: 5%;
+// }
+
+// .last-poi {
+//   height: 100%;
+//   display: inline-flex;
+//   justify-content: flex-end;
+// }

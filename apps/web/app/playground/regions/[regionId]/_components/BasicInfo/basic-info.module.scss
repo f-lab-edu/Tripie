@@ -1,0 +1,15 @@
+.basic-info {
+  height: fit-content !important;
+}
+
+.basic-info-flex-wrap {
+  display: inline-flex;
+  gap: 1rem;
+  flex-wrap: nowrap;
+  & > div {
+    margin: 0 !important;
+  }
+}
+.item-name {
+  width: 20%;
+}

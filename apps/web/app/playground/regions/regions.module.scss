@@ -1,0 +1,19 @@
+@use 'shared/variables' as *;
+@use 'shared/mixins' as *;
+
+.background {
+  @include background('0');
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  padding: 2rem 1rem;
+  min-height: 100%;
+  width: inherit;
+  gap: 1rem;
+  position: relative;
+}
+
+.accented {
+  @include accented;
+}

@@ -1,0 +1,68 @@
+@use 'shared/variables' as *;
+@use 'shared/mixins' as *;
+
+.timeline-divider {
+  height: 4px !important;
+  background-color: $theme-50 !important;
+  position: absolute;
+  top: 4rem;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.flex-items {
+  @include flex-items;
+}
+
+.embedded-card-wrap {
+  overflow-x: scroll;
+  height: 100%;
+  align-items: stretch !important;
+}
+
+.itinerary-cards {
+  overflow-y: visible !important;
+}
+
+.flag {
+  position: sticky;
+  top: 5%;
+}
+
+.total-wrap:last-child {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.icon-wrap {
+  display: inline-flex;
+  justify-content: flex-end;
+  transform: translate(8%, 100%);
+}
+
+.timeline-item-wrap {
+  display: inline-flex;
+  flex-direction: column;
+  position: static;
+  top: 0;
+}
+
+.timeline {
+  display: inline-flex;
+  justify-content: center;
+  z-index: 100;
+  width: 100%;
+}
+
+.last-poi {
+  visibility: hidden;
+}
+
+.itinerary-card {
+  width: fit-content !important;
+}

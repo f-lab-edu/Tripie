@@ -1,0 +1,16 @@
+@use 'shared/variables' as *;
+
+.link-wrap {
+  display: inline-flex;
+  gap: 1rem;
+}
+
+.link {
+  font-size: 0.8rem !important;
+  width: fit-content;
+  font-weight: bold;
+  & > a {
+    text-decoration: none !important;
+    color: $theme-50 !important;
+  }
+}
