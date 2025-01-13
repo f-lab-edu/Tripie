@@ -1,8 +1,8 @@
-name: "Chromatic Deployment"
+name: "Chromatic Deployment Comment"
 
 on:
-  pull_request:
-    branches: ["main", "21-design-system"]
+  push:
+    branches: [21-design-system]
     paths:
       - packages/design-system/src/**
 
@@ -51,18 +51,10 @@ jobs:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.SECRET_GITHUB }}
 
-      - name: Get PR number from branch name
-        id: get_pr_number
+      - name: Add comment to original PR
         run: |
-          BRANCH_NAME=${GITHUB_HEAD_REF}
-          PR_NUMBER=$(echo "$BRANCH_NAME" | cut -d'-' -f1)
-          echo "PR_NUMBER=$PR_NUMBER" >> $GITHUB_ENV
-
-
-      - name: Create comment PR
-        uses: thollander/actions-comment-pull-request@v1
+          PR_NUMBER=${{ env.PR_NUMBER }}
+          COMMENT="🚀 Storybook: ${{ steps.chromatic.outputs.storybookUrl }}"
+          gh pr comment $PR_NUMBER --body "$COMMENT"
         env:
-          GITHUB_TOKEN: ${{ secrets.SECRET_GITHUB }}
-          BRANCH_NAME: ${{ github.head_ref || github.ref_name }} 
-        with:
-          message: "🚀storybook: ${{ steps.chromatic.outputs.storybookUrl }}"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
