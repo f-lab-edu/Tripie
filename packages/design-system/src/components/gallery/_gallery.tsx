@@ -30,6 +30,8 @@ const Gallery = ({ urls, className, displayLeftOverImgCount = false, variant = '
               height={DEFAULT_IMG_SIZE_PX}
               className={cx('gallery-item', 'overlay', variant)}
               key={url + index}
+              placeholder="blur"
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
             />
           </div>
         ) : (
@@ -40,6 +42,8 @@ const Gallery = ({ urls, className, displayLeftOverImgCount = false, variant = '
             height={DEFAULT_IMG_SIZE_PX}
             className={cx('gallery-item', variant)}
             key={url + index}
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
           />
         )
       )}

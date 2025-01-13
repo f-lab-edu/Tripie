@@ -6,7 +6,7 @@ import classNames from 'classnames/bind';
 import Chip from 'shared/components/Chip/Chip';
 import ParticleField from 'shared/components/Particle/ParticleField';
 
-import ROUTES from 'constants/routes';
+import ROUTE from 'constants/routes';
 import { useRouter } from 'next/navigation';
 import Style from './not-found.module.scss';
 
@@ -14,7 +14,7 @@ const cx = classNames.bind(Style);
 
 export default function NotFound() {
   const router = useRouter();
-  const handleClickHome = () => router.replace(ROUTES.PAGE.HOME.href);
+  const handleClickHome = () => router.replace(ROUTE.HOME.href);
   return (
     <Container className={cx('header')} margin="none">
       <Container className={cx('gradient-bottom')} margin="none"></Container>

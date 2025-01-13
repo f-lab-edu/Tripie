@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { motion } from 'framer-motion';
+import { Variants, motion } from 'framer-motion';
 import { ReactNode } from 'react';
 import Divider from 'shared/components/Divider/Divider';
 import Style from './contact.module.scss';
@@ -25,7 +25,7 @@ const TextUnderLineAnimation = ({
       whileTap={'open'}
     >
       {children}
-      <Divider variants={TEXT_UNDERLINE_VARIANTS.DIVIDER} className={cx('divider')} />
+      <Divider variants={TEXT_UNDERLINE_VARIANTS.DIVIDER as unknown as Variants} className={cx('divider')} />
     </motion.div>
   );
 };

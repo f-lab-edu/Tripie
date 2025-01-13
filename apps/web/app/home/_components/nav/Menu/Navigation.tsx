@@ -1,7 +1,8 @@
 'use client';
 
 import classNames from 'classnames/bind';
-import ROUTES from 'constants/routes';
+import RESOURCE from 'constants/resources';
+import ROUTE from 'constants/routes';
 import { motion } from 'framer-motion';
 import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
@@ -13,27 +14,26 @@ import { MENU_VARIANTS } from './variants';
 const cx = classNames.bind(Style);
 
 export const Navigation = () => {
-  const { status } = useSession();
-
+  const { status, data } = useSession();
   return (
     <motion.ul className={cx('navigation')} variants={MENU_VARIANTS.NAVIGATION}>
-      {ROUTES.PAGE.LANDING.map(({ label, href }) => (
-        <MenuItem key={href}>
+      {ROUTE.LANDING.map(({ label, href }, index) => (
+        <MenuItem key={href + index}>
           <Link href={href}>{label}</Link>
-          {label === 'Contact' ? <Icon src={ROUTES.RESOURCE.ARROW.src} /> : null}
+          {label === 'Contact' ? <Icon src={RESOURCE.ARROW} /> : null}
         </MenuItem>
       ))}
 
       {status === 'unauthenticated' ? (
-        <MenuItem key={'unauthenticated'}>
-          <Link href={'/api/auth/signin'}>Sign in</Link>
+        <MenuItem key={`unauthenticated`}>
+          <Link href={ROUTE.SIGN_IN.href}>{ROUTE.SIGN_IN.label}</Link>
         </MenuItem>
       ) : status === 'authenticated' ? (
         <>
-          <MenuItem key={'authenticated'}>
-            <Link href={'/trip-planner'}>AI enhanced trip</Link> <Icon src={ROUTES.RESOURCE.ARROW.src} />
+          <MenuItem key={`${data?.user?.name}-authenticated`}>
+            <Link href={'/trip-planner'}>AI enhanced trip</Link> <Icon src={RESOURCE.ARROW} />
           </MenuItem>
-          <MenuItem key={'authenticated'}>
+          <MenuItem key={`${data?.user?.name}-authenticated-signout`}>
             <div onClick={() => signOut()}>Sign out</div>
           </MenuItem>
         </>
@@ -42,7 +42,7 @@ export const Navigation = () => {
       )}
       {process.env.NODE_ENV === 'development' ? (
         <MenuItem key={'dev'}>
-          <Link href={ROUTES.PAGE.PLAYGROUND.href}>{ROUTES.PAGE.PLAYGROUND.label}</Link>
+          <Link href={ROUTE.PLAYGROUND.href}>{ROUTE.PLAYGROUND.label}</Link>
         </MenuItem>
       ) : null}
       {/* <div className={cx('menu-item')}>

@@ -93,6 +93,8 @@ export async function getTripPlan(context: TripPlannerContext) {
       ),
     ];
     const country = iso31661.find(item => item.alpha2 === context.code)?.alpha3 as string;
+
+    // console.log('getTripPlan placeSet', placeSet);
     const locations = await Promise.all(placeSet.map(place => postAwsPlace(place, country)));
     // return { plans: object, placeSet, locations, places };
 

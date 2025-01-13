@@ -1,27 +1,25 @@
 'use client';
 
-import COLORS from 'constants/colors';
-import { useEffect, useRef, useState } from 'react';
-import Globe, { GlobeMethods } from 'react-globe.gl';
-
 import classNames from 'classnames/bind';
+import COLORS from 'constants/colors';
+import { useEffect, useRef } from 'react';
+import Globe, { GlobeMethods } from 'react-globe.gl';
 import Countries from './countries.json';
 import Style from './globe.module.scss';
 
 const cx = classNames.bind(Style);
 
 const RotatingGlobe = () => {
-  const [countries] = useState(Countries);
   const globeRef = useRef<GlobeMethods>();
-  const [rotation] = useState(true);
 
   useEffect(() => {
-    if (globeRef?.current != null) {
-      globeRef.current.controls().autoRotate = true;
-      globeRef.current.controls().autoRotateSpeed = 2.5;
-      globeRef.current.controls().enableZoom = false;
+    const globe = globeRef.current;
+    if (globe != null) {
+      globe.controls().autoRotate = true;
+      globe.controls().autoRotateSpeed = 2.5;
+      globe.controls().enableZoom = false;
     }
-  }, [rotation]);
+  }, []);
 
   return (
     <div className={cx('globe')}>
@@ -30,11 +28,12 @@ const RotatingGlobe = () => {
         ref={globeRef}
         backgroundColor={COLORS['100000']}
         globeImageUrl="/earth-dark.jpeg"
-        hexPolygonsData={countries.features}
+        hexPolygonsData={Countries.features}
         hexPolygonColor={() => COLORS[50]}
         atmosphereColor={COLORS[50]}
       />
     </div>
   );
 };
+
 export default RotatingGlobe;

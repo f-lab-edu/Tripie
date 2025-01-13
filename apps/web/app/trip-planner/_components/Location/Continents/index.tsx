@@ -1,7 +1,7 @@
 import { Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import { CONTINENTS } from 'constants/continents';
-import ROUTES from 'constants/routes';
+import RESOURCE from 'constants/resources';
 import { ContinentKeys } from 'models/Continent';
 import { useMemo, useState } from 'react';
 import AnimatedButton from 'shared/components/Button/AnimatedButton';
@@ -51,7 +51,7 @@ export function ContinentStep({ context, onNext }: Props) {
         >
           <Container margin="none" className={cx('flex')}>
             "{selectedContinentName?.name}"{selectedContinentName?.name === '유럽' ? '으' : null}로 보기{' '}
-            <Icon src={ROUTES.RESOURCE.ARROW['src']} />
+            <Icon src={RESOURCE.ARROW} />
           </Container>
         </AnimatedButton>
       </Container>

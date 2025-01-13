@@ -19,5 +19,5 @@ export const TEXT_UNDERLINE_VARIANTS = {
         duration: 0.5,
       },
     }),
-  } as Variants,
-};
+  },
+} as Variants;

@@ -2,11 +2,13 @@
 import { Container } from '@tripie-pyotato/design-system';
 
 import classNames from 'classnames/bind';
-import ROUTES from 'constants/routes';
 
+import RESOURCE from 'constants/resources';
 import { ContinentKeys } from 'models/Continent';
 import { useCallback, useMemo, useState } from 'react';
-import { LooseValue } from 'react-calendar/dist/cjs/shared/types';
+
+import useCalendar from 'hooks/useCalendar';
+import { LooseValue } from 'react-calendar/dist/esm/shared/types.js';
 import AnimatedButton from 'shared/components/Button/AnimatedButton';
 import Calendar from 'shared/components/Calendar';
 import CalendarHeader from 'shared/components/Calendar/CalendarHeader';
@@ -21,20 +23,6 @@ export type ValuePiece = Date;
 
 export type Value = ValuePiece | [ValuePiece, ValuePiece];
 
-const yearlyCalendar = () => {
-  const today = new Date();
-  let thisYear = today.getFullYear();
-  let thisMonth = today.getMonth();
-  let thisDay = today.getDate();
-  return Array.from({ length: 13 }, (_, index) => {
-    return {
-      max: new Date(thisYear + 1, thisMonth, thisDay),
-      min: new Date(thisYear, thisMonth, thisDay),
-      days: new Date(thisMonth + index >= 12 ? thisYear + 1 : thisYear, (thisMonth + index) % 12, thisDay),
-    };
-  });
-};
-
 const Calendars = ({
   onNext,
   context,
@@ -48,22 +36,25 @@ const Calendars = ({
     companion?: string;
   };
 }) => {
-  const [calendar, _] = useState(() => yearlyCalendar());
-  const [selected, setSelected] = useState<Date[] | Date>(() =>
-    context?.duration != null ? localeString2Date(context.duration.split(' ~ ')) : new Date()
-  );
+  const { calendarFormatTime, calendar, isValidTime } = useCalendar();
 
-  console.log(context, selected);
+  // const [selected, setSelected] = useState<Date[] | Date>(() =>
+  //   !isValidTime || context?.duration == null ? new Date(serverTime) : localeString2Date(context.duration.split(' ~ '))
+  // );
+
+  const [selected, setSelected] = useState<Date[] | Date>(() =>
+    !isValidTime || context?.duration == null ? calendarFormatTime : localeString2Date(context.duration.split(' ~ '))
+  );
 
   /**
    *  여행 시작과 끝 날짜를 memoize한 값
    *  */
   const duration = useMemo(() => {
     const dates = selected?.toLocaleString().split(',');
+
     // 시작과 끝 날짜를 정한 경우
     if (dates.length === 4) {
       const [startDate, startTime, endDate, endTime] = dates;
-
       return { start: startDate + startTime, end: endDate + endTime };
     } else if (dates.length === 2) {
       const [startDate, startTime] = dates;
@@ -71,7 +62,7 @@ const Calendars = ({
     } else {
       return { start: '', end: '' };
     }
-  }, [selected, context]);
+  }, [selected, context, selected]);
 
   const handleSubmit = useCallback(() => {
     if (duration.end === '' || duration.start === '') {
@@ -118,7 +109,7 @@ const Calendars = ({
               '여행의 시작과 끝나는 날짜를 선택해주세요.'
             ) : (
               <>
-                {duration.start} ~ {duration.end} <Icon src={ROUTES.RESOURCE.ARROW['src']} />
+                {duration.start} ~ {duration.end} <Icon src={RESOURCE.ARROW} />
               </>
             )}
           </Container>

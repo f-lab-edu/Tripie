@@ -2,21 +2,22 @@
 @use 'shared/mixins' as *;
 
 .restaurant {
-  background-color: red;
+  @include map-marker('restaurant');
 }
 
 .hotel {
-  background-color: pink;
+  @include map-marker('hotel');
 }
 
 .attraction {
-  background-color: orange;
+  @include map-marker('attraction');
 }
+
 .marker {
   display: inline-flex;
   border-radius: 100%;
-
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  padding: 0.2rem !important;
 }

@@ -1,10 +1,10 @@
 'use client';
 import { Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
-import ROUTES from 'constants/routes';
 import Icon from 'shared/components/Icon/Icon';
 import Calendar from './Calendar';
 
+import RESOURCE from 'constants/resources';
 import { ContinentKeys } from 'models/Continent';
 import Style from './duration.module.scss';
 
@@ -27,13 +27,12 @@ const DurationFunnel = ({ context, onNext }: Props) => {
     <>
       <Container margin="none">
         <Container margin="none">
-          <Icon.Navigate src={ROUTES.RESOURCE.ARROW['src']} />
+          <Icon.Navigate src={RESOURCE.ARROW} />
         </Container>
         <h2>
           여행 <span className={cx('accented')}>기간</span>은?
         </h2>
       </Container>
-
       <Calendar onNext={onNext} context={context} />
     </>
   );

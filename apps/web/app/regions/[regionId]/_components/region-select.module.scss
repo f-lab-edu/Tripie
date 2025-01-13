@@ -1,0 +1,31 @@
+@use 'shared/variables' as *;
+@use 'shared/mixins' as *;
+.accented {
+  @include accented;
+}
+
+.card-wrap {
+  height: 100% !important;
+  & div {
+    height: 100% !important;
+  }
+}
+.flex {
+  @include flex;
+}
+
+.accordian-body {
+  height: 100% !important;
+}
+.chip-wrap {
+  display: inline-flex;
+  justify-content: center;
+}
+
+.chip {
+  // @include chip;
+}
+
+.animated-text {
+  padding: 0 !important;
+}

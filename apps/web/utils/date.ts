@@ -20,3 +20,20 @@ export const localeString2Date = (localStringDate: string[], local?: string) => 
     });
   }
 };
+
+/**
+ * 1년 달력. 달력 최소/최대를 오늘을 기준으로 1년만 보이도록 합니다.
+ */
+export const yearlyCalendar = () => {
+  const today = new Date();
+  let thisYear = today.getFullYear();
+  let thisMonth = today.getMonth();
+  let thisDay = today.getDate();
+  return Array.from({ length: 13 }, (_, index) => {
+    return {
+      max: new Date(thisYear + 1, thisMonth, thisDay),
+      min: new Date(thisYear, thisMonth, thisDay),
+      days: new Date(thisMonth + index >= 12 ? thisYear + 1 : thisYear, (thisMonth + index) % 12, thisDay),
+    };
+  });
+};

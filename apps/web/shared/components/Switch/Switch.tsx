@@ -17,7 +17,7 @@ const Switch = ({
   cycle: () => void;
   className?: string;
 }) => {
-  console.log(current);
+  // console.log(current);
   return (
     <motion.div className={cx('switch', className)} animate={current} onTapStart={() => cycle()}>
       <motion.div

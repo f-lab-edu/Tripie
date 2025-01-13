@@ -1,0 +1,10 @@
+@use 'shared/variables' as *;
+@use 'shared/mixins' as *;
+
+.accented {
+  @include accented;
+}
+
+.has-headline {
+  margin-top: 0 !important;
+}

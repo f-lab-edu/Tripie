@@ -44,3 +44,18 @@ export type RegionArticleInfo = {
   scrapped: boolean;
   reviewed: boolean;
 };
+
+export type ArticleImageUrl = { url: string };
+export type ArticleImage = {
+  cloudinaryBucket: string;
+  cloudinaryId: string;
+  frame?: string;
+  height: number;
+  id: string;
+  metadata: { format: string };
+  source: {};
+  sourceUrl: string;
+  type: string;
+  width: number;
+  sizes: { full: ArticleImageUrl; large: ArticleImageUrl; small_square: ArticleImageUrl };
+};

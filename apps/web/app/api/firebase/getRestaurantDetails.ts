@@ -28,7 +28,7 @@ const getRestaurantDetails = async (docName: string, id: string, articleId: stri
 
     if (filtered.length > 0) {
       const { data, ...others } = filtered[0];
-      console.log(data);
+      // console.log('getRestaurantDetails',data);
       return { data, ...others };
     }
   } catch (e) {

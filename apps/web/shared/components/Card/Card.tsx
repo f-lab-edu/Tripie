@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 
 import { Container } from '@tripie-pyotato/design-system';
 import { motion } from 'framer-motion';
-import { ReactNode } from 'react';
+import { MutableRefObject, ReactNode, RefObject } from 'react';
 
 import { SHINE_VARIANT } from '../Chip/variants';
 import MotionSlideUp from '../MotionSlideUp/MotionSlideUp';
@@ -38,12 +38,14 @@ const Card = ({ duration, replays, delay = 0.3, children, className }: Partial<C
 const CardContent = ({
   children,
   className,
+  ref,
 }: Readonly<{
   children: ReactNode;
   className?: string;
+  ref?: MutableRefObject<HTMLDivElement | null>;
 }>) => {
   return (
-    <Container margin="none" className={cx('with-border', 'inner-wrap', className)}>
+    <Container margin="none" ref={ref} className={cx('with-border', 'inner-wrap', className)}>
       {children}
     </Container>
   );
@@ -51,10 +53,12 @@ const CardContent = ({
 
 const ClickableCardContent = ({
   children,
+  ref,
   className,
   onClick,
   selected,
 }: Readonly<{
+  ref?: RefObject<HTMLDivElement>;
   children: ReactNode;
   className?: string;
   onClick?: () => void;
@@ -62,6 +66,7 @@ const ClickableCardContent = ({
 }>) => {
   return (
     <motion.div
+      ref={ref}
       whileHover={'shine'}
       whileTap={'shine'}
       animate={selected ? 'selected' : 'rest'}

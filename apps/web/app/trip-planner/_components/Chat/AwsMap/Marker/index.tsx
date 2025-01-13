@@ -52,8 +52,8 @@ const Markers = ({ locationMarker }: { locationMarker: LocationMarker[] }) => {
       {popup === current &&
         popupMarkers.map((markers, index) => (
           <Popup
-            longitude={markers.lng as number}
-            latitude={markers.lat as number}
+            longitude={markers.lng}
+            latitude={markers.lat}
             anchor="bottom"
             offset={24}
             key={`popup-${markers.lng} + ${markers.lat}+${index}`}
@@ -65,17 +65,15 @@ const Markers = ({ locationMarker }: { locationMarker: LocationMarker[] }) => {
       {locationMarker.map((marker, index) => (
         <Marker
           key={`location-${marker.lng} + ${marker.lat}+${index}`}
-          longitude={marker.lng as number}
-          latitude={marker.lat as number}
+          longitude={marker.lng}
+          latitude={marker.lat}
           anchor="bottom"
           onClick={() => {
             cycle(marker.parent);
             setPopup(current);
           }}
         >
-          <Chip className={cx('marker', marker.label)} selected={marker.parent === current}>
-            {+marker.index.split('-')[0] + 1}
-          </Chip>
+          <Chip.Marker className={marker.label + 1} marker={marker} popup={popup} />
         </Marker>
       ))}
     </>

@@ -6,6 +6,7 @@ export const ACCORDIAN_VARIANTS = {
     closed: () => ({
       height: '0%',
       opacity: 0,
+      display: 'none',
     }),
     open: () => ({
       transform: {

@@ -45,3 +45,19 @@
   cursor: not-allowed;
   color: $theme-300;
 }
+
+// 다음으로 넘어가기 버튼에 커서를 올리는 애니메이션 버튼 스타일
+
+.next-button-wrap {
+  width: 100%;
+}
+
+.submit-button {
+  width: 100%;
+}
+
+.all-info-cursor {
+  position: 'fixed';
+  right: 2rem;
+  float: right;
+}

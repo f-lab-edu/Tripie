@@ -12,6 +12,7 @@
   background-color: $theme-200;
   font-size: 0.8rem;
   cursor: pointer;
+  @include chip;
 }
 
 .accented {
@@ -50,4 +51,25 @@
 
 .selected {
   background-color: $theme-100;
+}
+
+.restaurant {
+  @include map-marker('restaurant');
+}
+
+.hotel {
+  @include map-marker('hotel');
+}
+
+.attraction {
+  @include map-marker('attraction');
+}
+
+.marker {
+  display: inline-flex;
+  border-radius: 100%;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0.2rem !important;
 }

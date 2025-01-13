@@ -35,3 +35,12 @@
 .card-content-wrap {
   height: 28rem !important;
 }
+
+.wrap {
+  @include grid(5);
+  align-content: center;
+  height: min-content;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}

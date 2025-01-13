@@ -7,7 +7,6 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function GET(req: NextRequest) {
   try {
     const place = req.nextUrl.searchParams.get('place') as string;
-
     const input = {
       FunctionName: FUNCTION_NAME,
       Payload: JSON.stringify({ url: API.GOOGLE_SEARCH_URL + place }),

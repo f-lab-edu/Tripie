@@ -4,8 +4,9 @@ import classNames from 'classnames/bind';
 import { Container } from '@tripie-pyotato/design-system';
 
 import { MAX_TOKEN } from 'constants/chat';
-import ROUTES from 'constants/routes';
+import RESOURCE from 'constants/resources';
 import useChat from 'hooks/query/useChat';
+import useChatToken from 'hooks/useChatToken';
 import { Activity, AwsPlace, AwsPlaceResult } from 'models/Aws';
 import { ContinentKeys } from 'models/Continent';
 import { TripieUser } from 'models/User';
@@ -60,6 +61,12 @@ export const SelectedDateContext = createContext<{ currentDate: number; dateCycl
 const ChatFunnel = ({ context }: ChatFunnelProps) => {
   const { data, isLoading } = useChat(context);
   const { status, data: userData } = useSession();
+  // const { data: googleSearchData, isLoading: isLoadingGoogleSearchData } = useLamdba(
+  //   data?.places?.[0],
+  //   context.city.selected.join(', ')
+  // );
+
+  const { tokenData } = useChatToken({ context });
 
   // 여행 일정 중 선택한 날짜
   const [selectedDate, setSelectedDate] = useState<number>(0);
@@ -76,10 +83,21 @@ const ChatFunnel = ({ context }: ChatFunnelProps) => {
     return { currentDate: selectedDate, dateCycle: setSelectedDate };
   }, [selectedDate]);
 
-  // console.log(userData);
-
   if (status === 'unauthenticated') {
     signIn();
+  }
+
+  // if (googleSearchData != null) {
+  //   console.log('googleSearchData', googleSearchData);
+  // }
+
+  // // 여행 일정 맛보기
+  // if (isLoadingGoogleSearchData && !isLoading && data?.plans != null) {
+  //   return <ChatTab data={data.plans} />;
+  // }
+
+  if (data) {
+    console.log(data);
   }
 
   return (
@@ -91,11 +109,11 @@ const ChatFunnel = ({ context }: ChatFunnelProps) => {
               <Icon.Loading />
             ) : (userData?.user as TripieUser)?.isAdmin ? (
               <>
-                <Icon.Navigate src={ROUTES.RESOURCE.ARROW['src']} />
+                <Icon.Navigate src={RESOURCE.ARROW} />
               </>
             ) : (
               <>
-                <Icon.Navigate src={ROUTES.RESOURCE.ARROW['src']} />{' '}
+                <Icon.Navigate src={RESOURCE.ARROW} />{' '}
                 {MAX_TOKEN > (userData?.user as TripieUser)?.usedGptToken
                   ? `${MAX_TOKEN - (userData?.user as TripieUser)?.usedGptToken}토큰이 남았습니다.`
                   : `토큰을 모두 사용하셨습니다.`}
@@ -112,7 +130,8 @@ const ChatFunnel = ({ context }: ChatFunnelProps) => {
           ) : (
             <>
               <ChatTab data={data.plans} />
-              <AwsMap plans={data.plans} locations={data.locations} />
+              <AwsMap places={data.places} plans={data.plans} locations={data.locations} />
+              {/* <AwsMap plans={data.plans} locations={data.locations} /> */}
             </>
           )}
         </Container>

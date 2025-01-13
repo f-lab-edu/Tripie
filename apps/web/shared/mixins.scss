@@ -179,7 +179,7 @@ $background-gradients: (
 }
 
 @mixin submit-button {
-  width: 100%;
+  width: 100% !important;
 }
 
 @mixin submit-button-long-text {
@@ -192,4 +192,45 @@ $background-gradients: (
 
 .flex {
   @include flex;
+}
+
+@mixin flex-items {
+  display: inline-flex;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  width: 100%;
+  list-style: none;
+  padding: 0;
+
+  // 스크롤 바 스타일
+  scrollbar-color: $theme-50 $theme-300;
+  scrollbar-width: thin;
+}
+
+@mixin map-marker($variant) {
+  display: inline-flex;
+  border-radius: 100%;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0.2rem !important;
+  @if $variant == 'restaurant' {
+    background-color: red;
+  }
+  @if $variant == 'hotel' {
+    background-color: pink;
+  }
+  @if $variant == 'attraction' {
+    background-color: orange;
+  }
+}
+
+@mixin scroll {
+  // 스크롤 바 스타일
+  overflow-y: scroll !important;
+  position: relative !important;
+  scrollbar-color: $theme-50 $theme-300;
+  scrollbar-width: thin;
 }

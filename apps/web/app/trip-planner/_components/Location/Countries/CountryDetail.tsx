@@ -33,7 +33,7 @@ const Detail = ({ data }: { data: Continentl }) => {
               <li className={cx('list-item')}>
                 <Headings.H3 className={cx('accented', 'language')}>공식 언어</Headings.H3>
                 {data.official_language != null ? (
-                  <List className={cx('flex')}>
+                  <List className={cx('flex', 'wrap')}>
                     {data?.official_language.map((language: string) => (
                       <li key={language}>
                         <Chip>{language}</Chip>

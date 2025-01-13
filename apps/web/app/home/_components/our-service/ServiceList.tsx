@@ -2,6 +2,7 @@
 
 import classNames from 'classnames/bind';
 import Card from 'shared/components/Card/Card';
+import RotatingGlobe from 'shared/components/Globe/RotatingGlobe';
 import Description from '../our-process/description/Description';
 import RegionInfo from './RegionInfo';
 import Style from './service-list.module.scss';
@@ -11,13 +12,13 @@ const cx = classNames.bind(Style);
 const serviceList = [
   {
     label: 'Subscribe',
-    content: 'content',
+    content: <></>,
     description:
       "Choose your preferred plan to start and cancel or pause at anytime you like. So you're as flexible as your business' needs.",
   },
   {
     label: 'AI 추천 맞춤 일정',
-    content: 'content',
+    content: <RotatingGlobe />,
     description: '트리피 회원이신가요? 취향에 맞게 일정을 추천해 드립니다! 순식간에 여행 준비 끝!',
   },
 

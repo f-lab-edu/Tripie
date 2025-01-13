@@ -1,7 +1,7 @@
 'use client';
 import { Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
-import { motion } from 'framer-motion';
+import { AnimationProps, motion } from 'framer-motion';
 import { ReactNode } from 'react';
 import Style from './animated-button.module.scss';
 import { VARIANTS } from './variants';
@@ -66,6 +66,44 @@ const AnimatedText = ({
       whileHover="hover"
       whileTap="hover"
       animate="rest"
+    >
+      <Text>{children}</Text>
+      <Text className={cx('hovered')}>{otherChild}</Text>
+    </motion.span>
+  );
+};
+
+export const AnimatedTitle = ({
+  children,
+  className,
+  otherChild = children,
+  withBorder = false,
+  onClick,
+  restY = 15,
+  hoverY = -15,
+  animate = 'rest',
+  transition,
+}: Readonly<{
+  children: ReactNode;
+  otherChild?: ReactNode;
+  className?: string;
+  withBorder?: boolean;
+  onClick?: () => void;
+  restY: number;
+  hoverY: number;
+  animate?: 'rest' | 'hover';
+  transition?: AnimationProps['transition'];
+}>) => {
+  return (
+    <motion.span
+      onClick={onClick}
+      className={cx('button', withBorder && 'with-border', className)}
+      initial="rest"
+      whileHover="hover"
+      whileTap="hover"
+      animate={animate}
+      transition={transition}
+      variants={VARIANTS.TITLE(restY, hoverY)}
     >
       <Text>{children}</Text>
       <Text className={cx('hovered')}>{otherChild}</Text>

@@ -105,16 +105,64 @@ export const ICON_VARIANTS = {
       translateX: `${Math.random() * 1000}rem`,
       translateY: `${Math.random() * 100}px`,
     }),
-    float: () =>
-      ({
-        translateX: '-100%',
-        delay: 1,
-        transition: {
-          decelerate: 2,
-          repeat: Infinity,
-          duration: 8,
-          bounce: 1,
-        },
-      }) as Variants,
-  },
+    float: () => ({
+      translateX: '-100%',
+      delay: 1,
+      transition: {
+        decelerate: 2,
+        repeat: Infinity,
+        duration: 8,
+        bounce: 1,
+      },
+    }),
+  } as Variants,
+  CURSOR: {
+    initial: () => ({
+      translateY: '-10px',
+    }),
+    hover: () => ({
+      pointerEvents: 'none',
+      translateX: '-50px',
+      translateY: '-5px',
+      transition: {
+        decelerate: 2,
+        duration: 0.5,
+        bounce: 0,
+      },
+    }),
+  } as Variants,
+  SCROLL: (next: boolean) =>
+    (next
+      ? {
+          initial: () => ({
+            rotate: '0deg',
+            transition: {
+              duration: 0.1,
+              bounce: 1,
+            },
+          }),
+          hover: () => ({
+            rotate: '-90deg',
+            transition: {
+              duration: 0.1,
+              bounce: 1,
+            },
+          }),
+        }
+      : {
+          initial: () => ({
+            rotate: '-180deg',
+            transition: {
+              duration: 0.1,
+              bounce: 1,
+            },
+          }),
+          hover: () => ({
+            rotate: '0deg',
+            transition: {
+              duration: 0.1,
+              bounce: 1,
+            },
+          }),
+        }) as Variants,
 };

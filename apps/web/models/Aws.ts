@@ -1,4 +1,6 @@
+import { Region } from './Attraction';
 import { ContinentKeys } from './Continent';
+import { Category, Source } from './Itinery';
 
 export type TripPlanner = {
   continent: ContinentKeys;
@@ -70,4 +72,12 @@ export type AwsSuggestedPlaceResult = {
     MaxResults: number;
     Text: string;
   };
+};
+
+export type Poi = {
+  categories: Category[];
+  id: string;
+  region: Region;
+  source: Source;
+  type: string;
 };

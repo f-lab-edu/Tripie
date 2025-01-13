@@ -1,10 +1,10 @@
 import { Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
-import ROUTES from 'constants/routes';
 
 import Icon from 'shared/components/Icon/Icon';
 
 import PREFERENCE_LIST from 'constants/preferences';
+import RESOURCE from 'constants/resources';
 import { ContinentKeys } from 'models/Continent';
 import { useCallback, useState } from 'react';
 import AnimatedButton from 'shared/components/Button/AnimatedButton';
@@ -40,7 +40,7 @@ const PreferenceFunnel = ({ context, onNext }: Props) => {
     <>
       <Container margin="none">
         <Container margin="none">
-          <Icon.Navigate src={ROUTES.RESOURCE.ARROW['src']} />
+          <Icon.Navigate src={RESOURCE.ARROW} />
         </Container>
         <h2>
           내가 선호하는 여행 <span className={cx('accented')}>스타일</span>은?
@@ -66,7 +66,7 @@ const PreferenceFunnel = ({ context, onNext }: Props) => {
               '다중 선택이 가능해요.'
             ) : (
               <>
-                다음 <Icon src={ROUTES.RESOURCE.ARROW['src']} />
+                다음 <Icon src={RESOURCE.ARROW} />
               </>
             )}
           </Container>

@@ -1,7 +1,7 @@
 import { Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import PREFERENCE_LIST from 'constants/preferences';
-import ROUTES from 'constants/routes';
+import RESOURCE from 'constants/resources';
 import { ContinentKeys } from 'models/Continent';
 import { useCallback, useMemo, useState } from 'react';
 import AnimatedButton from 'shared/components/Button/AnimatedButton';
@@ -33,7 +33,7 @@ const CityFunnel = ({ context, onNext }: Props) => {
     <>
       <Container margin="none">
         <Container margin="none">
-          <Icon.Navigate src={ROUTES.RESOURCE.ARROW['src']} />
+          <Icon.Navigate src={RESOURCE.ARROW} />
         </Container>
         <h2>
           내가 여행하고 싶은 <span className={cx('accented')}>도시</span>는?
@@ -58,7 +58,7 @@ const CityFunnel = ({ context, onNext }: Props) => {
               '다중 선택이 가능해요.'
             ) : (
               <>
-                다음 <Icon src={ROUTES.RESOURCE.ARROW['src']} />
+                다음 <Icon src={RESOURCE.ARROW} />
               </>
             )}
           </Container>

@@ -3,7 +3,7 @@ import { Container } from '@tripie-pyotato/design-system';
 import getContinentlList from 'app/api/firebase/getContinentl';
 import Loading from 'app/home/_components/loading/loading';
 import classNames from 'classnames/bind';
-import ROUTES from 'constants/routes';
+import RESOURCE from 'constants/resources';
 import useContinentl from 'hooks/query/useContinentl';
 import useCountries from 'hooks/query/useCountries';
 import { ContinentKeys } from 'models/Continent';
@@ -57,7 +57,7 @@ export function CountryStep({ context, onNext }: Props) {
     <>
       <Container margin="none">
         <Container margin="none">
-          <Icon.Navigate src={ROUTES.RESOURCE.ARROW['src']} />
+          <Icon.Navigate src={RESOURCE.ARROW} />
         </Container>
         <h2>
           떠나고 싶은 <span className={cx('accented')}>나라</span>는?
@@ -88,7 +88,7 @@ export function CountryStep({ context, onNext }: Props) {
           className={cx('submit-button')}
         >
           <Container margin="none" className={cx('flex')}>
-            "{selectedCountry}"로 보기 <Icon src={ROUTES.RESOURCE.ARROW['src']} />
+            "{selectedCountry}"로 보기 <Icon src={RESOURCE.ARROW} />
           </Container>
         </AnimatedButton>
       </Container>

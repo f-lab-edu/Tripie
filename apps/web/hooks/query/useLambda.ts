@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import API from 'constants/api-routes';
 
 const useLamdba = (places: string[], selectedCities: string) => {
   const res = useQuery({
@@ -6,7 +7,15 @@ const useLamdba = (places: string[], selectedCities: string) => {
     queryFn: async () => {
       // return await Promise.all(places.map(place => fetch('/api/aws/lambda?place=' + place)));
       return await Promise.all(
-        places.map(place => fetch('/api/aws/lambda?place=' + `${place} near ${selectedCities}`))
+        places
+          .slice(0, 1)
+          // places.
+          .map(place =>
+            fetch(`${API.BASE}${API.AWS_LAMBDA}?place=${place} near ${selectedCities}`).then(v => {
+              console.log('v', v.json());
+              return v;
+            })
+          )
       );
     },
     staleTime: Infinity, // never be considered stale

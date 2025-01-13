@@ -1,29 +1,64 @@
 'use client';
-import { Map } from 'react-map-gl/maplibre';
+import { LngLatBoundsLike, Map, PaddingOptions, PointLike, ViewState } from 'react-map-gl/maplibre';
 
 import { AiTripPlanResponse } from 'app/api/chat/route';
 import { MAP_ID, STYLE } from 'constants/maps';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { AwsPlaceResult } from 'models/Aws';
-import { useContext, useEffect, useMemo } from 'react';
+import { CSSProperties, useContext, useEffect, useMemo } from 'react';
 import { AwsLocationWithLabel, LocationMarker, SelectedDateContext, TabContext } from '..';
 import Lines from './Lines';
 import Markers from './Marker';
 
-function AwsMap({ plans, locations }: Readonly<{ plans: AiTripPlanResponse; locations: AwsPlaceResult[] }>) {
+function AwsMap({
+  plans,
+  locations,
+  interactive = true,
+  // places,
+  initialViewState,
+
+  style,
+}: Readonly<{
+  style?: CSSProperties;
+  plans: AiTripPlanResponse;
+  locations: AwsPlaceResult[];
+  interactive?: boolean;
+  places: string[][];
+  initialViewState?: Partial<ViewState> & {
+    bounds?: LngLatBoundsLike;
+    fitBoundsOptions?: {
+      offset?: PointLike;
+      minZoom?: number;
+      maxZoom?: number;
+      padding?: number | PaddingOptions;
+    };
+  };
+}>) {
   const { currentDate } = useContext(SelectedDateContext);
   const { cycle } = useContext(TabContext);
+  // const { data } = useLamdba(places.flat());
+
+  // if (data) {
+  //   console.log(data);
+  // }
+
+  // if (data == null) {
+  //   return <>loading....</>;
+  // } else {
+  //   return <>{JSON.stringify(data)}</>;
+  // }
 
   /**
    * 선택 날짜에 따른 지도 좌표 데이터와 label. label에 따라 좌표 색이 달라집니다.
    */
+  //!! 필터 조건 변경
   const locationData = useMemo(() => {
     return plans.trips.map(trip => {
-      return trip.activities.reduce((acc, curr) => {
-        const filtered = locations.filter(
-          ({ Summary }) => Summary.Text.split('restaurant')[0].trim() === curr.place.split('restaurant')[0].trim()
-        );
-        const planWithLabel = { ...filtered[0], label: curr.label } as AwsLocationWithLabel;
+      // console.log('trip', trip);
+      return trip.activities.reduce((acc, curr, index) => {
+        // console.log('locations', locations);
+        // const filtered = locations.filter(result => result?.Summary?.Text === curr.place);
+        const planWithLabel = { ...locations[index], label: curr.label } as AwsLocationWithLabel;
         acc.push(planWithLabel);
         return acc;
       }, [] as AwsLocationWithLabel[]);
@@ -34,19 +69,21 @@ function AwsMap({ plans, locations }: Readonly<{ plans: AiTripPlanResponse; loca
     cycle(`${currentDate + 1}-0`);
   }, [currentDate]);
 
+  // console.log('locationData', locationData);
+
   /**
    * 지도의 좌표들, 선택한 여행 일자 따라서 리렌더
    */
   const locationMarker = useMemo(() => {
     const selectedLocation = locationData[currentDate] as AwsLocationWithLabel[];
     return selectedLocation
-      .map(({ Results, label }, index) => {
+      .map((result, index) => {
         const temp = [] as LocationMarker[];
-        Results.forEach((curr, innerIndex) => {
+        result?.Results?.forEach((curr, innerIndex) => {
           temp.push({
-            lat: curr.Place.Geometry.Point[1],
-            lng: curr.Place.Geometry.Point[0],
-            label,
+            lat: +curr.Place.Geometry.Point[1],
+            lng: +curr.Place.Geometry.Point[0],
+            label: result.label,
             info: curr.Place.Label,
             index: `${index}-${innerIndex}`,
             parent: `${currentDate + 1}-${index}`,
@@ -56,6 +93,8 @@ function AwsMap({ plans, locations }: Readonly<{ plans: AiTripPlanResponse; loca
       })
       .flat();
   }, [currentDate, locationData]);
+
+  console.log('locationMarker', locationMarker);
 
   /**
    * 지도의 중심의 경도와 위도.
@@ -83,8 +122,10 @@ function AwsMap({ plans, locations }: Readonly<{ plans: AiTripPlanResponse; loca
       initialViewState={{
         ...center,
         zoom: 11,
+        ...initialViewState,
       }}
-      style={{ width: '100%', height: '85vh', display: 'inline-block', borderRadius: '8px' }}
+      interactive={interactive}
+      style={{ width: '100%', height: '85vh', display: 'inline-block', borderRadius: '8px', ...style }}
       mapStyle={STYLE}
     >
       <Markers locationMarker={locationMarker} />

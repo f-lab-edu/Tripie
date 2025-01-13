@@ -5,6 +5,14 @@ import GitHubProvider from 'next-auth/providers/github';
 import KakaoProvider from 'next-auth/providers/kakao';
 import { prisma } from '../prisma';
 
+type CustomUser = DefaultUser & {
+  id: string;
+  usedGptToken: number;
+};
+
+interface CustomSession extends DefaultSession {
+  user: CustomUser;
+}
 const options = {
   providers: [
     GitHubProvider({
@@ -31,9 +39,7 @@ const options = {
     }) {
       session.user = user;
       session.token = token;
-      // return { session };
-      // console.log('', session);
-      return session as Session | DefaultSession;
+      return session as CustomSession;
     },
   },
   // 커스텀 인증 페이지들

@@ -9,9 +9,11 @@ const Description = ({
   children,
   order,
   descriptionTitle,
+  lineBreak = false,
 }: {
   children: ReactNode;
   order?: number;
+  lineBreak?: boolean;
   descriptionTitle?: string;
 }) => {
   return (
@@ -24,7 +26,7 @@ const Description = ({
           {descriptionTitle}
         </Headings.H3>
       ) : null}
-      <Container className={cx('description')} margin="none">
+      <Container className={cx('description', lineBreak ? 'line-break' : '')} margin="none">
         {children}
       </Container>
     </>
