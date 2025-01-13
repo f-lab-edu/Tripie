@@ -1,5 +1,6 @@
 import { collection, getDocs } from 'firebase/firestore';
-import db from 'firebase/store';
+// import db from 'firebase/store';
+import db from '../../../firebase/store';
 
 type MetaDataContents = {
   image: TripieMetaImage;

@@ -1,7 +1,8 @@
-import { query, where } from 'firebase/firestore';
+import { collection, query, where } from 'firebase/firestore';
 
-import { collection } from 'firebase/firestore';
-import db from 'firebase/store';
+// import { collection } from 'firebase/firestore';
+// import db from 'firebase/store';
+import db from '../../../firebase/store';
 
 const getRegionFromCountry = async (preference: string[]) => {
   const citiesRef = collection(db, 'cities');

@@ -1,6 +1,7 @@
 import { collection, getDocs } from 'firebase/firestore';
-import db from 'firebase/store';
+// import db from 'firebase/store';
 import { AttractionArticle } from 'models/Attraction';
+import db from '../../../firebase/store';
 
 type RestaurantData = {
   restaurantId: string;

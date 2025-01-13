@@ -1,5 +1,6 @@
 import { doc, writeBatch } from 'firebase/firestore';
-import db from 'firebase/store';
+// import db from 'firebase/store';
+import db from '../../../firebase/store';
 
 type Content = { day: number; order: number; contentId: string; text: string };
 

@@ -1,5 +1,6 @@
 import { doc, setDoc } from 'firebase/firestore';
-import db from 'firebase/store';
+// import db from 'firebase/store';
+import db from '../../../firebase/store';
 
 const addCityData = async (items: any, dbName: string) => {
   try {
