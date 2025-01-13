@@ -80,7 +80,7 @@ const nextConfig = {
     if (process.env.NODE_ENV === 'production') {
       return [
         {
-          source: '/playground/*',
+          source: '/playground',
           destination: '/',
           permanent: true,
         },
