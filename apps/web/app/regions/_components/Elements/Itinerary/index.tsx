@@ -1,17 +1,13 @@
 'use client';
 import { Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
-import { Activity } from 'models/Aws';
+import { Activity, Poi } from 'models/Aws';
 import { useMemo, useState } from 'react';
 import AwsMap from '../Map/Map';
-import { Poi } from '../Pois';
+
+import { Transportation } from 'models/Itinery';
 import Style from './itinerary.module.scss';
 import MapWithCarousel from './MapWithCarousel';
-
-export type Transportation = {
-  type: 'transportation';
-  value: { duration: string; transportation: string };
-};
 
 export type ItineraryItem = {
   memo: string;
