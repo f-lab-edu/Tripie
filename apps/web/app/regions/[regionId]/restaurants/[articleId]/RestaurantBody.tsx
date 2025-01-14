@@ -39,6 +39,7 @@ const AttractionBody = ({
             officialSiteUrl: source.officialSiteUrl,
             regionId: source.regionId,
           }}
+          dataUrl={dataUrl}
         />
         <BusinessHours readableBusinessHours={source.readableBusinessHours} today={today} />
         <FeeDescription feeComment={source.feeComment} />
