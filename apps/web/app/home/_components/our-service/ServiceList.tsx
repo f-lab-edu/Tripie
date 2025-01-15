@@ -6,19 +6,24 @@ import RotatingGlobe from 'shared/components/Globe/RotatingGlobe';
 import Description from '../our-process/description/Description';
 import RegionInfo from './RegionInfo';
 import Style from './service-list.module.scss';
+import Subscription from './subscription/Subscription';
 
 const cx = classNames.bind(Style);
 
 const serviceList = [
   {
-    label: 'Subscribe',
-    content: <></>,
+    label: '구독하기',
+    content: <Subscription />,
     description:
-      "Choose your preferred plan to start and cancel or pause at anytime you like. So you're as flexible as your business' needs.",
+      'Basic 플랜으로 ai가 추천해주는 맛보기 일정을 이용해보세요! Pro 플랜으로 새 일정을 하루에 최대 X개 추천받아보실 수 있습니다.',
   },
   {
     label: 'AI 추천 맞춤 일정',
-    content: <RotatingGlobe />,
+    content: (
+      <Card.Content>
+        <RotatingGlobe />
+      </Card.Content>
+    ),
     description: '트리피 회원이신가요? 취향에 맞게 일정을 추천해 드립니다! 순식간에 여행 준비 끝!',
   },
 
@@ -33,7 +38,7 @@ const serviceList = [
 export default function ServiceList() {
   return serviceList.map(({ label, content, description }) => (
     <Card key={label} className={cx('card-wrap')}>
-      <Card.Content className={cx('card-content-wrap')}>{content}</Card.Content>
+      {content}
       <Card.Description>
         <Description descriptionTitle={label}>{description}</Description>
       </Card.Description>

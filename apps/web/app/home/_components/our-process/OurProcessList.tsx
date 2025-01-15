@@ -10,17 +10,10 @@ import CountrySelect from './selectedList/Country';
 import DurationSelect from './selectedList/Duration';
 import TravelStyleSelect from './selectedList/TravelStyle';
 import TripResultExample from './selectedList/TripResultExample';
-import Subscription from './subscription/Subscription';
 
 const cx = classNames.bind(Style);
 
 const cards = [
-  {
-    label: '구독하기',
-    content: <Subscription />,
-    description:
-      'Basic 플랜으로 ai가 추천해주는 맛보기 일정을 이용해보세요! Pro 플랜으로 새 일정을 하루에 최대 X개 추천받아보실 수 있습니다.',
-  },
   {
     label: '떠나고 싶은 지역은?',
     content: <ContinentSelect />,

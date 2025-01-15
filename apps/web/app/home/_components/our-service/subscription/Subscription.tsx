@@ -4,6 +4,7 @@ import classNames from 'classnames/bind';
 import Chip from 'shared/components/Chip/Chip';
 
 import useCycle from 'hooks/useCycle';
+import Card from 'shared/components/Card/Card';
 import Switch from 'shared/components/Switch/Switch';
 import Style from './subscription.module.scss';
 
@@ -13,7 +14,7 @@ export default function Subscription() {
   const [current, cycle] = useCycle('off', 'on');
 
   return (
-    <>
+    <Card.Content>
       <Container margin="none" className={cx('with-border', 'chip-wrap')}>
         <Switch current={current} cycle={cycle} text={current} />
         <div>Subscription</div>
@@ -25,6 +26,6 @@ export default function Subscription() {
         </Chip.Accented>
         <Chip>Custom</Chip>
       </Container>
-    </>
+    </Card.Content>
   );
 }
