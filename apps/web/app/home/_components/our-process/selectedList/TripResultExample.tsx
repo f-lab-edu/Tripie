@@ -11,18 +11,17 @@ const cx = classNames.bind(Style);
 
 const TripResultExample = () => {
   return (
-    <Container margin="none">
-      <Container applyMargin="top-bottom" className={cx('map-wrap')}>
-        <ChatTab data={AI_PLAN.plans} />
-        <AwsMap
-          interactive={false}
-          style={{ width: '50%' }}
-          places={AI_PLAN.places}
-          plans={AI_PLAN.plans}
-          locations={AI_PLAN.locations}
-          initialViewState={{ zoom: 8 }}
-        />
-      </Container>
+    <Container margin="none" className={cx('map-wrap')}>
+      <ChatTab data={AI_PLAN.plans} scrollIntoView={false} />
+      <AwsMap
+        interactive={false}
+        style={{ width: '100%' }}
+        places={AI_PLAN.places}
+        plans={AI_PLAN.plans}
+        locations={AI_PLAN.locations}
+        initialViewState={{ zoom: 8 }}
+        focusAfterOpen={false}
+      />
     </Container>
   );
 };

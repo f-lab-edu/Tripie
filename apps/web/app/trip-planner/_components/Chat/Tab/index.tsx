@@ -15,7 +15,7 @@ import TabList from './List';
 
 const cx = classNames.bind(Style);
 
-const ChatTab = ({ data }: { data: AiTripPlanResponse }) => {
+const ChatTab = ({ data, scrollIntoView = true }: { data: AiTripPlanResponse; scrollIntoView?: boolean }) => {
   // 일정 중 선택한 여행 날짜 컨텍스트
   const { currentDate, dateCycle } = useContext(SelectedDateContext);
   return (
@@ -33,7 +33,11 @@ const ChatTab = ({ data }: { data: AiTripPlanResponse }) => {
           </Chip>
         ))}
       </List>
-      <TabList key={data.trips[currentDate].date + data.trips[currentDate].day} trip={data.trips[currentDate]} />
+      <TabList
+        scrollIntoView={scrollIntoView}
+        key={data.trips[currentDate].date + data.trips[currentDate].day}
+        trip={data.trips[currentDate]}
+      />
     </Card.Content>
   );
 };

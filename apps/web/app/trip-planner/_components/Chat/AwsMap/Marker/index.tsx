@@ -12,7 +12,13 @@ import './marker.scss';
 
 const cx = classNames.bind(Style);
 
-const Markers = ({ locationMarker }: { locationMarker: LocationMarker[] }) => {
+const Markers = ({
+  locationMarker,
+  focusAfterOpen,
+}: {
+  locationMarker: LocationMarker[];
+  focusAfterOpen?: boolean;
+}) => {
   const { current, cycle } = useContext(TabContext);
   const { current: map } = useMap();
   const [popup, setPopup] = useState<string>('');
@@ -56,6 +62,7 @@ const Markers = ({ locationMarker }: { locationMarker: LocationMarker[] }) => {
             latitude={markers.lat}
             anchor="bottom"
             offset={24}
+            focusAfterOpen={focusAfterOpen}
             key={`popup-${markers.lng} + ${markers.lat}+${index}`}
             className={cx('popup')}
           >
@@ -73,7 +80,7 @@ const Markers = ({ locationMarker }: { locationMarker: LocationMarker[] }) => {
             setPopup(current);
           }}
         >
-          <Chip.Marker className={marker.label + 1} marker={marker} popup={popup} />
+          <Chip.Marker className={cx(marker.label)} marker={marker} popup={popup} />
         </Marker>
       ))}
     </>

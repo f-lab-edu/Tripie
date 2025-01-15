@@ -11,7 +11,7 @@ import TabCard from '../Card/TabCard';
 
 const cx = classNames.bind(Style);
 
-const TabList = ({ trip }: { trip: TripContent }) => {
+const TabList = ({ trip, scrollIntoView }: { trip: TripContent; scrollIntoView?: boolean }) => {
   return (
     <List className={cx('list-wrap')}>
       <li>
@@ -27,6 +27,7 @@ const TabList = ({ trip }: { trip: TripContent }) => {
             activity={activity}
             comments={comments}
             key={label + index}
+            scrollIntoView={scrollIntoView}
           />
         ))}
       </li>

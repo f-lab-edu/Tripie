@@ -20,12 +20,14 @@ const TabCard = ({
   index,
   activity,
   comments,
+  scrollIntoView,
 }: {
   label: Activity['label'];
   trip: TripContent;
   index: number;
   activity: string;
   comments: string;
+  scrollIntoView?: boolean;
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
@@ -34,11 +36,13 @@ const TabCard = ({
 
   // 선택한 일정이 변경되면 리스트 중 해당 카드로 스크롤하여 보여줍니다.
   useEffect(() => {
-    if (ref.current) {
-      ref.current?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-      });
+    if (scrollIntoView) {
+      if (ref.current) {
+        ref.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+        });
+      }
     }
   }, [current]);
 

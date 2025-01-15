@@ -16,9 +16,10 @@ function AwsMap({
   interactive = true,
   // places,
   initialViewState,
-
+  focusAfterOpen = true,
   style,
 }: Readonly<{
+  focusAfterOpen?: boolean;
   style?: CSSProperties;
   plans: AiTripPlanResponse;
   locations: AwsPlaceResult[];
@@ -94,7 +95,7 @@ function AwsMap({
       .flat();
   }, [currentDate, locationData]);
 
-  console.log('locationMarker', locationMarker);
+  // console.log('locationMarker', locationMarker);
 
   /**
    * 지도의 중심의 경도와 위도.
@@ -128,7 +129,7 @@ function AwsMap({
       style={{ width: '100%', height: '85vh', display: 'inline-block', borderRadius: '8px', ...style }}
       mapStyle={STYLE}
     >
-      <Markers locationMarker={locationMarker} />
+      <Markers locationMarker={locationMarker} focusAfterOpen={focusAfterOpen} />
       <Lines locationMarker={locationMarker} />
     </Map>
   );
