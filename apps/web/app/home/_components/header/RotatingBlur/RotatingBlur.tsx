@@ -9,10 +9,10 @@ const RotatingBlur = () => {
     <motion.div
       className={cx('pie', 'rotating-blur')}
       initial={{ rotate: 0 }}
-      animate={{ scale: [1, 1.5, 1.5, 1.2, 1], rotate: 360 }}
+      animate={{ scale: [1, 1.2, 1.5, 1.2, 1], rotate: 360 }}
       transition={{
-        duration: 10,
-        times: [0, 0.2, 0.5, 0.8, 1],
+        duration: 5,
+        times: [0, 0.25, 0.5, 0.75, 1],
         repeat: Infinity,
         ease: 'linear',
       }}
