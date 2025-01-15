@@ -24,14 +24,15 @@
   align-items: center;
   justify-content: center;
 }
+
 .restaurant {
-  background-color: red !important;
+  @include map-marker('restaurant');
 }
 
 .hotel {
-  background-color: pink !important;
+  @include map-marker('hotel');
 }
 
 .attraction {
-  background-color: orange !important;
+  @include map-marker('attraction');
 }

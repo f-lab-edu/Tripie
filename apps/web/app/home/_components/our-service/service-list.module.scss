@@ -1,10 +1,6 @@
 @use 'shared/mixins' as *;
 @use 'shared/variables' as *;
 
-.flex {
-  @include flex;
-}
-
 .accented {
   @include accented;
 }
@@ -30,10 +26,6 @@
   align-items: stretch !important;
   height: auto !important;
   justify-content: flex-start !important;
-}
-
-.card-content-wrap {
-  height: 28rem !important;
 }
 
 .wrap {

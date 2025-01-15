@@ -16,7 +16,7 @@ const ArticleImages = ({ item }: { item: ImageProps }) => {
   return (
     <InView>
       {({ inView, ref }) => (
-        <Container ref={ref} margin="none" className={cx(inView ? 'visible-scroll' : null)}>
+        <Container ref={ref} applyMargin="top" className={cx(inView ? 'visible-scroll' : null)}>
           <Container margin="none" key={JSON.stringify(images)} className={cx(images.length > 1 ? 'carousel' : null)}>
             <Container margin="none" className={cx(images.length > 1 ? ['flex-items', 'carousel-inner'] : null)}>
               {images.map(({ sizes, sourceUrl }) => (

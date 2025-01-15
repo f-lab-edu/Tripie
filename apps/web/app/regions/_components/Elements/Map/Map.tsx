@@ -66,7 +66,12 @@ function AwsMap({
             setPopup(marker.index);
           }}
         >
-          <Chip.Marker className={marker.label} marker={marker} popup={popup} />
+          <Chip.Marker
+            // className={marker.label}
+            className={cx(marker.label)}
+            marker={marker}
+            popup={popup}
+          />
         </Marker>
       ))}
       <Lines locationMarker={locations} />

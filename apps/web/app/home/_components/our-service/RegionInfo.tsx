@@ -8,6 +8,7 @@ import RegionList, { RegionArticleData } from 'app/regions/[regionId]/_component
 import RegionSelect from 'app/regions/[regionId]/_components/RegionSelect';
 import { TRIPIE_REGION_BY_LOCATION, TRIPIE_REGION_IDS } from 'constants/tripie-country';
 import useCountryArticle from 'hooks/query/useCountryArticles';
+import Card from 'shared/components/Card/Card';
 
 const cx = classNames.bind(Style);
 
@@ -34,17 +35,19 @@ const RegionInfo = () => {
   }
 
   return (
-    <Container className={cx('card-content-wrap')} margin="none">
-      <Container margin="none" className={cx('card-region-wrap')}>
-        <RegionSelect selected={currentRegionId} selectedRegion={selectedRegion} />
-        <Container margin="none" className={cx('card-list-wrap')}>
-          <RegionList
-            data={data.filter(item => item.regionId === selectedRegion)?.[0].data}
-            selectedRegion={selectedRegion}
-          />
+    <Card.Content className={cx('region-info-wrap')}>
+      <Container className={cx('card-content-wrap')} margin="none">
+        <Container margin="none" className={cx('card-region-wrap')}>
+          <RegionSelect selected={currentRegionId} selectedRegion={selectedRegion} />
+          <Container margin="none">
+            <RegionList
+              data={data.filter(item => item.regionId === selectedRegion)?.[0].data}
+              selectedRegion={selectedRegion}
+            />
+          </Container>
         </Container>
       </Container>
-    </Container>
+    </Card.Content>
   );
 };
 

@@ -12,7 +12,6 @@
   background-color: $theme-200;
   font-size: 0.8rem;
   cursor: pointer;
-  @include chip;
 }
 
 .accented {
@@ -36,7 +35,6 @@
   left: 50%;
   transform-origin: left;
   transform: translate(-50%, -50%);
-  z-index: 0;
 }
 .wrap {
   cursor: pointer;

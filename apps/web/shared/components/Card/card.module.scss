@@ -32,6 +32,7 @@
   }
   &:not(.with-description) {
     height: 12rem;
+
     background-color: $theme-500;
   }
   z-index: 1;
@@ -42,7 +43,6 @@
   @include flexbox(column);
   border-radius: 10px;
   padding: 1.2rem;
-  // height: min-content;
   position: relative;
   overflow: hidden;
   min-width: 318px;

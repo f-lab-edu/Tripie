@@ -9,14 +9,6 @@
   scrollbar-width: thin;
 }
 
-.card-list-wrap {
-  & > div > ul {
-    @media (min-width: 998px) {
-      grid-template-columns: repeat(1, 1fr) !important;
-    }
-  }
-}
-
 .card-region-wrap {
   & div > div > div > ul {
     @media (min-width: 998px) {
@@ -47,10 +39,10 @@
   justify-content: center;
 }
 
-.chip {
-  // @include chip;
-}
-
 .animated-text {
   padding: 0 !important;
+}
+
+.region-info-wrap {
+  height: 30rem !important;
 }
