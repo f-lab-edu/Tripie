@@ -20,7 +20,7 @@ const TravelStyleSelect = () => {
           {Object.values(PREFERENCE_LIST).map((tagName, index) => (
             <Chip
               key={tagName.tag}
-              className={cx('chip')}
+              className={cx('button-chip')}
               selected={new Set(SELECTED_PREFERENCE).has(
                 Object.keys(PREFERENCE_LIST)[index] as keyof typeof PREFERENCE_LIST
               )}

@@ -19,7 +19,7 @@ const CompanionSelect = () => {
           {Object.values(COMPANION_LIST).map((tagName, index) => (
             <Chip
               key={tagName.tag}
-              // className={cx('chip')}
+              className={cx('button-chip')}
               selected={new Set(SELECTED_COMPANION).has(
                 Object.keys(COMPANION_LIST)[index] as keyof typeof COMPANION_LIST
               )}

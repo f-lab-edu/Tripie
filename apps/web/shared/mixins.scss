@@ -157,6 +157,11 @@ $background-gradients: (
   padding: 1rem;
 }
 
+@mixin button-chip {
+  min-width: fit-content;
+  padding: 1rem !important;
+}
+
 @mixin grid-wrap {
   display: grid;
   justify-content: center;
@@ -215,12 +220,12 @@ $background-gradients: (
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  padding: 0.2rem !important;
+  padding: 0.5rem;
   @if $variant == 'restaurant' {
     background-color: red;
   }
   @if $variant == 'hotel' {
-    background-color: pink;
+    background-color: rgb(59, 74, 211);
   }
   @if $variant == 'attraction' {
     background-color: orange;

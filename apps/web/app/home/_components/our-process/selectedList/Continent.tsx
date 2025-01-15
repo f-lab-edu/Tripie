@@ -19,7 +19,11 @@ const ContinentSelect = () => {
       <Container margin="none" className={cx('card-region-wrap')}>
         <Container className={cx('wrap')} applyMargin="bottom">
           {Object.keys(CONTINENTS).map(continent => (
-            <Chip selected={SELECTED_CONTINENT === continent} className={cx('chip')} key={JSON.stringify(continent)}>
+            <Chip
+              selected={SELECTED_CONTINENT === continent}
+              className={cx('button-chip')}
+              key={JSON.stringify(continent)}
+            >
               {CONTINENTS[continent as ContinentKeys].name}
             </Chip>
           ))}

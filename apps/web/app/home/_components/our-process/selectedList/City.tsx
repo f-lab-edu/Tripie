@@ -17,7 +17,7 @@ const CitySelect = () => {
       <Container margin="none" className={cx('card-region-wrap')}>
         <Container className={cx('wrap')} applyMargin="bottom">
           {KOR_CITIES.map((city: string) => (
-            <Chip selected={SELECTED_CITY === city} className={cx('chip')} key={city}>
+            <Chip selected={SELECTED_CITY === city} className={cx('button-chip')} key={city}>
               {city}
             </Chip>
           ))}

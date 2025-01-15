@@ -37,7 +37,7 @@ const CountrySelect = () => {
           {countries.map((country: Country) => (
             <Chip
               selected={SELECTED_COUNTRY === country.name}
-              className={cx('chip')}
+              className={cx('button-chip')}
               key={JSON.stringify(country.code)}
             >
               {country?.code != null && regionNameToLocal({ regionCode: country?.code })}

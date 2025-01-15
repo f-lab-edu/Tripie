@@ -5,8 +5,8 @@
   @include grid-wrap;
 }
 
-.chip {
-  @include chip;
+.button-chip {
+  @include button-chip;
 }
 
 .section-title {
@@ -46,6 +46,13 @@
 }
 
 .map-wrap {
-  width: 60rem;
-  overflow: hidden;
+  display: inline-flex;
+  width: 100%;
+  gap: 1rem;
+  @media (max-width: 800px) {
+    flex-wrap: wrap;
+    & > div {
+      width: 100% !important;
+    }
+  }
 }
