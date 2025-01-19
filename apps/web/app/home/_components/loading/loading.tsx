@@ -3,6 +3,7 @@ import classNames from 'classnames/bind';
 import { motion } from 'framer-motion';
 import TextFillAnimation from '../../../../shared/components/TextFill/TextFillAnimation';
 import Style from './loading.module.scss';
+
 const cx = classNames.bind(Style);
 
 export default function Loading() {

@@ -59,6 +59,9 @@
     "db:push": {
       "cache": false
     },
+    "db:deploy": {
+      "cache": false
+    },
     "typecheck": {}
   },
   "globalDependencies": [".env"]

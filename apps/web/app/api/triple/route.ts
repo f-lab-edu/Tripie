@@ -3,12 +3,11 @@ import { NextResponse } from 'next/server';
 
 export async function GET(request: NextResponse) {
   const { searchParams } = new URL(request.url);
-  const geotagId = searchParams.get('geotagId');
-  const apiUrl = `${API.TRIPIE_SERVER_BASE + API.TRIPLE_ARTICLES}?geotagId=${geotagId}`;
 
   try {
+    const geotagId = searchParams.get('geotagId');
+    const apiUrl = `${API.TRIPIE_SERVER_BASE + API.TRIPLE_ARTICLES}?geotagId=${geotagId}`;
     const response = await fetch(apiUrl);
-
     if (!response.ok) {
       return NextResponse.json({ message: 'Failed to fetch data' }, { status: response.status });
     }

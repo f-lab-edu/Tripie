@@ -1,4 +1,4 @@
-'use server';
+'use client';
 
 import ArticleDivider, { DividerProps } from 'app/regions/_components/Elements/Divider';
 import ArticleEmbedded, { EmbeddedProps } from 'app/regions/_components/Elements/Embedded';

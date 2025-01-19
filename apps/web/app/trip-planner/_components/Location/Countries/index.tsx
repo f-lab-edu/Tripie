@@ -1,7 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { Container } from '@tripie-pyotato/design-system';
 import getContinentlList from 'app/api/firebase/getContinentl';
-import Loading from 'app/home/_components/loading/loading';
+import Loading from 'app/home/_components/loading/Loading';
 import classNames from 'classnames/bind';
 import RESOURCE from 'constants/resources';
 import useContinentl from 'hooks/query/useContinentl';

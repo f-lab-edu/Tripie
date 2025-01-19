@@ -1,3 +1,4 @@
+'use server';
 import { Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 
