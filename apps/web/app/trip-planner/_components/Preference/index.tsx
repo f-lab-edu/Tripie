@@ -22,7 +22,7 @@ interface Props {
     companion: string;
     preference?: string;
   };
-  onNext: (b: string) => void;
+  onNext: (preference: string) => void;
 }
 
 export type Preference = keyof typeof PREFERENCE_LIST;

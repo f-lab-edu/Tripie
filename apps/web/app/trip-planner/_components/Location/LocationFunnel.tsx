@@ -14,7 +14,7 @@ interface Props {
   onNext: (b: string) => void;
 }
 
-export function LocationFunnel({ onNext }: Props) {
+export function LocationFunnel({ onNext }: Readonly<Props>) {
   const funnel = useFunnel<{
     CONTINENT: { continent?: ContinentKeys; country?: string; city?: { all: string[]; selected: string[] } };
     COUNTRY: { continent: ContinentKeys; country?: string; city?: { all: string[]; selected: string[] } };
@@ -32,7 +32,7 @@ export function LocationFunnel({ onNext }: Props) {
       CONTINENT={({ context, history }) => (
         <ContinentStep
           context={context}
-          continent={context.continent == null ? 'ALL' : context.continent}
+          continent={context.continent ?? 'ALL'}
           onNext={(selected: { continent?: ContinentKeys }) => {
             history.push('COUNTRY', selected);
           }}

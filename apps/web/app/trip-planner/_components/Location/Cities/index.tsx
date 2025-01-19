@@ -13,7 +13,7 @@ const cx = classNames.bind(Style);
 
 interface Props {
   context: { continent: ContinentKeys; country: string; city: { all: string[]; selected: string[] } };
-  onNext: (b: string[]) => void;
+  onNext: (cities: string[]) => void;
 }
 
 export type Preference = keyof typeof PREFERENCE_LIST;

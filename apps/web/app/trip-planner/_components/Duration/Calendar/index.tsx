@@ -38,10 +38,6 @@ const Calendars = ({
 }) => {
   const { calendarFormatTime, calendar, isValidTime } = useCalendar();
 
-  // const [selected, setSelected] = useState<Date[] | Date>(() =>
-  //   !isValidTime || context?.duration == null ? new Date(serverTime) : localeString2Date(context.duration.split(' ~ '))
-  // );
-
   const [selected, setSelected] = useState<Date[] | Date>(() =>
     !isValidTime || context?.duration == null ? calendarFormatTime : localeString2Date(context.duration.split(' ~ '))
   );

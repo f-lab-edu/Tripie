@@ -16,7 +16,7 @@ interface Props {
   setSelectedContinent: Dispatch<SetStateAction<ContinentKeys>>;
 }
 
-export function ContinentList({ selectedContinent, setSelectedContinent }: Props) {
+export function ContinentList({ selectedContinent, setSelectedContinent }: Readonly<Props>) {
   const queryClient = useQueryClient();
   // 대륙 선택 버튼 클릭시 다음 퍼널 스탭으로 넘어가기 전에 미리 해당 대륙에 속한 국가들 prefetch해오기
   const prefetch = (continent: ContinentIds) => {

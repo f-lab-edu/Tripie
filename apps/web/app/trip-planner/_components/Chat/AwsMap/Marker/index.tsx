@@ -1,10 +1,11 @@
 'use client';
 
-import { Marker, Popup, useMap } from 'react-map-gl/maplibre';
+import { Marker, Popup } from 'react-map-gl/maplibre';
 
 import classNames from 'classnames/bind';
+import usePopUp from 'hooks/awsMap/usePopUp';
 import 'maplibre-gl/dist/maplibre-gl.css';
-import { useContext, useEffect, useMemo, useState } from 'react';
+import { useContext } from 'react';
 import Chip from 'shared/components/Chip/Chip';
 import { LocationMarker, TabContext } from '../..';
 import Style from './marker.module.scss';
@@ -20,38 +21,7 @@ const Markers = ({
   focusAfterOpen?: boolean;
 }) => {
   const { current, cycle } = useContext(TabContext);
-  const { current: map } = useMap();
-  const [popup, setPopup] = useState<string>('');
-
-  // 클릭한 좌표에 따라 중심 변경.
-  useEffect(() => {
-    if (map) {
-      const selectedAreas = locationMarker.filter(v => v.parent === current);
-      const center = selectedAreas.reduce(
-        (acc, curr, index) => {
-          acc.lat += curr.lat;
-          acc.lng += curr.lng;
-          if (index === selectedAreas.length - 1) {
-            acc.lat /= selectedAreas.length;
-            acc.lng /= selectedAreas.length;
-          }
-          return acc;
-        },
-        { lat: 0, lng: 0 }
-      );
-      map.flyTo({ center: [center.lng, center.lat] });
-    }
-  }, [current]);
-
-  // 좌표가 아닌 탭 카드를 클릭시에도 팝업이 되도록
-  useEffect(() => {
-    setPopup(current);
-  }, [current]);
-
-  // 직접 좌표 클릭 또는 탭 카드 클릭으로 인해 팝업을 보여줄 마커들,
-  const popupMarkers = useMemo(() => {
-    return locationMarker.filter(v => v.parent === current);
-  }, [current, popup]);
+  const { setPopup, popup, setCurrentSelected, popupMarkers } = usePopUp({ locationMarker, current });
 
   return (
     <>
@@ -76,8 +46,9 @@ const Markers = ({
           latitude={marker.lat}
           anchor="bottom"
           onClick={() => {
-            cycle(marker.parent);
-            setPopup(current);
+            cycle(marker.index);
+            setPopup(marker.index);
+            setCurrentSelected(marker.index);
           }}
         >
           <Chip.Marker className={cx(marker.label)} marker={marker} popup={popup} />

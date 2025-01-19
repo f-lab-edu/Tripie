@@ -19,7 +19,7 @@ interface Props {
 
 const cx = classNames.bind(Style);
 
-export function CountryList({ countries, selectedCountry, setSelectedCountry, bottomRef }: Props) {
+export function CountryList({ countries, selectedCountry, setSelectedCountry, bottomRef }: Readonly<Props>) {
   const queryClient = useQueryClient();
 
   // 이전 단계 Continents에서 선택했던 대륙/지역에 속한 국가들 정보 가져오기

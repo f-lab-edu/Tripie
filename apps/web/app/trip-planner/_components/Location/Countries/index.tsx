@@ -27,8 +27,8 @@ interface Props {
 
 const cx = classNames.bind(Style);
 
-export function CountryStep({ context, onNext }: Props) {
-  const { data, isLoading } = useCountries(context.continent == null ? 'all' : context.continent);
+export function CountryStep({ context, onNext }: Readonly<Props>) {
+  const { data, isLoading } = useCountries(context.continent ?? 'all');
   const [selectedCountry, setSelectedCountry] = useState(context?.country == null ? '' : context.country);
   /** 국가 선택 시 다음으로 스크롤 */
   const bottomRef = useRef<HTMLDivElement | null>(null);
@@ -40,11 +40,7 @@ export function CountryStep({ context, onNext }: Props) {
       queryKey: useContinentl.queryKey(country),
       queryFn: () =>
         getContinentlList().then(countries => {
-          if (country === 'all') {
-            return countries;
-          } else {
-            return countries?.filter(place => place.id === country);
-          }
+          return country === 'all' ? countries : countries?.filter(place => place.id === country);
         }),
     });
   };

@@ -1,7 +1,8 @@
 import { Headings } from '@tripie-pyotato/design-system';
-import { Continentl } from 'app/api/firebase/getContinentl';
+
 import classNames from 'classnames/bind';
 import useContinentl from 'hooks/query/useContinentl';
+import { Continentl } from 'models/Continentl';
 import Card from 'shared/components/Card/Card';
 import Chip from 'shared/components/Chip/Chip';
 import List from 'shared/components/List/List';

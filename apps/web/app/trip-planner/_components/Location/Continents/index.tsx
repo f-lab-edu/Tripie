@@ -18,7 +18,7 @@ interface Props {
   onNext: (country: { continent?: ContinentKeys }) => void;
 }
 
-export function ContinentStep({ context, onNext }: Props) {
+export function ContinentStep({ context, onNext }: Readonly<Props>) {
   const [selectedContinent, setSelectedContinent] = useState(() =>
     context?.continent == null
       ? 'ALL'

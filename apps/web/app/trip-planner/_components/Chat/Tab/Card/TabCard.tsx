@@ -50,13 +50,15 @@ const TabCard = ({
     <Card.ClickableContent
       key={activity}
       className={cx('trip-activity', 'card-item', current === `${trip.day}-${index}` ? 'selected' : null)}
-      selected={current === `${trip.day}-${index}`}
+      selected={current === `${trip.day - 1}-${index}`}
       onClick={() => {
-        cycle(`${trip.day}-${index}`);
+        console.log(`${trip.day - 1}-${index}`);
+        console.log(trip);
+        cycle(`${trip.day - 1}-${index}`);
       }}
     >
       <Container margin="none" className={cx('title')}>
-        <div ref={current === `${trip.day}-${index}` ? ref : null} />
+        <div ref={current === `${trip.day - 1}-${index}` ? ref : null} />
         <Chip className={cx(label, 'label')}>{index + 1}</Chip>
         <Headings.H4 className={cx('accented')}>{activity}</Headings.H4>
       </Container>

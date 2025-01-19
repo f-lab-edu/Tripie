@@ -19,7 +19,7 @@ interface Props {
     companion?: string;
     preference?: string;
   };
-  onNext: (b: string) => void;
+  onNext: (duration: string) => void;
 }
 
 const DurationFunnel = ({ context, onNext }: Props) => {

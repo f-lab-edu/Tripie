@@ -22,7 +22,8 @@ interface Props {
   setSelected: Dispatch<SetStateAction<Array<Preference> | []>>;
 }
 
-const PreferenceList = ({ selected, setSelected }: Props) => {
+const PreferenceList = ({ selected, setSelected, context }: Props) => {
+  console.log('PreferenceList context', context);
   // 여행 스타일 취향 선택
   const handleSelect = (index: number) => {
     // 이미 선택한 항목이면 제거하기

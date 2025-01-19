@@ -3,11 +3,13 @@ import classNames from 'classnames/bind';
 
 import { Container } from '@tripie-pyotato/design-system';
 
+import { AiTripPlanResponse } from 'app/api/chat/route';
 import { MAX_TOKEN } from 'constants/chat';
 import RESOURCE from 'constants/resources';
 import useChat from 'hooks/query/useChat';
+import useLamdba from 'hooks/query/useLambda';
 import useChatToken from 'hooks/useChatToken';
-import { Activity, AwsPlace, AwsPlaceResult } from 'models/Aws';
+import { Activity, AwsPlace, AwsPlaceResult, TripContent } from 'models/Aws';
 import { ContinentKeys } from 'models/Continent';
 import { TripieUser } from 'models/User';
 import { signIn, useSession } from 'next-auth/react';
@@ -46,7 +48,7 @@ export type AwsLocationWithLabel = {
  * 선택한 tab의 일정, `{일정 날짜}-{선택 일정 인덱스}`
  */
 export const TabContext = createContext<{ current: string; cycle: Dispatch<SetStateAction<string>> }>({
-  current: '1-0',
+  current: '0-0',
   cycle: () => null,
 });
 
@@ -61,10 +63,7 @@ export const SelectedDateContext = createContext<{ currentDate: number; dateCycl
 const ChatFunnel = ({ context }: ChatFunnelProps) => {
   const { data, isLoading } = useChat(context);
   const { status, data: userData } = useSession();
-  // const { data: googleSearchData, isLoading: isLoadingGoogleSearchData } = useLamdba(
-  //   data?.places?.[0],
-  //   context.city.selected.join(', ')
-  // );
+  const { data: googleSearchData } = useLamdba(data?.places?.[0], context.city.selected.join(', '));
 
   const { tokenData } = useChatToken({ context });
 
@@ -87,18 +86,24 @@ const ChatFunnel = ({ context }: ChatFunnelProps) => {
     signIn();
   }
 
-  // if (googleSearchData != null) {
-  //   console.log('googleSearchData', googleSearchData);
-  // }
+  if (googleSearchData != null) {
+    console.log('googleSearchData', googleSearchData);
+  }
 
   // // 여행 일정 맛보기
   // if (isLoadingGoogleSearchData && !isLoading && data?.plans != null) {
   //   return <ChatTab data={data.plans} />;
   // }
 
-  if (data) {
-    console.log(data);
-  }
+  const coordinates = useMemo(() => {
+    if (data) {
+      return data.plans.trips.map((trip: TripContent) => trip.activities.map(activity => activity?.coordinates));
+    } else {
+      return null;
+    }
+  }, [data as AiTripPlanResponse['trips']]);
+
+  console.log('tokenData', tokenData);
 
   return (
     <TabContext.Provider value={selectedActivityValues}>
@@ -125,13 +130,12 @@ const ChatFunnel = ({ context }: ChatFunnelProps) => {
           </h2>
         </Container>
         <Container margin="none" className={cx('trip-content-wrap')}>
-          {isLoading ? (
+          {isLoading || coordinates == null ? (
             <></>
           ) : (
             <>
               <ChatTab data={data.plans} />
-              <AwsMap places={data.places} plans={data.plans} locations={data.locations} />
-              {/* <AwsMap plans={data.plans} locations={data.locations} /> */}
+              <AwsMap plans={data.plans} coordinates={coordinates} />
             </>
           )}
         </Container>

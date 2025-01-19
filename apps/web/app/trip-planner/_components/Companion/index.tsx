@@ -21,7 +21,7 @@ interface Props {
     duration: string;
     companion: string;
   };
-  onNext: (b: string) => void;
+  onNext: (companion: string) => void;
 }
 
 export type Companion = keyof typeof COMPANION_LIST;
