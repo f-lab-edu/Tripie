@@ -1,7 +1,7 @@
 'use server';
 import { Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
-import { Image as AttractionImage } from 'models/Attraction';
+import { Image as AttractionImage } from 'models/Image';
 import Image from 'next/image';
 import Card from 'shared/components/Card/Card';
 import Style from './attraction-thumbnail.module.scss';

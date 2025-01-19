@@ -1,38 +1,12 @@
 @use 'shared/variables' as *;
 @use 'shared/mixins' as *;
 
-.poi-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  width: 100%; /* Adjust to fit your layout */
-  max-width: 20rem; /* Optional: Set a maximum width for the cards */
-  height: auto; /* Ensures the card adapts to its content */
-  box-sizing: border-box;
+.embedded-card-wrap {
+  overflow-x: scroll;
+  height: 100%;
+  align-items: stretch !important;
 }
 
-.img-wrap {
-  width: 100%;
-  max-height: 12rem; /* Restrict image height */
-  overflow: hidden; /* Ensures no overflow if the image is too large */
-  display: flex; /* Center the image inside the wrapper */
-  justify-content: center;
-  align-items: center;
-}
-
-.img-wrap img {
-  width: 100%;
-  height: auto; /* Maintains aspect ratio */
-  max-height: 100%; /* Ensures the image stays within the max-height */
-  object-fit: cover; /* Scales the image to fill the container proportionally */
-  object-position: center; /* Centers the image within the container */
-}
-
-.img-source {
-  margin-top: 0.5rem; /* Add spacing above the source text */
-  font-size: 0.8rem; /* Adjust the text size for better layout */
-  text-align: right; /* Align the text to the right */
-}
 .poi-card {
   min-height: 21rem;
   height: auto !important;
@@ -101,10 +75,4 @@
 
 .flex-items {
   @include flex-items;
-}
-
-.embedded-card-wrap {
-  overflow-x: scroll;
-  height: 100%;
-  align-items: stretch !important;
 }

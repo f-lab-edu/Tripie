@@ -1,26 +1,19 @@
 'use server';
 
 import { Container } from '@tripie-pyotato/design-system';
-import BusinessHours from '../../_components/BusinessHours';
 
 import { AttractionArticle } from 'models/Attraction';
-import ExternalLinks from '../../_components/ExternalLinks';
-import RestaurantRecommendationList from '../../_components/RestaurantRecommendationList';
-import AttractionDescription from '../../_shared/_sections/AttractionDescription';
-import AttractionThumbnail from '../../_shared/_sections/AttractionThumbnail';
-import BasicInfoItems from '../../_shared/_sections/BasicInfoItems';
-import FeeDescription from '../../_shared/_sections/FeeDescription';
-import TipDescription from '../../_shared/_sections/TipDescription';
+import BusinessHours from './BusinessHours';
+import ExternalLinks from './ExternalLinks';
+import RestaurantRecommendationList from './RestaurantRecommendationList';
+import AttractionDescription from './shared/_sections/AttractionDescription';
+import AttractionThumbnail from './shared/_sections/AttractionThumbnail';
+import BasicInfoItems from './shared/_sections/BasicInfoItems';
+import FeeDescription from './shared/_sections/FeeDescription';
+import TipDescription from './shared/_sections/TipDescription';
 
-const AttractionBody = ({
-  source,
-  today,
-  dataUrl,
-}: {
-  source: AttractionArticle['source'];
-  today: number;
-  dataUrl: string;
-}) => {
+const RegionBody = ({ source, dataUrl }: { source: AttractionArticle['source']; dataUrl: string }) => {
+  const today = new Date().getDay();
   return (
     <>
       <AttractionThumbnail sizes={source?.image?.sizes} />
@@ -45,10 +38,10 @@ const AttractionBody = ({
         <BusinessHours readableBusinessHours={source?.readableBusinessHours} today={today} />
         <FeeDescription feeComment={source?.feeComment} />
         <TipDescription tips={source?.tips} />
-        <ExternalLinks externalLinks={source?.externalLinks} />
+        {source.externalLinks.length === 0 ? null : <ExternalLinks externalLinks={source.externalLinks} />}
       </Container>
     </>
   );
 };
 
-export default AttractionBody;
+export default RegionBody;

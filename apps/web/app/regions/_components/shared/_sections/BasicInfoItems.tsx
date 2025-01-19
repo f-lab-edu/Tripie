@@ -3,9 +3,10 @@ import { Container } from '@tripie-pyotato/design-system';
 import ArticleDivider from 'app/regions/_components/Elements/Divider';
 import ArticleHeading from 'app/regions/_components/Elements/Header';
 import ArticleText from 'app/regions/_components/Elements/Text';
-import { AttractionArticle, Geolocation } from 'models/Attraction';
-import BasicInfo, { BasicInfoProps } from '../../_components/BasicInfo';
-import SinglePinMap from '../../_components/SinglePinMap';
+import { AttractionArticle } from 'models/Attraction';
+import { Geolocation } from 'models/Geo';
+import BasicInfo, { BasicInfoProps } from '../../BasicInfo';
+import SinglePinMap from '../../SinglePinMap';
 
 const BasicInfoItems = ({
   coordinates,

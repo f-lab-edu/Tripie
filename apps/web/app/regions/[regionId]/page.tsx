@@ -2,13 +2,13 @@
 import { Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 
-import Style from '../regions.module.scss';
+import Style from '../_components/shared/regions.module.scss';
 
 import listCountryArticles from 'app/api/firebase/getArticles';
 import { TRIPIE_REGION_BY_LOCATION, TRIPIE_REGION_IDS } from 'constants/tripie-country';
 import Navigation from '../_components/Navigation';
-import RegionList, { RegionArticleData } from './_components/RegionList';
-import RegionSelect from './_components/RegionSelect';
+import RegionList, { RegionArticleData } from '../_components/RegionList';
+import RegionSelect from '../_components/RegionSelect';
 
 const cx = classNames.bind(Style);
 

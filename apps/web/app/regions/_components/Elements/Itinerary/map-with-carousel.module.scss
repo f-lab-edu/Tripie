@@ -8,39 +8,6 @@
   top: 4rem;
 }
 
-.carousel {
-  position: relative;
-  width: 100%;
-  margin: auto;
-  overflow: hidden;
-}
-
-// !!
-
-.flex-items {
-  @include flex-items;
-}
-
-.embedded-card-wrap {
-  overflow-x: scroll;
-  height: 100%;
-  align-items: stretch !important;
-}
-
-.itinerary-cards {
-  overflow-y: visible !important;
-}
-
-.flag {
-  position: sticky;
-  top: 5%;
-}
-
-.last-flag {
-  display: inline-flex;
-  justify-content: flex-end;
-}
-
 .total-wrap {
   display: inline-flex;
   flex-direction: column;
@@ -60,6 +27,16 @@
   transform: translate(8%, 100%);
 }
 
+.flag {
+  position: sticky;
+  top: 5%;
+}
+
+.last-flag {
+  display: inline-flex;
+  justify-content: flex-end;
+}
+
 .timeline-item-wrap {
   display: inline-flex;
   flex-direction: column;
@@ -72,10 +49,6 @@
   justify-content: center;
   z-index: 100;
   width: 100%;
-}
-
-.last-poi {
-  visibility: hidden;
 }
 
 .itinerary-card {

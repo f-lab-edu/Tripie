@@ -5,9 +5,9 @@ import classNames from 'classnames/bind';
 import listCountryArticles from 'app/api/firebase/getArticles';
 
 import Navigation from '../../../_components/Navigation';
+import RegionList, { RegionArticleData } from '../../../_components/RegionList';
+import RegionSelect from '../../../_components/RegionSelect';
 import Style from '../../../regions.module.scss';
-import RegionList, { RegionArticleData } from '../../_components/RegionList';
-import RegionSelect from '../../_components/RegionSelect';
 
 const cx = classNames.bind(Style);
 

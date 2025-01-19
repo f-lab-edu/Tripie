@@ -7,9 +7,9 @@ import Navigation from 'app/regions/_components/Navigation';
 import classNames from 'classnames/bind';
 import { AttractionArticle } from 'models/Attraction';
 import Card from 'shared/components/Card/Card';
-import AttractionTitle from '../../_shared/_sections/AttractionTitle';
-import Style from './attraction-body.module.scss';
-import AttractionBody from './AttractionBody';
+import RegionBody from '../../../_components/RegionBody';
+import AttractionTitle from '../../../_components/shared/_sections/AttractionTitle';
+import Style from './attractions.module.scss';
 
 const cx = classNames.bind(Style);
 
@@ -20,8 +20,6 @@ const Attractions = async ({ params }: { params: Promise<{ regionId: string; art
     (await params).articleId
   )) as { data: AttractionArticle; attractionId: string; id: string; regionId: string };
 
-  const today = new Date().getDay();
-
   return (
     <Container margin="none" className={cx('background')}>
       <Container margin="none">
@@ -29,7 +27,7 @@ const Attractions = async ({ params }: { params: Promise<{ regionId: string; art
         <AttractionTitle primary={data.source.names.primary ?? data.source.names.ko} />
       </Container>
       <Card.Content className={cx('fit-content')}>
-        <AttractionBody source={data.source} today={today} dataUrl={data.id} />
+        <RegionBody source={data.source} dataUrl={data.id} />
       </Card.Content>
     </Container>
   );

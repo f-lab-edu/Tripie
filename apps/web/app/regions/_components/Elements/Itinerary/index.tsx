@@ -1,75 +1,20 @@
 'use client';
-import { Container } from '@tripie-pyotato/design-system';
-import classNames from 'classnames/bind';
-import { Activity, Poi } from 'models/Aws';
-import { useMemo, useState } from 'react';
+
+import useItinerary from 'hooks/useItinerary';
+import { Itinerary } from 'models/Itinery';
+
+import { Carousel } from '../../../../../shared/components/Carousel';
 import AwsMap from '../Map/Map';
-
-import { Transportation } from 'models/Itinery';
-import Style from './itinerary.module.scss';
 import MapWithCarousel from './MapWithCarousel';
-
-export type ItineraryItem = {
-  memo: string;
-  poi: Poi;
-  schedule: string;
-  transportation: Transportation[];
-};
-
-export type MapWithCarouselProps = {
-  type: 'pois';
-  value: {
-    pois: Array<Poi>;
-    memo: Array<ItineraryItem['memo']>;
-    schedule: Array<ItineraryItem['schedule']>;
-    transportation: Array<ItineraryItem['transportation']>;
-  };
-};
-
-export type Itinerary = {
-  day: number;
-  hideAddButton: boolean;
-  items: ItineraryItem[];
-};
 
 export type ItineraryProps = { type: 'itinerary'; value: { itinerary: Itinerary } };
 
-const cx = classNames.bind(Style);
-
 const ArticleItinerary = ({ item }: { item: ItineraryProps }) => {
-  const { itinerary } = item.value;
-
-  const [current, setCurrent] = useState('');
-
-  const [coordinates] = useState(() =>
-    itinerary.items.map(({ poi }, index: number) => ({
-      index: `${index + 1}-0`,
-      parent: `${index + 1}`,
-      label: poi.type as Activity['label'],
-      lng: poi.source.geolocation.coordinates[0],
-      lat: poi.source.geolocation.coordinates[1],
-      info: poi.source.comment,
-    }))
-  );
-
-  const center = useMemo(() => {
-    const pois = itinerary.items.map(({ poi }) => poi);
-    const coordinates = pois.reduce(
-      (acc, curr) => {
-        acc.longitude += curr.source.geolocation.coordinates[0];
-        acc.latitude += curr.source.geolocation.coordinates[1];
-
-        return acc;
-      },
-      { longitude: 0, latitude: 0 }
-    );
-
-    return { longitude: coordinates.longitude / pois.length, latitude: coordinates.latitude / pois.length };
-  }, [coordinates]);
+  const { itinerary, itineraryItems, current, setCurrent, coordinates, center } = useItinerary({ item });
 
   return (
-    <Container applyMargin="top-bottom" className={cx(itinerary.items.length > 1 ? ['carousel'] : null)}>
-      <Container className={cx(itinerary.items.length > 1 ? ['flex-items', 'embedded-card-wrap'] : null)} margin="none">
+    <>
+      <Carousel carouselProps={itineraryItems}>
         <MapWithCarousel
           item={{
             type: 'pois',
@@ -83,11 +28,9 @@ const ArticleItinerary = ({ item }: { item: ItineraryProps }) => {
           current={current}
           setCurrent={setCurrent}
         />
-      </Container>
-      <Container margin="none">
-        <AwsMap locations={coordinates} center={center} current={current} setCurrent={setCurrent} />
-      </Container>
-    </Container>
+      </Carousel>
+      <AwsMap locations={coordinates} center={center} current={current} setCurrent={setCurrent} />
+    </>
   );
 };
 

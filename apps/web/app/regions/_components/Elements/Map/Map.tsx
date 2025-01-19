@@ -24,11 +24,13 @@ function AwsMap({
   center,
   current,
   setCurrent,
+  zoom = 10,
 }: Readonly<{
   current: string;
   setCurrent?: Dispatch<SetStateAction<string>>;
   locations: LocationMarker[];
   center: AwsMapCenter;
+  zoom?: number;
 }>) {
   const { current: map } = useMap();
   const [popup, setPopup] = useState<string>('');
@@ -48,7 +50,7 @@ function AwsMap({
       id={MAP_ID}
       initialViewState={{
         ...center,
-        zoom: 10,
+        zoom,
       }}
       style={{ width: '100%', height: '50vh', display: 'inline-block', borderRadius: '8px' }}
       mapStyle={STYLE}
@@ -66,12 +68,7 @@ function AwsMap({
             setPopup(marker.index);
           }}
         >
-          <Chip.Marker
-            // className={marker.label}
-            className={cx(marker.label)}
-            marker={marker}
-            popup={popup}
-          />
+          <Chip.Marker className={cx(marker.label)} marker={marker} popup={popup} />
         </Marker>
       ))}
       <Lines locationMarker={locations} />
