@@ -60,9 +60,11 @@ const AccentedChip = ({ children, current, className, onClick }: Readonly<ChipPr
 };
 
 const Marker = ({ marker, popup, className }: { className: string; marker: LocationMarker; popup: string }) => {
+  // console.log('marker', marker?.index, 'popup', popup);
   return (
     <Chip className={cx(className)} selected={marker.index === popup}>
-      {+marker.index.split('-')[0]}
+      {/* {+marker.index.split('-')[0]} */}
+      {+marker.index.split('-')[1] + 1}
     </Chip>
   );
 };

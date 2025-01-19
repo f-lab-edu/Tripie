@@ -1,0 +1,23 @@
+@use 'shared/variables' as *;
+@use 'shared/mixins' as *;
+
+.carousel {
+  position: relative;
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.flex-items {
+  @include flex-items;
+}
+
+.embedded-card-wrap {
+  overflow-x: scroll;
+  height: 100%;
+  align-items: stretch !important;
+}
+
+.itinerary-cards {
+  overflow-y: visible !important;
+}
