@@ -2,8 +2,8 @@ import { AiTripPlanResponse } from 'app/api/chat/route';
 import COMPANION_LIST from 'constants/companions';
 import { CONTINENTS } from 'constants/continents';
 import PREFERENCE_LIST from 'constants/preferences';
-import { Coordinate } from 'hooks/awsMap/useAwsMap';
 import { Continents } from 'models/Continent';
+import { Coordinate } from 'models/Geo';
 
 export const SELECTED_CONTINENT = 'ASIA' as keyof Continents;
 export const SELECTED_CONTINENT_NAME = CONTINENTS[SELECTED_CONTINENT];

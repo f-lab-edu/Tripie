@@ -4,8 +4,8 @@ import classNames from 'classnames/bind';
 
 import Style from './region-info.module.scss';
 
-import RegionList, { RegionArticleData } from 'app/regions/[regionId]/_components/RegionList';
-import RegionSelect from 'app/regions/[regionId]/_components/RegionSelect';
+import RegionList, { RegionArticleData } from 'app/regions/_components/RegionList';
+import RegionSelect from 'app/regions/_components/RegionSelect';
 import { TRIPIE_REGION_BY_LOCATION, TRIPIE_REGION_IDS } from 'constants/tripie-country';
 import useCountryArticle from 'hooks/query/useCountryArticles';
 import Card from 'shared/components/Card/Card';
