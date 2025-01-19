@@ -7,7 +7,7 @@ import listCountryArticles from 'app/api/firebase/getArticles';
 import Navigation from '../../../_components/Navigation';
 import RegionList, { RegionArticleData } from '../../../_components/RegionList';
 import RegionSelect from '../../../_components/RegionSelect';
-import Style from '../../../regions.module.scss';
+import Style from '../../../_components/shared/regions.module.scss';
 
 const cx = classNames.bind(Style);
 
