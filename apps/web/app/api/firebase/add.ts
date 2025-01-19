@@ -1,5 +1,4 @@
 import { doc, setDoc } from 'firebase/firestore';
-// import db from 'firebase/store';
 import db from '../../../firebase/store';
 
 const addItem = async (items: any, dbName: string) => {

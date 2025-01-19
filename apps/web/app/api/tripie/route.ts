@@ -1,19 +1,22 @@
 import { NextResponse } from 'next/server';
 
+const ids = { attractions: 'attractionId', restaurant: 'restaurantId', article: 'articleId' };
+
 export async function GET(request: NextResponse) {
   const { searchParams } = new URL(request.url);
   const regionId = searchParams.get('regionId');
-  // const restaurantId = searchParams.get('restaurantId');
-  const attractionId = searchParams.get('attractionId');
-  // const articleId = searchParams.get('articleId');
 
   if (!regionId) {
     return NextResponse.json({ message: 'geotagId is required' }, { status: 400 });
   }
 
-  // const apiUrl = `https://triple.guide/content/regions/${regionId}/restaurants/${restaurantId}`;
-  const apiUrl = `https://triple.guide/content/regions/${regionId}/attractions/${attractionId}`;
-  // const apiUrl = `https://triple.guide/content/regions/${regionId}/articles/${articleId}`;
+  const key = Object.keys(ids).filter(key => searchParams.get(key) != null)?.[0] as keyof typeof ids;
+
+  if (key == null) {
+    return NextResponse.json({ message: 'provide either attractionId/restaurantId/ articleId' }, { status: 400 });
+  }
+
+  const apiUrl = `https://triple.guide/content/regions/${regionId}/${key}/${ids[key]}`;
 
   try {
     const response = await fetch(apiUrl).then(v => v.text());

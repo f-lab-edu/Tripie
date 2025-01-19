@@ -1,5 +1,4 @@
 import { doc, setDoc } from 'firebase/firestore';
-// import db from 'firebase/store';
 import db from '../../../firebase/store';
 
 const addRegionArticles = async (items: any, dbName: string, id: string) => {

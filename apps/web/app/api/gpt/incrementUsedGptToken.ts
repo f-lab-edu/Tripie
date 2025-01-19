@@ -3,15 +3,13 @@ import { prisma } from '../auth/prisma';
 
 async function incrementUsedGptToken(email: string) {
   try {
-    // await prisma.user.get;
-    // console.log('incrementUsedGptToken email', email);
     const updatedUser = await prisma.user.update({
       where: {
-        email: email, // Locate the user by their email
+        email: email, // email로 유저 선택
       },
       data: {
         usedGptToken: {
-          increment: 1, // Increment the value by 1
+          increment: 1, // gpt 사용량 1 증가
         },
       },
     });

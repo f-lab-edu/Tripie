@@ -15,10 +15,8 @@ export async function GET(request: NextResponse) {
 
     const data = await response.json();
 
-    // Return the data as JSON to the frontend
     return NextResponse.json(data, { status: 200 });
   } catch (error) {
-    // Handle errors
     return NextResponse.json({ message: 'An error occurred', error }, { status: 500 });
   }
 }

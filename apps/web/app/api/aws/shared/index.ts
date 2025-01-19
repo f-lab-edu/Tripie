@@ -12,11 +12,12 @@ type Command = GetPlaceCommand | SearchPlaceIndexForSuggestionsCommand | SearchP
 
 export async function awsClient(command: Command) {
   // Create an authentication helper instance using an API key
-  const authHelper = await withAPIKey(API_KEY);
+  const authHelper = withAPIKey(API_KEY);
 
   const client = new LocationClient({
     region: REGION, // region containing Cognito pool
-    ...authHelper.getLocationClientConfig(), // Provides configuration required to make requests to Amazon Location
+    ...authHelper.getClientConfig(),
+    // ...authHelper.getLocationClientConfig(), // Provides configuration required to make requests to Amazon Location
   });
 
   // 🤔 공식문서 https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/location/command/GetPlaceCommand/ 에서

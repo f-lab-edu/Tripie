@@ -18,7 +18,7 @@ export async function GET(req: NextRequest) {
 
     const command = new InvokeCommand(input);
     //@ts-ignore
-    const { Payload, ...others } = await client.send(command);
+    const { Payload } = await client.send(command);
     const { contents } = JSON.parse(Buffer.from(Payload).toString());
     return NextResponse.json({ data: contents }, { status: 200 });
   } catch (e) {

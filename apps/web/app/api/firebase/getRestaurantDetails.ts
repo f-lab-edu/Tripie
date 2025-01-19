@@ -1,14 +1,6 @@
 import { collection, getDocs } from 'firebase/firestore';
-// import db from 'firebase/store';
-import { AttractionArticle } from 'models/Attraction';
+import { RestaurantData } from 'models/Restaurant';
 import db from '../../../firebase/store';
-
-type RestaurantData = {
-  restaurantId: string;
-  data: AttractionArticle;
-  id: string;
-  regionId: string;
-};
 
 const getRestaurantDetails = async (docName: string, id: string, articleId: string) => {
   try {
@@ -29,7 +21,6 @@ const getRestaurantDetails = async (docName: string, id: string, articleId: stri
 
     if (filtered.length > 0) {
       const { data, ...others } = filtered[0];
-      // console.log('getRestaurantDetails',data);
       return { data, ...others };
     }
   } catch (e) {

@@ -1,13 +1,6 @@
 import { collection, getDocs } from '@firebase/firestore';
-// import db from 'firebase/store';
+import { AttractionData } from 'models/Attraction';
 import db from '../../../firebase/store';
-
-type AttractionData = {
-  attractionId: string;
-  data: string;
-  id: string;
-  regionId: string;
-};
 
 const getAttractionDetails = async (docName: string, id: string, attractionId: string) => {
   try {

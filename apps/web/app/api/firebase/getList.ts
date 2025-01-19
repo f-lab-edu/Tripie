@@ -1,5 +1,4 @@
 import { collection, getDocs } from 'firebase/firestore';
-// import db from 'firebase/store';
 import { Country } from 'models/Country';
 import db from '../../../firebase/store';
 
