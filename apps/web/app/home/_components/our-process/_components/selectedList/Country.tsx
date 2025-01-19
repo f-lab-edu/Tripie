@@ -22,10 +22,12 @@ const CountrySelect = () => {
     if (isLoading) {
       return [];
     }
-    const selected = data.filter((item: Country) => item.name === SELECTED_COUNTRY)[0];
-
-    setSelected(selected);
-    return [...data.slice(17, 19), selected, ...data.slice(10, 14)].filter(v => v != null);
+    if (data != null) {
+      const selected = data.filter((item: Country) => item.name === SELECTED_COUNTRY)[0];
+      setSelected(selected);
+      return [...data.slice(17, 19), selected, ...data.slice(10, 14)].filter(v => v != null);
+    }
+    return [];
   }, [data, isLoading]);
 
   return isLoading || selected?.code == null ? (
