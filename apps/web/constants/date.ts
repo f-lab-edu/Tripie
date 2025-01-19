@@ -5,7 +5,7 @@ const BUSINESS_DATE = {
   4: '목',
   5: '금',
   6: '토',
-  7: '일',
+  0: '일',
 } as { [key: string]: string };
 
 export default BUSINESS_DATE;
