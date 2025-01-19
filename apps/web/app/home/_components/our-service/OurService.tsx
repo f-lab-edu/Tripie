@@ -3,7 +3,7 @@
 import { Container, Headings } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import MotionSlideUp from 'shared/components/MotionSlideUp/MotionSlideUp';
-import ServiceList from './ServiceList';
+import ServiceList from './_components/ServiceList';
 import Style from './our-service.module.scss';
 
 const cx = classNames.bind(Style);

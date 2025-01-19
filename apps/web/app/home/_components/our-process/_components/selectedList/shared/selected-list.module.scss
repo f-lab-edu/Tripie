@@ -1,0 +1,18 @@
+@use 'shared/variables' as *;
+@use 'shared/mixins' as *;
+
+.card-region-wrap {
+  & div > div > div > ul {
+    @media (min-width: 998px) {
+      grid-template-columns: repeat(1, 1fr) !important;
+    }
+  }
+}
+
+.wrap {
+  @include grid-wrap;
+}
+
+.button-chip {
+  @include button-chip;
+}

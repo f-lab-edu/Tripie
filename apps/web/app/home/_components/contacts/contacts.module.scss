@@ -10,8 +10,6 @@
   @include accented;
 }
 
-/////////////////////////////
-
 .wrap {
   display: inline-flex;
   flex-direction: column;
@@ -26,9 +24,6 @@
   cursor: pointer;
 }
 
-.accented {
-  @include accented;
-}
 .footer-divider {
   cursor: pointer;
   background-color: transparent;
@@ -41,7 +36,7 @@
 .link-item {
   cursor: pointer;
 }
-////////////////////////////
+
 .big-arrow {
   height: 2rem;
   width: 2rem;

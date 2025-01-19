@@ -36,7 +36,8 @@ export default function OurWorkList() {
   return (
     <Container>
       {ourWorkList.map(({ year, tag, header, details }) => (
-        <Accordion key={tag} className={cx('our-work-contents')}>
+        // <Accordion key={tag} className={cx('our-work-contents')}>
+        <Accordion key={tag}>
           <Accordion.Header>
             <Container className={cx('accented')} margin="m" applyMargin="top">
               {year}

@@ -1,7 +1,5 @@
 'use client';
 import { Container } from '@tripie-pyotato/design-system';
-import classNames from 'classnames/bind';
-import Style from './all-info.module.scss';
 
 import SelectedDates from 'app/trip-planner/_components/Duration/SelectedDates';
 import RESOURCE from 'constants/resources';
@@ -13,8 +11,6 @@ import AnimatedButton from 'shared/components/Button/AnimatedButton';
 import Calendar from 'shared/components/Calendar';
 import CalendarHeader from 'shared/components/Calendar/CalendarHeader';
 import Icon from 'shared/components/Icon/Icon';
-
-const cx = classNames.bind(Style);
 
 const Calendars = ({
   duration,
@@ -30,7 +26,7 @@ const Calendars = ({
       <SelectedDates duration={duration} />
       <Container applyMargin="top">
         <CalendarHeader selectRange={true} allowPartialRange={false} />
-        <Container applyMargin="top-bottom" className={cx('calendar-wrap')}>
+        <Container applyMargin="top-bottom">
           {calendar.map(({ days, min, max }) => (
             <Calendar
               minDate={min}
@@ -71,7 +67,7 @@ const DurationSelect = () => {
 
   return (
     <Container margin="none">
-      <Container margin="none" className={cx('card-region-wrap')}>
+      <Container margin="none">
         <Calendars calendar={calendar.slice(0, 1)} duration={duration} selected={selected as LooseValue} />
       </Container>
       <AnimatedButton.Next>

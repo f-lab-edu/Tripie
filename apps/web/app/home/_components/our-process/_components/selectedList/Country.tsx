@@ -1,6 +1,6 @@
 'use client';
 import classNames from 'classnames/bind';
-import Style from './all-info.module.scss';
+import Style from './shared/selected-list.module.scss';
 
 import { Container } from '@tripie-pyotato/design-system';
 import RESOURCE from 'constants/resources';
@@ -32,23 +32,21 @@ const CountrySelect = () => {
     <></>
   ) : (
     <Container margin="none">
-      <Container margin="none" className={cx('card-region-wrap')}>
-        <Container className={cx('wrap')} applyMargin="bottom">
-          {countries.map((country: Country) => (
-            <Chip
-              selected={SELECTED_COUNTRY === country.name}
-              className={cx('button-chip')}
-              key={JSON.stringify(country.code)}
-            >
-              {country?.code != null && regionNameToLocal({ regionCode: country?.code })}
-            </Chip>
-          ))}
-        </Container>
-
-        <AnimatedButton.Next>
-          "{regionNameToLocal({ regionCode: selected.code })}"로 보기 <Icon src={RESOURCE.ARROW} />
-        </AnimatedButton.Next>
+      <Container className={cx('wrap')} applyMargin="bottom">
+        {countries.map((country: Country) => (
+          <Chip
+            selected={SELECTED_COUNTRY === country.name}
+            className={cx('button-chip')}
+            key={JSON.stringify(country.code)}
+          >
+            {country?.code != null && regionNameToLocal({ regionCode: country?.code })}
+          </Chip>
+        ))}
       </Container>
+
+      <AnimatedButton.Next>
+        "{regionNameToLocal({ regionCode: selected.code })}"로 보기 <Icon src={RESOURCE.ARROW} />
+      </AnimatedButton.Next>
     </Container>
   );
 };

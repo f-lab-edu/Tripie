@@ -1,15 +1,15 @@
 import Card from 'shared/components/Card/Card';
 
 import classNames from 'classnames/bind';
-import Description from './description/Description';
-import Style from './our-process.module.scss';
-import CitySelect from './selectedList/City';
-import CompanionSelect from './selectedList/Companion';
-import ContinentSelect from './selectedList/Continent';
-import CountrySelect from './selectedList/Country';
-import DurationSelect from './selectedList/Duration';
-import TravelStyleSelect from './selectedList/TravelStyle';
-import TripResultExample from './selectedList/TripResultExample';
+import Description from '../Description';
+import CitySelect from '../selectedList/City';
+import CompanionSelect from '../selectedList/Companion';
+import ContinentSelect from '../selectedList/Continent';
+import CountrySelect from '../selectedList/Country';
+import DurationSelect from '../selectedList/Duration';
+import TravelStyleSelect from '../selectedList/TravelStyle';
+import TripResultExample from '../selectedList/TripResult';
+import Style from './our-process-list.module.scss';
 
 const cx = classNames.bind(Style);
 
@@ -52,6 +52,7 @@ const cards = [
     description: '여행하고자하는 지역, 기간, 대상, 그리고 취향을 모아 ai로 일정을 추천해드립니다.',
   },
 ];
+
 export default function OurProcessList() {
   return cards.map(({ label, content, description }, index) => (
     <Card key={label} className={cx('card-wrap')}>

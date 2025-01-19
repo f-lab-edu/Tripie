@@ -1,7 +1,7 @@
 'use client';
 import { Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
-import Style from './all-info.module.scss';
+import Style from './shared/selected-list.module.scss';
 
 import COMPANION_LIST from 'constants/companions';
 import RESOURCE from 'constants/resources';
@@ -11,6 +11,7 @@ import Icon from 'shared/components/Icon/Icon';
 import { SELECTED_COMPANION } from './constants/selected';
 
 const cx = classNames.bind(Style);
+
 const CompanionSelect = () => {
   return (
     <Container margin="none">

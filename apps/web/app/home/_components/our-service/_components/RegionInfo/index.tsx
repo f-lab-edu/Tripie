@@ -2,7 +2,7 @@
 import { Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 
-import Style from './regions.module.scss';
+import Style from './region-info.module.scss';
 
 import RegionList, { RegionArticleData } from 'app/regions/[regionId]/_components/RegionList';
 import RegionSelect from 'app/regions/[regionId]/_components/RegionSelect';
@@ -35,7 +35,7 @@ const RegionInfo = () => {
   }
 
   return (
-    <Card.Content className={cx('region-info-wrap')}>
+    <Card.Content className={cx('card-wrap')}>
       <Container className={cx('card-content-wrap')} margin="none">
         <Container margin="none" className={cx('card-region-wrap')}>
           <RegionSelect selected={currentRegionId} selectedRegion={selectedRegion} />

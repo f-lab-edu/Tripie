@@ -1,7 +1,7 @@
 import { Container, Headings } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import MotionSlideUp from 'shared/components/MotionSlideUp/MotionSlideUp';
-import OurProcessList from './OurProcessList';
+import OurProcessList from './_components/OurProcessList';
 import Style from './our-process.module.scss';
 
 const cx = classNames.bind(Style);

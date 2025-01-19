@@ -1,7 +1,7 @@
 'use client';
 import { Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
-import Style from './all-info.module.scss';
+import Style from './shared/selected-list.module.scss';
 
 import PREFERENCE_LIST from 'constants/preferences';
 import RESOURCE from 'constants/resources';
@@ -15,7 +15,7 @@ const cx = classNames.bind(Style);
 const TravelStyleSelect = () => {
   return (
     <Container margin="none">
-      <Container margin="none" className={cx('card-region-wrap')}>
+      <Container margin="none">
         <Container className={cx('wrap')} applyMargin="bottom">
           {Object.values(PREFERENCE_LIST).map((tagName, index) => (
             <Chip

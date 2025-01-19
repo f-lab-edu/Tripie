@@ -1,0 +1,7 @@
+@use 'shared/mixins' as *;
+@use 'shared/variables' as *;
+
+.card-wrap {
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+}
