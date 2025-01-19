@@ -1,35 +1,12 @@
-export type TripleImage = {
-  height: number;
-  source: {};
-  type: string; //'image'
-  width: number;
-  sizes: ImageSizes;
-  cloudinaryId: string;
-  sourceUrl: string;
-  id: string;
-};
-
-export type ImageUrl = { url: string };
-
-export type ImageSizes = {
-  full: ImageUrl;
-  large: ImageUrl;
-  small_square: ImageUrl;
-};
-
-export type GeoTag = {
-  cloudinaryId: string;
-  width: number;
-  type: string; //'image'
-  id: string;
-  height: number;
-};
+import { GeoTag } from './Geo';
+import { ImageUrl } from './Image';
+import { TripleImage } from './Triple';
 
 export type RegionInfoSource = {
   image: TripleImage;
   geotag: GeoTag[];
   id: string;
-  type: string; //article
+  type: string;
   regionId: string;
   reviewsCount: number;
   title: string;
@@ -38,14 +15,13 @@ export type RegionInfoSource = {
 };
 
 export type RegionArticleInfo = {
-  type: string; //article
+  type: string;
   source: RegionInfoSource;
   id: string;
   scrapped: boolean;
   reviewed: boolean;
 };
 
-export type ArticleImageUrl = { url: string };
 export type ArticleImage = {
   cloudinaryBucket: string;
   cloudinaryId: string;
@@ -57,5 +33,5 @@ export type ArticleImage = {
   sourceUrl: string;
   type: string;
   width: number;
-  sizes: { full: ArticleImageUrl; large: ArticleImageUrl; small_square: ArticleImageUrl };
+  sizes: { full: ImageUrl; large: ImageUrl; small_square: ImageUrl };
 };

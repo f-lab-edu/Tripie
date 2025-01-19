@@ -4,6 +4,7 @@ import { Activity, Poi } from './Aws';
 
 export type Category = { id: string; name: string };
 export type Region = { source: { names: { en: string; ko: string } } };
+
 export type Geolocation = {
   coordinates: number[];
   type: 'Point';

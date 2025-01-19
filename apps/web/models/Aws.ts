@@ -17,6 +17,7 @@ export type Activity = {
   comments: string;
   place: string;
   label: 'attraction' | 'hotel' | 'restaurant';
+  coordinates?: number[];
 };
 
 export type TripContent = {
