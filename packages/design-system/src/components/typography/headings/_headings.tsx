@@ -4,10 +4,6 @@ import classNames from 'classnames/bind';
 import Text, { TextProps } from '../text/_text';
 import Style from '../text/_text.module.scss';
 
-interface HeadingProps extends TextProps {
-  emphasize?: boolean;
-}
-
 const style = classNames.bind(Style);
 
 const Heading = ({ children, className }: TextProps) => <Text className={style('default', className)}>{children}</Text>;
