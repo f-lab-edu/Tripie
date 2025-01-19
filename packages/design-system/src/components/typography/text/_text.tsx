@@ -15,7 +15,7 @@ export interface TextProps {
   className?: string;
 }
 
-function Text({ children, className, dim, ...props }: TextProps) {
+function Text({ children, className, dim, ...props }: Readonly<TextProps>) {
   const splitText = `${children}`.split('\n').map((sentence, index) => {
     return (
       <span className={style(className, 'text', { dim })} key={index + sentence} {...props}>

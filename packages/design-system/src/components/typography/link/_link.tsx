@@ -16,7 +16,7 @@ export interface LinkProps extends React.RefAttributes<HTMLAnchorElement> {
   role?: string;
 }
 
-function UnstyledLink({ children, className, href, role, ...props }: LinkProps) {
+function UnstyledLink({ children, className, href, role, ...props }: Readonly<LinkProps>) {
   return (
     <Link href={href} className={style('link', className)} role={role} {...props}>
       <Text>{children}</Text>
