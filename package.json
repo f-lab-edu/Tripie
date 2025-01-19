@@ -19,7 +19,8 @@
     "prepare": "husky",
     "test": "turbo run test",
     "test:watch": "turbo run test:watch",
-    "clean": "turbo run clean && rm -rf ./node_modules && pnpm i --frozen-lockfile"
+    "clean": "turbo run clean && rm -rf ./node_modules && pnpm i --frozen-lockfile",
+    "typecheck": "turbo typecheck --filter=web"
   },
   "dependencies": {
     "@prisma/client": "^5.22.0",

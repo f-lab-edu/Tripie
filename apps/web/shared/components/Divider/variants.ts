@@ -18,7 +18,7 @@ export const ACCORDIAN_VARIANTS = {
         stiffness: 10,
       },
     }),
-  } as Variants,
+  },
   BUTTON: {
     closed: () => ({}),
     open: () => ({

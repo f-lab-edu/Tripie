@@ -60,34 +60,41 @@ export function CountryStep({ context, onNext }: Readonly<Props>) {
         </h2>
       </Container>
 
-      <CountryList
-        countries={data}
-        bottomRef={bottomRef}
-        setSelectedCountry={setSelectedCountry}
-        selectedCountry={selectedCountry}
-      />
-      <CountryDetail
-        selectedCountry={
-          // 선택한 나라가 없을 경우
-          selectedCountry === '' || !data.some((country: Country) => country.name === selectedCountry)
-            ? data[0].name
-            : selectedCountry
-        }
-      />
-      <Container margin="none">
-        <AnimatedButton
-          withBorder={true}
-          onClick={async () => {
-            const states = await getCitys(selectedCountry);
-            onNext({ country: selectedCountry, city: { all: states?.[0]?.states, selected: [] } });
-          }}
-          className={cx('submit-button')}
-        >
-          <Container margin="none" className={cx('flex')}>
-            "{selectedCountry}"로 보기 <Icon src={RESOURCE.ARROW} />
+      {data == null ? null : (
+        <>
+          {' '}
+          <CountryList
+            countries={data}
+            bottomRef={bottomRef}
+            setSelectedCountry={setSelectedCountry}
+            selectedCountry={selectedCountry}
+          />
+          <CountryDetail
+            selectedCountry={
+              // 선택한 나라가 없을 경우
+              selectedCountry === '' || !data.some((country: Country) => country.name === selectedCountry)
+                ? data[0].name
+                : selectedCountry
+            }
+          />
+          <Container margin="none">
+            <AnimatedButton
+              withBorder={true}
+              onClick={async () => {
+                const states = await getCitys(selectedCountry);
+                if (states != null) {
+                  onNext({ country: selectedCountry, city: { all: states?.[0]?.states, selected: [] } });
+                }
+              }}
+              className={cx('submit-button')}
+            >
+              <Container margin="none" className={cx('flex')}>
+                "{selectedCountry}"로 보기 <Icon src={RESOURCE.ARROW} />
+              </Container>
+            </AnimatedButton>
           </Container>
-        </AnimatedButton>
-      </Container>
+        </>
+      )}
 
       <section ref={bottomRef} />
     </>

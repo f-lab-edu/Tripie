@@ -3,14 +3,14 @@ import classNames from 'classnames/bind';
 
 import { Container } from '@tripie-pyotato/design-system';
 
-import { AiTripPlanResponse } from 'app/api/chat/route';
 import { MAX_TOKEN } from 'constants/chat';
 import RESOURCE from 'constants/resources';
 import useChat from 'hooks/query/useChat';
 import useLamdba from 'hooks/query/useLambda';
-import useChatToken from 'hooks/useChatToken';
+// import useChatToken from 'hooks/useChatToken';
 import { Activity, AwsPlace, AwsPlaceResult, TripContent } from 'models/Aws';
 import { ContinentKeys } from 'models/Continent';
+import { Coordinate } from 'models/Geo';
 import { TripieUser } from 'models/User';
 import { signIn, useSession } from 'next-auth/react';
 import { Dispatch, SetStateAction, createContext, useMemo, useState } from 'react';
@@ -63,9 +63,12 @@ export const SelectedDateContext = createContext<{ currentDate: number; dateCycl
 const ChatFunnel = ({ context }: ChatFunnelProps) => {
   const { data, isLoading } = useChat(context);
   const { status, data: userData } = useSession();
-  const { data: googleSearchData } = useLamdba(data?.places?.[0], context.city.selected.join(', '));
+  const { data: googleSearchData } = useLamdba({
+    places: data?.places?.[0],
+    selectedCities: context.city.selected.join(', '),
+  });
 
-  const { tokenData } = useChatToken({ context });
+  // const { tokenData } = useChatToken({ context });
 
   // 여행 일정 중 선택한 날짜
   const [selectedDate, setSelectedDate] = useState<number>(0);
@@ -97,13 +100,15 @@ const ChatFunnel = ({ context }: ChatFunnelProps) => {
 
   const coordinates = useMemo(() => {
     if (data) {
-      return data.plans.trips.map((trip: TripContent) => trip.activities.map(activity => activity?.coordinates));
+      return data.plans.trips.map((trip: TripContent) =>
+        trip.activities.map(activity => activity?.coordinates)
+      ) as unknown as Coordinate[][];
     } else {
       return null;
     }
-  }, [data as AiTripPlanResponse['trips']]);
+  }, [data]);
 
-  console.log('tokenData', tokenData);
+  // console.log('tokenData', tokenData);
 
   return (
     <TabContext.Provider value={selectedActivityValues}>
@@ -130,7 +135,7 @@ const ChatFunnel = ({ context }: ChatFunnelProps) => {
           </h2>
         </Container>
         <Container margin="none" className={cx('trip-content-wrap')}>
-          {isLoading || coordinates == null ? (
+          {isLoading || coordinates == null || data == null ? (
             <></>
           ) : (
             <>

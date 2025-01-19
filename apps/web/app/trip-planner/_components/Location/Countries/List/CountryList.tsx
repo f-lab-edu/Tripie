@@ -11,7 +11,7 @@ import { regionNameToLocal } from 'utils/lang';
 import Style from './country-list.module.scss';
 
 interface Props {
-  countries: any[];
+  countries?: Country[];
   bottomRef: MutableRefObject<HTMLDivElement | null>;
   selectedCountry: string;
   setSelectedCountry: Dispatch<SetStateAction<string>>;
@@ -36,6 +36,10 @@ export function CountryList({ countries, selectedCountry, setSelectedCountry, bo
         }),
     });
   };
+
+  if (countries == null) {
+    return null;
+  }
 
   return (
     <List.Grid className={cx('grid-wrap')}>

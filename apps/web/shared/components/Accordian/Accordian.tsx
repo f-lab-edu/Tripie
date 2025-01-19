@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 
 import { motion } from 'framer-motion';
 import useCycle from 'hooks/useCycle';
-import { ReactNode, createContext, useContext, useMemo } from 'react';
+import { createContext, ReactNode, useContext, useMemo } from 'react';
 
 import Divider from '../Divider/Divider';
 import Icon, { IconProps } from '../Icon/Icon';

@@ -1,7 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import API from 'constants/api-routes';
 
-const useLamdba = (places: string[], selectedCities: string) => {
+const useLamdba = ({ places, selectedCities }: { places?: string[]; selectedCities: string }) => {
+  if (places == null) {
+    return { data: null };
+  }
   const res = useQuery({
     queryKey: useLamdba.queryKey(places, selectedCities),
     queryFn: async () => {
@@ -23,17 +26,6 @@ const useLamdba = (places: string[], selectedCities: string) => {
     enabled: !!places,
   });
   return res;
-
-  // const res = useQueries({
-  //   queries: places.map(place => ({
-  //     queryKey: useLamdba.queryKey(place),
-  //     queryFn: async () => {
-  //       await fetch('/api/aws/lambda?place=' + place);
-  //     },
-  //     staleTime: Infinity,
-  //   })),
-  // });
-  // return res;
 };
 
 useLamdba.queryKey = (places: string[], selectedCities: string) => {

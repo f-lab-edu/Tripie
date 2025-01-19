@@ -28,7 +28,7 @@ const RegionInfo = () => {
     item => TRIPIE_REGION_IDS[item as keyof typeof TRIPIE_REGION_IDS] === selected[0]
   )?.[0];
 
-  const { data } = useCountryArticle() as { data: RegionArticleData[] };
+  const { data } = useCountryArticle() as unknown as { data: RegionArticleData[] };
 
   if (data == null) {
     return <></>;
