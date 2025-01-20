@@ -36,6 +36,7 @@
         "POSTGRES_URL",
         "POSTGRES_URL_NON_POOLING",
         "POSTGRES_USER",
+        "POSTGRES_URL_NO_SSL",
         "TURBO_REMOTE_ONLY",
         "TURBO_RUN_SUMMARY",
         "VERCEL",
