@@ -62,6 +62,10 @@
     "db:deploy": {
       "cache": false
     },
+    "db:migrate": {
+      "cache": false,
+      "persistent": true
+    },
     "typecheck": {}
   },
   "globalDependencies": [".env"]

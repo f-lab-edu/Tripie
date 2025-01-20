@@ -66,7 +66,6 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^6.4.8",
     "@testing-library/react": "^16.0.0",
-    "@tripie-pyotato/db": "workspace:*",
     "@tripie-pyotato/jest": "workspace:*",
     "@types/geojson": "^7946.0.14",
     "@types/google.maps": "^3.55.12",
