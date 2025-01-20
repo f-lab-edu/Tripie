@@ -2,7 +2,6 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { Container } from '@tripie-pyotato/design-system';
 import getContinentlList from 'app/api/firebase/getContinentl';
-import Loading from 'app/home/_components/loading/Loading';
 import classNames from 'classnames/bind';
 import RESOURCE from 'constants/resources';
 import useContinentl from 'hooks/query/useContinentl';
@@ -12,6 +11,7 @@ import { Country } from 'models/Country';
 import { useRef, useState } from 'react';
 import AnimatedButton from 'shared/components/Button/AnimatedButton';
 import Icon from 'shared/components/Icon/Icon';
+import Loading from 'shared/components/Loading';
 import CountryDetail from './CountryDetail';
 import { CountryList } from './List/CountryList';
 import Style from './countries.module.scss';
