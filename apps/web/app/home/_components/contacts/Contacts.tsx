@@ -4,6 +4,7 @@ import { Container, Headings } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import RESOURCE from 'constants/resources';
 import ROUTE from 'constants/routes';
+import Link from 'next/link';
 import Icon from 'shared/components/Icon/Icon';
 import MotionSlideUp from 'shared/components/MotionSlideUp/MotionSlideUp';
 import Contact from './Contact';
@@ -14,12 +15,17 @@ const cx = classNames.bind(Style);
 const contacts = {
   Email: (
     <div className={cx('text-wrap')}>
-      mail@tripie-pyotato.com <Icon src={RESOURCE.ARROW} className={cx('big-arrow')} />
+      <Link href="mailto:mail@tripie-pyotato.com?subject=Hello&body=How%20can%20I%20help%20you?">
+        mail@tripie-pyotato.com
+      </Link>
+      <Icon src={RESOURCE.ARROW} className={cx('big-arrow')} />
     </div>
   ),
   Github: (
     <div className={cx('text-wrap')}>
-      <span className={cx('accented')}>@ </span>Pyotato
+      <Link href="mailto:pyotato.dev@gmail.com?subject=Hello&body=How%20can%20I%20help%20you?">
+        <span className={cx('accented')}>@ </span>Pyotato
+      </Link>
       <Icon src={RESOURCE.ARROW} className={cx('big-arrow')} />
     </div>
   ),

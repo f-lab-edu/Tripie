@@ -45,6 +45,11 @@
   display: inline-flex;
   flex-direction: row;
   align-items: center;
+
+  & > a {
+    text-decoration: none;
+    color: inherit;
+  }
 }
 
 .small {

@@ -13,8 +13,28 @@ import { MENU_VARIANTS } from './variants';
 
 const cx = classNames.bind(Style);
 
-export const Navigation = () => {
+const AuthButton = () => {
   const { status, data } = useSession();
+  if (status === 'unauthenticated') {
+    return (
+      <MenuItem key={`unauthenticated`}>
+        <Link href={ROUTE.SIGN_IN.href}>{ROUTE.SIGN_IN.label}</Link>
+      </MenuItem>
+    );
+  }
+  return (
+    <>
+      <MenuItem key={`${data?.user?.name}-authenticated`}>
+        <Link href={'/trip-planner'}>AI enhanced trip</Link> <Icon src={RESOURCE.ARROW} />
+      </MenuItem>
+      <MenuItem key={`${data?.user?.name}-authenticated-signout`}>
+        <div onClick={() => signOut()}>Sign out</div>
+      </MenuItem>
+    </>
+  );
+};
+
+export const Navigation = () => {
   return (
     <motion.ul className={cx('navigation')} variants={MENU_VARIANTS.NAVIGATION}>
       {ROUTE.LANDING.map(({ label, href }, index) => (
@@ -23,23 +43,11 @@ export const Navigation = () => {
           {label === 'Contact' ? <Icon src={RESOURCE.ARROW} /> : null}
         </MenuItem>
       ))}
-
-      {status === 'unauthenticated' ? (
-        <MenuItem key={`unauthenticated`}>
-          <Link href={ROUTE.SIGN_IN.href}>{ROUTE.SIGN_IN.label}</Link>
-        </MenuItem>
-      ) : status === 'authenticated' ? (
-        <>
-          <MenuItem key={`${data?.user?.name}-authenticated`}>
-            <Link href={'/trip-planner'}>AI enhanced trip</Link> <Icon src={RESOURCE.ARROW} />
-          </MenuItem>
-          <MenuItem key={`${data?.user?.name}-authenticated-signout`}>
-            <div onClick={() => signOut()}>Sign out</div>
-          </MenuItem>
-        </>
-      ) : (
-        <></>
-      )}
+      <MenuItem>
+        <Link href={ROUTE.REGIONS.href}>{ROUTE.REGIONS.label}</Link>
+        <Icon src={RESOURCE.ARROW} />
+      </MenuItem>
+      <AuthButton />
       {process.env.NODE_ENV === 'development' ? (
         <MenuItem key={'dev'}>
           <Link href={ROUTE.PLAYGROUND.href}>{ROUTE.PLAYGROUND.label}</Link>

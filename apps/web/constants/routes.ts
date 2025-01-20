@@ -11,7 +11,7 @@ const ROUTE = {
   SERVICES: { label: 'Services', href: '/#Services' },
   CONTACT: { label: 'Contact', href: '/#Contact' },
   TRIP_PLANNER: { label: 'Trip Planner', href: '/trip-planner' },
-  REGIONS: { label: 'Region info', href: '/regions' },
+  REGIONS: { label: '도시별 여행 정보', href: '/regions' },
   SIGN_IN: { label: 'Sign in', href: '/api/auth/signin' },
 };
 

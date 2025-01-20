@@ -3,15 +3,12 @@ import classNames from 'classnames/bind';
 
 import { Container } from '@tripie-pyotato/design-system';
 
-import { MAX_TOKEN } from 'constants/chat';
-import RESOURCE from 'constants/resources';
 import useChat from 'hooks/query/useChat';
-import useLamdba from 'hooks/query/useLambda';
-// import useChatToken from 'hooks/useChatToken';
+// import useLamdba from 'hooks/query/useLambda';
+import useChatToken, { CustomSession } from 'hooks/query/useChatToken';
 import { Activity, AwsPlace, AwsPlaceResult, TripContent } from 'models/Aws';
 import { ContinentKeys } from 'models/Continent';
 import { Coordinate } from 'models/Geo';
-import { TripieUser } from 'models/User';
 import { signIn, useSession } from 'next-auth/react';
 import { Dispatch, SetStateAction, createContext, useMemo, useState } from 'react';
 import Icon from 'shared/components/Icon/Icon';
@@ -61,14 +58,9 @@ export const SelectedDateContext = createContext<{ currentDate: number; dateCycl
 });
 
 const ChatFunnel = ({ context }: ChatFunnelProps) => {
-  const { data, isLoading } = useChat(context);
   const { status, data: userData } = useSession();
-  const { data: googleSearchData } = useLamdba({
-    places: data?.places?.[0],
-    selectedCities: context.city.selected.join(', '),
-  });
-
-  // const { tokenData } = useChatToken({ context });
+  const { data, isLoading } = useChat(context);
+  const { data: gptTokenData } = useChatToken({ data: userData as CustomSession });
 
   // 여행 일정 중 선택한 날짜
   const [selectedDate, setSelectedDate] = useState<number>(0);
@@ -89,9 +81,9 @@ const ChatFunnel = ({ context }: ChatFunnelProps) => {
     signIn();
   }
 
-  if (googleSearchData != null) {
-    console.log('googleSearchData', googleSearchData);
-  }
+  // if (googleSearchData != null) {
+  //   console.log('googleSearchData', googleSearchData);
+  // }
 
   // // 여행 일정 맛보기
   // if (isLoadingGoogleSearchData && !isLoading && data?.plans != null) {
@@ -108,14 +100,15 @@ const ChatFunnel = ({ context }: ChatFunnelProps) => {
     }
   }, [data]);
 
-  // console.log('tokenData', tokenData);
+  console.log('gptTokenData', gptTokenData);
 
   return (
     <TabContext.Provider value={selectedActivityValues}>
       <SelectedDateContext.Provider value={selectedDateValues}>
         <Container margin="none">
           <Container margin="none">
-            {isLoading ? (
+            {isLoading ? <Icon.Loading /> : null}
+            {/* {isLoading ? (
               <Icon.Loading />
             ) : (userData?.user as TripieUser)?.isAdmin ? (
               <>
@@ -128,7 +121,7 @@ const ChatFunnel = ({ context }: ChatFunnelProps) => {
                   ? `${MAX_TOKEN - (userData?.user as TripieUser)?.usedGptToken}토큰이 남았습니다.`
                   : `토큰을 모두 사용하셨습니다.`}
               </>
-            )}
+            )} */}
           </Container>
           <h2>
             <span className={cx('accented')}>Chat</span>

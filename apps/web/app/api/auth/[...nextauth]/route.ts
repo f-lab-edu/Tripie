@@ -1,9 +1,9 @@
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
+import { prisma } from '@tripie-pyotato/db';
 import NextAuth, { DefaultSession, DefaultUser, Session } from 'next-auth';
 import { JWT } from 'next-auth/jwt';
 import GitHubProvider from 'next-auth/providers/github';
 import KakaoProvider from 'next-auth/providers/kakao';
-import { prisma } from '../prisma';
 
 type CustomUser = DefaultUser & {
   id: string;

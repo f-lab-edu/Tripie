@@ -14,7 +14,7 @@
 
 .card-region-wrap {
   & div > div > ul {
-    @media (min-width: 998px) {
+    @media (min-width: 1356px) {
       grid-template-columns: repeat(6, 1fr) !important;
     }
   }
