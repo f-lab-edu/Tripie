@@ -88,6 +88,6 @@
 
 // export default TripPlanner;
 
-// export default function TripPlanner() {
-//   return <>TripPlanner</>;
-// }
+export default function TripPlanner() {
+  return <>TripPlanner</>;
+}
