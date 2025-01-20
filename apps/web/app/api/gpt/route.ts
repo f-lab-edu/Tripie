@@ -7,9 +7,10 @@ export type CustomUser = Session['user'] & { id: string };
 async function incrementUsedGptToken({ data }: { data: { user: CustomUser } }) {
   try {
     if (prisma != null) {
-      // Build 'select' object
+      // @ts-ignore
       const gptUser = await prisma.gpt.findUnique({ where: { userId: data.user.id } });
       if (gptUser != null) {
+        // @ts-ignore
         const updatedUser = await prisma.gpt.update({
           where: { userId: data.user.id },
           data: {
@@ -22,6 +23,7 @@ async function incrementUsedGptToken({ data }: { data: { user: CustomUser } }) {
         });
         return { data: updatedUser };
       } else {
+        // @ts-ignore
         const newGptUser = await prisma.gpt.create({
           data: {
             userId: data.user.id,

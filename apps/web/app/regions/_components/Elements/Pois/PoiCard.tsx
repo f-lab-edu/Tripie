@@ -33,7 +33,7 @@ const PoiCard = ({
   useEffect(() => {
     // 선택한 카드로 이동
     if (selected && cardRef.current) {
-      cardRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      cardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
   }, [selected, cardRef]);
 

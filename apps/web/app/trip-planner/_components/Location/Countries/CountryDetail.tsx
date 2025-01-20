@@ -1,3 +1,4 @@
+'use client';
 import { Headings } from '@tripie-pyotato/design-system';
 
 import classNames from 'classnames/bind';

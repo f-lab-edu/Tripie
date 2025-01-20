@@ -1,3 +1,4 @@
+'use client';
 import { useQueryClient } from '@tanstack/react-query';
 import { Container } from '@tripie-pyotato/design-system';
 import getContinentlList from 'app/api/firebase/getContinentl';

@@ -100,14 +100,13 @@ const ChatFunnel = ({ context }: ChatFunnelProps) => {
     }
   }, [data]);
 
-  console.log('gptTokenData', gptTokenData);
-
   return (
     <TabContext.Provider value={selectedActivityValues}>
       <SelectedDateContext.Provider value={selectedDateValues}>
         <Container margin="none">
           <Container margin="none">
             {isLoading ? <Icon.Loading /> : null}
+
             {/* {isLoading ? (
               <Icon.Loading />
             ) : (userData?.user as TripieUser)?.isAdmin ? (
@@ -128,6 +127,7 @@ const ChatFunnel = ({ context }: ChatFunnelProps) => {
           </h2>
         </Container>
         <Container margin="none" className={cx('trip-content-wrap')}>
+          {JSON.stringify(gptTokenData)}
           {isLoading || coordinates == null || data == null ? (
             <></>
           ) : (

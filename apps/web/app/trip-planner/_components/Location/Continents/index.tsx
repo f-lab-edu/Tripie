@@ -1,3 +1,4 @@
+'use client';
 import { Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import { CONTINENTS } from 'constants/continents';
