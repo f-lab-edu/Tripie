@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 
 import '@tripie-pyotato/design-system/global';
-import { ReactNode } from 'react';
+import { ReactNode, Suspense } from 'react';
+import Loading from 'shared/components/Loading';
 import Provider from '../provider/layout';
 
 export const metadata: Metadata = {
@@ -17,7 +18,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Provider>{children}</Provider>
+        {/* useSearchParams() should be wrapped in a suspense boundary: https://github.com/vercel/next.js/discussions/61654#discussioncomment-8820940 */}
+        <Suspense fallback={<Loading />}>
+          <Provider>{children}</Provider>
+        </Suspense>
       </body>
     </html>
   );
