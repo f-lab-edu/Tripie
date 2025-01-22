@@ -41,7 +41,8 @@
         "TURBO_RUN_SUMMARY",
         "VERCEL",
         "VERCEL_ENV",
-        "VERCEL_URL"
+        "VERCEL_URL",
+        "PRISMA_QUERY_ENGINE_LIBRARY"
       ]
     },
     "web#build": {
