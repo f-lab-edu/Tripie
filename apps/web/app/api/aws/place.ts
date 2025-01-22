@@ -15,7 +15,7 @@ export async function postAwsPlace(query: { name: string; selectedCities?: strin
 
     // 텍스트 query로 지역을 검색 결과는 최대 3, 국가이름으로 검색 결과 제한하여  aws location 서비스로 검색합니다.
     const res = await awsApi.post(API.AWS_LOCATION_TEXT, {
-      searchParams: { key: process.env.NEXT_PUBLIC_AWS_MAP_ACTIONS as string },
+      searchParams: { key: API_KEY },
       json,
     });
 
@@ -50,7 +50,7 @@ export async function postAwsPlace(query: { name: string; selectedCities?: strin
         };
 
         const res = await awsApi.post(API.AWS_LOCATION_TEXT, {
-          searchParams: { key: process.env.NEXT_PUBLIC_AWS_MAP_ACTIONS as string },
+          searchParams: { key: API_KEY as string },
           json: newJson,
         });
         // return res;
@@ -82,7 +82,7 @@ export async function postAwsPlace(query: { name: string; selectedCities?: strin
       // return result;
       const res = await awsApi
         .post(API.AWS_LOCATION_SUGGESTED_PLACES, {
-          searchParams: { key: process.env.NEXT_PUBLIC_AWS_MAP_ACTIONS as string },
+          searchParams: { key: API_KEY as string },
           json,
         })
         .then(async result => {
