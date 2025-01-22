@@ -9,7 +9,7 @@
     "turbo": "^2.0.11"
   },
   "scripts": {
-    "db:generate": "prisma generate",
+    "db:generate": "prisma generate --schema=./generated/client/schema.prisma",
     "db:push": "prisma db push --skip-generate",
     "db:studio": "prisma studio",
     "db:migrate": "prisma migrate dev --skip-generate"

@@ -1,5 +1,6 @@
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import { prisma } from '@tripie-pyotato/db';
+import { GITHUB_ID, GITHUB_SECRET, KAKAO_ID, KAKAO_SECRET, NEXT_AUTH_SECRET } from 'constants/auth';
 import NextAuth, { DefaultSession, DefaultUser, Session } from 'next-auth';
 import { JWT } from 'next-auth/jwt';
 import GitHubProvider from 'next-auth/providers/github';
@@ -16,17 +17,17 @@ interface CustomSession extends DefaultSession {
 const options = {
   providers: [
     GitHubProvider({
-      clientId: process.env.NEXT_PUBLIC_GITHUB_ID as string,
-      clientSecret: process.env.NEXT_PUBLIC_GITHUB_SECRET as string,
+      clientId: GITHUB_ID,
+      clientSecret: GITHUB_SECRET,
     }),
     KakaoProvider({
-      clientId: process.env.KAKAO_CLIENT_ID as string,
-      clientSecret: process.env.KAKAO_CLIENT_SECRET as string,
+      clientId: KAKAO_ID,
+      clientSecret: KAKAO_SECRET,
     }),
   ],
   allowDangerousEmailAccountLinking: true, //여러 계정, 한 이용자
   adapter: PrismaAdapter(prisma),
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: NEXT_AUTH_SECRET,
   callbacks: {
     async session({
       session,
