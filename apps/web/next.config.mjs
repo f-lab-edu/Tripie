@@ -85,6 +85,40 @@ const nextConfig = {
           permanent: true,
         },
         { source: '/', destination: '/home', permanent: true },
+        {
+          source: '/api/continentl/country-list',
+          destination: 'https://continentl.com/api/country-list',
+          permanent: true,
+        },
+        {
+          source: '/api/continentl/country-list',
+          destination: 'https://continentl.com/api/country-list',
+          permanent: true,
+        },
+
+        // aws 위치 검색 : 검색어로 찾기
+        {
+          source: '/api/aws/text',
+          destination:
+            'https://places.geo.ap-northeast-1.amazonaws.com/places/v0/indexes/explore.place.Esri/search/text',
+          permanent: true,
+        },
+        // 검색어 매칭 없을 경우: 유사 검색어로 찾기
+        {
+          source: '/api/aws/suggested-places',
+          destination:
+            'https://places.geo.ap-northeast-1.amazonaws.com/places/v0/indexes/explore.place.Esri/search/suggestions',
+          permanent: true,
+        },
+
+        // 유사 검색어로 찾은 placeId로 위치 검색
+        // https://docs.aws.amazon.com/location/latest/APIReference/API_GetPlace.html
+        // https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/location/command/GetPlaceCommand/
+        {
+          source: '/api/place', // https://nextjs.org/docs/pages/api-reference/next-config-js/redirects
+          destination: 'https://tripie-server.vercel.app/api/trip-advisor',
+          permanent: true,
+        },
       ];
     }
     return [
