@@ -87,7 +87,3 @@ const TripPlanner = () => {
 };
 
 export default TripPlanner;
-
-// export default function TripPlanner() {
-//   return <>TripPlanner</>;
-// }
