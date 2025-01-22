@@ -10,7 +10,7 @@ const useServerTime = (baseTime?: string) => {
 
   useEffect(() => {
     const interval = setInterval(async () => {
-      const response = await fetch(`http://localhost:3000${API.BASE}${API.SERVER_TIME}`).then(v => v.json());
+      const response = await fetch(`${API.BASE}${API.SERVER_TIME}`).then(v => v.json());
       setServerTime(response.serverTime);
       setDate(new Date(response.serverTime));
       setToday(new Date(response.serverTime));
