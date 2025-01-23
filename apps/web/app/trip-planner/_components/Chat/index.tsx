@@ -13,6 +13,7 @@ import { DefaultUser } from 'next-auth';
 import { signIn, useSession } from 'next-auth/react';
 import { Dispatch, SetStateAction, createContext, useMemo, useState } from 'react';
 import Icon from 'shared/components/Icon/Icon';
+import Loading from 'shared/components/Loading';
 import AwsMap from './AwsMap';
 import ChatTab from './Tab';
 import Style from './chat.module.scss';
@@ -122,13 +123,8 @@ const ChatFunnel = ({ context }: ChatFunnelProps) => {
         </Container>
         <Container margin="none" className={cx('trip-content-wrap')}>
           user id: {id}
-          {JSON.stringify(data)}
           {isLoading || coordinates == null || data == null ? (
-            <>
-              {isLoading ? ' loading...' : null}
-              {coordinates == null ? 'coordinates is null' : null}
-              {data == null ? 'data is null' : null}
-            </>
+            <Loading />
           ) : (
             <>
               <ChatTab data={data.plans} />
