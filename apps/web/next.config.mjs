@@ -13,6 +13,7 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
+    silenceDeprecations: ['legacy-js-api'],
   },
   outputFileTracingIncludes: {
     '/api/gpt': ['node_modules/.prisma/client/**', 'node_modules/@prisma/engines/**'],
