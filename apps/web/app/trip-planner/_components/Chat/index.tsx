@@ -104,30 +104,14 @@ const ChatFunnel = ({ context }: ChatFunnelProps) => {
     <TabContext.Provider value={selectedActivityValues}>
       <SelectedDateContext.Provider value={selectedDateValues}>
         <Container margin="none">
-          <Container margin="none">
-            {isLoading ? <Icon.Loading /> : null}
-
-            {/* {isLoading ? (
-              <Icon.Loading />
-            ) : (userData?.user as TripieUser)?.isAdmin ? (
-              <>
-                <Icon.Navigate src={RESOURCE.ARROW} />
-              </>
-            ) : (
-              <>
-                <Icon.Navigate src={RESOURCE.ARROW} />{' '}
-                {MAX_TOKEN > (userData?.user as TripieUser)?.usedGptToken
-                  ? `${MAX_TOKEN - (userData?.user as TripieUser)?.usedGptToken}토큰이 남았습니다.`
-                  : `토큰을 모두 사용하셨습니다.`}
-              </>
-            )} */}
-          </Container>
+          <Container margin="none">{isLoading ? <Icon.Loading /> : null}</Container>
           <h2>
             <span className={cx('accented')}>Chat</span>
           </h2>
         </Container>
         <Container margin="none" className={cx('trip-content-wrap')}>
-          {JSON.stringify(userData?.user)}
+          {JSON.stringify(userData?.user?.id)}
+          {JSON.stringify(data)}
           {isLoading || coordinates == null || data == null ? (
             <></>
           ) : (
