@@ -127,7 +127,7 @@ const ChatFunnel = ({ context }: ChatFunnelProps) => {
           </h2>
         </Container>
         <Container margin="none" className={cx('trip-content-wrap')}>
-          {/* {JSON.stringify(gptTokenData)} */}
+          {JSON.stringify(userData?.user)}
           {isLoading || coordinates == null || data == null ? (
             <></>
           ) : (
