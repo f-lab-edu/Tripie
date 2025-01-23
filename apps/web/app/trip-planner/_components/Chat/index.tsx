@@ -5,7 +5,7 @@ import { Container } from '@tripie-pyotato/design-system';
 
 import useChat from 'hooks/query/useChat';
 // import useLamdba from 'hooks/query/useLambda';
-import useChatToken, { CustomSession } from 'hooks/query/useChatToken';
+
 import { Activity, AwsPlace, AwsPlaceResult, TripContent } from 'models/Aws';
 import { ContinentKeys } from 'models/Continent';
 import { Coordinate } from 'models/Geo';
@@ -60,7 +60,7 @@ export const SelectedDateContext = createContext<{ currentDate: number; dateCycl
 const ChatFunnel = ({ context }: ChatFunnelProps) => {
   const { status, data: userData } = useSession();
   const { data, isLoading } = useChat(context);
-  const { data: gptTokenData } = useChatToken({ data: userData as CustomSession });
+  // const { data: gptTokenData } = useChatToken({ data: userData as CustomSession });
 
   // 여행 일정 중 선택한 날짜
   const [selectedDate, setSelectedDate] = useState<number>(0);
@@ -127,7 +127,7 @@ const ChatFunnel = ({ context }: ChatFunnelProps) => {
           </h2>
         </Container>
         <Container margin="none" className={cx('trip-content-wrap')}>
-          {JSON.stringify(gptTokenData)}
+          {/* {JSON.stringify(gptTokenData)} */}
           {isLoading || coordinates == null || data == null ? (
             <></>
           ) : (
