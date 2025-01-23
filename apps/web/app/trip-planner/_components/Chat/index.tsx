@@ -124,7 +124,10 @@ const ChatFunnel = ({ context }: ChatFunnelProps) => {
           user id: {id}
           {JSON.stringify(data)}
           {isLoading || coordinates == null || data == null ? (
-            <></>
+            <>
+              loading...{coordinates == null ? 'coordinates is null' : null}
+              {data == null ? 'data is null' : null}
+            </>
           ) : (
             <>
               <ChatTab data={data.plans} />
