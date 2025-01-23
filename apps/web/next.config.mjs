@@ -14,6 +14,9 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
+  outputFileTracingIncludes: {
+    '/api/gpt': ['node_modules/.prisma/client/**', 'node_modules/@prisma/engines/**'],
+  },
   images: {
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',

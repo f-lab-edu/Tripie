@@ -183,10 +183,6 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "darwin-arm64"
-      },
-      {
-        "fromEnvVar": null,
         "value": "rhel-openssl-3.0.x"
       },
       {
@@ -220,8 +216,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "generator client {\n  provider      = \"prisma-client-js\"\n  output        = \"../generated/client\"\n  binaryTargets = [\"darwin-arm64\", \"rhel-openssl-3.0.x\", \"native\"]\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"POSTGRES_PRISMA_URL\")\n}\n\nmodel Account {\n  id                       String  @id @default(cuid())\n  userId                   String  @map(\"user_id\")\n  type                     String\n  provider                 String\n  providerAccountId        String  @map(\"provider_account_id\")\n  refresh_token            String?\n  access_token             String?\n  name                     String?\n  expires_at               Int?\n  refresh_token_expires_in Int?\n  token_type               String?\n  scope                    String?\n  id_token                 String?\n  session_state            String?\n  oauth_token_secret       String?\n  oauth_token              String?\n  user                     User    @relation(fields: [userId], references: [id], onDelete: Cascade)\n\n  @@unique([provider, providerAccountId])\n}\n\nmodel Session {\n  id                       String   @id @default(cuid())\n  sessionToken             String   @unique @map(\"session_token\")\n  userId                   String   @map(\"user_id\")\n  expires                  DateTime\n  refresh_token_expires_in Int?\n  name                     String?\n  user                     User     @relation(fields: [userId], references: [id], onDelete: Cascade)\n}\n\nmodel User {\n  id            String    @id @default(cuid())\n  name          String?\n  email         String?   @unique\n  emailVerified DateTime?\n  image         String?\n  accounts      Account[]\n  sessions      Session[]\n  usedGpt       Gpt[]\n\n  @@unique([id, image, name])\n}\n\nmodel VerificationToken {\n  id                       Int      @id @default(autoincrement())\n  identifier               String\n  token                    String   @unique\n  expires                  DateTime\n  refresh_token_expires_in Int?\n  name                     String?\n\n  @@unique([identifier, token])\n}\n\nmodel Gpt {\n  isAdmin      Boolean @default(false)\n  usedGptToken Int     @default(0)\n  userId       String  @id @map(\"user_id\")\n  user         User    @relation(fields: [userId], references: [id], onDelete: Cascade)\n}\n",
-  "inlineSchemaHash": "4a154e2d4309bc7beff9c7af2fbc49c2405ee8a70d84184397d3f6b991d418b2",
+  "inlineSchema": "generator client {\n  provider      = \"prisma-client-js\"\n  output        = \"../generated/client\"\n  binaryTargets = [\"rhel-openssl-3.0.x\", \"native\"]\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"POSTGRES_PRISMA_URL\")\n}\n\nmodel Account {\n  id                       String  @id @default(cuid())\n  userId                   String  @map(\"user_id\")\n  type                     String\n  provider                 String\n  providerAccountId        String  @map(\"provider_account_id\")\n  refresh_token            String?\n  access_token             String?\n  name                     String?\n  expires_at               Int?\n  refresh_token_expires_in Int?\n  token_type               String?\n  scope                    String?\n  id_token                 String?\n  session_state            String?\n  oauth_token_secret       String?\n  oauth_token              String?\n  user                     User    @relation(fields: [userId], references: [id], onDelete: Cascade)\n\n  @@unique([provider, providerAccountId])\n}\n\nmodel Session {\n  id                       String   @id @default(cuid())\n  sessionToken             String   @unique @map(\"session_token\")\n  userId                   String   @map(\"user_id\")\n  expires                  DateTime\n  refresh_token_expires_in Int?\n  name                     String?\n  user                     User     @relation(fields: [userId], references: [id], onDelete: Cascade)\n}\n\nmodel User {\n  id            String    @id @default(cuid())\n  name          String?\n  email         String?   @unique\n  emailVerified DateTime?\n  image         String?\n  accounts      Account[]\n  sessions      Session[]\n  usedGpt       Gpt[]\n\n  @@unique([id, image, name])\n}\n\nmodel VerificationToken {\n  id                       Int      @id @default(autoincrement())\n  identifier               String\n  token                    String   @unique\n  expires                  DateTime\n  refresh_token_expires_in Int?\n  name                     String?\n\n  @@unique([identifier, token])\n}\n\nmodel Gpt {\n  isAdmin      Boolean @default(false)\n  usedGptToken Int     @default(0)\n  userId       String  @id @map(\"user_id\")\n  user         User    @relation(fields: [userId], references: [id], onDelete: Cascade)\n}\n",
+  "inlineSchemaHash": "8303b8ffa82fd63b0a4f67e297945a1b15fc6389d5dc5cdf6190d3c739afe79a",
   "copyEngine": true
 }
 
@@ -259,12 +255,12 @@ exports.PrismaClient = PrismaClient
 Object.assign(exports, Prisma)
 
 // file annotations for bundling tools to include these files
-path.join(__dirname, "libquery_engine-darwin-arm64.dylib.node");
-path.join(process.cwd(), "generated/client/libquery_engine-darwin-arm64.dylib.node")
-
-// file annotations for bundling tools to include these files
 path.join(__dirname, "libquery_engine-rhel-openssl-3.0.x.so.node");
 path.join(process.cwd(), "generated/client/libquery_engine-rhel-openssl-3.0.x.so.node")
+
+// file annotations for bundling tools to include these files
+path.join(__dirname, "libquery_engine-darwin-arm64.dylib.node");
+path.join(process.cwd(), "generated/client/libquery_engine-darwin-arm64.dylib.node")
 // file annotations for bundling tools to include these files
 path.join(__dirname, "schema.prisma");
 path.join(process.cwd(), "generated/client/schema.prisma")
