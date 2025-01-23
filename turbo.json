@@ -62,6 +62,7 @@
     },
     "db:generate": {
       "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**", "vercel/**", ".vercel/**", "dist/**"],
       "cache": false
     },
     "db:push": {
