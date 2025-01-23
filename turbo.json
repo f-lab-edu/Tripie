@@ -61,6 +61,7 @@
       "persistent": true
     },
     "db:generate": {
+      "dependsOn": ["^build"],
       "cache": false
     },
     "db:push": {
