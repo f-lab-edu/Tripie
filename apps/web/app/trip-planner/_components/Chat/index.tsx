@@ -125,7 +125,8 @@ const ChatFunnel = ({ context }: ChatFunnelProps) => {
           {JSON.stringify(data)}
           {isLoading || coordinates == null || data == null ? (
             <>
-              loading...{coordinates == null ? 'coordinates is null' : null}
+              {isLoading ? ' loading...' : null}
+              {coordinates == null ? 'coordinates is null' : null}
               {data == null ? 'data is null' : null}
             </>
           ) : (
