@@ -1,5 +1,7 @@
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import { prisma } from '@tripie-pyotato/db';
+import addItem from 'app/api/firebase/add';
+import listItem from 'app/api/firebase/getList';
 import { GITHUB_ID, GITHUB_SECRET, KAKAO_ID, KAKAO_SECRET, NEXT_AUTH_SECRET } from 'constants/auth';
 import NextAuth, { DefaultSession, DefaultUser, Session } from 'next-auth';
 import { JWT } from 'next-auth/jwt';
@@ -40,6 +42,17 @@ const options = {
     }) {
       session.user = user;
       session.token = token;
+      const dbName = 'user-token';
+      listItem(dbName).then(userToken => {
+        if (userToken?.length == 0) {
+          addItem({ id: user?.id, usedTokens: 0, isAdmin: false }, dbName);
+        } else {
+          const userIdSet = new Set(userToken?.map(user => user.id));
+          if (!userIdSet.has(user?.id)) {
+            addItem({ id: user?.id, usedTokens: 0 }, dbName);
+          }
+        }
+      });
       return session as CustomSession;
     },
   },

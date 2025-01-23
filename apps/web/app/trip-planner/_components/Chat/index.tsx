@@ -63,7 +63,7 @@ export const SelectedDateContext = createContext<{ currentDate: number; dateCycl
 
 const ChatFunnel = ({ context }: ChatFunnelProps) => {
   const { status, data: userData } = useSession();
-  const { data, isLoading } = useChat(context);
+  const { data, isLoading } = useChat(context, (userData?.user as CustomUser)?.id);
   // const { data: gptTokenData } = useChatToken({ data: userData as CustomSession });
 
   // 여행 일정 중 선택한 날짜
@@ -104,14 +104,6 @@ const ChatFunnel = ({ context }: ChatFunnelProps) => {
     }
   }, [data]);
 
-  const id = useMemo(() => {
-    const customUser = userData?.user as unknown as CustomUser;
-    if (customUser != null) {
-      return customUser.id;
-    }
-    return null;
-  }, [userData]);
-
   return (
     <TabContext.Provider value={selectedActivityValues}>
       <SelectedDateContext.Provider value={selectedDateValues}>
@@ -122,7 +114,6 @@ const ChatFunnel = ({ context }: ChatFunnelProps) => {
           </h2>
         </Container>
         <Container margin="none" className={cx('trip-content-wrap')}>
-          user id: {id}
           {isLoading || coordinates == null || data == null ? (
             <Loading />
           ) : (

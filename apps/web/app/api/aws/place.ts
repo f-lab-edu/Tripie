@@ -1,8 +1,7 @@
 import API from 'constants/api-routes';
 import { API_KEY } from 'constants/maps';
 import { AwsPlaceResult, AwsSuggestedPlaceResult } from 'models/Aws';
-// import { API_KEY } from 'constants/maps';
-// import { AwsPlaceResult,  } from 'models/Aws';
+
 import { awsApi } from 'utils/ky';
 
 export async function postAwsPlace(query: { name: string; selectedCities?: string }, country: string) {

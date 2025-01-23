@@ -2,11 +2,12 @@ import { useQuery } from '@tanstack/react-query';
 
 import { getTripPlan } from 'app/api/chat/route';
 import getContinentlList from 'app/api/firebase/getContinentl';
+import increaseTokenUse from 'app/api/firebase/increaseTokenUse';
 
 import { TripPlanner } from 'models/Aws';
 import { Continentl } from 'models/Continentl';
 
-const useChat = (chatItems: TripPlanner) => {
+const useChat = (chatItems: TripPlanner, id: string) => {
   const res = useQuery({
     queryKey: useChat.queryKey(chatItems),
     queryFn: async () => {
@@ -14,6 +15,9 @@ const useChat = (chatItems: TripPlanner) => {
         // iso31661로 같은 code의 세자리 버전을 aws에 FilterCountry로 넘겨 검색 정확도를 높이기 위해 국가 코드 두자리를 code로 넘겨줍니다.
         const { code } = countries?.filter(place => place.id === chatItems.country)[0] as Continentl;
         const data = await getTripPlan({ ...chatItems, code });
+        if (data != null) {
+          await increaseTokenUse(id);
+        }
         return data;
       });
     },
