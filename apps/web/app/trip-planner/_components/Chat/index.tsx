@@ -9,6 +9,7 @@ import useChat from 'hooks/query/useChat';
 import { Activity, AwsPlace, AwsPlaceResult, TripContent } from 'models/Aws';
 import { ContinentKeys } from 'models/Continent';
 import { Coordinate } from 'models/Geo';
+import { DefaultUser } from 'next-auth';
 import { signIn, useSession } from 'next-auth/react';
 import { Dispatch, SetStateAction, createContext, useMemo, useState } from 'react';
 import Icon from 'shared/components/Icon/Icon';
@@ -17,6 +18,8 @@ import ChatTab from './Tab';
 import Style from './chat.module.scss';
 
 const cx = classNames.bind(Style);
+
+type CustomUser = DefaultUser & { id: string };
 
 export interface ChatFunnelProps {
   context: {
@@ -100,6 +103,14 @@ const ChatFunnel = ({ context }: ChatFunnelProps) => {
     }
   }, [data]);
 
+  const id = useMemo(() => {
+    const customUser = userData?.user as unknown as CustomUser;
+    if (customUser != null) {
+      return customUser.id;
+    }
+    return null;
+  }, [userData]);
+
   return (
     <TabContext.Provider value={selectedActivityValues}>
       <SelectedDateContext.Provider value={selectedDateValues}>
@@ -110,7 +121,7 @@ const ChatFunnel = ({ context }: ChatFunnelProps) => {
           </h2>
         </Container>
         <Container margin="none" className={cx('trip-content-wrap')}>
-          {JSON.stringify(userData?.user?.id)}
+          user id: {id}
           {JSON.stringify(data)}
           {isLoading || coordinates == null || data == null ? (
             <></>
