@@ -1,13 +1,14 @@
 import { GenerateObjectResult, generateObject } from 'ai';
 
 import { createOpenAI } from '@ai-sdk/openai';
+import { GPT_API_KEY } from 'constants/auth';
 import { TripContent, TripPlanner } from 'models/Aws';
 import { Continentl } from 'models/Continentl';
 import { z } from 'zod';
 
 // openai api 키 등록
 const openai = createOpenAI({
-  apiKey: process.env.NEXT_PUBLIC_GPT_API_KEY,
+  apiKey: GPT_API_KEY,
 });
 
 export type AiTripPlanResponse = {

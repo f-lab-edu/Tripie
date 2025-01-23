@@ -59,7 +59,8 @@
         "POSTGRES_HOST",
         "POSTGRES_DATABASE",
         "KAKAO_CLIENT_ID",
-        "KAKAO_CLIENT_SECRET"
+        "KAKAO_CLIENT_SECRET",
+        "NEXT_PUBLIC_GPT_API_KEY"
       ],
       "outputs": [".next/**", "!.next/cache/**"]
     },
