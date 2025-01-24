@@ -27,6 +27,7 @@
   position: relative !important;
   scrollbar-color: $theme-50 $theme-300;
   scrollbar-width: thin;
+  display: inline-block !important;
 }
 
 // 날짜 선택 칩 옆으로 스크롤

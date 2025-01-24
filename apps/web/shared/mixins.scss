@@ -84,7 +84,7 @@ $background-gradients: (
 }
 
 @mixin flexbox($direction: row, $align: center, $justify: center, $gap: 15px) {
-  display: flex;
+  display: inline-flex;
   width: 100%;
   flex-basis: auto;
 
