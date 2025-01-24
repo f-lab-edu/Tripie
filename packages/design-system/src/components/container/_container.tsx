@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import { ReactNode } from 'react';
-import Style from './_container.module.scss';
+import Style from './container.module.scss';
 
 export type ContainerProps = {
   margin?: 'xl' | 'l' | 'm' | 'sm' | 'xsm' | 'none';
