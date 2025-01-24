@@ -64,7 +64,7 @@ export const SelectedDateContext = createContext<{ currentDate: number; dateCycl
 
 const ChatFunnel = ({ context }: ChatFunnelProps) => {
   const { status, data: userData } = useSession();
-  const { remainingToken, usedGptToken } = useChatToken();
+  const { remainingToken, usedGptToken, isAdmin } = useChatToken();
   const { data, isLoading } = useChat(context, (userData?.user as CustomUser)?.id);
   // const { data: gptTokenData } = useChatToken({ data: userData as CustomSession });
 
@@ -113,8 +113,8 @@ const ChatFunnel = ({ context }: ChatFunnelProps) => {
       <SelectedDateContext.Provider value={selectedDateValues}>
         <Container margin="none">
           <Container margin="none">{isLoading ? <Icon.Loading /> : null}</Container>
+          {remainingToken != null && !isAdmin ? `${remainingToken} 토큰이 남았습니다.` : ''}
           <h2>
-            {remainingToken != null ? `${remainingToken} 토큰이 남았습니다.` : ''}
             <span className={cx('accented')}>Chat</span>
           </h2>
         </Container>
