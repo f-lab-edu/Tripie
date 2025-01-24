@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 import Style from './shared/selected-list.module.scss';
 
 import RESOURCE from 'constants/resources';
-import AnimatedButton from 'shared/components/Button/AnimatedButton';
+import AnimatedButton from 'shared/components/Button/Animated';
 import Chip from 'shared/components/Chip/Chip';
 import Icon from 'shared/components/Icon/Icon';
 import { KOR_CITIES, SELECTED_CITY } from './constants/selected';

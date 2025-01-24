@@ -6,7 +6,7 @@ import Style from './shared/selected-list.module.scss';
 import { CONTINENTS } from 'constants/continents';
 import RESOURCE from 'constants/resources';
 import { ContinentKeys } from 'models/Continent';
-import AnimatedButton from 'shared/components/Button/AnimatedButton';
+import AnimatedButton from 'shared/components/Button/Animated';
 import Chip from 'shared/components/Chip/Chip';
 import Icon from 'shared/components/Icon/Icon';
 import { SELECTED_CONTINENT, SELECTED_CONTINENT_NAME } from './constants/selected';

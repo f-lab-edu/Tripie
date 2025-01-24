@@ -7,7 +7,7 @@ import RESOURCE from 'constants/resources';
 import useCountries from 'hooks/query/useCountries';
 import { Country } from 'models/Country';
 import { useMemo, useState } from 'react';
-import AnimatedButton from 'shared/components/Button/AnimatedButton';
+import AnimatedButton from 'shared/components/Button/Animated';
 import Chip from 'shared/components/Chip/Chip';
 import Icon from 'shared/components/Icon/Icon';
 import { regionNameToLocal } from 'utils/lang';

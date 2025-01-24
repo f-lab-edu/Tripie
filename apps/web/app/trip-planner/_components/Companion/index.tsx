@@ -7,7 +7,7 @@ import COMPANION_LIST from 'constants/companions';
 import RESOURCE from 'constants/resources';
 import { ContinentKeys } from 'models/Continent';
 import { useCallback, useState } from 'react';
-import AnimatedButton from 'shared/components/Button/AnimatedButton';
+import AnimatedButton from 'shared/components/Button/Animated';
 import CompanionList from './List';
 import Style from './companion.module.scss';
 

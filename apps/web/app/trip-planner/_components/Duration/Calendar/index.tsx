@@ -9,7 +9,7 @@ import { useCallback, useMemo, useState } from 'react';
 
 import useCalendar from 'hooks/useCalendar';
 import { LooseValue } from 'react-calendar/dist/esm/shared/types.js';
-import AnimatedButton from 'shared/components/Button/AnimatedButton';
+import AnimatedButton from 'shared/components/Button/Animated';
 import Calendar from 'shared/components/Calendar';
 import CalendarHeader from 'shared/components/Calendar/CalendarHeader';
 import Icon from 'shared/components/Icon/Icon';

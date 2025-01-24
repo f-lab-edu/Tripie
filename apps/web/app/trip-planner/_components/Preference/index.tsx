@@ -7,7 +7,7 @@ import PREFERENCE_LIST from 'constants/preferences';
 import RESOURCE from 'constants/resources';
 import { ContinentKeys } from 'models/Continent';
 import { useCallback, useState } from 'react';
-import AnimatedButton from 'shared/components/Button/AnimatedButton';
+import AnimatedButton from 'shared/components/Button/Animated';
 import PreferenceList from './List';
 import Style from './companion.module.scss';
 

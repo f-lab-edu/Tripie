@@ -4,17 +4,21 @@ import classNames from 'classnames/bind';
 import RESOURCE from 'constants/resources';
 import ROUTE from 'constants/routes';
 import { motion } from 'framer-motion';
+import useChatToken from 'hooks/useChatToken';
 import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 import Icon from 'shared/components/Icon/Icon';
-import { MenuItem } from './MenuItem';
-import Style from './navigation.module.scss';
-import { MENU_VARIANTS } from './variants';
+
+import NoStyleButton from 'shared/components/Button/NoStyle';
+import { MenuItem } from '../MenuItem';
+import { MENU_VARIANTS } from '../variants';
+import Style from './menu-list.module.scss';
 
 const cx = classNames.bind(Style);
 
 const AuthButton = () => {
   const { status, data } = useSession();
+  const { isEligible } = useChatToken();
   if (status === 'unauthenticated') {
     return (
       <MenuItem key={`unauthenticated`}>
@@ -25,11 +29,12 @@ const AuthButton = () => {
   return (
     <>
       <MenuItem key={`${data?.user?.name}-authenticated`}>
-        <Link href={'/trip-planner'}>AI enhanced trip</Link> <Icon src={RESOURCE.ARROW} />
+        <Link href={`/trip-planner/${isEligible ? '' : 'not-enough-tokens'}`}>AI 추천 맞춤일정</Link>{' '}
+        <Icon src={RESOURCE.ARROW} />
       </MenuItem>
-      <MenuItem key={`${data?.user?.name}-authenticated-signout`}>
-        <div onClick={() => signOut()}>Sign out</div>
-      </MenuItem>
+      <NoStyleButton action={() => signOut()}>
+        <MenuItem key={`${data?.user?.name}-authenticated-signout`}>Sign out</MenuItem>
+      </NoStyleButton>
     </>
   );
 };

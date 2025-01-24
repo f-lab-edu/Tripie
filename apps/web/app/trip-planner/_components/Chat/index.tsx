@@ -6,6 +6,7 @@ import { Container } from '@tripie-pyotato/design-system';
 import useChat from 'hooks/query/useChat';
 // import useLamdba from 'hooks/query/useLambda';
 
+import useChatToken from 'hooks/useChatToken';
 import { Activity, AwsPlace, AwsPlaceResult, TripContent } from 'models/Aws';
 import { ContinentKeys } from 'models/Continent';
 import { Coordinate } from 'models/Geo';
@@ -63,6 +64,7 @@ export const SelectedDateContext = createContext<{ currentDate: number; dateCycl
 
 const ChatFunnel = ({ context }: ChatFunnelProps) => {
   const { status, data: userData } = useSession();
+  const { remainingToken, isAdmin, isEligible, usedGptToken } = useChatToken();
   const { data, isLoading } = useChat(context, (userData?.user as CustomUser)?.id);
   // const { data: gptTokenData } = useChatToken({ data: userData as CustomSession });
 
@@ -104,11 +106,16 @@ const ChatFunnel = ({ context }: ChatFunnelProps) => {
     }
   }, [data]);
 
+  console.log('remainingToken', remainingToken, 'usedGptToken', usedGptToken);
+
   return (
     <TabContext.Provider value={selectedActivityValues}>
       <SelectedDateContext.Provider value={selectedDateValues}>
         <Container margin="none">
           <Container margin="none">{isLoading ? <Icon.Loading /> : null}</Container>
+          {isAdmin ? `어드민 계정입니다.` : null}
+          {isEligible ? `지피티 사용 가능.` : null}
+
           <h2>
             <span className={cx('accented')}>Chat</span>
           </h2>

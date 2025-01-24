@@ -5,7 +5,7 @@ import Style from './shared/selected-list.module.scss';
 
 import COMPANION_LIST from 'constants/companions';
 import RESOURCE from 'constants/resources';
-import AnimatedButton from 'shared/components/Button/AnimatedButton';
+import AnimatedButton from 'shared/components/Button/Animated';
 import Chip from 'shared/components/Chip/Chip';
 import Icon from 'shared/components/Icon/Icon';
 import { SELECTED_COMPANION } from './constants/selected';

@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 import { motion } from 'framer-motion';
 import { ReactNode } from 'react';
 import { InView } from 'react-intersection-observer';
-import Icon from '../Icon/Icon';
+import Icon from '../../Icon/Icon';
 import Style from './animated-button.module.scss';
 import { BUTTON_VARIANTS } from './variants';
 

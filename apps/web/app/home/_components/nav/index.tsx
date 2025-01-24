@@ -4,9 +4,9 @@ import Style from './nav.module.scss';
 
 import { motion } from 'framer-motion';
 import useCycle from 'hooks/useCycle';
-import AnimatedButton from 'shared/components/Button/AnimatedButton';
+import AnimatedButton from 'shared/components/Button/Animated';
+import { Navigation } from './Menu/MenuList';
 import { MenuToggle } from './Menu/MenuToggle';
-import { Navigation } from './Menu/Navigation';
 
 const cx = classNames.bind(Style);
 

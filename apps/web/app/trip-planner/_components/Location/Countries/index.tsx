@@ -9,7 +9,7 @@ import useCountries from 'hooks/query/useCountries';
 import { ContinentKeys } from 'models/Continent';
 import { Country } from 'models/Country';
 import { useRef, useState } from 'react';
-import AnimatedButton from 'shared/components/Button/AnimatedButton';
+import AnimatedButton from 'shared/components/Button/Animated';
 import Icon from 'shared/components/Icon/Icon';
 import Loading from 'shared/components/Loading';
 import CountryDetail from './CountryDetail';

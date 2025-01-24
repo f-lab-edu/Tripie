@@ -2,8 +2,9 @@
 import classNames from 'classnames/bind';
 import { motion } from 'framer-motion';
 import { ReactNode } from 'react';
+
+import { MENU_VARIANTS } from '../variants';
 import Style from './menu-item.module.scss';
-import { MENU_VARIANTS } from './variants';
 
 const cx = classNames.bind(Style);
 

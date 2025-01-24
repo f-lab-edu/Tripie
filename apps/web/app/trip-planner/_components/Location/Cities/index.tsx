@@ -5,7 +5,7 @@ import PREFERENCE_LIST from 'constants/preferences';
 import RESOURCE from 'constants/resources';
 import { ContinentKeys } from 'models/Continent';
 import { useCallback, useMemo, useState } from 'react';
-import AnimatedButton from 'shared/components/Button/AnimatedButton';
+import AnimatedButton from 'shared/components/Button/Animated';
 import Icon from 'shared/components/Icon/Icon';
 import CityList from './List';
 import Style from './companion.module.scss';

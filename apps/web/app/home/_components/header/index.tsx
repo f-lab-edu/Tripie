@@ -2,14 +2,14 @@
 import { Container } from '@tripie-pyotato/design-system';
 import Heading from '@tripie-pyotato/design-system/components/typography/headings/_headings';
 import classNames from 'classnames/bind';
-import AnimatedButton from 'shared/components/Button/AnimatedButton';
+import AnimatedButton from 'shared/components/Button/Animated';
 import Icon from 'shared/components/Icon/Icon';
 
 import RESOURCE from 'constants/resources';
 import ROUTE from 'constants/routes';
 import { useRouter } from 'next/navigation';
 import ParticleBackground from 'shared/components/Particle/ParticleBackground';
-import Nav from '../nav/Nav';
+import Nav from '../Nav';
 import RotatingBlur from './RotatingBlur/RotatingBlur';
 import Style from './header.module.scss';
 
