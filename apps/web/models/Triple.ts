@@ -4,6 +4,7 @@ import { SeoMetaData } from './MetaData';
 
 export type MetaDataContents = {
   image: TripieMetaImage;
+  title?: string;
 };
 
 export type TripieMetaImage = {
@@ -24,6 +25,9 @@ export type TripieMetaImage = {
   author?: string;
   __typename: 'ArticleMetadata';
   tags: [];
+  sizes?: {
+    full?: { url: string };
+  };
   destinationTags: [];
 };
 

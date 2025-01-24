@@ -1,12 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
-import listItem from 'app/api/firebase/getList';
+import firestoreService from 'app/api/firebase';
 import { ContinentIds } from 'models/Continent';
+import { Country } from 'models/Country';
 
 const useCountries = (continent: ContinentIds = 'all') => {
   const res = useQuery({
     queryKey: useCountries.queryKey(continent),
     queryFn: () =>
-      listItem('countries').then(countryList => {
+      firestoreService.getList('countries').then((countryList: Country[]) => {
         if (continent === 'all') {
           return countryList;
         } else {

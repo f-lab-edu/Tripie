@@ -1,7 +1,8 @@
 'use client';
 
-import getTokenUse from 'app/api/firebase/getTokenUse';
+import firestoreService from 'app/api/firebase';
 import { CustomUser } from 'app/api/gpt/route';
+import { DB_NAME } from 'constants/auth';
 import { MAX_TOKEN } from 'constants/chat';
 import ROUTE from 'constants/routes';
 import { useSession } from 'next-auth/react';
@@ -33,8 +34,7 @@ const useChatToken = () => {
     const checkEligibility = async () => {
       const id = (data?.user as CustomUser)?.id;
       if (id != null) {
-        const user = await getTokenUse(id);
-
+        const user = await firestoreService.getItem(DB_NAME, id);
         if (user?.isAdmin) {
           setIsAdmin(true);
         }

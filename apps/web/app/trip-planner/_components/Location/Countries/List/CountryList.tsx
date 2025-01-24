@@ -1,7 +1,8 @@
 import { useQueryClient } from '@tanstack/react-query';
-import getContinentlList from 'app/api/firebase/getContinentl';
+import firestoreService from 'app/api/firebase';
 import classNames from 'classnames/bind';
 import useContinentl from 'hooks/query/useContinentl';
+import { Continentl } from 'models/Continentl';
 import { Country } from 'models/Country';
 import { Dispatch, MutableRefObject, SetStateAction } from 'react';
 import Chip from 'shared/components/Chip/Chip';
@@ -27,11 +28,11 @@ export function CountryList({ countries, selectedCountry, setSelectedCountry, bo
     queryClient.prefetchQuery({
       queryKey: useContinentl.queryKey(country),
       queryFn: () =>
-        getContinentlList().then(countries => {
+        firestoreService.getList('continentl').then(countries => {
           if (country === 'all') {
             return countries;
           } else {
-            return countries?.filter(place => place.id === country);
+            return countries?.filter((place: Continentl) => place.id === country);
           }
         }),
     });

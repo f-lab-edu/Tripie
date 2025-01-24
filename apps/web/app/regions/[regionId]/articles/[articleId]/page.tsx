@@ -2,8 +2,7 @@
 import { Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 
-import getArticleDetails from 'app/api/firebase/getArticleDetails';
-
+import firestoreService from 'app/api/firebase';
 import Navigation from 'app/regions/_components/Navigation';
 import Card from 'shared/components/Card/Card';
 import Style from './article-body.module.scss';
@@ -14,7 +13,8 @@ const cx = classNames.bind(Style);
 const Articles = async ({ params }: { params: Promise<{ regionId: string; articleId: string }> }) => {
   const regionId = (await params).regionId;
   const articleId = (await params).articleId;
-  let data = await getArticleDetails('article-details', regionId, articleId);
+
+  let data = await firestoreService.getArticleDetails('article-details', regionId, articleId);
 
   return (
     <Container margin="none" className={cx('background')}>

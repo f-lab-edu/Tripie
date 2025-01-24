@@ -43,7 +43,7 @@ export function ContinentStep({ context, onNext }: Readonly<Props>) {
       <Container className={cx('globe-wrap')} margin="none">
         <RotatingGlobe />
       </Container>
-      <ContinentList selectedContinent={selectedContinent} setSelectedContinent={setSelectedContinent} />
+      <ContinentList selectedContinent={selectedContinent} action={setSelectedContinent} />
       <Container margin="none">
         <AnimatedButton
           withBorder={true}

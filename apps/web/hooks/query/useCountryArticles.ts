@@ -1,11 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
-import listCountryArticles from 'app/api/firebase/getArticles';
+import firestoreService from 'app/api/firebase';
 
 const useCountryArticle = () => {
   const res = useQuery({
     queryKey: useCountryArticle.queryKey(),
     queryFn: () =>
-      listCountryArticles('region-articles').then(countryArticleList => {
+      firestoreService.getList('region-articles').then(countryArticleList => {
         return countryArticleList;
       }),
     staleTime: Infinity,

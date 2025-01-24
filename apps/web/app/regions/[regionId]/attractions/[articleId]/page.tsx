@@ -1,9 +1,9 @@
 'use server';
 import { Container } from '@tripie-pyotato/design-system';
 
-import getAttractionDetails from 'app/api/firebase/getAttractionDetails';
 import Navigation from 'app/regions/_components/Navigation';
 
+import firestoreService from 'app/api/firebase';
 import classNames from 'classnames/bind';
 import { AttractionArticle } from 'models/Attraction';
 import Card from 'shared/components/Card/Card';
@@ -14,7 +14,7 @@ import Style from './attractions.module.scss';
 const cx = classNames.bind(Style);
 
 const Attractions = async ({ params }: { params: Promise<{ regionId: string; articleId: string }> }) => {
-  const { data } = (await getAttractionDetails(
+  const { data } = (await firestoreService.getAttractionDetails(
     'attraction-details',
     (await params).regionId,
     (await params).articleId

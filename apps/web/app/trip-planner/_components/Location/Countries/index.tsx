@@ -1,12 +1,13 @@
 'use client';
 import { useQueryClient } from '@tanstack/react-query';
 import { Container } from '@tripie-pyotato/design-system';
-import getContinentlList from 'app/api/firebase/getContinentl';
+import firestoreService from 'app/api/firebase';
 import classNames from 'classnames/bind';
 import RESOURCE from 'constants/resources';
 import useContinentl from 'hooks/query/useContinentl';
 import useCountries from 'hooks/query/useCountries';
 import { ContinentKeys } from 'models/Continent';
+import { Continentl } from 'models/Continentl';
 import { Country } from 'models/Country';
 import { useRef, useState } from 'react';
 import AnimatedButton from 'shared/components/Button/Animated';
@@ -40,8 +41,8 @@ export function CountryStep({ context, onNext }: Readonly<Props>) {
     return queryClient.ensureQueryData({
       queryKey: useContinentl.queryKey(country),
       queryFn: () =>
-        getContinentlList().then(countries => {
-          return country === 'all' ? countries : countries?.filter(place => place.id === country);
+        firestoreService.getList('continentl').then(countries => {
+          return country === 'all' ? countries : countries?.filter((place: Continentl) => place.id === country);
         }),
     });
   };

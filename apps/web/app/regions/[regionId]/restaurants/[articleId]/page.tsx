@@ -1,7 +1,8 @@
+'use server';
 import { Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 
-import getRestaurantDetails from 'app/api/firebase/getRestaurantDetails';
+import firestoreService from 'app/api/firebase';
 import NotFoundPage from 'app/not-found';
 import Navigation from 'app/regions/_components/Navigation';
 import Card from 'shared/components/Card/Card';
@@ -12,7 +13,11 @@ import Style from './restaurants.module.scss';
 const cx = classNames.bind(Style);
 
 const Articles = async ({ params }: { params: Promise<{ regionId: string; articleId: string }> }) => {
-  let { data } = await getRestaurantDetails('retaurant-details', (await params).regionId, (await params).articleId);
+  let { data } = await firestoreService.getRestaurantDetails(
+    'retaurant-details',
+    (await params).regionId,
+    (await params).articleId
+  );
 
   if (data === null) {
     return <NotFoundPage />;

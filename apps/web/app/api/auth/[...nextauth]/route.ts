@@ -1,8 +1,7 @@
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import { prisma } from '@tripie-pyotato/db';
-import addItem from 'app/api/firebase/add';
-import listItem from 'app/api/firebase/getList';
-import { GITHUB_ID, GITHUB_SECRET, KAKAO_ID, KAKAO_SECRET, NEXT_AUTH_SECRET } from 'constants/auth';
+import firestoreService from 'app/api/firebase';
+import { DB_NAME, GITHUB_ID, GITHUB_SECRET, KAKAO_ID, KAKAO_SECRET, NEXT_AUTH_SECRET } from 'constants/auth';
 import NextAuth, { DefaultSession, DefaultUser, Session } from 'next-auth';
 import { JWT } from 'next-auth/jwt';
 import GitHubProvider from 'next-auth/providers/github';
@@ -42,14 +41,16 @@ const options = {
     }) {
       session.user = user;
       session.token = token;
-      const dbName = 'user-token';
-      listItem(dbName).then(userToken => {
+
+      firestoreService.getList(DB_NAME).then(userToken => {
+        // 토큰이 db가 생성 x 일 경우 추가
         if (userToken?.length == 0) {
-          addItem({ id: user?.id, usedTokens: 0, isAdmin: false }, dbName);
+          firestoreService.addItem(DB_NAME, { id: user?.id, usedTokens: 0, isAdmin: false });
         } else {
-          const userIdSet = new Set(userToken?.map(user => user.id));
+          // user 가 있는 지 set으로 확인
+          const userIdSet = new Set(userToken?.map((user: CustomUser) => user.id));
           if (!userIdSet.has(user?.id)) {
-            addItem({ id: user?.id, usedTokens: 0 }, dbName);
+            firestoreService.addItem(DB_NAME, { id: user?.id, usedTokens: 0 });
           }
         }
       });

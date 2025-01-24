@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 
 import Style from '../_components/shared/regions.module.scss';
 
-import listCountryArticles from 'app/api/firebase/getArticles';
+import firestoreService from 'app/api/firebase';
 import { TRIPIE_REGION_BY_LOCATION, TRIPIE_REGION_IDS } from 'constants/tripie-country';
 import Navigation from '../_components/Navigation';
 import RegionList, { RegionArticleData } from '../_components/RegionList';
@@ -23,7 +23,8 @@ const Articles = async ({ params }: { params: Promise<{ regionId: string }> }) =
     item => TRIPIE_REGION_IDS[item as keyof typeof TRIPIE_REGION_IDS] === selected[0]
   )?.[0];
 
-  const data = (await listCountryArticles('region-articles')) as RegionArticleData[];
+  // const data = (await listCountryArticles('region-articles')) as RegionArticleData[];
+  const data = await firestoreService.getList('region-articles');
 
   return (
     <Container margin="none" className={cx('background')}>
@@ -35,7 +36,7 @@ const Articles = async ({ params }: { params: Promise<{ regionId: string }> }) =
       </Container>
       <RegionSelect selected={currentRegionId} selectedRegion={selectedRegion} />
       <RegionList
-        data={data.filter(item => item.regionId === selectedRegion)?.[0].data}
+        data={data.filter((item: RegionArticleData) => item.regionId === selectedRegion)?.[0].data}
         selectedRegion={selectedRegion}
       />
     </Container>
