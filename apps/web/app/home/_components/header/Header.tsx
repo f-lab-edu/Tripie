@@ -9,7 +9,7 @@ import RESOURCE from 'constants/resources';
 import ROUTE from 'constants/routes';
 import { useRouter } from 'next/navigation';
 import ParticleBackground from 'shared/components/Particle/ParticleBackground';
-import Nav from '../Nav';
+import Nav from '../nav/Nav';
 import RotatingBlur from './RotatingBlur/RotatingBlur';
 import Style from './header.module.scss';
 

@@ -10,9 +10,10 @@ import Link from 'next/link';
 import Icon from 'shared/components/Icon/Icon';
 
 import NoStyleButton from 'shared/components/Button/NoStyle';
+
 import { MenuItem } from '../MenuItem';
-import { MENU_VARIANTS } from '../variants';
 import Style from './menu-list.module.scss';
+import { NAVIGATION_VARIANT } from './variants';
 
 const cx = classNames.bind(Style);
 
@@ -41,7 +42,7 @@ const AuthButton = () => {
 
 export const Navigation = () => {
   return (
-    <motion.ul className={cx('navigation')} variants={MENU_VARIANTS.NAVIGATION}>
+    <motion.ul className={cx('navigation')} variants={NAVIGATION_VARIANT}>
       {ROUTE.LANDING.map(({ label, href }, index) => (
         <MenuItem key={href + index}>
           <Link href={href}>{label}</Link>
