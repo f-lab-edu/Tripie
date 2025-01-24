@@ -3,21 +3,13 @@
 import { AiTripPlanResponse } from 'app/api/chat/route';
 import { Coordinate } from 'models/Geo';
 import { useMemo } from 'react';
-import { useMap } from 'react-map-gl/dist/esm/exports-maplibre';
+// import { useMap } from 'react-map-gl/dist/esm/exports-maplibre';
 
 /**
     지도의 중심점, 좌표, 표기할 마커 정보를 리턴
  */
-const useAwsMap = ({
-  coordinates,
-  plans,
-  currentDate,
-}: {
-  coordinates: Coordinate[][];
-  currentDate: number; // 선택한 날짜 인덱스
-  plans: AiTripPlanResponse;
-}) => {
-  const { current } = useMap();
+const useAwsMap = ({ coordinates, plans }: { coordinates: Coordinate[][]; plans: AiTripPlanResponse }) => {
+  // const { current } = useMap();
   /**
    * 지도의 중심의 경도와 위도.
    * 경도와 위도의 좌표들의 평균 지점
