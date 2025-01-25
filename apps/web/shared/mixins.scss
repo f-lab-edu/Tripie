@@ -154,7 +154,7 @@ $background-gradients: (
 
 @mixin chip {
   min-width: fit-content;
-  padding: 1rem;
+  padding: 1rem !important;
 }
 
 @mixin button-chip {
