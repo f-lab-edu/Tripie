@@ -28,7 +28,7 @@ export function CountryList({ countries, selectedCountry, setSelectedCountry, bo
     queryClient.prefetchQuery({
       queryKey: useContinentl.queryKey(country),
       queryFn: () =>
-        firestoreService.getList('continentl').then(countries => {
+        firestoreService.getListWithIds('continentl').then(countries => {
           if (country === 'all') {
             return countries;
           } else {

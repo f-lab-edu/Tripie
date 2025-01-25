@@ -12,6 +12,9 @@ import Style from './countries.module.scss';
 const cx = classNames.bind(Style);
 
 const Detail = ({ data }: { data: Continentl }) => {
+  if (data?.name == null) {
+    return <>{JSON.stringify(data)}</>;
+  }
   return (
     <Card>
       <List className={cx('list-wrap')}>

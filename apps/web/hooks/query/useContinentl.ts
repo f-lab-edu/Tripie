@@ -6,7 +6,7 @@ const useContinentl = (country: string) => {
   const res = useQuery({
     queryKey: useContinentl.queryKey(country),
     queryFn: () =>
-      firestoreService.getList('continentl').then(countries => {
+      firestoreService.getListWithIds('continentl').then(countries => {
         if (country === '') {
           return countries;
         } else if (countries != null) {

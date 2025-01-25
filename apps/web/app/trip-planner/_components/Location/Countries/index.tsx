@@ -41,13 +41,13 @@ export function CountryStep({ context, onNext }: Readonly<Props>) {
     return queryClient.ensureQueryData({
       queryKey: useContinentl.queryKey(country),
       queryFn: () =>
-        firestoreService.getList('continentl').then(countries => {
+        firestoreService.getListWithIds('continentl').then(countries => {
           return country === 'all' ? countries : countries?.filter((place: Continentl) => place.id === country);
         }),
     });
   };
 
-  if (isLoading) {
+  if (isLoading || data == null) {
     return <Loading />;
   }
 
