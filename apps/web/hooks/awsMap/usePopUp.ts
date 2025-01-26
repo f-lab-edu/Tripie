@@ -25,7 +25,7 @@ const usePopUp = ({ locationMarker, current }: { locationMarker: LocationMarker[
 
   // 클릭한 마커를 중심점으로 이동
   useEffect(() => {
-    if (map) {
+    if (map != null) {
       const selectedCoordinate = locationMarker.filter(v => v.index === currentSelected)[0];
       if (selectedCoordinate != null) {
         map.flyTo({ center: [selectedCoordinate.lng, selectedCoordinate.lat] });
