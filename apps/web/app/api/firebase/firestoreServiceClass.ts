@@ -70,12 +70,13 @@ class FirestoreService {
       if (!targetCountry) return null;
 
       const { articles } = targetCountry;
-      const filtered = articles.find(
-        (article: TripieArticle) => article.placeId === articleId || article.articleId === articleId
+
+      const filtered = articles.filter(
+        (article: TripieArticle) => article.placeId === articleId || article.id === articleId
       );
 
-      if (filtered) {
-        const { body, ...others } = filtered;
+      if (filtered.length > 0) {
+        const { body, ...others } = filtered[0];
         return { body: JSON.parse(body), ...others };
       }
       return null;
@@ -88,6 +89,7 @@ class FirestoreService {
   async getAttractionDetails(collectionName: string, regionId: string, attractionId: string): Promise<any> {
     try {
       const querySnapshot = await getDocs(collection(this.db, collectionName, regionId, 'attractions'));
+
       const filtered = querySnapshot.docs
         .map(doc => doc.data() as AttractionData)
         .filter(data => data.regionId === regionId && data.attractionId === attractionId);
@@ -107,12 +109,12 @@ class FirestoreService {
     try {
       const querySnapshot = await getDocs(collection(this.db, collectionName, regionId, 'restaurants'));
       const filtered = querySnapshot.docs
-        .map(doc => doc.data() as RestaurantData)
+        .map(doc => doc.data())
         .filter(data => data.regionId === regionId && data.restaurantId === restaurantId);
-
+      console.log(filtered[0]?.[`Poi:${restaurantId}`]);
       if (filtered.length > 0) {
-        const { data, ...others } = filtered[0];
-        return { data, ...others };
+        const { source } = filtered[0]?.[`Poi:${restaurantId}`] as RestaurantData['data'];
+        return { data: { source } };
       }
       return null;
     } catch (error) {
