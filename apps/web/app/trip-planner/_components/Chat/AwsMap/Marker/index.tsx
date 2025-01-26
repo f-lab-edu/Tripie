@@ -1,11 +1,11 @@
 'use client';
 
-import { Marker, Popup } from 'react-map-gl/maplibre';
+import { Marker, Popup, useMap } from 'react-map-gl/maplibre';
 
 import classNames from 'classnames/bind';
 import usePopUp from 'hooks/awsMap/usePopUp';
 import 'maplibre-gl/dist/maplibre-gl.css';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import Chip from 'shared/components/Chip/Chip';
 import { LocationMarker, TabContext } from '../..';
 import Style from './marker.module.scss';
@@ -22,6 +22,15 @@ const Markers = ({
 }) => {
   const { current, cycle } = useContext(TabContext);
   const { setPopup, popup, setCurrentSelected, popupMarkers } = usePopUp({ locationMarker, current });
+  const { current: map } = useMap();
+
+  // 선택한 여행 일정 카드 (TabCard)의 컨텍스트가 변경되었을 경우 해당 좌표로 포커스
+  useEffect(() => {
+    const coord = locationMarker.filter(place => place.index === current)[0];
+    if (map != null) {
+      map.flyTo({ center: [coord.lng, coord.lat] });
+    }
+  }, [map, current]);
 
   return (
     <>
@@ -39,9 +48,9 @@ const Markers = ({
             {JSON.stringify(markers.info)}
           </Popup>
         ))}
-      {locationMarker.map((marker, index) => (
+      {locationMarker.map(marker => (
         <Marker
-          key={`location-${marker.lng} + ${marker.lat}+${index}`}
+          key={`location-${marker.lng} + ${marker.lat}+${marker.index}`}
           longitude={marker.lng}
           latitude={marker.lat}
           anchor="bottom"

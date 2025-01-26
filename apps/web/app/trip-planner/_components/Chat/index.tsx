@@ -15,9 +15,8 @@ import { signIn, useSession } from 'next-auth/react';
 import { Dispatch, SetStateAction, createContext, useMemo, useState } from 'react';
 import Icon from 'shared/components/Icon/Icon';
 import Loading from 'shared/components/Loading';
-import AwsMap from './AwsMap';
-import ChatTab from './Tab';
 import Style from './chat.module.scss';
+import MapTab from './MapTab';
 
 const cx = classNames.bind(Style);
 
@@ -122,10 +121,7 @@ const ChatFunnel = ({ context }: ChatFunnelProps) => {
           {isLoading || coordinates == null || data == null ? (
             <Loading />
           ) : (
-            <>
-              <ChatTab data={data.plans} />
-              <AwsMap plans={data.plans} coordinates={coordinates} />
-            </>
+            <MapTab data={data.plans} coordinates={coordinates} />
           )}
         </Container>
       </SelectedDateContext.Provider>

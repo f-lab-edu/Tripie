@@ -8,7 +8,6 @@ import { MAP_ID, STYLE } from 'constants/maps';
 import { LocationMarker } from 'app/trip-planner/_components/Chat';
 import Lines from 'app/trip-planner/_components/Chat/AwsMap/Lines';
 import classNames from 'classnames/bind';
-import { FlyToOptions } from 'maplibre-gl';
 
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { Map, Marker, useMap } from 'react-map-gl/maplibre';
@@ -35,11 +34,13 @@ function AwsMap({
   const { current: map } = useMap();
   const [popup, setPopup] = useState<string>('');
 
+  // 선택한 여행 일정 카드 (TabCard)의 컨텍스트가 변경되었을 경우 해당 좌표로 포커스
   useEffect(() => {
+    const coord = locations.filter(place => place.index === current)[0];
     if (map != null) {
-      map.flyTo([center.longitude, center.latitude] as FlyToOptions);
+      map.flyTo({ center: [coord.lng, coord.lat] });
     }
-  }, [current, popup]);
+  }, [map, current]);
 
   useEffect(() => {
     setPopup(current);
