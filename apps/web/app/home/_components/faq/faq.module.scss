@@ -7,7 +7,6 @@
 .wrap {
   background-color: $theme-200;
   border-radius: 10px;
-  padding: 1rem;
 }
 .flex {
   cursor: pointer;
@@ -18,4 +17,7 @@
 }
 .faq-icon {
   width: 1rem;
+}
+.accordion-body {
+  white-space: pre-wrap !important;
 }

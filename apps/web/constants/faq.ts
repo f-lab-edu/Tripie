@@ -1,31 +1,20 @@
 const FAQS = [
   {
-    tag: "What's unique about Tripie?",
-    header: "What's unique about Tripie?",
+    tag: '트리피는 어떤 서비스를 제공하나요?',
+    header: '트리피는 어떤 서비스를 제공하나요?',
     details:
-      "Our extremely flexible development subscription is what set's us apart in the AI-development space. We fully understand that your business needs differ every month in this fast paced-environment. That's why we created our innovative subscription model.",
+      '트리피는 사용자의 취향을 기반으로 AI 여행 일정을 추천하고, 여행지 별 정보를 제공합니다.\n여행하고자 하는 지역의 꿀팁, 맛집, 쇼핑 목록 등 정보를 살펴볼 수 있습니다.',
   },
   {
-    tag: 'How many builds can I request each month?',
-    header: 'How many builds can I request each month?',
+    tag: 'AI 추천 일정을 최대 몇 개 요청할 수 있나요?',
+    header: 'AI 추천 일정을 최대 몇 개 요청할 수 있나요?',
     details:
-      'You can request unlimited builds and unlimited revisions, your developers are ready to transform your ideas into reality!',
+      '일반 사용자는 총 10번 사용 가능합니다.\n토큰을 추가로 할당하기 위해서는 mail@tripie-pyotato.com에 문의해주세요.',
   },
   {
-    tag: 'Can I cancel my subscription at any time?',
-    header: 'Can I cancel my subscription at any time?',
-    details: 'Yes, you can pause or cancel your subscription whenever you want!',
-  },
-  {
-    tag: 'How secure are your solutions?',
-    header: 'How secure are your solutions?',
-    details:
-      'Security is paramount. We adhere to best practices and industry standards to protect your data and privacy.',
-  },
-  {
-    tag: 'Can your solutions scale with my business growth?',
-    header: 'Can your solutions scale with my business growth?',
-    details: 'Definitely. Both our solutions and our subscriptions are designed to handle your business growth.',
+    tag: '지도에 위치 좌표가 표시되지 않았어요.',
+    header: '지도에 위치 좌표가 표시되지 않았어요.',
+    details: 'AWS 지도 보안 상 민감한 위치라 판단된 지역은 표기되지 않은 위치가 있을 수 있습니다.',
   },
 ];
 

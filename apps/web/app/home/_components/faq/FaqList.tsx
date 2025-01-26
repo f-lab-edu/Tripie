@@ -21,8 +21,12 @@ export default function FaqList() {
             </Container>
           </Accordion.Header>
           <Accordion.Divider />
-          <Container applyMargin="top-bottom">
-            <Accordion.Body>{details}</Accordion.Body>
+          <Container applyMargin="top-bottom" className={cx('accordion-body')}>
+            <Accordion.Body>
+              <Container applyMargin="top-bottom" margin="m">
+                {details}
+              </Container>
+            </Accordion.Body>
           </Container>
         </Accordion>
       ))}
