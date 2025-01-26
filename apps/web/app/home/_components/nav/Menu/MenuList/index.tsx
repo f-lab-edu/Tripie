@@ -2,7 +2,7 @@
 
 import classNames from 'classnames/bind';
 import RESOURCE from 'constants/resources';
-import ROUTE from 'constants/routes';
+import ROUTE, { LANDING_SECTION } from 'constants/routes';
 import { motion } from 'framer-motion';
 import useChatToken from 'hooks/useChatToken';
 import { signOut, useSession } from 'next-auth/react';
@@ -43,7 +43,7 @@ const AuthButton = () => {
 export const Navigation = () => {
   return (
     <motion.ul className={cx('navigation')} variants={NAVIGATION_VARIANT}>
-      {ROUTE.LANDING.map(({ label, href }, index) => (
+      {LANDING_SECTION.map(({ label, href }, index) => (
         <MenuItem key={href + index}>
           <Link href={href}>{label}</Link>
           {label === 'Contact' ? <Icon src={RESOURCE.ARROW} /> : null}

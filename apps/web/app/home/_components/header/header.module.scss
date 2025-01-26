@@ -23,6 +23,10 @@
   padding: 0;
   position: relative;
   width: min-content;
+  & a {
+    text-decoration: none;
+    color: inherit;
+  }
 }
 
 .flex {

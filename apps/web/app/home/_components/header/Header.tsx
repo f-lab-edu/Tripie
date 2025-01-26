@@ -7,7 +7,7 @@ import Icon from 'shared/components/Icon/Icon';
 
 import RESOURCE from 'constants/resources';
 import ROUTE from 'constants/routes';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import ParticleBackground from 'shared/components/Particle/ParticleBackground';
 import Nav from '../nav/Nav';
 import RotatingBlur from './RotatingBlur/RotatingBlur';
@@ -16,7 +16,6 @@ import Style from './header.module.scss';
 const cx = classNames.bind(Style);
 
 export default function Header() {
-  const router = useRouter();
   return (
     <ParticleBackground>
       <Nav />
@@ -29,14 +28,16 @@ export default function Header() {
           </Container>
         </div>
         <Container className={cx('button-wrap')} margin="none">
-          <AnimatedButton withBorder={true} onClick={() => router.push(ROUTE.SERVICES.href)}>
-            Our services
-          </AnimatedButton>
-          <AnimatedButton withBorder={true} onClick={() => router.push(ROUTE.CONTACT.href)}>
-            <Container margin="none" className={cx('flex')}>
-              Get in touch <Icon src={RESOURCE.ARROW} />
-            </Container>
-          </AnimatedButton>
+          <Link href={ROUTE.SERVICES.href}>
+            <AnimatedButton withBorder={true}>Our services</AnimatedButton>
+          </Link>
+          <Link href={ROUTE.CONTACT.href}>
+            <AnimatedButton withBorder={true}>
+              <Container margin="none" className={cx('flex')}>
+                Get in touch <Icon src={RESOURCE.ARROW} />
+              </Container>
+            </AnimatedButton>
+          </Link>
         </Container>
       </Container>
     </ParticleBackground>

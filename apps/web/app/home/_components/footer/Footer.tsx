@@ -1,7 +1,7 @@
 'use client';
 import { Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
-import ROUTE from 'constants/routes';
+import { LANDING_SECTION } from 'constants/routes';
 import { useRouter } from 'next/navigation';
 import Divider from 'shared/components/Divider/Divider';
 import List from 'shared/components/List/List';
@@ -27,7 +27,7 @@ export default function Footer() {
         </List>
         <Divider />
         <List>
-          {ROUTE.LANDING.map(({ label, href }) => (
+          {LANDING_SECTION.map(({ label, href }) => (
             <li key={href}>
               <button onClick={() => router.push(href)} className={cx('button')}>
                 <TextUnderLineAnimation className={cx('list-item')}>{label}</TextUnderLineAnimation>
