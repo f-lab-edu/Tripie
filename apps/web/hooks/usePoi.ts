@@ -33,8 +33,10 @@ const usePoi = ({ pois }: { pois: Poi[] }) => {
     );
 
     return {
-      longitude: +(coordinates.longitude / pois.length).toFixed(4),
-      latitude: +(coordinates.latitude / pois.length).toFixed(4),
+      longitude: +(coordinates.longitude / pois.length),
+      latitude: +(coordinates.latitude / pois.length),
+      // longitude: +(coordinates.longitude / pois.length).toFixed(4),
+      // latitude: +(coordinates.latitude / pois.length).toFixed(4),
     };
   }, [coordinates]);
   return { center, current, setCurrent, coordinates };

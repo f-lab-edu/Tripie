@@ -21,7 +21,6 @@ const currentDate = 0;
 const TripResultExample = () => {
   const { center, locationMarker } = useAwsMap({
     coordinates: AI_PLAN.coordinates,
-    currentDate,
     plans: AI_PLAN.plans,
   });
 

@@ -1,10 +1,10 @@
 'use client';
 
 import { AiTripPlanResponse } from 'app/api/chat/route';
-import { FlyToOptions } from 'maplibre-gl';
 import { Coordinate } from 'models/Geo';
 import { useEffect, useMemo } from 'react';
-import { useMap } from 'react-map-gl/dist/esm/exports-maplibre';
+
+import { useMap } from 'react-map-gl/maplibre';
 
 /**
     지도의 중심점, 좌표, 표기할 마커 정보를 리턴
@@ -12,13 +12,13 @@ import { useMap } from 'react-map-gl/dist/esm/exports-maplibre';
 const useAwsMap = ({
   coordinates,
   plans,
-  currentDate,
+  // currentDate,
 }: {
   coordinates: Coordinate[][];
-  currentDate: number; // 선택한 날짜 인덱스
+  // currentDate: number; // 선택한 날짜 인덱스
   plans: AiTripPlanResponse;
 }) => {
-  const { current } = useMap();
+  const { current: map } = useMap();
   /**
    * 지도의 중심의 경도와 위도.
    * 경도와 위도의 좌표들의 평균 지점
@@ -64,11 +64,13 @@ const useAwsMap = ({
   }, []);
 
   useEffect(() => {
-    if (current != null) {
-      current.flyTo([center[currentDate].longitude, center[currentDate].latitude] as FlyToOptions);
-      console.log(center[currentDate].longitude, center[currentDate].latitude);
+    console.log('map', map);
+    // console.log('center[currentDate]', center[currentDate]);
+    if (map != null) {
+      // map.flyTo([center[currentDate].longitude, center[currentDate].latitude] as FlyToOptions);
+      // console.log(center[currentDate].longitude, center[currentDate].latitude);
     }
-  }, [current]);
+  }, [map, center]);
 
   return { center, locationMarker };
 };

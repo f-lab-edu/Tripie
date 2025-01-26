@@ -52,8 +52,6 @@ const TabCard = ({
       className={cx('trip-activity', 'card-item', current === `${trip.day}-${index}` ? 'selected' : null)}
       selected={current === `${trip.day - 1}-${index}`}
       onClick={() => {
-        console.log(`${trip.day - 1}-${index}`);
-        console.log(trip);
         cycle(`${trip.day - 1}-${index}`);
       }}
     >
