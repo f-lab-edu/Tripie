@@ -37,3 +37,7 @@
 .attraction {
   @include map-marker('attraction');
 }
+
+.at-place {
+  font-size: 0.8rem !important;
+}

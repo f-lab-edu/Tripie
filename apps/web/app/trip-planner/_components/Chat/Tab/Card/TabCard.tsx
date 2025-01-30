@@ -10,6 +10,7 @@ import { useContext, useEffect, useRef } from 'react';
 import Card from 'shared/components/Card/Card';
 import Chip from 'shared/components/Chip/Chip';
 import Divider from 'shared/components/Divider/Divider';
+import TextUnderLineAnimation from 'shared/components/TextUnderlineAnimation/TextUnderlineAnimation';
 import { TabContext } from '../..';
 
 const cx = classNames.bind(Style);
@@ -20,6 +21,7 @@ const TabCard = ({
   index,
   activity,
   comments,
+  place,
   scrollIntoView,
 }: {
   label: Activity['label'];
@@ -27,6 +29,7 @@ const TabCard = ({
   index: number;
   activity: string;
   comments: string;
+  place?: string;
   scrollIntoView?: boolean;
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -61,7 +64,15 @@ const TabCard = ({
         <Headings.H4 className={cx('accented')}>{activity}</Headings.H4>
       </Container>
       <Divider />
-      {comments}
+      <Container margin="none">
+        {comments}
+        <Container margin="sm" applyMargin="top">
+          <TextUnderLineAnimation className={cx('at-place')}>
+            <span className={cx('accented')}>@</span>
+            {place}
+          </TextUnderLineAnimation>
+        </Container>
+      </Container>
     </Card.ClickableContent>
   );
 };
