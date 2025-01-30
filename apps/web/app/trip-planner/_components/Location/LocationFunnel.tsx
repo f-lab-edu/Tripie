@@ -51,9 +51,10 @@ export function LocationFunnel({ onNext }: Readonly<Props>) {
           context={context}
         />
       )}
-      CITY={({ context }) => (
+      CITY={({ context, history }) => (
         <CityFunnel
           onNext={(selected: string[]) => {
+            history.push('CITY', { ...context, city: { ...context.city, selected } });
             onNext(JSON.stringify({ ...context, city: { ...context.city, selected } }));
           }}
           context={context}
