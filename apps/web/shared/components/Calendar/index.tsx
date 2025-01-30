@@ -33,30 +33,33 @@ const Calendar = ({
   /**
    * range을 선택할 시 해당 영역들 모두 스타일을 적용하기 위해 className을 추가해주는 useCallback
    */
-  const addSelectedTileClassName = useCallback(({ date, value }: { date: Date; value: Value }) => {
-    // range가 두 시간대에 걸쳐 있는 경우
-    if (Array.isArray(value) && value.length === 2) {
-      const [start, end] = value.map(dDate => isSameDay(dDate, date));
-      //   시작일
-      if (start === 0) {
-        return 'start-date';
+  const addSelectedTileClassName = useCallback(
+    ({ date, value }: { date: Date; value: Value }) => {
+      // range가 두 시간대에 걸쳐 있는 경우
+      if (Array.isArray(value) && value.length === 2) {
+        const [start, end] = value.map(dDate => isSameDay(dDate, date));
+        //   시작일
+        if (start === 0) {
+          return 'start-date';
+        }
+        // 끝 일
+        else if (end === 0) {
+          return 'end-date';
+        }
+        // 시작과 끝 날짜 사이의 tile들
+        else if (Math.abs(start + end) <= Math.abs(isSameDay(...value))) {
+          return 'in-range';
+        }
+      } else {
+        //  당일치기
+        const singleDay = value as ValuePiece[];
+        if (isSameDay(singleDay[0], date) === 0) {
+          return 'start-date end-date';
+        }
       }
-      // 끝 일
-      if (end === 0) {
-        return 'end-date';
-      }
-      // 시작과 끝 날짜 사이의 tile들
-      if (Math.abs(start + end) <= Math.abs(isSameDay(...value))) {
-        return 'in-range';
-      }
-      //  당일치기
-    } else {
-      const singleDay = value as ValuePiece[];
-      if (isSameDay(singleDay[0], date) === 0) {
-        return 'start-date end-date';
-      }
-    }
-  }, []);
+    },
+    [selectRange]
+  );
 
   const month = useMemo(() => {
     return activeStartDate?.toDateString().split(' ')[1];
@@ -67,7 +70,6 @@ const Calendar = ({
       <Container applyMargin="left" margin="m">
         <Headings.H2>{month}</Headings.H2>
       </Container>
-
       <ReactCalendar
         minDate={minDate}
         maxDate={maxDate}

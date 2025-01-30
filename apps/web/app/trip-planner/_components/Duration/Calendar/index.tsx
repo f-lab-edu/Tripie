@@ -36,10 +36,10 @@ const Calendars = ({
     companion?: string;
   };
 }) => {
-  const { calendarFormatTime, calendar, isValidTime } = useCalendar();
+  const { calendarFormatTime, calendar, isValidTime } = useCalendar(context?.duration?.split(' ~ ')[0]);
 
   const [selected, setSelected] = useState<Date[] | Date>(() =>
-    !isValidTime || context?.duration == null ? calendarFormatTime : localeString2Date(context.duration.split(' ~ '))
+    context?.duration == null || !isValidTime ? calendarFormatTime : localeString2Date(context.duration.split(' ~ '))
   );
 
   /**
@@ -47,7 +47,6 @@ const Calendars = ({
    *  */
   const duration = useMemo(() => {
     const dates = selected?.toLocaleString().split(',');
-
     // 시작과 끝 날짜를 정한 경우
     if (dates.length === 4) {
       const [startDate, startTime, endDate, endTime] = dates;
@@ -74,7 +73,7 @@ const Calendars = ({
       <Container margin="none">
         <CalendarHeader selectRange={true} allowPartialRange={false} />
         <Container applyMargin="top-bottom" className={cx('calendar-wrap')}>
-          {calendar.map(({ days, min, max }) => (
+          {calendar.map(({ days, min, max }, index) => (
             <Calendar
               minDate={min}
               maxDate={max}
@@ -84,7 +83,7 @@ const Calendars = ({
               }}
               onClickDay={setSelected}
               selectRange={true}
-              key={days.toDateString()}
+              key={days.toDateString() + index}
               allowPartialRange={false}
               showNeighboringMonth={true}
               activeStartDate={days}

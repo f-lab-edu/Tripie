@@ -21,9 +21,9 @@ const useServerTime = (baseTime?: string) => {
 
   const isValidTime = useMemo(() => {
     if (baseTime == null || serverTime == null) {
-      return false;
+      return 'loading';
     } else {
-      return baseTime < serverTime;
+      return baseTime >= serverTime;
     }
   }, [baseTime, serverTime]);
 

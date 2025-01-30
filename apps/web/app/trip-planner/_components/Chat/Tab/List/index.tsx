@@ -19,7 +19,7 @@ const TabList = ({ trip, scrollIntoView }: { trip: TripContent; scrollIntoView?:
       </li>
       <li>{trip.date}</li>
       <li className={cx('trip-item')}>
-        {trip.activities.map(({ activity, comments, label }, index) => (
+        {trip.activities.map(({ activity, comments, label, place }, index) => (
           <TabCard
             label={label}
             trip={trip}
@@ -27,6 +27,7 @@ const TabList = ({ trip, scrollIntoView }: { trip: TripContent; scrollIntoView?:
             activity={activity}
             comments={comments}
             key={label + index}
+            place={place}
             scrollIntoView={scrollIntoView}
           />
         ))}
