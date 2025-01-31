@@ -11,6 +11,7 @@ import Card from 'shared/components/Card/Card';
 import Chip from 'shared/components/Chip/Chip';
 import Divider from 'shared/components/Divider/Divider';
 import TextUnderLineAnimation from 'shared/components/TextUnderlineAnimation/TextUnderlineAnimation';
+import getMarkerLabel from 'utils/marker';
 import { TabContext } from '../..';
 
 const cx = classNames.bind(Style);
@@ -60,7 +61,7 @@ const TabCard = ({
     >
       <Container margin="none" className={cx('title')}>
         <div ref={current === `${trip.day - 1}-${index}` ? ref : null} />
-        <Chip className={cx(label, 'label')}>{index + 1}</Chip>
+        <Chip className={cx(getMarkerLabel(label), 'label')}>{index + 1}</Chip>
         <Headings.H4 className={cx('accented')}>{activity}</Headings.H4>
       </Container>
       <Divider />
