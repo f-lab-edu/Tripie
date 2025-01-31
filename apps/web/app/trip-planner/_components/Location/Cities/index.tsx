@@ -46,7 +46,7 @@ const CityFunnel = ({ context, onNext }: Props) => {
         ))}
         <Icon.Plane />
       </Container>
-      <CityList context={context} cities={cities} selected={selected} setSelected={setSelected} />
+      <CityList cities={cities} selected={selected} setSelected={setSelected} />
       <Container margin="l" applyMargin="top">
         <AnimatedButton
           withBorder={true}
