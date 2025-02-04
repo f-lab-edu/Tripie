@@ -28,15 +28,14 @@
   @include map-marker('attraction');
 }
 
+.selected {
+  @include map-marker('selected');
+}
+
 .marker {
   display: inline-flex;
   border-radius: 100%;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  @include map-marker('attraction');
 }
-
-// .marker {
-//   padding: 0.5rem;
-// }

@@ -13,6 +13,10 @@
   @include map-marker('attraction');
 }
 
+.selected {
+  @include map-marker('selected');
+}
+
 .marker {
   display: inline-flex;
   border-radius: 100%;

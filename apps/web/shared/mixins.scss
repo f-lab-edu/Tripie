@@ -222,13 +222,15 @@ $background-gradients: (
   cursor: pointer;
   padding: 0.5rem;
   @if $variant == 'restaurant' {
-    background-color: red !important;
-  }
-  @if $variant == 'hotel' {
-    background-color: rgb(59, 74, 211) !important;
-  }
-  @if $variant == 'attraction' {
-    background-color: orange !important;
+    background-color: red;
+  } @else if $variant == 'hotel' {
+    background-color: rgb(59, 74, 211);
+  } @else if $variant == 'attraction' {
+    background-color: orange;
+  } @else if $variant == 'selected' {
+    background-color: inherit;
+  } @else {
+    background-color: orange;
   }
 }
 

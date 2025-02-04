@@ -24,7 +24,6 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  @include map-marker('attraction');
 }
 
 .restaurant {
@@ -37,6 +36,10 @@
 
 .attraction {
   @include map-marker('attraction');
+}
+
+.selected {
+  @include map-marker('selected');
 }
 
 .at-place {
