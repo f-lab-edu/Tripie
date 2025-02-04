@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { AnimationProps, motion } from 'framer-motion';
+import { AnimationControls, AnimationProps, motion } from 'framer-motion';
 import { ReactNode } from 'react';
 import Container from '../Container/Container';
 import Style from './text.module.scss';
@@ -34,7 +34,7 @@ export const JumpingText = ({
         <motion.span
           key={index + item}
           className={cx('box', className)}
-          animate={{ y: '-5px', direction: 'alternate' }}
+          animate={{ y: '-5px', direction: 'alternate' } as unknown as AnimationControls}
           transition={{ delay: index * 0.1, duration: 1.5, repeat: Infinity, damping: 800 }}
         >
           {item}

@@ -3,7 +3,8 @@ import classNames from 'classnames/bind';
 import { Variants, motion } from 'framer-motion';
 
 import { ACCORDIAN_VARIANTS } from '../../shared/variants';
-import Container, { ContainerProps } from '../Container/Container';
+
+import Container, { ContainerProps } from '../Container';
 import HR_MARGINS from './constants';
 import Style from './divider.module.scss';
 
