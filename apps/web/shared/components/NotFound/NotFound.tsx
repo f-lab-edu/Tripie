@@ -1,6 +1,5 @@
 'use client';
-import { Chip, Container, ParticleField } from '@tripie-pyotato/design-system';
-import Heading from '@tripie-pyotato/design-system/components/typography/headings/_headings';
+import { Chip, Container, Headings, ParticleField } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 
 import ROUTE from 'constants/routes';
@@ -18,9 +17,9 @@ export default function NotFound() {
       <Container className={cx('center')} margin="none">
         <div>
           <Container className={cx('heading')} margin="none">
-            <Heading.H1 className={cx('accented')}>4</Heading.H1>
-            <Heading.H1>0</Heading.H1>
-            <Heading.H1 className={cx('accented')}>4</Heading.H1>
+            <Headings.H1 className={cx('accented')}>4</Headings.H1>
+            <Headings.H1>0</Headings.H1>
+            <Headings.H1 className={cx('accented')}>4</Headings.H1>
           </Container>
         </div>
 

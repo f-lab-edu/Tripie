@@ -1,6 +1,6 @@
 'use client';
-import { Chip, Container, ParticleBackground } from '@tripie-pyotato/design-system';
-import Heading from '@tripie-pyotato/design-system/components/typography/headings/_headings';
+import { Chip, Container, Headings, ParticleBackground } from '@tripie-pyotato/design-system';
+
 import classNames from 'classnames/bind';
 
 import Style from './error.module.scss';
@@ -13,9 +13,9 @@ export default function Error() {
       <Container className={cx('center')} margin="none">
         <div>
           <Container className={cx('heading')} margin="none">
-            <Heading.H1 className={cx('accented')}>5</Heading.H1>
-            <Heading.H1>0</Heading.H1>
-            <Heading.H1 className={cx('accented')}>0</Heading.H1>
+            <Headings.H1 className={cx('accented')}>5</Headings.H1>
+            <Headings.H1>0</Headings.H1>
+            <Headings.H1 className={cx('accented')}>0</Headings.H1>
           </Container>
         </div>
 
