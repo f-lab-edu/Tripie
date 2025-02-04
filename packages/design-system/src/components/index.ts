@@ -1,8 +1,8 @@
 export { default as AnimatedButton } from './button/Animated';
 export { default as NoStyleButton } from './button/NoStyle';
-export { default as Card } from './Card/Card';
+export { default as Card } from './Card';
 export { default as Chip } from './Chip/Chip';
-export { default as Container } from './Container';
+export { default as Container } from './Container/Container';
 export { default as Divider } from './Divider';
 export { default as List } from './List/List';
 export { default as MotionSlideUp } from './MotionSlideUp';

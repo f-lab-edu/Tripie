@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import { AnimationControls, AnimationProps, motion } from 'framer-motion';
 import { ReactNode } from 'react';
-import Container from '../Container/Container';
+import Container from '../Container';
 import Style from './text.module.scss';
 import { VARIANTS } from './variants';
 
