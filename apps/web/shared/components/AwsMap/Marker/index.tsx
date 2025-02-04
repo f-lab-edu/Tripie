@@ -9,7 +9,6 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import { LocationMarker } from 'models/Geo';
 import { useContext, useEffect } from 'react';
 import Chip from 'shared/components/Chip/Chip';
-import getMarkerLabel from 'utils/marker';
 import Style from './marker.module.scss';
 import './marker.scss';
 
@@ -62,7 +61,7 @@ const Markers = ({
             setCurrentSelected(marker.index);
           }}
         >
-          <Chip.Marker className={cx(getMarkerLabel(marker.label))} marker={marker} popup={popup} />
+          <Chip.Marker className={cx(marker.label, 'label')} marker={marker} popup={popup} />
         </Marker>
       ))}
     </>

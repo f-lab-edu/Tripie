@@ -19,4 +19,5 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  @include map-marker('attraction');
 }

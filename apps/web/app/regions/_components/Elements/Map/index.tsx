@@ -12,7 +12,6 @@ import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { Map, Marker, useMap } from 'react-map-gl/maplibre';
 import Lines from 'shared/components/AwsMap/Lines';
 import Chip from 'shared/components/Chip/Chip';
-import getMarkerLabel from 'utils/marker';
 import Style from './map.module.scss';
 
 export type AwsMapCenter = { longitude: number; latitude: number };
@@ -70,7 +69,7 @@ function AwsMap({
             setPopup(marker.index);
           }}
         >
-          <Chip.Marker className={cx(getMarkerLabel(marker.label))} marker={marker} popup={popup} />
+          <Chip.Marker className={cx(marker.label, 'label')} marker={marker} popup={popup} />
         </Marker>
       ))}
       <Lines locationMarker={locations} />
