@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 import { motion } from 'framer-motion';
 import { MutableRefObject, ReactNode, RefObject } from 'react';
 import { SHINE_VARIANT } from '../../shared/variants';
-import Container from '../Container';
+import Container from '../Container/Container';
 import MotionSlideUp from '../MotionSlideUp/MotionSlideUp';
 import Style from './card.module.scss';
 const cx = classNames.bind(Style);
