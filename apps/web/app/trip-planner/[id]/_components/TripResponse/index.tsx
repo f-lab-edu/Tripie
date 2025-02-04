@@ -45,7 +45,7 @@ const TripResponse = ({ data }: { data: ChatResponseData }) => {
   useEffect(() => {
     const handleBack = (event: PopStateEvent) => {
       event.preventDefault();
-      router.replace(ROUTE.TRIP_PLANNER.href);
+      router.push(ROUTE.TRIP_PLANNER.href + '?trip-plan.step=CONTINENT');
     };
 
     window?.addEventListener('popstate', handleBack);
