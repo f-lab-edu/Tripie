@@ -1,8 +1,8 @@
-name: "Chromatic Deployment Comment"
+name: 'Chromatic Deployment Comment'
 
 on:
   push:
-    branches: [21-design-system]
+    branches: [design-system]
     paths:
       - packages/design-system/src/**
 
@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ">=20"
+          node-version: '>=20'
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
