@@ -2,7 +2,7 @@ name: "Chromatic Deployment"
 
 on:
   pull_request:
-    branches: ["main", "21-design-system"]
+    branches: ["main", "design-system"]
     paths:
       - packages/design-system/src/**
 
