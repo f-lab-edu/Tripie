@@ -1,12 +1,10 @@
-import { Container, Headings } from '@tripie-pyotato/design-system';
+import { Card, Chip, Container, Headings, List } from '@tripie-pyotato/design-system';
 import Description from 'app/home/_components/our-process/_components/Description';
 import classNames from 'classnames/bind';
 import { Continentl } from 'models/Continentl';
 import { Dispatch, SetStateAction, useEffect } from 'react';
 import { Popup, useMap } from 'react-map-gl/maplibre';
-import Card from 'shared/components/Card/Card';
-import Chip from 'shared/components/Chip/Chip';
-import List from 'shared/components/List/List';
+
 import Style from './country-info-popup.module.scss';
 
 const cx = classNames.bind(Style);

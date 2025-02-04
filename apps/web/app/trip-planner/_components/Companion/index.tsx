@@ -1,5 +1,5 @@
 'use client';
-import { Container } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import Icon from 'shared/components/Icon/Icon';
 
@@ -7,7 +7,6 @@ import COMPANION_LIST from 'constants/companions';
 import RESOURCE from 'constants/resources';
 import { ContinentKeys } from 'models/Continent';
 import { useCallback, useState } from 'react';
-import AnimatedButton from 'shared/components/Button/Animated';
 import CompanionList from './List';
 import Style from './companion.module.scss';
 

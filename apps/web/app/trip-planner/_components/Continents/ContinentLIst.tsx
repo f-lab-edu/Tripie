@@ -1,5 +1,5 @@
 import { useQueryClient } from '@tanstack/react-query';
-import { Container } from '@tripie-pyotato/design-system';
+import { Chip, Container } from '@tripie-pyotato/design-system';
 import firestoreService from 'app/api/firebase';
 import classNames from 'classnames/bind';
 import { CONTINENTS } from 'constants/continents';
@@ -7,7 +7,7 @@ import useCountries from 'hooks/query/useCountries';
 import { ContinentIds, ContinentKeys } from 'models/Continent';
 import { Country } from 'models/Country';
 import { Dispatch, SetStateAction } from 'react';
-import Chip from 'shared/components/Chip/Chip';
+
 import Style from './continent-list.module.scss';
 
 const cx = classNames.bind(Style);

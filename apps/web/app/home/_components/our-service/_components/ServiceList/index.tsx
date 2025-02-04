@@ -1,7 +1,7 @@
 'use client';
 
+import { Card } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
-import Card from 'shared/components/Card/Card';
 import RotatingGlobe from 'shared/components/Globe/RotatingGlobe';
 import Description from '../../../our-process/_components/Description';
 import RegionInfo from '../RegionInfo';

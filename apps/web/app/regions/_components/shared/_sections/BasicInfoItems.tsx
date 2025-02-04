@@ -1,6 +1,5 @@
 'use server';
-import { Container } from '@tripie-pyotato/design-system';
-import ArticleDivider from 'app/regions/_components/Elements/Divider';
+import { Container, Divider } from '@tripie-pyotato/design-system';
 import ArticleHeading from 'app/regions/_components/Elements/Header';
 import ArticleText from 'app/regions/_components/Elements/Text';
 import { AttractionArticle } from 'models/Attraction';
@@ -49,7 +48,7 @@ const BasicInfoItems = ({
       </Container>
       <ArticleHeading item={{ type: 'heading3', value: { text: '가는방법' } }} />
       <ArticleText item={{ type: 'text', value: { text: directions } }} />
-      <ArticleDivider item={{ type: 'hr2' }} />
+      <Divider.Article item={{ type: 'hr2' }} />
     </>
   );
 };

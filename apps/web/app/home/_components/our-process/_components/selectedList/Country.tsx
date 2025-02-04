@@ -2,13 +2,13 @@
 import classNames from 'classnames/bind';
 import Style from './shared/selected-list.module.scss';
 
-import { Container } from '@tripie-pyotato/design-system';
+import { Chip, Container } from '@tripie-pyotato/design-system';
 import RESOURCE from 'constants/resources';
 import useCountries from 'hooks/query/useCountries';
 import { Country } from 'models/Country';
 import { useMemo, useState } from 'react';
-import AnimatedButton from 'shared/components/Button/Animated';
-import Chip from 'shared/components/Chip/Chip';
+
+import NextButton from 'shared/components/Button/Animated';
 import Icon from 'shared/components/Icon/Icon';
 import { regionNameToLocal } from 'utils/lang';
 import { SELECTED_CONTINENT_NAME, SELECTED_COUNTRY } from './constants/selected';
@@ -46,9 +46,9 @@ const CountrySelect = () => {
         ))}
       </Container>
 
-      <AnimatedButton.Next>
+      <NextButton>
         "{regionNameToLocal({ regionCode: selected.code })}"로 보기 <Icon src={RESOURCE.ARROW} />
-      </AnimatedButton.Next>
+      </NextButton>
     </Container>
   );
 };

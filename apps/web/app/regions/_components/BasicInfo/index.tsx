@@ -1,7 +1,6 @@
 'use client';
-import { Container } from '@tripie-pyotato/design-system';
+import { Card, Container } from '@tripie-pyotato/design-system';
 import ArticleLink from 'app/regions/_components/Elements/Link';
-import Card from 'shared/components/Card/Card';
 
 import classNames from 'classnames/bind';
 import { AttractionArticle } from 'models/Attraction';

@@ -1,5 +1,4 @@
-import Card from 'shared/components/Card/Card';
-
+import { Card } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import Description from '../Description';
 import CitySelect from '../selectedList/City';

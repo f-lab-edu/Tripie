@@ -1,13 +1,11 @@
 'use client';
 
-import { Container, Headings } from '@tripie-pyotato/design-system';
+import { Card, Container, Divider, Headings, List } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import useImgAlt from 'hooks/useImgAlt';
 import { RegionArticleInfo } from 'models/Article';
 import { useRouter } from 'next/navigation';
-import Card from 'shared/components/Card/Card';
-import Divider from 'shared/components/Divider/Divider';
-import List from 'shared/components/List/List';
+
 import Style from './region-list.module.scss';
 
 const cx = classNames.bind(Style);

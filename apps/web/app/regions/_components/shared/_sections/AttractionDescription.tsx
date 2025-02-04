@@ -1,5 +1,6 @@
 'use server';
-import ArticleDivider from 'app/regions/_components/Elements/Divider';
+
+import { Divider } from '@tripie-pyotato/design-system';
 import ArticleHeading from 'app/regions/_components/Elements/Header';
 import { AttractionArticle } from 'models/Attraction';
 
@@ -10,7 +11,7 @@ const AttractionDescription = ({ comment }: { comment: AttractionArticle['source
   return (
     <>
       <ArticleHeading item={{ type: 'heading2', value: { text: comment } }} />
-      <ArticleDivider item={{ type: 'hr2' }} />
+      <Divider.Article item={{ type: 'hr2' }} />
     </>
   );
 };

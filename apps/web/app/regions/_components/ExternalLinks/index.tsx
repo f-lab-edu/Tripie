@@ -1,7 +1,6 @@
 'use client';
-import { Container } from '@tripie-pyotato/design-system';
+import { Card, Container, Divider } from '@tripie-pyotato/design-system';
 
-import ArticleDivider from 'app/regions/_components/Elements/Divider';
 import ArticleHeading from 'app/regions/_components/Elements/Header';
 import ArticleText from 'app/regions/_components/Elements/Text';
 import classNames from 'classnames/bind';
@@ -9,7 +8,6 @@ import classNames from 'classnames/bind';
 import { ExternalLink } from 'models/Link';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import Card from 'shared/components/Card/Card';
 import Style from './external-links.module.scss';
 
 const cx = classNames.bind(Style);
@@ -43,7 +41,7 @@ const ExternalLinkCard = ({ link, index }: { link: ExternalLink; index: number }
 const ExternalLinks = ({ externalLinks }: { externalLinks: ExternalLink[] }) => {
   return (
     <>
-      <ArticleDivider item={{ type: 'hr2' }} />
+      <Divider.Article item={{ type: 'hr2' }} />
       <ArticleHeading item={{ type: 'heading2', value: { text: '소셜 리뷰' } }} />
       {externalLinks.map((link, index) => (
         <ExternalLinkCard link={link} index={index} key={link.url + index} />

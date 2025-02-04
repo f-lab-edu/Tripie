@@ -1,12 +1,12 @@
 'use client';
-import { Container } from '@tripie-pyotato/design-system';
+import { Chip, Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import Style from './shared/selected-list.module.scss';
 
 import PREFERENCE_LIST from 'constants/preferences';
 import RESOURCE from 'constants/resources';
-import AnimatedButton from 'shared/components/Button/Animated';
-import Chip from 'shared/components/Chip/Chip';
+
+import NextButton from 'shared/components/Button/Animated';
 import Icon from 'shared/components/Icon/Icon';
 import { SELECTED_PREFERENCE } from './constants/selected';
 
@@ -31,9 +31,9 @@ const TravelStyleSelect = () => {
         </Container>
       </Container>
 
-      <AnimatedButton.Next>
+      <NextButton>
         다음 <Icon src={RESOURCE.ARROW} />
-      </AnimatedButton.Next>
+      </NextButton>
     </Container>
   );
 };

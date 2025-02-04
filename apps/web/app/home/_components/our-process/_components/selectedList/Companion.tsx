@@ -1,12 +1,12 @@
 'use client';
-import { Container } from '@tripie-pyotato/design-system';
+import { Chip, Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import Style from './shared/selected-list.module.scss';
 
 import COMPANION_LIST from 'constants/companions';
 import RESOURCE from 'constants/resources';
-import AnimatedButton from 'shared/components/Button/Animated';
-import Chip from 'shared/components/Chip/Chip';
+
+import NextButton from 'shared/components/Button/Animated';
 import Icon from 'shared/components/Icon/Icon';
 import { SELECTED_COMPANION } from './constants/selected';
 
@@ -31,9 +31,9 @@ const CompanionSelect = () => {
         </Container>
       </Container>
 
-      <AnimatedButton.Next>
+      <NextButton>
         다음 <Icon src={RESOURCE.ARROW} />
-      </AnimatedButton.Next>
+      </NextButton>
     </Container>
   );
 };

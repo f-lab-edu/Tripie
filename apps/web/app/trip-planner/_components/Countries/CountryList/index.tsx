@@ -1,14 +1,12 @@
 import { useQueryClient } from '@tanstack/react-query';
-import { Container } from '@tripie-pyotato/design-system';
+import { AnimatedText, Chip, Container, List } from '@tripie-pyotato/design-system';
 import firestoreService from 'app/api/firebase';
 import classNames from 'classnames/bind';
 import useContinentl from 'hooks/query/useContinentl';
 import { Continentl } from 'models/Continentl';
 import { Country } from 'models/Country';
 import { Dispatch, SetStateAction } from 'react';
-import Chip from 'shared/components/Chip/Chip';
-import List from 'shared/components/List/List';
-import AnimatedText from 'shared/components/Text/Text';
+
 import { regionNameToLocal } from 'utils/lang';
 import Style from './country-list.module.scss';
 

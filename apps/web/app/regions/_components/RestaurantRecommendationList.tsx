@@ -1,7 +1,6 @@
 'use client';
-import { Container } from '@tripie-pyotato/design-system';
+import { Container, Divider } from '@tripie-pyotato/design-system';
 
-import ArticleDivider from 'app/regions/_components/Elements/Divider';
 import ArticleHeading from 'app/regions/_components/Elements/Header';
 import ArticleImages from 'app/regions/_components/Elements/Images';
 import ArticleLink from 'app/regions/_components/Elements/Link';
@@ -42,10 +41,10 @@ const RestaurantRecommendationList = ({
               <ArticleText item={{ type: 'text', value: { text: recommendation.comment } }} />
             ) : null}
           </Container>
-          {index !== restaurantRecommendations.length - 1 ? <ArticleDivider item={{ type: 'hr3' }} /> : null}
+          {index !== restaurantRecommendations.length - 1 ? <Divider.Article item={{ type: 'hr3' }} /> : null}
         </Container>
       ))}
-      <ArticleDivider item={{ type: 'hr1' }} />
+      <Divider.Article item={{ type: 'hr1' }} />
     </>
   );
 };

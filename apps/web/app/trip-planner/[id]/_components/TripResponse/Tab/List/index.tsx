@@ -1,9 +1,8 @@
 'use client';
 import classNames from 'classnames/bind';
 
-import { Headings } from '@tripie-pyotato/design-system';
+import { Headings, List } from '@tripie-pyotato/design-system';
 
-import List from 'shared/components/List/List';
 import Style from './tab-list.module.scss';
 
 import { TripContent } from 'models/Aws';

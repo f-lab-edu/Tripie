@@ -1,0 +1,49 @@
+@use '../../shared/variables' as *;
+@use '../../shared/mixins' as *;
+
+.text {
+  z-index: 30;
+  min-width: 9rem;
+  height: 3rem !important;
+}
+.hovered {
+  position: relative;
+  z-index: 30;
+  color: $theme-50;
+}
+.no-style-button {
+  background-color: none;
+  color: none;
+}
+
+.button {
+  height: 3rem;
+  overflow-y: hidden;
+  color: inherit;
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  width: min-content;
+  cursor: pointer;
+  background: none;
+  z-index: 30;
+  border: none;
+}
+.with-border {
+  width: 9rem;
+  min-width: 9rem;
+  @include with-border;
+}
+.box {
+  & > span {
+    position: relative;
+    display: inline-block;
+  }
+}

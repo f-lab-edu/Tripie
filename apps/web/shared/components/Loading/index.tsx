@@ -1,7 +1,7 @@
 'use client';
+import { TextFillAnimation } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import { motion } from 'framer-motion';
-import TextFillAnimation from '../TextFill/TextFillAnimation';
 import Style from './loading.module.scss';
 
 const cx = classNames.bind(Style);

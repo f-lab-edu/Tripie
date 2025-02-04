@@ -1,9 +1,8 @@
 'use client';
 
-import { Container, Text } from '@tripie-pyotato/design-system';
+import { Container, Divider, Text, TextUnderLineAnimation } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
-import Divider from 'shared/components/Divider/Divider';
-import TextUnderLineAnimation from '../../../../shared/components/TextUnderlineAnimation/TextUnderlineAnimation';
+
 import Style from './contacts.module.scss';
 
 const cx = classNames.bind(Style);

@@ -1,14 +1,11 @@
 'use client';
 
-import { Container, Headings, Text } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Card, Container, Divider, Headings, List, Text } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import PLANS from 'constants/plans';
 import RESOURCE from 'constants/resources';
-import AnimatedButton from 'shared/components/Button/Animated';
-import Card from 'shared/components/Card/Card';
-import Divider from 'shared/components/Divider/Divider';
+
 import Icon from 'shared/components/Icon/Icon';
-import List from 'shared/components/List/List';
 import Style from './plan-list.module.scss';
 
 const cx = classNames.bind(Style);

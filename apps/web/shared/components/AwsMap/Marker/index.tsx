@@ -8,7 +8,7 @@ import usePopUp from 'hooks/awsMap/usePopUp';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { LocationMarker } from 'models/Geo';
 import { useContext, useEffect } from 'react';
-import Chip from 'shared/components/Chip/Chip';
+import ChipMarker from 'shared/components/ChipMarker/ChipMarker';
 import Style from './marker.module.scss';
 import './marker.scss';
 
@@ -61,7 +61,7 @@ const Markers = ({
             setCurrentSelected(marker.index);
           }}
         >
-          <Chip.Marker className={cx(marker.label, 'label')} marker={marker} popup={popup} />
+          <ChipMarker className={cx(marker.label, 'label')} marker={marker} popup={popup} />
         </Marker>
       ))}
     </>

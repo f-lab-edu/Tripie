@@ -1,11 +1,8 @@
 'use client';
-import { Container } from '@tripie-pyotato/design-system';
+import { Card, Chip, Container, Switch } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
-import Chip from 'shared/components/Chip/Chip';
 
 import useCycle from 'hooks/useCycle';
-import Card from 'shared/components/Card/Card';
-import Switch from 'shared/components/Switch/Switch';
 import Style from './subscription.module.scss';
 
 const cx = classNames.bind(Style);

@@ -2,7 +2,7 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import 'shared/components/AwsMap/Marker/marker.scss';
 
 import { useQueryClient } from '@tanstack/react-query';
-import { Container } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Container } from '@tripie-pyotato/design-system';
 import firestoreService from 'app/api/firebase';
 import classNames from 'classnames/bind';
 import RESOURCE from 'constants/resources';
@@ -12,7 +12,6 @@ import { ContinentKeys } from 'models/Continent';
 import { Continentl } from 'models/Continentl';
 import { Country } from 'models/Country';
 import { useState } from 'react';
-import AnimatedButton from 'shared/components/Button/Animated';
 import Icon from 'shared/components/Icon/Icon';
 import Loading from 'shared/components/Loading';
 import { CountryList } from './CountryList';

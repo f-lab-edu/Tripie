@@ -1,9 +1,8 @@
 'use client';
-import { Container, Text } from '@tripie-pyotato/design-system';
+import { Card, Container, Text } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import { ArticleImage } from 'models/Article';
 import { InView } from 'react-intersection-observer';
-import Card from 'shared/components/Card/Card';
 import Style from './images.module.scss';
 
 export type ImageProps = { type: 'images'; value: { images: ArticleImage[] } };

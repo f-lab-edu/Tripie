@@ -1,8 +1,8 @@
-name: "Chromatic Deployment"
+name: 'Chromatic Deployment'
 
 on:
   pull_request:
-    branches: ["main", "21-design-system"]
+    branches: ['main', 'design-system']
     paths:
       - packages/design-system/src/**
 
@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ">=20"
+          node-version: '>=20'
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
@@ -58,11 +58,10 @@ jobs:
           PR_NUMBER=$(echo "$BRANCH_NAME" | cut -d'-' -f1)
           echo "PR_NUMBER=$PR_NUMBER" >> $GITHUB_ENV
 
-
       - name: Create comment PR
         uses: thollander/actions-comment-pull-request@v1
         env:
           GITHUB_TOKEN: ${{ secrets.SECRET_GITHUB }}
-          BRANCH_NAME: ${{ github.head_ref || github.ref_name }} 
+          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
         with:
-          message: "🚀storybook: ${{ steps.chromatic.outputs.storybookUrl }}"
+          message: '🚀storybook: ${{ steps.chromatic.outputs.storybookUrl }}'

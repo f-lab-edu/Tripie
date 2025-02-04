@@ -1,5 +1,5 @@
 'use client';
-import { Container } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Container } from '@tripie-pyotato/design-system';
 
 import classNames from 'classnames/bind';
 
@@ -9,7 +9,6 @@ import { useCallback, useMemo, useState } from 'react';
 
 import useCalendar from 'hooks/useCalendar';
 import { LooseValue } from 'react-calendar/dist/esm/shared/types.js';
-import AnimatedButton from 'shared/components/Button/Animated';
 import Calendar from 'shared/components/Calendar';
 import CalendarHeader from 'shared/components/Calendar/CalendarHeader';
 import Icon from 'shared/components/Icon/Icon';

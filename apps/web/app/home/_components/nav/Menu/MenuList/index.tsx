@@ -9,7 +9,7 @@ import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 import Icon from 'shared/components/Icon/Icon';
 
-import NoStyleButton from 'shared/components/Button/NoStyle';
+import { NoStyleButton } from '@tripie-pyotato/design-system';
 
 import { MenuItem } from '../MenuItem';
 import Style from './menu-list.module.scss';

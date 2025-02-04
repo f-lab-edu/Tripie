@@ -1,10 +1,7 @@
 'use client';
-import { Container } from '@tripie-pyotato/design-system';
+import { Chip, Container, ParticleField } from '@tripie-pyotato/design-system';
 import Heading from '@tripie-pyotato/design-system/components/typography/headings/_headings';
 import classNames from 'classnames/bind';
-
-import Chip from 'shared/components/Chip/Chip';
-import ParticleField from 'shared/components/Particle/ParticleField';
 
 import ROUTE from 'constants/routes';
 import { useRouter } from 'next/navigation';

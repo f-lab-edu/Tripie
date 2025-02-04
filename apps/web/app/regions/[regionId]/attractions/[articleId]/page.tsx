@@ -1,12 +1,11 @@
 'use server';
-import { Container } from '@tripie-pyotato/design-system';
+import { Card, Container } from '@tripie-pyotato/design-system';
 
 import Navigation from 'app/regions/_components/Navigation';
 
 import firestoreService from 'app/api/firebase';
 import classNames from 'classnames/bind';
 import { AttractionArticle } from 'models/Attraction';
-import Card from 'shared/components/Card/Card';
 import RegionBody from '../../../_components/RegionBody';
 import AttractionTitle from '../../../_components/shared/_sections/AttractionTitle';
 import Style from './attractions.module.scss';

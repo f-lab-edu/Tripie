@@ -1,10 +1,9 @@
 'use client';
-import { Container, Text } from '@tripie-pyotato/design-system';
+import { Card, Container, Text } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import POI_TYPE from 'constants/triple';
 import { Poi } from 'models/Aws';
 import { RefObject, useEffect } from 'react';
-import Card from 'shared/components/Card/Card';
 import ArticleHeading from '../Header';
 import Style from './poi-card.module.scss';
 

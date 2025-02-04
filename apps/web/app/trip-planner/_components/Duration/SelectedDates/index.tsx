@@ -1,8 +1,7 @@
 'use client';
-import { Container, Headings } from '@tripie-pyotato/design-system';
+import { AnimatedText, Card, Container, Headings } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
-import Card from 'shared/components/Card/Card';
-import { JumpingText } from 'shared/components/Text/Text';
+
 import Style from './selected-dates.module.scss';
 
 const cx = classNames.bind(Style);
@@ -22,7 +21,7 @@ const DateSection = ({
       <Container margin="sm" applyMargin="top">
         {duration[date] === '' ? (
           <Container margin="none" className={cx('not-selected')}>
-            <JumpingText>날짜를 선택해주세요!</JumpingText>
+            <AnimatedText.Jump>날짜를 선택해주세요!</AnimatedText.Jump>
           </Container>
         ) : (
           duration[date]

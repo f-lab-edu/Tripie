@@ -1,9 +1,8 @@
 'use client';
-import { Container } from '@tripie-pyotato/design-system';
+import { Card, Container, Divider } from '@tripie-pyotato/design-system';
 import { BodyItemProps } from 'app/regions/[regionId]/articles/[articleId]/ArticleBody';
 import classNames from 'classnames/bind';
-import Card from 'shared/components/Card/Card';
-import ArticleDivider from '../Divider';
+
 import ArticleHeading from '../Header';
 import ArticleLink from '../Link';
 import ArticleNote from '../Note';
@@ -46,7 +45,7 @@ const ArticleCard = ({
           case 'hr3':
           case 'hr4':
           case 'hr5':
-            return <ArticleDivider item={embeddedItem} key={`divider-${type}-${index}`} />;
+            return <Divider.Article item={embeddedItem} key={`divider-${type}-${index}`} />;
           case 'text':
             return <ArticleText item={embeddedItem} key={index + embeddedItem.value.text} />;
           case 'note':

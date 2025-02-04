@@ -1,5 +1,5 @@
 'use client';
-import { Container } from '@tripie-pyotato/design-system';
+import { Container, TextFillAnimation } from '@tripie-pyotato/design-system';
 
 import SelectedDates from 'app/trip-planner/_components/Duration/SelectedDates';
 import RESOURCE from 'constants/resources';
@@ -7,14 +7,13 @@ import useCalendar from 'hooks/useCalendar';
 import useServerTime from 'hooks/useServerTime';
 import { useMemo } from 'react';
 import { LooseValue } from 'react-calendar/dist/esm/shared/types.js';
-import AnimatedButton from 'shared/components/Button/Animated';
 import Calendar from 'shared/components/Calendar';
 import CalendarHeader from 'shared/components/Calendar/CalendarHeader';
 import Icon from 'shared/components/Icon/Icon';
 
 import classNames from 'classnames/bind';
 import 'maplibre-gl/dist/maplibre-gl.css';
-import TextFillAnimation from 'shared/components/TextFill/TextFillAnimation';
+import NextButton from 'shared/components/Button/Animated';
 import Style from './duration.module.scss';
 
 const cx = classNames.bind(Style);
@@ -92,9 +91,9 @@ const DurationSelect = () => {
       <Container margin="none">
         <Calendars calendar={calendar.slice(0, 1)} duration={duration} selected={selected as LooseValue} />
       </Container>
-      <AnimatedButton.Next>
+      <NextButton>
         {duration.start} ~ {duration.end} <Icon src={RESOURCE.ARROW} />
-      </AnimatedButton.Next>
+      </NextButton>
     </Container>
   );
 };

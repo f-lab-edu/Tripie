@@ -1,18 +1,14 @@
 'use client';
 
-import { Container, Headings } from '@tripie-pyotato/design-system';
+import { AnimatedText, Card, Chip, Container, Divider, Headings, List } from '@tripie-pyotato/design-system';
 import Accordion from 'shared/components/Accordian/Accordian';
-import Card from 'shared/components/Card/Card';
 
 import classNames from 'classnames/bind';
 import RESOURCE from 'constants/resources';
 import { TRIPIE_REGION_BY_LOCATION, TRIPIE_REGION_IDS } from 'constants/tripie-country';
 import { useRouter } from 'next/navigation';
-import Chip from 'shared/components/Chip/Chip';
-import Divider from 'shared/components/Divider/Divider';
-import { ACCORDIAN_VARIANTS } from 'shared/components/Divider/variants';
-import List from 'shared/components/List/List';
-import AnimatedText from 'shared/components/Text/Text';
+
+import { ACCORDIAN_VARIANTS } from 'shared/components/Accordian/variants';
 import Style from './region-select.module.scss';
 const cx = classNames.bind(Style);
 

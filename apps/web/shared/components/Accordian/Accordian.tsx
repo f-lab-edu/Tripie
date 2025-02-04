@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import useCycle from 'hooks/useCycle';
 import { createContext, ReactNode, useContext, useMemo } from 'react';
 
-import Divider from '../Divider/Divider';
+import { Divider } from '@tripie-pyotato/design-system';
 import Icon, { IconProps } from '../Icon/Icon';
 import Style from './accordian.module.scss';
 import { ACCORDIAN_VARIANTS } from './variants';

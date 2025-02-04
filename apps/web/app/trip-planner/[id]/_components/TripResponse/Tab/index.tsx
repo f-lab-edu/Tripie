@@ -1,14 +1,11 @@
 'use client';
 import classNames from 'classnames/bind';
 
-import { Headings } from '@tripie-pyotato/design-system';
+import { Card, Chip, Headings, List } from '@tripie-pyotato/design-system';
 import { AiTripPlanResponse } from 'app/api/chat/route';
 import { useContext } from 'react';
-import Card from 'shared/components/Card/Card';
-import List from 'shared/components/List/List';
-import Style from './tab-chat.module.scss';
 
-import Chip from 'shared/components/Chip/Chip';
+import Style from './tab-chat.module.scss';
 
 import { SelectedDateContext } from '..';
 import TabList from './List';

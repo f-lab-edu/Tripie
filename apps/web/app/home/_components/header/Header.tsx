@@ -1,14 +1,12 @@
 'use client';
-import { Container } from '@tripie-pyotato/design-system';
-import Heading from '@tripie-pyotato/design-system/components/typography/headings/_headings';
+import { AnimatedButton, Container, Headings, ParticleBackground } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
-import AnimatedButton from 'shared/components/Button/Animated';
 import Icon from 'shared/components/Icon/Icon';
 
 import RESOURCE from 'constants/resources';
 import ROUTE from 'constants/routes';
 import Link from 'next/link';
-import ParticleBackground from 'shared/components/Particle/ParticleBackground';
+
 import Nav from '../nav/Nav';
 import RotatingBlur from './RotatingBlur/RotatingBlur';
 import Style from './header.module.scss';
@@ -23,8 +21,8 @@ export default function Header() {
       <Container className={cx('center')} margin="none">
         <div>
           <Container className={cx('heading')} margin="none">
-            <Heading.H1 className={cx('accented')}>AI</Heading.H1>
-            <Heading.H1>enhanced trip planner.</Heading.H1>
+            <Headings.H1 className={cx('accented')}>AI</Headings.H1>
+            <Headings.H1>enhanced trip planner.</Headings.H1>
           </Container>
         </div>
         <Container className={cx('button-wrap')} margin="none">

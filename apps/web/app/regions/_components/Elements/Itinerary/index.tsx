@@ -3,7 +3,7 @@
 import useItinerary from 'hooks/useItinerary';
 import { Itinerary } from 'models/Itinery';
 
-import { Carousel } from '../../../../../shared/components/Carousel';
+import { Carousel } from 'shared/components/Carousel';
 import AwsMap from '../Map';
 import MapWithCarousel from './MapWithCarousel';
 

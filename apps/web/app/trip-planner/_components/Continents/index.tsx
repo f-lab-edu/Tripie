@@ -1,10 +1,10 @@
-import { Container } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import { CONTINENTS } from 'constants/continents';
 import RESOURCE from 'constants/resources';
 import { ContinentKeys } from 'models/Continent';
 import { useMemo, useState } from 'react';
-import AnimatedButton from 'shared/components/Button/Animated';
+
 import RotatingGlobe from 'shared/components/Globe/RotatingGlobe';
 import Icon from 'shared/components/Icon/Icon';
 import { ContinentList } from './ContinentLIst';

@@ -1,11 +1,11 @@
 'use client';
-import { Container } from '@tripie-pyotato/design-system';
+import { Container, TextUnderLineAnimation } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 
 import useFilterLink from 'hooks/useFilterLink';
 import { Link as LinkType } from 'models/Link';
 import Link from 'next/link';
-import TextUnderLineAnimation from 'shared/components/TextUnderlineAnimation/TextUnderlineAnimation';
+
 import Style from './link.module.scss';
 
 export type LinkProps = {

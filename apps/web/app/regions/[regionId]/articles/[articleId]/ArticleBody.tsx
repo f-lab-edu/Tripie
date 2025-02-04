@@ -1,6 +1,6 @@
 'use client';
 
-import ArticleDivider, { DividerProps } from 'app/regions/_components/Elements/Divider';
+import Divider, { ArticleDividerProps } from '@tripie-pyotato/design-system/components/Divider/Divider';
 import ArticleEmbedded, { EmbeddedProps } from 'app/regions/_components/Elements/Embedded';
 import ArticleHeading, { HeadingProps } from 'app/regions/_components/Elements/Header';
 import ArticleImages, { ImageProps } from 'app/regions/_components/Elements/Images';
@@ -11,7 +11,7 @@ import ArticlePois, { PoisProps } from 'app/regions/_components/Elements/Pois';
 import ArticleText, { ArticleTextProps } from 'app/regions/_components/Elements/Text';
 
 export type BodyItemProps =
-  | DividerProps
+  | ArticleDividerProps
   | ArticleTextProps
   | HeadingProps
   | NoteProps
@@ -36,7 +36,7 @@ const ArticleBody = ({ items, regionId, dataUrl }: { items: any; regionId: strin
       case 'hr1':
       case 'hr2':
       case 'hr3':
-        return <ArticleDivider item={item} key={index + `divider-${item.type}-${index}`} />;
+        return <Divider.Article item={item} key={index + `divider-${item.type}-${index}`} />;
       case 'note':
         return <ArticleNote item={item} key={index + JSON.stringify(item)} />;
       case 'images':

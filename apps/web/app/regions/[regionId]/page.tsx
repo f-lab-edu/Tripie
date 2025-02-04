@@ -23,7 +23,6 @@ const Articles = async ({ params }: { params: Promise<{ regionId: string }> }) =
     item => TRIPIE_REGION_IDS[item as keyof typeof TRIPIE_REGION_IDS] === selected[0]
   )?.[0];
 
-  // const data = (await listCountryArticles('region-articles')) as RegionArticleData[];
   const data = await firestoreService.getList('region-articles');
 
   return (

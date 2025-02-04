@@ -4,7 +4,8 @@ import Style from './nav.module.scss';
 
 import { motion } from 'framer-motion';
 import useCycle from 'hooks/useCycle';
-import AnimatedButton from 'shared/components/Button/Animated';
+
+import { AnimatedButton } from '@tripie-pyotato/design-system';
 import { Navigation } from './Menu/MenuList';
 import { MenuToggle } from './Menu/MenuToggle';
 

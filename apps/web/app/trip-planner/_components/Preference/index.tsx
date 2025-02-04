@@ -1,4 +1,4 @@
-import { Container } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 
 import Icon from 'shared/components/Icon/Icon';
@@ -7,7 +7,6 @@ import PREFERENCE_LIST from 'constants/preferences';
 import RESOURCE from 'constants/resources';
 import { ContinentKeys } from 'models/Continent';
 import { useCallback, useState } from 'react';
-import AnimatedButton from 'shared/components/Button/Animated';
 import PreferenceList from './PreferenceList';
 import Style from './preference.module.scss';
 

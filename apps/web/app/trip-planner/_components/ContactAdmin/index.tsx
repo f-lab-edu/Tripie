@@ -1,12 +1,11 @@
 'use client';
 
-import { Container, Text } from '@tripie-pyotato/design-system';
+import { Container, Text, TextUnderLineAnimation } from '@tripie-pyotato/design-system';
 import RegionInfo from 'app/home/_components/our-service/_components/RegionInfo';
 import classNames from 'classnames/bind';
 import ROUTE from 'constants/routes';
 import { useRouter } from 'next/navigation';
 import AnimatedButton from 'shared/components/Button/Animated';
-import TextUnderLineAnimation from 'shared/components/TextUnderlineAnimation/TextUnderlineAnimation';
 import Style from './contact-admin.module.scss';
 
 const cx = classNames.bind(Style);

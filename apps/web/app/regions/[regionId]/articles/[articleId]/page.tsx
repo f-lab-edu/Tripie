@@ -1,10 +1,9 @@
 'use server';
-import { Container } from '@tripie-pyotato/design-system';
+import { Card, Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 
 import firestoreService from 'app/api/firebase';
 import Navigation from 'app/regions/_components/Navigation';
-import Card from 'shared/components/Card/Card';
 import Style from './article-body.module.scss';
 import ArticleBody from './ArticleBody';
 

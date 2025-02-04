@@ -1,11 +1,12 @@
 'use client';
-import { Container } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import PREFERENCE_LIST from 'constants/preferences';
 import RESOURCE from 'constants/resources';
 import { ContinentKeys } from 'models/Continent';
 import { useCallback, useMemo, useState } from 'react';
-import AnimatedButton from 'shared/components/Button/Animated';
+// import AnimatedButton from 'shared/components/Button/Animated';
+// import AnimatedButton from 'shared/components/Button/Animated';
 import Icon from 'shared/components/Icon/Icon';
 import CityList from './CityList';
 import Style from './companion.module.scss';

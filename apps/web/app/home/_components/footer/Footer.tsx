@@ -1,11 +1,9 @@
 'use client';
-import { Container } from '@tripie-pyotato/design-system';
+import { Container, Divider, List, TextUnderLineAnimation } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import { LANDING_SECTION } from 'constants/routes';
 import { useRouter } from 'next/navigation';
-import Divider from 'shared/components/Divider/Divider';
-import List from 'shared/components/List/List';
-import TextUnderLineAnimation from 'shared/components/TextUnderlineAnimation/TextUnderlineAnimation';
+
 import Style from './footer.module.scss';
 
 const cx = classNames.bind(Style);

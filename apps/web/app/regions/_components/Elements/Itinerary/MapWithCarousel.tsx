@@ -1,14 +1,13 @@
 'use client';
-import { Container } from '@tripie-pyotato/design-system';
+import { Chip, Container, Divider } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import { Poi } from 'models/Aws';
 import { ItineraryItem } from 'models/Itinery';
 import { Dispatch, SetStateAction, createRef, useRef } from 'react';
-import Chip from 'shared/components/Chip/Chip';
-import Divider from 'shared/components/Divider/Divider';
+
 import Icon from 'shared/components/Icon/Icon';
 
-import { Carousel } from '../../../../../shared/components/Carousel';
+import { Carousel } from 'shared/components/Carousel';
 import PoiCard from '../Pois/PoiCard';
 import Style from './map-with-carousel.module.scss';
 

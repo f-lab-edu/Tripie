@@ -1,16 +1,13 @@
 'use client';
 import classNames from 'classnames/bind';
 
-import { Container, Headings } from '@tripie-pyotato/design-system';
+import { Card, Chip, Container, Divider, Headings, TextUnderLineAnimation } from '@tripie-pyotato/design-system';
 
 import Style from './tab-card.module.scss';
 
 import { Activity, TripContent } from 'models/Aws';
 import { useContext, useEffect, useRef } from 'react';
-import Card from 'shared/components/Card/Card';
-import Chip from 'shared/components/Chip/Chip';
-import Divider from 'shared/components/Divider/Divider';
-import TextUnderLineAnimation from 'shared/components/TextUnderlineAnimation/TextUnderlineAnimation';
+
 import { TabContext } from '../..';
 
 const cx = classNames.bind(Style);

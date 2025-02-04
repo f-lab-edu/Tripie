@@ -1,5 +1,5 @@
 'use client';
-import { Container } from '@tripie-pyotato/design-system';
+import { Card, Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 
 import Style from './region-info.module.scss';
@@ -8,7 +8,6 @@ import RegionList, { RegionArticleData } from 'app/regions/_components/RegionLis
 import RegionSelect from 'app/regions/_components/RegionSelect';
 import { TRIPIE_REGION_BY_LOCATION, TRIPIE_REGION_IDS } from 'constants/tripie-country';
 import useCountryArticle from 'hooks/query/useCountryArticles';
-import Card from 'shared/components/Card/Card';
 
 const cx = classNames.bind(Style);
 

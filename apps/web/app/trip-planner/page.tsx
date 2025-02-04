@@ -1,7 +1,7 @@
 'use client';
 
 import { increment } from '@firebase/firestore';
-import { Container } from '@tripie-pyotato/design-system';
+import { AnimatedText, Container } from '@tripie-pyotato/design-system';
 import { getTripPlan } from 'app/api/chat/route';
 import firestoreService from 'app/api/firebase';
 import classNames from 'classnames/bind';
@@ -19,7 +19,6 @@ import { signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import Icon from 'shared/components/Icon/Icon';
-import { SlidingText } from 'shared/components/Text/Text';
 import { randomInt } from 'utils/random';
 import CityStep from './_components/Cities';
 import CompanionStep from './_components/Companion';
@@ -173,9 +172,9 @@ const TripPlan = () => {
         </Container>
         <Container margin="none">
           {selectedOptions.map(text => (
-            <SlidingText animate="fly" duration={randomInt()} key={text}>
+            <AnimatedText.Slide animate="fly" duration={randomInt()} key={text}>
               <div className={cx('text-color')}>{text}</div>
-            </SlidingText>
+            </AnimatedText.Slide>
           ))}
         </Container>
         <Container className={cx('cloud-wrap')}>

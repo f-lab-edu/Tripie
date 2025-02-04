@@ -1,12 +1,12 @@
 'use client';
 
+import { Card } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import { DEFAULT_STYLE, MAP_ID, STYLE } from 'constants/maps';
 import useContinentl from 'hooks/query/useContinentl';
 import { useEffect, useMemo, useState } from 'react';
 import { Map, Marker } from 'react-map-gl/maplibre';
 import 'shared/components/AwsMap/Marker/marker.module.scss';
-import Card from 'shared/components/Card/Card';
 import Loading from 'shared/components/Loading';
 import dmsToDecimal from 'utils/coordtinate';
 import Style from '../countries.module.scss';
