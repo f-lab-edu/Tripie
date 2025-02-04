@@ -4,7 +4,7 @@ import { createRef, useRef } from 'react';
 
 import usePoi from 'hooks/usePoi';
 import { Carousel } from '../../../../../shared/components/Carousel';
-import AwsMap from '../Map/Map';
+import AwsMap from '../Map';
 import PoiCard from './PoiCard';
 
 export type PoisProps = { type: 'pois'; value: { pois: Poi[] } };

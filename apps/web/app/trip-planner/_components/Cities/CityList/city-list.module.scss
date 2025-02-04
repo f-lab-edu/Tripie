@@ -1,0 +1,21 @@
+@use 'shared/variables' as *;
+@use 'shared/mixins' as *;
+
+.chip {
+  @include chip;
+}
+
+.chip-wrap {
+  @include grid-wrap;
+}
+
+.flex {
+  gap: 1rem;
+}
+.scroll {
+  height: 40vh;
+  overflow-y: scroll !important;
+  position: relative !important;
+  scrollbar-color: $theme-50 $theme-300;
+  scrollbar-width: thin;
+}

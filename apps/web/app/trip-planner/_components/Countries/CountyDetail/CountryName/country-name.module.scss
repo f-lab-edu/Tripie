@@ -1,0 +1,28 @@
+@use 'shared/variables' as *;
+@use 'shared/mixins' as *;
+
+.list-item {
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.accented {
+  @include accented;
+}
+
+.flag-image {
+  height: 1.2rem;
+}
+
+.flag-skeleton {
+  width: 2.4rem;
+}
+
+.loaded {
+  display: block;
+}
+.loading {
+  display: none;
+}

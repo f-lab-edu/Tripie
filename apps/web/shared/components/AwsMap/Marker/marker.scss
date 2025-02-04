@@ -1,0 +1,19 @@
+@use 'shared/variables' as *;
+@use 'shared/mixins' as *;
+
+.maplibregl-popup-content {
+  font-family: 'MaruBuri', sans-serif !important;
+  background-color: $theme-700 !important;
+  padding: 2rem !important;
+  width: fit-content;
+}
+.maplibregl-popup-tip {
+  border-top-color: $theme-700 !important;
+}
+
+.maplibregl-popup-close-button {
+  color: $theme-50 !important;
+  font-size: 1rem !important;
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
+}

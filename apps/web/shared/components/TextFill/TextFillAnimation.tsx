@@ -50,8 +50,12 @@ const TextFillAnimation = ({
 
 const TitleTextFillAnimation = ({
   children,
+  repeat = 1,
+  duration = 1,
 }: Readonly<{
   children: ReactNode;
+  repeat?: number;
+  duration?: number;
 }>) => {
   return (
     <div>
@@ -59,7 +63,7 @@ const TitleTextFillAnimation = ({
         className={cx('title')}
         initial={{ x: '0%', width: '0%', opacity: 1 }}
         animate={{ x: '0%', width: '100%', opacity: 1 }}
-        transition={{ damping: 10, stiffness: 100, duration: 1 }}
+        transition={{ damping: 10, stiffness: 100, duration, repeat }}
       >
         {children}
       </motion.div>

@@ -19,14 +19,14 @@ interface Props {
     country: string;
     city: { all: string[]; selected: string[] };
     duration: string;
-    companion: string;
+    companion?: string;
   };
   onNext: (companion: string) => void;
 }
 
 export type Companion = keyof typeof COMPANION_LIST;
 
-const CompanionFunnel = ({ context, onNext }: Props) => {
+const CompanionStep = ({ context, onNext }: Props) => {
   const [selected, setSelected] = useState<Array<Companion> | []>(
     context?.companion == null ? [] : (context.companion.split(',') as Array<Companion>)
   );
@@ -75,4 +75,4 @@ const CompanionFunnel = ({ context, onNext }: Props) => {
   );
 };
 
-export default CompanionFunnel;
+export default CompanionStep;

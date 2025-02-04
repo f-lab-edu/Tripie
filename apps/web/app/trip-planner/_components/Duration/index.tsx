@@ -22,7 +22,7 @@ interface Props {
   onNext: (duration: string) => void;
 }
 
-const DurationFunnel = ({ context, onNext }: Props) => {
+const DurationStep = ({ context, onNext }: Props) => {
   return (
     <>
       <Container margin="none">
@@ -38,4 +38,4 @@ const DurationFunnel = ({ context, onNext }: Props) => {
   );
 };
 
-export default DurationFunnel;
+export default DurationStep;

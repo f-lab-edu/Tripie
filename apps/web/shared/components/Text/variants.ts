@@ -22,4 +22,16 @@ export const VARIANTS = {
         },
       },
     }) as Variants,
+  SLIDE: (duration: number) =>
+    ({
+      rest: () => ({}),
+      fly: () => ({
+        translateX: '100vw',
+        transition: {
+          repeat: Infinity,
+          duration: duration,
+          bounce: 1,
+        },
+      }),
+    }) as Variants,
 };

@@ -111,4 +111,30 @@ export const AnimatedTitle = ({
   );
 };
 
+export const SlidingText = ({
+  children,
+  className,
+  transition,
+  animate = 'rest',
+  duration = 1,
+}: Readonly<{
+  children: ReactNode;
+  className?: string;
+  animate?: 'rest' | 'fly';
+  transition?: AnimationProps['transition'];
+  duration?: number;
+}>) => {
+  return (
+    <motion.div
+      className={cx(className)}
+      initial="rest"
+      animate={animate}
+      transition={transition}
+      variants={VARIANTS.SLIDE(duration)}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
 export default AnimatedText;

@@ -1,0 +1,113 @@
+@use 'shared/variables' as *;
+@use 'shared/mixins' as *;
+
+.card-wrap {
+  height: 100% !important;
+  & > div {
+    margin: 0 !important;
+  }
+}
+
+.accented {
+  @include accented;
+}
+.info-wrap {
+  display: inline-flex;
+  width: min(100%, 60rem);
+  padding: 0 !important;
+  list-style: none;
+  gap: 1rem;
+  & > li {
+    width: 50%;
+  }
+  @media (max-width: 480px) {
+    flex-wrap: wrap;
+    & > li {
+      width: 100%;
+    }
+  }
+}
+.marker {
+  & g {
+    fill: $theme-100;
+  }
+}
+
+.flag-skeleton {
+  background-size:
+    50% 100%,
+    100% 100% !important;
+}
+
+.info-text {
+  list-style: none;
+  & > ul {
+    padding: 0 !important;
+  }
+
+  & > ul > li {
+    margin-bottom: 1rem;
+  }
+}
+
+.list-wrap > ul {
+  display: inline-flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.list-item {
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  gap: 1rem;
+}
+.wrap {
+  & > ul {
+    flex-wrap: wrap;
+  }
+}
+.capital,
+.language {
+  width: 30% !important;
+  text-wrap: nowrap;
+}
+
+.submit-button {
+  width: 100% !important;
+}
+
+.capital-name {
+  width: 100%;
+}
+.flex {
+  margin: 0 !important;
+  display: inline-flex;
+  flex-direction: row;
+
+  @media (max-width: 400px) {
+    flex-direction: column;
+  }
+}
+
+.flex-item {
+  width: 50%;
+}
+.flex > ul {
+  display: inline-flex;
+  width: 100%;
+  gap: 0.8rem;
+  justify-content: flex-start;
+}
+
+.flag-image {
+  height: 8rem;
+  // aspect-ratio: 16/9 auto;
+}
+.country-flag {
+  overflow: hidden;
+  height: 100%;
+}
+.language-chip {
+  margin-bottom: 1rem;
+}

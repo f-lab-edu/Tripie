@@ -10,6 +10,7 @@ type FunnelState<T> = {
   historyState: StepState<T>[];
   history: {
     push: (step: keyof T, context: Partial<T[keyof T]>) => void;
+    clear: () => void;
   };
 };
 
@@ -38,7 +39,7 @@ function useFunnel<T>({ id, initial }: { id: string; initial: StepState<T> }) {
   const [state, setState] = useState<FunnelState<T>>({
     id,
     historyState: [initial],
-    history: { push: () => {} },
+    history: { push: () => {}, clear: () => {} },
   });
   const [currentStep, setCurrentStep] = useState<StepState<T>>(initial);
   const [funnelStorage, setFunnelStorage] = useLocalStorage(id, [initial]);
@@ -135,6 +136,9 @@ function useFunnel<T>({ id, initial }: { id: string; initial: StepState<T> }) {
           context: { ...funnelStorage.reduce((_, curr) => curr.context, {}), ...updatedHistoryStateContext },
         },
       ]);
+    },
+    clear: () => {
+      setFunnelStorage([initial]);
     },
   };
 

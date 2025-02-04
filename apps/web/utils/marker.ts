@@ -1,4 +1,4 @@
-import { LocationMarker } from 'app/trip-planner/_components/Chat';
+import { LocationMarker } from 'models/Geo';
 
 const getMarkerLabel = (label: string): LocationMarker['label'] => {
   switch (label) {

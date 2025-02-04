@@ -4,15 +4,15 @@ import classNames from 'classnames/bind';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import Style from './trip-results.module.scss';
 
-import ChatTab from 'app/trip-planner/_components/Chat/Tab';
 import { Map } from 'react-map-gl/maplibre';
 
 import { AI_PLAN } from '../constants/selected';
 
-import Lines from 'app/trip-planner/_components/Chat/AwsMap/Lines';
-import Markers from 'app/trip-planner/_components/Chat/AwsMap/Marker';
-import { MAP_ID, STYLE } from 'constants/maps';
+import ChatTab from 'app/trip-planner/[id]/_components/TripResponse/Tab';
+import { FULL_MAP_STYLE, MAP_ID, STYLE } from 'constants/maps';
 import useAwsMap from 'hooks/awsMap/useAwsMap';
+import Lines from 'shared/components/AwsMap/Lines';
+import Markers from 'shared/components/AwsMap/Marker';
 
 const cx = classNames.bind(Style);
 
@@ -34,7 +34,7 @@ const TripResultExample = () => {
           zoom: 9,
           ...center[currentDate],
         }}
-        style={{ width: '100%', height: '85vh', display: 'inline-block', borderRadius: '8px' }}
+        style={FULL_MAP_STYLE}
         mapStyle={STYLE}
       >
         <Markers locationMarker={locationMarker[currentDate]} focusAfterOpen={false} />

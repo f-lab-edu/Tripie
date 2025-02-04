@@ -8,8 +8,8 @@ import RESOURCE from 'constants/resources';
 import { ContinentKeys } from 'models/Continent';
 import { useCallback, useState } from 'react';
 import AnimatedButton from 'shared/components/Button/Animated';
-import PreferenceList from './List';
-import Style from './companion.module.scss';
+import PreferenceList from './PreferenceList';
+import Style from './preference.module.scss';
 
 const cx = classNames.bind(Style);
 
@@ -27,7 +27,7 @@ interface Props {
 
 export type Preference = keyof typeof PREFERENCE_LIST;
 
-const PreferenceFunnel = ({ context, onNext }: Props) => {
+const PreferenceStep = ({ context, onNext }: Props) => {
   const [selected, setSelected] = useState<Array<Preference> | []>(
     context?.preference == null ? [] : (context.preference.split(',') as Array<Preference>)
   );
@@ -53,7 +53,7 @@ const PreferenceFunnel = ({ context, onNext }: Props) => {
 
         <Icon.Plane />
       </Container>
-      <PreferenceList context={context} selected={selected} setSelected={setSelected} />
+      <PreferenceList selected={selected} setSelected={setSelected} />
       <Container margin="l" applyMargin="top">
         <AnimatedButton
           withBorder={true}
@@ -76,4 +76,4 @@ const PreferenceFunnel = ({ context, onNext }: Props) => {
   );
 };
 
-export default PreferenceFunnel;
+export default PreferenceStep;

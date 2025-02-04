@@ -1,6 +1,6 @@
 'use client';
 
-import { LocationMarker } from 'app/trip-planner/_components/Chat';
+import { LocationMarker } from 'models/Geo';
 import { useEffect, useMemo, useState } from 'react';
 import { useMap } from 'react-map-gl/maplibre';
 

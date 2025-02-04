@@ -1,0 +1,54 @@
+@use 'shared/variables' as *;
+@use 'shared/mixins' as *;
+
+.popup {
+  width: 100% !important;
+  list-style: none;
+  padding-left: 0;
+  border-radius: 13rem;
+
+  & > ul {
+    width: 100%;
+  }
+}
+
+.accented {
+  @include accented;
+}
+
+.capital,
+.language {
+  width: 30% !important;
+  text-wrap: nowrap;
+}
+
+.capital-name {
+  width: 100%;
+}
+
+.list-item {
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  gap: 1rem;
+}
+
+.flex,
+.flex > ul {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.wrap {
+  display: inline-flex;
+  gap: 1rem;
+  flex-direction: column;
+  width: 18rem;
+}
+
+.with-border {
+  @include with-border;
+}
