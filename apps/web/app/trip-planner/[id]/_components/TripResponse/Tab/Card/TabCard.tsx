@@ -1,7 +1,7 @@
 'use client';
 import classNames from 'classnames/bind';
 
-import { Card, Chip, Container, Divider, Headings, TextUnderLineAnimation } from '@tripie-pyotato/design-system';
+import { Card, Chip, Container, Divider, Text, TextUnderLineAnimation } from '@tripie-pyotato/design-system';
 
 import Style from './tab-card.module.scss';
 
@@ -64,7 +64,7 @@ const TabCard = ({
       <Container margin="none" className={cx('title')}>
         <div ref={current === `${trip.day - 1}-${index}` ? ref : null} />
         <Chip className={cx('label', label)}>{index + 1}</Chip>
-        <Headings.H4 className={cx('accented')}>{activity}</Headings.H4>
+        <Text className={cx('accented')}>{activity}</Text>
       </Container>
       <Divider />
       <Container margin="none">
