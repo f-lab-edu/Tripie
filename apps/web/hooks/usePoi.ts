@@ -1,5 +1,5 @@
-import { LocationMarker } from 'app/trip-planner/_components/Chat';
 import { Activity, Poi } from 'models/Aws';
+import { LocationMarker } from 'models/Geo';
 import { useMemo, useState } from 'react';
 
 const usePoi = ({ pois }: { pois: Poi[] }) => {
