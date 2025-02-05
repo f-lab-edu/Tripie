@@ -2,7 +2,7 @@ name: 'Chromatic Deployment Comment'
 
 on:
   push:
-    branches: [design-system]
+    branches: [main, 21-design-system, design-system]
     paths:
       - packages/design-system/src/**
 
