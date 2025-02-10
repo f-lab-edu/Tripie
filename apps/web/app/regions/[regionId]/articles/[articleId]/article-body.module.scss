@@ -1,34 +1,13 @@
 @use 'shared/variables' as *;
 @use 'shared/mixins' as *;
 
-.background {
-  @include background('0');
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-  padding: 2rem 1rem;
-  min-height: 100%;
-  width: inherit;
-  gap: 1rem;
-  position: relative;
-}
 .fit-content {
   height: fit-content !important;
+  @media (min-width: 998px) {
+    width: 70vw;
+  }
 }
 
 .img-container {
   margin-bottom: 0 !important;
-}
-
-.img-wrap {
-  padding: 0 !important;
-  height: 24rem !important;
-  overflow: hidden;
-  & > img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-  }
 }

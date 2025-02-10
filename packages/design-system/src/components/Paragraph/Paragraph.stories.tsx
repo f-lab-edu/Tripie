@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useEffect } from 'react';
-import { useAppTheme } from '../../../hooks';
+import { useAppTheme } from '../../hooks';
 import Paragraph from './Paragraph';
 
 const meta: Meta<typeof Paragraph> = {

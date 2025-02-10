@@ -1,4 +1,4 @@
-export function decodeUnicodes(input: string) {
+export function decodeUnicodes(input: string): string {
   return input
     .replace(/u([0-9A-Fa-f]{4})/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
     .replaceAll('트리플', 'Tripie')

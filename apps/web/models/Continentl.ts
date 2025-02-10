@@ -12,4 +12,5 @@ export type Continentl = {
   name: string;
   states: string[];
   id: string;
+  blurDataURL: { data: string };
 };

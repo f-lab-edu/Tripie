@@ -5,7 +5,7 @@ import { useAppTheme } from '../../../hooks';
 import ParticleBackground from './ParticleBackground';
 
 const meta: Meta<typeof ParticleBackground> = {
-  title: 'tripie-ui/ParticleBackground',
+  title: 'tripie-ui/Particle/Background',
   component: ParticleBackground,
   tags: ['autodocs'],
   argTypes: {},
@@ -28,5 +28,9 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   name: 'Default',
-  args: { children: 'default' },
+  render: () => (
+    <div style={{ height: '100vh', width: '100vw' }}>
+      <ParticleBackground>default</ParticleBackground>
+    </div>
+  ),
 };

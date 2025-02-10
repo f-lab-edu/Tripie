@@ -37,6 +37,7 @@ function AwsMap({
   // 선택한 여행 일정 카드 (TabCard)의 컨텍스트가 변경되었을 경우 해당 좌표로 포커스
   useEffect(() => {
     const coord = locations.filter(place => place.index === current)[0];
+    console.log('map', map);
     if (map != null) {
       map.flyTo({ center: [coord.lng, coord.lat] });
     }
@@ -70,7 +71,8 @@ function AwsMap({
           }}
         >
           <ChipMarker
-            className={cx('label', marker.index === current ? 'selected' : marker.label)}
+            className={cx('marker', marker.label)}
+            selected={current === marker.index}
             marker={marker}
             popup={popup}
           />

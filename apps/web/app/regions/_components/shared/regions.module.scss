@@ -13,6 +13,9 @@
   gap: 1rem;
   position: relative;
 }
+.article {
+  padding-top: 3rem;
+}
 
 .accented {
   @include accented;

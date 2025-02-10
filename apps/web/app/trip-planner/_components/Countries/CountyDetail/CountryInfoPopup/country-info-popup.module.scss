@@ -52,3 +52,8 @@
 .with-border {
   @include with-border;
 }
+.verticle-center {
+  display: inline-flex;
+  width: 7rem !important;
+  align-items: center;
+}

@@ -79,7 +79,7 @@ const TripResponse = ({ data }: { data: ChatResponseData }) => {
   }, [data]);
 
   if (coordinates == null) {
-    return <Loading />;
+    return <Loading isLoading={coordinates == null} />;
   }
 
   return (

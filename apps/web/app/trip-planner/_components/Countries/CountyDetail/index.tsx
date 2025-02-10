@@ -34,12 +34,17 @@ const CountryDetail = ({ selectedCountry }: { selectedCountry: string }) => {
   }, [selectedCountry]);
 
   if (countryDetail == null || isLoading || coordinates == null) {
-    return <Loading />;
+    return <Loading isLoading={countryDetail == null || isLoading || coordinates == null} />;
   }
 
   return (
     <Card.Content className={cx('card-wrap')}>
-      <CountryName name={countryDetail.name} code={countryDetail.code} flagImage={countryDetail['flag-image']} />
+      <CountryName
+        name={countryDetail.name}
+        blurDataUrl={countryDetail?.blurDataURL}
+        code={countryDetail.code}
+        flagImage={countryDetail['flag-image']}
+      />
       <Map
         id={MAP_ID}
         reuseMaps={true}

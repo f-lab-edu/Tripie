@@ -5,6 +5,12 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  display: inline-flex;
+  gap: 1rem;
+  flex-direction: column;
+  &.row-view {
+    flex-direction: row;
+  }
 }
 
 .wrap {

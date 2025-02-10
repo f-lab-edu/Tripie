@@ -1,45 +1,55 @@
-@use '../../shared/variables' as *;
-@use '../../shared/mixins' as *;
+@use '../../base/' as *;
+@use '../../functions/' as *;
+@use '../../generator/' as *;
+@use '../../mixins/' as *;
+@use '../button/Animated/animated-button.module' as *;
+
+@use 'sass:map';
 
 .text {
-  z-index: 30;
-  min-width: 9rem;
-  height: 3rem !important;
-}
-.hovered {
-  position: relative;
-  z-index: 30;
-  color: $theme-50;
-}
-.no-style-button {
-  background-color: none;
-  color: none;
+  @include text-ellipsis(3);
+  @include word-wrap;
+
+  font-size: font-size(text);
+  &[aria-selected='false'] {
+    color: color(default, 500);
+  }
+  &[aria-selected='true'] {
+    color: color(default, 900);
+  }
+  color: inherit;
 }
 
-.button {
-  height: 3rem;
-  overflow-y: hidden;
-  color: inherit;
-  align-content: center;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  gap: 1rem;
-  justify-content: center;
-  overflow: hidden;
-  position: relative;
-  text-decoration: none;
-  width: min-content;
-  cursor: pointer;
-  background: none;
+.flick {
   z-index: 30;
-  border: none;
-}
-.with-border {
-  width: 9rem;
   min-width: 9rem;
-  @include with-border;
+  width: fit-content;
+  height: 3rem !important;
+}
+
+.dim {
+  color: color(default, 500);
+}
+
+.primary {
+  color: color(primary, 900);
+}
+
+.secondary {
+  color: color(primary, 600);
+}
+
+.gray {
+  color: color(default, 800) !important;
+}
+.danger {
+  color: color(danger, 600);
+}
+.warning {
+  color: color(warning, 300);
+}
+.emphasize {
+  color: color(primary, 700);
 }
 .box {
   & > span {

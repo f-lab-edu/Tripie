@@ -4,7 +4,7 @@
 .background {
   @include background('0');
   align-items: center;
-  display: flex;
+  display: inline-flex;
   flex-wrap: nowrap;
   gap: 20px;
   height: inherit;

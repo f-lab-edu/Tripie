@@ -22,7 +22,7 @@
   color: inherit;
   align-content: center;
   align-items: center;
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   flex-wrap: nowrap;
   gap: 1rem;
@@ -30,8 +30,9 @@
   overflow: hidden;
   position: relative;
   text-decoration: none;
-  width: min-content;
+  // width: min-content;
   cursor: pointer;
+  width: fit-content;
   background: none;
   z-index: 30;
   border: none;

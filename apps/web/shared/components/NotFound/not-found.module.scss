@@ -6,7 +6,7 @@ $bottom-shade: #08070700;
 .header {
   align-items: center;
   background: radial-gradient(50% 50% at 0% 0%, $theme-600 0%, $theme-500 100%); //dark
-  display: flex;
+  display: inline-flex;
   flex-wrap: nowrap;
   gap: 20px;
   height: 100vh;
@@ -34,7 +34,7 @@ $bottom-shade: #08070700;
 .center {
   align-content: center;
   align-items: center;
-  display: flex;
+  display: inline-flex;
   flex: none;
   flex-direction: column;
   flex-wrap: nowrap;

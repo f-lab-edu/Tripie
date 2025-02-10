@@ -1,5 +1,5 @@
 import { useQueryClient } from '@tanstack/react-query';
-import { AnimatedText, Chip, Container, List } from '@tripie-pyotato/design-system';
+import { Chip, Container, List, Text } from '@tripie-pyotato/design-system';
 import firestoreService from 'app/api/firebase';
 import classNames from 'classnames/bind';
 import useContinentl from 'hooks/query/useContinentl';
@@ -26,7 +26,8 @@ export function CountryList({ countries, selectedCountry, setSelectedCountry }: 
     queryClient.prefetchQuery({
       queryKey: useContinentl.queryKey(country),
       queryFn: () =>
-        firestoreService.getListWithIds('continentl').then(countries => {
+        // firestoreService.getListWithIds('continentl').then(countries => {
+        firestoreService.getListWithIds('continentl-with-blur-data').then(countries => {
           if (country === 'all') {
             return countries;
           } else {
@@ -55,9 +56,12 @@ export function CountryList({ countries, selectedCountry, setSelectedCountry }: 
               prefetch(country.name);
             }}
           >
-            <AnimatedText className={cx('animated-text', 'chip')} withBorder={false} otherChild={country.name}>
+            {/* <AnimatedText className={cx('animated-text', 'chip')} withBorder={false} otherChild={country.name}>
               {country?.code != null && regionNameToLocal({ regionCode: country?.code })}
-            </AnimatedText>
+            </AnimatedText> */}
+            <Text.Animated className={cx('animated-text', 'chip')} withBorder={false} otherChild={country.name}>
+              {country?.code != null && regionNameToLocal({ regionCode: country?.code })}
+            </Text.Animated>
           </Chip>
         ))}
       </List.Grid>

@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { AnimationControls, AnimationProps, motion } from 'framer-motion';
+import { AnimationProps, motion } from 'framer-motion';
 import { ReactNode } from 'react';
 import Container from '../Container';
 import Style from './text.module.scss';
@@ -7,7 +7,25 @@ import { VARIANTS } from './variants';
 
 const cx = classNames.bind(Style);
 
-export const Text = ({
+export interface TextProps {
+  size?: 'default' | 'h0' | 'h1' | 'h2' | 'h3' | 'h4' | 'text' | 'small' | 'tiny';
+  bold?: boolean;
+  children: ReactNode;
+  className?: string;
+}
+
+const Text = ({ children, className, ...props }: Readonly<TextProps>) => {
+  const splitText = `${children}`.split('\n').map((sentence, index) => {
+    return (
+      <span className={cx('text', className)} key={index + sentence} {...props}>
+        {sentence}
+      </span>
+    );
+  });
+  return <>{splitText}</>;
+};
+
+const FlickText = ({
   children,
   className,
 }: Readonly<{
@@ -15,13 +33,42 @@ export const Text = ({
   className?: string;
 }>) => {
   return (
-    <motion.span className={cx('text', className)} variants={VARIANTS['TEXT']}>
+    <motion.span className={cx('flick', className)} variants={VARIANTS['TEXT']}>
       {children}
     </motion.span>
   );
 };
 
-export const JumpingText = ({
+const AnimatedText = ({
+  children,
+  className,
+  disabled = false,
+  otherChild = children,
+  withBorder = false,
+  animate = 'rest',
+}: Readonly<{
+  children: ReactNode;
+  disabled?: boolean;
+  otherChild?: ReactNode;
+  className?: string;
+  withBorder?: boolean;
+  animate?: 'rest' | 'hover';
+}>) => {
+  return (
+    <motion.div
+      className={cx('button', withBorder && 'with-border', className)}
+      initial="rest"
+      whileHover={disabled ? 'rest' : 'hover'}
+      whileTap={disabled ? 'rest' : 'hover'}
+      animate={animate}
+    >
+      <FlickText>{children}</FlickText>
+      <FlickText className={cx('hovered')}>{otherChild}</FlickText>
+    </motion.div>
+  );
+};
+
+const JumpingText = ({
   children,
   className,
 }: Readonly<{
@@ -34,8 +81,13 @@ export const JumpingText = ({
         <motion.span
           key={index + item}
           className={cx('box', className)}
-          animate={{ y: '-5px', direction: 'alternate' } as unknown as AnimationControls}
-          transition={{ delay: index * 0.1, duration: 1.5, repeat: Infinity, damping: 800 }}
+          animate={{ y: [-5, 0] }}
+          transition={{
+            delay: index * 0.1,
+            duration: 0.5,
+            repeat: Infinity,
+            repeatType: 'reverse',
+          }}
         >
           {item}
         </motion.span>
@@ -44,40 +96,12 @@ export const JumpingText = ({
   );
 };
 
-const AnimatedText = ({
-  children,
-  className,
-  otherChild = children,
-  withBorder = false,
-  onClick,
-}: Readonly<{
-  children: ReactNode;
-  otherChild?: ReactNode;
-  className?: string;
-  withBorder?: boolean;
-  onClick?: () => void;
-}>) => {
-  return (
-    <motion.span
-      onClick={onClick}
-      className={cx('button', withBorder && 'with-border', className)}
-      initial="rest"
-      whileHover="hover"
-      whileTap="hover"
-      animate="rest"
-    >
-      <Text>{children}</Text>
-      <Text className={cx('hovered')}>{otherChild}</Text>
-    </motion.span>
-  );
-};
-
-export const SlidingText = ({
+const SlidingText = ({
   children,
   className,
   transition,
-  animate = 'rest',
-  duration = 1,
+  animate = 'fly',
+  duration = 5,
 }: Readonly<{
   children: ReactNode;
   className?: string;
@@ -98,7 +122,9 @@ export const SlidingText = ({
   );
 };
 
-AnimatedText.Slide = SlidingText;
-AnimatedText.Jump = JumpingText;
+Text.Slide = SlidingText;
+Text.Animated = AnimatedText;
+Text.Flick = FlickText;
+Text.Jump = JumpingText;
 
-export default AnimatedText;
+export default Text;

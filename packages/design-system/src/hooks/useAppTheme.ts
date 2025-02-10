@@ -20,7 +20,7 @@ type UseAppThemeOutput = {
 
 export const useAppTheme = (): UseAppThemeOutput => {
   const isDarkOS = useMediaQuery(COLOR_SCHEME_QUERY);
-  const [themeMode, setThemeMode] = useLocalStorage<ThemeMode>('app-theme', THEME_MODE.OS_DEFAULT);
+  const [themeMode, setThemeMode] = useLocalStorage<ThemeMode>('tripie-app-theme', THEME_MODE.OS_DEFAULT);
 
   useEffect(() => {
     const root = document?.documentElement;

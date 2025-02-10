@@ -22,7 +22,7 @@ const Markers = ({
   focusAfterOpen?: boolean;
 }) => {
   const { current, cycle } = useContext(TabContext);
-  const { setPopup, popup, setCurrentSelected, popupMarkers } = usePopUp({ locationMarker, current });
+  const { setPopup, popup, setCurrentSelected, popupMarkers, currentSelected } = usePopUp({ locationMarker, current });
   const { current: map } = useMap();
 
   // 선택한 여행 일정 카드 (TabCard)의 컨텍스트가 변경되었을 경우 해당 좌표로 포커스
@@ -61,7 +61,7 @@ const Markers = ({
             setCurrentSelected(marker.index);
           }}
         >
-          <ChipMarker className={cx(marker.label, 'label')} marker={marker} popup={popup} />
+          <ChipMarker selected={marker.index === current} className={cx(marker.label)} marker={marker} popup={popup} />
         </Marker>
       ))}
     </>

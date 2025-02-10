@@ -77,6 +77,18 @@ const nextConfig = {
         port: '',
         pathname: '/triple-cms/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'continentl.com',
+        port: '',
+        pathname: '/storage/country_flag_image/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'upload.wikimedia.org',
+        port: '',
+        pathname: '/wikipedia/**',
+      },
     ],
   },
   async redirects() {

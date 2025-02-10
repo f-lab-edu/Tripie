@@ -3,9 +3,13 @@ import classNames from 'classnames/bind';
 import { motion } from 'framer-motion';
 import { MutableRefObject, ReactNode, RefObject } from 'react';
 import { SHINE_VARIANT } from '../../shared/variants';
-import Container from '../Container/Container';
+import Container from '../Container';
+import Divider from '../Divider';
 import MotionSlideUp from '../MotionSlideUp/MotionSlideUp';
+import Text from '../Text';
+import TripieImage from '../TripieImage';
 import Style from './card.module.scss';
+
 const cx = classNames.bind(Style);
 
 export type CustomAnimationProps = {
@@ -91,8 +95,108 @@ const CardDescription = ({
   );
 };
 
+const CardWithImage = ({
+  onClick,
+  src,
+  alt,
+  title,
+  summary,
+  className,
+  sourceUrl,
+  displaySource = false,
+  withBorder,
+  blurDataURL,
+}: {
+  onClick?: () => void;
+  src: string;
+  alt?: string;
+  title?: string;
+  summary?: string;
+  className?: string;
+  sourceUrl?: string;
+  displaySource?: boolean;
+  withBorder?: boolean;
+  blurDataURL?: string;
+}) => {
+  return (
+    <Card.ClickableContent onClick={onClick} className={cx('article-card', className)}>
+      <Container margin="none" className={cx('img-wrap')}>
+        {sourceUrl == null || !displaySource ? (
+          <TripieImage
+            blurDataURL={blurDataURL}
+            src={src}
+            sizes="small"
+            alt={alt}
+            className={cx('thumbnail')}
+            withBorder={false}
+          />
+        ) : (
+          <TripieImage.WithSourceUrl
+            sizes="small"
+            withBorder={false}
+            sourceUrl={sourceUrl}
+            src={src}
+            alt={alt}
+            className={cx('thumbnail')}
+          />
+        )}
+      </Container>
+      <Container>
+        <Container margin="sm" applyMargin="bottom">
+          <Text className={cx('bold')}>{title}</Text>
+          <Divider />
+        </Container>
+        {summary}
+      </Container>
+    </Card.ClickableContent>
+  );
+};
+
+const CardWithListItems = ({
+  ref,
+  className,
+  selected,
+  action,
+  children,
+  onClick,
+  src,
+  alt,
+  title,
+  sourceUrl,
+  displaySource = false,
+  withBorder,
+  blurDataURL,
+}: {
+  ref?: RefObject<HTMLDivElement>;
+  className?: string;
+  selected?: boolean;
+  action?;
+  children: ReactNode;
+  onClick?: () => void;
+  src: string;
+  alt?: string;
+  title?: string;
+  sourceUrl?: string;
+  displaySource?: boolean;
+  withBorder?: boolean;
+  blurDataURL?: string;
+}) => {
+  return (
+    <Card.ClickableContent
+      ref={ref}
+      className={cx('embedded-card', 'poi-card', className)}
+      selected={selected}
+      onClick={action}
+    >
+      {children}
+    </Card.ClickableContent>
+  );
+};
+
 Card.Content = CardContent;
 Card.ClickableContent = ClickableCardContent;
 Card.Description = CardDescription;
+
+Card.WithCoverImage = CardWithImage;
 
 export default Card;

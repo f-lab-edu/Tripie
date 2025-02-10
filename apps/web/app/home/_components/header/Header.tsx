@@ -30,7 +30,7 @@ export default function Header() {
             <AnimatedButton withBorder={true}>Our services</AnimatedButton>
           </Link>
           <Link href={ROUTE.CONTACT.href}>
-            <AnimatedButton withBorder={true}>
+            <AnimatedButton withBorder={true} className={cx('flex')}>
               <Container margin="none" className={cx('flex')}>
                 Get in touch <Icon src={RESOURCE.ARROW} />
               </Container>

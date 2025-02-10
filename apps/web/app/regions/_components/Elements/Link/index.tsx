@@ -18,6 +18,9 @@ const cx = classNames.bind(Style);
 const ArticleLink = ({ item, regionId, dataUrl }: { item: LinkProps; regionId: string; dataUrl: string }) => {
   const { filteredLinks } = useFilterLink({ item, regionId, dataUrl });
 
+  if (filteredLinks.length === 0) {
+    return null;
+  }
   return (
     <Container applyMargin="top" className={cx('link-wrap')}>
       {filteredLinks.map(({ label, href }) => (

@@ -1,4 +1,4 @@
-'use server';
+'use client';
 import { Card, Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import { Image as AttractionImage } from 'models/Image';

@@ -1,0 +1,10 @@
+@use '../../base/' as *;
+@use '../../functions/' as *;
+@use '../../generator/' as *;
+@use '../../mixins/' as *;
+@use '../Text/text.module';
+@use 'sass:map';
+
+.text.full {
+  display: inline-block !important;
+}

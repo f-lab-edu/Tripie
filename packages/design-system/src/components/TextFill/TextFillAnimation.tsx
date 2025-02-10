@@ -59,16 +59,27 @@ const TitleTextFillAnimation = ({
   duration?: number;
 }>) => {
   return (
-    <div>
-      <motion.div
-        className={cx('title')}
-        initial={{ x: '0%', width: '0%', opacity: 1 }}
-        animate={{ x: '0%', width: '100%', opacity: 1 }}
-        transition={{ damping: 10, stiffness: 100, duration, repeat }}
-      >
-        {children}
-      </motion.div>
-    </div>
+    <InView>
+      {({ inView, ref }) => (
+        <div className={cx('animation', 'pre-title')} ref={ref}>
+          <span className={cx('wrap')}>
+            {children}
+            <motion.span
+              className={cx('text', 'title')}
+              animate={inView ? 'visible' : 'hidden'}
+              initial={{ width: '0%' }}
+              variants={{
+                visible: { width: '100%' },
+                hidden: { width: '0%' },
+              }}
+              transition={{ repeat, duration }}
+            >
+              {children}
+            </motion.span>
+          </span>
+        </div>
+      )}
+    </InView>
   );
 };
 

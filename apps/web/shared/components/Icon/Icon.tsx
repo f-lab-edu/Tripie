@@ -1,3 +1,4 @@
+import { TripieImage } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import { TRANSPORTATION_ICON } from 'constants/icon';
 import RESOURCE from 'constants/resources';
@@ -39,7 +40,7 @@ const Icon = ({
       transition={transition}
       animate={animate}
     >
-      <img src={src} alt="icon" />
+      <TripieImage src={src} alt={`${src} icon`} sizes="icon" withBorder={false} />
     </motion.div>
   );
 };

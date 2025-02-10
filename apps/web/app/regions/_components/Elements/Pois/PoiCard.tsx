@@ -1,5 +1,5 @@
 'use client';
-import { Card, Container, Text } from '@tripie-pyotato/design-system';
+import { Card, Container, TripieImage } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import POI_TYPE from 'constants/triple';
 import { Poi } from 'models/Aws';
@@ -7,7 +7,6 @@ import { RefObject, useEffect } from 'react';
 import ArticleHeading from '../Header';
 import Style from './poi-card.module.scss';
 
-import RESOURCE from 'constants/resources';
 import useImgAlt from 'hooks/useImgAlt';
 import ArticleText from '../Text';
 
@@ -29,6 +28,7 @@ const PoiCard = ({
   className?: string;
 }) => {
   const { alt } = useImgAlt({ imgUrl: poi.source.image?.sizes.full.url });
+
   useEffect(() => {
     // 선택한 카드로 이동
     if (selected && cardRef.current) {
@@ -43,30 +43,30 @@ const PoiCard = ({
       selected={selected}
       onClick={action}
     >
-      <Card.Content className={cx('img-wrap')}>
-        {poi.source.image == null ? (
-          <img src={RESOURCE.PLACEHOLDER} alt={'place-holder'} />
-        ) : (
-          <img src={poi.source.image?.sizes.full.url} alt={alt} />
-        )}
-
-        <Container className={cx('img-source')} margin="none">
-          {poi.source.image?.sourceUrl != null ? (
-            <Text className={cx('source-url', 'poi-img-source-ref')}>{`출처 ${poi.source.image.sourceUrl}`}</Text>
-          ) : null}
-        </Container>
-      </Card.Content>
-      <ArticleHeading item={{ type: 'heading3', value: { text: poi.source.names.ko } }} />
-      <ArticleText item={{ type: 'text', value: { text: poi.source.comment } }} />
-      <ArticleText item={{ type: 'text', value: { text: POI_TYPE[poi.type] } }} />
-      <ArticleText
-        item={{
-          type: 'text',
-          value: {
-            text: `${poi.region.source.names.ko}${poi.source.areas[0]?.name != null ? poi.source.areas[0]?.name : ''}`,
-          },
-        }}
+      <TripieImage.WithSourceUrl
+        sourceUrl={poi.source.image.sourceUrl}
+        src={poi.source.image?.sizes.full.url}
+        alt={alt}
+        blurDataURL={poi.source.image.blurData?.data}
+        withBorder={true}
+        sizes="small"
+        className={cx('img-wrap')}
       />
+
+      <Container applyMargin="top-bottom" margin="sm" className={cx('heading')}>
+        <ArticleHeading item={{ type: 'heading4', value: { text: poi.source.names.ko } }} />
+        <ArticleText
+          item={{
+            type: 'text',
+            value: {
+              text: `${poi.region.source.names.ko}${poi.source.areas[0]?.name != null ? poi.source.areas[0]?.name : ''}`,
+            },
+          }}
+        />
+        <ArticleText item={{ type: 'text', value: { text: POI_TYPE[poi.type] } }} />
+      </Container>
+
+      <ArticleText item={{ type: 'text', value: { text: poi.source.comment } }} />
     </Card.ClickableContent>
   );
 };

@@ -61,13 +61,13 @@ const TabCard = ({
         cycle(`${trip.day - 1}-${index}`);
       }}
     >
-      <Container margin="none" className={cx('title')}>
+      <Container margin="sm" applyMargin="bottom" className={cx('title')}>
         <div ref={current === `${trip.day - 1}-${index}` ? ref : null} />
         <Chip className={cx('label', label)}>{index + 1}</Chip>
         <Text className={cx('accented')}>{activity}</Text>
       </Container>
       <Divider />
-      <Container margin="none">
+      <Container margin="sm" applyMargin="top">
         {comments}
         <Container margin="sm" applyMargin="top">
           <TextUnderLineAnimation

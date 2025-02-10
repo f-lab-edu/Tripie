@@ -51,4 +51,5 @@ export type TripleImage = {
   cloudinaryId: string;
   sourceUrl: string;
   id: string;
+  blurData?: { data: string };
 };

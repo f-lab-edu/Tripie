@@ -1,4 +1,4 @@
-import { Card, Chip, Container, Headings, List } from '@tripie-pyotato/design-system';
+import { Card, Chip, Container, List, Text } from '@tripie-pyotato/design-system';
 import Description from 'app/home/_components/our-process/_components/Description';
 import classNames from 'classnames/bind';
 import { Continentl } from 'models/Continentl';
@@ -38,7 +38,7 @@ const CountryInfoPopup = ({
       label: 'capital name',
       content: (
         <li className={cx('list-item')}>
-          <Headings.H3 className={cx('accented', 'capital')}>수도</Headings.H3>
+          <Text className={cx('accented', 'capital', 'verticle-center')}>수도</Text>
           <div className={cx('capital-name')}>{capital}</div>
         </li>
       ),
@@ -47,7 +47,7 @@ const CountryInfoPopup = ({
       label: 'languages',
       content: (
         <li className={cx('list-item')}>
-          <Headings.H3 className={cx('accented', 'language')}>공식 언어</Headings.H3>
+          <Text className={cx('accented', 'language', 'center', 'verticle-center')}>공식 언어</Text>
           {officialLanguage != null ? (
             <List className={cx('flex')}>
               {officialLanguage.map((language: string) => (

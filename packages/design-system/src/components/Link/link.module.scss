@@ -1,20 +1,20 @@
-@use "../../../base/" as *;
-@use "../../../functions/" as *;
-@use "../../../generator/" as *;
-@use "../../../mixins/" as *;
-@use "../text/text.module" as *;
+@use '../../base/' as *;
+@use '../../functions/' as *;
+@use '../../generator/' as *;
+@use '../../mixins/' as *;
+@use '../Text/text.module' as *;
 
-@use "sass:map";
+@use 'sass:map';
 
 .link {
   text-decoration: none;
   color: color(default, 700);
 
-  &[aria-selected="false"] {
+  &[aria-selected='false'] {
     color: color(default, 500);
     font-weight: font-weight(base);
   }
-  &[aria-selected="true"] {
+  &[aria-selected='true'] {
     color: color(default, 900);
     font-weight: font-weight(bold);
   }
@@ -23,7 +23,7 @@
     text-decoration: underline;
   }
 
-  &[aria-disabled="true"] {
+  &[aria-disabled='true'] {
     cursor: not-allowed !important;
     color: color(default, 400) !important;
   }

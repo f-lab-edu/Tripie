@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useEffect } from 'react';
-import { useAppTheme } from '../../../hooks';
-import Text from './Text';
+import { useAppTheme } from '../../hooks';
+import { default as SplashScreen } from './SplashScreen';
 
-const meta: Meta<typeof Text> = {
-  title: 'tripie-ui/Typography/Text',
+const meta: Meta<typeof SplashScreen> = {
+  title: 'tripie-ui/SplashScreen',
+  component: SplashScreen,
   tags: ['autodocs'],
-  component: Text,
   decorators: [
     (story, context) => {
       const { mode, setMode } = useAppTheme();
-      const [selectedTheme] = context.globals.theme || mode;
+      const selectedTheme = context.globals.theme || mode;
 
       useEffect(() => {
         setMode(selectedTheme);
@@ -22,12 +22,13 @@ const meta: Meta<typeof Text> = {
 };
 
 export default meta;
-
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   name: 'Default',
-  args: {
-    children: 'default 기본',
-  },
+  render: () => (
+    <div style={{ height: '100vh' }}>
+      <SplashScreen isLoading={true}>splash</SplashScreen>
+    </div>
+  ),
 };

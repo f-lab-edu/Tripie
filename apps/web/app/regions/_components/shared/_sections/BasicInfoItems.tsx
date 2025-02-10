@@ -1,4 +1,4 @@
-'use server';
+'use client';
 import { Container, Divider } from '@tripie-pyotato/design-system';
 import ArticleHeading from 'app/regions/_components/Elements/Header';
 import ArticleText from 'app/regions/_components/Elements/Text';

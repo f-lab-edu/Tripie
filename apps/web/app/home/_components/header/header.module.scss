@@ -12,7 +12,7 @@
 .button-wrap {
   align-content: center;
   align-items: center;
-  display: flex;
+  display: inline-flex;
   flex: none;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -35,7 +35,7 @@
 .center {
   align-content: center;
   align-items: center;
-  display: flex;
+  display: inline-flex;
   flex: none;
   flex-direction: column;
   flex-wrap: nowrap;

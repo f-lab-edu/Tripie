@@ -17,6 +17,7 @@ const API = {
   AWS_LAMBDA: '/aws/lambda',
   GOOGLE_SEARCH_URL: 'https://www.google.com/maps/search/',
   TRIPLE_ARTICLES: 'articles',
+  BLUR_IMAGE: '/blur-image',
 };
 
 export default API;

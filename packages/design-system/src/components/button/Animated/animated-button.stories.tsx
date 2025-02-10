@@ -30,7 +30,15 @@ export const AnimatedButtonWithOtherChild: Story = {
 export const AnimatedButtonWithBorder: Story = {
   name: 'AnimatedButton.WithBorder',
   args: {
-    children: 'Default',
+    children: 'AnimatedButton.WithBorder',
+    withBorder: true,
+  },
+};
+
+export const AnimatedButtonWithBorderWithLongText: Story = {
+  name: 'AnimatedButton.WithBorder.LongText',
+  args: {
+    children: 'super long button text. see how it looks like!',
     withBorder: true,
   },
 };

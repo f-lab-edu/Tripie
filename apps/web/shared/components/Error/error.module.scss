@@ -35,7 +35,7 @@ $bottom-shade: #08070700;
 .center {
   align-content: center;
   align-items: center;
-  display: flex;
+  display: inline-flex;
   flex: none;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -53,7 +53,7 @@ $bottom-shade: #08070700;
 .button-wrap {
   align-content: center;
   align-items: center;
-  display: flex;
+  display: inline-flex;
   flex: none;
   flex-direction: row;
   flex-wrap: nowrap;

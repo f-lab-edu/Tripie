@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useEffect } from 'react';
-import { useAppTheme } from '../../../hooks';
+import { useAppTheme } from '../../hooks';
 import { default as Text, default as UnstyledLink } from './Link';
 
 const meta: Meta<typeof UnstyledLink> = {

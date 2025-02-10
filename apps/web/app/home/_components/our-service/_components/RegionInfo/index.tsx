@@ -34,13 +34,13 @@ const RegionInfo = () => {
   }
 
   return (
-    <Card.Content className={cx('card-wrap')}>
+    <Card.Content className={cx('card-wrap', 'scroll')}>
       <Container className={cx('card-content-wrap')} margin="none">
         <Container margin="none" className={cx('card-region-wrap')}>
           <RegionSelect selected={currentRegionId} selectedRegion={selectedRegion} />
           <Container margin="none">
             <RegionList
-              data={data.filter(item => item.regionId === selectedRegion)?.[0].data}
+              data={data.filter(item => item.regionId === selectedRegion)?.[0]?.data}
               selectedRegion={selectedRegion}
             />
           </Container>

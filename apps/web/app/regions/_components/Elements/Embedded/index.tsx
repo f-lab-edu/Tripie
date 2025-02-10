@@ -1,39 +1,47 @@
 'use client';
-import { Card, Container, Divider } from '@tripie-pyotato/design-system';
-import { BodyItemProps } from 'app/regions/[regionId]/articles/[articleId]/ArticleBody';
+import { Card, Container, Divider, TripieImage } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
-
 import ArticleHeading from '../Header';
+
+import { BodyItemProps } from 'app/regions/[regionId]/articles/[articleId]/ArticleBody';
+import { ImageProps } from '../Images';
 import ArticleLink from '../Link';
 import ArticleNote from '../Note';
 import ArticleText from '../Text';
 import Style from './embedded.module.scss';
 
-export type EmbeddedProps = { type: 'embedded'; value: { entries: Array<Array<BodyItemProps>> } };
+export type EmbeddedProps = { type: 'embedded'; value: Array<Array<BodyItemProps>> };
 
 const cx = classNames.bind(Style);
 
 const ArticleCard = ({
-  entry,
+  item,
   regionId,
   dataUrl,
 }: {
-  entry: Array<BodyItemProps>;
+  item: Array<BodyItemProps>;
   regionId: string;
   dataUrl: string;
 }) => {
   return (
     <Card.ClickableContent className={cx('embedded-card')}>
-      {entry.map((embeddedItem: BodyItemProps, index: number) => {
+      {item.map((embeddedItem: BodyItemProps, index: number) => {
         const { type } = embeddedItem;
-
         switch (type) {
           case 'images':
-            return embeddedItem.value.images.map(({ sizes }) => (
-              <Card.Content className={cx('card-img-wrap', 'embedded-card-img')} key={index + sizes.full.url}>
-                <img src={sizes.full.url} alt={sizes.full.url} />
-              </Card.Content>
-            ));
+            return (embeddedItem.value as unknown as ImageProps['value']['images'])?.map(
+              ({ sizes, sourceUrl, blurData }) => (
+                <TripieImage.WithSourceUrl
+                  sourceUrl={sourceUrl}
+                  src={sizes.full.url}
+                  alt={sizes.full.url}
+                  key={index + sizes.full.url}
+                  withBorder={true}
+                  sizes={'card'}
+                  blurDataURL={blurData?.data}
+                />
+              )
+            );
           case 'heading1':
           case 'heading2':
           case 'heading3':
@@ -68,13 +76,11 @@ const ArticleCard = ({
 };
 
 const ArticleEmbedded = ({ item, regionId, dataUrl }: { item: EmbeddedProps; regionId: string; dataUrl: string }) => {
-  const { entries } = item.value;
-
   return (
-    <Container applyMargin="top-bottom" className={cx(entries.length > 1 ? ['carousel'] : null)}>
-      <Container className={cx(entries.length > 1 ? ['flex-items', 'embedded-card-wrap'] : null)} margin="none">
-        {entries.map((entry, index) => (
-          <ArticleCard entry={entry} key={index + JSON.stringify(entry)} regionId={regionId} dataUrl={dataUrl} />
+    <Container applyMargin="top-bottom" className={cx(item.value.length > 1 ? ['carousel'] : null)}>
+      <Container className={cx(item.value.length > 1 ? ['flex-items', 'embedded-card-wrap'] : null)} margin="none">
+        {item.value?.map((item, index) => (
+          <ArticleCard item={item} key={index + JSON.stringify(item)} regionId={regionId} dataUrl={dataUrl} />
         ))}
       </Container>
     </Container>

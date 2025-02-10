@@ -1,6 +1,6 @@
 'use client';
 
-import { AnimatedText, Card, Chip, Container, Divider, Headings, List } from '@tripie-pyotato/design-system';
+import { Card, Chip, Container, Divider, Headings, List, Text } from '@tripie-pyotato/design-system';
 import Accordion from 'shared/components/Accordian/Accordian';
 
 import classNames from 'classnames/bind';
@@ -20,15 +20,15 @@ const RegionSelect = ({ selected, selectedRegion }: { selected: string; selected
       <Accordion>
         <Accordion.Header>
           <Container className={cx('flex')} margin="sm" applyMargin="top-bottom">
-            <Headings.H3>
+            <Headings.H4>
               어떤 <span className={cx('accented')}>지역</span>이 궁금하세요?
-            </Headings.H3>
+            </Headings.H4>
             <Accordion.Icon variants={ACCORDIAN_VARIANTS.BUTTON} src={RESOURCE.ARROW} />
           </Container>
         </Accordion.Header>
         <Accordion.Divider />
         <Accordion.Body className={cx('accordian-body')}>
-          <List.Grid>
+          <List.Grid className={cx('grid-wrap')}>
             {Object.keys(TRIPIE_REGION_BY_LOCATION).map(place => (
               <Chip
                 className={cx('chip-wrap')}
@@ -41,9 +41,9 @@ const RegionSelect = ({ selected, selectedRegion }: { selected: string; selected
                   navigate.push(`/regions/${place}`);
                 }}
               >
-                <AnimatedText className={cx('animated-text', 'chip')} withBorder={false} otherChild={place}>
+                <Text.Animated className={cx('animated-text', 'chip')} withBorder={false} otherChild={place}>
                   {place}
-                </AnimatedText>
+                </Text.Animated>
               </Chip>
             ))}
           </List.Grid>
@@ -54,11 +54,10 @@ const RegionSelect = ({ selected, selectedRegion }: { selected: string; selected
             </Container>
           </Accordion.Header>
           <Divider />
-          <List.Grid>
+          <List.Grid className={cx('grid-wrap')}>
             {TRIPIE_REGION_BY_LOCATION[selected as keyof typeof TRIPIE_REGION_BY_LOCATION].map(place => (
               <Chip
                 className={cx('chip-wrap')}
-                //   disabled={isLoading}
                 selected={TRIPIE_REGION_IDS[selectedRegion as keyof typeof TRIPIE_REGION_IDS] === place}
                 key={place}
                 onClick={() => {
@@ -69,9 +68,9 @@ const RegionSelect = ({ selected, selectedRegion }: { selected: string; selected
                   navigate.push(`/regions/${selected}/location/${selectedLocation}`);
                 }}
               >
-                <AnimatedText className={cx('animated-text', 'chip')} withBorder={false} otherChild={place}>
+                <Text.Animated className={cx('animated-text', 'chip')} withBorder={false} otherChild={place}>
                   {place}
-                </AnimatedText>
+                </Text.Animated>
               </Chip>
             ))}
           </List.Grid>

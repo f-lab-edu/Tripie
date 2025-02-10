@@ -5,7 +5,7 @@ import { useAppTheme } from '../../../hooks';
 import ParticleField from './ParticleField';
 
 const meta: Meta<typeof ParticleField> = {
-  title: 'tripie-ui/ParticleField',
+  title: 'tripie-ui/Particle/Field',
   component: ParticleField,
   tags: ['autodocs'],
   argTypes: {},
@@ -28,4 +28,11 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   name: 'Default',
+  render: () => {
+    return (
+      <div style={{ height: '100vh' }}>
+        <ParticleField />
+      </div>
+    );
+  },
 };

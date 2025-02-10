@@ -2,24 +2,10 @@
 import classNames from 'classnames/bind';
 import { motion } from 'framer-motion';
 import { ReactNode } from 'react';
+import Text from '../../Text';
 import Style from './animated-button.module.scss';
-import { BUTTON_VARIANTS } from './variants';
 
 const cx = classNames.bind(Style);
-
-const Text = ({
-  children,
-  className,
-}: Readonly<{
-  children: ReactNode;
-  className?: string;
-}>) => {
-  return (
-    <motion.span className={cx('text', className)} variants={BUTTON_VARIANTS['TEXT']}>
-      {children}
-    </motion.span>
-  );
-};
 
 const AnimatedButton = ({
   children,
@@ -48,8 +34,8 @@ const AnimatedButton = ({
       whileTap={disabled ? 'rest' : 'hover'}
       animate={animate}
     >
-      <Text>{children}</Text>
-      <Text className={cx('hovered')}>{otherChild}</Text>
+      <Text.Flick>{children}</Text.Flick>
+      <Text.Flick className={cx('hovered')}>{otherChild}</Text.Flick>
     </motion.button>
   );
 };

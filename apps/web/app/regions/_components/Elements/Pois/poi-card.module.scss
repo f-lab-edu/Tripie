@@ -10,8 +10,8 @@
 .poi-card {
   min-height: 21rem;
   height: auto !important;
-  max-height: 21rem;
-  min-width: 16rem;
+
+  min-width: 20rem;
 
   & > div:first-child {
     height: 12rem !important;
@@ -28,7 +28,7 @@
 
 .img-wrap {
   padding: 0 !important;
-  height: 24rem !important;
+  height: 8rem;
   overflow: hidden;
 
   & > img {
@@ -37,28 +37,6 @@
     display: block;
     object-fit: cover;
   }
-}
-
-.img-source {
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-  display: inline-block;
-  width: fit-content;
-  max-width: 21rem; /* Set your desired width */
-  & > div {
-    display: inline;
-  }
-  & > div > span {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-}
-
-.source-url {
-  text-wrap: nowrap !important;
-  font-size: 0.8rem;
 }
 
 .poi-img-source-ref {

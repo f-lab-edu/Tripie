@@ -1,7 +1,5 @@
-'use client';
-
 import classNames from 'classnames/bind';
-import { TextProps } from '../Text';
+import { TextProps } from '../Text/Text';
 import Style from './paragraph.module.scss';
 
 const style = classNames.bind(Style);

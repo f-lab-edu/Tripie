@@ -7,9 +7,19 @@ import { LocationMarker } from 'models/Geo';
 
 const cx = classNames.bind(Style);
 
-const ChipMarker = ({ marker, popup, className }: { className: string; marker: LocationMarker; popup: string }) => {
+const ChipMarker = ({
+  marker,
+  popup,
+  className,
+  selected,
+}: {
+  className: string;
+  marker: LocationMarker;
+  popup: string;
+  selected?: boolean;
+}) => {
   return (
-    <Chip className={cx(className)} selected={marker.index === popup}>
+    <Chip className={cx('marker', className)} selected={selected}>
       {+marker.index.split('-')[1] + 1}
     </Chip>
   );

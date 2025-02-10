@@ -1,7 +1,7 @@
 'use client';
 
 import { increment } from '@firebase/firestore';
-import { AnimatedText, Container } from '@tripie-pyotato/design-system';
+import { Container, Text } from '@tripie-pyotato/design-system';
 import { getTripPlan } from 'app/api/chat/route';
 import firestoreService from 'app/api/firebase';
 import classNames from 'classnames/bind';
@@ -35,7 +35,8 @@ const handleSubmit = async (chatItems: TripPlanner, id: string) => {
   if (id != null) {
     const user = await firestoreService.getItem(DB_NAME, id);
     if (user != null) {
-      return await firestoreService.getListWithIds('continentl').then(async countries => {
+      return await // firestoreService.getListWithIds('continentl').then(async countries => {
+      firestoreService.getListWithIds('continentl-with-blur-data').then(async countries => {
         // iso31661로 같은 code의 세자리 버전을 aws에 FilterCountry로 넘겨 검색 정확도를 높이기 위해 국가 코드 두자리를 code로 넘겨줍니다.
         const { code } = countries?.filter((place: Continentl) => place.id === chatItems.country)[0] as Continentl;
         const data = await getTripPlan({ ...chatItems, code });
@@ -172,9 +173,9 @@ const TripPlan = () => {
         </Container>
         <Container margin="none">
           {selectedOptions.map(text => (
-            <AnimatedText.Slide animate="fly" duration={randomInt()} key={text}>
+            <Text.Slide animate="fly" duration={randomInt()} key={text}>
               <div className={cx('text-color')}>{text}</div>
-            </AnimatedText.Slide>
+            </Text.Slide>
           ))}
         </Container>
         <Container className={cx('cloud-wrap')}>
@@ -192,7 +193,7 @@ const TripPlan = () => {
         CONTINENT={({ context, history }) => (
           <ContinentStep
             context={context}
-            continent={context.continent ?? 'ALL'}
+            continent={context?.continent ?? 'ALL'}
             onNext={(selected: { continent?: ContinentKeys }) => {
               history.push('COUNTRY', selected);
             }}

@@ -21,7 +21,7 @@ const Divider = ({ className, current, variants = ACCORDIAN_VARIANTS.DIVIDER }: 
 const ArticleDivider = ({ item }: { item: ArticleDividerProps }) => {
   return (
     <Container applyMargin="top-bottom" margin={HR_MARGINS[item.type] as ContainerProps['margin']}>
-      <Divider className={`divider-${item.type}`} />
+      <Divider className={cx('divider', `divider-${item.type}`)} />
     </Container>
   );
 };

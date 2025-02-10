@@ -1,15 +1,15 @@
 import classNames from 'classnames/bind';
-import { ReactNode } from 'react';
+import { ComponentProps, ReactNode } from 'react';
 import Style from './container.module.scss';
 
 export type ContainerProps = {
   margin?: 'xl' | 'l' | 'm' | 'sm' | 'xsm' | 'none';
   align?: 'left' | 'center' | 'right';
   children?: ReactNode;
-  applyMargin?: 'top-bottom' | 'left-right' | 'all' | 'left' | 'right' | 'top' | 'bottom';
-} & Omit<React.ComponentProps<'div'>, 'children'>;
+  applyMargin?: 'top-bottom' | 'top-left-right' | 'left-right' | 'all' | 'left' | 'right' | 'top' | 'bottom';
+} & Omit<ComponentProps<'div'>, 'children'>;
 
-const style = classNames.bind(Style);
+const cx = classNames.bind(Style);
 
 const Container = ({
   children,
@@ -21,7 +21,7 @@ const Container = ({
 }: ContainerProps) => {
   return (
     <div
-      className={style('layout-fill-available', `align-${align}`, 'container', applyMargin, margin, className)}
+      className={cx('layout-fill-available', `align-${align}`, 'container', applyMargin, margin, className)}
       {...props}
     >
       {children}

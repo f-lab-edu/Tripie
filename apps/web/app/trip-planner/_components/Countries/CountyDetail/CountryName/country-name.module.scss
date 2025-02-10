@@ -13,16 +13,10 @@
 }
 
 .flag-image {
-  height: 1.2rem;
-}
-
-.flag-skeleton {
-  width: 2.4rem;
-}
-
-.loaded {
-  display: block;
-}
-.loading {
-  display: none;
+  width: 2rem;
+  & img {
+    position: relative !important;
+    width: 2rem !important;
+    object-fit: contain !important;
+  }
 }

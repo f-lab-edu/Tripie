@@ -24,6 +24,7 @@ export type RegionArticleInfo = {
 
 export type ArticleImage = {
   cloudinaryBucket: string;
+  blurData?: { data: string };
   cloudinaryId: string;
   frame?: string;
   height: number;

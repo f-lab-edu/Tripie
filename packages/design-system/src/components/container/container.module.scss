@@ -1,5 +1,5 @@
-@use "../../functions/" as *;
-@use "sass:map";
+@use '../../functions/' as *;
+@use 'sass:map';
 
 .layout-fill-available {
   width: -moz-available;
@@ -28,47 +28,53 @@ $space-map: (
 );
 
 @mixin margins($direction, $size) {
-  @if ($direction == "top-bottom") {
+  @if ($direction == 'top-bottom') {
     margin: $size 0;
-  } @else if ($direction == "left-right") {
+  } @else if ($direction == 'left-right') {
     margin: 0 $size;
-  } @else if ($direction == "left") {
+  } @else if ($direction == 'top-left-right') {
+    margin: $size;
+    margin-bottom: 0;
+  } @else if ($direction == 'left') {
     margin: 0;
     margin-left: $size;
-  } @else if ($direction == "right") {
+  } @else if ($direction == 'right') {
     margin: 0;
     margin-right: $size;
-  } @else if ($direction == "top") {
+  } @else if ($direction == 'top') {
     margin: 0;
     margin-top: $size;
-  } @else if ($direction == "bottom") {
+  } @else if ($direction == 'bottom') {
     margin: 0;
     margin-bottom: $size;
-  } @else if ($direction == "all") {
+  } @else if ($direction == 'all') {
     margin: $size;
   }
 }
 
 @each $key, $value in $space-map {
   .container.all.#{$key} {
-    @include margins("all", $value);
+    @include margins('all', $value);
   }
   .container.top-bottom.#{$key} {
-    @include margins("top-bottom", $value);
+    @include margins('top-bottom', $value);
   }
   .container.left-right.#{$key} {
-    @include margins("left-right", $value);
+    @include margins('left-right', $value);
   }
   .container.left.#{$key} {
-    @include margins("left", $value);
+    @include margins('left', $value);
   }
   .container.right.#{$key} {
-    @include margins("right", $value);
+    @include margins('right', $value);
   }
   .container.top.#{$key} {
-    @include margins("top", $value);
+    @include margins('top', $value);
   }
   .container.bottom.#{$key} {
-    @include margins("bottom", $value);
+    @include margins('bottom', $value);
+  }
+  .container.top-left-right.#{$key} {
+    @include margins('top-left-right', $value);
   }
 }
