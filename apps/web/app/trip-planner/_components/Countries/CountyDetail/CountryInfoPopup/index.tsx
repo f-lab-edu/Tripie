@@ -28,6 +28,7 @@ const CountryInfoPopup = ({
 
   // 선택한 국가로 좌표 이동
   useEffect(() => {
+    console.log('CountryInfoPopup map', map);
     if (map != null && coordinates != null) {
       map.flyTo({ center: [coordinates.lng, coordinates.lat] });
     }

@@ -9,7 +9,8 @@ import classNames from 'classnames/bind';
 
 import { LocationMarker } from 'models/Geo';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
-import { Map, Marker, useMap } from 'react-map-gl/maplibre';
+// import { Map, Marker, useMap } from 'react-map-gl/maplibre';
+import { Map, Marker } from 'react-map-gl/maplibre';
 import Lines from 'shared/components/AwsMap/Lines';
 import ChipMarker from 'shared/components/ChipMarker/ChipMarker';
 import Style from './map.module.scss';
@@ -31,17 +32,17 @@ function AwsMap({
   center: AwsMapCenter;
   zoom?: number;
 }>) {
-  const { current: map } = useMap();
+  // const { current: map } = useMap();
   const [popup, setPopup] = useState<string>('');
 
   // 선택한 여행 일정 카드 (TabCard)의 컨텍스트가 변경되었을 경우 해당 좌표로 포커스
-  useEffect(() => {
-    const coord = locations.filter(place => place.index === current)[0];
-    console.log('map', map);
-    if (map != null) {
-      map.flyTo({ center: [coord.lng, coord.lat] });
-    }
-  }, [map, current]);
+  // useEffect(() => {
+  //   const coord = locations.filter(place => place.index === current)[0];
+  //   console.log('map', map);
+  //   if (map != null) {
+  //     map.flyTo({ center: [coord.lng, coord.lat] });
+  //   }
+  // }, [map, current]);
 
   useEffect(() => {
     setPopup(current);

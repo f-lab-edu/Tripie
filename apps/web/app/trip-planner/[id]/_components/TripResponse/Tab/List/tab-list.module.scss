@@ -2,6 +2,7 @@
 @use 'shared/mixins' as *;
 
 .list-wrap {
+  width: 100%;
   & li {
     margin-bottom: 1rem;
   }

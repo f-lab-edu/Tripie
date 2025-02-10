@@ -3,6 +3,8 @@ import { Poi } from 'models/Aws';
 import { createRef, useRef } from 'react';
 
 import usePoi from 'hooks/usePoi';
+// import AwsMap from 'shared/components/AwsMap';
+import { MapProvider } from 'react-map-gl/dist/esm/exports-maplibre';
 import { Carousel } from '../../../../../shared/components/Carousel';
 import AwsMap from '../Map';
 import PoiCard from './PoiCard';
@@ -15,7 +17,7 @@ const ArticlePois = ({ item }: { item: PoisProps }) => {
   const { center, current, setCurrent, coordinates } = usePoi({ pois });
 
   return (
-    <>
+    <MapProvider>
       <Carousel carouselProps={pois}>
         {pois.map((poi, index) => (
           <PoiCard
@@ -28,7 +30,8 @@ const ArticlePois = ({ item }: { item: PoisProps }) => {
         ))}
       </Carousel>
       <AwsMap locations={coordinates} center={center} current={current} setCurrent={setCurrent} />
-    </>
+      {/* <AwsMap locationMarker={coordinates} center={center} /> */}
+    </MapProvider>
   );
 };
 

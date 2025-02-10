@@ -13,14 +13,6 @@
   @include map-marker('attraction');
 }
 
-// .marker {
-//   display: inline-flex;
-//   border-radius: 100%;
-//   align-items: center;
-//   justify-content: center;
-//   cursor: pointer;
-// }
-
 .selected {
   @include map-marker('selected');
 }

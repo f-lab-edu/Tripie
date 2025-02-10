@@ -69,9 +69,7 @@ const MapWithCarousel = ({
 
             <Container margin="none" className={cx('timeline-item-wrap')}>
               <Container applyMargin="bottom" className={cx('timeline')}>
-                <Chip className={cx('marker', poi.type)} selected={current === `0-${index}`}>
-                  {schedule[index] != '' ? schedule[index] : index + 1}
-                </Chip>
+                <Chip selected={current === `0-${index}`}>{schedule[index] != '' ? schedule[index] : index + 1}</Chip>
               </Container>
               <PoiCard
                 action={() => setCurrent(`0-${index}`)}
