@@ -41,10 +41,9 @@ const PoiCard = ({
     // https://visgl.github.io/react-map-gl/docs/api-reference/maplibre/use-map
     // 부여했던 Map id가 있다면 MapProvider로 감싸줬을 때 해당 map을 가져와 조작할 수 있다.
     if (tripieMap != null) {
-      console.log('tripieMap', tripieMap, poi.source.geolocation.coordinates);
       tripieMap.flyTo({ center: poi.source.geolocation.coordinates as [number, number] });
     }
-  }, [tripieMap, selected]);
+  }, [selected, tripieMap]);
 
   return (
     <Card.ClickableContent

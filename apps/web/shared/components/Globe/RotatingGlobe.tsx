@@ -1,15 +1,12 @@
 'use client';
 
-import classNames from 'classnames/bind';
 import COLORS from 'constants/colors';
 import dynamic from 'next/dynamic';
 import { Suspense, useEffect, useRef } from 'react';
 
 import { GlobeMethods } from 'react-globe.gl';
 import Countries from './countries.json';
-import Style from './globe.module.scss';
-
-const cx = classNames.bind(Style);
+import './globe.scss';
 
 // https://github.com/vasturiano/react-globe.gl/issues/1#issuecomment-1710898408
 const Globe = dynamic(() => import('react-globe.gl').then(mod => mod.default), {
@@ -37,7 +34,8 @@ const RotatingGlobe = () => {
   }, []);
 
   return (
-    <div className={cx('globe')}>
+    // <div className={cx('globe')}>
+    <div className={'globe'}>
       <Suspense fallback={null}>
         <Globe
           height={500}

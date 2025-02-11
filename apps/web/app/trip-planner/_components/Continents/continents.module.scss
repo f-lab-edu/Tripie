@@ -1,12 +1,6 @@
 @use 'shared/variables' as *;
 @use 'shared/mixins' as *;
 
-.globe {
-  width: 80%;
-  display: inline-flex;
-  height: fit-content !important;
-  justify-content: center;
-}
 .chip {
   min-width: fit-content;
   padding: 1rem;
@@ -14,21 +8,7 @@
 .accented {
   @include accented;
 }
-.globe-wrap {
-  & div {
-    width: 100%;
-    height: fit-content !important;
-    display: inline-flex;
-    justify-content: center;
-  }
-  & canvas {
-    height: min(27rem, 50vh) !important;
-    transform: none !important;
-  }
-  & .scene-container {
-    width: 100% !important;
-  }
-}
+
 .submit-button {
   width: 100% !important;
 }

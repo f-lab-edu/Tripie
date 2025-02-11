@@ -12,7 +12,7 @@ export default function Subscription() {
 
   return (
     <Card.Content>
-      <Container margin="none" className={cx('with-border', 'chip-wrap')}>
+      <Container margin="l" className={cx('with-border', 'chip-wrap')} applyMargin="bottom">
         <Switch current={current} cycle={cycle} text={current} />
         <div>Subscription</div>
       </Container>

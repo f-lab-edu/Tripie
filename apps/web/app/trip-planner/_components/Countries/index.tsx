@@ -45,9 +45,7 @@ export function CountryStep({ context, onNext }: Readonly<Props>) {
     return queryClient.ensureQueryData({
       queryKey: useContinentl.queryKey(country),
       queryFn: () =>
-        // firestoreService.getListWithIds('continentl').then(countries => {
-
-        firestoreService.getListWithIds('continentl-with-blur-data').then(countries => {
+        firestoreService.getListWithIds('continentl').then(countries => {
           return country === 'all' ? countries : countries?.filter((place: Continentl) => place.id === country);
         }),
     });

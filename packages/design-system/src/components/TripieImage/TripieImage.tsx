@@ -2,7 +2,7 @@
 import classNames from 'classnames/bind';
 
 import Image from 'next/image';
-import { RefObject, useState } from 'react';
+import { RefObject } from 'react';
 import Container from '../Container';
 import Text from '../Text';
 import Style from './tripie-image.module.scss';
@@ -30,32 +30,25 @@ const TripieImage = ({
   withBorder?: boolean;
   fill?: boolean;
 }) => {
-  const [isLoading, setIsLoading] = useState(false);
-
-  if (blurDataURL == null) {
-    return (
-      <Container margin="none" className={cx('tripie-image', 'img-wrap', sizes, className)} ref={ref}>
+  return (
+    <Container margin="none" className={cx('tripie-image', 'img-wrap', sizes, withBorder && 'with-border', className)}>
+      {blurDataURL == null ? (
         <img
           className={cx('tripie-image', 'img-wrap', sizes, withBorder && 'with-border')}
           src={src}
           alt={`${alt}의 이미지일 수 있음`}
-          onLoad={() => setIsLoading(false)}
         />
-      </Container>
-    );
-  }
-
-  return (
-    <Container margin="none" className={cx('tripie-image', 'img-wrap', sizes, withBorder && 'with-border', className)}>
-      <Image
-        src={src}
-        alt={alt}
-        sizes={'(min-width:640px) 50vw, 100vw'}
-        placeholder="blur"
-        fill={fill}
-        blurDataURL={blurDataURL}
-        ref={ref}
-      />
+      ) : (
+        <Image
+          src={src}
+          alt={alt}
+          sizes={'(min-width:640px) 50vw, 100vw'}
+          placeholder="blur"
+          fill={fill}
+          blurDataURL={blurDataURL}
+          ref={ref}
+        />
+      )}
     </Container>
   );
 };

@@ -8,9 +8,10 @@ export default function PlaygroundButton({ data }: { data: any }) {
     // }
     // await Promise.all(
     //   data.map(async item => {
-    //     await firestoreService.addItem('continentl-with-blur-data', item);
+    //     await firestoreService.addItem('continentl', item);
     //   })
     // );
+    console.log(data);
   };
 
   return (
