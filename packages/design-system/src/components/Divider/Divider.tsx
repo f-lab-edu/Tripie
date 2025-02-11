@@ -4,7 +4,8 @@ import { Variants, motion } from 'framer-motion';
 
 import { ACCORDIAN_VARIANTS } from '../../shared/variants';
 
-import Container, { ContainerProps } from '../Container/Container';
+import Container, { ContainerProps } from '@components/Container';
+// import Container, { ContainerProps } from '../Container/Container';
 import HR_MARGINS from './constants';
 import Style from './divider.module.scss';
 

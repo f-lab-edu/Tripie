@@ -1,7 +1,7 @@
+import Container from '@components/Container';
 import classNames from 'classnames/bind';
 import { ReactNode } from 'react';
-
-import Container from '../Container/Container';
+// import Container from '../Container/Container';
 import Style from './list.module.scss';
 
 const cx = classNames.bind(Style);

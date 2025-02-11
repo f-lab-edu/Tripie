@@ -1,7 +1,8 @@
+// import Container from '@components/Container';
+import Container from '@components/Container';
 import classNames from 'classnames/bind';
 import { AnimationProps, motion } from 'framer-motion';
 import { ReactNode } from 'react';
-import Container from '../Container/Container';
 import Style from './text.module.scss';
 import { VARIANTS } from './variants';
 
