@@ -2,7 +2,11 @@
   "compilerOptions": {
     "rootDir": ".",
     "outDir": "./dist",
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "baseUrl": "./src",
+    "paths": {
+      "@components/*": ["components/*"]
+    }
   },
   "include": ["**/*.ts", "**/*.tsx", "../../typings", "jest.setup.cjs", "~/*.ts", "~/*.tsx"],
   "exclude": ["dist"]
