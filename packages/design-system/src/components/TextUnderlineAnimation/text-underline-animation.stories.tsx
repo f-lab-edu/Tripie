@@ -28,5 +28,5 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   name: 'TextUnderlineAnimation',
-  args: { children: 'text underline animation' },
+  args: { children: 'hover to activate text underline animation' },
 };

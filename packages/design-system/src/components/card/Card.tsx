@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 import { motion } from 'framer-motion';
 import { MutableRefObject, ReactNode, RefObject } from 'react';
 import { SHINE_VARIANT } from '../../shared/variants';
-import Container from '../Container';
+import Container from '../Container/Container';
 import Divider from '../Divider';
 import MotionSlideUp from '../MotionSlideUp/MotionSlideUp';
 import Text from '../Text';

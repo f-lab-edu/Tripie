@@ -5,6 +5,7 @@
   "main": "index.js",
   "private": true,
   "exports": {
+    "./container": "./src/container.tsx",
     "./global": [
       "./src/global.scss"
     ],
