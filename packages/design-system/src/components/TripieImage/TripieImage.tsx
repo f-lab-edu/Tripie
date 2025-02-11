@@ -1,10 +1,9 @@
 'use client';
 import classNames from 'classnames/bind';
 
-import Container from '@components/Container';
 import Image from 'next/image';
 import { RefObject } from 'react';
-// import Container from '../Container';
+import Container from '../Container';
 import Text from '../Text';
 import Style from './tripie-image.module.scss';
 
