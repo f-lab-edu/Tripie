@@ -1,4 +1,4 @@
-import { Container } from '@tripie-pyotato/design-system';
+import { TripieContainer } from '@tripie-pyotato/design-system';
 
 import classNames from 'classnames/bind';
 
@@ -10,10 +10,10 @@ const cx = classNames.bind(Style);
 
 export default function ParticleBackground({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <Container className={cx('background')} margin="none">
-      <Container className={cx('gradient-bottom')} margin="none"></Container>
+    <TripieContainer className={cx('background')} margin="none">
+      <TripieContainer className={cx('gradient-bottom')} margin="none"></TripieContainer>
       {children}
       <ParticleField />
-    </Container>
+    </TripieContainer>
   );
 }

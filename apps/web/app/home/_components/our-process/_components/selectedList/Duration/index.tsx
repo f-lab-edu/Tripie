@@ -1,5 +1,5 @@
 'use client';
-import { Container, TextFillAnimation } from '@tripie-pyotato/design-system';
+import { TextFillAnimation, TripieContainer } from '@tripie-pyotato/design-system';
 
 import SelectedDates from 'app/trip-planner/_components/Duration/SelectedDates';
 import RESOURCE from 'constants/resources';
@@ -30,9 +30,9 @@ const Calendars = ({
   return (
     <>
       <SelectedDates duration={duration} />
-      <Container applyMargin="top">
+      <TripieContainer applyMargin="top">
         <CalendarHeader selectRange={true} allowPartialRange={false} />
-        <Container applyMargin="top-bottom">
+        <TripieContainer applyMargin="top-bottom">
           {calendar.map(({ days, min, max }) => (
             <Calendar
               minDate={min}
@@ -45,8 +45,8 @@ const Calendars = ({
               showNavigation={false}
             />
           ))}
-        </Container>
-      </Container>
+        </TripieContainer>
+      </TripieContainer>
     </>
   );
 };
@@ -77,24 +77,24 @@ const DurationSelect = () => {
 
   if (today == null || duration == null) {
     return (
-      <Container margin="none" className={cx('loading-wrap')}>
-        <Container margin="none" className={cx('text-wrap')}>
+      <TripieContainer margin="none" className={cx('loading-wrap')}>
+        <TripieContainer margin="none" className={cx('text-wrap')}>
           <Icon.Loading />
           <TextFillAnimation.Title>Loading..</TextFillAnimation.Title>
-        </Container>
-      </Container>
+        </TripieContainer>
+      </TripieContainer>
     );
   }
 
   return (
-    <Container margin="none">
-      <Container margin="none">
+    <TripieContainer margin="none">
+      <TripieContainer margin="none">
         <Calendars calendar={calendar.slice(0, 1)} duration={duration} selected={selected as LooseValue} />
-      </Container>
+      </TripieContainer>
       <NextButton>
         {duration.start} ~ {duration.end} <Icon src={RESOURCE.ARROW} />
       </NextButton>
-    </Container>
+    </TripieContainer>
   );
 };
 

@@ -1,5 +1,5 @@
 'use client';
-import { Chip, Container } from '@tripie-pyotato/design-system';
+import { Chip, TripieContainer } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import Style from './shared/selected-list.module.scss';
 
@@ -13,18 +13,18 @@ const cx = classNames.bind(Style);
 
 const CitySelect = () => {
   return (
-    <Container margin="none">
-      <Container className={cx('wrap')} applyMargin="bottom">
+    <TripieContainer margin="none">
+      <TripieContainer className={cx('wrap')} applyMargin="bottom">
         {KOR_CITIES.map((city: string) => (
           <Chip selected={SELECTED_CITY === city} className={cx('button-chip')} key={city}>
             {city}
           </Chip>
         ))}
-      </Container>
+      </TripieContainer>
       <NextButton>
         "{SELECTED_CITY}"로 보기 <Icon src={RESOURCE.ARROW} />
       </NextButton>
-    </Container>
+    </TripieContainer>
   );
 };
 

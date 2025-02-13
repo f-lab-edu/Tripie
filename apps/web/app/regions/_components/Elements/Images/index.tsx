@@ -1,5 +1,5 @@
 'use client';
-import { Carousel, Container, TripieImage } from '@tripie-pyotato/design-system';
+import { Carousel, TripieContainer, TripieImage } from '@tripie-pyotato/design-system';
 import { ArticleImage } from 'models/Article';
 
 export type ImageProps = { type: 'images'; value: { images: ArticleImage[] } };
@@ -8,7 +8,7 @@ const ArticleImages = ({ item }: { item: ImageProps }) => {
   const { images } = item.value;
 
   return (
-    <Container applyMargin="top">
+    <TripieContainer applyMargin="top">
       <Carousel
         items={images.map((item, index) => (
           <TripieImage.WithSourceUrl
@@ -21,7 +21,7 @@ const ArticleImages = ({ item }: { item: ImageProps }) => {
           />
         ))}
       />
-    </Container>
+    </TripieContainer>
   );
 };
 

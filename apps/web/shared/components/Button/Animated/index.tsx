@@ -1,5 +1,5 @@
 'use client';
-import { AnimatedButton, Container } from '@tripie-pyotato/design-system';
+import { AnimatedButton, TripieContainer } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import { ReactNode } from 'react';
 import { InView } from 'react-intersection-observer';
@@ -12,16 +12,16 @@ const NextButton = ({ children }: { children: ReactNode }) => {
   return (
     <InView>
       {({ inView, ref }) => (
-        <Container ref={ref} margin="none" className={cx('next-button-wrap')}>
+        <TripieContainer ref={ref} margin="none" className={cx('next-button-wrap')}>
           <AnimatedButton withBorder={true} animate={inView ? 'hover' : 'rest'} className={cx('submit-button')}>
-            <Container margin="none" className={cx('flex')}>
+            <TripieContainer margin="none" className={cx('flex')}>
               {children}
-            </Container>
+            </TripieContainer>
           </AnimatedButton>
-          <Container margin="none">
+          <TripieContainer margin="none">
             <Icon.Cursor hovered={inView ? 'hover' : ''} className={cx('all-info-cursor')} />
-          </Container>
-        </Container>
+          </TripieContainer>
+        </TripieContainer>
       )}
     </InView>
   );

@@ -3,10 +3,10 @@ import classNames from 'classnames/bind';
 import { motion } from 'framer-motion';
 import { MutableRefObject, ReactNode, RefObject } from 'react';
 import { SHINE_VARIANT } from '../../shared/variants';
-import Container from '../Container/Container';
 import Divider from '../Divider';
 import MotionSlideUp from '../MotionSlideUp/MotionSlideUp';
 import Text from '../Text';
+import TripieContainer from '../TripieContainer/TripieContainer';
 import TripieImage from '../TripieImage';
 import Style from './card.module.scss';
 
@@ -47,9 +47,9 @@ const CardContent = ({
   ref?: MutableRefObject<HTMLDivElement | null>;
 }>) => {
   return (
-    <Container margin="none" ref={ref} className={cx('with-border', 'inner-wrap', className)}>
+    <TripieContainer margin="none" ref={ref} className={cx('with-border', 'inner-wrap', className)}>
       {children}
-    </Container>
+    </TripieContainer>
   );
 };
 
@@ -89,9 +89,9 @@ const CardDescription = ({
   className?: string;
 }>) => {
   return (
-    <Container margin="none" className={cx('inner-wrap', 'with-description', className)}>
+    <TripieContainer margin="none" className={cx('inner-wrap', 'with-description', className)}>
       {children}
-    </Container>
+    </TripieContainer>
   );
 };
 
@@ -120,13 +120,13 @@ const CardWithImage = ({
 }) => {
   return (
     <Card.ClickableContent onClick={onClick} className={cx('article-card', className)}>
-      <Container margin="none" className={cx('img-wrap')}>
+      <TripieContainer margin="none" className={cx('img-wrap')}>
         {sourceUrl == null || !displaySource ? (
           <TripieImage
             blurDataURL={blurDataURL}
             src={src}
             sizes="small"
-            alt={alt ||`${src} 이미지일 수도 있음` }
+            alt={alt || `${src} 이미지일 수도 있음`}
             className={cx('thumbnail')}
             withBorder={withBorder}
           />
@@ -136,18 +136,18 @@ const CardWithImage = ({
             withBorder={withBorder}
             sourceUrl={sourceUrl}
             src={src}
-            alt={alt||`${src} 이미지일 수도 있음`}
+            alt={alt || `${src} 이미지일 수도 있음`}
             className={cx('thumbnail')}
           />
         )}
-      </Container>
-      <Container>
-        <Container margin="sm" applyMargin="bottom">
+      </TripieContainer>
+      <TripieContainer>
+        <TripieContainer margin="sm" applyMargin="bottom">
           <Text className={cx('bold')}>{title}</Text>
           <Divider />
-        </Container>
+        </TripieContainer>
         {summary}
-      </Container>
+      </TripieContainer>
     </Card.ClickableContent>
   );
 };

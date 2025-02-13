@@ -4,7 +4,7 @@ import { Variants, motion } from 'framer-motion';
 
 import { ACCORDIAN_VARIANTS } from '../../shared/variants';
 
-import Container, { ContainerProps } from '../Container/Container';
+import TripieContainer, { TripieContainerProps } from '../TripieContainer/TripieContainer';
 import HR_MARGINS from './constants';
 import Style from './divider.module.scss';
 
@@ -20,9 +20,9 @@ const Divider = ({ className, current, variants = ACCORDIAN_VARIANTS.DIVIDER }: 
 
 const ArticleDivider = ({ item }: { item: ArticleDividerProps }) => {
   return (
-    <Container applyMargin="top-bottom" margin={HR_MARGINS[item.type] as ContainerProps['margin']}>
+    <TripieContainer applyMargin="top-bottom" margin={HR_MARGINS[item.type] as TripieContainerProps['margin']}>
       <Divider className={cx('divider', `divider-${item.type}`)} />
-    </Container>
+    </TripieContainer>
   );
 };
 

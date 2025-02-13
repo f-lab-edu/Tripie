@@ -4,8 +4,8 @@ import classNames from 'classnames/bind';
 import Image from 'next/image';
 
 import { PLACEHOLDER } from '../../shared/resource';
-import Container from '../Container';
 import Text from '../Text';
+import TripieContainer from '../TripieContainer';
 import Style from './tripie-image.module.scss';
 
 const cx = classNames.bind(Style);
@@ -25,7 +25,7 @@ const TripieImage = ({
   alt: string;
   src?: string;
   // ref?: RefObject<any>;
-  ref?:(node?: Element | null | undefined) => void;
+  ref?: (node?: Element | null | undefined) => void;
   className?: string;
   sizes?: ImageSizes;
   blurDataURL?: string;
@@ -33,7 +33,10 @@ const TripieImage = ({
   fill?: boolean;
 }) => {
   return (
-    <Container margin="none" className={cx('tripie-image', 'img-wrap', sizes, withBorder && 'with-border', className)}>
+    <TripieContainer
+      margin="none"
+      className={cx('tripie-image', 'img-wrap', sizes, withBorder && 'with-border', className)}
+    >
       {blurDataURL == null ? (
         <img
           className={cx('tripie-image', 'img-wrap', sizes, withBorder && 'with-border')}
@@ -51,7 +54,7 @@ const TripieImage = ({
           ref={ref}
         />
       )}
-    </Container>
+    </TripieContainer>
   );
 };
 
@@ -68,7 +71,7 @@ const ImageWithSourceUrl = ({
   alt: string;
   src?: string;
   // ref?: RefObject<any>;
-  ref?:(node?: Element | null | undefined) => void
+  ref?: (node?: Element | null | undefined) => void;
   className?: string;
   sourceUrl: string;
   sizes?: ImageSizes;
@@ -76,10 +79,10 @@ const ImageWithSourceUrl = ({
   blurDataURL?: string;
 }) => {
   return (
-    <Container margin="none" className={cx('img-wrap', withBorder ?? 'with-border', className)}>
+    <TripieContainer margin="none" className={cx('img-wrap', withBorder ?? 'with-border', className)}>
       <TripieImage src={src} alt={alt} ref={ref} sizes={sizes} blurDataURL={blurDataURL} />
       <Text className={cx('source-url', 'img-source')}>{`출처 ${sourceUrl}`}</Text>
-    </Container>
+    </TripieContainer>
   );
 };
 

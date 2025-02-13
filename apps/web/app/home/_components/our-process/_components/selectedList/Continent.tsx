@@ -1,5 +1,5 @@
 'use client';
-import { Chip, Container } from '@tripie-pyotato/design-system';
+import { Chip, TripieContainer } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import Style from './shared/selected-list.module.scss';
 
@@ -15,8 +15,8 @@ const cx = classNames.bind(Style);
 
 const ContinentSelect = () => {
   return (
-    <Container margin="none">
-      <Container className={cx('wrap')} applyMargin="bottom">
+    <TripieContainer margin="none">
+      <TripieContainer className={cx('wrap')} applyMargin="bottom">
         {Object.keys(CONTINENTS).map(continent => (
           <Chip
             selected={SELECTED_CONTINENT === continent}
@@ -26,12 +26,12 @@ const ContinentSelect = () => {
             {CONTINENTS[continent as ContinentKeys].name}
           </Chip>
         ))}
-      </Container>
+      </TripieContainer>
       <NextButton>
         "{SELECTED_CONTINENT_NAME?.name}"{SELECTED_CONTINENT_NAME?.name === '유럽' ? '으' : null}로 보기{' '}
         <Icon src={RESOURCE.ARROW} />
       </NextButton>
-    </Container>
+    </TripieContainer>
   );
 };
 

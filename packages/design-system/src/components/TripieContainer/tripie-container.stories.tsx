@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useEffect } from 'react';
 import { useAppTheme } from '../../hooks';
-import Container from './Container';
+import TripieContainer from './TripieContainer';
 //
 
-const meta: Meta<typeof Container> = {
-  title: 'tripie-ui/Container',
-  component: Container,
+const meta: Meta<typeof TripieContainer> = {
+  title: 'tripie-ui/TripieContainer',
+  component: TripieContainer,
   tags: ['autodocs'],
   decorators: [
     (story, context) => {

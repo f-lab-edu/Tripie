@@ -1,5 +1,5 @@
 'use client';
-import { Chip, Container } from '@tripie-pyotato/design-system';
+import { Chip, TripieContainer } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import Style from './shared/selected-list.module.scss';
 
@@ -14,9 +14,9 @@ const cx = classNames.bind(Style);
 
 const TravelStyleSelect = () => {
   return (
-    <Container margin="none">
-      <Container margin="none">
-        <Container className={cx('wrap')} applyMargin="bottom">
+    <TripieContainer margin="none">
+      <TripieContainer margin="none">
+        <TripieContainer className={cx('wrap')} applyMargin="bottom">
           {Object.values(PREFERENCE_LIST).map((tagName, index) => (
             <Chip
               key={tagName.tag}
@@ -28,13 +28,13 @@ const TravelStyleSelect = () => {
               {tagName.tag}
             </Chip>
           ))}
-        </Container>
-      </Container>
+        </TripieContainer>
+      </TripieContainer>
 
       <NextButton>
         다음 <Icon src={RESOURCE.ARROW} />
       </NextButton>
-    </Container>
+    </TripieContainer>
   );
 };
 

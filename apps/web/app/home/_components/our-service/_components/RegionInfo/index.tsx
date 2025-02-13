@@ -1,5 +1,5 @@
 'use client';
-import { Card, Container } from '@tripie-pyotato/design-system';
+import { Card, TripieContainer } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 
 import Style from './region-info.module.scss';
@@ -35,17 +35,17 @@ const RegionInfo = () => {
 
   return (
     <Card.Content className={cx('card-wrap', 'scroll')}>
-      <Container className={cx('card-content-wrap')} margin="none">
-        <Container margin="none" className={cx('card-region-wrap')}>
+      <TripieContainer className={cx('card-content-wrap')} margin="none">
+        <TripieContainer margin="none" className={cx('card-region-wrap')}>
           <RegionSelect selected={currentRegionId} selectedRegion={selectedRegion} />
-          <Container margin="none">
+          <TripieContainer margin="none">
             <RegionList
               data={data.filter(item => item.regionId === selectedRegion)?.[0]?.data}
               selectedRegion={selectedRegion}
             />
-          </Container>
-        </Container>
-      </Container>
+          </TripieContainer>
+        </TripieContainer>
+      </TripieContainer>
     </Card.Content>
   );
 };

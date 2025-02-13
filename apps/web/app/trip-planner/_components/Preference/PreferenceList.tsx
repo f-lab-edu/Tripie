@@ -1,4 +1,4 @@
-import { Chip, Container } from '@tripie-pyotato/design-system';
+import { Chip, TripieContainer } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import PREFERENCE_LIST from 'constants/preferences';
 import { Dispatch, SetStateAction } from 'react';
@@ -29,9 +29,9 @@ const PreferenceList = ({ selected, setSelected }: Props) => {
   };
 
   return (
-    <Container margin="none">
+    <TripieContainer margin="none">
       <Icon.Refresh onTapStart={() => setSelected([])} />{' '}
-      <Container className={cx('chip-wrap')} margin="none">
+      <TripieContainer className={cx('chip-wrap')} margin="none">
         {Object.values(PREFERENCE_LIST).map((tagName, index) => (
           <Chip
             key={tagName.tag}
@@ -42,8 +42,8 @@ const PreferenceList = ({ selected, setSelected }: Props) => {
             {tagName.tag}
           </Chip>
         ))}
-      </Container>
-    </Container>
+      </TripieContainer>
+    </TripieContainer>
   );
 };
 

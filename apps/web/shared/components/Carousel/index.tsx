@@ -1,5 +1,5 @@
 'use client';
-import { Container } from '@tripie-pyotato/design-system';
+import { TripieContainer } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import { ItineraryItem } from 'models/Itinery';
 import { ReactNode } from 'react';
@@ -16,13 +16,13 @@ export const Carousel = ({
   carouselProps: MapWithCarouselProps['value']['pois'] | ItineraryItem[];
 }) => {
   return (
-    <Container applyMargin="top-bottom" className={cx(carouselProps.length > 1 ? ['carousel'] : null)}>
-      <Container
+    <TripieContainer applyMargin="top-bottom" className={cx(carouselProps.length > 1 ? ['carousel'] : null)}>
+      <TripieContainer
         className={cx(carouselProps.length > 1 ? ['flex-items', 'embedded-card-wrap', 'itinerary-cards'] : null)}
         margin="none"
       >
         {children}
-      </Container>
-    </Container>
+      </TripieContainer>
+    </TripieContainer>
   );
 };

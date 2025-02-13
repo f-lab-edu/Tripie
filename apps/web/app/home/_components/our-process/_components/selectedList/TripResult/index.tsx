@@ -1,5 +1,5 @@
 'use client';
-import { Container } from '@tripie-pyotato/design-system';
+import { TripieContainer } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import Style from './trip-results.module.scss';
@@ -25,7 +25,7 @@ const TripResultExample = () => {
   });
 
   return (
-    <Container margin="none" className={cx('map-wrap')}>
+    <TripieContainer margin="none" className={cx('map-wrap')}>
       <ChatTab data={AI_PLAN.plans} scrollIntoView={false} />
       <Map
         id={MAP_ID}
@@ -40,7 +40,7 @@ const TripResultExample = () => {
         <Markers locationMarker={locationMarker[currentDate]} focusAfterOpen={false} />
         <Lines locationMarker={locationMarker[currentDate]} />
       </Map>
-    </Container>
+    </TripieContainer>
   );
 };
 export default TripResultExample;

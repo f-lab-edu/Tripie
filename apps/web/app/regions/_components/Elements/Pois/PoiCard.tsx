@@ -1,5 +1,5 @@
 'use client';
-import { Card, Container, TripieImage } from '@tripie-pyotato/design-system';
+import { Card, TripieContainer, TripieImage } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import POI_TYPE from 'constants/triple';
 import { Poi } from 'models/Aws';
@@ -62,7 +62,7 @@ const PoiCard = ({
         className={cx('img-wrap')}
       />
 
-      <Container applyMargin="top-bottom" margin="sm" className={cx('heading')}>
+      <TripieContainer applyMargin="top-bottom" margin="sm" className={cx('heading')}>
         <ArticleHeading item={{ type: 'heading4', value: { text: poi.source.names.ko } }} />
         <ArticleText
           item={{
@@ -73,7 +73,7 @@ const PoiCard = ({
           }}
         />
         <ArticleText item={{ type: 'text', value: { text: POI_TYPE[poi.type] } }} />
-      </Container>
+      </TripieContainer>
 
       <ArticleText item={{ type: 'text', value: { text: poi.source.comment } }} />
     </Card.ClickableContent>

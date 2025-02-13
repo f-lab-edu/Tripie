@@ -1,5 +1,5 @@
 'use client';
-import { Container, Headings, MotionSlideUp } from '@tripie-pyotato/design-system';
+import { Headings, MotionSlideUp, TripieContainer } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 
 import FaqList from './FaqList';
@@ -9,12 +9,12 @@ const cx = classNames.bind(Style);
 export default function Faq() {
   return (
     <section className={cx('faq')}>
-      <Container applyMargin="left-right" margin="m">
+      <TripieContainer applyMargin="left-right" margin="m">
         <MotionSlideUp>
           <Headings.H2>FAQ</Headings.H2>
           <FaqList />
         </MotionSlideUp>
-      </Container>
+      </TripieContainer>
     </section>
   );
 }

@@ -1,5 +1,5 @@
 'use client';
-import { Chip, Container } from '@tripie-pyotato/design-system';
+import { Chip, TripieContainer } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 
 import { Dispatch, SetStateAction, useMemo } from 'react';
@@ -43,10 +43,10 @@ const CityList = ({ cities, selected, setSelected }: CityListProps) => {
   };
 
   return (
-    <Container margin="none">
+    <TripieContainer margin="none">
       <Icon.Refresh onTapStart={() => setSelected([])} />
-      <Container className={cx('scroll')} margin="none">
-        <Container className={cx('chip-wrap')} margin="none">
+      <TripieContainer className={cx('scroll')} margin="none">
+        <TripieContainer className={cx('chip-wrap')} margin="none">
           <Chip className={cx('chip')} selected={allSelected} onClick={() => handleSelect()}>
             전체 선택
           </Chip>
@@ -60,9 +60,9 @@ const CityList = ({ cities, selected, setSelected }: CityListProps) => {
               {city}
             </Chip>
           ))}
-        </Container>
-      </Container>
-    </Container>
+        </TripieContainer>
+      </TripieContainer>
+    </TripieContainer>
   );
 };
 

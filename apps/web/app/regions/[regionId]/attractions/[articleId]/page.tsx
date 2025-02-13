@@ -1,5 +1,5 @@
 'use server';
-import { Card, Container, TripieImage } from '@tripie-pyotato/design-system';
+import { Card, TripieContainer, TripieImage } from '@tripie-pyotato/design-system';
 
 import getArticleDetail from 'app/api/articles/detail';
 import Nav from 'app/home/_components/nav/Nav';
@@ -25,20 +25,20 @@ const Attractions = async ({ params }: { params: Promise<{ regionId: string; art
     <>
       <Nav />
       <Card.Content className={cx('fit-content')}>
-        <Container margin="m" applyMargin="top-left-right">
+        <TripieContainer margin="m" applyMargin="top-left-right">
           <AttractionTitle names={data.source.names} />
-        </Container>
-        <Container margin="m" applyMargin="all" className={cx('img-container')}>
+        </TripieContainer>
+        <TripieContainer margin="m" applyMargin="all" className={cx('img-container')}>
           <TripieImage
             blurDataURL={blurredThumbnail?.data}
             src={data.source.image.sizes.full.url}
             alt={`${data.source.image.sizes.full.url}의 썸네일`}
             sizes="large"
           />
-        </Container>
-        <Container margin="none">
+        </TripieContainer>
+        <TripieContainer margin="none">
           <RegionBody source={data.source} dataUrl={data.id} />
-        </Container>
+        </TripieContainer>
       </Card.Content>
     </>
   );

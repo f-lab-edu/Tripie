@@ -1,7 +1,7 @@
 //
 import classNames from 'classnames/bind';
 import { ReactNode } from 'react';
-import Container from '../Container/Container';
+import TripieContainer from '../TripieContainer/TripieContainer';
 import Style from './list.module.scss';
 
 const cx = classNames.bind(Style);
@@ -16,9 +16,9 @@ const List = ({
   rowView?: boolean;
 }) => {
   return (
-    <Container margin="m" className={cx(className)} applyMargin="top-bottom">
+    <TripieContainer margin="m" className={cx(className)} applyMargin="top-bottom">
       <ul className={cx('list', rowView ? 'row-view' : '')}>{children}</ul>
-    </Container>
+    </TripieContainer>
     // <div className={cx(className)}>
     //   <ul className={cx('list', rowView ? 'row-view' : '')}>{children}</ul>
     // </div>
@@ -30,9 +30,9 @@ const GridList = ({ children, className }: { children: ReactNode; className?: st
     // <div className={cx(className)}>
     //   <ul className={cx('list', 'wrap')}>{children}</ul>
     // </div>
-    <Container margin="m" className={cx(className)} applyMargin="top-bottom">
+    <TripieContainer margin="m" className={cx(className)} applyMargin="top-bottom">
       <ul className={cx('list', 'wrap')}>{children}</ul>
-    </Container>
+    </TripieContainer>
   );
 };
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { Card, Chip, Container, Divider, Headings, List, Text } from '@tripie-pyotato/design-system';
+import { Card, Chip, Divider, Headings, List, Text, TripieContainer } from '@tripie-pyotato/design-system';
 import Accordion from 'shared/components/Accordian/Accordian';
 
 import classNames from 'classnames/bind';
@@ -19,12 +19,12 @@ const RegionSelect = ({ selected, selectedRegion }: { selected: string; selected
     <Card.Content className={cx('card-wrap')}>
       <Accordion>
         <Accordion.Header>
-          <Container className={cx('flex')} margin="sm" applyMargin="top-bottom">
+          <TripieContainer className={cx('flex')} margin="sm" applyMargin="top-bottom">
             <Headings.H4>
               어떤 <span className={cx('accented')}>지역</span>이 궁금하세요?
             </Headings.H4>
             <Accordion.Icon variants={ACCORDIAN_VARIANTS.BUTTON} src={RESOURCE.ARROW} />
-          </Container>
+          </TripieContainer>
         </Accordion.Header>
         <Accordion.Divider />
         <Accordion.Body className={cx('accordian-body')}>
@@ -49,9 +49,9 @@ const RegionSelect = ({ selected, selectedRegion }: { selected: string; selected
           </List.Grid>
 
           <Accordion.Header>
-            <Container className={cx('flex')} margin="sm" applyMargin="top-bottom">
+            <TripieContainer className={cx('flex')} margin="sm" applyMargin="top-bottom">
               <Headings.H4>{selected}</Headings.H4>
-            </Container>
+            </TripieContainer>
           </Accordion.Header>
           <Divider />
           <List.Grid className={cx('grid-wrap')}>

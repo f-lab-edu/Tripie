@@ -1,5 +1,5 @@
 'use client';
-import { AnimatedButton, Container } from '@tripie-pyotato/design-system';
+import { AnimatedButton, TripieContainer } from '@tripie-pyotato/design-system';
 
 import classNames from 'classnames/bind';
 
@@ -69,9 +69,9 @@ const Calendars = ({
   return (
     <>
       <SelectedDates duration={duration} />
-      <Container margin="none">
+      <TripieContainer margin="none">
         <CalendarHeader selectRange={true} allowPartialRange={false} />
-        <Container applyMargin="top-bottom" className={cx('calendar-wrap')}>
+        <TripieContainer applyMargin="top-bottom" className={cx('calendar-wrap')}>
           {calendar.map(({ days, min, max }, index) => (
             <Calendar
               minDate={min}
@@ -89,16 +89,16 @@ const Calendars = ({
               showNavigation={false}
             />
           ))}
-        </Container>
-      </Container>
-      <Container margin="none">
+        </TripieContainer>
+      </TripieContainer>
+      <TripieContainer margin="none">
         <AnimatedButton
           withBorder={true}
           disabled={duration.end === ''}
           onClick={handleSubmit}
           className={cx('submit-button', duration.end !== '' && 'long-text')}
         >
-          <Container margin="none" className={cx('flex')}>
+          <TripieContainer margin="none" className={cx('flex')}>
             {duration.end === '' ? (
               '여행의 시작과 끝나는 날짜를 선택해주세요.'
             ) : (
@@ -106,9 +106,9 @@ const Calendars = ({
                 {duration.start} ~ {duration.end} <Icon src={RESOURCE.ARROW} />
               </>
             )}
-          </Container>
+          </TripieContainer>
         </AnimatedButton>
-      </Container>
+      </TripieContainer>
     </>
   );
 };

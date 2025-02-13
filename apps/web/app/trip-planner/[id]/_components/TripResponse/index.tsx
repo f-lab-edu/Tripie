@@ -1,7 +1,7 @@
 'use client';
 import classNames from 'classnames/bind';
 
-import { Container } from '@tripie-pyotato/design-system';
+import { TripieContainer } from '@tripie-pyotato/design-system';
 
 import RESOURCE from 'constants/resources';
 import ROUTE from 'constants/routes';
@@ -83,10 +83,10 @@ const TripResponse = ({ data }: { data: ChatResponseData }) => {
   }
 
   return (
-    <Container margin="none" className={cx('background')}>
+    <TripieContainer margin="none" className={cx('background')}>
       <TabContext.Provider value={selectedActivityValues}>
         <SelectedDateContext.Provider value={selectedDateValues}>
-          <Container margin="none">
+          <TripieContainer margin="none">
             <Icon.Navigate
               src={RESOURCE.ARROW}
               onTapStart={() => router.push(`${ROUTE.TRIP_PLANNER.href}?trip-plan.step=CONTINENT`)}
@@ -96,13 +96,13 @@ const TripResponse = ({ data }: { data: ChatResponseData }) => {
             <h2>
               <span className={cx('accented')}>Chat</span>
             </h2>
-          </Container>
-          <Container margin="none" className={cx('trip-content-wrap')}>
+          </TripieContainer>
+          <TripieContainer margin="none" className={cx('trip-content-wrap')}>
             <MapTab data={data.plans} coordinates={coordinates} />
-          </Container>
+          </TripieContainer>
         </SelectedDateContext.Provider>
       </TabContext.Provider>
-    </Container>
+    </TripieContainer>
   );
 };
 

@@ -1,5 +1,5 @@
 'use client';
-import { Card, Chip, Container, Switch } from '@tripie-pyotato/design-system';
+import { Card, Chip, Switch, TripieContainer } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 
 import useCycle from 'hooks/useCycle';
@@ -12,17 +12,17 @@ export default function Subscription() {
 
   return (
     <Card.Content>
-      <Container margin="l" className={cx('with-border', 'chip-wrap')} applyMargin="bottom">
+      <TripieContainer margin="l" className={cx('with-border', 'chip-wrap')} applyMargin="bottom">
         <Switch current={current} cycle={cycle} text={current} />
         <div>Subscription</div>
-      </Container>
-      <Container margin="none" className={cx('with-border', 'chip-wrap')}>
+      </TripieContainer>
+      <TripieContainer margin="none" className={cx('with-border', 'chip-wrap')}>
         <Chip>Basic</Chip>
         <Chip.Accented current={current} cycle={cycle}>
           Pro
         </Chip.Accented>
         <Chip>Custom</Chip>
-      </Container>
+      </TripieContainer>
     </Card.Content>
   );
 }

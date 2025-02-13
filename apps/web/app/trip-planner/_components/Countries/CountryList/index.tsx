@@ -1,5 +1,5 @@
 import { useQueryClient } from '@tanstack/react-query';
-import { Chip, Container, List, Text } from '@tripie-pyotato/design-system';
+import { Chip, List, Text, TripieContainer } from '@tripie-pyotato/design-system';
 import firestoreService from 'app/api/firebase';
 import classNames from 'classnames/bind';
 import useContinentl from 'hooks/query/useContinentl';
@@ -43,7 +43,7 @@ export function CountryList({ countries, selectedCountry, setSelectedCountry }: 
   }
 
   return (
-    <Container margin="none" className={cx('scroll')}>
+    <TripieContainer margin="none" className={cx('scroll')}>
       <List.Grid className={cx('grid-wrap')}>
         {countries.map((country: Country) => (
           <Chip
@@ -61,6 +61,6 @@ export function CountryList({ countries, selectedCountry, setSelectedCountry }: 
           </Chip>
         ))}
       </List.Grid>
-    </Container>
+    </TripieContainer>
   );
 }

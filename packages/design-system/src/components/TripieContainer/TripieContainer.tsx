@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import { ComponentProps, ReactNode } from 'react';
-import Style from './t.module.scss';
+import Style from './tripie-container.module.scss';
 
 export type TripieContainerProps = {
   margin?: 'xl' | 'l' | 'm' | 'sm' | 'xsm' | 'none';

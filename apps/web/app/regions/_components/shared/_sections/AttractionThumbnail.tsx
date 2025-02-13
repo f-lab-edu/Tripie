@@ -1,5 +1,5 @@
 'use client';
-import { Card, Container } from '@tripie-pyotato/design-system';
+import { Card, TripieContainer } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import { Image as AttractionImage } from 'models/Image';
 import Image from 'next/image';
@@ -9,7 +9,7 @@ const cx = classNames.bind(Style);
 
 const AttractionThumbnail = ({ sizes }: { sizes: AttractionImage['sizes'] }) => {
   return (
-    <Container margin="l" applyMargin="all" className={cx('img-container')}>
+    <TripieContainer margin="l" applyMargin="all" className={cx('img-container')}>
       <Card.Content className={cx('img-wrap')}>
         <Image
           src={sizes.full?.url == null ? sizes.large?.url : sizes.full?.url}
@@ -19,7 +19,7 @@ const AttractionThumbnail = ({ sizes }: { sizes: AttractionImage['sizes'] }) => 
           priority={true}
         />
       </Card.Content>
-    </Container>
+    </TripieContainer>
   );
 };
 

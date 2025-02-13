@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import { Container } from '@tripie-pyotato/design-system';
+import { TripieContainer } from '@tripie-pyotato/design-system';
 import '@tripie-pyotato/design-system/global';
 import Nav from 'app/home/_components/nav/Nav';
 import classNames from 'classnames/bind';
@@ -20,9 +20,9 @@ export default function Layout({
   children: ReactNode;
 }>) {
   return (
-    <Container margin="none" className={cx('background', 'article')}>
+    <TripieContainer margin="none" className={cx('background', 'article')}>
       <Nav />
       {children}
-    </Container>
+    </TripieContainer>
   );
 }

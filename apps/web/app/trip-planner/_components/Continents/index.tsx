@@ -1,4 +1,4 @@
-import { AnimatedButton, Container } from '@tripie-pyotato/design-system';
+import { AnimatedButton, TripieContainer } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import { CONTINENTS } from 'constants/continents';
 import RESOURCE from 'constants/resources';
@@ -35,27 +35,27 @@ export function ContinentStep({ context, onNext }: Readonly<Props>) {
 
   return (
     <>
-      <Container margin="none">
+      <TripieContainer margin="none">
         <h2>
           떠나고 싶은 <span className={cx('accented')}>지역</span>은?
         </h2>
-      </Container>
-      <Container className={cx('globe-wrap')} margin="none">
+      </TripieContainer>
+      <TripieContainer className={cx('globe-wrap')} margin="none">
         <RotatingGlobe />
-      </Container>
+      </TripieContainer>
       <ContinentList selectedContinent={selectedContinent} action={setSelectedContinent} />
-      <Container margin="none">
+      <TripieContainer margin="none">
         <AnimatedButton
           withBorder={true}
           onClick={() => onNext({ continent: CONTINENTS[selectedContinent]['id'] as ContinentKeys })}
           className={cx('submit-button')}
         >
-          <Container margin="none" className={cx('flex', 'submit-button')}>
+          <TripieContainer margin="none" className={cx('flex', 'submit-button')}>
             "{selectedContinentName?.name}"{selectedContinentName?.name === '유럽' ? '으' : null}로 보기{' '}
             <Icon src={RESOURCE.ARROW} />
-          </Container>
+          </TripieContainer>
         </AnimatedButton>
-      </Container>
+      </TripieContainer>
     </>
   );
 }

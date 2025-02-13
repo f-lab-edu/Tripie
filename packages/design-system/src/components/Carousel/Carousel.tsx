@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 import { ReactElement, ReactNode, useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
-import Container from '../Container/Container';
+import TripieContainer from '../TripieContainer/TripieContainer';
 import Style from './carousel.module.scss';
 
 const cx = classNames.bind(Style);
@@ -13,9 +13,9 @@ const Carousel = ({ items, className }: { items: ReactElement[]; className?: str
   const [focusedIndex, setFocusedIndex] = useState(0);
 
   return (
-    <Container margin="none" className={cx('carousel')}>
-      <Container margin="none" className={cx('flex-items', 'carousel-inner')}>
-        <Container margin="none" className={cx('insta-like-carousel-container', className)}>
+    <TripieContainer margin="none" className={cx('carousel')}>
+      <TripieContainer margin="none" className={cx('flex-items', 'carousel-inner')}>
+        <TripieContainer margin="none" className={cx('insta-like-carousel-container', className)}>
           {items.map((item, index) => (
             <CarouselItem
               key={`carousel-item-${item?.key}`}
@@ -26,9 +26,9 @@ const Carousel = ({ items, className }: { items: ReactElement[]; className?: str
               {item}
             </CarouselItem>
           ))}
-        </Container>
-      </Container>
-    </Container>
+        </TripieContainer>
+      </TripieContainer>
+    </TripieContainer>
   );
 };
 
@@ -58,13 +58,13 @@ const CarouselItem = ({
   }, [inView, focusedIndex]);
 
   return (
-    <Container
+    <TripieContainer
       margin="none"
       ref={ref}
       className={cx('insta-like-carousel-item', { focused: focusedIndex === index }, className)}
     >
       {children}
-    </Container>
+    </TripieContainer>
   );
 };
 

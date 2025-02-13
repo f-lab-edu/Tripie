@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import { AnimationProps, motion } from 'framer-motion';
 import { ReactNode } from 'react';
-import Container from '../Container/Container';
+import TripieContainer from '../TripieContainer/TripieContainer';
 import Style from './text.module.scss';
 import { VARIANTS } from './variants';
 
@@ -76,7 +76,7 @@ const JumpingText = ({
   className?: string;
 }>) => {
   return (
-    <Container className={cx('box')} margin="none">
+    <TripieContainer className={cx('box')} margin="none">
       {children.split('').map((item: string, index: number) => (
         <motion.span
           key={index + item}
@@ -92,7 +92,7 @@ const JumpingText = ({
           {item}
         </motion.span>
       ))}
-    </Container>
+    </TripieContainer>
   );
 };
 

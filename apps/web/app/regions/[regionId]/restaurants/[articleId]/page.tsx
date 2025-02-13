@@ -1,5 +1,5 @@
 'use server';
-import { Card, Container, TripieImage } from '@tripie-pyotato/design-system';
+import { Card, TripieContainer, TripieImage } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 
 import getArticleDetail from 'app/api/articles/detail';
@@ -24,17 +24,17 @@ const Articles = async ({ params }: { params: Promise<{ regionId: string; articl
     <>
       <Nav />
       <Card.Content className={cx('fit-content')}>
-        <Container margin="m" applyMargin="top-left-right">
+        <TripieContainer margin="m" applyMargin="top-left-right">
           <AttractionTitle names={data.source.names} />
-        </Container>
-        <Container margin="m" applyMargin="all" className={cx('img-container')}>
+        </TripieContainer>
+        <TripieContainer margin="m" applyMargin="all" className={cx('img-container')}>
           <TripieImage
             blurDataURL={blurredThumbnail?.data}
             src={data.source.image.sizes.full.url}
             sizes="large"
             alt={`${data.source.image.sizes.full.url}의 썸네일`}
           />
-        </Container>
+        </TripieContainer>
         <RegionBody source={data.source} dataUrl={data.id} />
       </Card.Content>
     </>

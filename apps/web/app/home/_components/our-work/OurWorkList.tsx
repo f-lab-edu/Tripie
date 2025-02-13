@@ -1,5 +1,5 @@
 'use client';
-import { Container, Headings } from '@tripie-pyotato/design-system';
+import { Headings, TripieContainer } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import RESOURCE from 'constants/resources';
 import Accordion from 'shared/components/Accordian/Accordian';
@@ -34,24 +34,24 @@ const ourWorkList = [
 
 export default function OurWorkList() {
   return (
-    <Container>
+    <TripieContainer>
       {ourWorkList.map(({ year, tag, header, details }) => (
         <Accordion key={tag}>
           <Accordion.Header>
-            <Container className={cx('accented')} margin="m" applyMargin="top">
+            <TripieContainer className={cx('accented')} margin="m" applyMargin="top">
               {year}
-            </Container>
-            <Container className={cx('flex')} margin="sm" applyMargin="top-bottom">
+            </TripieContainer>
+            <TripieContainer className={cx('flex')} margin="sm" applyMargin="top-bottom">
               <Headings.H3>{header}</Headings.H3>
               <Accordion.Icon variants={ACCORDIAN_VARIANTS.BUTTON} src={RESOURCE.ARROW} />
-            </Container>
+            </TripieContainer>
           </Accordion.Header>
           <Accordion.Divider />
-          <Container applyMargin="top-bottom">
+          <TripieContainer applyMargin="top-bottom">
             <Accordion.Body>{details}</Accordion.Body>
-          </Container>
+          </TripieContainer>
         </Accordion>
       ))}
-    </Container>
+    </TripieContainer>
   );
 }

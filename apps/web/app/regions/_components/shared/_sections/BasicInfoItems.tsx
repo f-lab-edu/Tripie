@@ -1,5 +1,5 @@
 'use client';
-import { Container, Divider } from '@tripie-pyotato/design-system';
+import { Divider, TripieContainer } from '@tripie-pyotato/design-system';
 import ArticleHeading from 'app/regions/_components/Elements/Header';
 import ArticleText from 'app/regions/_components/Elements/Text';
 import { AttractionArticle } from 'models/Attraction';
@@ -37,7 +37,7 @@ const BasicInfoItems = ({
           latitude: coordinates[1],
         }}
       />
-      <Container applyMargin="top">
+      <TripieContainer applyMargin="top">
         <BasicInfo
           addresses={basicInfo.addresses}
           phoneNumber={basicInfo.phoneNumber}
@@ -45,7 +45,7 @@ const BasicInfoItems = ({
           regionId={basicInfo.regionId}
           dataUrl={dataUrl}
         />
-      </Container>
+      </TripieContainer>
       <ArticleHeading item={{ type: 'heading3', value: { text: '가는방법' } }} />
       <ArticleText item={{ type: 'text', value: { text: directions } }} />
       <Divider.Article item={{ type: 'hr2' }} />

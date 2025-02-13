@@ -1,6 +1,6 @@
 'use client';
 
-import { Container, Headings, MotionSlideUp } from '@tripie-pyotato/design-system';
+import { Headings, MotionSlideUp, TripieContainer } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import RESOURCE from 'constants/resources';
 import ROUTE from 'constants/routes';
@@ -34,18 +34,18 @@ const contacts = {
 export default function Contacts() {
   return (
     <section className={cx('contact')} id={ROUTE.CONTACT.label}>
-      <Container applyMargin="left-right" margin="m">
+      <TripieContainer applyMargin="left-right" margin="m">
         <MotionSlideUp>
           <Headings.H2>
             Get in <span className={cx('accented')}>touch</span>
           </Headings.H2>
         </MotionSlideUp>
-        <Container className={cx('wrap')} margin="l" applyMargin="top-bottom">
+        <TripieContainer className={cx('wrap')} margin="l" applyMargin="top-bottom">
           {Object.keys(contacts).map(key => (
             <Contact sectionName={key} content={contacts[key as keyof typeof contacts]} key={key} />
           ))}
-        </Container>
-      </Container>
+        </TripieContainer>
+      </TripieContainer>
     </section>
   );
 }

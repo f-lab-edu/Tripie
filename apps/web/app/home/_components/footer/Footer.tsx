@@ -1,5 +1,5 @@
 'use client';
-import { Container, Divider, List, TextUnderLineAnimation } from '@tripie-pyotato/design-system';
+import { Divider, List, TextUnderLineAnimation, TripieContainer } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import { LANDING_SECTION } from 'constants/routes';
 import { useRouter } from 'next/navigation';
@@ -12,13 +12,13 @@ export default function Footer() {
   const router = useRouter();
   return (
     <footer className={cx('footer')}>
-      <Container margin="m" applyMargin="left-right">
-        <Container margin="none" className={cx('wrap')}>
+      <TripieContainer margin="m" applyMargin="left-right">
+        <TripieContainer margin="none" className={cx('wrap')}>
           <TextUnderLineAnimation>
             mail<span className={cx('accented')}>@</span>tripie.com
           </TextUnderLineAnimation>
           <Divider />
-        </Container>
+        </TripieContainer>
         <List>
           <li>© 2024</li>
           <li>mail@tripie-pyotato.com</li>
@@ -33,7 +33,7 @@ export default function Footer() {
             </li>
           ))}
         </List>
-      </Container>
+      </TripieContainer>
     </footer>
   );
 }
