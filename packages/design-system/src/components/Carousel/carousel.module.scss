@@ -1,0 +1,43 @@
+@use '../../shared/variables' as *;
+@use '../../shared/mixins' as *;
+
+.carousel {
+  position: relative;
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+.flex-items {
+  @include flex-items;
+}
+
+.carousel-inner {
+  display: inline-flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%; /* Ensures images fit container width */
+}
+
+.insta-like-carousel-container {
+  display: inline-flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory; /* Enables snapping on the x-axis */
+  -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+  scroll-behavior: smooth; /* Optional: makes the snapping animated */
+  gap: 1rem;
+}
+
+.insta-like-carousel-item {
+  flex: 0 0 100%; /* Each image takes up 100% of the container's width */
+  scroll-snap-align: center; /* Aligns each image in the center of the viewport */
+  position: relative;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  background-size: cover;
+  background-position: center;
+}
+
+.with-border {
+  @include with-border;
+}

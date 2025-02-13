@@ -2,7 +2,8 @@
 import classNames from 'classnames/bind';
 
 import Image from 'next/image';
-import { RefObject } from 'react';
+
+import { PLACEHOLDER } from '../../shared/resource';
 import Container from '../Container';
 import Text from '../Text';
 import Style from './tripie-image.module.scss';
@@ -23,7 +24,8 @@ const TripieImage = ({
 }: {
   alt: string;
   src?: string;
-  ref?: RefObject<any>;
+  // ref?: RefObject<any>;
+  ref?:(node?: Element | null | undefined) => void;
   className?: string;
   sizes?: ImageSizes;
   blurDataURL?: string;
@@ -35,12 +37,12 @@ const TripieImage = ({
       {blurDataURL == null ? (
         <img
           className={cx('tripie-image', 'img-wrap', sizes, withBorder && 'with-border')}
-          src={src}
+          src={src ?? PLACEHOLDER}
           alt={`${alt}의 이미지일 수 있음`}
         />
       ) : (
         <Image
-          src={src}
+          src={src ?? PLACEHOLDER}
           alt={alt}
           sizes={'(min-width:640px) 50vw, 100vw'}
           placeholder="blur"
@@ -65,7 +67,8 @@ const ImageWithSourceUrl = ({
 }: {
   alt: string;
   src?: string;
-  ref?: RefObject<any>;
+  // ref?: RefObject<any>;
+  ref?:(node?: Element | null | undefined) => void
   className?: string;
   sourceUrl: string;
   sizes?: ImageSizes;

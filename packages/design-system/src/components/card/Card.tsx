@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { MutableRefObject, ReactNode, RefObject } from 'react';
 import { SHINE_VARIANT } from '../../shared/variants';
 import Container from '../Container/Container';
-//
 import Divider from '../Divider';
 import MotionSlideUp from '../MotionSlideUp/MotionSlideUp';
 import Text from '../Text';
@@ -153,46 +152,46 @@ const CardWithImage = ({
   );
 };
 
-const CardWithListItems = ({
-  ref,
-  className,
-  selected,
-  action,
-  children,
-  onClick,
-  src,
-  alt,
-  title,
-  sourceUrl,
-  displaySource = false,
-  withBorder,
-  blurDataURL,
-}: {
-  ref?: RefObject<HTMLDivElement>;
-  className?: string;
-  selected?: boolean;
-  action?;
-  children: ReactNode;
-  onClick?: () => void;
-  src: string;
-  alt?: string;
-  title?: string;
-  sourceUrl?: string;
-  displaySource?: boolean;
-  withBorder?: boolean;
-  blurDataURL?: string;
-}) => {
-  return (
-    <Card.ClickableContent
-      ref={ref}
-      className={cx('embedded-card', 'poi-card', className)}
-      selected={selected}
-      onClick={action}
-    >
-      {children}
-    </Card.ClickableContent>
-  );
-};
+// const CardWithListItems = ({
+//   ref,
+//   className,
+//   selected,
+//   action,
+//   children,
+//   // onClick,
+//   // src,
+//   // alt,
+//   // title,
+//   // sourceUrl,
+//   // displaySource = false,
+//   // withBorder,
+//   // blurDataURL,
+// }: {
+//   ref?: RefObject<HTMLDivElement>;
+//   className?: string;
+//   selected?: boolean;
+//   action?;
+//   children: ReactNode;
+//   // onClick?: () => void;
+//   // src: string;
+//   // alt?: string;
+//   // title?: string;
+//   // sourceUrl?: string;
+//   // displaySource?: boolean;
+//   // withBorder?: boolean;
+//   // blurDataURL?: string;
+// }) => {
+//   return (
+//     <Card.ClickableContent
+//       ref={ref}
+//       className={cx('embedded-card', 'poi-card', className)}
+//       selected={selected}
+//       onClick={action}
+//     >
+//       {children}
+//     </Card.ClickableContent>
+//   );
+// };
 
 Card.Content = CardContent;
 Card.ClickableContent = ClickableCardContent;
