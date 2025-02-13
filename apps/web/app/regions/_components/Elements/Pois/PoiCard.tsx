@@ -32,7 +32,7 @@ const PoiCard = ({
 
   useEffect(() => {
     // 선택한 카드로 이동
-    if (selected && cardRef.current) {
+    if (selected && cardRef.current != null) {
       cardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
   }, [selected, cardRef]);
@@ -40,10 +40,10 @@ const PoiCard = ({
   useEffect(() => {
     // https://visgl.github.io/react-map-gl/docs/api-reference/maplibre/use-map
     // 부여했던 Map id가 있다면 MapProvider로 감싸줬을 때 해당 map을 가져와 조작할 수 있다.
-    if (tripieMap != null) {
+    if (tripieMap != null && selected != null && poi.source.geolocation?.coordinates != null) {
       tripieMap.flyTo({ center: poi.source.geolocation.coordinates as [number, number] });
     }
-  }, [selected, tripieMap]);
+  }, [selected, tripieMap, poi]);
 
   return (
     <Card.ClickableContent

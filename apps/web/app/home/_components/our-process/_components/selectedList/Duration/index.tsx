@@ -60,7 +60,6 @@ const DurationSelect = () => {
     if (today == null) {
       return null;
     }
-    console.log(today);
     const nextDay = new Date(today);
     nextDay.setDate(today.getDate() + 1);
     return [today, nextDay];

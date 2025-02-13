@@ -27,8 +27,6 @@ const Markers = ({
 
   // 선택한 여행 일정 카드 (TabCard)의 컨텍스트가 변경되었을 경우 해당 좌표로 포커스
   useEffect(() => {
-    console.log('map', map, 'currentSelected', currentSelected);
-
     const coord = locationMarker.filter(place => place.index === current)[0];
     if (map != null) {
       map.flyTo({ center: [coord.lng, coord.lat] });

@@ -31,7 +31,7 @@ export function CountryList({ countries, selectedCountry, setSelectedCountry }: 
             return countries;
           } else {
             const filtered = countries?.filter((place: Continentl) => place.id === country);
-            console.log(filtered);
+
             return filtered;
           }
         }),

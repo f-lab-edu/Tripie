@@ -54,7 +54,7 @@ export async function postAwsPlace(query: { name: string; selectedCities?: strin
         });
         // return res;
         const result = (await res.json()) as AwsPlaceResult;
-        console.log('placeSearch result', result);
+        // console.log('placeSearch result', result);
 
         if (result.Results.length > 0) {
           const completeMatch = result.Results.filter(item => item.Relevance >= 0.9);
@@ -95,10 +95,10 @@ export async function postAwsPlace(query: { name: string; selectedCities?: strin
             // return { Summary: json, Results: results.filter(item => item.Relevance >= 0.8) };
           });
         });
-      console.log('suggested result', result);
+      // console.log('suggested result', result);
       return res;
     }
-    console.log('placeSearch initial result', result);
+    // console.log('placeSearch initial result', result);
     // return { result, Results: result.Results.filter(item => item.Relevance >= 0.8) };
     // return result;
     if (result.Results.length > 0) {

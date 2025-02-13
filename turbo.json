@@ -44,7 +44,8 @@
         "VERCEL",
         "VERCEL_ENV",
         "VERCEL_URL",
-        "PRISMA_QUERY_ENGINE_LIBRARY"
+        "PRISMA_QUERY_ENGINE_LIBRARY",
+        "NEXT_PUBLIC_DOMAIN"
       ]
     },
     "web#build": {
@@ -64,7 +65,8 @@
         "KAKAO_CLIENT_ID",
         "KAKAO_CLIENT_SECRET",
         "NEXT_PUBLIC_GPT_API_KEY",
-        "NEXT_PUBLIC_CHAT_DB_NAME"
+        "NEXT_PUBLIC_CHAT_DB_NAME",
+        "NEXT_PUBLIC_DOMAIN"
       ],
       "outputs": [".next/**", "!.next/cache/**"]
     },
