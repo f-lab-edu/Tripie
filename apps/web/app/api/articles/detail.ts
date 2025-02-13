@@ -78,6 +78,14 @@ const getArticleDetail = async <T extends 'article' | 'attraction' | 'retaurant'
             },
           }))
         ),
+        externalLinks: await Promise.all(
+          data.source?.externalLinks.map(async externalLink => ({
+            ...externalLink,
+            blurData: await fetch(API.BASE_URL + API.BASE + API.BLUR_IMAGE + `?url=${externalLink.imageUrl}`).then(v =>
+              v.json()
+            ),
+          }))
+        ),
       },
     };
   }

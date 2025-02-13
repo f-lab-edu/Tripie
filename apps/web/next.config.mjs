@@ -48,12 +48,6 @@ const nextConfig = {
         pathname: '/**',
       },
       {
-        protocol: 'https',
-        hostname: 'blogthumb.pstatic.net',
-        port: '',
-        pathname: '/**',
-      },
-      {
         protocol: 'http',
         hostname: 'blogthumb.pstatic.net',
         port: '',
