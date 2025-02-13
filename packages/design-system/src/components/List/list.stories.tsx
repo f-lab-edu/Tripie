@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { useEffect } from 'react';
 import { useAppTheme } from '../../hooks';
-import Card from '../Card/TripieCard';
+import Card from '../TripieCard/Card';
 import List from './List';
 
 const meta: Meta<typeof List> = {

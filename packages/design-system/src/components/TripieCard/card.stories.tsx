@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { useEffect } from 'react';
 import { useAppTheme } from '../../hooks';
-import Card from './TripieCard';
+import Card from './Card';
 
 const meta: Meta<typeof Card> = {
   title: 'tripie-ui/Card',

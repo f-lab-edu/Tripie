@@ -1,6 +1,5 @@
 export { default as AnimatedButton, default as AnimatedText } from './button/Animated';
 export { default as NoStyleButton } from './button/NoStyle';
-export { default as Card } from './Card/TripieCard';
 export { default as Carousel } from './Carousel/Carousel';
 export { default as Chip } from './Chip/Chip';
 export { default as Divider } from './Divider';
@@ -16,5 +15,6 @@ export { default as Switch } from './Switch';
 export { default as Text } from './Text/Text';
 export { default as TextFillAnimation } from './TextFill/TextFillAnimation';
 export { default as TextUnderLineAnimation } from './TextUnderlineAnimation';
+export { default as Card } from './TripieCard/Card';
 export { default as TripieContainer } from './TripieContainer/TripieContainer';
 export { default as TripieImage } from './TripieImage/TripieImage';
