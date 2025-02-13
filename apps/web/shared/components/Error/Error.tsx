@@ -7,7 +7,7 @@ import Style from './error.module.scss';
 
 const cx = classNames.bind(Style);
 
-export default function Error() {
+export default function SeverError() {
   return (
     <ParticleBackground>
       <Container className={cx('center')} margin="none">

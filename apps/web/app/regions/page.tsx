@@ -1,13 +1,14 @@
 'use server';
 
 import { TRIPIE_REGION_BY_LOCATION, TRIPIE_REGION_IDS } from 'constants/tripie-country';
-import RegionList from './_components/RegionList';
 import RegionSelect from './_components/RegionSelect';
 
 import getRegionArticles from 'app/api/articles/region';
 import classNames from 'classnames/bind';
+import RegionList from './_components/RegionList';
 import Style from './_components/shared/regions.module.scss';
 import Title from './_components/Title';
+// import getRegionArticles from 'app/api/articles/region';
 
 const cx = classNames.bind(Style);
 
@@ -20,6 +21,10 @@ const Articles = async () => {
   )?.[0];
 
   const dynamicBlurDataUrl = await getRegionArticles(selectedRegion);
+
+  // if (dynamicBlurDataUrl == null) {
+  //   return <Loading />;
+  // }
 
   return (
     <>

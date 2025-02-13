@@ -126,17 +126,17 @@ const CardWithImage = ({
             blurDataURL={blurDataURL}
             src={src}
             sizes="small"
-            alt={alt}
+            alt={alt ||`${src} 이미지일 수도 있음` }
             className={cx('thumbnail')}
-            withBorder={false}
+            withBorder={withBorder}
           />
         ) : (
           <TripieImage.WithSourceUrl
             sizes="small"
-            withBorder={false}
+            withBorder={withBorder}
             sourceUrl={sourceUrl}
             src={src}
-            alt={alt}
+            alt={alt||`${src} 이미지일 수도 있음`}
             className={cx('thumbnail')}
           />
         )}
