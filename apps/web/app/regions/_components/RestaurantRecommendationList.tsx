@@ -1,5 +1,5 @@
 'use client';
-import { Divider, TripieContainer } from '@tripie-pyotato/design-system';
+import { Container, Divider } from '@tripie-pyotato/design-system';
 
 import ArticleHeading from 'app/regions/_components/Elements/Header';
 import ArticleImages from 'app/regions/_components/Elements/Images';
@@ -22,8 +22,8 @@ const RestaurantRecommendationList = ({
   return (
     <>
       {restaurantRecommendations.map((recommendation, index) => (
-        <TripieContainer margin="none" key={index + recommendation.id}>
-          <TripieContainer margin="none">
+        <Container margin="none" key={index + recommendation.id}>
+          <Container margin="none">
             <ArticleHeading item={{ type: 'heading3', value: { text: recommendation.title } }} />
             <ArticleImages item={{ type: 'images', value: { images: [recommendation.image] } }} />
             <ArticleText item={{ type: 'text', value: { text: recommendation.description } }} />
@@ -40,9 +40,9 @@ const RestaurantRecommendationList = ({
             {recommendation?.comment != null ? (
               <ArticleText item={{ type: 'text', value: { text: recommendation.comment } }} />
             ) : null}
-          </TripieContainer>
+          </Container>
           {index !== restaurantRecommendations.length - 1 ? <Divider.Article item={{ type: 'hr3' }} /> : null}
-        </TripieContainer>
+        </Container>
       ))}
       <Divider.Article item={{ type: 'hr1' }} />
     </>

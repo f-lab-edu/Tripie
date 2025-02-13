@@ -1,5 +1,5 @@
 'use client';
-import { Chip, TripieContainer } from '@tripie-pyotato/design-system';
+import { Chip, Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 
 import COMPANION_LIST from 'constants/companions';
@@ -40,9 +40,9 @@ const CompanionList = ({ selected, setSelected }: Props) => {
   };
 
   return (
-    <TripieContainer margin="none">
+    <Container margin="none">
       <Icon.Refresh onTapStart={() => setSelected([])} />{' '}
-      <TripieContainer className={cx('chip-wrap')} margin="none">
+      <Container className={cx('chip-wrap')} margin="none">
         {Object.values(COMPANION_LIST).map((tagName, index) => (
           <Chip
             key={tagName.tag}
@@ -53,8 +53,8 @@ const CompanionList = ({ selected, setSelected }: Props) => {
             {tagName.tag}
           </Chip>
         ))}
-      </TripieContainer>
-    </TripieContainer>
+      </Container>
+    </Container>
   );
 };
 

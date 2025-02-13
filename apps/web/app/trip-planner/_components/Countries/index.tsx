@@ -2,7 +2,7 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import 'shared/components/AwsMap/Marker/marker.scss';
 
 import { useQueryClient } from '@tanstack/react-query';
-import { AnimatedButton, TripieContainer } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Container } from '@tripie-pyotato/design-system';
 import firestoreService from 'app/api/firebase';
 import classNames from 'classnames/bind';
 import RESOURCE from 'constants/resources';
@@ -57,14 +57,14 @@ export function CountryStep({ context, onNext }: Readonly<Props>) {
 
   return (
     <>
-      <TripieContainer margin="none">
-        <TripieContainer margin="none">
+      <Container margin="none">
+        <Container margin="none">
           <Icon.Navigate src={RESOURCE.ARROW} />
-        </TripieContainer>
+        </Container>
         <h2>
           떠나고 싶은 <span className={cx('accented')}>나라</span>는?
         </h2>
-      </TripieContainer>
+      </Container>
 
       {data == null ? null : (
         <>
@@ -77,7 +77,7 @@ export function CountryStep({ context, onNext }: Readonly<Props>) {
             }
           />
           <CountryList countries={data} setSelectedCountry={setSelectedCountry} selectedCountry={selectedCountry} />
-          <TripieContainer margin="none">
+          <Container margin="none">
             <AnimatedButton
               withBorder={true}
               onClick={async () => {
@@ -89,7 +89,7 @@ export function CountryStep({ context, onNext }: Readonly<Props>) {
               disabled={selectedCountry === ''}
               className={cx('submit-button')}
             >
-              <TripieContainer margin="none" className={cx('flex')}>
+              <Container margin="none" className={cx('flex')}>
                 {selectedCountry === '' ? (
                   <>여행할 나라를 선택해주세요.</>
                 ) : (
@@ -97,9 +97,9 @@ export function CountryStep({ context, onNext }: Readonly<Props>) {
                     "{selectedCountry}"로 보기 <Icon src={RESOURCE.ARROW} />
                   </>
                 )}
-              </TripieContainer>
+              </Container>
             </AnimatedButton>
-          </TripieContainer>
+          </Container>
         </>
       )}
     </>

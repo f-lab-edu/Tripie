@@ -1,5 +1,5 @@
 'use client';
-import { Chip, TripieContainer } from '@tripie-pyotato/design-system';
+import { Chip, Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import Style from './shared/selected-list.module.scss';
 
@@ -14,9 +14,9 @@ const cx = classNames.bind(Style);
 
 const CompanionSelect = () => {
   return (
-    <TripieContainer margin="none">
-      <TripieContainer margin="none" className={cx('card-region-wrap')}>
-        <TripieContainer className={cx('wrap')} applyMargin="bottom">
+    <Container margin="none">
+      <Container margin="none" className={cx('card-region-wrap')}>
+        <Container className={cx('wrap')} applyMargin="bottom">
           {Object.values(COMPANION_LIST).map((tagName, index) => (
             <Chip
               key={tagName.tag}
@@ -28,13 +28,13 @@ const CompanionSelect = () => {
               {tagName.tag}
             </Chip>
           ))}
-        </TripieContainer>
-      </TripieContainer>
+        </Container>
+      </Container>
 
       <NextButton>
         다음 <Icon src={RESOURCE.ARROW} />
       </NextButton>
-    </TripieContainer>
+    </Container>
   );
 };
 

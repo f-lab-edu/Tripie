@@ -1,5 +1,5 @@
 'use client';
-import { AnimatedButton, Headings, ParticleBackground, TripieContainer } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Container, Headings, ParticleBackground } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import Icon from 'shared/components/Icon/Icon';
 
@@ -18,26 +18,26 @@ export default function Header() {
     <ParticleBackground>
       <Nav />
       <RotatingBlur />
-      <TripieContainer className={cx('center')} margin="none">
+      <Container className={cx('center')} margin="none">
         <div>
-          <TripieContainer className={cx('heading')} margin="none">
+          <Container className={cx('heading')} margin="none">
             <Headings.H1 className={cx('accented')}>AI</Headings.H1>
             <Headings.H1>enhanced trip planner.</Headings.H1>
-          </TripieContainer>
+          </Container>
         </div>
-        <TripieContainer className={cx('button-wrap')} margin="none">
+        <Container className={cx('button-wrap')} margin="none">
           <Link href={ROUTE.SERVICES.href}>
             <AnimatedButton withBorder={true}>Our services</AnimatedButton>
           </Link>
           <Link href={ROUTE.CONTACT.href}>
             <AnimatedButton withBorder={true} className={cx('flex')}>
-              <TripieContainer margin="none" className={cx('flex')}>
+              <Container margin="none" className={cx('flex')}>
                 Get in touch <Icon src={RESOURCE.ARROW} />
-              </TripieContainer>
+              </Container>
             </AnimatedButton>
           </Link>
-        </TripieContainer>
-      </TripieContainer>
+        </Container>
+      </Container>
     </ParticleBackground>
   );
 }

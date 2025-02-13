@@ -1,5 +1,5 @@
 'use client';
-import { Chip, Headings, ParticleBackground, TripieContainer } from '@tripie-pyotato/design-system';
+import { Chip, Container, Headings, ParticleBackground } from '@tripie-pyotato/design-system';
 
 import classNames from 'classnames/bind';
 
@@ -10,20 +10,20 @@ const cx = classNames.bind(Style);
 export default function SeverError() {
   return (
     <ParticleBackground>
-      <TripieContainer className={cx('center')} margin="none">
+      <Container className={cx('center')} margin="none">
         <div>
-          <TripieContainer className={cx('heading')} margin="none">
+          <Container className={cx('heading')} margin="none">
             <Headings.H1 className={cx('accented')}>5</Headings.H1>
             <Headings.H1>0</Headings.H1>
             <Headings.H1 className={cx('accented')}>0</Headings.H1>
-          </TripieContainer>
+          </Container>
         </div>
 
-        <TripieContainer className={cx('button-wrap')} margin="none">
+        <Container className={cx('button-wrap')} margin="none">
           Oops, something went wrong.
           <Chip.Accented>bring me back home</Chip.Accented>
-        </TripieContainer>
-      </TripieContainer>
+        </Container>
+      </Container>
     </ParticleBackground>
   );
 }

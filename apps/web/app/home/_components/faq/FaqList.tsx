@@ -1,5 +1,5 @@
 'use client';
-import { TripieContainer } from '@tripie-pyotato/design-system';
+import { Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import FAQS from 'constants/faq';
 import RESOURCE from 'constants/resources';
@@ -11,25 +11,25 @@ const cx = classNames.bind(Style);
 
 export default function FaqList() {
   return (
-    <TripieContainer className={cx('wrap')} applyMargin="top-bottom">
+    <Container className={cx('wrap')} applyMargin="top-bottom">
       {FAQS.map(({ tag, header, details }) => (
         <Accordion key={tag} className={cx('our-work-contents')}>
           <Accordion.Header>
-            <TripieContainer className={cx('flex')} margin="sm" applyMargin="top-bottom">
+            <Container className={cx('flex')} margin="sm" applyMargin="top-bottom">
               <Accordion.Icon src={RESOURCE.ARROW} variants={ACCORDIAN_VARIANTS.BUTTON} className={cx('faq-icon')} />
               {header}
-            </TripieContainer>
+            </Container>
           </Accordion.Header>
           <Accordion.Divider />
-          <TripieContainer applyMargin="top-bottom" className={cx('accordion-body')}>
+          <Container applyMargin="top-bottom" className={cx('accordion-body')}>
             <Accordion.Body>
-              <TripieContainer applyMargin="top-bottom" margin="m">
+              <Container applyMargin="top-bottom" margin="m">
                 {details}
-              </TripieContainer>
+              </Container>
             </Accordion.Body>
-          </TripieContainer>
+          </Container>
         </Accordion>
       ))}
-    </TripieContainer>
+    </Container>
   );
 }

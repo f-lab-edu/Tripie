@@ -1,5 +1,5 @@
 import { useQueryClient } from '@tanstack/react-query';
-import { Chip, TripieContainer } from '@tripie-pyotato/design-system';
+import { Chip, Container } from '@tripie-pyotato/design-system';
 import firestoreService from 'app/api/firebase';
 import classNames from 'classnames/bind';
 import { CONTINENTS } from 'constants/continents';
@@ -37,7 +37,7 @@ export function ContinentList({ selectedContinent, action }: Readonly<Props>) {
   };
 
   return (
-    <TripieContainer className={cx('wrap')} applyMargin="bottom">
+    <Container className={cx('wrap')} applyMargin="bottom">
       {Object.keys(CONTINENTS).map((continent, index) => (
         <Chip
           selected={selectedContinent === continent}
@@ -51,6 +51,6 @@ export function ContinentList({ selectedContinent, action }: Readonly<Props>) {
           {CONTINENTS[continent as ContinentKeys].name}
         </Chip>
       ))}
-    </TripieContainer>
+    </Container>
   );
 }

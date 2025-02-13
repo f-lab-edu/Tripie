@@ -1,6 +1,6 @@
 'use server';
 
-import { TripieContainer } from '@tripie-pyotato/design-system';
+import { Container } from '@tripie-pyotato/design-system';
 
 import { AttractionArticle } from 'models/Attraction';
 import BusinessHours from './BusinessHours';
@@ -14,7 +14,7 @@ import TipDescription from './shared/_sections/TipDescription';
 const RegionBody = ({ source, dataUrl }: { source: AttractionArticle['source']; dataUrl: string }) => {
   const today = new Date().getDay();
   return (
-    <TripieContainer margin="m" applyMargin="left-right">
+    <Container margin="m" applyMargin="left-right">
       <AttractionDescription comment={source?.comment} />
       <RestaurantRecommendationList
         restaurantRecommendations={source?.recommendations}
@@ -36,7 +36,7 @@ const RegionBody = ({ source, dataUrl }: { source: AttractionArticle['source']; 
       <FeeDescription feeComment={source?.feeComment} />
       <TipDescription tips={source?.tips} />
       {source.externalLinks.length === 0 ? null : <ExternalLinks externalLinks={source.externalLinks} />}
-    </TripieContainer>
+    </Container>
   );
 };
 

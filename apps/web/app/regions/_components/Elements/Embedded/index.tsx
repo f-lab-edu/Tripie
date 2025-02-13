@@ -1,5 +1,5 @@
 'use client';
-import { Card, Divider, TripieContainer, TripieImage } from '@tripie-pyotato/design-system';
+import { Card, Container, Divider, TripieImage } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import ArticleHeading, { HeadingProps } from '../Header';
 
@@ -91,16 +91,16 @@ const ArticleCard = ({
 
 const ArticleEmbedded = ({ item, regionId, dataUrl }: { item: EmbeddedProps; regionId: string; dataUrl: string }) => {
   return (
-    <TripieContainer applyMargin="top-bottom" className={cx(item.value.entries.length > 1 ? ['carousel'] : null)}>
-      <TripieContainer
+    <Container applyMargin="top-bottom" className={cx(item.value.entries.length > 1 ? ['carousel'] : null)}>
+      <Container
         className={cx(item.value.entries.length > 1 ? ['flex-items', 'embedded-card-wrap'] : null)}
         margin="none"
       >
         {item.value?.entries?.map((item, index) => (
           <ArticleCard item={item} key={index + JSON.stringify(item)} regionId={regionId} dataUrl={dataUrl} />
         ))}
-      </TripieContainer>
-    </TripieContainer>
+      </Container>
+    </Container>
   );
 };
 

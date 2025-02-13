@@ -1,7 +1,7 @@
 'use client';
 import classNames from 'classnames/bind';
 
-import { Card, Chip, Divider, Text, TextUnderLineAnimation, TripieContainer } from '@tripie-pyotato/design-system';
+import { Card, Chip, Container, Divider, Text, TextUnderLineAnimation } from '@tripie-pyotato/design-system';
 
 import Style from './tab-card.module.scss';
 
@@ -61,15 +61,15 @@ const TabCard = ({
         cycle(`${trip.day - 1}-${index}`);
       }}
     >
-      <TripieContainer margin="sm" applyMargin="bottom" className={cx('title')}>
+      <Container margin="sm" applyMargin="bottom" className={cx('title')}>
         <div ref={current === `${trip.day - 1}-${index}` ? ref : null} />
         <Chip className={cx('label', label)}>{index + 1}</Chip>
         <Text className={cx('accented')}>{activity}</Text>
-      </TripieContainer>
+      </Container>
       <Divider />
-      <TripieContainer margin="sm" applyMargin="top">
+      <Container margin="sm" applyMargin="top">
         {comments}
-        <TripieContainer margin="sm" applyMargin="top">
+        <Container margin="sm" applyMargin="top">
           <TextUnderLineAnimation
             className={cx('at-place')}
             // 새로운 탭에 구글 검색
@@ -78,8 +78,8 @@ const TabCard = ({
             <span className={cx('accented')}>@</span>
             {place}
           </TextUnderLineAnimation>
-        </TripieContainer>
-      </TripieContainer>
+        </Container>
+      </Container>
     </Card.ClickableContent>
   );
 };

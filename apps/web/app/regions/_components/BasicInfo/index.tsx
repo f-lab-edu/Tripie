@@ -1,5 +1,5 @@
 'use client';
-import { Card, TripieContainer } from '@tripie-pyotato/design-system';
+import { Card, Container } from '@tripie-pyotato/design-system';
 import ArticleLink from 'app/regions/_components/Elements/Link';
 
 import classNames from 'classnames/bind';
@@ -23,26 +23,26 @@ const BasicInfo = ({
   return (
     <Card.Content className={cx('basic-info')}>
       {addresses != null ? (
-        <TripieContainer applyMargin="bottom" className={cx('basic-info-flex-wrap')}>
-          <TripieContainer margin="none" className={cx('item-name')}>
+        <Container applyMargin="bottom" className={cx('basic-info-flex-wrap')}>
+          <Container margin="none" className={cx('item-name')}>
             주소
-          </TripieContainer>
-          <TripieContainer margin="none">{addresses.local ?? addresses.ko}</TripieContainer>
-        </TripieContainer>
+          </Container>
+          <Container margin="none">{addresses.local ?? addresses.ko}</Container>
+        </Container>
       ) : null}
       {phoneNumber != null ? (
-        <TripieContainer applyMargin="bottom" className={cx('basic-info-flex-wrap')}>
-          <TripieContainer margin="none" className={cx('item-name')}>
+        <Container applyMargin="bottom" className={cx('basic-info-flex-wrap')}>
+          <Container margin="none" className={cx('item-name')}>
             전화
-          </TripieContainer>
-          <TripieContainer margin="none">{phoneNumber}</TripieContainer>
-        </TripieContainer>
+          </Container>
+          <Container margin="none">{phoneNumber}</Container>
+        </Container>
       ) : null}
       {officialSiteUrl != null ? (
-        <TripieContainer margin="none" className={cx('basic-info-flex-wrap')}>
-          <TripieContainer margin="none" className={cx('item-name')}>
+        <Container margin="none" className={cx('basic-info-flex-wrap')}>
+          <Container margin="none" className={cx('item-name')}>
             홈페이지
-          </TripieContainer>
+          </Container>
           <ArticleLink
             item={{
               type: 'links',
@@ -51,7 +51,7 @@ const BasicInfo = ({
             regionId={regionId}
             dataUrl={dataUrl}
           />
-        </TripieContainer>
+        </Container>
       ) : null}
     </Card.Content>
   );

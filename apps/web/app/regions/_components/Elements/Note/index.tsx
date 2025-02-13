@@ -1,5 +1,5 @@
 'use client';
-import { Card, Headings, Text, TripieContainer } from '@tripie-pyotato/design-system';
+import { Card, Container, Headings, Text } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import { decodeUnicodes } from 'utils/string';
 import Style from './note.module.scss';
@@ -16,9 +16,9 @@ const ArticleNote = ({ item }: { item: NoteProps }) => {
   return (
     <Card.Content className={cx('fit-content')} key={item.value.body}>
       <Headings.H3>{item.value.title}</Headings.H3>
-      <TripieContainer applyMargin="top-bottom">
+      <Container applyMargin="top-bottom">
         <Text>{decodedStr}</Text>
-      </TripieContainer>
+      </Container>
     </Card.Content>
   );
 };

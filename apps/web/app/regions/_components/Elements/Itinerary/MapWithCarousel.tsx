@@ -1,5 +1,5 @@
 'use client';
-import { Chip, Divider, TripieContainer } from '@tripie-pyotato/design-system';
+import { Chip, Container, Divider } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import { Poi } from 'models/Aws';
 import { ItineraryItem } from 'models/Itinery';
@@ -36,13 +36,13 @@ const MapWithCarousel = ({
   const cardRefs = useRef<Array<React.RefObject<HTMLDivElement>>>(pois.map(() => createRef()));
 
   return (
-    <TripieContainer margin="none">
+    <Container margin="none">
       <Divider className={cx('timeline-divider')} />
       <Carousel carouselProps={pois}>
         {pois.map((poi, index) => (
-          <TripieContainer margin="none" key={index + poi.id + poi.source.areas?.[0]?.id} className={cx('total-wrap')}>
+          <Container margin="none" key={index + poi.id + poi.source.areas?.[0]?.id} className={cx('total-wrap')}>
             {transportation[index].map(({ value }) => (
-              <TripieContainer
+              <Container
                 margin="none"
                 key={value.duration + value.transportation + index}
                 className={cx('icon-wrap', index !== 0 ? 'other-icons' : 'first-icon')}
@@ -57,20 +57,20 @@ const MapWithCarousel = ({
                     {value.duration}
                   </>
                 )}
-              </TripieContainer>
+              </Container>
             ))}
             {/* 처음과 마지막 이동 정보는 표기하는 대신 깃발 아이콘 표시*/}
             {index === 0 ? <Icon.Transport active={false} type={'flag'} className={cx('flag')} /> : null}
             {index === pois.length - 1 ? (
-              <TripieContainer margin="none" className={cx('last-flag')}>
+              <Container margin="none" className={cx('last-flag')}>
                 <Icon.Transport active={false} type={'flag'} />
-              </TripieContainer>
+              </Container>
             ) : null}
 
-            <TripieContainer margin="none" className={cx('timeline-item-wrap')}>
-              <TripieContainer applyMargin="bottom" className={cx('timeline')}>
+            <Container margin="none" className={cx('timeline-item-wrap')}>
+              <Container applyMargin="bottom" className={cx('timeline')}>
                 <Chip selected={current === `0-${index}`}>{schedule[index] != '' ? schedule[index] : index + 1}</Chip>
-              </TripieContainer>
+              </Container>
               <PoiCard
                 action={() => setCurrent(`0-${index}`)}
                 poi={poi}
@@ -78,11 +78,11 @@ const MapWithCarousel = ({
                 className={cx('itinerary-card')}
                 selected={current === `0-${index}`}
               />
-            </TripieContainer>
-          </TripieContainer>
+            </Container>
+          </Container>
         ))}
       </Carousel>
-    </TripieContainer>
+    </Container>
   );
 };
 

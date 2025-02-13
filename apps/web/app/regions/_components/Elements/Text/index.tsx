@@ -1,5 +1,5 @@
 'use client';
-import { TripieContainer } from '@tripie-pyotato/design-system';
+import { Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import Markdown from 'markdown-to-jsx';
 import { decodeUnicodes } from 'utils/string';
@@ -24,13 +24,13 @@ const ArticleText = ({ item }: { item: ArticleTextProps }) => {
   const decodedStr = decodeUnicodes(item.value.text);
 
   return (
-    <TripieContainer applyMargin="top-bottom" key={decodedStr} className={cx('text-container')}>
+    <Container applyMargin="top-bottom" key={decodedStr} className={cx('text-container')}>
       {item.value.markdownText != null ? (
         <Markdown>{item.value.markdownText.replaceAll('트리플', 'Tripie')}</Markdown>
       ) : (
         decodedStr
       )}
-    </TripieContainer>
+    </Container>
   );
 };
 

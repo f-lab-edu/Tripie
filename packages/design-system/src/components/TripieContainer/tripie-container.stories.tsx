@@ -5,7 +5,7 @@ import TripieContainer from './TripieContainer';
 //
 
 const meta: Meta<typeof TripieContainer> = {
-  title: 'tripie-ui/TripieContainer',
+  title: 'tripie-ui/Container',
   component: TripieContainer,
   tags: ['autodocs'],
   decorators: [

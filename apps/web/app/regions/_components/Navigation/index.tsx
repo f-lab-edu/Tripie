@@ -1,14 +1,14 @@
 'use client';
 
-import { TripieContainer } from '@tripie-pyotato/design-system';
+import { Container } from '@tripie-pyotato/design-system';
 import RESOURCE from 'constants/resources';
 import Icon from 'shared/components/Icon/Icon';
 
 const Navigation = () => {
   return (
-    <TripieContainer margin="none">
+    <Container margin="none">
       <Icon.Navigate src={RESOURCE.ARROW} />
-    </TripieContainer>
+    </Container>
   );
 };
 

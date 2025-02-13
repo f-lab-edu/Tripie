@@ -1,4 +1,4 @@
-import { Headings, TripieContainer } from '@tripie-pyotato/design-system';
+import { Container, Headings } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import { ReactNode } from 'react';
 import Style from './description.module.scss';
@@ -26,9 +26,9 @@ const Description = ({
           {descriptionTitle}
         </Headings.H3>
       ) : null}
-      <TripieContainer className={cx('description', lineBreak ? 'line-break' : '')} margin="none">
+      <Container className={cx('description', lineBreak ? 'line-break' : '')} margin="none">
         {children}
-      </TripieContainer>
+      </Container>
     </>
   );
 };

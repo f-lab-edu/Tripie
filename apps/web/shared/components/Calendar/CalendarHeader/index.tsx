@@ -1,4 +1,4 @@
-import { Divider, TripieContainer } from '@tripie-pyotato/design-system';
+import { Container, Divider } from '@tripie-pyotato/design-system';
 import { RefAttributes } from 'react';
 import { CalendarProps, Calendar as ReactCalendar } from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
@@ -8,7 +8,7 @@ type CustomCalendarProps = CalendarProps & RefAttributes<unknown>;
 
 const CalendarHeader = ({ selectRange, allowPartialRange }: CustomCalendarProps) => {
   return (
-    <TripieContainer margin="none">
+    <Container margin="none">
       <ReactCalendar
         selectRange={selectRange}
         showNeighboringMonth={false}
@@ -17,7 +17,7 @@ const CalendarHeader = ({ selectRange, allowPartialRange }: CustomCalendarProps)
         showNavigation={false}
       />
       <Divider />
-    </TripieContainer>
+    </Container>
   );
 };
 

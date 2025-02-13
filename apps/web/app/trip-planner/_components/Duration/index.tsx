@@ -1,5 +1,5 @@
 'use client';
-import { TripieContainer } from '@tripie-pyotato/design-system';
+import { Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import Icon from 'shared/components/Icon/Icon';
 import Calendar from './Calendar';
@@ -25,14 +25,14 @@ interface Props {
 const DurationStep = ({ context, onNext }: Props) => {
   return (
     <>
-      <TripieContainer margin="none">
-        <TripieContainer margin="none">
+      <Container margin="none">
+        <Container margin="none">
           <Icon.Navigate src={RESOURCE.ARROW} />
-        </TripieContainer>
+        </Container>
         <h2>
           여행 <span className={cx('accented')}>기간</span>은?
         </h2>
-      </TripieContainer>
+      </Container>
       <Calendar onNext={onNext} context={context} />
     </>
   );

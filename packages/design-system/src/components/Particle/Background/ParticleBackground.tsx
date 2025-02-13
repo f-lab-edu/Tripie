@@ -1,4 +1,4 @@
-import { TripieContainer } from '@tripie-pyotato/design-system';
+import { TripieContainer } from '../../TripieContainer';
 
 import classNames from 'classnames/bind';
 

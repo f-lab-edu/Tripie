@@ -1,7 +1,7 @@
 'use client';
 
 import { increment } from '@firebase/firestore';
-import { Text, TripieContainer } from '@tripie-pyotato/design-system';
+import { Container, Text } from '@tripie-pyotato/design-system';
 import { getTripPlan } from 'app/api/chat/route';
 import firestoreService from 'app/api/firebase';
 import classNames from 'classnames/bind';
@@ -164,31 +164,31 @@ const TripPlan = () => {
       duration,
     ].flat();
     return (
-      <TripieContainer margin="none" className={cx('background', 'title-wrap')}>
-        <TripieContainer className={cx('cloud-wrap')}>
+      <Container margin="none" className={cx('background', 'title-wrap')}>
+        <Container className={cx('cloud-wrap')}>
           {Array.from({ length: 17 }, (_, index) => (
             <Icon.Cloud key={index} index={index} />
           ))}
           <Icon.Plane />
-        </TripieContainer>
-        <TripieContainer margin="none">
+        </Container>
+        <Container margin="none">
           {selectedOptions.map(text => (
             <Text.Slide animate="fly" duration={randomInt()} key={text}>
               <div className={cx('text-color')}>{text}</div>
             </Text.Slide>
           ))}
-        </TripieContainer>
-        <TripieContainer className={cx('cloud-wrap')}>
+        </Container>
+        <Container className={cx('cloud-wrap')}>
           {Array.from({ length: 13 }, (_, index) => (
             <Icon.Cloud key={index} index={index} />
           ))}
-        </TripieContainer>
-      </TripieContainer>
+        </Container>
+      </Container>
     );
   }
 
   return (
-    <TripieContainer margin="none" className={cx('background')}>
+    <Container margin="none" className={cx('background')}>
       <funnel.Render
         CONTINENT={({ context, history }) => (
           <ContinentStep
@@ -236,7 +236,7 @@ const TripPlan = () => {
           />
         )}
       />
-    </TripieContainer>
+    </Container>
   );
 };
 

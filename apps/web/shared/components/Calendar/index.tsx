@@ -1,4 +1,4 @@
-import { Headings, TripieContainer } from '@tripie-pyotato/design-system';
+import { Container, Headings } from '@tripie-pyotato/design-system';
 import { Value, ValuePiece } from 'app/trip-planner/_components/Duration/Calendar';
 import { differenceInCalendarDays } from 'date-fns';
 import { RefAttributes, useCallback, useMemo } from 'react';
@@ -67,9 +67,9 @@ const Calendar = ({
 
   return (
     <>
-      <TripieContainer applyMargin="left" margin="m">
+      <Container applyMargin="left" margin="m">
         <Headings.H2>{month}</Headings.H2>
-      </TripieContainer>
+      </Container>
       <ReactCalendar
         minDate={minDate}
         maxDate={maxDate}

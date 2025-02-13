@@ -1,5 +1,5 @@
 'use client';
-import { AnimatedButton, TripieContainer } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import Icon from 'shared/components/Icon/Icon';
 
@@ -36,30 +36,30 @@ const CompanionStep = ({ context, onNext }: Props) => {
 
   return (
     <>
-      <TripieContainer margin="none">
-        <TripieContainer margin="none">
+      <Container margin="none">
+        <Container margin="none">
           <Icon.Navigate src={RESOURCE.ARROW} />
-        </TripieContainer>
+        </Container>
         <h2>
           <span className={cx('accented')}>누구</span>와 떠나나요?
         </h2>
-      </TripieContainer>
-      <TripieContainer className={cx('cloud-wrap')}>
+      </Container>
+      <Container className={cx('cloud-wrap')}>
         {Array.from({ length: 30 }, (_, index) => (
           <Icon.Cloud key={index} index={index} />
         ))}
 
         <Icon.Plane />
-      </TripieContainer>
+      </Container>
       <CompanionList context={context} selected={selected} setSelected={setSelected} />
-      <TripieContainer margin="l" applyMargin="top">
+      <Container margin="l" applyMargin="top">
         <AnimatedButton
           withBorder={true}
           disabled={selected.length === 0}
           onClick={handleSubmit}
           className={cx('submit-button')}
         >
-          <TripieContainer margin="none" className={cx('flex')}>
+          <Container margin="none" className={cx('flex')}>
             {selected.length === 0 ? (
               '다중 선택이 가능해요.'
             ) : (
@@ -67,9 +67,9 @@ const CompanionStep = ({ context, onNext }: Props) => {
                 다음 <Icon src={RESOURCE.ARROW} />
               </>
             )}
-          </TripieContainer>
+          </Container>
         </AnimatedButton>
-      </TripieContainer>
+      </Container>
     </>
   );
 };

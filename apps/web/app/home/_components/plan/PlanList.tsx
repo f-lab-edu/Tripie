@@ -1,6 +1,6 @@
 'use client';
 
-import { AnimatedButton, Card, Divider, Headings, List, Text, TripieContainer } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Card, Container, Divider, Headings, List, Text } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import PLANS from 'constants/plans';
 import RESOURCE from 'constants/resources';
@@ -26,9 +26,9 @@ export default function PlanList() {
         ))}
       </List>
       <AnimatedButton className={cx('max')} withBorder={true} onClick={() => alert('basic')}>
-        <TripieContainer margin="none" className={cx('flex')}>
+        <Container margin="none" className={cx('flex')}>
           Get started with {PLANS[key].label} <Icon src={RESOURCE.ARROW} />
-        </TripieContainer>
+        </Container>
       </AnimatedButton>
     </Card>
   ));

@@ -1,5 +1,5 @@
 'use client';
-import { Card, Headings, Text, TripieContainer } from '@tripie-pyotato/design-system';
+import { Card, Container, Headings, Text } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 
 import Style from './selected-dates.module.scss';
@@ -16,18 +16,18 @@ const DateSection = ({
   duration: SelectedDateProps['duration'];
 }) => {
   return (
-    <TripieContainer margin="none">
+    <Container margin="none">
       <Headings.H2>{date === 'start' ? '시작' : '끝'}</Headings.H2>
-      <TripieContainer margin="sm" applyMargin="top">
+      <Container margin="sm" applyMargin="top">
         {duration[date] === '' ? (
-          <TripieContainer margin="none" className={cx('not-selected')}>
+          <Container margin="none" className={cx('not-selected')}>
             <Text.Jump>날짜를 선택해주세요!</Text.Jump>
-          </TripieContainer>
+          </Container>
         ) : (
           duration[date]
         )}
-      </TripieContainer>
-    </TripieContainer>
+      </Container>
+    </Container>
   );
 };
 

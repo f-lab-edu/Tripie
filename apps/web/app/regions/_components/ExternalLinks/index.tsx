@@ -1,5 +1,5 @@
 'use client';
-import { Card, Divider, TripieContainer, TripieImage } from '@tripie-pyotato/design-system';
+import { Card, Container, Divider, TripieImage } from '@tripie-pyotato/design-system';
 
 import ArticleHeading from 'app/regions/_components/Elements/Header';
 import ArticleText from 'app/regions/_components/Elements/Text';
@@ -22,10 +22,10 @@ const ExternalLinkCard = ({ link, index }: { link: ExternalLink; index: number }
           alt={link.imageUrl}
           blurDataURL={link.blurData?.data}
         />
-        <TripieContainer margin="none" className={cx('attraction-card-text')}>
+        <Container margin="none" className={cx('attraction-card-text')}>
           <ArticleHeading item={{ type: 'heading3', value: { text: link.title } }} />
           <ArticleText item={{ type: 'text', value: { text: link.publisher } }} />
-        </TripieContainer>
+        </Container>
       </Card.ClickableContent>
     </Card>
   );
