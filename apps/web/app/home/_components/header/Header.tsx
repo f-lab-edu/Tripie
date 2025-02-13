@@ -18,19 +18,19 @@ export default function Header() {
     <ParticleBackground>
       <Nav />
       <RotatingBlur />
-      <Container className={cx('center')} margin="none">
-        <div>
-          <Container className={cx('heading')} margin="none">
-            <Headings.H1 className={cx('accented')}>AI</Headings.H1>
-            <Headings.H1>enhanced trip planner.</Headings.H1>
-          </Container>
-        </div>
-        <Container className={cx('button-wrap')} margin="none">
+      <Container align="center" className={cx('wrap')} margin="none">
+        <Container className={cx('heading')} margin="none" align="center">
+          <Headings.H1 className={cx('accented')}>AI</Headings.H1>
+          <Headings.H1>enhanced trip planner.</Headings.H1>
+        </Container>
+        <Container align="center" margin="none" className={cx('flex', 'button-wrap')}>
           <Link href={ROUTE.SERVICES.href}>
-            <AnimatedButton withBorder={true}>Our services</AnimatedButton>
+            <AnimatedButton withBorder={true} className={cx('main-button')}>
+              Our services
+            </AnimatedButton>
           </Link>
           <Link href={ROUTE.CONTACT.href}>
-            <AnimatedButton withBorder={true} className={cx('flex')}>
+            <AnimatedButton withBorder={true} className={cx('flex', 'main-button')}>
               <Container margin="none" className={cx('flex')}>
                 Get in touch <Icon src={RESOURCE.ARROW} />
               </Container>

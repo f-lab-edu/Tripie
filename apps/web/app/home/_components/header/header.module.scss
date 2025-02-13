@@ -2,50 +2,42 @@
 @use 'shared/mixins' as *;
 
 .heading {
-  display: inline-flex;
-  gap: 7px;
+  gap: 0.4rem;
+  @media (max-width: 430px) {
+    transform: translateX(7vw);
+  }
 }
 .accented {
   @include accented;
 }
 
 .button-wrap {
-  align-content: center;
-  align-items: center;
-  display: inline-flex;
-  flex: none;
-  flex-direction: row;
-  flex-wrap: nowrap;
   gap: 10px;
-  height: min-content;
-  justify-content: center;
-  overflow: hidden;
-  padding: 0;
-  position: relative;
-  width: min-content;
-  & a {
-    text-decoration: none;
-    color: inherit;
-  }
 }
 
 .flex {
   @include flex;
 }
-.center {
-  align-content: center;
+.wrap {
   align-items: center;
   display: inline-flex;
-  flex: none;
   flex-direction: column;
   flex-wrap: nowrap;
   gap: 25px;
   height: min-content;
-  justify-content: center;
   max-width: 1440px;
-  overflow: hidden;
   padding: 0;
   position: relative;
   width: 100%;
   z-index: 5;
+  @media (min-width: 300px) {
+    width: 80%;
+  }
+}
+
+.main-button {
+  @media (min-width: 300px) {
+    width: 3vw;
+    overflow: hidden;
+  }
 }

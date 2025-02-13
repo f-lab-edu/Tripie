@@ -44,7 +44,6 @@ export const AllXsm: Story = {
   name: 'Margin-xm',
   args: {
     children: 'm container',
-
     margin: 'xsm',
   },
 };

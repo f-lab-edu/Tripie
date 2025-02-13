@@ -13,6 +13,8 @@
 
 .accordian-body {
   height: fit-content !important;
+  @include scroll;
+  // height: auto !important;
 }
 .chip-wrap {
   display: inline-flex;
@@ -28,7 +30,8 @@
 }
 
 .grid-wrap {
-  overflow: scroll;
+  // overflow: scroll;
   max-height: 35vh;
+  height: fit-content;
   @include scroll;
 }

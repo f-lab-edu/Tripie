@@ -39,3 +39,8 @@ html[data-theme='dark']:root {
   color: color(default, 800);
   background-color: color(themes, 500);
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

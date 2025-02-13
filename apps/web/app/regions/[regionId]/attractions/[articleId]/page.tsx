@@ -21,22 +21,24 @@ const Attractions = async ({ params }: { params: Promise<{ regionId: string; art
   }
 
   return (
-    <Card.Content className={cx('fit-content')}>
-      <Container margin="m" applyMargin="top-left-right">
-        <AttractionTitle names={data.source.names} />
-      </Container>
-      <Container margin="m" applyMargin="all" className={cx('img-container')}>
-        <TripieImage
-          blurDataURL={blurredThumbnail?.data}
-          src={data.source.image.sizes.full.url}
-          alt={`${data.source.image.sizes.full.url}의 썸네일`}
-          sizes="large"
-        />
-      </Container>
-      <Container margin="none">
-        <RegionBody source={data.source} dataUrl={data.id} />
-      </Container>
-    </Card.Content>
+    <Container applyMargin="top" margin="l" align="center">
+      <Card.Content className={cx('fit-content')}>
+        <Container margin="m" applyMargin="top-left-right">
+          <AttractionTitle names={data.source.names} />
+        </Container>
+        <Container margin="m" applyMargin="all" className={cx('img-container')}>
+          <TripieImage
+            blurDataURL={blurredThumbnail?.data}
+            src={data.source.image.sizes.full.url}
+            alt={`${data.source.image.sizes.full.url}의 썸네일`}
+            sizes="large"
+          />
+        </Container>
+        <Container margin="none">
+          <RegionBody source={data.source} dataUrl={data.id} />
+        </Container>
+      </Card.Content>
+    </Container>
   );
 };
 

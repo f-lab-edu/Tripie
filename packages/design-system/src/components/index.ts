@@ -4,6 +4,7 @@ export { default as Carousel } from './Carousel/Carousel';
 export { default as Chip } from './Chip/Chip';
 export { default as Divider } from './Divider';
 export { default as Headings } from './Headings';
+export { default as Link } from './Link';
 export { default as List } from './List/List';
 export { default as MotionSlideUp } from './MotionSlideUp';
 export { default as Paragraph } from './Paragraph';
