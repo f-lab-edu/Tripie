@@ -1,6 +1,8 @@
+import { BodyItemProps } from 'app/regions/[regionId]/articles/[articleId]/ArticleBody';
 import { GeoTag } from './Geo';
 import { ImageUrl } from './Image';
-import { TripleImage } from './Triple';
+import { Metadata } from './MetaData';
+import { MetaDataContents, TripleImage } from './Triple';
 
 export type RegionInfoSource = {
   image: TripleImage;
@@ -35,4 +37,14 @@ export type ArticleImage = {
   type: string;
   width: number;
   sizes: { full: ImageUrl; large: ImageUrl; small_square: ImageUrl };
+};
+
+export type ArticleData = {
+  body: BodyItemProps[];
+  header: null;
+  metadata: Metadata;
+  metadataContents: MetaDataContents;
+  placeId: string;
+  seoMetadata: null;
+  id: string;
 };

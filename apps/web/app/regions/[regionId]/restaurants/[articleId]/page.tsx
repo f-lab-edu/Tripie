@@ -2,31 +2,24 @@
 import { Card, Container, TripieImage } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 
-import firestoreService from 'app/api/firebase';
+import getArticleDetail from 'app/api/articles/detail';
 import Nav from 'app/home/_components/nav/Nav';
-import NotFoundPage from 'app/not-found';
 import RegionBody from 'app/regions/_components/RegionBody';
 import AttractionTitle from 'app/regions/_components/shared/_sections/AttractionTitle';
-import API from 'constants/api-routes';
 import Style from './restaurants.module.scss';
 
 const cx = classNames.bind(Style);
 
 const Articles = async ({ params }: { params: Promise<{ regionId: string; articleId: string }> }) => {
-  let { data } = await firestoreService.getRestaurantDetails(
-    'retaurant-details',
+  const { data, blurredThumbnail } = await getArticleDetail(
+    'retaurant',
     (await params).regionId,
     (await params).articleId
   );
 
-  if (data === null) {
-    return <NotFoundPage />;
+  if (data == null) {
+    return <>missing...</>;
   }
-
-  const blurredThumbnail = await fetch(
-    'http://localhost:3000' + API.BASE + API.BLUR_IMAGE + `?url=${data.source.image.sizes.full.url}`
-  ).then(v => v.json());
-
   return (
     <>
       <Nav />

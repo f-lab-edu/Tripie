@@ -5,6 +5,7 @@ export type ExternalLink = {
   imageUrl: string;
   title: string;
   publisher: string;
+  blurData?: { data: string };
 };
 export type Link = {
   href: string;

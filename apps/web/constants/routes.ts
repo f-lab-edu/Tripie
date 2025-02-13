@@ -9,10 +9,10 @@ const ROUTE = {
 };
 
 export const LANDING_SECTION = [
-  { label: 'Process', href: '#Process' },
+  { label: 'Process', href: '/#Process' },
   ROUTE.SERVICES,
-  { label: 'Work', href: '#Work' },
-  { label: 'Plans', href: '#Plans' },
+  { label: 'Work', href: '/#Work' },
+  { label: 'Plans', href: '/#Plans' },
   ROUTE.CONTACT,
 ];
 

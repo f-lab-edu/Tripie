@@ -16,8 +16,6 @@ const RESOURCE = {
   FLAG: '/flag.png',
   CURSOR: '/cursor.png',
   NEXT: '/next.png',
-  PLACEHOLDER: 'https://placehold.co/600x600?text=NO IMAGE',
-  LOADING_IMG: 'https://placehold.co/600x600?text=LOADING',
 };
 
 export default RESOURCE;

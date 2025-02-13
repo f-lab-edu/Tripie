@@ -50,14 +50,7 @@ export const AccordionHeader = ({ children }: AccordionProps) => {
 
 export const AccordionIcon = ({ src, className }: IconProps) => {
   const { current } = useContext(AccordionContext);
-  return (
-    <Icon
-      src={src}
-      variants={ACCORDIAN_VARIANTS.BUTTON}
-      animate={current}
-      className={cx('accordion-button', className)}
-    />
-  );
+  return <Icon src={src} variants={ACCORDIAN_VARIANTS.BUTTON} animate={current} className={cx(className)} />;
 };
 
 export const AccordionBody = ({ children }: AccordionProps) => {

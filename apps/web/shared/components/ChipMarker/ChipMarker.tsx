@@ -15,9 +15,10 @@ const ChipMarker = ({
 }: {
   className: string;
   marker: LocationMarker;
-  popup: string;
+  popup?: string;
   selected?: boolean;
 }) => {
+  console.log(popup);
   return (
     <Chip className={cx('marker', className)} selected={selected}>
       {+marker.index.split('-')[1] + 1}

@@ -1,13 +1,12 @@
+import API from 'constants/api-routes';
 import { NextResponse } from 'next/server';
-
-const baseUrl = process.env.NODE_ENV === 'development' ? 'http://localhost:3000/' : process.env.NEXT_PUBLIC_DOMAIN;
 
 // https://medium.com/@kavindumadushanka972/learn-how-to-create-dynamic-blur-data-urls-for-images-in-next-js-bc4eb5d04ec6 참고
 export async function GET(request: NextResponse) {
   const { searchParams } = new URL(request.url);
   const url = searchParams.get('url') as string;
 
-  const base64str = await fetch(`${baseUrl}/_next/image?url=${url}&w=16&q=75`).then(async res =>
+  const base64str = await fetch(`${API.BASE_URL}/_next/image?url=${url}&w=16&q=75`).then(async res =>
     Buffer.from(await res.arrayBuffer()).toString('base64')
   );
 

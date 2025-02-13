@@ -1,16 +1,30 @@
 'use client';
 import { Card, Container, Divider, TripieImage } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
-import ArticleHeading from '../Header';
+import ArticleHeading, { HeadingProps } from '../Header';
 
-import { BodyItemProps } from 'app/regions/[regionId]/articles/[articleId]/ArticleBody';
+import { ArticleDividerProps } from '@tripie-pyotato/design-system/components/Divider/Divider';
 import { ImageProps } from '../Images';
-import ArticleLink from '../Link';
-import ArticleNote from '../Note';
-import ArticleText from '../Text';
+import ArticleLink, { LinkProps } from '../Link';
+import ArticleNote, { NoteProps } from '../Note';
+import ArticleText, { ArticleTextProps } from '../Text';
 import Style from './embedded.module.scss';
 
-export type EmbeddedProps = { type: 'embedded'; value: Array<Array<BodyItemProps>> };
+import { ItineraryProps } from '../Itinerary';
+import { PoisProps } from '../Pois';
+
+type EmbeddedCardProps =
+  | ArticleDividerProps
+  | ArticleTextProps
+  | HeadingProps
+  | NoteProps
+  | ImageProps
+  | LinkProps
+  | EmbeddedProps
+  | PoisProps
+  | ItineraryProps;
+
+export type EmbeddedProps = { type: 'embedded'; value: { entries: Array<Array<EmbeddedCardProps>> } };
 
 const cx = classNames.bind(Style);
 
@@ -19,13 +33,13 @@ const ArticleCard = ({
   regionId,
   dataUrl,
 }: {
-  item: Array<BodyItemProps>;
+  item: Array<EmbeddedCardProps>;
   regionId: string;
   dataUrl: string;
 }) => {
   return (
     <Card.ClickableContent className={cx('embedded-card')}>
-      {item.map((embeddedItem: BodyItemProps, index: number) => {
+      {item.map((embeddedItem: EmbeddedCardProps, index: number) => {
         const { type } = embeddedItem;
         switch (type) {
           case 'images':
@@ -77,9 +91,12 @@ const ArticleCard = ({
 
 const ArticleEmbedded = ({ item, regionId, dataUrl }: { item: EmbeddedProps; regionId: string; dataUrl: string }) => {
   return (
-    <Container applyMargin="top-bottom" className={cx(item.value.length > 1 ? ['carousel'] : null)}>
-      <Container className={cx(item.value.length > 1 ? ['flex-items', 'embedded-card-wrap'] : null)} margin="none">
-        {item.value?.map((item, index) => (
+    <Container applyMargin="top-bottom" className={cx(item.value.entries.length > 1 ? ['carousel'] : null)}>
+      <Container
+        className={cx(item.value.entries.length > 1 ? ['flex-items', 'embedded-card-wrap'] : null)}
+        margin="none"
+      >
+        {item.value?.entries?.map((item, index) => (
           <ArticleCard item={item} key={index + JSON.stringify(item)} regionId={regionId} dataUrl={dataUrl} />
         ))}
       </Container>

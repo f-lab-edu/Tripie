@@ -10,6 +10,8 @@ export type AttractionData = {
   regionId: string;
 };
 
+export type ParsedAttractionResponse = Omit<AttractionData, 'data'> & { data: AttractionArticle };
+
 export type ForeignEntity = {
   service: string;
   identifier: string;

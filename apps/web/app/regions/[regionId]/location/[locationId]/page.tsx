@@ -5,12 +5,10 @@ import Style from '../../../_components/shared/regions.module.scss';
 
 const cx = classNames.bind(Style);
 
-import firestoreService from 'app/api/firebase';
+import getRegionArticles from 'app/api/articles/region';
 import Title from 'app/regions/_components/Title';
-import API from 'constants/api-routes';
 import { TRIPIE_REGION_IDS } from 'constants/tripie-country';
-import { RegionArticleInfo } from 'models/Article';
-import RegionList, { RegionArticleData } from '../../../_components/RegionList';
+import RegionList from '../../../_components/RegionList';
 import RegionSelect from '../../../_components/RegionSelect';
 
 const Articles = async ({ params }: { params: Promise<{ locationId: string; regionId: string }> }) => {
@@ -20,27 +18,7 @@ const Articles = async ({ params }: { params: Promise<{ locationId: string; regi
   const currentRegionId = decodeURI(regionId);
   const currentLocationId = decodeURI(locationId);
 
-  const data = await firestoreService.getList('region-articles');
-
-  const regionData = data.filter((item: RegionArticleData) => item.regionId === locationId)?.[0]?.data;
-
-  const dynamicBlurDataUrl = await Promise.all(
-    regionData?.map(async (data: RegionArticleInfo) => ({
-      ...data,
-      source: {
-        ...data?.source,
-        image: {
-          ...data?.source?.image,
-          blurData: await fetch(
-            'http://localhost:3000' +
-              API.BASE +
-              API.BLUR_IMAGE +
-              `?url=${data?.source?.image?.sizes?.small_square?.url}`
-          ).then(v => v.json()),
-        },
-      },
-    }))
-  );
+  const dynamicBlurDataUrl = await getRegionArticles(locationId);
 
   return (
     <>

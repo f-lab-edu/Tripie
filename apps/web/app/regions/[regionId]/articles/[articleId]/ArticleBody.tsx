@@ -21,7 +21,15 @@ export type BodyItemProps =
   | PoisProps
   | ItineraryProps;
 
-const ArticleBody = ({ items, regionId, dataUrl }: { items: any; regionId: string; dataUrl: string }) => {
+const ArticleBody = ({
+  items,
+  regionId,
+  dataUrl,
+}: {
+  items: Array<BodyItemProps>;
+  regionId: string;
+  dataUrl: string;
+}) => {
   return items.map((item: BodyItemProps, index: number) => {
     const { type } = item;
     switch (type) {

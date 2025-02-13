@@ -15,7 +15,7 @@ const BusinessHours = ({ readableBusinessHours, today }: { readableBusinessHours
       <ArticleHeading item={{ type: 'heading3', value: { text: '이용가능시간, 휴무일' } }} />
       <Container id={'businessHours'} className={cx('business-hours')} margin="none">
         {Object.keys(BUSINESS_DATE).map(dayOfWeek => {
-          const day = readableBusinessHours.filter(item => item.dayOfWeek == +dayOfWeek)?.[0];
+          const day = readableBusinessHours?.filter(item => item.dayOfWeek == +dayOfWeek)?.[0];
           if (day == null) {
             return (
               <Container

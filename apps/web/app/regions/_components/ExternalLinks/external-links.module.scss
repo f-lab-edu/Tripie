@@ -18,7 +18,10 @@
 }
 
 .attraction-card {
+  display: inline-flex !important;
   flex-direction: row !important;
+  width: 100%;
+  gap: 1rem;
 }
 
 .attraction-card-text {
