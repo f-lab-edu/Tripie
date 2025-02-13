@@ -1,6 +1,6 @@
 export { default as AnimatedButton, default as AnimatedText } from './button/Animated';
 export { default as NoStyleButton } from './button/NoStyle';
-export { default as Card } from './Card';
+export { default as Card } from './Card/Card';
 export { default as Carousel } from './Carousel/Carousel';
 export { default as Chip } from './Chip/Chip';
 export { default as Divider } from './Divider';
@@ -10,7 +10,7 @@ export { default as MotionSlideUp } from './MotionSlideUp';
 export { default as Paragraph } from './Paragraph';
 export { default as ParticleBackground } from './Particle/Background';
 export { default as ParticleField } from './Particle/Field';
-export { default as Skeleton } from './Skeleton';
+export { default as Skeleton } from './Skeleton/Skeleton';
 export { default as SplashScreen } from './SplashScreen/SplashScreen';
 export { default as Switch } from './Switch';
 export { default as Text } from './Text/Text';
