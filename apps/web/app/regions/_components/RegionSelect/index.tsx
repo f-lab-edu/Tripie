@@ -21,9 +21,9 @@ const RegionSelect = ({ selected, selectedRegion }: { selected: string; selected
         <Accordion.Header>
           <Container className={cx('flex')} margin="sm" applyMargin="top-bottom">
             <Headings.H4>
-              어떤 <span className={cx('accented')}>지역</span>이 궁금하세요?
+              어떤 <span className={cx('accented')}>지역</span>이 궁금하세요?{' '}
+              <Accordion.Icon variants={ACCORDIAN_VARIANTS.BUTTON} src={RESOURCE.ARROW} />
             </Headings.H4>
-            <Accordion.Icon variants={ACCORDIAN_VARIANTS.BUTTON} src={RESOURCE.ARROW} />
           </Container>
         </Accordion.Header>
         <Accordion.Divider />

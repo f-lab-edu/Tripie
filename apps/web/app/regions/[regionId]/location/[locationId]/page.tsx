@@ -23,7 +23,7 @@ const Articles = async ({ params }: { params: Promise<{ locationId: string; regi
   return (
     <>
       <Title>
-        도시 별<span className={cx('accented')}> 여행 </span>정보 {` > `}
+        도시 별<span className={cx('accented')}> 여행 </span>정보 {`\n > `}
         <span className={cx('accented')}>{currentRegionId}</span> {` > `}
         <span className={cx('accented')}>{TRIPIE_REGION_IDS[locationId as keyof typeof TRIPIE_REGION_IDS]}</span>
       </Title>

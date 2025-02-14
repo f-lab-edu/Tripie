@@ -7,7 +7,6 @@
 @use 'sass:map';
 
 .text {
-  @include text-ellipsis(3);
   @include word-wrap;
 
   font-size: font-size(text);
