@@ -1,21 +1,17 @@
 'use client';
 import { SplashScreen, TextFillAnimation } from '@tripie-pyotato/design-system';
-// import classNames from 'classnames/bind';
-// import Style from './loading.module.scss';
 
-// const cx = classNames.bind(Style);
-
-const Loading = ({ isLoading = true }: Readonly<{ isLoading?: boolean }>) => {
+const Loading = ({ repeat }: Readonly<{ repeat?: number }>) => {
   return (
-    <SplashScreen isLoading={isLoading}>
+    <SplashScreen repeat={repeat}>
       <TextFillAnimation.Title>Tripie.</TextFillAnimation.Title>
     </SplashScreen>
   );
 };
 
-const LoadingFullScreen = ({ isLoading = true }: Readonly<{ isLoading?: boolean }>) => {
+const LoadingFullScreen = ({ repeat }: Readonly<{ repeat?: number }>) => {
   return (
-    <SplashScreen isLoading={isLoading}>
+    <SplashScreen repeat={repeat}>
       <TextFillAnimation.Title>Tripie.</TextFillAnimation.Title>
     </SplashScreen>
   );
