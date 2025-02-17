@@ -6,6 +6,13 @@ import { default as SplashScreen } from './SplashScreen';
 const meta: Meta<typeof SplashScreen> = {
   title: 'tripie-ui/SplashScreen',
   component: SplashScreen,
+  parameters: {
+    docs: {
+      description: {
+        component: '로딩 시 화면 전체를 차지하며 스크롤업되는 splash screen 컴포넌트입니다.',
+      },
+    },
+  },
   tags: ['autodocs'],
   decorators: [
     (story, context) => {
@@ -28,7 +35,7 @@ export const Default: Story = {
   name: 'Default',
   render: () => (
     <div style={{ height: '100vh' }}>
-      <SplashScreen isLoading={true}>splash</SplashScreen>
+      <SplashScreen>splash</SplashScreen>
     </div>
   ),
 };

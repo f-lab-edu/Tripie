@@ -8,7 +8,6 @@ import classNames from 'classnames/bind';
 import RegionList from './_components/RegionList';
 import Style from './_components/shared/regions.module.scss';
 import Title from './_components/Title';
-// import getRegionArticles from 'app/api/articles/region';
 
 const cx = classNames.bind(Style);
 
@@ -21,10 +20,6 @@ const Articles = async () => {
   )?.[0];
 
   const dynamicBlurDataUrl = await getRegionArticles(selectedRegion);
-
-  // if (dynamicBlurDataUrl == null) {
-  //   return <Loading />;
-  // }
 
   return (
     <>
