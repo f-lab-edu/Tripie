@@ -60,6 +60,7 @@ export const CardWithCoverImage: Story = {
       }
       summary={'대자연부터 감성 카페까지, 인생샷을 남길 수 있는 곳'}
       title={'여름 제주 인생샷 명소 BEST 7'}
+      withBorder={false}
     />
   ),
 };

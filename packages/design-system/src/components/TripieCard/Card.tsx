@@ -126,7 +126,7 @@ const CardWithImage = ({
             blurDataURL={blurDataURL}
             src={src}
             sizes="small"
-            alt={alt || `${src} 이미지일 수도 있음`}
+            alt={alt ?? `${src} 이미지일 수도 있음`}
             className={cx('thumbnail')}
             withBorder={withBorder}
           />
@@ -136,7 +136,7 @@ const CardWithImage = ({
             withBorder={withBorder}
             sourceUrl={sourceUrl}
             src={src}
-            alt={alt || `${src} 이미지일 수도 있음`}
+            alt={alt ?? `${src} 이미지일 수도 있음`}
             className={cx('thumbnail')}
           />
         )}
