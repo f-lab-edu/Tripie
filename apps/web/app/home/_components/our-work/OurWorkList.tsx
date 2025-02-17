@@ -1,7 +1,7 @@
 'use client';
 import { Container, Headings } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
-import RESOURCE from 'constants/resources';
+
 import Accordion from 'shared/components/Accordian/Accordian';
 import { ACCORDIAN_VARIANTS } from 'shared/components/Accordian/variants';
 import Style from './our-work-list.module.scss';
@@ -43,7 +43,8 @@ export default function OurWorkList() {
             </Container>
             <Container className={cx('flex')} margin="sm" applyMargin="top-bottom">
               <Headings.H3>{header}</Headings.H3>
-              <Accordion.Icon variants={ACCORDIAN_VARIANTS.BUTTON} src={RESOURCE.ARROW} />
+              {/* <Accordion.Icon variants={ACCORDIAN_VARIANTS.BUTTON} src={RESOURCE.ARROW} /> */}
+              <Accordion.Icon variants={ACCORDIAN_VARIANTS.BUTTON} />
             </Container>
           </Accordion.Header>
           <Accordion.Divider />

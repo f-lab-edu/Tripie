@@ -1,10 +1,10 @@
-import { AnimatedButton, Container } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Container, Icon } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 
-import Icon from 'shared/components/Icon/Icon';
+// import Icon from 'shared/components/Icon/Icon';
 
 import PREFERENCE_LIST from 'constants/preferences';
-import RESOURCE from 'constants/resources';
+
 import { ContinentKeys } from 'models/Continent';
 import { useCallback, useState } from 'react';
 import PreferenceList from './PreferenceList';
@@ -39,7 +39,8 @@ const PreferenceStep = ({ context, onNext }: Props) => {
     <>
       <Container margin="none">
         <Container margin="none">
-          <Icon.Navigate src={RESOURCE.ARROW} />
+          {/* <Icon.Navigate src={RESOURCE.ARROW} /> */}
+          <Icon.Navigate />
         </Container>
         <h2>
           내가 선호하는 여행 <span className={cx('accented')}>스타일</span>은?
@@ -65,7 +66,7 @@ const PreferenceStep = ({ context, onNext }: Props) => {
               '다중 선택이 가능해요.'
             ) : (
               <>
-                다음 <Icon src={RESOURCE.ARROW} />
+                다음 <Icon />
               </>
             )}
           </Container>

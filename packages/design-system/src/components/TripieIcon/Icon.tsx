@@ -1,17 +1,18 @@
-import { TripieImage } from '@tripie-pyotato/design-system';
+'use client';
 import classNames from 'classnames/bind';
-import { TRANSPORTATION_ICON } from 'constants/icon';
-import RESOURCE from 'constants/resources';
 import { AnimationProps, Variants, motion } from 'framer-motion';
-import { Transportation } from 'models/Itinery';
 import { useRouter } from 'next/navigation';
 import { ReactNode } from 'react';
 import Style from './icon.module.scss';
+
+import { ICON_RESOURCE } from '../../shared/resource';
 import { ICON_VARIANTS } from './variants';
 
 const cx = classNames.bind(Style);
 
 export type MotionSlideUpProps = Partial<AnimationProps> & { children?: ReactNode; className?: string };
+
+export type Transport = 'WALK' | 'TRAM' | 'TRAIN' | 'SHIP' | 'BUS' | 'FLAG' | 'CAR';
 
 export type IconProps = {
   className?: string;
@@ -22,25 +23,28 @@ export type IconProps = {
   src?: string;
   transition?: AnimationProps['transition'];
   onTap?: () => void;
+  sizes?: 'large' | 'icon';
 };
 
 const Icon = ({
   className,
   onTapStart,
-  src,
+  // src = './icons/arrow.png',
+  src = ICON_RESOURCE('ARROW'),
   animate,
+  sizes = 'icon',
   variants = ICON_VARIANTS.DEFAULT,
   transition,
 }: Readonly<IconProps>) => {
   return (
     <motion.div
       onTapStart={onTapStart}
-      className={cx('icon', className)}
+      className={cx(sizes, className)}
       variants={variants}
       transition={transition}
       animate={animate}
     >
-      <TripieImage src={src} alt={`${src} icon`} sizes="icon" withBorder={false} />
+      <img src={src} alt={`${src} icon`} />
     </motion.div>
   );
 };
@@ -52,6 +56,7 @@ const NavigateIcon = ({
   className,
   direction = 'back',
   src,
+  sizes = 'icon',
   animate,
   disabled,
   variants = ICON_VARIANTS.NAVIGATE(direction),
@@ -69,47 +74,47 @@ const NavigateIcon = ({
       onTapStart={() => onNavigate({ direction })}
       whileTap={'hover'}
       whileHover={'hover'}
-      className={cx('icon', className)}
+      className={cx(sizes, className)}
       variants={variants}
       transition={transition}
       initial={'closed'}
       animate={animate}
     >
-      <img src={src} />
+      <img src={ICON_RESOURCE('ARROW')} alt={src + '버튼'} />
     </motion.button>
   );
 };
 
-const RefreshIcon = ({ className, onTapStart, animate, transition }: Readonly<IconProps>) => {
+const RefreshIcon = ({ className, onTapStart, animate, transition, sizes = 'icon' }: Readonly<IconProps>) => {
   return (
     <motion.div
       onTapStart={onTapStart}
       whileTap={'hover'}
       whileHover={'hover'}
-      className={cx('icon', className)}
+      className={cx(sizes, className)}
       variants={ICON_VARIANTS.REFRESH('undo')}
       transition={transition}
       initial={'closed'}
       animate={animate}
     >
-      <img src={RESOURCE.REFRESH} />
+      <img src={ICON_RESOURCE('REFRESH')} alt={'새로고침 버튼'} />
     </motion.div>
   );
 };
 
-const PlaneIcon = () => {
+const PlaneIcon = ({ className, sizes = 'icon' }: Readonly<IconProps>) => {
   return (
     <motion.img
       variants={ICON_VARIANTS.PLANE}
       animate={'fly'}
       initial={'rotate'}
-      src={RESOURCE.PLANE}
-      className={cx('icon', 'plane')}
+      src={ICON_RESOURCE('PLANE')}
+      className={cx(sizes, 'plane', className)}
     />
   );
 };
 
-const CloudIcon = ({ index }: { index: number }) => {
+const CloudIcon = ({ index = 0, sizes = 'icon' }: { index: number; sizes?: IconProps['sizes'] }) => {
   return (
     <motion.img
       variants={ICON_VARIANTS.CLOUD}
@@ -120,19 +125,19 @@ const CloudIcon = ({ index }: { index: number }) => {
       }}
       animate={{ translateX: '-100vw' }}
       transition={{ decelerate: 2, repeat: Infinity, duration: 35, bounce: 0, delay: index * 0.1 }}
-      src={RESOURCE.CLOUD}
-      className={cx('icon')}
+      src={ICON_RESOURCE('CLOUD')}
+      className={cx(sizes)}
     />
   );
 };
 
-const LoadingIcon = () => {
+const LoadingIcon = ({ className, sizes = 'icon' }: Readonly<IconProps>) => {
   return (
     <motion.img
       animate={{ rotate: '360deg' }}
       transition={{ repeat: Infinity, duration: 10, bounce: 0 }}
-      src={RESOURCE.LOADING}
-      className={cx('icon')}
+      src={ICON_RESOURCE('LOADING')}
+      className={cx(sizes, className)}
     />
   );
 };
@@ -141,19 +146,16 @@ const CursorIcon = ({
   hovered = '',
   className,
   transition,
-}: {
-  hovered?: string;
-  className?: string;
-  transition?: AnimationProps['transition'];
-}) => {
+  sizes = 'icon',
+}: Readonly<IconProps> & { hovered?: string }) => {
   return (
     <motion.img
       variants={ICON_VARIANTS.CURSOR}
-      src={RESOURCE.CURSOR}
+      src={ICON_RESOURCE('CURSOR')}
       initial={'initial'}
       animate={hovered}
       transition={transition}
-      className={cx('icon', className)}
+      className={cx(sizes, className)}
     />
   );
 };
@@ -164,43 +166,49 @@ const ScrollIcon = ({
   next = true,
   transition,
   onTapStart,
-}: {
+  sizes = 'icon',
+}: Readonly<IconProps> & {
   hovered?: string;
-  className?: string;
-  transition?: AnimationProps['transition'];
   next?: boolean;
-  onTapStart?: () => void;
 }) => {
   return (
     <motion.img
       variants={ICON_VARIANTS.SCROLL(next)}
       onTapStart={onTapStart}
-      src={RESOURCE.NEXT}
+      src={ICON_RESOURCE('NEXT')}
       initial={'initial'}
       animate={hovered}
       transition={transition}
-      className={cx('icon', next ? 'next' : 'prev', className)}
+      className={cx(sizes, next ? 'next' : 'prev', className)}
     />
   );
 };
 
 const TransportIcon = ({
-  active,
-  type = 'flag',
+  active = false,
+  type = 'FLAG',
   className,
-}: {
-  active: boolean;
-  type: Transportation['value']['transportation'];
-  className?: string;
+  sizes = 'icon',
+}: Readonly<IconProps> & {
+  active?: boolean;
+  type?: Transport;
 }) => {
   return (
     <motion.img
       animate={active ? { rotate: [0, 10, -10, 0] } : { rotate: 0 }}
       transition={active ? { repeat: Infinity, repeatType: 'loop', duration: 0.8, ease: 'easeInOut' } : {}}
-      className={cx('icon', className)}
-      src={TRANSPORTATION_ICON[type]}
+      className={cx(sizes, className)}
+      src={ICON_RESOURCE(type)}
     />
   );
+};
+
+const XIcon = ({ className, sizes = 'icon' }: Readonly<IconProps>) => {
+  return <motion.img className={cx(sizes, className)} src={ICON_RESOURCE('X')} />;
+};
+
+const CheckIcon = ({ className, sizes = 'icon' }: Readonly<IconProps>) => {
+  return <motion.img className={cx(sizes, className)} src={ICON_RESOURCE('CHECK')} />;
 };
 
 Icon.Navigate = NavigateIcon;
@@ -211,5 +219,7 @@ Icon.Loading = LoadingIcon;
 Icon.Transport = TransportIcon;
 Icon.Cursor = CursorIcon;
 Icon.Scroll = ScrollIcon;
+Icon.X = XIcon;
+Icon.Check = CheckIcon;
 
 export default Icon;

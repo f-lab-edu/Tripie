@@ -1,9 +1,9 @@
 'use client';
-import { AnimatedButton, Container } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Container, Icon } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import { ReactNode } from 'react';
 import { InView } from 'react-intersection-observer';
-import Icon from '../../Icon/Icon';
+// import Icon from '../../Icon/Icon';
 import Style from './animated-button.module.scss';
 
 const cx = classNames.bind(Style);

@@ -1,9 +1,8 @@
 'use client';
-import { AnimatedButton, Container } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Container, Icon } from '@tripie-pyotato/design-system';
 
 import classNames from 'classnames/bind';
 
-import RESOURCE from 'constants/resources';
 import { ContinentKeys } from 'models/Continent';
 import { useCallback, useMemo, useState } from 'react';
 
@@ -11,7 +10,7 @@ import useCalendar from 'hooks/useCalendar';
 import { LooseValue } from 'react-calendar/dist/esm/shared/types.js';
 import Calendar from 'shared/components/Calendar';
 import CalendarHeader from 'shared/components/Calendar/CalendarHeader';
-import Icon from 'shared/components/Icon/Icon';
+// import Icon from 'shared/components/Icon/Icon';
 import { localeString2Date } from 'utils/date';
 import SelectedDates from '../SelectedDates';
 import Style from './calendar.module.scss';
@@ -103,7 +102,7 @@ const Calendars = ({
               '여행의 시작과 끝나는 날짜를 선택해주세요.'
             ) : (
               <>
-                {duration.start} ~ {duration.end} <Icon src={RESOURCE.ARROW} />
+                {duration.start} ~ {duration.end} <Icon />
               </>
             )}
           </Container>

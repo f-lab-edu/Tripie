@@ -6,7 +6,8 @@ import useCycle from 'hooks/useCycle';
 import { createContext, ReactNode, useContext, useMemo } from 'react';
 
 import { Divider } from '@tripie-pyotato/design-system';
-import Icon, { IconProps } from '../Icon/Icon';
+// import Icon, { IconProps } from '../Icon/Icon';
+import Icon, { IconProps } from '@tripie-pyotato/design-system/components/TripieIcon/Icon';
 import Style from './accordian.module.scss';
 import { ACCORDIAN_VARIANTS } from './variants';
 

@@ -4,8 +4,8 @@
 .timeline-divider {
   height: 4px !important;
   background-color: $theme-50 !important;
-  position: absolute;
-  top: 4rem;
+
+  transform: translateY(3rem);
 }
 
 .total-wrap {

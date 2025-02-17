@@ -2,17 +2,17 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import 'shared/components/AwsMap/Marker/marker.scss';
 
 import { useQueryClient } from '@tanstack/react-query';
-import { AnimatedButton, Container } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Container, Icon } from '@tripie-pyotato/design-system';
 import firestoreService from 'app/api/firebase';
 import classNames from 'classnames/bind';
-import RESOURCE from 'constants/resources';
+
 import useContinentl from 'hooks/query/useContinentl';
 import useCountries from 'hooks/query/useCountries';
 import { ContinentKeys } from 'models/Continent';
 import { Continentl } from 'models/Continentl';
 import { Country } from 'models/Country';
 import { useState } from 'react';
-import Icon from 'shared/components/Icon/Icon';
+// import Icon from 'shared/components/Icon/Icon';
 import Loading from 'shared/components/Loading';
 import { CountryList } from './CountryList';
 import CountryDetail from './CountyDetail';
@@ -59,7 +59,8 @@ export function CountryStep({ context, onNext }: Readonly<Props>) {
     <>
       <Container margin="none">
         <Container margin="none">
-          <Icon.Navigate src={RESOURCE.ARROW} />
+          {/* <Icon.Navigate src={RESOURCE.ARROW} /> */}
+          <Icon.Navigate />
         </Container>
         <h2>
           떠나고 싶은 <span className={cx('accented')}>나라</span>는?
@@ -94,7 +95,8 @@ export function CountryStep({ context, onNext }: Readonly<Props>) {
                   <>여행할 나라를 선택해주세요.</>
                 ) : (
                   <>
-                    "{selectedCountry}"로 보기 <Icon src={RESOURCE.ARROW} />
+                    "{selectedCountry}"로 보기 <Icon />
+                    {/* <Icon src={RESOURCE.ARROW} /> */}
                   </>
                 )}
               </Container>

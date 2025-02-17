@@ -1,10 +1,10 @@
 'use client';
-import { AnimatedButton, Container } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Container, Icon } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
-import Icon from 'shared/components/Icon/Icon';
+// import Icon from 'shared/components/Icon/Icon';
 
 import COMPANION_LIST from 'constants/companions';
-import RESOURCE from 'constants/resources';
+
 import { ContinentKeys } from 'models/Continent';
 import { useCallback, useState } from 'react';
 import CompanionList from './List';
@@ -38,7 +38,8 @@ const CompanionStep = ({ context, onNext }: Props) => {
     <>
       <Container margin="none">
         <Container margin="none">
-          <Icon.Navigate src={RESOURCE.ARROW} />
+          {/* <Icon.Navigate src={RESOURCE.ARROW} /> */}
+          <Icon.Navigate />
         </Container>
         <h2>
           <span className={cx('accented')}>누구</span>와 떠나나요?
@@ -64,7 +65,8 @@ const CompanionStep = ({ context, onNext }: Props) => {
               '다중 선택이 가능해요.'
             ) : (
               <>
-                다음 <Icon src={RESOURCE.ARROW} />
+                다음 <Icon />
+                {/* <Icon src={RESOURCE.ARROW} /> */}
               </>
             )}
           </Container>

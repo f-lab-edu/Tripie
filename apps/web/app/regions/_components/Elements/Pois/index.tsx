@@ -4,8 +4,9 @@ import { createRef, useRef } from 'react';
 
 import usePoi from 'hooks/usePoi';
 
+import { Carousel } from '@tripie-pyotato/design-system';
+import TripieContainer from '@tripie-pyotato/design-system/components/TripieContainer/TripieContainer';
 import { MapProvider } from 'react-map-gl/dist/esm/exports-maplibre';
-import { Carousel } from '../../../../../shared/components/Carousel';
 import AwsMap from '../Map';
 import PoiCard from './PoiCard';
 
@@ -18,17 +19,19 @@ const ArticlePois = ({ item }: { item: PoisProps }) => {
 
   return (
     <MapProvider>
-      <Carousel carouselProps={pois}>
-        {pois.map((poi, index) => (
-          <PoiCard
-            action={() => setCurrent(`0-${index}`)}
-            poi={poi}
-            cardRef={cardRefs.current[index]}
-            key={index + poi.id + poi.source.areas?.[0]?.id}
-            selected={current === `0-${index}`}
-          />
-        ))}
-      </Carousel>
+      <TripieContainer applyMargin="bottom" margin="m">
+        <Carousel.Controlled>
+          {pois.map((poi, index) => (
+            <PoiCard
+              action={() => setCurrent(`0-${index}`)}
+              poi={poi}
+              cardRef={cardRefs.current[index]}
+              key={index + poi.id + poi.source.areas?.[0]?.id}
+              selected={current === `0-${index}`}
+            />
+          ))}
+        </Carousel.Controlled>
+      </TripieContainer>
       {coordinates.length === 0 ? null : (
         <AwsMap locations={coordinates} center={center} current={current} setCurrent={setCurrent} />
       )}

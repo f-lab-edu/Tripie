@@ -1,12 +1,9 @@
 'use client';
-import { Chip, Container } from '@tripie-pyotato/design-system';
+import { Chip, Container, Icon } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import Style from './shared/selected-list.module.scss';
 
-import RESOURCE from 'constants/resources';
-
 import NextButton from 'shared/components/Button/Animated';
-import Icon from 'shared/components/Icon/Icon';
 import { KOR_CITIES, SELECTED_CITY } from './constants/selected';
 
 const cx = classNames.bind(Style);
@@ -22,7 +19,8 @@ const CitySelect = () => {
         ))}
       </Container>
       <NextButton>
-        "{SELECTED_CITY}"로 보기 <Icon src={RESOURCE.ARROW} />
+        "{SELECTED_CITY}"로 보기 <Icon />
+        {/* <Icon src={RESOURCE.ARROW} /> */}
       </NextButton>
     </Container>
   );

@@ -1,9 +1,7 @@
 'use client';
-import { AnimatedButton, Container, Headings, ParticleBackground } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Container, Headings, Icon, ParticleBackground } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
-import Icon from 'shared/components/Icon/Icon';
 
-import RESOURCE from 'constants/resources';
 import ROUTE from 'constants/routes';
 import Link from 'next/link';
 
@@ -32,7 +30,8 @@ export default function Header() {
           <Link href={ROUTE.CONTACT.href}>
             <AnimatedButton withBorder={true} className={cx('flex', 'main-button')}>
               <Container margin="none" className={cx('flex')}>
-                Get in touch <Icon src={RESOURCE.ARROW} />
+                Get in touch <Icon />
+                {/* <Icon src={RESOURCE.ARROW} /> */}
               </Container>
             </AnimatedButton>
           </Link>

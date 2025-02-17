@@ -22,7 +22,7 @@ const Articles = async ({ params }: { params: Promise<{ regionId: string; articl
   return (
     <Container applyMargin="top" margin="l" align="center">
       <Card.Content className={cx('fit-content')}>
-        <Container margin="m" applyMargin="top-left-right">
+        <Container margin="m" applyMargin="left-right">
           <Title withNavigation={false}>{data?.metadataContents?.title}</Title>
         </Container>
         <Container margin="m" applyMargin="all" className={cx('img-container')}>

@@ -19,6 +19,8 @@ const preview: Preview = {
       // 👇 Specify which background is shown by default
       default: 'dark',
     },
+    // https://stackoverflow.com/questions/74515807/uncaught-error-invariant-expected-app-router-to-be-mounted
+    nextjs: { appDirectory: true },
   },
 
   globalTypes: {

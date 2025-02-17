@@ -4,7 +4,7 @@ import { Card, Chip, Container, Divider, Headings, List, Text } from '@tripie-py
 import Accordion from 'shared/components/Accordian/Accordian';
 
 import classNames from 'classnames/bind';
-import RESOURCE from 'constants/resources';
+
 import { TRIPIE_REGION_BY_LOCATION, TRIPIE_REGION_IDS } from 'constants/tripie-country';
 import { useRouter } from 'next/navigation';
 
@@ -22,7 +22,8 @@ const RegionSelect = ({ selected, selectedRegion }: { selected: string; selected
           <Container className={cx('flex')} margin="sm" applyMargin="top-bottom">
             <Headings.H4>
               어떤 <span className={cx('accented')}>지역</span>이 궁금하세요?{' '}
-              <Accordion.Icon variants={ACCORDIAN_VARIANTS.BUTTON} src={RESOURCE.ARROW} />
+              {/* <Accordion.Icon variants={ACCORDIAN_VARIANTS.BUTTON} src={RESOURCE.ARROW} /> */}
+              <Accordion.Icon variants={ACCORDIAN_VARIANTS.BUTTON} />
             </Headings.H4>
           </Container>
         </Accordion.Header>

@@ -1,7 +1,7 @@
 'use client';
 
 import { increment } from '@firebase/firestore';
-import { Container, Text } from '@tripie-pyotato/design-system';
+import { Container, Icon, Text } from '@tripie-pyotato/design-system';
 import { getTripPlan } from 'app/api/chat/route';
 import firestoreService from 'app/api/firebase';
 import classNames from 'classnames/bind';
@@ -18,7 +18,6 @@ import { Continentl } from 'models/Continentl';
 import { signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import Icon from 'shared/components/Icon/Icon';
 import { randomInt } from 'utils/random';
 import CityStep from './_components/Cities';
 import CompanionStep from './_components/Companion';

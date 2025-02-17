@@ -1,12 +1,12 @@
-import { AnimatedButton, Container } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Container, Icon } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import { CONTINENTS } from 'constants/continents';
-import RESOURCE from 'constants/resources';
+
 import { ContinentKeys } from 'models/Continent';
 import { useMemo, useState } from 'react';
 
 import RotatingGlobe from 'shared/components/Globe/RotatingGlobe';
-import Icon from 'shared/components/Icon/Icon';
+// import Icon from 'shared/components/Icon/Icon';
 import { ContinentList } from './ContinentLIst';
 import Style from './continents.module.scss';
 
@@ -52,7 +52,8 @@ export function ContinentStep({ context, onNext }: Readonly<Props>) {
         >
           <Container margin="none" className={cx('flex', 'submit-button')}>
             "{selectedContinentName?.name}"{selectedContinentName?.name === '유럽' ? '으' : null}로 보기{' '}
-            <Icon src={RESOURCE.ARROW} />
+            {/* <Icon src={RESOURCE.ARROW} /> */}
+            <Icon />
           </Container>
         </AnimatedButton>
       </Container>

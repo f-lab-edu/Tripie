@@ -1,12 +1,12 @@
 'use client';
-import { Chip, Container } from '@tripie-pyotato/design-system';
+import { Chip, Container, Icon } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 
 import COMPANION_LIST from 'constants/companions';
 import { ContinentKeys } from 'models/Continent';
 import { Dispatch, SetStateAction } from 'react';
 
-import Icon from 'shared/components/Icon/Icon';
+// import Icon from 'shared/components/Icon/Icon';
 import { Companion } from '..';
 import Style from './companion-list.module.scss';
 

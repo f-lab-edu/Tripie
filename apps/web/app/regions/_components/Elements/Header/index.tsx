@@ -51,7 +51,7 @@ const ArticleHeading = ({ item }: { item: HeadingProps }) => {
   };
 
   return (
-    <Container applyMargin="top-bottom" key={headerText}>
+    <Container applyMargin="top-bottom" margin={type == 'heading1' ? 'l' : 'm'} key={headerText}>
       {headline !== '' && headline != null ? (
         <Container applyMargin="top" className={cx('accented')}>
           {headline.replaceAll('트리플', 'Tripie')}

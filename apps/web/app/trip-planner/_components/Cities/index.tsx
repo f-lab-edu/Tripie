@@ -1,13 +1,13 @@
 'use client';
-import { AnimatedButton, Container } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Container, Icon } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import PREFERENCE_LIST from 'constants/preferences';
-import RESOURCE from 'constants/resources';
+
 import { ContinentKeys } from 'models/Continent';
 import { useCallback, useMemo, useState } from 'react';
 // import AnimatedButton from 'shared/components/Button/Animated';
 // import AnimatedButton from 'shared/components/Button/Animated';
-import Icon from 'shared/components/Icon/Icon';
+// import Icon from 'shared/components/Icon/Icon';
 import CityList from './CityList';
 import Style from './companion.module.scss';
 
@@ -35,7 +35,8 @@ const CityStep = ({ context, onNext }: Props) => {
     <>
       <Container margin="none">
         <Container margin="none">
-          <Icon.Navigate src={RESOURCE.ARROW} />
+          <Icon.Navigate />
+          {/* <Icon.Navigate src={RESOURCE.ARROW} /> */}
         </Container>
         <h2>
           내가 여행하고 싶은 <span className={cx('accented')}>도시</span>는?
@@ -60,7 +61,8 @@ const CityStep = ({ context, onNext }: Props) => {
               '다중 선택이 가능해요.'
             ) : (
               <>
-                다음 <Icon src={RESOURCE.ARROW} />
+                다음 <Icon />
+                {/* <Icon src={RESOURCE.ARROW} /> */}
               </>
             )}
           </Container>

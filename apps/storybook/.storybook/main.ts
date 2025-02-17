@@ -24,6 +24,7 @@ const config: StorybookConfig = {
   staticDirs: [
     '../public',
     '../static',
+    { from: '../../web/public/icons', to: '/icons' },
     { from: '../../../packages/design-system/src/static/fonts', to: './preview.tsx' },
   ],
   refs: {

@@ -1,10 +1,10 @@
 'use client';
-import { Card, Container, Divider, TripieImage } from '@tripie-pyotato/design-system';
+import { Card, Carousel, Divider, TripieImage } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import ArticleHeading, { HeadingProps } from '../Header';
 
 import { ArticleDividerProps } from '@tripie-pyotato/design-system/components/Divider/Divider';
-import { ImageProps } from '../Images';
+import { ImageProps } from '../ArticleImages';
 import ArticleLink, { LinkProps } from '../Link';
 import ArticleNote, { NoteProps } from '../Note';
 import ArticleText, { ArticleTextProps } from '../Text';
@@ -43,7 +43,6 @@ const ArticleCard = ({
         const { type } = embeddedItem;
         switch (type) {
           case 'images':
-            // console.log('embeddedItem.value', embeddedItem.value);
             if (embeddedItem.value?.images) {
               return embeddedItem.value.images?.map(({ sizes, sourceUrl, blurData }) => (
                 <TripieImage.WithSourceUrl
@@ -105,16 +104,11 @@ const ArticleCard = ({
 
 const ArticleEmbedded = ({ item, regionId, dataUrl }: { item: EmbeddedProps; regionId: string; dataUrl: string }) => {
   return (
-    <Container applyMargin="top-bottom" className={cx(item.value.entries.length > 1 ? ['carousel'] : null)}>
-      <Container
-        className={cx(item.value.entries.length > 1 ? ['flex-items', 'embedded-card-wrap'] : null)}
-        margin="none"
-      >
-        {item.value?.entries?.map((item, index) => (
-          <ArticleCard item={item} key={index + JSON.stringify(item)} regionId={regionId} dataUrl={dataUrl} />
-        ))}
-      </Container>
-    </Container>
+    <Carousel.Controlled>
+      {item.value?.entries?.map((item, index) => (
+        <ArticleCard item={item} key={index + JSON.stringify(item)} regionId={regionId} dataUrl={dataUrl} />
+      ))}
+    </Carousel.Controlled>
   );
 };
 

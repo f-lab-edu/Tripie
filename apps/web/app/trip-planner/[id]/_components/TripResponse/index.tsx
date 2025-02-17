@@ -1,9 +1,8 @@
 'use client';
 import classNames from 'classnames/bind';
 
-import { Container } from '@tripie-pyotato/design-system';
+import { Container, Icon } from '@tripie-pyotato/design-system';
 
-import RESOURCE from 'constants/resources';
 import ROUTE from 'constants/routes';
 import useChatToken from 'hooks/useChatToken';
 import { TripContent } from 'models/Aws';
@@ -11,7 +10,7 @@ import { Coordinate } from 'models/Geo';
 import { DefaultUser } from 'next-auth';
 import { useRouter } from 'next/navigation';
 import { Dispatch, SetStateAction, createContext, useEffect, useMemo, useState } from 'react';
-import Icon from 'shared/components/Icon/Icon';
+// import Icon from 'shared/components/Icon/Icon';
 import Loading from 'shared/components/Loading';
 import MapTab, { ChatResponseData } from './MapTab';
 import Style from './trip-response.module.scss';
@@ -88,7 +87,7 @@ const TripResponse = ({ data }: { data: ChatResponseData }) => {
         <SelectedDateContext.Provider value={selectedDateValues}>
           <Container margin="none">
             <Icon.Navigate
-              src={RESOURCE.ARROW}
+              // src={RESOURCE.ARROW}
               onTapStart={() => router.push(`${ROUTE.TRIP_PLANNER.href}?trip-plan.step=CONTINENT`)}
             />
             {remainingToken != null && !isAdmin ? `${remainingToken}토큰으로 다른 일정 추천 받아보기` : ''}

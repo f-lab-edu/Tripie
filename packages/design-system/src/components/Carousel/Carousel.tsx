@@ -38,15 +38,17 @@ const CarouselItem = ({
   index,
   setFocusedIndex,
   focusedIndex,
+  threshold=0.6
 }: {
   children: ReactNode;
   index: number;
   className?: string;
   setFocusedIndex: (index: number) => void;
   focusedIndex: number;
+  threshold?:number;
 }) => {
   const { ref, inView } = useInView({
-    threshold: 0.6, // 60% 보여야 동작
+    threshold: threshold, // 60% 보여야 동작
     triggerOnce: false, // 가시성 체크
   });
 
@@ -67,5 +69,21 @@ const CarouselItem = ({
     </TripieContainer>
   );
 };
+
+// 좌표를 클릭하는 등 외부의 조작으로 carousel 포커싱이 결정되어 스타일만 carousel 형태
+const ControlledCarousel = ({ children, className }: { children: ReactNode; className?: string }) => {
+
+  return (
+    <TripieContainer margin="none" className={cx('carousel')}>
+      <TripieContainer margin="none" className={cx('flex-items', 'carousel-inner')}>
+        <TripieContainer margin="none" className={cx('insta-like-carousel-container', className)}>
+          {children}
+        </TripieContainer>
+      </TripieContainer>
+    </TripieContainer>
+  );
+};
+
+Carousel.Controlled = ControlledCarousel;
 
 export default Carousel;

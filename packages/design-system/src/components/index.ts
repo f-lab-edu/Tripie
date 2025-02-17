@@ -17,5 +17,6 @@ export { default as TextFillAnimation } from './TextFill/TextFillAnimation';
 export { default as TextUnderLineAnimation } from './TextUnderlineAnimation';
 export { default as Card } from './TripieCard/Card';
 export { default as Container } from './TripieContainer/TripieContainer';
+export { default as Icon } from './TripieIcon/Icon';
 export { default as TripieImage } from './TripieImage/TripieImage';
 export { default as Skeleton } from './TripieSkeleton';

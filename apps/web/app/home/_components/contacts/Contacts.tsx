@@ -1,11 +1,10 @@
 'use client';
 
-import { Container, Headings, MotionSlideUp } from '@tripie-pyotato/design-system';
+import { Container, Headings, Icon, MotionSlideUp } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
-import RESOURCE from 'constants/resources';
+
 import ROUTE from 'constants/routes';
 import Link from 'next/link';
-import Icon from 'shared/components/Icon/Icon';
 
 import Contact from './Contact';
 import Style from './contacts.module.scss';
@@ -18,7 +17,7 @@ const contacts = {
       <Link href="mailto:mail@tripie-pyotato.com?subject=Hello&body=How%20can%20I%20help%20you?">
         mail@tripie-pyotato.com
       </Link>
-      <Icon src={RESOURCE.ARROW} className={cx('big-arrow')} />
+      <Icon sizes={'large'} />
     </div>
   ),
   Github: (
@@ -26,7 +25,7 @@ const contacts = {
       <Link href="mailto:pyotato.dev@gmail.com?subject=Hello&body=How%20can%20I%20help%20you?">
         <span className={cx('accented')}>@ </span>Pyotato
       </Link>
-      <Icon src={RESOURCE.ARROW} className={cx('big-arrow')} />
+      <Icon sizes={'large'} />
     </div>
   ),
 };

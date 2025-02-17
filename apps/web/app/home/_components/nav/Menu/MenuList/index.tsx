@@ -1,15 +1,14 @@
 'use client';
 
 import classNames from 'classnames/bind';
-import RESOURCE from 'constants/resources';
+
 import ROUTE, { LANDING_SECTION } from 'constants/routes';
 import { motion } from 'framer-motion';
 import useChatToken from 'hooks/useChatToken';
 import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
-import Icon from 'shared/components/Icon/Icon';
 
-import { NoStyleButton } from '@tripie-pyotato/design-system';
+import { Icon, NoStyleButton } from '@tripie-pyotato/design-system';
 
 import { MenuItem } from '../MenuItem';
 import Style from './menu-list.module.scss';
@@ -31,7 +30,8 @@ const AuthButton = () => {
     <>
       <MenuItem key={`${data?.user?.name}-authenticated`}>
         <Link href={`/trip-planner/${isEligible ? '' : 'not-enough-tokens'}`}>AI 추천 맞춤일정</Link>{' '}
-        <Icon src={RESOURCE.ARROW} />
+        {/* <Icon src={RESOURCE.ARROW} /> */}
+        <Icon />
       </MenuItem>
       <NoStyleButton action={() => signOut()}>
         <MenuItem key={`${data?.user?.name}-authenticated-signout`}>Sign out</MenuItem>
@@ -46,12 +46,16 @@ export const Navigation = () => {
       {LANDING_SECTION.map(({ label, href }, index) => (
         <MenuItem key={href + index}>
           <Link href={href}>{label}</Link>
-          {label === 'Contact' ? <Icon src={RESOURCE.ARROW} /> : null}
+          {label === 'Contact' ? (
+            // <Icon src={RESOURCE.ARROW} />
+            <Icon />
+          ) : null}
         </MenuItem>
       ))}
       <MenuItem>
         <Link href={ROUTE.REGIONS.href}>{ROUTE.REGIONS.label}</Link>
-        <Icon src={RESOURCE.ARROW} />
+        {/* <Icon src={RESOURCE.ARROW} /> */}
+        <Icon />
       </MenuItem>
       <AuthButton />
       {process.env.NODE_ENV === 'development' ? (

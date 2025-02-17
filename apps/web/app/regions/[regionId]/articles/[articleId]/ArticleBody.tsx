@@ -1,9 +1,9 @@
 'use client';
 
 import Divider, { ArticleDividerProps } from '@tripie-pyotato/design-system/components/Divider/Divider';
+import ArticleImages, { ImageProps } from 'app/regions/_components/Elements/ArticleImages';
 import ArticleEmbedded, { EmbeddedProps } from 'app/regions/_components/Elements/Embedded';
 import ArticleHeading, { HeadingProps } from 'app/regions/_components/Elements/Header';
-import ArticleImages, { ImageProps } from 'app/regions/_components/Elements/Images';
 import ArticleItinerary, { ItineraryProps } from 'app/regions/_components/Elements/Itinerary';
 import ArticleLink, { LinkProps } from 'app/regions/_components/Elements/Link';
 import ArticleNote, { NoteProps } from 'app/regions/_components/Elements/Note';

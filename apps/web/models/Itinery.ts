@@ -1,4 +1,4 @@
-import { TRANSPORTATION_ICON } from 'constants/icon';
+import { Transport } from '@tripie-pyotato/design-system/components/TripieIcon/Icon';
 import { ArticleImage } from './Article';
 import { Activity, Poi } from './Aws';
 
@@ -31,7 +31,7 @@ export type Source = {
 
 export type Transportation = {
   type: 'transportation';
-  value: { duration: string; transportation: keyof typeof TRANSPORTATION_ICON };
+  value: { duration: string; transportation: Transport };
 };
 
 export type ItineraryItem = {
