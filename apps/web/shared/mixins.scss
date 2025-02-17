@@ -148,8 +148,7 @@ $background-gradients: (
   background-repeat: repeat;
   background-position: left top;
   background-size: 128px auto;
-  // background-image: url('../public/noise.png');
-  background-image: url('../../web/public/noise.png');
+  background-image: url('./noise.png');
   filter: brightness(30%);
 }
 
