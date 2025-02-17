@@ -1,3 +1,4 @@
+export { default as Accordion } from './Accordian/Accordian';
 export { default as Carousel } from './Carousel/Carousel';
 export { default as Chip } from './Chip/Chip';
 export { default as ChipMarker } from './ChipMarker';

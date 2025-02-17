@@ -1,5 +1,5 @@
-import COLORS from 'constants/colors';
 import { Variants } from 'framer-motion';
+import COLORS from '../../shared/colors';
 
 export const ACCORDIAN_VARIANTS = {
   DETAILS: {

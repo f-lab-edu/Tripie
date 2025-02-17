@@ -15,19 +15,19 @@ export default function NotFound() {
     <Container className={cx('header')} margin="none">
       <Container className={cx('gradient-bottom')} margin="none"></Container>
       <Container className={cx('center')} margin="none">
-        <div>
-          <Container className={cx('heading')} margin="none">
+        <Container margin="none" align="center">
+          <Container className={cx('heading')} align="center" margin="none">
             <Headings.H1 className={cx('accented')}>4</Headings.H1>
             <Headings.H1>0</Headings.H1>
             <Headings.H1 className={cx('accented')}>4</Headings.H1>
           </Container>
-        </div>
+        </Container>
 
         <Container className={cx('wrap')} margin="none">
           Oops, the page you're looking for doesn't exist.
-          <div className={cx('chip')}>
+          <Container className={cx('chip')} margin="none" align="center">
             <Chip.Accented onClick={handleClickHome}>bring me back home</Chip.Accented>
-          </div>
+          </Container>
         </Container>
       </Container>
 

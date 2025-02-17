@@ -2,12 +2,11 @@
 import classNames from 'classnames/bind';
 
 import { motion } from 'framer-motion';
-import useCycle from 'hooks/useCycle';
 import { createContext, ReactNode, useContext, useMemo } from 'react';
+import useCycle from '../../hooks/useCycle';
 
-import { Divider } from '@tripie-pyotato/design-system';
-// import Icon, { IconProps } from '../Icon/Icon';
-import Icon, { IconProps } from '@tripie-pyotato/design-system/components/TripieIcon/Icon';
+import Divider from '../Divider/Divider';
+import Icon, { IconProps } from '../TripieIcon/Icon';
 import Style from './accordian.module.scss';
 import { ACCORDIAN_VARIANTS } from './variants';
 

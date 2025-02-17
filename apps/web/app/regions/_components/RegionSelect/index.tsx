@@ -1,14 +1,12 @@
 'use client';
 
-import { Card, Chip, Container, Divider, Headings, List, Text } from '@tripie-pyotato/design-system';
-import Accordion from 'shared/components/Accordian/Accordian';
+import { Accordion, Card, Chip, Container, Divider, Headings, List, Text } from '@tripie-pyotato/design-system';
 
 import classNames from 'classnames/bind';
 
 import { TRIPIE_REGION_BY_LOCATION, TRIPIE_REGION_IDS } from 'constants/tripie-country';
 import { useRouter } from 'next/navigation';
 
-import { ACCORDIAN_VARIANTS } from 'shared/components/Accordian/variants';
 import Style from './region-select.module.scss';
 const cx = classNames.bind(Style);
 
@@ -21,9 +19,7 @@ const RegionSelect = ({ selected, selectedRegion }: { selected: string; selected
         <Accordion.Header>
           <Container className={cx('flex')} margin="sm" applyMargin="top-bottom">
             <Headings.H4>
-              어떤 <span className={cx('accented')}>지역</span>이 궁금하세요?{' '}
-              {/* <Accordion.Icon variants={ACCORDIAN_VARIANTS.BUTTON} src={RESOURCE.ARROW} /> */}
-              <Accordion.Icon variants={ACCORDIAN_VARIANTS.BUTTON} />
+              어떤 <span className={cx('accented')}>지역</span>이 궁금하세요? <Accordion.Icon />
             </Headings.H4>
           </Container>
         </Accordion.Header>

@@ -6,7 +6,6 @@ import Style from './shared/selected-list.module.scss';
 import COMPANION_LIST from 'constants/companions';
 
 import NextButton from 'app/home/_components/shared/NextAnimatedButton';
-// import Icon from 'shared/components/Icon/Icon';
 import { SELECTED_COMPANION } from './constants/selected';
 
 const cx = classNames.bind(Style);
@@ -32,7 +31,6 @@ const CompanionSelect = () => {
 
       <NextButton>
         다음 <Icon />
-        {/* <Icon src={RESOURCE.ARROW} /> */}
       </NextButton>
     </Container>
   );
