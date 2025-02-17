@@ -11,9 +11,9 @@ import Calendar from 'shared/components/Calendar';
 import CalendarHeader from 'shared/components/Calendar/CalendarHeader';
 // import Icon from 'shared/components/Icon/Icon';
 
+import NextButton from 'app/home/_components/shared/NextAnimatedButton';
 import classNames from 'classnames/bind';
 import 'maplibre-gl/dist/maplibre-gl.css';
-import NextButton from 'shared/components/Button/Animated';
 import Style from './duration.module.scss';
 
 const cx = classNames.bind(Style);

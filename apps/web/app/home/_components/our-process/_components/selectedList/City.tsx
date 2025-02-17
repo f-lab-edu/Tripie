@@ -3,7 +3,7 @@ import { Chip, Container, Icon } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import Style from './shared/selected-list.module.scss';
 
-import NextButton from 'shared/components/Button/Animated';
+import NextButton from 'app/home/_components/shared/NextAnimatedButton';
 import { KOR_CITIES, SELECTED_CITY } from './constants/selected';
 
 const cx = classNames.bind(Style);

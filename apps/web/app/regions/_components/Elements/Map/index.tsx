@@ -7,13 +7,12 @@ import { DEFAULT_STYLE, MAP_ID, STYLE } from 'constants/maps';
 
 import classNames from 'classnames/bind';
 
+import { ChipMarker } from '@tripie-pyotato/design-system';
 import { LocationMarker } from 'models/Geo';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { Map, Marker } from 'react-map-gl/maplibre';
 import Lines from 'shared/components/AwsMap/Lines';
-import ChipMarker from 'shared/components/ChipMarker/ChipMarker';
 import Style from './map.module.scss';
-
 export type AwsMapCenter = { longitude: number; latitude: number };
 
 const cx = classNames.bind(Style);
@@ -60,12 +59,9 @@ function AwsMap({
             setPopup(marker.index);
           }}
         >
-          <ChipMarker
-            className={cx('marker', marker.label)}
-            selected={current === marker.index}
-            marker={marker}
-            popup={popup}
-          />
+          <ChipMarker className={cx(marker.label)} selected={current === marker.index} popup={popup}>
+            {marker.index}
+          </ChipMarker>
         </Marker>
       ))}
       <Lines locationMarker={locations} />

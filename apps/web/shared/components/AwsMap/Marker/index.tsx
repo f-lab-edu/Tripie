@@ -2,13 +2,13 @@
 
 import { Marker, Popup, useMap } from 'react-map-gl/maplibre';
 
+import { ChipMarker } from '@tripie-pyotato/design-system';
 import { TabContext } from 'app/trip-planner/[id]/_components/TripResponse';
 import classNames from 'classnames/bind';
 import usePopUp from 'hooks/awsMap/usePopUp';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { LocationMarker } from 'models/Geo';
 import { useContext, useEffect } from 'react';
-import ChipMarker from 'shared/components/ChipMarker/ChipMarker';
 import Style from './marker.module.scss';
 import './marker.scss';
 
@@ -61,7 +61,9 @@ const Markers = ({
             setCurrentSelected(marker.index);
           }}
         >
-          <ChipMarker selected={marker.index === current} className={cx(marker.label)} marker={marker} popup={popup} />
+          <ChipMarker className={cx(marker.label)} selected={current === marker.index} popup={popup}>
+            {marker.index}
+          </ChipMarker>
         </Marker>
       ))}
     </>

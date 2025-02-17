@@ -2,6 +2,7 @@ export { default as AnimatedButton, default as AnimatedText } from './button/Ani
 export { default as NoStyleButton } from './button/NoStyle';
 export { default as Carousel } from './Carousel/Carousel';
 export { default as Chip } from './Chip/Chip';
+export { default as ChipMarker } from './ChipMarker';
 export { default as Divider } from './Divider';
 export { default as Headings } from './Headings';
 export { default as Link } from './Link';
