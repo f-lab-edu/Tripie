@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useEffect } from 'react';
 import { useAppTheme } from '../../hooks';
-import { default as SplashScreen } from './SplashScreen';
+import TextFillAnimation from '../TextFill/TextFillAnimation';
+import SplashScreen from './SplashScreen';
 
 const meta: Meta<typeof SplashScreen> = {
   title: 'tripie-ui/SplashScreen',
@@ -36,6 +37,17 @@ export const Default: Story = {
   render: () => (
     <div style={{ height: '100vh' }}>
       <SplashScreen>splash</SplashScreen>
+    </div>
+  ),
+};
+
+export const Loading: Story = {
+  name: 'Loading',
+  render: () => (
+    <div style={{ height: '100vh' }}>
+      <SplashScreen>
+        <TextFillAnimation.Title>Tripie.</TextFillAnimation.Title>
+      </SplashScreen>
     </div>
   ),
 };
