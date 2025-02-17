@@ -78,7 +78,6 @@ const DurationSelect = () => {
     return (
       <Container margin="none" className={cx('loading-wrap')}>
         <Container margin="none" className={cx('text-wrap')}>
-          {/* <Icon.Loading src={RESOURCE.LOADING} /> */}
           <Icon.Loading />
           <TextFillAnimation.Title>Loading..</TextFillAnimation.Title>
         </Container>
@@ -93,7 +92,6 @@ const DurationSelect = () => {
       </Container>
       <NextButton>
         {duration.start} ~ {duration.end} <Icon />
-        {/* <Icon src={RESOURCE.ARROW} /> */}
       </NextButton>
     </Container>
   );

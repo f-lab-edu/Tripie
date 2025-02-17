@@ -2,7 +2,7 @@
 import Loading from 'shared/components/Loading';
 
 const LoadingRegion = () => {
-  return <Loading.FullScreen />;
+  return <Loading />;
 };
 
 export default LoadingRegion;
