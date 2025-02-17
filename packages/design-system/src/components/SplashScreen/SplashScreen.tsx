@@ -2,7 +2,7 @@
 import classNames from 'classnames/bind';
 import { motion } from 'framer-motion';
 import { ReactNode } from 'react';
-import { Container } from '..';
+import Container from '../TripieContainer/TripieContainer';
 import Style from './splash-screen.module.scss';
 
 const cx = classNames.bind(Style);

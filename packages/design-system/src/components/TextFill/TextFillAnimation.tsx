@@ -13,7 +13,7 @@ const cx = classNames.bind(Style);
 
 const TextFillAnimation = ({
   text,
-  startColor = COLORS[800],
+  baseColor,
   endColor = COLORS[0],
   duration = 1,
   delay = 0,
@@ -22,14 +22,14 @@ const TextFillAnimation = ({
   return (
     <InView>
       {({ inView, ref }) => (
-        <div className={cx('animation')} ref={ref}>
+        <div className={cx('animation', baseColor == null ? 'default' : '')} ref={ref}>
           <span className={cx('wrap')}>
             {text}
             <motion.span
               className={cx('text')}
               style={
                 {
-                  color: endColor,
+                  color: baseColor ?? endColor,
                 } as MotionStyle
               }
               animate={inView ? 'visible' : 'hidden'}
@@ -38,7 +38,7 @@ const TextFillAnimation = ({
                 visible: { width: '100%' },
                 hidden: { width: '0%' },
               }}
-              transition={{ startColor, endColor, duration, delay, replays }}
+              transition={{ baseColor, endColor, duration, delay, replays }}
             >
               {text}
             </motion.span>
@@ -61,7 +61,7 @@ const TitleTextFillAnimation = ({
   return (
     <InView>
       {({ inView, ref }) => (
-        <div className={cx('animation', 'pre-title')} ref={ref}>
+        <div className={cx('animation', 'pre-title', 'default')} ref={ref}>
           <span className={cx('wrap')}>
             {children}
             <motion.span

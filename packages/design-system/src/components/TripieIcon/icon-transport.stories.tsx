@@ -8,6 +8,13 @@ const meta: Meta<typeof Icon> = {
   title: 'tripie-ui/Icon/Transport',
   component: Icon,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: '교통 수단 관련 아이콘 컴포넌트들입니다.',
+      },
+    },
+  },
   decorators: [
     (story, context) => {
       const { mode, setMode } = useAppTheme();

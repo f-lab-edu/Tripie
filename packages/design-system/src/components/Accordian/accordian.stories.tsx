@@ -10,6 +10,13 @@ const meta: Meta<typeof Accordion> = {
   component: Accordion,
   tags: ['autodocs'],
   argTypes: {},
+  parameters: {
+    docs: {
+      description: {
+        component: '<더보기>와 같이 클릭 시 상세 내용이 펼쳐지는 아코디언 컴포넌트입니다.',
+      },
+    },
+  },
   decorators: [
     (story, context) => {
       const { mode, setMode } = useAppTheme();

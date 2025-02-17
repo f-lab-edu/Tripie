@@ -8,6 +8,13 @@ const meta: Meta<typeof TextUnderlineAnimation> = {
   title: 'tripie-ui/TextUnderlineAnimation',
   component: TextUnderlineAnimation,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: '호버 시 텍스트 밑줄 애니메이션이 동작하는 컴포넌트입니다.',
+      },
+    },
+  },
   argTypes: {},
   decorators: [
     (story, context) => {

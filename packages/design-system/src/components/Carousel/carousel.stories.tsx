@@ -9,6 +9,14 @@ const meta: Meta<typeof Carousel> = {
   title: 'tripie-ui/Carousel',
   component: Carousel,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          '인스타그램의 이미지 carousel와 같이 임계점을 넘어야 해당 이미지에 고정되는 carousel 컴포넌트입니다.ex. 기본은 인접한 게시물의 60%가 보여야 해당 콘텐츠로 넘어갑니다.',
+      },
+    },
+  },
   argTypes: {},
   decorators: [
     (story, context) => {

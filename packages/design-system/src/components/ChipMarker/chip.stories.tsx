@@ -9,6 +9,13 @@ const meta: Meta<typeof ChipMarker> = {
   component: ChipMarker,
   tags: ['autodocs'],
   argTypes: {},
+  parameters: {
+    docs: {
+      description: {
+        component: '지도에 표시되는 Marker Chip 컴포넌트입니다. 호버 및 선택 시 색상이 강조됩니다.',
+      },
+    },
+  },
   decorators: [
     (story, context) => {
       const { mode, setMode } = useAppTheme();

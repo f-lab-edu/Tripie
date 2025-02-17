@@ -9,6 +9,13 @@ const meta: Meta<typeof Chip> = {
   component: Chip,
   tags: ['autodocs'],
   argTypes: {},
+  parameters: {
+    docs: {
+      description: {
+        component: '칩 컴포넌트입니다.accentedChip은 호버 시 애니메이션으로 강조됩니다.',
+      },
+    },
+  },
   decorators: [
     (story, context) => {
       const { mode, setMode } = useAppTheme();

@@ -9,6 +9,14 @@ const meta: Meta<typeof TripieImage> = {
   title: 'tripie-ui/Image',
   component: TripieImage,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          '이미지 컴포넌트입니다. withBorder boolean 값으로 테두리를 설정할 수 있고, TripieImage.WithSourceUrl 컴포넌트의 경우 sourceUrl을 제공하여 이미지 출처를 표기할 수 있습니다.',
+      },
+    },
+  },
   argTypes: {},
   decorators: [
     (story, context) => {

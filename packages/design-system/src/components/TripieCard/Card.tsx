@@ -17,10 +17,10 @@ export type CustomAnimationProps = {
   delay: number;
   replays: boolean;
   text?: string;
-  startColor?: string;
   endColor?: string;
   children?: ReactNode;
   className?: string;
+  baseColor?: string;
 };
 
 const Card = ({ duration, replays, delay = 0.3, children, className }: Partial<CustomAnimationProps>) => {
