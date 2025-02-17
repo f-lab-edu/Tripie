@@ -52,7 +52,7 @@ export function CountryStep({ context, onNext }: Readonly<Props>) {
   };
 
   if (isLoading || data == null) {
-    return <Loading isLoading={isLoading || data == null} />;
+    return <Loading />;
   }
 
   return (

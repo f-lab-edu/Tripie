@@ -9,7 +9,7 @@ import { Country } from 'models/Country';
 import { useMemo, useState } from 'react';
 
 import NextButton from 'app/home/_components/shared/NextAnimatedButton';
-// import Icon from 'shared/components/Icon/Icon';
+
 import { regionNameToLocal } from 'utils/lang';
 import { SELECTED_CONTINENT_NAME, SELECTED_COUNTRY } from './constants/selected';
 
@@ -48,7 +48,6 @@ const CountrySelect = () => {
 
       <NextButton>
         "{regionNameToLocal({ regionCode: selected.code })}"로 보기 <Icon />
-        {/* <Icon src={RESOURCE.ARROW} /> */}
       </NextButton>
     </Container>
   );

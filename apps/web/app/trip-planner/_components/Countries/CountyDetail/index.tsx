@@ -34,7 +34,7 @@ const CountryDetail = ({ selectedCountry }: { selectedCountry: string }) => {
   }, [selectedCountry]);
 
   if (countryDetail == null || isLoading || coordinates == null) {
-    return <Loading isLoading={countryDetail == null || isLoading || coordinates == null} />;
+    return <Loading />;
   }
 
   return (
