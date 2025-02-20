@@ -14,7 +14,7 @@
 .carousel-inner {
   display: inline-flex;
   transition: transform 0.5s ease-in-out;
-  width: 100%; /* Ensures images fit container width */
+  width: 100%;
 }
 
 .insta-like-carousel-container {
@@ -40,4 +40,19 @@
 
 .with-border {
   @include with-border;
+}
+
+.scroll-icon {
+  position: absolute;
+  z-index: 100;
+}
+
+.next-icon {
+  left: 1%;
+  top: 49%;
+}
+
+.prev-icon {
+  right: 1%;
+  top: 49%;
 }
