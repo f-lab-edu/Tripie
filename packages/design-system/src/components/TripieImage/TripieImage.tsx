@@ -15,7 +15,7 @@ export type ImageSizes = 'default' | 'full' | 'large' | 'medium' | 'small' | 'ti
 const TripieImage = ({
   alt,
   src,
-  ref,
+  refs,
   sizes = 'default',
   className,
   withBorder = true,
@@ -25,7 +25,7 @@ const TripieImage = ({
   alt: string;
   src?: string;
   // ref?: RefObject<any>;
-  ref?: (node?: Element | null | undefined) => void;
+  refs?: (node?: Element | null | undefined) => void;
   className?: string;
   sizes?: ImageSizes;
   blurDataURL?: string;
@@ -51,7 +51,7 @@ const TripieImage = ({
           placeholder="blur"
           fill={fill}
           blurDataURL={blurDataURL}
-          ref={ref}
+          ref={refs}
         />
       )}
     </TripieContainer>
@@ -61,7 +61,7 @@ const TripieImage = ({
 const ImageWithSourceUrl = ({
   alt,
   src,
-  ref,
+  refs,
   className,
   sizes = 'medium',
   sourceUrl,
@@ -71,7 +71,7 @@ const ImageWithSourceUrl = ({
   alt: string;
   src?: string;
   // ref?: RefObject<any>;
-  ref?: (node?: Element | null | undefined) => void;
+  refs?: (node?: Element | null | undefined) => void;
   className?: string;
   sourceUrl: string;
   sizes?: ImageSizes;
@@ -80,7 +80,7 @@ const ImageWithSourceUrl = ({
 }) => {
   return (
     <TripieContainer margin="none" className={cx('img-wrap', withBorder ?? 'with-border', className)}>
-      <TripieImage src={src} alt={alt} ref={ref} sizes={sizes} blurDataURL={blurDataURL} />
+      <TripieImage src={src} alt={alt} refs={refs} sizes={sizes} blurDataURL={blurDataURL} />
       <Text className={cx('source-url', 'img-source')}>{`출처 ${sourceUrl}`}</Text>
     </TripieContainer>
   );
