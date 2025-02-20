@@ -59,7 +59,6 @@ export function CountryStep({ context, onNext }: Readonly<Props>) {
     <>
       <Container margin="none">
         <Container margin="none">
-          {/* <Icon.Navigate src={RESOURCE.ARROW} /> */}
           <Icon.Navigate />
         </Container>
         <h2>
