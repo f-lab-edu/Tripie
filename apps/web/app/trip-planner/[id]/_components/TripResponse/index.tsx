@@ -10,7 +10,6 @@ import { Coordinate } from 'models/Geo';
 import { DefaultUser } from 'next-auth';
 import { useRouter } from 'next/navigation';
 import { Dispatch, SetStateAction, createContext, useEffect, useMemo, useState } from 'react';
-// import Icon from 'shared/components/Icon/Icon';
 import Loading from 'shared/components/Loading';
 import MapTab, { ChatResponseData } from './MapTab';
 import Style from './trip-response.module.scss';

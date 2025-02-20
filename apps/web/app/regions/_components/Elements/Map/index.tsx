@@ -33,6 +33,10 @@ function AwsMap({
   const [popup, setPopup] = useState<string>('');
 
   useEffect(() => {
+    scrollTo({ top: 0 });
+  }, []);
+
+  useEffect(() => {
     setPopup(current);
   }, [current]);
 
@@ -43,6 +47,7 @@ function AwsMap({
         ...center,
         zoom,
       }}
+      interactive={true}
       style={DEFAULT_STYLE}
       mapStyle={STYLE}
     >

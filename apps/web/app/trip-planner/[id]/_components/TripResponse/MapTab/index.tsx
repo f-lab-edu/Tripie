@@ -29,7 +29,7 @@ const MapTab = ({ data, coordinates }: { data: ChatResponseData['plans']; coordi
   return (
     <>
       <ChatTab data={data} />
-      <AwsMap center={center[currentDate]} locationMarker={locationMarker[currentDate]} />
+      <AwsMap interactive={true} center={center[currentDate]} locationMarker={locationMarker[currentDate]} />
     </>
   );
 };

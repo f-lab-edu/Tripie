@@ -47,6 +47,7 @@ const CountryDetail = ({ selectedCountry }: { selectedCountry: string }) => {
       />
       <Map
         id={MAP_ID}
+        interactive={true}
         reuseMaps={true}
         style={DEFAULT_STYLE}
         mapStyle={STYLE}

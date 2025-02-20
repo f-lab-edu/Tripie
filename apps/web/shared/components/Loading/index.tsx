@@ -9,4 +9,14 @@ const Loading = () => {
   );
 };
 
+const ControlledLoading = () => {
+  return (
+    <SplashScreen.Controlled>
+      <TextFillAnimation.Title>Tripie.</TextFillAnimation.Title>
+    </SplashScreen.Controlled>
+  );
+};
+
+Loading.Controlled = ControlledLoading;
+
 export default Loading;

@@ -20,4 +20,16 @@ const SplashScreen = ({ children }: Readonly<{ children: ReactNode }>) => {
   );
 };
 
+const ControlledSplashScreen = ({ children}: Readonly<{ children: ReactNode }>) => {
+  return (
+    <motion.section
+      className={cx('section')}
+      initial={{ opacity: 1, y: 0 }}
+    >
+      <Container align="center">{children}</Container>
+    </motion.section>
+  );
+};
+
+SplashScreen.Controlled = ControlledSplashScreen;
 export default SplashScreen;

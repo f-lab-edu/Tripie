@@ -12,7 +12,6 @@ import { ContinentKeys } from 'models/Continent';
 import { Continentl } from 'models/Continentl';
 import { Country } from 'models/Country';
 import { useState } from 'react';
-// import Icon from 'shared/components/Icon/Icon';
 import Loading from 'shared/components/Loading';
 import { CountryList } from './CountryList';
 import CountryDetail from './CountyDetail';
@@ -95,7 +94,6 @@ export function CountryStep({ context, onNext }: Readonly<Props>) {
                 ) : (
                   <>
                     "{selectedCountry}"로 보기 <Icon />
-                    {/* <Icon src={RESOURCE.ARROW} /> */}
                   </>
                 )}
               </Container>
