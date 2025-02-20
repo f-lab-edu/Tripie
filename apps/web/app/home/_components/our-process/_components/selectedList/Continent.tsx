@@ -28,9 +28,7 @@ const ContinentSelect = () => {
         ))}
       </Container>
       <NextButton>
-        "{SELECTED_CONTINENT_NAME?.name}"{SELECTED_CONTINENT_NAME?.name === '유럽' ? '으' : null}로 보기{' '}
-        {/* <Icon src={RESOURCE.ARROW} /> */}
-        <Icon />
+        "{SELECTED_CONTINENT_NAME?.name}"{SELECTED_CONTINENT_NAME?.name === '유럽' ? '으' : null}로 보기 <Icon />
       </NextButton>
     </Container>
   );

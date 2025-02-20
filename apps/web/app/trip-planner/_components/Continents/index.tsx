@@ -51,9 +51,7 @@ export function ContinentStep({ context, onNext }: Readonly<Props>) {
           className={cx('submit-button')}
         >
           <Container margin="none" className={cx('flex', 'submit-button')}>
-            "{selectedContinentName?.name}"{selectedContinentName?.name === '유럽' ? '으' : null}로 보기{' '}
-            {/* <Icon src={RESOURCE.ARROW} /> */}
-            <Icon />
+            "{selectedContinentName?.name}"{selectedContinentName?.name === '유럽' ? '으' : null}로 보기 <Icon />
           </Container>
         </AnimatedButton>
       </Container>

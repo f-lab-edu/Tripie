@@ -20,7 +20,6 @@ const CitySelect = () => {
       </Container>
       <NextButton>
         "{SELECTED_CITY}"로 보기 <Icon />
-        {/* <Icon src={RESOURCE.ARROW} /> */}
       </NextButton>
     </Container>
   );

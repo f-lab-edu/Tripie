@@ -31,7 +31,6 @@ export default function Header() {
             <AnimatedButton withBorder={true} className={cx('flex', 'main-button')}>
               <Container margin="none" className={cx('flex')}>
                 Get in touch <Icon />
-                {/* <Icon src={RESOURCE.ARROW} /> */}
               </Container>
             </AnimatedButton>
           </Link>

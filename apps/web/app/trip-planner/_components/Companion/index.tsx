@@ -66,7 +66,6 @@ const CompanionStep = ({ context, onNext }: Props) => {
             ) : (
               <>
                 다음 <Icon />
-                {/* <Icon src={RESOURCE.ARROW} /> */}
               </>
             )}
           </Container>

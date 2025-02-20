@@ -32,7 +32,6 @@ const TravelStyleSelect = () => {
 
       <NextButton>
         다음 <Icon />
-        {/* <Icon src={RESOURCE.ARROW} /> */}
       </NextButton>
     </Container>
   );

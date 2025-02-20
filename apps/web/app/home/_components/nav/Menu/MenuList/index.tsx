@@ -29,9 +29,7 @@ const AuthButton = () => {
   return (
     <>
       <MenuItem key={`${data?.user?.name}-authenticated`}>
-        <Link href={`/trip-planner/${isEligible ? '' : 'not-enough-tokens'}`}>AI 추천 맞춤일정</Link>{' '}
-        {/* <Icon src={RESOURCE.ARROW} /> */}
-        <Icon />
+        <Link href={`/trip-planner/${isEligible ? '' : 'not-enough-tokens'}`}>AI 추천 맞춤일정</Link> <Icon />
       </MenuItem>
       <NoStyleButton action={() => signOut()}>
         <MenuItem key={`${data?.user?.name}-authenticated-signout`}>Sign out</MenuItem>
@@ -54,7 +52,7 @@ export const Navigation = () => {
       ))}
       <MenuItem>
         <Link href={ROUTE.REGIONS.href}>{ROUTE.REGIONS.label}</Link>
-        {/* <Icon src={RESOURCE.ARROW} /> */}
+
         <Icon />
       </MenuItem>
       <AuthButton />
