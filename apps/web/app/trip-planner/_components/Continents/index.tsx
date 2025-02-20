@@ -6,7 +6,7 @@ import { ContinentKeys } from 'models/Continent';
 import { useMemo, useState } from 'react';
 
 import RotatingGlobe from 'shared/components/Globe/RotatingGlobe';
-// import Icon from 'shared/components/Icon/Icon';
+
 import { ContinentList } from './ContinentLIst';
 import Style from './continents.module.scss';
 
