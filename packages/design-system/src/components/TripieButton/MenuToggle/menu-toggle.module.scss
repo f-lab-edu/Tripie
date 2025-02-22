@@ -1,8 +1,24 @@
-@use 'variables' as *;
+@use '../../../variables' as *;
+
+.nav {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 10px;
+  height: 80px;
+  justify-content: space-between;
+  overflow: visible;
+  padding: 0 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+}
 
 .menu-toggle {
   border-bottom-width: 1px;
-  cursor: pointer;
   border-color: $theme-400;
   border-left-width: 1px;
   border-right-width: 1px;
@@ -20,6 +36,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .svg {
   transform: translate(1.5px, 3px);
 }

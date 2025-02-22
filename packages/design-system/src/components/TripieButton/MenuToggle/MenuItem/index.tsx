@@ -8,7 +8,7 @@ import { MENU_ITEM_VARIANT } from './variants';
 
 const cx = classNames.bind(Style);
 
-export const MenuItem = ({
+const MenuItem = ({
   children,
 }: Readonly<{
   children: ReactNode;
@@ -24,3 +24,5 @@ export const MenuItem = ({
     </motion.li>
   );
 };
+
+export default MenuItem;

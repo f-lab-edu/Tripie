@@ -2,26 +2,42 @@
 import classNames from 'classnames/bind';
 import Style from './nav.module.scss';
 
-import { motion } from 'framer-motion';
-import useCycle from 'hooks/useCycle';
-
-import { AnimatedButton } from '@tripie-pyotato/design-system';
-import ROUTE from 'constants/routes';
+import { AnimatedButton, Icon, MenuToggle } from '@tripie-pyotato/design-system';
+import ROUTE, { LANDING_SECTION } from 'constants/routes';
 import { useRouter } from 'next/navigation';
-import { Navigation } from './Menu/MenuList';
-import { MenuToggle } from './Menu/MenuToggle';
+
+import Link from 'next/link';
+
+import AuthButton from './AuthButton';
 
 const cx = classNames.bind(Style);
 
 const Nav = () => {
-  const [isOpen, toggleOpen] = useCycle(false, true);
   const navigate = useRouter();
   return (
-    <motion.nav className={cx('nav')} initial={false} animate={isOpen ? 'open' : 'closed'}>
-      <AnimatedButton onClick={() => navigate.push(ROUTE.HOME.href)}>Tripie</AnimatedButton>
-      <Navigation />
-      <MenuToggle toggle={toggleOpen} />
-    </motion.nav>
+    <MenuToggle>
+      <AnimatedButton onClick={() => navigate.push(ROUTE.HOME.href)} className={cx('tripie-home-btn')}>
+        Tripie
+      </AnimatedButton>
+      <MenuToggle.List>
+        {LANDING_SECTION.map(({ label, href }, index) => (
+          <MenuToggle.Item key={href + index}>
+            <Link href={href}>{label}</Link>
+            {label === 'Contact' ? <Icon /> : null}
+          </MenuToggle.Item>
+        ))}
+        <MenuToggle.Item>
+          <Link href={ROUTE.REGIONS.href}>{ROUTE.REGIONS.label}</Link>
+          <Icon />
+        </MenuToggle.Item>
+        <AuthButton />
+        {process.env.NODE_ENV === 'development' ? (
+          <MenuToggle.Item key={'dev'}>
+            <Link href={ROUTE.PLAYGROUND.href}>{ROUTE.PLAYGROUND.label}</Link>
+          </MenuToggle.Item>
+        ) : null}
+      </MenuToggle.List>
+    </MenuToggle>
   );
 };
 

@@ -17,6 +17,7 @@ export { default as Text } from './Text/Text';
 export { default as TextFillAnimation } from './TextFill/TextFillAnimation';
 export { default as TextUnderLineAnimation } from './TextUnderlineAnimation';
 export { default as AnimatedButton, default as AnimatedText } from './TripieButton/Animated';
+export { default as MenuToggle } from './TripieButton/MenuToggle';
 export { default as NoStyleButton } from './TripieButton/NoStyle';
 export { default as Card } from './TripieCard/Card';
 export { default as Container } from './TripieContainer/TripieContainer';

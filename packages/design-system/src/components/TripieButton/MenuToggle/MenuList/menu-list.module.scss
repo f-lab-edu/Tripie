@@ -1,5 +1,5 @@
-@use 'variables' as *;
-@use 'mixins' as *;
+@use '../../../../variables' as *;
+@use '../../../../mixins' as *;
 
 .navigation {
   border-bottom-width: 1px;
@@ -18,11 +18,4 @@
   width: 12rem;
   height: fit-content;
   right: 5rem;
-}
-.menu-item {
-  margin-left: 1rem;
-  margin-bottom: 1rem;
-  & > div {
-    width: 6.5rem;
-  }
 }

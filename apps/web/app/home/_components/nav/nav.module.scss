@@ -1,26 +1,10 @@
 @use 'variables' as *;
 @use 'mixins' as *;
-.nav {
-  align-items: center;
-  display: inline-flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  gap: 10px;
-  height: 80px;
-  justify-content: space-between;
-  overflow: visible;
-  padding: 0 15px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 40;
 
-  & > button {
-    height: 2.4rem;
-    width: 3rem;
-    font-size: large;
-    font-weight: 700;
-    color: $theme-50;
-  }
+.tripie-home-btn {
+  height: 2.4rem;
+  width: 3rem;
+  font-size: large;
+  font-weight: 700;
+  color: $theme-50;
 }
