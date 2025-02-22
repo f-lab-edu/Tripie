@@ -1,57 +1,15 @@
 @use 'mixins' as *;
 @use 'variables' as *;
 
+.accented {
+  @include accented;
+}
+
 .contact {
   @include background('1');
   padding: 50px 0;
 }
 
-.accented {
-  @include accented;
-}
-
-.wrap {
-  display: inline-flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-.content {
-  width: fit-content;
-}
-
-.mail {
-  font-size: 2rem;
-  cursor: pointer;
-}
-
-.footer-divider {
-  cursor: pointer;
-  background-color: transparent;
-}
-
-.footer-links {
-  margin-bottom: 2rem;
-}
-
-.link-item {
-  cursor: pointer;
-}
-
-.big-arrow {
-  height: 2rem;
-  width: 2rem;
-}
-.text-wrap {
-  display: inline-flex;
-  flex-direction: row;
-  align-items: center;
-
-  & > a {
-    text-decoration: none;
-    color: inherit;
-  }
-}
-
-.small {
-  color: $theme-40;
+.flex {
+  @include flex;
 }
