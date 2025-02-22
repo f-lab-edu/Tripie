@@ -39,6 +39,9 @@ $space-map: (
   } @else if ($direction == 'top-left-right') {
     margin: $size;
     margin-bottom: 0;
+  } @else if($direction == 'left-right-bottom'){
+    margin: $size;
+    margin-top: 0;
   } @else if ($direction == 'left') {
     margin: 0;
     margin-left: $size;
@@ -80,5 +83,8 @@ $space-map: (
   }
   .container.top-left-right.#{$key} {
     @include margins('top-left-right', $value);
+  }
+    .container.left-right-bottom.#{$key} {
+    @include margins('left-right-bottom', $value);
   }
 }

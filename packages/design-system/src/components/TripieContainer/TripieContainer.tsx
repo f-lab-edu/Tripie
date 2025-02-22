@@ -7,8 +7,18 @@ export type TripieContainerProps = {
   align?: 'left' | 'center' | 'right';
   children?: ReactNode;
   refs?: RefObject<HTMLDivElement>;
-  preserveWhiteSpace?:boolean;
-  applyMargin?: 'top-bottom' | 'top-left-right' | 'left-right' | 'all' | 'left' | 'right' | 'top' | 'bottom';
+  preserveWhiteSpace?: boolean;
+  applyMargin?:
+    | 'top-bottom'
+    | 'top-left-right'
+    | 'left-right-bottom'
+    | 'left-right'
+    | 'all'
+    | 'left'
+    | 'right'
+    | 'top'
+    | 'bottom'
+    ;
 } & Omit<ComponentProps<'div'>, 'children'>;
 
 const cx = classNames.bind(Style);
@@ -19,14 +29,22 @@ const TripieContainer = ({
   align = 'left',
   margin = 'm',
   applyMargin = 'all',
-  preserveWhiteSpace=false,
+  preserveWhiteSpace = false,
   refs,
   ...props
 }: TripieContainerProps) => {
   return (
     <div
       ref={refs}
-      className={cx('layout-fill-available', `align-${align}`, 'container', applyMargin, margin, preserveWhiteSpace?"preserve-white-space":'',className)}
+      className={cx(
+        'layout-fill-available',
+        `align-${align}`,
+        'container',
+        applyMargin,
+        margin,
+        preserveWhiteSpace ? 'preserve-white-space' : '',
+        className
+      )}
       {...props}
     >
       {children}
