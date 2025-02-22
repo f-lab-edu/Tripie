@@ -48,9 +48,9 @@ export const AccordionHeader = ({ children }: AccordionProps) => {
   );
 };
 
-export const AccordionIcon = ({ src, className }: IconProps) => {
+export const AccordionIcon = ({ src, className,sizes='icon' }: IconProps) => {
   const { current } = useContext(AccordionContext);
-  return <Icon src={src} variants={ACCORDIAN_VARIANTS.BUTTON} animate={current} className={cx(className)} />;
+  return <Icon src={src} sizes={sizes} variants={ACCORDIAN_VARIANTS.BUTTON} animate={current} className={cx(className)} />;
 };
 
 export const AccordionBody = ({ children }: AccordionProps) => {

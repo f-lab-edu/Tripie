@@ -1,23 +1,6 @@
 @use 'variables' as *;
 @use 'mixins' as *;
 
-.heading {
-  gap: 0.4rem;
-  @media (max-width: 430px) {
-    transform: translateX(7vw);
-  }
-}
-.accented {
-  @include accented;
-}
-
-.button-wrap {
-  gap: 10px;
-}
-
-.flex {
-  @include flex;
-}
 .wrap {
   align-items: center;
   display: inline-flex;
@@ -35,8 +18,26 @@
   }
 }
 
+.heading {
+  gap: 0.4rem;
+  @media (max-width: 430px) {
+    transform: translateX(7vw);
+  }
+}
+.accented {
+  @include accented;
+}
+
+.flex {
+  @include flex;
+}
+
+.button-wrap {
+  gap: 10px;
+}
+
 .main-button {
-  @media (min-width: 300px) {
+  @media (max-width: 500px) {
     width: 3vw;
     overflow: hidden;
   }

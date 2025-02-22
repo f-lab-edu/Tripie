@@ -35,7 +35,7 @@ export default function Header() {
             </AnimatedButton>
           </Link>
           <Link href={ROUTE.CONTACT.href}>
-            <AnimatedButton withBorder={true} className={cx('flex', 'main-button')}>
+            <AnimatedButton withBorder={true} className={cx('main-button')}>
               <Container margin="none" className={cx('flex')}>
                 Get in touch <Icon />
               </Container>
