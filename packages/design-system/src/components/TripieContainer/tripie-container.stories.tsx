@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { useEffect } from 'react';
 import { useAppTheme } from '../../hooks';
 import TripieContainer from './TripieContainer';
-//
 
 const meta: Meta<typeof TripieContainer> = {
   title: 'tripie-ui/Container',
@@ -29,6 +28,14 @@ export const Default: Story = {
   name: 'Margin-Default',
   args: {
     children: 'default container',
+  },
+};
+
+export const PreserveWhiteSpace: Story = {
+  name: 'PreserveWhiteSpace',
+  args: {
+    children: 'preserve white space =true 설정 시 \n 줄바꿈 이스케이프 문자열 줄바꿈이 유지됩니다.',
+    preserveWhiteSpace: true,
   },
 };
 
