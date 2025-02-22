@@ -1,12 +1,19 @@
 'use client';
-import { AnimatedButton, Container, Headings, Icon, ParticleBackground } from '@tripie-pyotato/design-system';
+import {
+  AnimatedButton,
+  Container,
+  Headings,
+  Icon,
+  ParticleBackground,
+  RotatingBlur,
+} from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 
 import ROUTE from 'constants/routes';
 import Link from 'next/link';
 
 import Nav from '../nav/Nav';
-import RotatingBlur from './RotatingBlur/RotatingBlur';
+
 import Style from './header.module.scss';
 
 const cx = classNames.bind(Style);

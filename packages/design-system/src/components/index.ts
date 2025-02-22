@@ -10,6 +10,7 @@ export { default as MotionSlideUp } from './MotionSlideUp';
 export { default as Paragraph } from './Paragraph';
 export { default as ParticleBackground } from './Particle/Background';
 export { default as ParticleField } from './Particle/Field';
+export { default as RotatingBlur } from './RotatingBlur';
 export { default as SplashScreen } from './SplashScreen/SplashScreen';
 export { default as Switch } from './Switch';
 export { default as Text } from './Text/Text';
