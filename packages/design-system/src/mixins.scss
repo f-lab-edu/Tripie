@@ -1,4 +1,6 @@
-@use './variables' as *;
+@use 'sass:math';
+@use 'sass:map';
+@use 'variables' as *;
 
 $background-gradients: (
   '0': $background-gradient-0,
@@ -28,7 +30,7 @@ $background-gradients: (
   width: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
   padding: 100px 0 50px;
 
-  background: map-get($background-gradients, $variant);
+  background: map.get($background-gradients, $variant); // ✅ FIXED
 
   @if $variant == '2' {
     padding: 100px 0;
@@ -42,23 +44,13 @@ $background-gradients: (
 @mixin with-border {
   padding: 10px 25px;
   font-size: 0.8rem;
-  border-bottom-width: 1px;
-  border-color: $border-accent;
-  border-left-width: 1px;
-  border-right-width: 1px;
-  border-style: solid;
-  border-top-width: 1px;
-  opacity: 1;
+  border: 1px solid $border-accent;
   border-radius: 8px;
+  opacity: 1;
 }
 
 @mixin card {
-  border-bottom-width: 1px;
-  border-color: $theme-400;
-  border-left-width: 1px;
-  border-right-width: 1px;
-  border-style: solid;
-  border-top-width: 1px;
+  border: 1px solid $theme-400;
   align-content: flex-start;
   align-items: flex-start;
   align-self: stretch;
@@ -66,7 +58,6 @@ $background-gradients: (
   display: inline-flex;
   flex: 1 0 0px;
   flex-direction: column;
-  flex-wrap: nowrap;
   gap: 50px;
   height: auto;
   justify-content: center;
@@ -94,14 +85,16 @@ $background-gradients: (
   gap: $gap;
   flex-wrap: nowrap;
 }
+
 @mixin grid($item-count: 5) {
   display: grid;
   grid-gap: 10px;
 
-  @if ($item-count==5) {
+  @if ($item-count == 5) {
     @media (min-width: 998px) {
       grid-template-columns: repeat(6, 1fr);
       grid-template-rows: repeat(2, 1fr);
+
       & > div {
         grid-column: span 2;
         grid-row: span 1;
@@ -114,10 +107,10 @@ $background-gradients: (
     }
   } @else {
     @media (min-width: 998px) {
-      display: grid;
       grid-auto-flow: column;
     }
   }
+
   @media (max-width: 998px) {
     grid-auto-flow: row;
   }
@@ -192,7 +185,7 @@ $background-gradients: (
 }
 
 @mixin submit-button-long-text {
-  @media (max-width: 400) {
+  @media (max-width: 400px) {
     & > span {
       transform: translateY(1.5rem) !important;
     }
@@ -225,17 +218,15 @@ $background-gradients: (
   justify-content: center;
   cursor: pointer;
   padding: 0.5rem;
-  @if $variant == 'restaurant' {
-    background-color: red;
-  } @else if $variant == 'hotel' {
-    background-color: rgb(59, 74, 211);
-  } @else if $variant == 'attraction' {
-    background-color: orange;
-  } @else if $variant == 'selected' {
-    background-color: inherit;
-  } @else {
-    background-color: orange;
-  }
+
+  $colors: (
+    'restaurant': red,
+    'hotel': rgb(59, 74, 211),
+    'attraction': orange,
+    'selected': inherit,
+  );
+
+  background-color: map.get($colors, $variant, orange);
 }
 
 @mixin scroll {

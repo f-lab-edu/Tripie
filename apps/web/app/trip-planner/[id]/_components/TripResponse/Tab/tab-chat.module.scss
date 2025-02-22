@@ -1,5 +1,5 @@
-@use 'shared/variables' as *;
-@use 'shared/mixins' as *;
+@use 'variables' as *;
+@use 'mixins' as *;
 
 .text-left {
   align-items: flex-start !important;
@@ -7,20 +7,15 @@
 
 .card-wrap {
   width: 100%;
-  @media (min-width: 501px) {
-    width: 40vw !important;
-  }
   display: inline-block;
   padding-right: 1rem;
   background-color: inherit !important;
+  @media (min-width: 501px) {
+    width: 40vw !important;
+  }
 }
 
 .trip-list-wrap {
-  @media (max-width: 500px) {
-    height: 40vh !important;
-    width: 100% !important;
-  }
-
   // 스크롤 바 스타일
   height: 85vh !important;
   overflow-y: scroll !important;
@@ -28,6 +23,11 @@
   scrollbar-color: $theme-50 $theme-300;
   scrollbar-width: thin;
   display: inline-block !important;
+
+  @media (max-width: 500px) {
+    height: 40vh !important;
+    width: 100% !important;
+  }
 }
 
 // 날짜 선택 칩 옆으로 스크롤

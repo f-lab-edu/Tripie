@@ -1,5 +1,5 @@
-@use '../../shared/variables' as *;
-@use '../../shared/mixins' as *;
+@use '../../variables' as *;
+@use '../../mixins' as *;
 
 .with-border {
   @include with-border;
@@ -12,6 +12,11 @@
   background-color: $theme-200;
   font-size: 0.8rem;
   cursor: pointer;
+}
+
+.chip:disabled {
+  cursor: not-allowed;
+  color: $theme-300;
 }
 
 .accented {

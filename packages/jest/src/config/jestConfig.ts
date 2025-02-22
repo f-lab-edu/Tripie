@@ -5,7 +5,7 @@ export function jestConfig(config: Config): Config {
     testEnvironment: 'jsdom',
     setupFilesAfterEnv: ['jest-canvas-mock', 'jest-extended/all'].concat(config.setupFilesAfterEnv ?? []),
     testPathIgnorePatterns: ['/node_modules/', '/dist/'],
-    testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
+    testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]sx'],
     moduleDirectories: ['node_modules', 'src'],
     ...config,
   };

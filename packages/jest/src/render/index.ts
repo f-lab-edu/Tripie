@@ -1,7 +1,6 @@
-import { ReactElement } from 'react';
 import { render as baseRender } from '@testing-library/react';
-import userEvents from '@testing-library/user-event';
-import { Options } from '@testing-library/user-event/dist/types/options';
+import userEvents, { Options } from '@testing-library/user-event';
+import { ReactElement } from 'react';
 
 export function render(
   ui: ReactElement,

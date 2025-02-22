@@ -40,6 +40,30 @@ export const Default: Story = {
   },
 };
 
+export const Selected: Story = {
+  name: 'Chip.Selected',
+  args: {
+    children: 'Selected',
+    selected: true,
+  },
+};
+
+export const Disabled: Story = {
+  name: 'Chip.Disabled',
+  args: {
+    children: 'Disabled',
+    disabled: true,
+  },
+};
+
+export const RestaurantChip: Story = {
+  name: 'Chip.Restaurant',
+  args: {
+    children: '1',
+    className: 'restaurant',
+  },
+};
+
 export const AccentedChip: Story = {
   name: 'Chip.Accented',
   render: () => <Chip.Accented>accented Chip</Chip.Accented>,

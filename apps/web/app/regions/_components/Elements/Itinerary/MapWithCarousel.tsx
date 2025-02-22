@@ -82,7 +82,7 @@ const CarouselItems = memo(
             action={() => setCurrent(`0-${index}`)}
             poi={poi}
             cardRef={cardRefs.current[index]}
-            className={cx('itinerary-card')}
+            className={cx('itinerary-card', pois.length > 2 ? 'default' : '')}
             selected={current === `0-${index}`}
           />
         </Container>

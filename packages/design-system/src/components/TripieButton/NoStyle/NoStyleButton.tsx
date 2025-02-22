@@ -7,14 +7,16 @@ const cx = classNames.bind(Style);
 const NoStyleButton = ({
   action,
   children,
+  name = '',
   className,
 }: {
   action: () => void | Promise<unknown>;
+  name?: string;
   children: ReactNode;
   className?: string;
 }) => {
   return (
-    <button onClick={action} className={cx('inherit', className)}>
+    <button name={name} onClick={action} className={cx('clear-btn', className)}>
       {children}
     </button>
   );

@@ -97,7 +97,12 @@
       "dependsOn": ["^build"],
       "persistent": true
     },
-    "typecheck": {}
+    "typecheck": {},
+    "test": {},
+    "test:watch": {
+      "cache": false,
+      "persistent": true
+    }
   },
   "globalDependencies": [".env"]
 }

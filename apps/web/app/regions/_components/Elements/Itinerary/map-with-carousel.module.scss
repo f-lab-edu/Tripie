@@ -1,5 +1,5 @@
-@use 'shared/variables' as *;
-@use 'shared/mixins' as *;
+@use 'variables' as *;
+@use 'mixins' as *;
 
 .timeline-divider {
   height: 4px !important;
@@ -53,6 +53,8 @@
 
 .itinerary-card {
   width: 100% !important;
+}
+.default {
   max-width: 24rem;
 }
 

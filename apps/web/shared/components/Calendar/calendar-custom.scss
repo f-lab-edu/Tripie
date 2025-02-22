@@ -1,6 +1,6 @@
 // react-calendar는 module로 스타일 커스텀 불가하므로 scss로
-@use 'shared/variables' as *;
-@use 'shared/mixins' as *;
+@use 'variables' as *;
+@use 'mixins' as *;
 
 .react-calendar {
   width: 100% !important;

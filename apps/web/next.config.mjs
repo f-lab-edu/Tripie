@@ -12,9 +12,26 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url));
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   sassOptions: {
-    includePaths: [path.join(__dirname, 'styles')],
+    includePaths: [path.join(__dirname, 'styles'), path.join(__dirname, '../../packages/design-system/src')],
     silenceDeprecations: ['legacy-js-api'],
+    // prependData: `@import "@tripie-pyotato/design-system/shared";`,
+    // prependData: `
+    // @import "@tripie-pyotato/design-system/global";
+    // @import "@tripie-pyotato/design-system/styles";
+    // `,
   },
+
+  webpack: config => {
+    config.module.rules = config.module.rules.filter(rule => !(rule.test && rule.test.toString().includes('.scss')));
+
+    config.module.rules.push({
+      test: /\.module\.scss$/,
+      use: ['style-loader', 'css-loader', 'sass-loader'],
+    });
+
+    return config;
+  },
+  transpilePackages: ['@tripie-pyotato/design-system'],
   outputFileTracingIncludes: {
     '/api/gpt': ['node_modules/.prisma/client/**', 'node_modules/@prisma/engines/**'],
   },
@@ -171,6 +188,7 @@ const nextConfig = {
       //
     ];
   },
+
   // async rewrites() {
   //   return [
   //     {

@@ -59,6 +59,7 @@
     "msw": "*"
   },
   "dependencies": {
+    "@mswjs/interceptors": "^0.37.6",
     "react-dom": "^18.3.1"
   }
 }

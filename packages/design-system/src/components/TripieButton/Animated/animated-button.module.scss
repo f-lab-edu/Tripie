@@ -1,5 +1,5 @@
-@use '../../../shared/variables' as *;
-@use '../../../shared/mixins' as *;
+@use '../../../variables' as *;
+@use '../../../mixins' as *;
 
 .hovered {
   position: relative;
@@ -27,7 +27,6 @@
   border: none;
 }
 .with-border {
-  // width: 9rem;
   min-width: 9rem;
   @include with-border;
 }

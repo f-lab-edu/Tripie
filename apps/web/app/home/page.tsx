@@ -23,6 +23,16 @@ export default function Home() {
       <Contacts />
       <Faq />
       <Footer />
+      {/* <Loading />
+      <Header /> 
+      <AboutUs /> 
+      <OurProcess />
+      <OurService />
+      <OurWork />
+      <Plan />
+      <Contacts />
+      <Faq />
+      <Footer /> */}
     </>
   );
 }

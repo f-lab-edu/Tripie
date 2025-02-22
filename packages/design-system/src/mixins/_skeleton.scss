@@ -1,6 +1,6 @@
-@use "sass:list";
-@use "sass:math";
-@use "sass:string";
+@use 'sass:list';
+@use 'sass:math';
+@use 'sass:string';
 
 $skeleton-background: #e1e4e8;
 $shimmer: rgba(255, 255, 255, 0.6);
@@ -23,9 +23,9 @@ $shimmer: rgba(255, 255, 255, 0.6);
   $background: $skeleton-background,
   $shimmer: $shimmer,
   $speed: 3s,
-  $level: "selector"
+  $level: 'selector'
 ) {
-  $key: string.unique-id();
+  $key: 'skeleton-' + string.slice('#{random}', 1, -1);
   $background-images: ();
   $background-sizes: ();
   $background-positions: ();
@@ -39,44 +39,21 @@ $shimmer: rgba(255, 255, 255, 0.6);
   $background-positions: list.append($background-positions, -60% 0, comma);
 
   @for $i from 1 through $lines {
-    $background-images: list.append(
-      $background-images,
-      linear-gradient($background 0%, $background 100%),
-      comma
-    );
-    $background-positions: list.append(
-      $background-positions,
-      0 (($i - 1) * ($line-height + $line-gap))
-    );
+    $background-images: list.append($background-images, linear-gradient($background 0%, $background 100%), comma);
+    $background-positions: list.append($background-positions, 0 (($i - 1) * ($line-height + $line-gap)));
 
     @if $i != $lines {
-      $background-sizes: list.append(
-        $background-sizes,
-        100% $line-height,
-        comma
-      );
+      $background-sizes: list.append($background-sizes, 100% $line-height, comma);
     }
 
     @if $lines == 1 {
-      $background-sizes: list.append(
-        $background-sizes,
-        100% $line-height,
-        comma
-      );
+      $background-sizes: list.append($background-sizes, 100% $line-height, comma);
     } @else {
-      $background-sizes: list.append(
-        $background-sizes,
-        math.random(4) * 23% $line-height,
-        comma
-      );
+      $background-sizes: list.append($background-sizes, random(4) * 23% $line-height, comma);
     }
   }
 
-  $background-positions-animated: list.set-nth(
-    $background-positions,
-    1,
-    180% 0
-  );
+  $background-positions-animated: list.set-nth($background-positions, 1, 180% 0);
 
   @keyframes skeleton-shimmer-#{$key} {
     to {
@@ -84,16 +61,18 @@ $shimmer: rgba(255, 255, 255, 0.6);
     }
   }
 
-  @if $level == "selector" {
-    display: block;
-    width: 100%;
-    min-height: $lines * ($line-height + $line-gap) - $line-gap;
-    background-image: $background-images;
-    background-repeat: no-repeat;
-    background-position: $background-positions;
-    background-size: $background-sizes;
-    animation: skeleton-shimmer-#{$key} $speed infinite;
-  } @else if $level == "empty" {
+  @if $level == 'selector' {
+    & {
+      display: block;
+      width: 100%;
+      min-height: $lines * ($line-height + $line-gap) - $line-gap;
+      background-image: $background-images;
+      background-repeat: no-repeat;
+      background-position: $background-positions;
+      background-size: $background-sizes;
+      animation: skeleton-shimmer-#{$key} $speed infinite;
+    }
+  } @else if $level == 'empty' {
     &:empty {
       display: block;
       width: 100%;

@@ -1,5 +1,6 @@
 'use client';
 import { Container, TextFillAnimation } from '@tripie-pyotato/design-system';
+import '@tripie-pyotato/design-system/styles';
 import classNames from 'classnames/bind';
 import COLORS from 'constants/colors';
 

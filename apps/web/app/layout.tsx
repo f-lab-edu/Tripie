@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 
 import '@tripie-pyotato/design-system/global';
+import '@tripie-pyotato/design-system/styles';
+
 import { ReactNode, Suspense } from 'react';
 import Loading from 'shared/components/Loading';
 import Provider from '../provider/layout';

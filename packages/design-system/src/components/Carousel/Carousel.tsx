@@ -31,7 +31,7 @@ const Carousel = ({ items, className }: { items: ReactElement[]; className?: str
         return prevIndex;
       });
 
-      if (ref?.current?.children != null) {
+      if (ref?.current?.children?.[next] != null) {
         ref.current.children?.[next].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
     },
@@ -41,7 +41,7 @@ const Carousel = ({ items, className }: { items: ReactElement[]; className?: str
   return (
     <TripieContainer margin="none" className={cx('carousel')}>
       {items.length > 1 && focusedIndex != 0 ? (
-        <NoStyleButton action={() => handleScrollButton('prev')}>
+        <NoStyleButton name="previous" action={() => handleScrollButton('prev')}>
           <Icon.Scroll className={cx('scroll-icon', 'next-icon')} next={false} />
         </NoStyleButton>
       ) : null}
@@ -60,7 +60,7 @@ const Carousel = ({ items, className }: { items: ReactElement[]; className?: str
         </TripieContainer>
       </TripieContainer>
       {items.length > 1 && focusedIndex != items.length - 1 ? (
-        <NoStyleButton action={() => handleScrollButton('next')}>
+        <NoStyleButton name="next" action={() => handleScrollButton('next')}>
           <Icon.Scroll className={cx('scroll-icon', 'prev-icon')} />
         </NoStyleButton>
       ) : null}
@@ -106,7 +106,7 @@ const CarouselItem = ({
     <TripieContainer
       margin="none"
       refs={ref as unknown as RefObject<HTMLDivElement>}
-      className={cx('insta-like-carousel-item', className)}
+      className={cx('insta-like-carousel-item', focusedIndex == index ? 'focused' : '', className)}
     >
       {children}
     </TripieContainer>

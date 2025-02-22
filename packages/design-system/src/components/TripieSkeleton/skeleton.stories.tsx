@@ -27,6 +27,6 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   name: 'Default Skeleton',
   args: {
-    children: <Skeleton />,
+    children: <Skeleton></Skeleton>,
   },
 };

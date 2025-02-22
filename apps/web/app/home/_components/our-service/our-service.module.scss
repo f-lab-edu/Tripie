@@ -1,5 +1,5 @@
-@use 'shared/variables' as *;
-@use 'shared/mixins' as *;
+@import 'mixins';
+@import 'variables';
 
 .our-service {
   @include background('4');
