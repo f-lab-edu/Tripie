@@ -12,7 +12,8 @@ const meta: Meta<typeof MenuItem> = {
   parameters: {
     docs: {
       description: {
-        component: '',
+        component:
+          '네비게이션 토글 버튼이 열린 상태에서 보이는 메뉴 리스트의 아이템 컴포넌트. 호버 시 확대 애니메이션이 동작합니다.',
       },
     },
   },
