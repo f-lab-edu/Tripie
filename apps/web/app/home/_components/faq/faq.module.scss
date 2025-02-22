@@ -1,5 +1,6 @@
 @use 'variables' as *;
 @use 'mixins' as *;
+
 .faq {
   @include background('1');
   padding: 50px 0 100px;
@@ -8,16 +9,8 @@
   background-color: $theme-200;
   border-radius: 10px;
 }
+
 .flex {
-  cursor: pointer;
-  width: 100%;
-  flex-wrap: nowrap;
-  display: inline-flex;
+  @include flex;
   gap: 0.5rem;
-}
-.faq-icon {
-  width: 1rem;
-}
-.accordion-body {
-  white-space: pre-wrap !important;
 }

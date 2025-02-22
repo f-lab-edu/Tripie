@@ -11,22 +11,24 @@ export default function FaqList() {
   return (
     <Container className={cx('wrap')} applyMargin="top-bottom">
       {FAQS.map(({ tag, header, details }) => (
-        <Accordion key={tag} className={cx('our-work-contents')}>
-          <Accordion.Header>
-            <Container className={cx('flex')} margin="sm" applyMargin="top-bottom">
-              <Accordion.Icon className={cx('faq-icon')} />
-              {header}
-            </Container>
-          </Accordion.Header>
-          <Accordion.Divider />
-          <Container applyMargin="top-bottom" className={cx('accordion-body')}>
-            <Accordion.Body>
-              <Container applyMargin="top-bottom" margin="m">
-                {details}
+        <Container key={tag} applyMargin="all">
+          <Accordion>
+            <Accordion.Header>
+              <Container className={cx('flex')} margin="sm" applyMargin="top-bottom">
+                <Accordion.Icon />
+                {header}
               </Container>
-            </Accordion.Body>
-          </Container>
-        </Accordion>
+            </Accordion.Header>
+            <Accordion.Divider />
+            <Container applyMargin="top-bottom" preserveWhiteSpace={true}>
+              <Accordion.Body>
+                <Container applyMargin="top-bottom" margin="m">
+                  {details}
+                </Container>
+              </Accordion.Body>
+            </Container>
+          </Accordion>
+        </Container>
       ))}
     </Container>
   );
