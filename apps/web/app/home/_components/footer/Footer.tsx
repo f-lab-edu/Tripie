@@ -1,5 +1,12 @@
 'use client';
-import { Container, Divider, List, TextUnderLineAnimation } from '@tripie-pyotato/design-system';
+import {
+  Container,
+  Divider,
+  Headings,
+  List,
+  NoStyleButton,
+  TextUnderLineAnimation,
+} from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import { LANDING_SECTION } from 'constants/routes';
 import { useRouter } from 'next/navigation';
@@ -11,25 +18,31 @@ const cx = classNames.bind(Style);
 export default function Footer() {
   const router = useRouter();
   return (
-    <footer className={cx('footer')}>
-      <Container margin="m" applyMargin="left-right">
-        <Container margin="none" className={cx('wrap')}>
+    <footer className={cx('footer-wrap')}>
+      <Container margin="m" applyMargin="left-right-bottom">
+        <Container applyMargin="bottom" margin="sm" align="left">
           <TextUnderLineAnimation>
-            mail<span className={cx('accented')}>@</span>tripie.com
+            <Headings.H3>
+              mail <span className={cx('accented')}>@</span>tripie.com
+            </Headings.H3>
           </TextUnderLineAnimation>
-          <Divider />
         </Container>
+        <Divider />
         <List>
-          <li>© 2024</li>
-          <li>mail@tripie-pyotato.com</li>
+          <li>
+            <Headings.H3>© 2024</Headings.H3>
+          </li>
+          <li>
+            <Headings.H3>mail@tripie-pyotato.com</Headings.H3>
+          </li>
         </List>
         <Divider />
         <List>
           {LANDING_SECTION.map(({ label, href }) => (
             <li key={href}>
-              <button onClick={() => router.push(href)} className={cx('button')}>
-                <TextUnderLineAnimation className={cx('list-item')}>{label}</TextUnderLineAnimation>
-              </button>
+              <NoStyleButton action={() => router.push(href)}>
+                <TextUnderLineAnimation>{label}</TextUnderLineAnimation>
+              </NoStyleButton>
             </li>
           ))}
         </List>
