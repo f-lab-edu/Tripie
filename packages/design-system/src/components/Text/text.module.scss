@@ -3,6 +3,7 @@
 @use '../../generator/' as *;
 @use '../../mixins/' as *;
 @use '../TripieButton/Animated/animated-button.module' as *;
+@use '../../mixins.scss' as *;
 
 @use 'sass:map';
 
@@ -55,4 +56,9 @@
     position: relative;
     display: inline-block;
   }
+}
+
+.accented {
+  @include accented;
+  font-size: inherit;
 }

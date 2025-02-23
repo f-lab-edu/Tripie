@@ -31,6 +31,11 @@ export const Default: Story = {
     children: 'default 기본',
   },
 };
+
+export const Accented: Story = {
+  name: 'Text.Accented',
+  render: () => <Text.Accented>accented text</Text.Accented>,
+};
 export const Animated: Story = {
   name: 'Text.Animated',
   render: () => <Text.Animated otherChild={'other text'}>animated text</Text.Animated>,
