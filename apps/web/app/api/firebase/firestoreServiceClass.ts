@@ -11,11 +11,10 @@ import {
   setDoc,
   updateDoc,
   where,
-} from 'firebase/firestore';
+} from 'firebase/firestore/lite';
 import { AttractionData } from 'models/Attraction';
 import { RestaurantData } from 'models/Restaurant';
 import { TripieArticle } from 'models/Triple';
-
 interface GptDocumentData extends DocumentData {
   data: string;
   city: string[];

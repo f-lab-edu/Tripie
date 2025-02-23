@@ -1,5 +1,5 @@
-import { increment } from '@firebase/firestore';
 import { useQuery } from '@tanstack/react-query';
+import { increment } from 'firebase/firestore/lite';
 
 import { getTripPlan } from 'app/api/chat/route';
 import firestoreService from 'app/api/firebase';
@@ -17,7 +17,6 @@ const useChat = (chatItems: TripPlanner, id: string) => {
       if (id != null) {
         const user = await firestoreService.getItem(DB_NAME, id);
         if (user != null) {
-          // return await firestoreService.getListWithIds('continentl')
           return await firestoreService.getListWithIds('continentl').then(async countries => {
             // iso31661로 같은 code의 세자리 버전을 aws에 FilterCountry로 넘겨 검색 정확도를 높이기 위해 국가 코드 두자리를 code로 넘겨줍니다.
             const { code } = countries?.filter((place: Continentl) => place.id === chatItems.country)[0] as Continentl;

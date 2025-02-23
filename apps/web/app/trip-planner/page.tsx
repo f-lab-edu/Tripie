@@ -1,14 +1,15 @@
 'use client';
 
-import { increment } from '@firebase/firestore';
 import { Container, Icon, Text } from '@tripie-pyotato/design-system';
 import { getTripPlan } from 'app/api/chat/route';
-import firestoreService from 'app/api/firebase';
+import { increment } from 'firebase/firestore/lite';
+
 import classNames from 'classnames/bind';
 import API from 'constants/api-routes';
 import { CHAT_DB_NAME, DB_NAME } from 'constants/auth';
 import useFunnel from 'hooks/useFunnel';
 
+import firestoreService from 'app/api/firebase';
 import { CustomUser } from 'app/api/gpt/route';
 import ROUTE from 'constants/routes';
 import { useDebounce } from 'hooks/useDebounce';
@@ -42,6 +43,7 @@ const handleSubmit = async (chatItems: TripPlanner, id: string) => {
         const docId = `${serverTime}-${id}`;
         if (data != null) {
           await firestoreService.updateItem(DB_NAME, id, {
+            // usedTokens: increment(1),
             usedTokens: increment(1),
           });
           const {
@@ -142,6 +144,7 @@ const TripPlan = () => {
     const id = await handleSubmit(funnel.context as TripPlanner, (userData?.user as CustomUser)?.id);
     setIsLoading(false);
     funnel.history.clear();
+
     navigate.replace(`${ROUTE.TRIP_PLANNER.href}/${id}`);
   });
 
