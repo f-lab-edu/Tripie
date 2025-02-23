@@ -21,7 +21,7 @@ const List = ({
   );
 };
 
-const ListItem = ({
+export const ListItem = ({
   children,
   justifyContent = 'flex-start',
   alignItems = 'normal',
@@ -30,12 +30,22 @@ const ListItem = ({
 }: {
   children: ReactNode;
   justifyContent?: 'flex-start' | 'center' | 'flex-end';
-  alignItems?: 'normal'|'center' | 'start' | 'stretch' | 'end';
+  alignItems?: 'normal' | 'center' | 'start' | 'stretch' | 'end';
   gap?: 'default' | 'l'; // 0.5rem 1rem
-  className?:string
+  className?: string;
 }) => {
   return (
-    <li className={cx('list-item', `justify-content-${justifyContent}`, `align-items-${alignItems}`,`gap-${gap}`,className)}>{children}</li>
+    <li
+      className={cx(
+        'list-item',
+        `justify-content-${justifyContent}`,
+        `align-items-${alignItems}`,
+        `gap-${gap}`,
+        className
+      )}
+    >
+      {children}
+    </li>
   );
 };
 
