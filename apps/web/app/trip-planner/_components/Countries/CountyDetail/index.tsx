@@ -8,7 +8,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Map, Marker } from 'react-map-gl/maplibre';
 import 'shared/components/AwsMap/Marker/marker.module.scss';
 import Loading from 'shared/components/Loading';
-import dmsToDecimal from 'utils/coordtinate';
+import dmsToDecimalLatLng from 'utils/coordinate';
 import Style from '../countries.module.scss';
 import CountryInfoPopup from './CountryInfoPopup';
 import CountryName from './CountryName';
@@ -22,7 +22,7 @@ const CountryDetail = ({ selectedCountry }: { selectedCountry: string }) => {
 
   const coordinates = useMemo(() => {
     if (countryDetail?.coordinates?.length === 2) {
-      const [lat, lng] = dmsToDecimal(countryDetail.coordinates);
+      const [lat, lng] = dmsToDecimalLatLng(countryDetail.coordinates);
 
       return { lat, lng };
     }
