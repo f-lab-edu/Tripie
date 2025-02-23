@@ -6,18 +6,7 @@ import Style from './chip-marker.module.scss';
 
 const cx = classNames.bind(Style);
 
-const ChipMarker = ({
-  popup,
-  className,
-  children,
-  selected,
-}: {
-  className: string;
-  popup?: string;
-  children: string;
-  selected?: boolean;
-}) => {
-
+const ChipMarker = ({ className, children, selected }: { className: string; children: string; selected?: boolean }) => {
   const marker = useMemo(() => {
     return +children.split('-')[1] + 1;
   }, [children]);
