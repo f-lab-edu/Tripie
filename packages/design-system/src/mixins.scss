@@ -226,7 +226,8 @@ $background-gradients: (
     'selected': inherit,
   );
 
-  background-color: map.get($colors, $variant, orange);
+  // background-color: map-get($colors, $variant, orange); // DART부터는 map.get 사용
+  background-color: map.get($colors, $variant) or orange;
 }
 
 @mixin scroll {
