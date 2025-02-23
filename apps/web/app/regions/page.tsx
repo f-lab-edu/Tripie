@@ -5,12 +5,8 @@ import RegionSelect from './_components/RegionSelect';
 
 import { Text } from '@tripie-pyotato/design-system';
 import getRegionArticles from 'app/api/articles/region';
-import classNames from 'classnames/bind';
 import RegionList from './_components/RegionList';
-import Style from './_components/shared/regions.module.scss';
 import Title from './_components/Title';
-
-const cx = classNames.bind(Style);
 
 const Articles = async () => {
   const currentRegionId = Object.keys(TRIPIE_REGION_BY_LOCATION)[0];
