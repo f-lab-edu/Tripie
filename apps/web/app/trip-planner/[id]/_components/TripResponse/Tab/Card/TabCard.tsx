@@ -8,6 +8,7 @@ import Style from './tab-card.module.scss';
 import { Activity, TripContent } from 'models/Aws';
 import { useContext, useEffect, useRef } from 'react';
 
+import { openNewTab } from 'utils/new-tab';
 import { TabContext } from '../..';
 
 const cx = classNames.bind(Style);
@@ -45,12 +46,6 @@ const TabCard = ({
       }
     }
   }, [current]);
-
-  const openNewTab = (url: string) => {
-    if (typeof window !== 'undefined') {
-      window.open(url, '_blank');
-    }
-  };
 
   return (
     <Card.ClickableContent
