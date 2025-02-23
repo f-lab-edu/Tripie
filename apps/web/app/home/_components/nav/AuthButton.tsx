@@ -6,6 +6,7 @@ import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 
 import { Icon, MenuToggle, NoStyleButton } from '@tripie-pyotato/design-system';
+import API from 'constants/api-routes';
 import { openNewTab } from 'utils/new-tab';
 
 const AuthButton = () => {
@@ -23,9 +24,11 @@ const AuthButton = () => {
     <>
       <MenuToggle.Item key={`${data?.user?.name}-authenticated`}>
         {!isEligible ? (
-          <Link href={`/trip-planner/not-enough-tokens`}>AI 추천 맞춤일정</Link>
+          <Link href={`${API.BASE_URL + ROUTE.TRIP_PLANNER.href}/not-enough-tokens`}>AI 추천 맞춤일정</Link>
         ) : (
-          <NoStyleButton action={() => openNewTab('trip-planner')}>AI 추천 맞춤일정</NoStyleButton>
+          <NoStyleButton action={() => openNewTab(API.BASE_URL + ROUTE.TRIP_PLANNER.href)}>
+            AI 추천 맞춤일정
+          </NoStyleButton>
         )}
         <Icon />
       </MenuToggle.Item>
