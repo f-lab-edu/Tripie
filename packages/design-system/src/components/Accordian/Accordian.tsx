@@ -3,8 +3,8 @@ import classNames from 'classnames/bind';
 
 import { motion } from 'framer-motion';
 import { createContext, ReactNode, useContext, useMemo } from 'react';
-import useCycle from '../../hooks/useCycle';
 
+import { useCycle } from '../../hooks';
 import Divider from '../Divider/Divider';
 import Icon, { IconProps } from '../TripieIcon/Icon';
 import Style from './accordian.module.scss';
