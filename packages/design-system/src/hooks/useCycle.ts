@@ -10,7 +10,7 @@ import { useState } from 'react';
  * const [current, toggle] = useCycle(false,true,'custom');
  * `current`은 false를 리턴하고, `toggle()`은  current를 true로, `toggle(2)`은'custom'로 설정합니다.
  */
-const useCycle = (...states: any[]) => {
+export const useCycle = (...states: any[]) => {
   const [possibleStates] = useState(states);
 
   const [current, setCurrent] = useState(possibleStates[0]);
@@ -26,4 +26,3 @@ const useCycle = (...states: any[]) => {
 
   return [current, toggleState];
 };
-export default useCycle;

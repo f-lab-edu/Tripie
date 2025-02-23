@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { useEffect } from 'react';
 import { useAppTheme } from '../../hooks';
-import useCycle from '../../hooks/useCycle';
+import { useCycle } from '../../hooks/useCycle';
 import Switch from './Switch';
 
 const meta: Meta<typeof Switch> = {

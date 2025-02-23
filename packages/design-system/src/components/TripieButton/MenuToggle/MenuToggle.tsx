@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 
 import { SVGMotionProps, motion } from 'framer-motion';
 import { ReactNode } from 'react';
-import useCycle from '../../../hooks/useCycle';
+import { useCycle } from '../../../hooks/useCycle';
 import COLORS from '../../../shared/colors';
 import TripieContainer from '../../TripieContainer/TripieContainer';
 import NoStyleButton from '../NoStyle/NoStyleButton';
