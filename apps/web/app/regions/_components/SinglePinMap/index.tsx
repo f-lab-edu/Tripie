@@ -1,6 +1,6 @@
 'use client';
 
-import AwsMap, { AwsMapCenter } from 'app/regions/_components/Elements/Map';
+import AwsMap, { AwsMapCenter } from 'app/regions/_components/Elements/Itinerary/TripieMap';
 import { LocationMarker } from 'models/Geo';
 // import AwsMap from 'shared/components/AwsMap';
 // import { AwsMapCenter } from '../Elements/Map';

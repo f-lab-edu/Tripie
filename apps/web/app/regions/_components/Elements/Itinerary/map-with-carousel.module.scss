@@ -42,6 +42,7 @@
   flex-direction: column;
   position: static;
   top: 0;
+  height: 24rem;
 }
 
 .timeline {
@@ -55,6 +56,7 @@
   width: 100% !important;
 }
 .default {
+  width: 100%;
   max-width: 24rem;
 }
 

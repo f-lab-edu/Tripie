@@ -1,18 +1,14 @@
 'use client';
 
-import { Marker, Popup, useMap } from 'react-map-gl/maplibre';
+import { Popup, useMap } from 'react-map-gl/maplibre';
 
-import { ChipMarker } from '@tripie-pyotato/design-system';
 import { TabContext } from 'app/trip-planner/[id]/_components/TripResponse';
-import classNames from 'classnames/bind';
 import usePopUp from 'hooks/awsMap/usePopUp';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { LocationMarker } from 'models/Geo';
 import { useContext, useEffect } from 'react';
-import Style from './marker.module.scss';
-import './marker.scss';
 
-const cx = classNames.bind(Style);
+import TripieMarker from './TripieMarker';
 
 const Markers = ({
   locationMarker,
@@ -44,27 +40,21 @@ const Markers = ({
             offset={24}
             focusAfterOpen={focusAfterOpen}
             key={`popup-${markers.lng} + ${markers.lat}+${index}`}
-            className={cx('popup')}
           >
             {JSON.stringify(markers.info)}
           </Popup>
         ))}
       {locationMarker.map(marker => (
-        <Marker
+        <TripieMarker
+          current={current}
+          marker={marker}
           key={`location-${marker.lng} + ${marker.lat}+${marker.index}`}
-          longitude={marker.lng}
-          latitude={marker.lat}
-          anchor="bottom"
-          onClick={() => {
+          action={() => {
             cycle(marker.index);
             setPopup(marker.index);
             setCurrentSelected(marker.index);
           }}
-        >
-          <ChipMarker className={cx(marker.label)} selected={current === marker.index} popup={popup}>
-            {marker.index}
-          </ChipMarker>
-        </Marker>
+        />
       ))}
     </>
   );

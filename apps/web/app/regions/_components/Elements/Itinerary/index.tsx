@@ -7,8 +7,8 @@ import { MapProvider } from 'react-map-gl/maplibre';
 
 import { useMemo } from 'react';
 
-import AwsMap from '../Map';
 import MapWithCarousel from './MapWithCarousel';
+import TripieMap from './TripieMap';
 
 export type ItineraryProps = { type: 'itinerary'; value: { itinerary: Itinerary } };
 
@@ -30,7 +30,7 @@ const ArticleItinerary = ({ item }: { item: ItineraryProps }) => {
   return (
     <MapProvider>
       <MapWithCarousel item={mapItem} current={current} setCurrent={setCurrent} />
-      <AwsMap locations={coordinates} center={center} current={current} setCurrent={setCurrent} />
+      <TripieMap locations={coordinates} center={center} current={current} setCurrent={setCurrent} />
     </MapProvider>
   );
 };

@@ -7,7 +7,7 @@ import usePoi from 'hooks/usePoi';
 import { Carousel } from '@tripie-pyotato/design-system';
 import TripieContainer from '@tripie-pyotato/design-system/components/TripieContainer/TripieContainer';
 import { MapProvider } from 'react-map-gl/dist/esm/exports-maplibre';
-import AwsMap from '../Map';
+import AwsMap from '../Itinerary/TripieMap';
 import PoiCard from './PoiCard';
 
 export type PoisProps = { type: 'pois'; value: { pois: Poi[] } };
