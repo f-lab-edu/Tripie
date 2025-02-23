@@ -35,6 +35,7 @@ const Children = () =>
         'https://media.triple.guide/triple-cms/c_limit,f_auto,h_2048,w_2048/54e3594d-1087-43ff-b760-7231d4103edf.jpeg의 이미지일 수도 있음'
       }
       summary={'대자연부터 감성 카페까지, 인생샷을 남길 수 있는 곳'}
+      withBorder={false}
       title={'여름 제주 인생샷 명소 BEST 7'}
       key={index}
     />
