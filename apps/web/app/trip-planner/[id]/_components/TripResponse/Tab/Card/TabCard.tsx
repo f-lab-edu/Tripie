@@ -59,7 +59,7 @@ const TabCard = ({
       <Container margin="sm" applyMargin="bottom" className={cx('title')}>
         <div ref={current === `${trip.day - 1}-${index}` ? ref : null} />
         <Chip className={cx('label', label)}>{index + 1}</Chip>
-        <Text className={cx('accented')}>{activity}</Text>
+        <Text.Accented>{activity}</Text.Accented>
       </Container>
       <Divider />
       <Container margin="sm" applyMargin="top">
@@ -70,7 +70,7 @@ const TabCard = ({
             // 새로운 탭에 구글 검색
             onClick={() => openNewTab(`https://www.google.com/search?q=@${place}`)}
           >
-            <span className={cx('accented')}>@</span>
+            <Text.Accented>@</Text.Accented>
             {place}
           </TextUnderLineAnimation>
         </Container>

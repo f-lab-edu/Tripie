@@ -1,4 +1,4 @@
-import { AnimatedButton, Container, Icon } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Container, Headings, Icon, Text } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import { CONTINENTS } from 'constants/continents';
 
@@ -36,9 +36,9 @@ export function ContinentStep({ context, onNext }: Readonly<Props>) {
   return (
     <>
       <Container margin="none">
-        <h2>
-          떠나고 싶은 <span className={cx('accented')}>지역</span>은?
-        </h2>
+        <Headings.H2>
+          떠나고 싶은 <Text.Accented>지역</Text.Accented>은?
+        </Headings.H2>
       </Container>
       <Container className={cx('globe-wrap')} margin="none">
         <RotatingGlobe />

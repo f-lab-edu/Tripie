@@ -38,7 +38,7 @@ const CountryInfoPopup = ({
       label: 'capital name',
       content: (
         <List.Item alignItems="center" gap="l">
-          <Text className={cx('accented', 'capital', 'verticle-center')}>수도</Text>
+          <Text.Accented className={cx('capital', 'verticle-center')}>수도</Text.Accented>
           <div className={cx('capital-name')}>{capital}</div>
         </List.Item>
       ),
@@ -47,7 +47,7 @@ const CountryInfoPopup = ({
       label: 'languages',
       content: (
         <List.Item alignItems="center" gap="l">
-          <Text className={cx('accented', 'language', 'center', 'verticle-center')}>공식 언어</Text>
+          <Text.Accented className={cx('language', 'center', 'verticle-center')}>공식 언어</Text.Accented>
           {officialLanguage != null ? (
             <List className={cx('flex')}>
               {officialLanguage.map((language: string) => (

@@ -2,7 +2,7 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import 'shared/components/AwsMap/Marker/marker.scss';
 
 import { useQueryClient } from '@tanstack/react-query';
-import { AnimatedButton, Container, Icon } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Container, Headings, Icon, Text } from '@tripie-pyotato/design-system';
 import firestoreService from 'app/api/firebase';
 import classNames from 'classnames/bind';
 
@@ -60,9 +60,9 @@ export function CountryStep({ context, onNext }: Readonly<Props>) {
         <Container margin="none">
           <Icon.Navigate />
         </Container>
-        <h2>
-          떠나고 싶은 <span className={cx('accented')}>나라</span>는?
-        </h2>
+        <Headings.H2>
+          떠나고 싶은 <Text.Accented>나라</Text.Accented>는?
+        </Headings.H2>
       </Container>
 
       {data == null ? null : (

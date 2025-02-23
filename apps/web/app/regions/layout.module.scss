@@ -1,15 +1,6 @@
 @use 'variables' as *;
 @use 'mixins' as *;
 
-.trip-content-wrap {
-  display: inline-flex;
-  width: 100%;
-  gap: 0.4rem;
-  @media (max-width: 500px) {
-    flex-wrap: wrap;
-  }
-}
-
 .background {
   @include background('0');
   display: inline-flex;

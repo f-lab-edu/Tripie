@@ -78,6 +78,7 @@ const CarouselItems = memo(
           <Container applyMargin="bottom" className={cx('timeline')}>
             <Chip selected={current === `0-${index}`}>{schedule[index] != '' ? schedule[index] : index + 1}</Chip>
           </Container>
+          {/* !! 카드의 제목이나 설명 텍스트가 너무 길면 스타일 깨짐!!*/}
           <PoiCard
             action={() => setCurrent(`0-${index}`)}
             poi={poi}

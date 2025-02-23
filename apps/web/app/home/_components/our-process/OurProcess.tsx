@@ -1,4 +1,4 @@
-import { Container, Headings, MotionSlideUp } from '@tripie-pyotato/design-system';
+import { Container, Headings, MotionSlideUp, Text } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 
 import OurProcessList from './_components/OurProcessList';
@@ -13,7 +13,7 @@ export default function OurProcess() {
         <MotionSlideUp>
           <Container applyMargin="top" margin="sm">
             <Headings.H2>
-              Our <span className={cx('accented')}>process</span>
+              Our <Text.Accented>process</Text.Accented>
             </Headings.H2>
           </Container>
         </MotionSlideUp>

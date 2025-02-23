@@ -12,10 +12,6 @@
   }
 }
 
-.accented {
-  @include accented;
-}
-
 .capital,
 .language {
   width: 30% !important;

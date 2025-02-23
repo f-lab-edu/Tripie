@@ -8,9 +8,6 @@
   }
 }
 
-.accented {
-  @include accented;
-}
 .info-wrap {
   display: inline-flex;
   width: min(100%, 60rem);

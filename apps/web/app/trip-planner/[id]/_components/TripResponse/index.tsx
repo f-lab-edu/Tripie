@@ -1,7 +1,7 @@
 'use client';
 import classNames from 'classnames/bind';
 
-import { Container, Icon } from '@tripie-pyotato/design-system';
+import { Container, Headings, Icon, Text } from '@tripie-pyotato/design-system';
 
 import ROUTE from 'constants/routes';
 import useChatToken from 'hooks/useChatToken';
@@ -85,15 +85,12 @@ const TripResponse = ({ data }: { data: ChatResponseData }) => {
       <TabContext.Provider value={selectedActivityValues}>
         <SelectedDateContext.Provider value={selectedDateValues}>
           <Container margin="none">
-            <Icon.Navigate
-              // src={RESOURCE.ARROW}
-              onTapStart={() => router.push(`${ROUTE.TRIP_PLANNER.href}?trip-plan.step=CONTINENT`)}
-            />
+            <Icon.Navigate onTapStart={() => router.push(`${ROUTE.TRIP_PLANNER.href}?trip-plan.step=CONTINENT`)} />
             {remainingToken != null && !isAdmin ? `${remainingToken}토큰으로 다른 일정 추천 받아보기` : ''}
             {isAdmin ? `어드민 계정입니다. ${usedGptToken} 토큰을 사용하셨습니다.` : null}
-            <h2>
-              <span className={cx('accented')}>Chat</span>
-            </h2>
+            <Headings.H2>
+              <Text.Accented>Chat</Text.Accented>
+            </Headings.H2>
           </Container>
           <Container margin="none" className={cx('trip-content-wrap')}>
             <MapTab data={data.plans} coordinates={coordinates} />

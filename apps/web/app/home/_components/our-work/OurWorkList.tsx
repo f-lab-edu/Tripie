@@ -1,5 +1,5 @@
 'use client';
-import { Accordion, Container, Headings } from '@tripie-pyotato/design-system';
+import { Accordion, Container, Headings, Text } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 
 import Style from './our-work-list.module.scss';
@@ -36,8 +36,8 @@ export default function OurWorkList() {
       {ourWorkList.map(({ year, tag, header, details }) => (
         <Accordion key={tag}>
           <Accordion.Header>
-            <Container className={cx('accented')} margin="m" applyMargin="top">
-              {year}
+            <Container margin="m" applyMargin="top">
+              <Text.Accented>{year}</Text.Accented>
             </Container>
             <Container className={cx('flex')} margin="sm" applyMargin="top-bottom">
               <Headings.H3>{header}</Headings.H3>

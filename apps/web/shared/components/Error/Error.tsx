@@ -1,5 +1,5 @@
 'use client';
-import { Chip, Container, Headings, ParticleBackground } from '@tripie-pyotato/design-system';
+import { Chip, Container, Headings, ParticleBackground, Text } from '@tripie-pyotato/design-system';
 
 import classNames from 'classnames/bind';
 
@@ -13,9 +13,9 @@ export default function SeverError() {
       <Container className={cx('center')} margin="none">
         <div>
           <Container className={cx('heading')} margin="none">
-            <Headings.H1 className={cx('accented')}>5</Headings.H1>
-            <Headings.H1>0</Headings.H1>
-            <Headings.H1 className={cx('accented')}>0</Headings.H1>
+            <Headings.H1 className={cx('accented')}>
+              <Text.Accented>5</Text.Accented> 0 <Text.Accented>0</Text.Accented>
+            </Headings.H1>
           </Container>
         </div>
 

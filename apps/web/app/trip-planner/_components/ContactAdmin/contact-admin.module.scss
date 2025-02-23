@@ -16,9 +16,6 @@
     justify-content: center;
   }
 }
-.accented {
-  @include accented;
-}
 
 .submit-button {
   @include submit-button;

@@ -3,6 +3,7 @@
 import { TRIPIE_REGION_BY_LOCATION, TRIPIE_REGION_IDS } from 'constants/tripie-country';
 import RegionSelect from './_components/RegionSelect';
 
+import { Text } from '@tripie-pyotato/design-system';
 import getRegionArticles from 'app/api/articles/region';
 import classNames from 'classnames/bind';
 import RegionList from './_components/RegionList';
@@ -24,7 +25,7 @@ const Articles = async () => {
   return (
     <>
       <Title>
-        도시 별<span className={cx('accented')}> 여행 </span>정보
+        도시 별<Text.Accented> 여행 </Text.Accented>정보
       </Title>
       <RegionSelect selected={currentRegionId} selectedRegion={selectedRegion} />
       <RegionList data={dynamicBlurDataUrl} selectedRegion={selectedRegion} />

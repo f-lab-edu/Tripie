@@ -1,4 +1,4 @@
-import { Container, Headings } from '@tripie-pyotato/design-system';
+import { Container, Headings, Text } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import { ReactNode } from 'react';
 import Style from './description.module.scss';
@@ -20,9 +20,7 @@ const Description = ({
     <>
       {descriptionTitle != null ? (
         <Headings.H3>
-          {order != null ? (
-            <span className={cx('accented')}>{order.toString.length === 1 ? '0' + order : order}. </span>
-          ) : null}
+          {order != null ? <Text.Accented>{order.toString.length === 1 ? '0' + order : order}. </Text.Accented> : null}
           {descriptionTitle}
         </Headings.H3>
       ) : null}

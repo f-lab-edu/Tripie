@@ -1,6 +1,6 @@
 'use client';
 
-import { Container, Headings, Icon, MotionSlideUp } from '@tripie-pyotato/design-system';
+import { Container, Headings, Icon, MotionSlideUp, Text } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 
 import ROUTE from 'constants/routes';
@@ -23,7 +23,7 @@ const contacts = {
   Github: (
     <Container margin="none" align="left" className={cx('flex')}>
       <Link href="mailto:pyotato.dev@gmail.com?subject=Hello&body=How%20can%20I%20help%20you?">
-        <span className={cx('accented')}>@ </span>Pyotato
+        <Text.Accented>@</Text.Accented> Pyotato
       </Link>
       <Icon sizes={'large'} />
     </Container>
@@ -37,7 +37,7 @@ export default function Contacts() {
         <MotionSlideUp>
           <Container applyMargin="top" margin="sm">
             <Headings.H2>
-              Get in <span className={cx('accented')}>touch</span>
+              Get in <Text.Accented>touch</Text.Accented>
             </Headings.H2>
           </Container>
         </MotionSlideUp>

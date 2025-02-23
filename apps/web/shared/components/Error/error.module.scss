@@ -21,9 +21,6 @@ $bottom-shade: #08070700;
   display: inline-flex;
   gap: 7px;
 }
-.accented {
-  @include accented;
-}
 
 .gradient-bottom {
   background: radial-gradient(75% 50% at 100% 100%, $theme-600 0%, $bottom-shade 100%); //dark

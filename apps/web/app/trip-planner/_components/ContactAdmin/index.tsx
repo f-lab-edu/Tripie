@@ -15,15 +15,15 @@ const ContactAdmin = () => {
     <Container margin="none" className={cx('background')}>
       <Container className={cx('text-wrap')} margin="none">
         <TextUnderLineAnimation>
-          <Text className={cx('accented')}>이런! 토큰을 다 사용했네요!</Text>
-          <span className={cx('accented')}>@관리자</span>에게 토큰 요청하기
+          <Text.Accented>이런! 토큰을 다 사용했네요!</Text.Accented>
+          <Text.Accented>@관리자</Text.Accented>에게 토큰 요청하기
         </TextUnderLineAnimation>
       </Container>
       <Container margin="none">
         <Container applyMargin="bottom">
           <Container applyMargin="bottom" margin="sm">
-            여행지에 대한 <span className={cx('accented')}>팁</span>이나{' '}
-            <span className={cx('accented')}>아이디어</span>를 얻고 싶으신가요?
+            여행지에 대한 <Text.Accented>팁</Text.Accented>이나 <Text.Accented>아이디어</Text.Accented>를 얻고
+            싶으신가요?
           </Container>
         </Container>
         <RegionInfo />

@@ -1,7 +1,7 @@
 'use client';
 import classNames from 'classnames/bind';
 
-import { Headings, List } from '@tripie-pyotato/design-system';
+import { Headings, List, Text } from '@tripie-pyotato/design-system';
 
 import Style from './tab-list.module.scss';
 
@@ -14,7 +14,9 @@ const TabList = ({ trip, scrollIntoView }: { trip: TripContent; scrollIntoView?:
   return (
     <List>
       <List.Item>
-        <Headings.H3 className={cx('accented')}>Day {trip.day}</Headings.H3>
+        <Headings.H3>
+          <Text.Accented>Day {trip.day}</Text.Accented>
+        </Headings.H3>
       </List.Item>
       <List.Item>{trip.date}</List.Item>
       <List.Item className={cx('trip-item')}>

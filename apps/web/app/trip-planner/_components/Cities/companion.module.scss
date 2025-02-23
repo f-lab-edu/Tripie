@@ -1,10 +1,6 @@
 @use 'variables' as *;
 @use 'mixins' as *;
 
-.accented {
-  @include accented;
-}
-
 .submit-button {
   @include submit-button;
 }

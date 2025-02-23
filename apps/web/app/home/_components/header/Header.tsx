@@ -6,6 +6,7 @@ import {
   Icon,
   ParticleBackground,
   RotatingBlur,
+  Text,
 } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 
@@ -25,7 +26,9 @@ export default function Header() {
       <RotatingBlur />
       <Container align="center" className={cx('wrap')} margin="none">
         <Container className={cx('heading')} margin="none" align="center">
-          <Headings.H1 className={cx('accented')}>AI</Headings.H1>
+          <Headings.H1>
+            <Text.Accented>AI</Text.Accented>
+          </Headings.H1>
           <Headings.H1>enhanced trip planner.</Headings.H1>
         </Container>
         <Container align="center" margin="none" className={cx('flex', 'button-wrap')}>

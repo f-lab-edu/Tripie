@@ -5,10 +5,6 @@
   @include flex;
 }
 
-.accented {
-  @include accented;
-}
-
 .cross {
   text-decoration: line-through;
   color: $theme-40;

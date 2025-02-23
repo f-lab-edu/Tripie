@@ -5,6 +5,7 @@ import {
   Headings,
   List,
   NoStyleButton,
+  Text,
   TextUnderLineAnimation,
 } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
@@ -23,7 +24,7 @@ export default function Footer() {
         <Container applyMargin="bottom" margin="sm" align="left">
           <TextUnderLineAnimation>
             <Headings.H3>
-              mail <span className={cx('accented')}>@</span>tripie.com
+              mail <Text.Accented>@</Text.Accented>tripie.com
             </Headings.H3>
           </TextUnderLineAnimation>
         </Container>
@@ -33,7 +34,10 @@ export default function Footer() {
             <Headings.H3>© 2024</Headings.H3>
           </List.Item>
           <List.Item>
-            <Headings.H3>mail@tripie-pyotato.com</Headings.H3>
+            <Headings.H3>
+              mail
+              <Text.Accented>@</Text.Accented>tripie-pyotato.com
+            </Headings.H3>
           </List.Item>
         </List>
         <Divider />

@@ -5,9 +5,6 @@
   @include background('5');
   padding: 100px 0 50px;
 }
-.accented {
-  @include accented;
-}
 
 .flex {
   display: inline-flex;

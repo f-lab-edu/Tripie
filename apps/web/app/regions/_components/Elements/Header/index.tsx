@@ -1,5 +1,5 @@
 'use client';
-import { Container, Headings } from '@tripie-pyotato/design-system';
+import { Container, Headings, Text } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import { decodeUnicodes } from 'utils/string';
 import Style from './header.module.scss';
@@ -53,8 +53,8 @@ const ArticleHeading = ({ item }: { item: HeadingProps }) => {
   return (
     <Container applyMargin="top-bottom" margin={type == 'heading1' ? 'l' : 'm'} key={headerText}>
       {headline !== '' && headline != null ? (
-        <Container applyMargin="top" className={cx('accented')}>
-          {headline.replaceAll('트리플', 'Tripie')}
+        <Container applyMargin="top">
+          <Text.Accented>{headline.replaceAll('트리플', 'Tripie')}</Text.Accented>
         </Container>
       ) : null}
       {renderHeading()}

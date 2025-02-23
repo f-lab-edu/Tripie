@@ -1,7 +1,6 @@
 'use client';
-import { AnimatedButton, Container, Icon } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Container, Headings, Icon, Text } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
-// import Icon from 'shared/components/Icon/Icon';
 
 import COMPANION_LIST from 'constants/companions';
 
@@ -38,12 +37,11 @@ const CompanionStep = ({ context, onNext }: Props) => {
     <>
       <Container margin="none">
         <Container margin="none">
-          {/* <Icon.Navigate src={RESOURCE.ARROW} /> */}
           <Icon.Navigate />
         </Container>
-        <h2>
-          <span className={cx('accented')}>누구</span>와 떠나나요?
-        </h2>
+        <Headings.H2>
+          <Text.Accented>누구</Text.Accented>와 떠나나요?
+        </Headings.H2>
       </Container>
       <Container className={cx('cloud-wrap')}>
         {Array.from({ length: 30 }, (_, index) => (

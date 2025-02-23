@@ -1,10 +1,6 @@
 'use server';
-import classNames from 'classnames/bind';
 
-import Style from '../../../_components/shared/regions.module.scss';
-
-const cx = classNames.bind(Style);
-
+import { Text } from '@tripie-pyotato/design-system';
 import getRegionArticles from 'app/api/articles/region';
 import Title from 'app/regions/_components/Title';
 import { TRIPIE_REGION_IDS } from 'constants/tripie-country';
@@ -23,9 +19,9 @@ const Articles = async ({ params }: { params: Promise<{ locationId: string; regi
   return (
     <>
       <Title>
-        도시 별<span className={cx('accented')}> 여행 </span>정보 {`\n > `}
-        <span className={cx('accented')}>{currentRegionId}</span> {` > `}
-        <span className={cx('accented')}>{TRIPIE_REGION_IDS[locationId as keyof typeof TRIPIE_REGION_IDS]}</span>
+        도시 별<Text.Accented> 여행 </Text.Accented>정보 {`\n > `}
+        <Text.Accented>{currentRegionId}</Text.Accented> {` > `}
+        <Text.Accented>{TRIPIE_REGION_IDS[locationId as keyof typeof TRIPIE_REGION_IDS]}</Text.Accented>
       </Title>
       <RegionSelect selected={currentRegionId} selectedRegion={currentLocationId} />
       <RegionList data={dynamicBlurDataUrl} selectedRegion={locationId} />

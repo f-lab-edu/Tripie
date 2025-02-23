@@ -1,13 +1,11 @@
 'use client';
-import { AnimatedButton, Container, Icon } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Container, Headings, Icon, Text } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import PREFERENCE_LIST from 'constants/preferences';
 
 import { ContinentKeys } from 'models/Continent';
 import { useCallback, useMemo, useState } from 'react';
-// import AnimatedButton from 'shared/components/Button/Animated';
-// import AnimatedButton from 'shared/components/Button/Animated';
-// import Icon from 'shared/components/Icon/Icon';
+
 import CityList from './CityList';
 import Style from './companion.module.scss';
 
@@ -36,11 +34,10 @@ const CityStep = ({ context, onNext }: Props) => {
       <Container margin="none">
         <Container margin="none">
           <Icon.Navigate />
-          {/* <Icon.Navigate src={RESOURCE.ARROW} /> */}
         </Container>
-        <h2>
-          내가 여행하고 싶은 <span className={cx('accented')}>도시</span>는?
-        </h2>
+        <Headings.H2>
+          내가 여행하고 싶은 <Text.Accented>도시</Text.Accented>는?
+        </Headings.H2>
       </Container>
       <Container className={cx('cloud-wrap')}>
         {Array.from({ length: 30 }, (_, index) => (

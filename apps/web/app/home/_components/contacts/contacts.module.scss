@@ -1,10 +1,6 @@
 @use 'mixins' as *;
 @use 'variables' as *;
 
-.accented {
-  @include accented;
-}
-
 .contact {
   @include background('1');
   padding: 50px 0;

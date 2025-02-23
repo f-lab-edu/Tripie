@@ -24,9 +24,6 @@
     transform: translateX(7vw);
   }
 }
-.accented {
-  @include accented;
-}
 
 .flex {
   @include flex;

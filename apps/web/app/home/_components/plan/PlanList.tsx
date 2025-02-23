@@ -15,9 +15,10 @@ export default function PlanList() {
         {PLANS[key].label}
       </Container>
       <Container margin="none" align="left">
-        <Headings.H3 className={cx('accented', 'max')}>{PLANS[key].price}</Headings.H3>
+        <Headings.H3 className={cx('max')}>
+          <Text.Accented>{PLANS[key].price}</Text.Accented>
+        </Headings.H3>
       </Container>
-
       <Container margin="none" align="left">
         Per month
       </Container>

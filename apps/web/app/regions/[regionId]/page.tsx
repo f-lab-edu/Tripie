@@ -5,11 +5,8 @@ import RegionList from '../_components/RegionList';
 import RegionSelect from '../_components/RegionSelect';
 import Title from '../_components/Title';
 
+import { Text } from '@tripie-pyotato/design-system';
 import getRegionArticles from 'app/api/articles/region';
-import classNames from 'classnames/bind';
-import Style from '../_components/shared/regions.module.scss';
-
-const cx = classNames.bind(Style);
 
 const Articles = async ({ params }: { params: Promise<{ regionId: string }> }) => {
   const regionId = (await params).regionId;
@@ -27,8 +24,7 @@ const Articles = async ({ params }: { params: Promise<{ regionId: string }> }) =
   return (
     <>
       <Title>
-        도시 별<span className={cx('accented')}> 여행 </span>정보 {` > `}{' '}
-        <span className={cx('accented')}>{currentRegionId}</span>
+        도시 별<Text.Accented> 여행 </Text.Accented>정보 {` > `} <Text.Accented>{currentRegionId}</Text.Accented>
       </Title>
       <RegionSelect selected={currentRegionId} selectedRegion={selectedRegion} />
       <RegionList data={dynamicBlurDataUrl} selectedRegion={selectedRegion} />

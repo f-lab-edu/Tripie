@@ -1,10 +1,6 @@
 @import 'mixins';
 @import 'variables';
 
-.accented {
-  @include accented;
-}
-
 .our-process {
   @include background('1');
   padding: 50px 0;

@@ -1,4 +1,4 @@
-import { Container, Headings, MotionSlideUp } from '@tripie-pyotato/design-system';
+import { Container, Headings, MotionSlideUp, Text } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import OurWorkList from './OurWorkList';
 import Style from './our-work.module.scss';
@@ -12,7 +12,7 @@ export default function OurWork() {
         <MotionSlideUp>
           <Container applyMargin="top" margin="sm">
             <Headings.H2>
-              Our <span className={cx('accented')}>work</span>
+              Our <Text.Accented>work</Text.Accented>
             </Headings.H2>
           </Container>
         </MotionSlideUp>

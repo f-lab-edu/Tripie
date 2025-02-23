@@ -7,7 +7,6 @@ export { default as Headings } from './Headings';
 export { default as Link } from './Link';
 export { default as List } from './List/List';
 export { default as MotionSlideUp } from './MotionSlideUp';
-export { default as Paragraph } from './Paragraph';
 export { default as ParticleBackground } from './Particle/Background';
 export { default as ParticleField } from './Particle/Field';
 export { default as RotatingBlur } from './RotatingBlur';

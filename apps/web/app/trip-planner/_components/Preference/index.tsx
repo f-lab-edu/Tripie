@@ -1,7 +1,5 @@
-import { AnimatedButton, Container, Icon } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Container, Headings, Icon, Text } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
-
-// import Icon from 'shared/components/Icon/Icon';
 
 import PREFERENCE_LIST from 'constants/preferences';
 
@@ -42,9 +40,9 @@ const PreferenceStep = ({ context, onNext }: Props) => {
           {/* <Icon.Navigate src={RESOURCE.ARROW} /> */}
           <Icon.Navigate />
         </Container>
-        <h2>
-          내가 선호하는 여행 <span className={cx('accented')}>스타일</span>은?
-        </h2>
+        <Headings.H2>
+          내가 선호하는 여행 <Text.Accented>스타일</Text.Accented>은?
+        </Headings.H2>
       </Container>
       <Container className={cx('cloud-wrap')}>
         {Array.from({ length: 30 }, (_, index) => (

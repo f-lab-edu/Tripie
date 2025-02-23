@@ -1,6 +1,6 @@
 'use client';
 
-import { Container, Headings, MotionSlideUp } from '@tripie-pyotato/design-system';
+import { Container, Headings, MotionSlideUp, Text } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import PlanList from './PlanList';
 import Style from './plan.module.scss';
@@ -14,7 +14,7 @@ export default function Plan() {
         <MotionSlideUp>
           <Container applyMargin="top" margin="sm">
             <Headings.H2>
-              <span className={cx('accented')}>Plans </span>to suit your needs
+              <Text.Accented>Plans </Text.Accented>to suit your needs
             </Headings.H2>
           </Container>
         </MotionSlideUp>
