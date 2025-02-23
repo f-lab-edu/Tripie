@@ -14,17 +14,20 @@ export default function PlanList() {
       <Container align="left" margin="none">
         {PLANS[key].label}
       </Container>
-      <Headings.H3 className={cx('accented', 'left-align', 'max')}>{PLANS[key].price}</Headings.H3>
+      <Container margin="none" align="left">
+        <Headings.H3 className={cx('accented', 'max')}>{PLANS[key].price}</Headings.H3>
+      </Container>
+
       <Container margin="none" align="left">
         Per month
       </Container>
       <Divider />
       <List>
         {PLANS[key].items.map(({ label, description, icon }) => (
-          <li className={cx('flex', 'list-item')} key={label}>
+          <List.Item gap="default" justifyContent="flex-start" alignItems="center" key={label}>
             {icon === 'X' ? <Icon.X /> : <Icon.Check />}
             <Text className={cx(icon === 'X' ? 'cross' : null)}>{description}</Text>
-          </li>
+          </List.Item>
         ))}
       </List>
       <AnimatedButton className={cx('max')} withBorder={true} onClick={() => alert('basic')}>

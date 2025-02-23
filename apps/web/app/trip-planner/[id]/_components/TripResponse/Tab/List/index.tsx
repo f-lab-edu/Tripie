@@ -12,12 +12,12 @@ const cx = classNames.bind(Style);
 
 const TabList = ({ trip, scrollIntoView }: { trip: TripContent; scrollIntoView?: boolean }) => {
   return (
-    <List className={cx('list-wrap')}>
-      <li>
+    <List>
+      <List.Item>
         <Headings.H3 className={cx('accented')}>Day {trip.day}</Headings.H3>
-      </li>
-      <li>{trip.date}</li>
-      <li className={cx('trip-item')}>
+      </List.Item>
+      <List.Item>{trip.date}</List.Item>
+      <List.Item className={cx('trip-item')}>
         {trip.activities.map(({ activity, comments, label, place }, index) => (
           <TabCard
             label={label}
@@ -30,7 +30,7 @@ const TabList = ({ trip, scrollIntoView }: { trip: TripContent; scrollIntoView?:
             scrollIntoView={scrollIntoView}
           />
         ))}
-      </li>
+      </List.Item>
     </List>
   );
 };

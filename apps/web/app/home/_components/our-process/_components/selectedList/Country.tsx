@@ -8,7 +8,7 @@ import useCountries from 'hooks/query/useCountries';
 import { Country } from 'models/Country';
 import { useMemo, useState } from 'react';
 
-import NextButton from 'app/home/_components/shared/NextAnimatedButton';
+import NextButton from 'app/home/_components/our-process/_components/selectedList/shared/NextAnimatedButton';
 
 import { regionNameToLocal } from 'utils/lang';
 import { SELECTED_CONTINENT_NAME, SELECTED_COUNTRY } from './constants/selected';

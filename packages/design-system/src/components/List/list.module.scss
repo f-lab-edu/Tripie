@@ -8,12 +8,52 @@
   display: inline-flex;
   gap: 1rem;
   flex-direction: column;
+  width: 100%;
+
   &.row-view {
     flex-direction: row;
   }
-  width: 100%;
 }
 
 .wrap {
   @include grid-wrap;
+}
+
+@mixin gap($size: 'default') {
+  gap: if($size == 'l', 1rem, 0.5rem);
+}
+
+.list-item {
+  display: inline-flex;
+  width: 100%;
+
+  &.justify-content-flex-start {
+    justify-content: flex-start;
+  }
+  &.justify-content-center {
+    justify-content: center;
+  }
+  &.justify-content-flex-end {
+    justify-content: flex-end;
+  }
+
+  &.align-items-start {
+    align-items: flex-start;
+  }
+  &.align-items-center {
+    align-items: center;
+  }
+  &.align-items-end {
+    align-items: flex-end;
+  }
+  &.align-items-stretch {
+    align-items: stretch;
+  }
+
+  &.gap-l {
+    @include gap('l');
+  }
+  &.gap-default {
+    @include gap('default');
+  }
 }

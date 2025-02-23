@@ -11,7 +11,7 @@ import Calendar from 'shared/components/Calendar';
 import CalendarHeader from 'shared/components/Calendar/CalendarHeader';
 // import Icon from 'shared/components/Icon/Icon';
 
-import NextButton from 'app/home/_components/shared/NextAnimatedButton';
+import NextButton from 'app/home/_components/our-process/_components/selectedList/shared/NextAnimatedButton';
 import classNames from 'classnames/bind';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import Style from './duration.module.scss';

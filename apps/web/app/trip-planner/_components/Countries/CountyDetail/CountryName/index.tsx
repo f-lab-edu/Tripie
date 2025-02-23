@@ -1,5 +1,5 @@
 'use client';
-import { Headings, TripieImage } from '@tripie-pyotato/design-system';
+import { Headings, List, TripieImage } from '@tripie-pyotato/design-system';
 
 import classNames from 'classnames/bind';
 import { Continentl } from 'models/Continentl';
@@ -19,7 +19,7 @@ const CountryName = ({
   blurDataUrl: Continentl['blurDataURL'];
 }) => {
   return (
-    <li className={cx('list-item')}>
+    <List.Item alignItems="center">
       <TripieImage
         className={cx('flag-image')}
         src={flagImage[0]}
@@ -29,7 +29,7 @@ const CountryName = ({
         sizes="icon"
       />
       <Headings.H2>{name}</Headings.H2> <Headings.H4 className={cx('accented')}>({code})</Headings.H4>
-    </li>
+    </List.Item>
   );
 };
 

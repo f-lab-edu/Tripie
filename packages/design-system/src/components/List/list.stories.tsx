@@ -47,13 +47,11 @@ export const Default: Story = {
   },
 };
 
-export const AccentedChip: Story = {
-  name: 'List.Grid',
-  render: () => (
-    <List.Grid>
-      <Children />
-    </List.Grid>
-  ),
+export const ListItem: Story = {
+  name: 'Default',
+  args: {
+    children: Children(),
+  },
 };
 
 export const RowList: Story = {

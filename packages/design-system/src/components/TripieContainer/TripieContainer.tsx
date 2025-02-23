@@ -17,8 +17,7 @@ export type TripieContainerProps = {
     | 'left'
     | 'right'
     | 'top'
-    | 'bottom'
-    ;
+    | 'bottom';
 } & Omit<ComponentProps<'div'>, 'children'>;
 
 const cx = classNames.bind(Style);

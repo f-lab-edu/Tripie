@@ -56,12 +56,12 @@
   flex-direction: column;
   gap: 0.6rem;
 }
-.list-item {
-  display: inline-flex;
-  width: 100%;
-  align-items: center;
-  gap: 1rem;
-}
+// .list-item {
+//   display: inline-flex;
+//   width: 100%;
+//   align-items: center;
+//   gap: 1rem;
+// }
 .wrap {
   & > ul {
     flex-wrap: wrap;

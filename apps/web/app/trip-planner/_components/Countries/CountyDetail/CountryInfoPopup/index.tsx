@@ -37,27 +37,27 @@ const CountryInfoPopup = ({
     {
       label: 'capital name',
       content: (
-        <li className={cx('list-item')}>
+        <List.Item alignItems="center" gap="l">
           <Text className={cx('accented', 'capital', 'verticle-center')}>수도</Text>
           <div className={cx('capital-name')}>{capital}</div>
-        </li>
+        </List.Item>
       ),
     },
     {
       label: 'languages',
       content: (
-        <li className={cx('list-item')}>
+        <List.Item alignItems="center" gap="l">
           <Text className={cx('accented', 'language', 'center', 'verticle-center')}>공식 언어</Text>
           {officialLanguage != null ? (
             <List className={cx('flex')}>
               {officialLanguage.map((language: string) => (
-                <li key={language}>
+                <List.Item key={language}>
                   <Chip>{language}</Chip>
-                </li>
+                </List.Item>
               ))}
             </List>
           ) : null}
-        </li>
+        </List.Item>
       ),
     },
   ];

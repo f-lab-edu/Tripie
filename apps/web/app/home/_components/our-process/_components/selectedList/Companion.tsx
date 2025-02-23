@@ -5,7 +5,7 @@ import Style from './shared/selected-list.module.scss';
 
 import COMPANION_LIST from 'constants/companions';
 
-import NextButton from 'app/home/_components/shared/NextAnimatedButton';
+import NextButton from 'app/home/_components/our-process/_components/selectedList/shared/NextAnimatedButton';
 import { SELECTED_COMPANION } from './constants/selected';
 
 const cx = classNames.bind(Style);

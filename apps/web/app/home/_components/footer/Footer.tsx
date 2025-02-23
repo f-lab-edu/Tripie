@@ -29,21 +29,21 @@ export default function Footer() {
         </Container>
         <Divider />
         <List>
-          <li>
+          <List.Item>
             <Headings.H3>© 2024</Headings.H3>
-          </li>
-          <li>
+          </List.Item>
+          <List.Item>
             <Headings.H3>mail@tripie-pyotato.com</Headings.H3>
-          </li>
+          </List.Item>
         </List>
         <Divider />
         <List>
           {LANDING_SECTION.map(({ label, href }) => (
-            <li key={href}>
+            <List.Item key={href}>
               <NoStyleButton action={() => router.push(href)}>
                 <TextUnderLineAnimation>{label}</TextUnderLineAnimation>
               </NoStyleButton>
-            </li>
+            </List.Item>
           ))}
         </List>
       </Container>

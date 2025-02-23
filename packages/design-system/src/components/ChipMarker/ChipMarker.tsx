@@ -17,7 +17,7 @@ const ChipMarker = ({
   children: string;
   selected?: boolean;
 }) => {
-  console.log(popup);
+
   const marker = useMemo(() => {
     return +children.split('-')[1] + 1;
   }, [children]);

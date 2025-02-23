@@ -1,13 +1,6 @@
 @use 'variables' as *;
 @use 'mixins' as *;
 
-.list-wrap {
-  width: 100%;
-  & li {
-    margin-bottom: 1rem;
-  }
-}
-
 .accented {
   @include accented;
 }

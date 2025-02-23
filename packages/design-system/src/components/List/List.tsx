@@ -1,4 +1,3 @@
-//
 import classNames from 'classnames/bind';
 import { ReactNode } from 'react';
 import TripieContainer from '../TripieContainer/TripieContainer';
@@ -19,23 +18,36 @@ const List = ({
     <TripieContainer margin="m" className={cx(className)} applyMargin="top-bottom">
       <ul className={cx('list', rowView ? 'row-view' : '')}>{children}</ul>
     </TripieContainer>
-    // <div className={cx(className)}>
-    //   <ul className={cx('list', rowView ? 'row-view' : '')}>{children}</ul>
-    // </div>
+  );
+};
+
+const ListItem = ({
+  children,
+  justifyContent = 'flex-start',
+  alignItems = 'normal',
+  gap = 'default',
+  className,
+}: {
+  children: ReactNode;
+  justifyContent?: 'flex-start' | 'center' | 'flex-end';
+  alignItems?: 'normal'|'center' | 'start' | 'stretch' | 'end';
+  gap?: 'default' | 'l'; // 0.5rem 1rem
+  className?:string
+}) => {
+  return (
+    <li className={cx('list-item', `justify-content-${justifyContent}`, `align-items-${alignItems}`,`gap-${gap}`,className)}>{children}</li>
   );
 };
 
 const GridList = ({ children, className }: { children: ReactNode; className?: string }) => {
   return (
-    // <div className={cx(className)}>
-    //   <ul className={cx('list', 'wrap')}>{children}</ul>
-    // </div>
     <TripieContainer margin="m" className={cx(className)} applyMargin="top-bottom">
       <ul className={cx('list', 'wrap')}>{children}</ul>
     </TripieContainer>
   );
 };
 
+List.Item = ListItem;
 List.Grid = GridList;
 
 export default List;
