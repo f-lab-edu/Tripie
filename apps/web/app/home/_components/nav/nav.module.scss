@@ -2,8 +2,8 @@
 @use 'mixins' as *;
 
 .tripie-home-btn {
-  height: 2.4rem;
   width: 3rem;
+  padding-bottom: 1rem;
   font-size: large;
   font-weight: 700;
   color: $theme-50;

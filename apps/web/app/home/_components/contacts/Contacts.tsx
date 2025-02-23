@@ -35,9 +35,11 @@ export default function Contacts() {
     <section className={cx('contact')} id={ROUTE.CONTACT.label}>
       <Container applyMargin="left-right" margin="m">
         <MotionSlideUp>
-          <Headings.H2>
-            Get in <span className={cx('accented')}>touch</span>
-          </Headings.H2>
+          <Container applyMargin="top" margin="sm">
+            <Headings.H2>
+              Get in <span className={cx('accented')}>touch</span>
+            </Headings.H2>
+          </Container>
         </MotionSlideUp>
         <Container margin="l" applyMargin="top-bottom">
           {Object.keys(contacts).map(key => (

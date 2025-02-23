@@ -12,9 +12,11 @@ export default function Plan() {
     <section className={cx('plan')} id="Plans">
       <Container applyMargin="left-right" margin="m">
         <MotionSlideUp>
-          <Headings.H2>
-            <span className={cx('accented')}>Plans </span>to suit your needs
-          </Headings.H2>
+          <Container applyMargin="top" margin="sm">
+            <Headings.H2>
+              <span className={cx('accented')}>Plans </span>to suit your needs
+            </Headings.H2>
+          </Container>
         </MotionSlideUp>
         <Container className={cx('wrap')} margin="l" applyMargin="top-bottom">
           <PlanList />

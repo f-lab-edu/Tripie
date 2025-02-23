@@ -12,9 +12,11 @@ export default function OurService() {
     <section className={cx('our-service')} id="Services">
       <Container applyMargin="left-right" margin="m">
         <MotionSlideUp>
-          <Headings.H2>
-            Our <span className={cx('accented')}>services</span>
-          </Headings.H2>
+          <Container applyMargin="top" margin="sm">
+            <Headings.H2>
+              Our <span className={cx('accented')}>services</span>
+            </Headings.H2>
+          </Container>
         </MotionSlideUp>
         <Container className={cx('wrap')} margin="l" applyMargin="top-bottom">
           <ServiceList />

@@ -14,6 +14,7 @@ const cx = classNames.bind(Style);
 
 const Nav = () => {
   const navigate = useRouter();
+
   return (
     <MenuToggle>
       <AnimatedButton onClick={() => navigate.push(ROUTE.HOME.href)} className={cx('tripie-home-btn')}>

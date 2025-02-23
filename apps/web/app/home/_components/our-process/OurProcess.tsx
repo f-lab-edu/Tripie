@@ -11,10 +11,13 @@ export default function OurProcess() {
     <section className={cx('our-process')} id="Process">
       <Container applyMargin="left-right" margin="m">
         <MotionSlideUp>
-          <Headings.H2>
-            Our <span className={cx('accented')}>process</span>
-          </Headings.H2>
+          <Container applyMargin="top" margin="sm">
+            <Headings.H2>
+              Our <span className={cx('accented')}>process</span>
+            </Headings.H2>
+          </Container>
         </MotionSlideUp>
+
         <Container className={cx('wrap')} margin="l" applyMargin="top-bottom">
           <OurProcessList />
         </Container>
