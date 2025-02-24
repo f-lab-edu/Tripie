@@ -1,5 +1,5 @@
 // 인라인으로 반드시 전해야할 스타일이나 프롭스로 써야할 경우에 상수로 참조
-const COLORS = {
+export const COLORS = {
   0: '#ffffff',
   30: '#d5ffcc40',
   40: '#858585',

@@ -1,4 +1,4 @@
-import COLORS from 'constants/colors';
+import { COLORS } from '@tripie-pyotato/design-system';
 
 /**
  * 좌표 사이 간선 스타일

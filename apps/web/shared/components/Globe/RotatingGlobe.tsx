@@ -1,9 +1,9 @@
 'use client';
 
-import COLORS from 'constants/colors';
 import dynamic from 'next/dynamic';
 import { Suspense, useEffect, useRef } from 'react';
 
+import { COLORS } from '@tripie-pyotato/design-system';
 import { GlobeMethods } from 'react-globe.gl';
 import Countries from './countries.json';
 import './globe.scss';
