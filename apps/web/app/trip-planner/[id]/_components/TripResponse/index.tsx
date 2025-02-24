@@ -8,7 +8,7 @@ import useChatToken from 'hooks/useChatToken';
 import { TripContent } from 'models/Aws';
 import { Coordinate } from 'models/Geo';
 import { DefaultUser } from 'next-auth';
-import { usePathname, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { Dispatch, SetStateAction, createContext, useEffect, useMemo, useState } from 'react';
 import Loading from 'shared/components/Loading';
 import { handleTabAction } from 'utils/new-tab';
@@ -39,7 +39,6 @@ const TripResponse = ({ data }: { data: ChatResponseData }) => {
   const { remainingToken, isAdmin, usedGptToken } = useChatToken();
 
   const router = useRouter();
-  const pathName = usePathname();
 
   // 뒤로 가기 시 강제로 처음으로
   useEffect(() => {
