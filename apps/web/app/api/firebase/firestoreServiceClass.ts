@@ -189,7 +189,6 @@ class FirestoreService {
     try {
       const docRef = doc(this.db, collectionName, itemId);
       await updateDoc(docRef, updatedData);
-      // console.log(`Document with ID: ${itemId} successfully updated.`);
     } catch (error) {
       console.error('Error updating document:', error);
     }
@@ -200,7 +199,6 @@ class FirestoreService {
     try {
       const docRef = doc(this.db, collectionName, itemId);
       await deleteDoc(docRef);
-      // console.log(`Document with ID: ${itemId} successfully deleted.`);
     } catch (error) {
       console.error('Error deleting document:', error);
     }
