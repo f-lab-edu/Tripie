@@ -9,7 +9,6 @@ import { useMemo } from 'react';
 import { LooseValue } from 'react-calendar/dist/esm/shared/types.js';
 import Calendar from 'shared/components/Calendar';
 import CalendarHeader from 'shared/components/Calendar/CalendarHeader';
-// import Icon from 'shared/components/Icon/Icon';
 
 import NextButton from 'app/home/_components/our-process/_components/selectedList/shared/NextAnimatedButton';
 import classNames from 'classnames/bind';
@@ -76,10 +75,10 @@ const DurationSelect = () => {
 
   if (today == null || duration == null) {
     return (
-      <Container margin="none" className={cx('loading-wrap')}>
-        <Container margin="none" className={cx('text-wrap')}>
+      <Container margin="none" className={cx('loading-wrap', 'flex')} align="center">
+        <Container margin="none" className={cx('text-wrap', 'flex')} align="center">
           <Icon.Loading />
-          <TextFillAnimation.Title>Loading..</TextFillAnimation.Title>
+          <TextFillAnimation text={'Loading...'} />
         </Container>
       </Container>
     );

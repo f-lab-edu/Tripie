@@ -53,10 +53,12 @@ const TitleTextFillAnimation = ({
   children,
   repeat = 1,
   duration = 1,
+ 
 }: Readonly<{
   children: ReactNode;
   repeat?: number;
   duration?: number;
+
 }>) => {
   return (
     <InView>
