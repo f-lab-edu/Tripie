@@ -5,9 +5,39 @@ import classNames from 'classnames/bind';
 import getArticleDetail from 'app/api/articles/detail';
 import RegionBody from 'app/regions/_components/RegionBody';
 import AttractionTitle from 'app/regions/_components/shared/_sections/AttractionTitle';
+import API from 'constants/api-routes';
+import ROUTE from 'constants/routes';
+import { Metadata, ResolvingMetadata } from 'next';
 import Style from './restaurants.module.scss';
 
 const cx = classNames.bind(Style);
+
+type Props = {
+  params: Promise<{ regionId: string; articleId: string }>;
+};
+
+export async function generateMetadata({ params }: Props, parent: ResolvingMetadata): Promise<Metadata> {
+  const regionId = (await params).regionId;
+  const articleId = (await params).articleId;
+
+  const { data } = await getArticleDetail('retaurant', regionId, articleId);
+
+  const previousImages = (await parent).openGraph?.images || [];
+  const title =
+    data?.source.names.primary ?? data?.source.names.ko ?? data?.source.names.en ?? data?.source.names.local ?? '';
+
+  return {
+    title: `✈️Tripie | ${title}`,
+    openGraph: {
+      images: [data?.source.image.sizes.full.url ?? '', ...previousImages],
+      type: 'website',
+      url: `${API.BASE_URL}${ROUTE.REGIONS.href}/restaurant/${regionId}/${articleId}`,
+      title: `${title}`,
+      description: `${data?.source.comment}`,
+      siteName: 'Tripie',
+    },
+  };
+}
 
 const Articles = async ({ params }: { params: Promise<{ regionId: string; articleId: string }> }) => {
   const { data, blurredThumbnail } = await getArticleDetail(
