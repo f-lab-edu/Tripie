@@ -25,16 +25,16 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
   const { data } = await getArticleDetail('article', regionId, articleId);
 
   const previousImages = (await parent).openGraph?.images || [];
-
+  const description = data?.metadataContents?.description ?? '';
   return {
     title: `✈️Tripie | ${data?.metadataContents.title}`,
-    description: `${data?.metadataContents?.description ?? ''}`,
+    description,
     openGraph: {
       images: [data?.metadataContents.image.sizes?.full?.url ?? '', ...previousImages],
       type: 'website',
       url: `${API.BASE_URL}${ROUTE.REGIONS.href}/${regionId}/articles/${articleId}`,
       title: `${data?.metadataContents.title}`,
-      description: `${data?.metadataContents?.description ?? ''}`,
+      description,
       siteName: 'Tripie',
     },
   };
