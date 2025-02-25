@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
       images: [data?.source.image.sizes.full.url ?? '', ...previousImages],
       type: 'website',
       url: `${API.BASE_URL}${ROUTE.REGIONS.href}/restaurant/${regionId}/${articleId}`,
-      title: `${title}`,
+      title: `✈️Tripie | ${title}`,
       description,
       siteName: 'Tripie',
     },
