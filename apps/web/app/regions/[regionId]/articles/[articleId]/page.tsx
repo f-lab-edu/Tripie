@@ -28,6 +28,7 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
 
   return {
     title: `✈️Tripie | ${data?.metadataContents.title}`,
+    description: `${data?.metadataContents?.description ?? ''}`,
     openGraph: {
       images: [data?.metadataContents.image.sizes?.full?.url ?? '', ...previousImages],
       type: 'website',
