@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
       type: 'website',
       url: `${API.BASE_URL}${ROUTE.REGIONS.href}/${regionId}/articles/${articleId}`,
       title: `${data?.metadataContents.title}`,
-      description: `${data?.metadataContents.description}`,
+      description: `${data?.metadataContents?.description ?? ''}`,
       siteName: 'Tripie',
     },
   };

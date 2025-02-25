@@ -5,6 +5,7 @@ import { SeoMetaData } from './MetaData';
 export type MetaDataContents = {
   image: TripieMetaImage;
   title?: string;
+  description?: string;
 };
 
 export type TripieMetaImage = {
