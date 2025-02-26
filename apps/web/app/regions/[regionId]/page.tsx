@@ -10,7 +10,7 @@ import getRegionArticles from 'app/api/articles/region';
 import API from 'constants/api-routes';
 import ROUTE from 'constants/routes';
 import { Metadata, ResolvingMetadata } from 'next';
-import { sharedMetaData } from '../shared-metadata';
+import { sharedMetaData } from '../../shared-metadata';
 
 type Props = {
   params: Promise<{ regionId: string; articleId: string }>;

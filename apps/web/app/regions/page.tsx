@@ -8,9 +8,9 @@ import getRegionArticles from 'app/api/articles/region';
 import API from 'constants/api-routes';
 import ROUTE from 'constants/routes';
 import { Metadata } from 'next';
+import { sharedMetaData } from '../shared-metadata';
 import RegionList from './_components/RegionList';
 import Title from './_components/Title';
-import { sharedMetaData } from './shared-metadata';
 
 export async function generateMetadata(): Promise<Metadata> {
   const regions = Object.keys(TRIPIE_REGION_BY_LOCATION);

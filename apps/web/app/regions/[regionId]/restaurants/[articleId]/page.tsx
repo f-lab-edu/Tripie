@@ -5,7 +5,7 @@ import classNames from 'classnames/bind';
 import getArticleDetail from 'app/api/articles/detail';
 import RegionBody from 'app/regions/_components/RegionBody';
 import AttractionTitle from 'app/regions/_components/shared/_sections/AttractionTitle';
-import { sharedMetaData } from 'app/regions/shared-metadata';
+import { sharedMetaData } from 'app/shared-metadata';
 import API from 'constants/api-routes';
 import ROUTE from 'constants/routes';
 import { Metadata, ResolvingMetadata } from 'next';

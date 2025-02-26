@@ -3,7 +3,7 @@
 import { Text } from '@tripie-pyotato/design-system';
 import getRegionArticles from 'app/api/articles/region';
 import Title from 'app/regions/_components/Title';
-import { sharedMetaData } from 'app/regions/shared-metadata';
+import { sharedMetaData } from 'app/shared-metadata';
 import API from 'constants/api-routes';
 import ROUTE from 'constants/routes';
 import { TRIPIE_REGION_IDS } from 'constants/tripie-country';

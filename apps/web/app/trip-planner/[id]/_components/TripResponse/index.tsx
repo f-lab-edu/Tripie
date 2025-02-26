@@ -8,6 +8,7 @@ import useChatToken from 'hooks/useChatToken';
 import { TripContent } from 'models/Aws';
 import { Coordinate } from 'models/Geo';
 import { DefaultUser } from 'next-auth';
+import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { Dispatch, SetStateAction, createContext, useEffect, useMemo, useState } from 'react';
 import Loading from 'shared/components/Loading';
@@ -36,7 +37,7 @@ export const SelectedDateContext = createContext<{ currentDate: number; dateCycl
 });
 
 const TripResponse = ({ data }: { data: ChatResponseData }) => {
-  const { remainingToken, isAdmin, usedGptToken } = useChatToken();
+  const { remainingToken, isAdmin, usedGptToken, status } = useChatToken();
 
   const router = useRouter();
 
@@ -83,6 +84,9 @@ const TripResponse = ({ data }: { data: ChatResponseData }) => {
 
   // 다른 일정을 찾는다면 처음으로 이동
   const handleNavigation = () => {
+    if (status === 'unauthenticated') {
+      return signIn();
+    }
     handleTabAction({ url: `${ROUTE.TRIP_PLANNER.href}?trip-plan.step=CONTINENT`, action: 'open' });
     setTimeout(() => {
       handleTabAction({ action: 'close' });
@@ -97,6 +101,7 @@ const TripResponse = ({ data }: { data: ChatResponseData }) => {
             <Icon onTapStart={handleNavigation} />
             {remainingToken != null && !isAdmin ? `${remainingToken}토큰으로 다른 일정 추천 받아보기` : ''}
             {isAdmin ? `어드민님, (${usedGptToken}개 사용) 다른 일정 추천 받기` : null}
+            {status === 'unauthenticated' && '로그인하고 일정 추천받아보기'}
             <Headings.H2>
               <Text.Accented>Chat</Text.Accented>
             </Headings.H2>

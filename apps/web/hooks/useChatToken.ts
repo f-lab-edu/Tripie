@@ -58,6 +58,6 @@ const useChatToken = () => {
     return 'loading';
   }, [status, isAdmin, remainingToken]);
 
-  return { isAdmin, usedGptToken, remainingToken, isEligible };
+  return { isAdmin, usedGptToken, remainingToken, isEligible, status };
 };
 export default useChatToken;

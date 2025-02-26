@@ -6,7 +6,7 @@ import classNames from 'classnames/bind';
 import API from 'constants/api-routes';
 import ROUTE from 'constants/routes';
 import type { Metadata, ResolvingMetadata } from 'next';
-import { sharedMetaData } from '../../../shared-metadata';
+import { sharedMetaData } from '../../../../shared-metadata';
 import Style from './article-body.module.scss';
 import ArticleBody, { BodyItemProps } from './ArticleBody';
 

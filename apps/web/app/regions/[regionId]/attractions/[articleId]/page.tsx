@@ -3,7 +3,7 @@ import { Card, Container, TripieImage } from '@tripie-pyotato/design-system';
 
 import getArticleDetail from 'app/api/articles/detail';
 import AttractionTitle from 'app/regions/_components/shared/_sections/AttractionTitle';
-import { sharedMetaData } from 'app/regions/shared-metadata';
+import { sharedMetaData } from 'app/shared-metadata';
 import classNames from 'classnames/bind';
 import API from 'constants/api-routes';
 import ROUTE from 'constants/routes';
