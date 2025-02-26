@@ -36,6 +36,8 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
     })
     .join('\n')}\n...\n👉 트리피에서 자세히 알아보기!`;
 
+  console.log(sneakPeak);
+
   return {
     title,
     description,
@@ -43,7 +45,7 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
       ...sharedMetaData,
       title,
       description,
-      images: [...sneakPeak.map(item => item.source.image.sizes.url), ...previousImages],
+      images: [...sneakPeak.map(item => item.source.image.sizes.full.url), ...previousImages],
       url: `${API.BASE_URL}${ROUTE.REGIONS.href}/${selectedRegion}`,
     },
   };
