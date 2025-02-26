@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
       ...sharedMetaData,
       title,
       description,
-      images: [...previousImages, ...sneakPeak.map(item => item.source.image.sizes?.full.url)],
+      images: [...sneakPeak.map(item => item.source.image.sizes?.full.url), ...previousImages], // 새 이미지 먼저
       url: `${API.BASE_URL}${ROUTE.REGIONS.href}/${currentRegionId}/location/${currentCity}`,
     },
   };

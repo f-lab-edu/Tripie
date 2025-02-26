@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
       ...sharedMetaData,
       title,
       description,
-      images: [...previousImages, ...sneakPeak.map(item => item.source.image.sizes.url)],
+      images: [...sneakPeak.map(item => item.source.image.sizes.url), ...previousImages],
       url: `${API.BASE_URL}${ROUTE.REGIONS.href}/${selectedRegion}`,
     },
   };
