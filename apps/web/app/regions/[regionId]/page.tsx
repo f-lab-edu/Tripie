@@ -29,14 +29,12 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
 
   const previousImages = (await parent).openGraph?.images || [];
   const title = `도시 별 여행 정보 > ${currentRegionId}`;
-  const sneakPeak = dynamicBlurDataUrl.slice(0, 7);
+  const sneakPeak = dynamicBlurDataUrl.slice(0, 5);
   const description = `${currentRegionId} 여행 정보\n ${sneakPeak
     .map(item => {
       return `✔️ ${item.source.title} | ${item.source.summary}`;
     })
     .join('\n')}\n...\n👉 트리피에서 자세히 알아보기!`;
-
-  console.log(sneakPeak);
 
   return {
     title,
