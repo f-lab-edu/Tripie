@@ -7,14 +7,13 @@ import { Text } from '@tripie-pyotato/design-system';
 import getRegionArticles from 'app/api/articles/region';
 import API from 'constants/api-routes';
 import ROUTE from 'constants/routes';
-import { Metadata, ResolvingMetadata } from 'next';
+import { Metadata } from 'next';
 import RegionList from './_components/RegionList';
 import Title from './_components/Title';
 import { sharedMetaData } from './shared-metadata';
 
-export async function generateMetadata(parent: ResolvingMetadata): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
   const regions = Object.keys(TRIPIE_REGION_BY_LOCATION);
-  const previousImages = (await parent).openGraph?.images || [];
   const title = `도시 별 여행 정보 살펴보기`;
 
   const description = `${regions
@@ -22,7 +21,7 @@ export async function generateMetadata(parent: ResolvingMetadata): Promise<Metad
     .map(key => {
       return `✔️ ${key} | ${TRIPIE_REGION_BY_LOCATION[key as keyof typeof TRIPIE_REGION_BY_LOCATION]}`;
     })
-    .join('\n')}\n...\n👉 트리피에서 자세히 알아보기!`;
+    .join('\n')}...\n👉 트리피에서 자세히 알아보기!`;
 
   return {
     title,
@@ -31,7 +30,7 @@ export async function generateMetadata(parent: ResolvingMetadata): Promise<Metad
       ...sharedMetaData,
       title,
       description,
-      images: [...previousImages],
+
       url: `${API.BASE_URL}${ROUTE.REGIONS.href}`,
     },
   };
