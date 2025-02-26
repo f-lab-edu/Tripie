@@ -1,12 +1,12 @@
 'use server';
 import { Card, Container, TripieImage } from '@tripie-pyotato/design-system';
-import classNames from 'classnames/bind';
-
 import getArticleDetail from 'app/api/articles/detail';
 import Title from 'app/regions/_components/Title';
+import classNames from 'classnames/bind';
 import API from 'constants/api-routes';
 import ROUTE from 'constants/routes';
 import type { Metadata, ResolvingMetadata } from 'next';
+import { sharedMetaData } from '../../../shared-metadata';
 import Style from './article-body.module.scss';
 import ArticleBody, { BodyItemProps } from './ArticleBody';
 
@@ -18,26 +18,24 @@ type Props = {
 };
 
 export async function generateMetadata({ params }: Props, parent: ResolvingMetadata): Promise<Metadata> {
-  // read route params
   const regionId = (await params).regionId;
   const articleId = (await params).articleId;
 
   const { data } = await getArticleDetail('article', regionId, articleId);
 
   const previousImages = (await parent).openGraph?.images || [];
-  const description = data?.metadataContents?.description ?? '';
+  const description = data?.metadataContents?.description ?? sharedMetaData?.description;
   const title = data?.metadataContents.title ?? '';
 
   return {
-    title: `✈️Tripie | ${title}`,
+    title,
     description,
     openGraph: {
+      ...sharedMetaData,
       images: [data?.metadataContents.image.sizes?.full?.url ?? '', ...previousImages],
-      type: 'website',
       url: `${API.BASE_URL}${ROUTE.REGIONS.href}/${regionId}/articles/${articleId}`,
-      title: `✈️Tripie |${title}`,
+      title,
       description,
-      siteName: 'Tripie',
     },
   };
 }

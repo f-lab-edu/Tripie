@@ -5,9 +5,11 @@ import classNames from 'classnames/bind';
 import getArticleDetail from 'app/api/articles/detail';
 import RegionBody from 'app/regions/_components/RegionBody';
 import AttractionTitle from 'app/regions/_components/shared/_sections/AttractionTitle';
+import { sharedMetaData } from 'app/regions/shared-metadata';
 import API from 'constants/api-routes';
 import ROUTE from 'constants/routes';
 import { Metadata, ResolvingMetadata } from 'next';
+import { getPreferredTitle } from 'utils/string';
 import Style from './restaurants.module.scss';
 
 const cx = classNames.bind(Style);
@@ -23,20 +25,18 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
   const { data } = await getArticleDetail('retaurant', regionId, articleId);
 
   const previousImages = (await parent).openGraph?.images || [];
-  const title =
-    data?.source.names.primary ?? data?.source.names.ko ?? data?.source.names.en ?? data?.source.names.local ?? '';
+  const title = getPreferredTitle({ names: data?.source.names });
   const description = data?.source?.comment ?? '';
 
   return {
-    title: `✈️Tripie | ${title}`,
+    title,
     description,
     openGraph: {
-      images: [data?.source.image.sizes.full.url ?? '', ...previousImages],
-      type: 'website',
-      url: `${API.BASE_URL}${ROUTE.REGIONS.href}/restaurant/${regionId}/${articleId}`,
-      title: `✈️Tripie | ${title}`,
+      ...sharedMetaData,
+      title,
       description,
-      siteName: 'Tripie',
+      images: [data?.source.image.sizes.full.url ?? '', ...previousImages],
+      url: `${API.BASE_URL}${ROUTE.REGIONS.href}/restaurant/${regionId}/${articleId}`,
     },
   };
 }
