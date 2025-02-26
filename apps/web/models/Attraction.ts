@@ -18,10 +18,10 @@ export type ForeignEntity = {
 };
 
 export type Names = {
-  ko?: string;
-  en?: string;
-  local?: string;
-  primary?: string;
+  ko?: string | null;
+  en?: string | null;
+  local?: string | null;
+  primary?: string | null;
 };
 
 export type BusinessHour = {
