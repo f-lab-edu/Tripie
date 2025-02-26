@@ -6,12 +6,14 @@ import Nav from 'app/home/_components/nav/Nav';
 import classNames from 'classnames/bind';
 import { ReactNode } from 'react';
 import Style from './layout.module.scss';
+import { sharedMetaData } from './shared-metadata';
 
 const cx = classNames.bind(Style);
 
 export const metadata: Metadata = {
-  title: 'Tripie ✈️',
-  description: 'AI enhanced trip planner',
+  title: sharedMetaData?.title,
+  description: sharedMetaData?.description,
+  openGraph: sharedMetaData,
 };
 
 export default function Layout({
