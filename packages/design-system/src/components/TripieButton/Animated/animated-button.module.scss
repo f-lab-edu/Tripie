@@ -21,9 +21,9 @@
   position: relative;
   text-decoration: none;
   width: fit-content;
+  min-width: 4rem;
   cursor: pointer;
   background: none;
-  z-index: 30;
   border: none;
 }
 .with-border {

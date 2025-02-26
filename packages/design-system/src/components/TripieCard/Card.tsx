@@ -7,7 +7,7 @@ import Divider from '../Divider';
 import MotionSlideUp from '../MotionSlideUp/MotionSlideUp';
 import Text from '../Text';
 import TripieContainer from '../TripieContainer/TripieContainer';
-import TripieImage from '../TripieImage';
+import TripieImage, { ImageSizes } from '../TripieImage';
 import Style from './card.module.scss';
 
 const cx = classNames.bind(Style);
@@ -103,6 +103,7 @@ const CardWithImage = ({
   summary,
   className,
   sourceUrl,
+  imageSize='medium',
   displaySource = false,
   withBorder,
   blurDataURL,
@@ -114,6 +115,7 @@ const CardWithImage = ({
   summary?: string;
   className?: string;
   sourceUrl?: string;
+  imageSize?:ImageSizes;
   displaySource?: boolean;
   withBorder?: boolean;
   blurDataURL?: string;
@@ -125,14 +127,14 @@ const CardWithImage = ({
           <TripieImage
             blurDataURL={blurDataURL}
             src={src}
-            sizes="small"
+            sizes={imageSize}
             alt={alt ?? `${src} 이미지일 수도 있음`}
             className={cx('thumbnail')}
             withBorder={withBorder}
           />
         ) : (
           <TripieImage.WithSourceUrl
-            sizes="small"
+            sizes={imageSize}
             withBorder={withBorder}
             sourceUrl={sourceUrl}
             src={src}
@@ -152,46 +154,6 @@ const CardWithImage = ({
   );
 };
 
-// const CardWithListItems = ({
-//   ref,
-//   className,
-//   selected,
-//   action,
-//   children,
-//   // onClick,
-//   // src,
-//   // alt,
-//   // title,
-//   // sourceUrl,
-//   // displaySource = false,
-//   // withBorder,
-//   // blurDataURL,
-// }: {
-//   ref?: RefObject<HTMLDivElement>;
-//   className?: string;
-//   selected?: boolean;
-//   action?;
-//   children: ReactNode;
-//   // onClick?: () => void;
-//   // src: string;
-//   // alt?: string;
-//   // title?: string;
-//   // sourceUrl?: string;
-//   // displaySource?: boolean;
-//   // withBorder?: boolean;
-//   // blurDataURL?: string;
-// }) => {
-//   return (
-//     <Card.ClickableContent
-//       ref={ref}
-//       className={cx('embedded-card', 'poi-card', className)}
-//       selected={selected}
-//       onClick={action}
-//     >
-//       {children}
-//     </Card.ClickableContent>
-//   );
-// };
 
 Card.Content = CardContent;
 Card.ClickableContent = ClickableCardContent;
