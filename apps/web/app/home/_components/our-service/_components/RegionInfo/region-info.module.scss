@@ -6,10 +6,11 @@
 }
 .card-content-wrap {
   // 스크롤 바 스타일
-  overflow-y: scroll !important;
-  position: relative !important;
-  scrollbar-color: $theme-50 $theme-300;
-  scrollbar-width: thin;
+  // overflow-y: scroll !important;
+  // position: relative !important;
+  // scrollbar-color: $theme-50 $theme-300;
+  // scrollbar-width: thin;
+  @include scroll;
 }
 
 .card-region-wrap {
@@ -22,4 +23,5 @@
 
 .scroll {
   @include scroll;
+  @include visible-scroll(false);
 }

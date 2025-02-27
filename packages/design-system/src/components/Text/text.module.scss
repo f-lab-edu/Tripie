@@ -9,7 +9,6 @@
 
 .text {
   @include word-wrap;
-
   font-size: font-size(text);
   &[aria-selected='false'] {
     color: color(default, 500);
@@ -22,9 +21,12 @@
 
 .flick {
   z-index: 30;
-  min-width: 9rem;
   width: fit-content;
   height: 3rem !important;
+}
+
+.min {
+  min-width: 9rem;
 }
 
 .dim {

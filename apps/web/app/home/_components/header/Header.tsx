@@ -19,32 +19,51 @@ import Style from './header.module.scss';
 
 const cx = classNames.bind(Style);
 
+const PageTitle = () => {
+  return (
+    <Container margin="none" align="center" className={cx('preserve-white-space')}>
+      <Headings.H1>
+        <Text.Accented>AI </Text.Accented>enhanced{'\n'}trip planner.
+      </Headings.H1>
+    </Container>
+  );
+};
+
+const ShortCutButtons = () => {
+  const SHORT_CUT_LINKS = [
+    { tag: 'services', link: ROUTE.SERVICES.href, contents: 'Our services' },
+    {
+      tag: 'contacts',
+      link: ROUTE.CONTACT.href,
+      contents: (
+        <Container margin="none" className={cx('flex')}>
+          Get in touch <Icon />
+        </Container>
+      ),
+    },
+  ];
+
+  return (
+    <Container align="center" margin="none" className={cx('flex', 'button-wrap')}>
+      {SHORT_CUT_LINKS.map(({ tag, link, contents }) => (
+        <Link href={link} key={tag}>
+          <AnimatedButton withBorder={true} className={cx('main-button')} hasMin={true}>
+            {contents}
+          </AnimatedButton>
+        </Link>
+      ))}
+    </Container>
+  );
+};
+
 export default function Header() {
   return (
     <ParticleBackground>
       <Nav />
       <RotatingBlur />
       <Container align="center" className={cx('wrap')} margin="none">
-        <Container className={cx('heading')} margin="none" align="center">
-          <Headings.H1>
-            <Text.Accented>AI</Text.Accented>
-          </Headings.H1>
-          <Headings.H1>enhanced trip planner.</Headings.H1>
-        </Container>
-        <Container align="center" margin="none" className={cx('flex', 'button-wrap')}>
-          <Link href={ROUTE.SERVICES.href}>
-            <AnimatedButton withBorder={true} className={cx('main-button')}>
-              Our services
-            </AnimatedButton>
-          </Link>
-          <Link href={ROUTE.CONTACT.href}>
-            <AnimatedButton withBorder={true} className={cx('main-button')}>
-              <Container margin="none" className={cx('flex')}>
-                Get in touch <Icon />
-              </Container>
-            </AnimatedButton>
-          </Link>
-        </Container>
+        <PageTitle />
+        <ShortCutButtons />
       </Container>
     </ParticleBackground>
   );

@@ -6,15 +6,11 @@
 }
 .flex {
   @include flex;
-  // @media (max-width: 430px) {
-  //   flex-wrap: wrap;
-  // }
 }
 
 .accordian-body {
-  height: fit-content !important;
   @include scroll;
-  // height: auto !important;
+  @include visible-scroll(false);
 }
 .chip-wrap {
   display: inline-flex;
@@ -30,8 +26,8 @@
 }
 
 .grid-wrap {
-  // overflow: scroll;
   max-height: 35vh;
   height: fit-content;
   @include scroll;
+  @include visible-scroll(true);
 }

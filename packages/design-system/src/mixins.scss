@@ -205,10 +205,6 @@ $background-gradients: (
   width: 100%;
   list-style: none;
   padding: 0;
-
-  // 스크롤 바 스타일
-  scrollbar-color: $theme-50 $theme-300;
-  scrollbar-width: thin;
 }
 
 @mixin map-marker($variant) {
@@ -234,6 +230,15 @@ $background-gradients: (
   // 스크롤 바 스타일
   overflow-y: scroll !important;
   position: relative !important;
-  scrollbar-color: $theme-50 $theme-300;
-  scrollbar-width: thin;
+}
+
+@mixin visible-scroll($visible-scroll: true) {
+  @if $visible-scroll == true {
+    // 스크롤 바 스타일
+    scrollbar-color: $theme-50 $theme-300;
+    scrollbar-width: thin;
+  } @else {
+    scrollbar-width: none; /* Firefox */
+    display: none; /* Chrome, Safari */
+  }
 }
