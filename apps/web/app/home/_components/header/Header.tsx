@@ -47,7 +47,7 @@ const ShortCutButtons = () => {
     <Container align="center" margin="none" className={cx('flex', 'button-wrap')}>
       {SHORT_CUT_LINKS.map(({ tag, link, contents }) => (
         <Link href={link} key={tag}>
-          <AnimatedButton withBorder={true} className={cx('main-button')} hasMin={true}>
+          <AnimatedButton withBorder={true} className={cx('main-button')} withMinWidth={true}>
             {contents}
           </AnimatedButton>
         </Link>

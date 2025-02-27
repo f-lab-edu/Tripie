@@ -15,6 +15,7 @@ const AnimatedButton = ({
   withBorder = false,
   onClick,
   animate = 'rest',
+  withMinWidth = false,
 }: Readonly<{
   children: ReactNode;
   disabled?: boolean;
@@ -23,12 +24,13 @@ const AnimatedButton = ({
   withBorder?: boolean;
   onClick?: () => void;
   animate?: 'rest' | 'hover';
+  withMinWidth?: boolean;
 }>) => {
   return (
     <motion.button
       disabled={disabled}
       onClick={onClick}
-      className={cx('button', withBorder && 'with-border', className)}
+      className={cx('button', withBorder && 'with-border', withMinWidth && 'min', className)}
       initial="rest"
       whileHover={disabled ? 'rest' : 'hover'}
       whileTap={disabled ? 'rest' : 'hover'}
