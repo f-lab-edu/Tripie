@@ -25,16 +25,12 @@ const Text = ({ children, className, ...props }: Readonly<TextProps>) => {
   return <>{splitText}</>;
 };
 
-const AccentedText = ({
-  children,
-  className,
-  ...props
-}: Readonly<TextProps>) => {
-    return (
-      <span className={cx('text', 'accented', className)}  {...props}>
-        {children}
-      </span>
-    );
+const AccentedText = ({ children, className, ...props }: Readonly<TextProps>) => {
+  return (
+    <span className={cx('text', 'accented', className)} {...props}>
+      {children}
+    </span>
+  );
 };
 
 const FlickText = ({

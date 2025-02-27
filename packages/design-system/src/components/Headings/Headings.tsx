@@ -9,7 +9,7 @@ const style = classNames.bind(Style);
 const Heading = ({ children, className }: TextProps) => <Text className={style('default', className)}>{children}</Text>;
 
 const H1 = ({ children, className }: TextProps) => {
-  return <h1 className={style('h1',className)}>{children}</h1>;
+  return <h1 className={style('h1', className)}>{children}</h1>;
 };
 
 const H2 = ({ children, className }: TextProps) => {

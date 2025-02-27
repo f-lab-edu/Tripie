@@ -103,7 +103,7 @@ const CardWithImage = ({
   summary,
   className,
   sourceUrl,
-  imageSize='medium',
+  imageSize = 'medium',
   displaySource = false,
   withBorder,
   blurDataURL,
@@ -115,7 +115,7 @@ const CardWithImage = ({
   summary?: string;
   className?: string;
   sourceUrl?: string;
-  imageSize?:ImageSizes;
+  imageSize?: ImageSizes;
   displaySource?: boolean;
   withBorder?: boolean;
   blurDataURL?: string;
@@ -153,7 +153,6 @@ const CardWithImage = ({
     </Card.ClickableContent>
   );
 };
-
 
 Card.Content = CardContent;
 Card.ClickableContent = ClickableCardContent;
