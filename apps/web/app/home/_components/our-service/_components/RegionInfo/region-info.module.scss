@@ -23,5 +23,5 @@
 
 .scroll {
   @include scroll;
-  @include visible-scroll(false);
+  @include visible-scroll(true);
 }
