@@ -6,10 +6,12 @@ import '@tripie-pyotato/design-system/styles';
 import { ReactNode, Suspense } from 'react';
 import Loading from 'shared/components/Loading';
 import Provider from '../provider/layout';
+import { sharedMetaData } from './shared-metadata';
 
 export const metadata: Metadata = {
-  title: 'Tripie ✈️',
-  description: 'AI enhanced trip planner',
+  title: sharedMetaData?.title,
+  description: sharedMetaData?.description,
+  openGraph: sharedMetaData,
 };
 
 export default function RootLayout({
