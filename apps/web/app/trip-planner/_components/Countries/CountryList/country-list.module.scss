@@ -21,6 +21,5 @@
   height: 18vh;
   overflow-y: scroll !important;
   position: relative !important;
-  scrollbar-color: $theme-50 $theme-300;
-  scrollbar-width: thin;
+  @include visible-scroll(true);
 }

@@ -25,6 +25,7 @@
   -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
   scroll-behavior: smooth; /* Optional: makes the snapping animated */
   gap: 1rem;
+  @include visible-scroll(false);
 }
 
 .insta-like-carousel-item {

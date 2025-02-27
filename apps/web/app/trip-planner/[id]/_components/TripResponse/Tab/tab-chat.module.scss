@@ -20,9 +20,10 @@
   height: 85vh !important;
   overflow-y: scroll !important;
   position: relative !important;
-  scrollbar-color: $theme-50 $theme-300;
-  scrollbar-width: thin;
+
   display: inline-block !important;
+
+  @include visible-scroll(true);
 
   @media (max-width: 500px) {
     height: 40vh !important;
@@ -34,7 +35,7 @@
 .trip-days-chips-wrap {
   overflow: scroll;
   -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  @include visible-scroll(false);
 }
 
 .trip-days-chips-wrap > ul {

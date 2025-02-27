@@ -239,6 +239,11 @@ $background-gradients: (
     scrollbar-width: thin;
   } @else {
     scrollbar-width: none; /* Firefox */
-    display: none; /* Chrome, Safari */
+    /* Hide scrollbar for Edge and IE */
+    -ms-overflow-style: none;
+    ::-webkit-scrollbar {
+      /* Chrome, Safari */
+      display: none;
+    }
   }
 }
