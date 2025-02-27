@@ -1,5 +1,5 @@
 'use client';
-import { Container, Icon, TextFillAnimation } from '@tripie-pyotato/design-system';
+import { Container, Icon } from '@tripie-pyotato/design-system';
 
 import SelectedDates from 'app/trip-planner/_components/Duration/SelectedDates';
 
@@ -76,9 +76,9 @@ const DurationSelect = () => {
   if (today == null || duration == null) {
     return (
       <Container margin="none" className={cx('loading-wrap', 'flex')} align="center">
-        <Container margin="none" className={cx('text-wrap', 'flex')} align="center">
+        <Container margin="none" className={cx('text-wrap')} align="center">
           <Icon.Loading />
-          <TextFillAnimation text={'Loading...'} />
+          Loading...
         </Container>
       </Container>
     );
