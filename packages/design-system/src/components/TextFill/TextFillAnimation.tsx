@@ -7,6 +7,7 @@ import { InView } from 'react-intersection-observer';
 import COLORS from '../../shared/colors';
 
 import { CustomAnimationProps } from '../TripieCard';
+import TripieContainer from '../TripieContainer/TripieContainer';
 import Style from './text-fill-animation.module.scss';
 
 const cx = classNames.bind(Style);
@@ -22,7 +23,7 @@ const TextFillAnimation = ({
   return (
     <InView>
       {({ inView, ref }) => (
-        <div className={cx('animation', baseColor == null ? 'default' : '')} ref={ref}>
+        <TripieContainer margin="none" className={cx('animation', baseColor == null ? 'default' : '')} ref={ref}>
           <span className={cx('wrap')}>
             {text}
             <motion.span
@@ -43,7 +44,7 @@ const TextFillAnimation = ({
               {text}
             </motion.span>
           </span>
-        </div>
+        </TripieContainer>
       )}
     </InView>
   );
