@@ -8,6 +8,8 @@
   font-size: 2rem;
 }
 
-// .wrap {
-//   min-width: 368px;
-// }
+.wrap {
+  @media (max-width: 380) {
+    font-size: 1.8rem;
+  }
+}
