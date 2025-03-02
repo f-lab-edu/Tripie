@@ -11,27 +11,29 @@ import { Metadata, ResolvingMetadata } from 'next';
 import RegionList from '../../../_components/RegionList';
 import RegionSelect from '../../../_components/RegionSelect';
 
-type Props = {
-  params: Promise<{ regionId: string; locationId: string }>;
+type Params = { regionId: string; locationId: string };
+
+const parseParams = async (params: Promise<Params>) => {
+  const { regionId, locationId } = await params;
+  return {
+    regionId: decodeURIComponent(regionId),
+    locationId: decodeURIComponent(locationId),
+    city: TRIPIE_REGION_IDS[locationId as keyof typeof TRIPIE_REGION_IDS],
+  };
 };
 
-export async function generateMetadata({ params }: Props, parent: ResolvingMetadata): Promise<Metadata> {
-  const regionId = (await params).regionId;
-  const locationId = (await params).locationId;
-
-  const currentRegionId = decodeURI(regionId);
-
-  const dynamicBlurDataUrl = await getRegionArticles(locationId);
-
-  const currentCity = TRIPIE_REGION_IDS[locationId as keyof typeof TRIPIE_REGION_IDS];
+export async function generateMetadata(
+  { params }: { params: Promise<Params> },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const { regionId, locationId, city } = await parseParams(params);
+  const articles = await getRegionArticles(locationId);
+  const sneakPeak = articles.slice(0, 5);
 
   const previousImages = (await parent).openGraph?.images || [];
-  const title = `도시 별 여행 정보 > ${currentRegionId} > ${currentCity}`;
-  const sneakPeak = dynamicBlurDataUrl.slice(0, 5);
-  const description = `${currentRegionId} > ${currentCity} 여행 정보\n${sneakPeak
-    .map(item => {
-      return `✔️ ${item.source.title} |  ${item.source.summary}`;
-    })
+  const title = `도시 별 여행 정보 > ${regionId} > ${city}`;
+  const description = `${regionId} > ${city} 여행 정보\n${sneakPeak
+    .map(({ source }) => `✔️ ${source.title} | ${source.summary}`)
     .join('\n')}\n...\n👉 트리피에서 자세히 알아보기!`;
 
   return {
@@ -41,30 +43,25 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
       ...sharedMetaData,
       title,
       description,
-      images: [...sneakPeak.map(item => item.source.image.sizes?.full.url), ...previousImages], // 새 이미지 먼저
-      url: `${API.BASE_URL}${ROUTE.REGIONS.href}/${currentRegionId}/location/${currentCity}`,
+      images: [...sneakPeak.map(({ source }) => source.image.sizes?.full.url), ...previousImages],
+      url: `${API.BASE_URL}${ROUTE.REGIONS.href}/${regionId}/location/${city}`,
     },
   };
 }
 
-const Articles = async ({ params }: { params: Promise<{ locationId: string; regionId: string }> }) => {
-  const locationId = (await params).locationId;
-  const regionId = (await params).regionId;
-
-  const currentRegionId = decodeURI(regionId);
-  const currentLocationId = decodeURI(locationId);
-
-  const dynamicBlurDataUrl = await getRegionArticles(locationId);
+const Articles = async ({ params }: { params: Promise<Params> }) => {
+  const { regionId, locationId, city } = await parseParams(params);
+  const articles = await getRegionArticles(locationId);
 
   return (
     <>
       <Title>
         도시 별<Text.Accented> 여행 </Text.Accented>정보 {`\n > `}
-        <Text.Accented>{currentRegionId}</Text.Accented> {` > `}
-        <Text.Accented>{TRIPIE_REGION_IDS[locationId as keyof typeof TRIPIE_REGION_IDS]}</Text.Accented>
+        <Text.Accented>{regionId}</Text.Accented> {` > `}
+        <Text.Accented>{city}</Text.Accented>
       </Title>
-      <RegionSelect selected={currentRegionId} selectedRegion={currentLocationId} />
-      <RegionList data={dynamicBlurDataUrl} selectedRegion={locationId} />
+      <RegionSelect selected={regionId} selectedRegion={locationId} />
+      <RegionList data={articles} selectedRegion={locationId} />
     </>
   );
 };
