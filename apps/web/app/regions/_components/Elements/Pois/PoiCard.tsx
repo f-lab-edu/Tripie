@@ -59,7 +59,6 @@ const PoiCard = ({
         blurDataURL={poi.source.image.blurData?.data}
         withBorder={true}
         sizes="card"
-        className={cx('img-wrap')}
       />
 
       <Container applyMargin="top-bottom" margin="sm" className={cx('heading')}>
