@@ -24,7 +24,6 @@ const TripieImage = ({
 }: {
   alt: string;
   src?: string;
-  // ref?: RefObject<any>;
   refs?: (node?: Element | null | undefined) => void;
   className?: string;
   sizes?: ImageSizes;
@@ -46,6 +45,7 @@ const TripieImage = ({
       ) : (
         <Image
           src={src ?? PLACEHOLDER}
+          className={cx('tripie-image', 'img-wrap', sizes, withBorder && 'with-border')}
           alt={alt}
           sizes={'(min-width:640px) 50vw, 100vw'}
           placeholder="blur"
@@ -70,7 +70,6 @@ const ImageWithSourceUrl = ({
 }: {
   alt: string;
   src?: string;
-  // ref?: RefObject<any>;
   refs?: (node?: Element | null | undefined) => void;
   className?: string;
   sourceUrl: string;
