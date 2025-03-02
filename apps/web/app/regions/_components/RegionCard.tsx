@@ -17,6 +17,7 @@ const RegionCard = ({ article, selectedRegion }: { article: RegionArticleInfo; s
       sourceUrl={article.source.image?.sourceUrl}
       title={article?.source?.title}
       summary={article?.source?.summary}
+      imageSize="card"
       withBorder={false}
       blurDataURL={article.source.image.blurData?.data}
       onClick={() => navigate.push(`/regions/${selectedRegion}/articles/${article.id}`)}
