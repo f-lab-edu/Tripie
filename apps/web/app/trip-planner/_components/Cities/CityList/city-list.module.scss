@@ -17,5 +17,6 @@
   overflow-y: scroll !important;
   position: relative !important;
 
-  @include visible-scroll(true);
+  // @include visible-scroll(true);
+  @include visible-scroll(false);
 }

@@ -49,41 +49,43 @@ const RegionSelect = ({ selected, selectedRegion }: { selected: string; selected
           </Accordion.Body>
         </Accordion>
       </Card.Content>
-      <Card.Content className={cx('card-wrap')}>
-        <Accordion>
-          <Accordion.Header>
-            <Container className={cx('flex')} margin="sm" applyMargin="top-bottom">
-              <Headings.H4>
-                {selected} {` > `}{' '}
-                <Text.Accented>{TRIPIE_REGION_IDS[selectedRegion as keyof typeof TRIPIE_REGION_IDS]}</Text.Accented>
-              </Headings.H4>
-            </Container>
-          </Accordion.Header>
-          <Divider />
-          <Accordion.Body className={cx('accordian-body')}>
-            <List.Grid className={cx('grid-wrap')}>
-              {TRIPIE_REGION_BY_LOCATION[selected as keyof typeof TRIPIE_REGION_BY_LOCATION].map(place => (
-                <Chip
-                  className={cx('chip-wrap')}
-                  selected={TRIPIE_REGION_IDS[selectedRegion as keyof typeof TRIPIE_REGION_IDS] === place}
-                  key={place}
-                  onClick={() => {
-                    const selectedLocation = Object.keys(TRIPIE_REGION_IDS).filter(
-                      key => TRIPIE_REGION_IDS[key as keyof typeof TRIPIE_REGION_IDS] === place
-                    )?.[0];
+      <Container applyMargin="top" margin="sm">
+        <Card.Content className={cx('card-wrap')}>
+          <Accordion>
+            <Accordion.Header>
+              <Container className={cx('flex')} margin="sm" applyMargin="top-bottom">
+                <Headings.H4>
+                  {selected} {` > `}{' '}
+                  <Text.Accented>{TRIPIE_REGION_IDS[selectedRegion as keyof typeof TRIPIE_REGION_IDS]}</Text.Accented>
+                </Headings.H4>
+              </Container>
+            </Accordion.Header>
+            <Divider />
+            <Accordion.Body className={cx('accordian-body')}>
+              <List.Grid className={cx('grid-wrap')}>
+                {TRIPIE_REGION_BY_LOCATION[selected as keyof typeof TRIPIE_REGION_BY_LOCATION].map(place => (
+                  <Chip
+                    className={cx('chip-wrap')}
+                    selected={TRIPIE_REGION_IDS[selectedRegion as keyof typeof TRIPIE_REGION_IDS] === place}
+                    key={place}
+                    onClick={() => {
+                      const selectedLocation = Object.keys(TRIPIE_REGION_IDS).filter(
+                        key => TRIPIE_REGION_IDS[key as keyof typeof TRIPIE_REGION_IDS] === place
+                      )?.[0];
 
-                    navigate.push(`/regions/${selected}/location/${selectedLocation}`);
-                  }}
-                >
-                  <Text.Animated className={cx('animated-text', 'chip')} withBorder={false} otherChild={place}>
-                    {place}
-                  </Text.Animated>
-                </Chip>
-              ))}
-            </List.Grid>
-          </Accordion.Body>
-        </Accordion>
-      </Card.Content>
+                      navigate.push(`/regions/${selected}/location/${selectedLocation}`);
+                    }}
+                  >
+                    <Text.Animated className={cx('animated-text', 'chip')} withBorder={false} otherChild={place}>
+                      {place}
+                    </Text.Animated>
+                  </Chip>
+                ))}
+              </List.Grid>
+            </Accordion.Body>
+          </Accordion>
+        </Card.Content>
+      </Container>
     </>
   );
 };

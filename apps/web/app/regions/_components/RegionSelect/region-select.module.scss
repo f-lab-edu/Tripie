@@ -29,5 +29,6 @@
   max-height: 35vh;
   height: fit-content;
   @include scroll;
-  @include visible-scroll(true);
+  // @include visible-scroll(true);
+  @include visible-scroll(false);
 }

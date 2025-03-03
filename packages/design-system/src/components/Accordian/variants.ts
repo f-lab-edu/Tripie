@@ -10,7 +10,7 @@ export const ACCORDIAN_VARIANTS = {
     }),
     open: () => ({
       transform: {
-        height: '100%',
+        height: 'fit-content',
       },
       transition: {
         duration: 2,

@@ -20,7 +20,7 @@ const serviceList = [
   {
     label: 'AI 추천 맞춤 일정',
     content: (
-      <Card.Content>
+      <Card.Content className={cx('content-wrap')}>
         <RotatingGlobe />
       </Card.Content>
     ),

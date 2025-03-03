@@ -21,7 +21,7 @@
 
 .inner-wrap {
   opacity: 1;
-  height: max-content;
+  // height: max-content;
 
   position: relative;
   overflow: hidden;
@@ -30,7 +30,7 @@
     align-items: flex-start;
   }
   &:not(.with-description) {
-    height: 12rem;
+    // height: 12rem;
     background-color: $theme-500;
   }
   z-index: 1;
@@ -55,8 +55,10 @@
 }
 
 .embedded-card {
-  height: 27rem !important;
-  min-width: 30rem;
+  // height: 27rem !important;
+
+  // min-width: 30rem;
+  min-width: 21rem;
   width: 60%;
   max-width: 60%;
   display: inline-flex;

@@ -23,7 +23,8 @@
 
   display: inline-block !important;
 
-  @include visible-scroll(true);
+  // @include visible-scroll(true);
+  @include visible-scroll(false);
 
   @media (max-width: 500px) {
     height: 40vh !important;

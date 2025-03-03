@@ -23,5 +23,6 @@
 
 .scroll {
   @include scroll;
-  @include visible-scroll(true);
+  // @include visible-scroll(true);
+  @include visible-scroll(false);
 }

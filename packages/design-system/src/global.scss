@@ -2,6 +2,7 @@
 @use './functions/' as *;
 @use './generator/' as *;
 @use './mixins/' as *;
+@use './mixins' as *;
 
 @use 'sass:map';
 
@@ -26,6 +27,7 @@ body,
   box-sizing: border-box;
   font-family: 'MaruBuri', sans-serif !important;
   scroll-behavior: smooth !important;
+  @include visible-scroll(true);
 }
 
 button,
