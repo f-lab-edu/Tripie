@@ -2,12 +2,15 @@
 import { Chip, Container, Headings, ParticleBackground, Text } from '@tripie-pyotato/design-system';
 
 import classNames from 'classnames/bind';
-
+import { useRouter } from 'next/navigation';
 import Style from './error.module.scss';
+import ROUTE from 'constants/routes';
 
 const cx = classNames.bind(Style);
 
 export default function SeverError() {
+  const router = useRouter();
+  const handleClickHome = () => router.replace(ROUTE.HOME.href);
   return (
     <ParticleBackground>
       <Container className={cx('center')} margin="none">
@@ -21,7 +24,7 @@ export default function SeverError() {
 
         <Container className={cx('button-wrap')} margin="none">
           Oops, something went wrong.
-          <Chip.Accented>bring me back home</Chip.Accented>
+          <Chip.Accented onClick={handleClickHome}>bring me back home</Chip.Accented>
         </Container>
       </Container>
     </ParticleBackground>

@@ -6,6 +6,7 @@ import API from 'constants/api-routes';
 import { CHAT_DB_NAME } from 'constants/auth';
 import ROUTE from 'constants/routes';
 import { Metadata } from 'next';
+import SeverError from 'shared/components/Error/Error';
 import TripResponse from './_components/TripResponse';
 import { ChatResponseData } from './_components/TripResponse/MapTab';
 
@@ -16,9 +17,13 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const id = (await params).id;
-  const { data } = await firestoreService.getItem(CHAT_DB_NAME, decodeURIComponent(id));
+  const plan = await firestoreService.getItem(CHAT_DB_NAME, decodeURIComponent(id));
 
-  const parsedData = JSON.parse(data) as ChatResponseData;
+  if (plan?.data == null) {
+    return { title: sharedMetaData?.title, description: sharedMetaData?.description, openGraph: sharedMetaData };
+  }
+
+  const parsedData = JSON.parse(plan.data) as ChatResponseData;
   const title = parsedData.plans.name;
   const day1tripPlan = parsedData.plans.trips[0];
 
@@ -39,9 +44,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 const TripPlan = async ({ params }: { params: Promise<{ id: string }> }) => {
   const id = (await params).id;
 
-  const { data } = await firestoreService.getItem(CHAT_DB_NAME, decodeURIComponent(id));
+  const plan = await firestoreService.getItem(CHAT_DB_NAME, decodeURIComponent(id));
 
-  return <TripResponse data={JSON.parse(data) as ChatResponseData} />;
+  if (plan?.data == null) {
+    return <SeverError />;
+  }
+  return <TripResponse data={JSON.parse(plan.data) as ChatResponseData} />;
 };
 
 export default TripPlan;
