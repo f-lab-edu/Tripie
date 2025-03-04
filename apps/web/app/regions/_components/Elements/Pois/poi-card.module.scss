@@ -10,7 +10,6 @@
 .poi-card {
   min-height: 21rem;
   height: auto !important;
-
   min-width: 20rem;
 
   & > div:first-child {
@@ -19,6 +18,7 @@
     min-height: 8rem; /* Restrict image height */
     overflow: hidden;
     display: block !important;
+    position: relative;
   }
 
   & > div {
