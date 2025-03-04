@@ -60,3 +60,6 @@
   right: 2rem;
   float: right;
 }
+.flex-text {
+  @include flex-text;
+}

@@ -34,7 +34,7 @@ const AccentedText = ({ children, className, ...props }: Readonly<TextProps>) =>
   );
 };
 
-const FlickText = ({
+export const FlickText = ({
   children,
   className,
 }: Readonly<{

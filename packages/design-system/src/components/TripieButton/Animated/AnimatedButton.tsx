@@ -5,6 +5,7 @@ import { ReactNode } from 'react';
 import Text from '../../Text';
 import TripieContainer from '../../TripieContainer/TripieContainer';
 import Style from './animated-button.module.scss';
+// import { VARIANTS } from '../../../shared/variants';
 
 const cx = classNames.bind(Style);
 
@@ -106,6 +107,7 @@ export const AnimatedText = ({
       whileHover={disabled ? 'rest' : 'hover'}
       whileTap={disabled ? 'rest' : 'hover'}
       animate={animate}
+      // variants={VARIANTS['FLICK_TEXT']}
     >
       <Text.Flick>{children}</Text.Flick>
       <TripieContainer applyMargin="top"> </TripieContainer>

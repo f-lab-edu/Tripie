@@ -31,12 +31,13 @@ export default function PlanList() {
           </List.Item>
         ))}
       </List>
-
-      <AnimatedButton.Text withBorder={true} className={cx('max')}>
-        <Container margin="none" className={cx('flex-text')}>
-          Get started with {PLANS[key].label} <Icon />
-        </Container>
-      </AnimatedButton.Text>
+      <Container align="center" margin="none">
+        <AnimatedButton withBorder={true} className={cx('submit-button')} withMinWidth={true}>
+          <Container margin="none" className={cx('flex-text')}>
+            Get started with {PLANS[key].label} <Icon />
+          </Container>
+        </AnimatedButton>
+      </Container>
     </Card>
   ));
 }
