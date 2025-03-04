@@ -57,11 +57,11 @@ export function CountryStep({ context, onNext }: Readonly<Props>) {
   return (
     <>
       <Container margin="none">
-        <Container margin="none">
-          <Icon.Navigate />
-        </Container>
-        <Headings.H2>
-          떠나고 싶은 <Text.Accented>나라</Text.Accented>는?
+        <Headings.H2 className={cx('flex-text')}>
+          <Icon.Navigate sizes="large" />
+          <Container margin="none">
+            떠나고 싶은 <Text.Accented>나라</Text.Accented>는?
+          </Container>
         </Headings.H2>
       </Container>
 
@@ -88,7 +88,7 @@ export function CountryStep({ context, onNext }: Readonly<Props>) {
               disabled={selectedCountry === ''}
               className={cx('submit-button')}
             >
-              <Container margin="none" className={cx('flex')}>
+              <Container margin="none" className={cx('flex-text')}>
                 {selectedCountry === '' ? (
                   <>여행할 나라를 선택해주세요.</>
                 ) : (

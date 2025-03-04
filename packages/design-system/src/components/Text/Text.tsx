@@ -1,6 +1,7 @@
 import classNames from 'classnames/bind';
 import { AnimationProps, motion } from 'framer-motion';
 import { ReactNode } from 'react';
+import { Container } from '..';
 import TripieContainer from '../TripieContainer/TripieContainer';
 import Style from './text.module.scss';
 import { VARIANTS } from './variants';
@@ -47,6 +48,20 @@ const FlickText = ({
   );
 };
 
+export const FlickText2 = ({
+  children,
+  className,
+}: Readonly<{
+  children: ReactNode;
+  className?: string;
+}>) => {
+  return (
+    <motion.span className={cx('flick', className)} variants={VARIANTS['FLICK_TEXT']}>
+      {children}
+    </motion.span>
+  );
+};
+
 const AnimatedText = ({
   children,
   className,
@@ -64,14 +79,15 @@ const AnimatedText = ({
 }>) => {
   return (
     <motion.div
-      className={cx('button', withBorder && 'with-border', className)}
+      className={cx('animated-text', withBorder && 'with-border', className)}
       initial="rest"
       whileHover={disabled ? 'rest' : 'hover'}
       whileTap={disabled ? 'rest' : 'hover'}
       animate={animate}
     >
-      <FlickText>{children}</FlickText>
-      <FlickText className={cx('hovered')}>{otherChild}</FlickText>
+      <FlickText2>{children}</FlickText2>
+      <Container applyMargin="top"> </Container>
+      <FlickText2 className={cx('hovered')}>{otherChild}</FlickText2>
     </motion.div>
   );
 };

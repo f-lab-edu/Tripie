@@ -36,10 +36,8 @@ const CompanionStep = ({ context, onNext }: Props) => {
   return (
     <>
       <Container margin="none">
-        <Container margin="none">
-          <Icon.Navigate />
-        </Container>
-        <Headings.H2>
+        <Headings.H2 className={cx('flex-text')}>
+          <Icon.Navigate sizes="large" />
           <Text.Accented>누구</Text.Accented>와 떠나나요?
         </Headings.H2>
       </Container>
@@ -50,25 +48,25 @@ const CompanionStep = ({ context, onNext }: Props) => {
 
         <Icon.Plane />
       </Container>
-      <CompanionList context={context} selected={selected} setSelected={setSelected} />
-      <Container margin="l" applyMargin="top">
-        <AnimatedButton
-          withBorder={true}
-          disabled={selected.length === 0}
-          onClick={handleSubmit}
-          className={cx('submit-button')}
-        >
-          <Container margin="none" className={cx('flex')}>
-            {selected.length === 0 ? (
-              '다중 선택이 가능해요.'
-            ) : (
-              <>
-                다음 <Icon />
-              </>
-            )}
-          </Container>
-        </AnimatedButton>
+      <Container margin="none" className={cx('wrap')}>
+        <CompanionList context={context} selected={selected} setSelected={setSelected} />
       </Container>
+      <AnimatedButton
+        withBorder={true}
+        disabled={selected.length === 0}
+        onClick={handleSubmit}
+        className={cx('submit-button')}
+      >
+        <Container margin="none" className={cx('flex-text')}>
+          {selected.length === 0 ? (
+            '다중 선택이 가능해요.'
+          ) : (
+            <>
+              다음 <Icon />
+            </>
+          )}
+        </Container>
+      </AnimatedButton>
     </>
   );
 };

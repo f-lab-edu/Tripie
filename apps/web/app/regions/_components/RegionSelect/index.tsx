@@ -1,6 +1,16 @@
 'use client';
 
-import { Accordion, Card, Chip, Container, Divider, Headings, List, Text } from '@tripie-pyotato/design-system';
+import {
+  Accordion,
+  AnimatedButton,
+  Card,
+  Chip,
+  Container,
+  Divider,
+  Headings,
+  List,
+  Text,
+} from '@tripie-pyotato/design-system';
 
 import classNames from 'classnames/bind';
 
@@ -30,19 +40,17 @@ const RegionSelect = ({ selected, selectedRegion }: { selected: string; selected
             <List.Grid className={cx('grid-wrap')}>
               {Object.keys(TRIPIE_REGION_BY_LOCATION).map(place => (
                 <Chip
-                  className={cx('chip-wrap')}
-                  selected={selected === place}
-                  key={place}
                   onClick={() => {
                     if (selected == place) {
                       return;
                     }
                     navigate.push(`/regions/${place}`);
                   }}
+                  key={place}
+                  className={cx('chip-wrap')}
+                  selected={selected === place}
                 >
-                  <Text.Animated className={cx('animated-text', 'chip')} withBorder={false} otherChild={place}>
-                    {place}
-                  </Text.Animated>
+                  <AnimatedButton.Text className={cx('animated-text', 'chip')}>{place}</AnimatedButton.Text>
                 </Chip>
               ))}
             </List.Grid>
@@ -65,9 +73,6 @@ const RegionSelect = ({ selected, selectedRegion }: { selected: string; selected
               <List.Grid className={cx('grid-wrap')}>
                 {TRIPIE_REGION_BY_LOCATION[selected as keyof typeof TRIPIE_REGION_BY_LOCATION].map(place => (
                   <Chip
-                    className={cx('chip-wrap')}
-                    selected={TRIPIE_REGION_IDS[selectedRegion as keyof typeof TRIPIE_REGION_IDS] === place}
-                    key={place}
                     onClick={() => {
                       const selectedLocation = Object.keys(TRIPIE_REGION_IDS).filter(
                         key => TRIPIE_REGION_IDS[key as keyof typeof TRIPIE_REGION_IDS] === place
@@ -75,10 +80,11 @@ const RegionSelect = ({ selected, selectedRegion }: { selected: string; selected
 
                       navigate.push(`/regions/${selected}/location/${selectedLocation}`);
                     }}
+                    key={place}
+                    className={cx('chip-wrap')}
+                    selected={TRIPIE_REGION_IDS[selectedRegion as keyof typeof TRIPIE_REGION_IDS] === place}
                   >
-                    <Text.Animated className={cx('animated-text', 'chip')} withBorder={false} otherChild={place}>
-                      {place}
-                    </Text.Animated>
+                    <AnimatedButton.Text className={cx('animated-text', 'chip')}>{place}</AnimatedButton.Text>
                   </Chip>
                 ))}
               </List.Grid>

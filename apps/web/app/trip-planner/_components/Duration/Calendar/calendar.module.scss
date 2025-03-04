@@ -2,8 +2,8 @@
 @use 'mixins' as *;
 
 .calendar-wrap {
-  height: 60vh;
-  overflow: scroll;
+  height: 100%;
+  overflow-y: scroll;
 }
 
 .submit-button {
@@ -13,10 +13,17 @@
 .submit-button.long-text {
   @media (max-width: 400) {
     & > span {
-      transform: translateY(1.5rem) !important;
+      transform: translateY(1rem) !important;
     }
   }
 }
 .flex {
   @include flex;
+}
+
+.flex-text {
+  @include flex-text;
+  @media (max-width: 300px) {
+    align-items: center;
+  }
 }

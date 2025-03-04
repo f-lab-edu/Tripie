@@ -10,7 +10,6 @@ import useCalendar from 'hooks/useCalendar';
 import { LooseValue } from 'react-calendar/dist/esm/shared/types.js';
 import Calendar from 'shared/components/Calendar';
 import CalendarHeader from 'shared/components/Calendar/CalendarHeader';
-// import Icon from 'shared/components/Icon/Icon';
 import { localeString2Date } from 'utils/date';
 import SelectedDates from '../SelectedDates';
 import Style from './calendar.module.scss';
@@ -68,46 +67,42 @@ const Calendars = ({
   return (
     <>
       <SelectedDates duration={duration} />
-      <Container margin="none">
-        <CalendarHeader selectRange={true} allowPartialRange={false} />
-        <Container applyMargin="top-bottom" className={cx('calendar-wrap')}>
-          {calendar.map(({ days, min, max }, index) => (
-            <Calendar
-              minDate={min}
-              maxDate={max}
-              value={selected as LooseValue}
-              onChange={value => {
-                setSelected((Array.isArray(value) ? value : [value]) as Date[]);
-              }}
-              onClickDay={setSelected}
-              selectRange={true}
-              key={days.toDateString() + index}
-              allowPartialRange={false}
-              showNeighboringMonth={true}
-              activeStartDate={days}
-              showNavigation={false}
-            />
-          ))}
+      <CalendarHeader selectRange={true} allowPartialRange={false} />
+      <Container margin="none" className={cx('calendar-wrap')}>
+        {calendar.map(({ days, min, max }, index) => (
+          <Calendar
+            minDate={min}
+            maxDate={max}
+            value={selected as LooseValue}
+            onChange={value => {
+              setSelected((Array.isArray(value) ? value : [value]) as Date[]);
+            }}
+            onClickDay={setSelected}
+            selectRange={true}
+            key={days.toDateString() + index}
+            allowPartialRange={false}
+            showNeighboringMonth={true}
+            activeStartDate={days}
+            showNavigation={false}
+          />
+        ))}
+      </Container>
+      <AnimatedButton
+        withBorder={true}
+        disabled={duration.end === ''}
+        onClick={handleSubmit}
+        className={cx('submit-button', duration.end !== '' && 'long-text')}
+      >
+        <Container margin="none">
+          {duration.end === '' ? (
+            '여행의 시작과 끝나는 날짜를 선택해주세요.'
+          ) : (
+            <Container margin="none" className={cx('flex-text')}>
+              다음 <Icon />
+            </Container>
+          )}
         </Container>
-      </Container>
-      <Container margin="none">
-        <AnimatedButton
-          withBorder={true}
-          disabled={duration.end === ''}
-          onClick={handleSubmit}
-          className={cx('submit-button', duration.end !== '' && 'long-text')}
-        >
-          <Container margin="none" className={cx('flex')}>
-            {duration.end === '' ? (
-              '여행의 시작과 끝나는 날짜를 선택해주세요.'
-            ) : (
-              <>
-                {duration.start} ~ {duration.end} <Icon />
-              </>
-            )}
-          </Container>
-        </AnimatedButton>
-      </Container>
+      </AnimatedButton>
     </>
   );
 };

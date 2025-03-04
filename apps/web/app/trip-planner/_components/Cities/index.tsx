@@ -32,11 +32,11 @@ const CityStep = ({ context, onNext }: Props) => {
   return (
     <>
       <Container margin="none">
-        <Container margin="none">
-          <Icon.Navigate />
-        </Container>
-        <Headings.H2>
-          내가 여행하고 싶은 <Text.Accented>도시</Text.Accented>는?
+        <Headings.H2 className={cx('flex-text')}>
+          <Icon.Navigate sizes="large" />
+          <Container margin="none">
+            내가 여행하고 싶은 <Text.Accented>{'\n'}도시</Text.Accented>는?
+          </Container>
         </Headings.H2>
       </Container>
       <Container className={cx('cloud-wrap')}>
@@ -46,24 +46,22 @@ const CityStep = ({ context, onNext }: Props) => {
         <Icon.Plane />
       </Container>
       <CityList cities={cities} selected={selected} setSelected={setSelected} />
-      <Container margin="l" applyMargin="top">
-        <AnimatedButton
-          withBorder={true}
-          disabled={selected.length === 0}
-          onClick={handleSubmit}
-          className={cx('submit-button')}
-        >
-          <Container margin="none" className={cx('flex')}>
-            {selected.length === 0 ? (
-              '다중 선택이 가능해요.'
-            ) : (
-              <>
-                다음 <Icon />
-              </>
-            )}
-          </Container>
-        </AnimatedButton>
-      </Container>
+      <AnimatedButton
+        withBorder={true}
+        disabled={selected.length === 0}
+        onClick={handleSubmit}
+        className={cx('submit-button')}
+      >
+        <Container margin="none" className={cx('flex-text')}>
+          {selected.length === 0 ? (
+            '다중 선택이 가능해요.'
+          ) : (
+            <>
+              다음 <Icon />
+            </>
+          )}
+        </Container>
+      </AnimatedButton>
     </>
   );
 };

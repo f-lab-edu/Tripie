@@ -1,6 +1,6 @@
 'use client';
 
-import { Card } from '@tripie-pyotato/design-system';
+import { Card, Container } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 import { DEFAULT_STYLE, MAP_ID, STYLE } from 'constants/maps';
 import useContinentl from 'hooks/query/useContinentl';
@@ -38,42 +38,44 @@ const CountryDetail = ({ selectedCountry }: { selectedCountry: string }) => {
   }
 
   return (
-    <Card.Content className={cx('card-wrap')}>
-      <CountryName
-        name={countryDetail.name}
-        blurDataUrl={countryDetail?.blurDataURL}
-        code={countryDetail.code}
-        flagImage={countryDetail['flag-image']}
-      />
-      <Map
-        id={MAP_ID}
-        interactive={true}
-        reuseMaps={true}
-        style={DEFAULT_STYLE}
-        mapStyle={STYLE}
-        initialViewState={{
-          zoom: 4,
-          latitude: coordinates.lat,
-          longitude: coordinates.lng,
-        }}
-      >
-        <CountryInfoPopup
-          showPopup={showPopup}
-          setShowPopup={setShowPopup}
-          coordinates={coordinates}
-          capital={countryDetail.capital}
-          officialLanguage={countryDetail.official_language}
+    <Container margin="none">
+      <Card.Content className={cx('card-wrap')}>
+        <CountryName
+          name={countryDetail.name}
+          blurDataUrl={countryDetail?.blurDataURL}
+          code={countryDetail.code}
+          flagImage={countryDetail['flag-image']}
         />
-        <Marker
-          key={`${countryDetail.coordinates.join(',')}`}
-          longitude={coordinates.lng}
-          latitude={coordinates.lat}
-          anchor="bottom"
-          onClick={() => setShowPopup(true)}
-          className={cx('marker')}
-        />
-      </Map>
-    </Card.Content>
+        <Map
+          id={MAP_ID}
+          interactive={true}
+          reuseMaps={true}
+          style={{ ...DEFAULT_STYLE, height: '40vh' }}
+          mapStyle={STYLE}
+          initialViewState={{
+            zoom: 4,
+            latitude: coordinates.lat,
+            longitude: coordinates.lng,
+          }}
+        >
+          <CountryInfoPopup
+            showPopup={showPopup}
+            setShowPopup={setShowPopup}
+            coordinates={coordinates}
+            capital={countryDetail.capital}
+            officialLanguage={countryDetail.official_language}
+          />
+          <Marker
+            key={`${countryDetail.coordinates.join(',')}`}
+            longitude={coordinates.lng}
+            latitude={coordinates.lat}
+            anchor="bottom"
+            onClick={() => setShowPopup(true)}
+            className={cx('marker')}
+          />
+        </Map>
+      </Card.Content>
+    </Container>
   );
 };
 export default CountryDetail;

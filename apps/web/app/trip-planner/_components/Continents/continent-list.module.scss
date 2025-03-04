@@ -6,4 +6,6 @@
 
 .wrap {
   @include grid-wrap;
+  @include scroll;
+  @include visible-scroll(false);
 }

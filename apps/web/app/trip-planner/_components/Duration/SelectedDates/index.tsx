@@ -16,8 +16,8 @@ const DateSection = ({
   duration: SelectedDateProps['duration'];
 }) => {
   return (
-    <Container margin="none">
-      <Headings.H2>{date === 'start' ? '시작' : '끝'}</Headings.H2>
+    <>
+      <Headings.H4>{date === 'start' ? '시작' : '끝'}</Headings.H4>
       <Container margin="sm" applyMargin="top">
         {duration[date] === '' ? (
           <Container margin="none" className={cx('not-selected')}>
@@ -27,16 +27,20 @@ const DateSection = ({
           duration[date]
         )}
       </Container>
-    </Container>
+    </>
   );
 };
 
 const SelectedDates = ({ duration }: SelectedDateProps) => {
   return (
-    <Card className={cx('start-end-card')}>
-      <DateSection date={'start'} duration={duration} />
-      <DateSection date={'end'} duration={duration} />
-    </Card>
+    <Container margin="none" className={cx('card-wrap')}>
+      <Card.Content>
+        <DateSection date={'start'} duration={duration} />
+      </Card.Content>
+      <Card.Content>
+        <DateSection date={'end'} duration={duration} />
+      </Card.Content>
+    </Container>
   );
 };
 

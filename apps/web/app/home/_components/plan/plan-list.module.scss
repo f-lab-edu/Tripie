@@ -1,11 +1,15 @@
 @use 'mixins' as *;
 @use 'variables' as *;
 
-.flex {
-  @include flex;
+.flex-text {
+  @include flex-text;
 }
 
 .cross {
   text-decoration: line-through;
   color: $theme-40;
+}
+
+.max {
+  width: 100%;
 }

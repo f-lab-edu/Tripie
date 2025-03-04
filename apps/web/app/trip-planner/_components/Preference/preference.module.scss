@@ -17,3 +17,8 @@
     height: 20vh;
   }
 }
+
+.flex-text {
+  @include flex-text;
+  align-items: normal;
+}

@@ -36,12 +36,11 @@ const PreferenceStep = ({ context, onNext }: Props) => {
   return (
     <>
       <Container margin="none">
-        <Container margin="none">
-          {/* <Icon.Navigate src={RESOURCE.ARROW} /> */}
-          <Icon.Navigate />
-        </Container>
-        <Headings.H2>
-          내가 선호하는 여행 <Text.Accented>스타일</Text.Accented>은?
+        <Headings.H2 className={cx('flex-text')}>
+          <Icon.Navigate sizes="large" />
+          <Container margin="none">
+            내가 선호하는 여행 <Text.Accented>스타일</Text.Accented>은?
+          </Container>
         </Headings.H2>
       </Container>
       <Container className={cx('cloud-wrap')}>

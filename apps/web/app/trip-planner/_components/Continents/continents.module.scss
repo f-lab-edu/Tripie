@@ -2,13 +2,18 @@
 @use 'mixins' as *;
 
 .chip {
-  min-width: fit-content;
+  @include chip;
   padding: 1rem;
 }
 
 .submit-button {
   width: 100% !important;
+  height: 3rem;
 }
 .flex {
   @include flex;
+}
+
+.flex-text {
+  @include flex-text;
 }

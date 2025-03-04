@@ -1,15 +1,11 @@
 @use 'variables' as *;
 @use 'mixins' as *;
 
-.start-end-card {
-  display: inline-flex;
-  flex-direction: row;
-
-  @media (max-width: 400) {
-    flex-wrap: wrap;
-  }
-}
-
 .not-selected {
   color: $theme-50;
+}
+
+.card-wrap {
+  display: inline-flex;
+  gap: 1rem;
 }

@@ -2,7 +2,7 @@
 @use 'mixins' as *;
 
 .card-wrap {
-  height: 100% !important;
+  height: fit-content;
   & > div {
     margin: 0 !important;
   }
@@ -53,12 +53,7 @@
   flex-direction: column;
   gap: 0.6rem;
 }
-// .list-item {
-//   display: inline-flex;
-//   width: 100%;
-//   align-items: center;
-//   gap: 1rem;
-// }
+
 .wrap {
   & > ul {
     flex-wrap: wrap;
@@ -99,7 +94,6 @@
 
 .flag-image {
   height: 8rem;
-  // aspect-ratio: 16/9 auto;
 }
 .country-flag {
   overflow: hidden;
@@ -107,4 +101,8 @@
 }
 .language-chip {
   margin-bottom: 1rem;
+}
+
+.flex-text {
+  @include flex-text;
 }

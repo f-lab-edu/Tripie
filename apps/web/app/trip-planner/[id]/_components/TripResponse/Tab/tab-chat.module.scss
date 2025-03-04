@@ -16,14 +16,8 @@
 }
 
 .trip-list-wrap {
-  // 스크롤 바 스타일
-  height: 85vh !important;
-  overflow-y: scroll !important;
-  position: relative !important;
-
-  display: inline-block !important;
-
-  // @include visible-scroll(true);
+  height: 80vh;
+  @include scroll;
   @include visible-scroll(false);
 
   @media (max-width: 500px) {

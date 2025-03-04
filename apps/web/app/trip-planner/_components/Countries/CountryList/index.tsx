@@ -1,5 +1,5 @@
 import { useQueryClient } from '@tanstack/react-query';
-import { Chip, Container, List, Text } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Chip, Container, List } from '@tripie-pyotato/design-system';
 import firestoreService from 'app/api/firebase';
 import classNames from 'classnames/bind';
 import useContinentl from 'hooks/query/useContinentl';
@@ -47,17 +47,17 @@ export function CountryList({ countries, selectedCountry, setSelectedCountry }: 
       <List.Grid className={cx('grid-wrap')}>
         {countries.map((country: Country) => (
           <Chip
-            className={cx('chip-wrap')}
-            selected={selectedCountry === country.name}
-            key={country.id}
             onClick={() => {
               setSelectedCountry(country.name);
               prefetch(country.name);
             }}
+            key={country.id}
+            className={cx('chip-wrap')}
+            selected={selectedCountry === country.name}
           >
-            <Text.Animated className={cx('animated-text', 'chip')} withBorder={false} otherChild={country.name}>
+            <AnimatedButton.Text className={cx('animated-text', 'chip')} withBorder={false} otherChild={country.name}>
               {country?.code != null && regionNameToLocal({ regionCode: country?.code })}
-            </Text.Animated>
+            </AnimatedButton.Text>
           </Chip>
         ))}
       </List.Grid>

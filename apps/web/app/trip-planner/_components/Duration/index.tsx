@@ -1,7 +1,6 @@
 'use client';
-import { Container, Icon } from '@tripie-pyotato/design-system';
+import { Container, Headings, Icon, Text } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
-// import Icon from 'shared/components/Icon/Icon';
 import Calendar from './Calendar';
 
 import { ContinentKeys } from 'models/Continent';
@@ -25,12 +24,12 @@ const DurationStep = ({ context, onNext }: Props) => {
   return (
     <>
       <Container margin="none">
-        <Container margin="none">
-          <Icon.Navigate />
-        </Container>
-        <h2>
-          여행 <span className={cx('accented')}>기간</span>은?
-        </h2>
+        <Headings.H2 className={cx('flex-text')}>
+          <Icon.Navigate sizes="large" />
+          <Container margin="none">
+            여행 <Text.Accented>기간</Text.Accented>은?
+          </Container>
+        </Headings.H2>
       </Container>
       <Calendar onNext={onNext} context={context} />
     </>

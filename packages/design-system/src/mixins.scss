@@ -262,3 +262,12 @@ $background-gradients: (
     }
   }
 }
+
+@mixin flex-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  @media (max-width: 300px) {
+    align-items: baseline;
+  }
+}

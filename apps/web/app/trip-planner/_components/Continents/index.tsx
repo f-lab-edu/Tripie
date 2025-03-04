@@ -40,21 +40,18 @@ export function ContinentStep({ context, onNext }: Readonly<Props>) {
           떠나고 싶은 <Text.Accented>지역</Text.Accented>은?
         </Headings.H2>
       </Container>
-      <Container className={cx('globe-wrap')} margin="none">
-        <RotatingGlobe />
-      </Container>
+      <RotatingGlobe />
       <ContinentList selectedContinent={selectedContinent} action={setSelectedContinent} />
-      <Container margin="none">
-        <AnimatedButton
-          withBorder={true}
-          onClick={() => onNext({ continent: CONTINENTS[selectedContinent]['id'] as ContinentKeys })}
-          className={cx('submit-button')}
-        >
-          <Container margin="none" className={cx('flex', 'submit-button')}>
-            "{selectedContinentName?.name}"{selectedContinentName?.name === '유럽' ? '으' : null}로 보기 <Icon />
-          </Container>
-        </AnimatedButton>
-      </Container>
+
+      <AnimatedButton
+        withBorder={true}
+        className={cx('chip', 'submit-button')}
+        onClick={() => onNext({ continent: CONTINENTS[selectedContinent]['id'] as ContinentKeys })}
+      >
+        <Container className={cx('flex-text')} margin="none">
+          "{selectedContinentName?.name}"{selectedContinentName?.name === '유럽' ? '으' : null}로 보기 <Icon />
+        </Container>
+      </AnimatedButton>
     </>
   );
 }

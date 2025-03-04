@@ -10,9 +10,8 @@ import { Coordinate } from 'models/Geo';
 import { DefaultUser } from 'next-auth';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { Dispatch, SetStateAction, createContext, useEffect, useMemo, useState } from 'react';
+import { Dispatch, SetStateAction, Suspense, createContext, useEffect, useMemo, useState } from 'react';
 import Loading from 'shared/components/Loading';
-import { handleTabAction } from 'utils/new-tab';
 import MapTab, { ChatResponseData } from './MapTab';
 import Style from './trip-response.module.scss';
 
@@ -87,31 +86,30 @@ const TripResponse = ({ data }: { data: ChatResponseData }) => {
     if (status === 'unauthenticated') {
       return signIn();
     }
-    handleTabAction({ url: `${ROUTE.TRIP_PLANNER.href}?trip-plan.step=CONTINENT`, action: 'open' });
-    setTimeout(() => {
-      handleTabAction({ action: 'close' });
-    }, 100);
+    router.push(ROUTE.TRIP_PLANNER.href + '?trip-plan.step=CONTINENT');
   };
 
   return (
-    <Container margin="none" className={cx('background')}>
-      <TabContext.Provider value={selectedActivityValues}>
-        <SelectedDateContext.Provider value={selectedDateValues}>
-          <Container margin="none">
-            <Icon onTapStart={handleNavigation} />
-            {remainingToken != null && !isAdmin ? `${remainingToken}토큰으로 다른 일정 추천 받아보기` : ''}
-            {isAdmin ? `어드민님, (${usedGptToken}개 사용) 다른 일정 추천 받기` : null}
-            {status === 'unauthenticated' && '로그인하고 일정 추천받아보기'}
-            <Headings.H2>
-              <Text.Accented>Chat</Text.Accented>
-            </Headings.H2>
-          </Container>
-          <Container margin="none" className={cx('trip-content-wrap')}>
-            <MapTab data={data.plans} coordinates={coordinates} />
-          </Container>
-        </SelectedDateContext.Provider>
-      </TabContext.Provider>
-    </Container>
+    <Suspense fallback={<Loading />}>
+      <Container margin="none" className={cx('background')}>
+        <TabContext.Provider value={selectedActivityValues}>
+          <SelectedDateContext.Provider value={selectedDateValues}>
+            <Container margin="none">
+              <Icon onTapStart={handleNavigation} />
+              {remainingToken != null && !isAdmin ? `${remainingToken}토큰으로 다른 일정 추천 받아보기` : ''}
+              {isAdmin ? `어드민님, (${usedGptToken}개 사용) 다른 일정 추천 받기` : null}
+              {status === 'unauthenticated' && '로그인하고 일정 추천받아보기'}
+              <Headings.H2>
+                <Text.Accented>Chat</Text.Accented>
+              </Headings.H2>
+            </Container>
+            <Container margin="none" className={cx('trip-content-wrap')}>
+              <MapTab data={data.plans} coordinates={coordinates} />
+            </Container>
+          </SelectedDateContext.Provider>
+        </TabContext.Provider>
+      </Container>
+    </Suspense>
   );
 };
 

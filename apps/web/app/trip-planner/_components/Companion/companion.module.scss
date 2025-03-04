@@ -17,3 +17,12 @@
     height: 20vh;
   }
 }
+
+.flex-text {
+  @include flex-text;
+}
+
+.wrap {
+  @include scroll;
+  @include visible-scroll(false);
+}
