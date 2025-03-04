@@ -20,13 +20,14 @@
 
 | Description | Techs |
 | ----- | ----------------------- |
-|Front| ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=flat&logo=typescript&logoColor=white) ![Reactjs](https://shields.io/badge/react-black?logo=react&style=flat)|
+|Front| ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=flat&logo=typescript&logoColor=white) ![Reactjs](https://shields.io/badge/react-black?logo=react&style=flat) ![Nextjs](https://img.shields.io/badge/Next.js-black?logo=next.js&logoColor=white&style=flat)|
 |State management & data fetching|![Tanstack Query](https://img.shields.io/badge/-tanstack%20Query-FF4154?style=flat&logo=react%20query&logoColor=white) ![ky badge](https://img.shields.io/badge/ky-red.svg)|
-|Build & Deployment|![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=flat&logo=vercel&logoColor=white)|
-|Code Quality & Version Control|![Commitlint](https://img.shields.io/badge/commitlint-0352fc.svg?style=flat&logo=commitlint&logoColor=fc4103) ![Yarn](https://img.shields.io/badge/yarn-%232C8EBB.svg?style=flat&logo=yarn&logoColor=white) ![vite](https://img.shields.io/badge/-Vite-B73BFE?style=flat&logo=vite&logoColor=white&style=flat)|
-|Error tracking & Monitoring|![Sentry Badge](https://img.shields.io/badge/Sentry-362D59?logo=sentry&logoColor=fff&style=for-the-badge&style=flat) |
-|Styling|![Sass Badge](https://img.shields.io/badge/Sass-C69?logo=sass&logoColor=fff&style=for-the-badge&style=flat)|
-|APIs|![Spotify Badge](https://img.shields.io/badge/Spotify-1DB954?logo=spotify&logoColor=fff&style=flat)  ![Genius Badge](https://img.shields.io/badge/Genius-FFFF64?logo=genius&logoColor=000&style=flat)|
+|Build & Deployment|![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=flat&logo=vercel&logoColor=white) |
+|Version Control|  ![Turborepo](https://img.shields.io/badge/-Turborepo-EF4444?style=flat&logo=turborepo&logoColor=white&style=flat)|
+|Testing|![Vitest](https://img.shields.io/badge/Vitest-6E9F18?logo=vitest&logoColor=fff&style=flat)  ![Storybook](https://img.shields.io/badge/Storybook-FF4785?logo=storybook&logoColor=fff&style=flat)|
+|Styling|![Sass Badge](https://img.shields.io/badge/Sass-C69?logo=sass&logoColor=fff&style=for-the-badge&style=flat) ![motion framer](https://img.shields.io/badge/Framer-05F?logo=framer&logoColor=fff&style=flat) |
+|APIs|![Aws](https://img.shields.io/badge/AWS-%23FF9900.svg?logo=amazon-web-services&logoColor=white&style=flat) ![openai](https://img.shields.io/badge/ChatGPT-74aa9c?logo=openai&logoColor=white&style=flat)  |
+|Database|![Firebase](https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black&style=flat) ![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white&style=flat)  |
 
 
 <b>Tripie(트리피)는 다음과 같은 기능을 제공합니다.</b>
@@ -139,6 +140,18 @@
    <img width="959" alt="image" src="https://github.com/user-attachments/assets/ba5280bc-489a-4db1-885e-72205b8275db" />
 
 - <a href='https://tripie-mauve.vercel.app/trip-planner/2025-03-04T16:40:37.887Z-cm64hcr040000qyrjxkk6xynx'> 👉 해당 여행 일정 보기</a>
+  - 비로그인 혹은 만든이의 일정이 아닌 경우, 공유는 가능하나 `로그인하고 일정 추천받아보기` 혹은 해당 유저의 사용 정보가 나옵니다. 
+<img width="1154" alt="image" src="https://github.com/user-attachments/assets/1e7b33e4-18f9-464b-a769-b2b6a2685068" />
+
+#### 에러 페이지들
+
+- <a href="https://tripie-mauve.vercel.app/trip-planner/not-enough-tokens">여행 일정 토큰을 모두 사용했을 경우, </a>
+  <img width="1154" alt="image" src="https://github.com/user-attachments/assets/c63c1d45-72d5-4a74-b02b-67a182145fa4" />
+- 500 에러
+  <img width="1154" alt="image" src="https://github.com/user-attachments/assets/1c072401-3050-4f16-b600-57b24f3d804c" />
+- 404 에러
+  <img width="1154" alt="image" src="https://github.com/user-attachments/assets/6452f2d4-e400-406b-b504-b68246932b4f" />
+
 
 ### Development Process
 
