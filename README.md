@@ -1,81 +1,156 @@
-# 🏖️ Tripie 트리피
+# Tripie ✈️ 
 
-This is an official starter Turborepo.
+<p align="center">
+<a href="https://tripie-mauve.vercel.app/">
+<img width="168"  alt="image"  src="https://github.com/user-attachments/assets/cb57b080-d5ed-468f-ac23-56ffb6c47eec"/></a>
+</div>
+</p>
 
-## Using this example
+<img width="1146" alt="image" src="https://github.com/user-attachments/assets/84a9202f-c288-4aab-bb03-0aeda59f8ca8" />
 
-Run the following command:
+## Table of Content
 
-```sh
-npx create-turbo@latest
-```
+- [Introduction](https://github.com/Pyotato/Tripie?tab=readme-ov-file#introduction)
+- [Features](https://github.com/Pyotato/Tripie?tab=readme-ov-file#features)
+- [Demo](https://github.com/Pyotato/Tripie?tab=readme-ov-file#-%EB%8D%B0%EB%AA%A8-%EC%98%81%EC%83%81-%EB%B3%B4%EA%B8%B0)
+- [Screenshots](https://github.com/Pyotato/Tripie?tab=readme-ov-file#screenshots)
+- [Development Process](https://github.com/Pyotato/Tripie?tab=readme-ov-file#development-process)
 
-## What's inside?
+### Introduction
 
-This Turborepo includes the following packages/apps:
+| Description | Techs |
+| ----- | ----------------------- |
+|Front| ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=flat&logo=typescript&logoColor=white) ![Reactjs](https://shields.io/badge/react-black?logo=react&style=flat)|
+|State management & data fetching|![Tanstack Query](https://img.shields.io/badge/-tanstack%20Query-FF4154?style=flat&logo=react%20query&logoColor=white) ![ky badge](https://img.shields.io/badge/ky-red.svg)|
+|Build & Deployment|![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=flat&logo=vercel&logoColor=white)|
+|Code Quality & Version Control|![Commitlint](https://img.shields.io/badge/commitlint-0352fc.svg?style=flat&logo=commitlint&logoColor=fc4103) ![Yarn](https://img.shields.io/badge/yarn-%232C8EBB.svg?style=flat&logo=yarn&logoColor=white) ![vite](https://img.shields.io/badge/-Vite-B73BFE?style=flat&logo=vite&logoColor=white&style=flat)|
+|Error tracking & Monitoring|![Sentry Badge](https://img.shields.io/badge/Sentry-362D59?logo=sentry&logoColor=fff&style=for-the-badge&style=flat) |
+|Styling|![Sass Badge](https://img.shields.io/badge/Sass-C69?logo=sass&logoColor=fff&style=for-the-badge&style=flat)|
+|APIs|![Spotify Badge](https://img.shields.io/badge/Spotify-1DB954?logo=spotify&logoColor=fff&style=flat)  ![Genius Badge](https://img.shields.io/badge/Genius-FFFF64?logo=genius&logoColor=000&style=flat)|
 
-### Apps and Packages
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@tripie-pyotato/design-system`: a stub React component library shared by both `web` and `docs` applications
-- `@tripie-pyotato/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@tripie-pyotato/typescript-config`: `tsconfig.json`s used throughout the monorepo
+<b>Tripie(트리피)는 다음과 같은 기능을 제공합니다.</b>
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+- `비로그인` : 트리플에서 웹스크래핑한 여행 지역에 대한 팁 (여행 지역, 일정, 장소 및 음식점 정보)
+- `로그인` : github 또는 카카오로 로그인 시 챗지피티 기반의 여행 일정을 추천받을 수 있습니다.
 
-### Utilities
+### Features
 
-This Turborepo has some additional tools already setup for you:
+<!--
+#### 📼 데모 영상 보기
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+[![Watch the video](https://github.com/user-attachments/assets/19ddf60c-8c43-4ef0-9761-53caab4d8752)](https://www.youtube.com/watch?v=1u26NxKxHNQ)
+-->
 
-### Build
+#### Screenshots
 
-To build all apps and packages, run the following command:
+##### 랜딩 페이지 : 트리피 서비스에 대한 설명과 링크
 
-```
-cd my-turborepo
-pnpm build
-```
+<img width="1146" alt="image" src="https://github.com/user-attachments/assets/1596b195-3c67-4dae-a0c9-d230b3b5d076" />
 
-### Develop
+   - `/#Process` : 여행 일정 서비스 이용할 떼 지역 > 나라 > 도시 > 기간 > 동행자 > 여행 스타일 순으로 선택 시 예시 여행 일정 흐름을 보여줍니다.
+      - <img width="1146" alt="image" src="https://github.com/user-attachments/assets/e8d2bec8-3740-4518-b7ec-24c0ad39df47" />
+      - <img width="1146" alt="image" src="https://github.com/user-attachments/assets/51c4ae54-f7a3-4d21-9e18-d9e05225b24c" />
+      - <img width="1146" alt="image" src="https://github.com/user-attachments/assets/b88b7e3f-be69-43c6-85f2-cca36d4c906a" />
+      - <img width="1146" alt="image" src="https://github.com/user-attachments/assets/7fc12ff1-1ad1-47e7-bd37-2e1e5ac66407" />
 
-To develop all apps and packages, run the following command:
+  - `/#Sevices` : 서비스 중 여행지에 대한 팁을 "도시별 여행 정보"에서 확인할 수 있습니다. 보여질 나라는 랜덤으로 선택됩니다.
+     - <img width="1146" alt="image" src="https://github.com/user-attachments/assets/58b1dcda-6eff-45d8-bfe5-b581f4ba7fc4" />
 
-```
-cd my-turborepo
-pnpm dev
-```
+   - `/#our work` : (더미) 업적
+     - <img width="1146" alt="image" src="https://github.com/user-attachments/assets/76ac84d7-0288-4a3c-a666-cf2d2c71c847" />
 
-### Remote Caching
+   - `/#plans` : (더미) 구독 시 서비스
+     - <img width="1146" alt="image" src="https://github.com/user-attachments/assets/b746c7c7-3bbb-4098-b98b-fdb976396f73" />
 
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+   - `/#Contacts` : 관리자 이메일 연락, 클릭 시 메일을 보낼 수 있습니다.
+     - <img width="1146" alt="image" src="https://github.com/user-attachments/assets/23c45faa-9d41-4517-856a-b19543fef2a4" />
+     - <img width="1146" alt="image" src="https://github.com/user-attachments/assets/019ebd8e-087e-4659-a830-29f774dc7a67" />
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
+- <a href='https://tripie-mauve.vercel.app/regions'>여행 정보 페이지</a> : 트리플 앱에서 스크래핑한 여행 정보와 팁, SEO를 위해 메타태그 설정이 되어 있습니다. (공유 시 해당 og 정보로 공유)
+   - `/regions` : <a href="https://tripie-mauve.vercel.app/regions/%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD"></a> 
+     - <img width="1153" alt="image" src="https://github.com/user-attachments/assets/3b016698-9372-4049-a69f-be5682ae40fb" />
+   - `/regions/대한민국` : <a href="https://tripie-mauve.vercel.app/regions/%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD">대한민국</a> 선택시 
+      <img width="1153" alt="image" src="https://github.com/user-attachments/assets/1bd7da2f-6104-48f3-9b2e-bb136f4c98d9" />
+   - `/regions/대한민국/location/제주도 ID` : <a href="https://tripie-mauve.vercel.app/regions/%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD/location/759174cc-0814-4400-a420-5668a0517edd">대한민국, 제주도</a> 선택시 
+     <img width="1153" alt="image" src="https://github.com/user-attachments/assets/329f0343-adb0-4051-9795-8516ca7c0dc0" />
 
-```
-cd my-turborepo
-npx turbo login
-```
+##### 여행 정보 상세 페이지
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+- 여행 정보 상세 페이지 (`regions/지역ID/articles/기사ID`): 
+    - <a href='https://tripie-mauve.vercel.app/regions/759174cc-0814-4400-a420-5668a0517edd/articles/841db340-ffb6-4774-8265-45f559f37e2b'>제주 여행 코스 짜는 방법</a> 카드를 클릭하면 해당 게시물 페이지로 이동합니다.
+        - 여행 일정에 대한 정보가 포함될 시, 다음과 같이 카드와 지도로 해당 위치에 대한 정보를 확인할 수 있습니다.
+          <img width="1153" alt="image" src="https://github.com/user-attachments/assets/39a938b0-47b1-4238-82a9-3b034c682a99" />
+          <img width="1153" alt="image" src="https://github.com/user-attachments/assets/1f6768c5-539f-4243-9982-afdadc75ad5c" />          
+    - 여행 정보 상세 페이지 : <a href='https://tripie-mauve.vercel.app/regions/759174cc-0814-4400-a420-5668a0517edd/articles/80d42ed4-2f18-43a0-90a5-5b09e6e4ee17'>여름 제주 인생샷 명소 BEST 7</a> 카드를 클릭하면 해당 게시물 페이지로 이동합니다. 
+         - 이미지가 여러 개일 경우 캐로솔로 제공됩니다. 버튼과 스크롤로 동작합니다.
+           <img width="1153" alt="image" src="https://github.com/user-attachments/assets/91993428-257c-4a5e-af69-f9a1dc839071" />
+- 여행 (식당) 정보 상세 페이지 (`regions/지역ID/restaurants/기사ID`): 
+    - <a href='https://tripie-mauve.vercel.app/regions/1f08fbaf-be2c-4766-a64c-18af53649282/restaurants/48097ef1-64f3-4d69-9133-38623b942589'>오쇼쿠지도코로 이마킨</a>와 같은 음식점 링크를 타고 가면 
+       - 해당 장소의 사진과 메뉴 등의 정보,
+         <img width="1153" alt="image" src="https://github.com/user-attachments/assets/f2e0a8d1-2b15-46cf-afe9-01f567a4b6d1" />
+         <img width="1153" alt="image" src="https://github.com/user-attachments/assets/4b11a52b-7dd0-46b6-8c54-9e11e90cb71d" />
+       - 전화번호나 웹사이트 등의 기본 정보,
+         <img width="1153" alt="image" src="https://github.com/user-attachments/assets/4f56f93c-7ac5-4d88-b010-054756839b38" />
+       - 팁, 휴무일, 이용 팁, 가는 방법 등의 정보를 보여줍니다.
+         <img width="1153" alt="image" src="https://github.com/user-attachments/assets/c4a64daa-7b1d-4309-8d3b-5bcf6a25cf9e" />
+       - 소셜 리뷰
+         <img width="1153" alt="image" src="https://github.com/user-attachments/assets/531132d4-522d-4e78-8656-b1a8df5bd26d" />
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+##### 여행 일정 추천 페이지
 
-```
-npx turbo link
-```
+- 챗지피티를 활용해 여행 일정을 짜주고 해당 여행 일정을 지도에서 설명과 함께 확인 가능합니다. 퍼널 구조를 활용해 구현했습니다.
+  - 네비게이션에서 `AI추천 맞춤 일정` 클릭 시, 새로운 탭에서 페이지가 열립니다.
+     <img width="1153" alt="image" src="https://github.com/user-attachments/assets/122e44d0-4a3b-4321-9460-d35b85812fc9" />
+     <img width="1153" alt="image" src="https://github.com/user-attachments/assets/9d69b8a2-dd70-44f0-af85-099001afbcb5" />
 
-## Useful Links
+- `지역 (region)` > 아시아 선택 시 (`/trip-planner?trip-plan.step=CONTINENT`)
+   - <img width="1153" alt="image" src="https://github.com/user-attachments/assets/f7581cda-bdb2-4354-a3ae-61ecf98f8113" />
 
-Learn more about the power of Turborepo:
+- `나라 (country)` > 싱가포르 선택시 (`/trip-planner?trip-plan.step=COUNTRY `)
+   -  <img width="1153" alt="image" src="https://github.com/user-attachments/assets/d7968d16-c679-41cb-91ea-de5cab59cad5" />
 
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+- `도시 (city)` > 전체 선택시 (`/trip-planner?trip-plan.step=CITY`)
+   - <img width="1153" alt="image" src="https://github.com/user-attachments/assets/28fdf58d-8d75-4916-b605-a1195312e45f" />
+
+- `기간 (duration)` > (시작: 3/5/2025 12:00:00 PM, 끝: 3/6/2025 11:59:59 PM) 선택 시 (`/trip-planner?trip-plan.step=DURATION`)
+   - <img width="1153" alt="image" src="https://github.com/user-attachments/assets/66877944-b13f-45ab-9b5f-9570552bda28" />
+
+- `동반 (companion)` > 친구와 선택 시 (`/trip-planner?trip-plan.step=COMPANION`)
+   - <img width="1153" alt="image" src="https://github.com/user-attachments/assets/66877944-b13f-45ab-9b5f-9570552bda28" />
+
+- `여행 테마 (preference)` > SNS 핫플레이스, 관광보다 먹방, 여행지 느낌 물씬, 유명 관광지는 필수 선택 시 (`/trip-planner?trip-plan.step=PREFERENCE`)
+   - <img width="1153" alt="image" src="https://github.com/user-attachments/assets/f7313db2-9a6f-4123-97f8-d90ca54ba9f8" />
+
+- 선택 로딩 화면 (임시, 수정 예정)
+   - <img width="1153" alt="image" src="https://github.com/user-attachments/assets/6ae12714-7e31-474e-8e00-1fdb5f0509cc" />
+
+- 여행 일정
+   <img width="1153" alt="image" src="https://github.com/user-attachments/assets/d1234890-09c5-40e5-9b0e-66d28d6adb54" />
+
+- 여행 일정 (1일)
+  <img width="1153" alt="image" src="https://github.com/user-attachments/assets/a05a2a08-a9f3-469f-8456-a626a87a8954" />
+
+- 여행 일정 (2일)
+   <img width="1153" alt="image" src="https://github.com/user-attachments/assets/8f632f8f-5a0d-4b48-b096-da60ebbd984b" />
+
+- 링크 클릭시 구글 검색결과가 새로운 창으로 열어집니다. 
+   <img width="1153" alt="image" src="https://github.com/user-attachments/assets/01a0d214-be84-448a-ba3e-b70834bf2e72" />
+   <img width="959" alt="image" src="https://github.com/user-attachments/assets/ba5280bc-489a-4db1-885e-72205b8275db" />
+
+- <a href='https://tripie-mauve.vercel.app/trip-planner/2025-03-04T16:40:37.887Z-cm64hcr040000qyrjxkk6xynx'> 👉 해당 여행 일정 보기</a>
+
+### Development Process
+
+<!-- - 자세한 구현 과정은 [블로그](https://pyotato-dev.tistory.com/entry/spotify-api-VINYLIFY-%EC%8A%A4%ED%8F%AC%ED%8B%B0%ED%8C%8C%EC%9D%B4-api%ED%99%9C%EC%9A%A9%ED%95%9C-%EA%B2%80%EC%83%89-%EC%9E%AC%EC%83%9D-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8)에서 살펴보실 수 있습니다. (업데이트 중, COMING SOON!)
+- [1탄 : spotify dev 계정 만들기](https://pyotato-dev.tistory.com/entry/spotify-api-VINYLIFY-%EC%8A%A4%ED%8F%AC%ED%8B%B0%ED%8C%8C%EC%9D%B4-api%ED%99%9C%EC%9A%A9%ED%95%9C-%EA%B2%80%EC%83%89-%EC%9E%AC%EC%83%9D-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B81-%EC%A4%80%EB%B9%84%EB%AC%BCspotify-dev-%EA%B3%84%EC%A0%95-application)
+- [2탄 : spotify api authorization 담당 서버(1) vercel로 배포](https://pyotato-dev.tistory.com/entry/spotify-api-VINYLIFY-%EC%8A%A4%ED%8F%AC%ED%8B%B0%ED%8C%8C%EC%9D%B4-api%ED%99%9C%EC%9A%A9%ED%95%9C-%EA%B2%80%EC%83%89-%EC%9E%AC%EC%83%9D-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B82-%EC%A4%80%EB%B9%84%EB%AC%BC-authorization%EC%9D%84-%EB%8B%B4%EB%8B%B9%ED%95%A0-%EC%84%9C%EB%B2%84)
+- [3탄 : spotify api authorization 담당 서버(2) 코드 작성](https://pyotato-dev.tistory.com/entry/spotify-api-VINYLIFY-%EC%8A%A4%ED%8F%AC%ED%8B%B0%ED%8C%8C%EC%9D%B4-api%ED%99%9C%EC%9A%A9%ED%95%9C-%EA%B2%80%EC%83%89-%EC%9E%AC%EC%83%9D-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B83-%EC%A4%80%EB%B9%84%EB%AC%BC-authorization%EC%9D%84-%EB%8B%B4%EB%8B%B9%ED%95%A0-%EC%84%9C%EB%B2%84-%EC%BD%94%EB%93%9C)
+- [4탄 : eslint + prettier + commitlint 설정 (+husky)](https://pyotato-dev.tistory.com/entry/spotify-api-VINYLIFY-%EC%8A%A4%ED%8F%AC%ED%8B%B0%ED%8C%8C%EC%9D%B4-api%ED%99%9C%EC%9A%A9%ED%95%9C-%EA%B2%80%EC%83%89-%EC%9E%AC%EC%83%9D-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B84-eslint-prettier-commitlint-%EC%84%A4%EC%A0%95-husky)
+- [5탄 : react router 설정](https://pyotato-dev.tistory.com/entry/spotify-api-VINYLIFY-%EC%8A%A4%ED%8F%AC%ED%8B%B0%ED%8C%8C%EC%9D%B4-api%ED%99%9C%EC%9A%A9%ED%95%9C-%EA%B2%80%EC%83%89-%EC%9E%AC%EC%83%9D-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B85-react-router-%EC%84%A4%EC%A0%95)
+- [6탄 : tanstack query 설정](https://pyotato-dev.tistory.com/entry/spotify-api-VINYLIFY-%EC%8A%A4%ED%8F%AC%ED%8B%B0%ED%8C%8C%EC%9D%B4-api%ED%99%9C%EC%9A%A9%ED%95%9C-%EA%B2%80%EC%83%89-%EC%9E%AC%EC%83%9D-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B86)
+- [7탄 : sentry 설정](https://pyotato-dev.tistory.com/entry/spotify-api-VINYLIFY-%EC%8A%A4%ED%8F%AC%ED%8B%B0%ED%8C%8C%EC%9D%B4-api%ED%99%9C%EC%9A%A9%ED%95%9C-%EA%B2%80%EC%83%89-%EC%9E%AC%EC%83%9D-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B87-Sentry-%EC%84%A4%EC%A0%95)
+-->
+
+
+
