@@ -1,41 +1,30 @@
 'use server';
 
-import { TRIPIE_REGION_BY_LOCATION, TRIPIE_REGION_IDS } from 'constants/tripie-country';
-import RegionList from '../_components/RegionList';
-import RegionSelect from '../_components/RegionSelect';
-import Title from '../_components/Title';
+import RegionList from '../_components/Region/RegionList';
+import RegionSelect from '../_components/Region/Select';
 
 import { Text } from '@tripie-pyotato/design-system';
 import getRegionArticles from 'app/api/articles/region';
+import Title from '../_components/Region/Title';
+import { parseParams } from './parse-params';
+
+import { sharedMetaData } from 'app/shared-metadata';
 import API from 'constants/api-routes';
 import ROUTE from 'constants/routes';
 import { Metadata, ResolvingMetadata } from 'next';
-import { sharedMetaData } from '../../shared-metadata';
-
-type Params = { regionId: string };
 
 type Props = {
   params: Promise<{ regionId: string }>;
 };
 
-const parseParams = async (params: Promise<Params>) => {
-  const { regionId } = await params;
-  const decodedRegionId = decodeURIComponent(regionId);
-  const selectedIds = TRIPIE_REGION_BY_LOCATION[decodedRegionId as keyof typeof TRIPIE_REGION_BY_LOCATION];
-  const selectedRegion = Object.keys(TRIPIE_REGION_IDS).filter(
-    item => TRIPIE_REGION_IDS[item as keyof typeof TRIPIE_REGION_IDS] === selectedIds[0]
-  )?.[0];
-
-  return {
-    regionId: decodedRegionId,
-    selectedRegion,
-  };
-};
+async function pageParamData({ params }: Props) {
+  const { regionId, selectedRegionCity } = await parseParams(params);
+  const dynamicBlurDataUrl = await getRegionArticles(selectedRegionCity);
+  return { regionId, selectedRegionCity, dynamicBlurDataUrl };
+}
 
 export async function generateMetadata({ params }: Props, parent: ResolvingMetadata): Promise<Metadata> {
-  const { regionId, selectedRegion } = await parseParams(params);
-
-  const dynamicBlurDataUrl = await getRegionArticles(selectedRegion);
+  const { regionId, dynamicBlurDataUrl, selectedRegionCity } = await pageParamData({ params });
 
   const previousImages = (await parent).openGraph?.images || [];
   const title = `도시 별 여행 정보 > ${regionId}`;
@@ -54,22 +43,21 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
       title,
       description,
       images: [...sneakPeak.map(item => item.source.image.sizes.full.url), ...previousImages],
-      url: `${API.BASE_URL}${ROUTE.REGIONS.href}/${selectedRegion}`,
+      url: `${API.BASE_URL}${ROUTE.REGIONS.href}/${selectedRegionCity}`,
     },
   };
 }
 
 const Articles = async ({ params }: { params: Promise<{ regionId: string }> }) => {
-  const { regionId, selectedRegion } = await parseParams(params);
-  const dynamicBlurDataUrl = await getRegionArticles(selectedRegion);
+  const { regionId, dynamicBlurDataUrl, selectedRegionCity } = await pageParamData({ params });
 
   return (
     <>
       <Title>
         도시 별<Text.Accented> 여행 </Text.Accented>정보 {` > `} <Text.Accented>{regionId}</Text.Accented>
       </Title>
-      <RegionSelect selected={regionId} selectedRegion={selectedRegion} />
-      <RegionList data={dynamicBlurDataUrl} selectedRegion={selectedRegion} />
+      <RegionSelect selected={regionId} selectedRegion={selectedRegionCity} />
+      <RegionList data={dynamicBlurDataUrl} selectedRegion={selectedRegionCity} />
     </>
   );
 };

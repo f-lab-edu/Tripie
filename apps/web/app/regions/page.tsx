@@ -1,7 +1,7 @@
 'use server';
 
 import { TRIPIE_REGION_BY_LOCATION, TRIPIE_REGION_IDS } from 'constants/tripie-country';
-import RegionSelect from './_components/RegionSelect';
+import RegionSelect from './_components/Region/Select';
 
 import { Text } from '@tripie-pyotato/design-system';
 import getRegionArticles from 'app/api/articles/region';
@@ -9,8 +9,8 @@ import API from 'constants/api-routes';
 import ROUTE from 'constants/routes';
 import { Metadata } from 'next';
 import { sharedMetaData } from '../shared-metadata';
-import RegionList from './_components/RegionList';
-import Title from './_components/Title';
+import RegionList from './_components/Region/RegionList';
+import Title from './_components/Region/Title';
 
 export async function generateMetadata(): Promise<Metadata> {
   const regions = Object.keys(TRIPIE_REGION_BY_LOCATION);

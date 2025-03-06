@@ -1,4 +1,4 @@
-import { ItineraryProps } from 'app/regions/_components/Elements/Itinerary';
+import { ItineraryProps } from 'app/regions/[regionId]/_components/ArticleLayout/Elements/Itinerary';
 import { Activity } from 'models/Aws';
 import { useMemo, useState } from 'react';
 

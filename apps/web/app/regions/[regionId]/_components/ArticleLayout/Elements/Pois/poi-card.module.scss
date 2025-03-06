@@ -1,0 +1,9 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.poi-card {
+  min-width: max(21rem, 48.9%);
+  @media (max-width: 450) {
+    min-width: 17rem;
+  }
+}

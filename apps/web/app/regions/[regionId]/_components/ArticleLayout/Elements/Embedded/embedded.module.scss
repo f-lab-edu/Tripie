@@ -1,0 +1,22 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.flex-items {
+  @include flex-items;
+}
+
+.embedded-card-wrap {
+  overflow-x: scroll;
+  height: 100%;
+  align-items: stretch;
+}
+
+.card-images {
+  margin: 0;
+}
