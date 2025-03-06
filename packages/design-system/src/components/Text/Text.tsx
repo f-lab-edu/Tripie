@@ -15,10 +15,10 @@ export interface TextProps {
   className?: string;
 }
 
-const Text = ({ children, className, ...props }: Readonly<TextProps>) => {
+const Text = ({ children, className, size = 'default', bold = false, ...props }: Readonly<TextProps>) => {
   const splitText = `${children}`.split('\n').map((sentence, index) => {
     return (
-      <span className={cx('text', className)} key={index + sentence} {...props}>
+      <span className={cx('text', bold ? 'bold' : '', size, className)} key={index + sentence} {...props}>
         {sentence}
       </span>
     );
@@ -26,9 +26,9 @@ const Text = ({ children, className, ...props }: Readonly<TextProps>) => {
   return <>{splitText}</>;
 };
 
-const AccentedText = ({ children, className, ...props }: Readonly<TextProps>) => {
+const AccentedText = ({ children, className, bold, size = 'default', ...props }: Readonly<TextProps>) => {
   return (
-    <span className={cx('text', 'accented', className)} {...props}>
+    <span className={cx('text', 'accented', size, bold ? 'bold' : '', className)} {...props}>
       {children}
     </span>
   );

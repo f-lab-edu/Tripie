@@ -2,7 +2,7 @@
 
 import classNames from 'classnames/bind';
 import Link from 'next/link';
-import Text from '../Text';
+import Text, { TextProps } from '../Text';
 import Style from './link.module.scss';
 
 const style = classNames.bind(Style);
@@ -14,12 +14,14 @@ export interface LinkProps extends React.RefAttributes<HTMLAnchorElement> {
   'aria-selected'?: boolean;
   'aria-disabled'?: boolean;
   role?: string;
+  size?:TextProps['size']
+  bold?:TextProps['bold']
 }
 
-function UnstyledLink({ children, className, href, role, ...props }: Readonly<LinkProps>) {
+function UnstyledLink({ children, className, href, role,size='default', ...props }: Readonly<LinkProps>) {
   return (
     <Link href={href} className={style('link', className)} role={role} {...props}>
-      <Text>{children}</Text>
+      <Text bold={true} size={size}>{children}</Text>
     </Link>
   );
 }

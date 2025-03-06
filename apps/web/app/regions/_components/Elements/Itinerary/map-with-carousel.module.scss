@@ -2,16 +2,21 @@
 @use 'mixins' as *;
 
 .timeline-divider {
-  height: 4px !important;
-  background-color: $theme-50 !important;
-
+  height: 4px;
+  background-color: $theme-50;
   transform: translateY(3rem);
 }
 
 .total-wrap {
   display: inline-flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  align-items: stretch;
+
+  & .timeline-item-wrap {
+    position: relative;
+    top: 1rem;
+  }
 }
 
 .icon-wrap {
@@ -21,28 +26,20 @@
 }
 
 .other-icons {
-  transform: translate(8%, 30%);
+  transform: translate(8%, 100%);
 }
 .first-icon {
-  transform: translate(8%, 100%);
+  transform: translate(8%, 200%);
 }
 
 .flag {
   position: sticky;
-  top: 5%;
+  top: 4%;
 }
 
 .last-flag {
   display: inline-flex;
   justify-content: flex-end;
-}
-
-.timeline-item-wrap {
-  display: inline-flex;
-  flex-direction: column;
-  position: static;
-  top: 0;
-  height: 24rem;
 }
 
 .timeline {
@@ -53,7 +50,7 @@
 }
 
 .itinerary-card {
-  width: 100% !important;
+  width: 100%;
 }
 .default {
   width: 100%;
@@ -62,4 +59,9 @@
 
 .marker {
   padding: 0.5rem;
+}
+
+.first-card-wrap {
+  position: relative;
+  top: -1rem;
 }

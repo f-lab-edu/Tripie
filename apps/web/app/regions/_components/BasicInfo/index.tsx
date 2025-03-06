@@ -1,58 +1,36 @@
 'use client';
 import { Card, Container } from '@tripie-pyotato/design-system';
 import ArticleLink from 'app/regions/_components/Elements/Link';
-
-import classNames from 'classnames/bind';
 import { AttractionArticle } from 'models/Attraction';
-import Style from './basic-info.module.scss';
-
-const cx = classNames.bind(Style);
+import { useMemo } from 'react';
+import InfoItem, { InfoTagType } from './InfoTag';
 
 export type BasicInfoProps = Pick<
   AttractionArticle['source'],
   'addresses' | 'phoneNumber' | 'officialSiteUrl' | 'regionId'
->;
+> & { dataUrl: string };
 
-const BasicInfo = ({
-  addresses,
-  phoneNumber,
-  officialSiteUrl,
-  regionId,
-  dataUrl,
-}: BasicInfoProps & { dataUrl: string }) => {
+const BasicInfo = ({ addresses, phoneNumber, officialSiteUrl, regionId, dataUrl }: BasicInfoProps) => {
+  const INFO_TAG_CONTENT: Record<keyof InfoTagType, React.ReactNode | null> = useMemo(
+    () => ({
+      주소: addresses ? <Container margin="none">{addresses.local ?? addresses.ko}</Container> : null,
+      전화: phoneNumber ? <Container margin="none">{phoneNumber}</Container> : null,
+      홈페이지: officialSiteUrl ? (
+        <ArticleLink
+          item={{ type: 'links', value: { links: [{ href: officialSiteUrl, label: officialSiteUrl }] } }}
+          regionId={regionId}
+          dataUrl={dataUrl}
+        />
+      ) : null,
+    }),
+    [addresses, phoneNumber, officialSiteUrl, regionId, dataUrl]
+  );
+
   return (
-    <Card.Content className={cx('basic-info')}>
-      {addresses != null ? (
-        <Container applyMargin="bottom" className={cx('basic-info-flex-wrap')}>
-          <Container margin="none" className={cx('item-name')}>
-            주소
-          </Container>
-          <Container margin="none">{addresses.local ?? addresses.ko}</Container>
-        </Container>
-      ) : null}
-      {phoneNumber != null ? (
-        <Container applyMargin="bottom" className={cx('basic-info-flex-wrap')}>
-          <Container margin="none" className={cx('item-name')}>
-            전화
-          </Container>
-          <Container margin="none">{phoneNumber}</Container>
-        </Container>
-      ) : null}
-      {officialSiteUrl != null ? (
-        <Container margin="none" className={cx('basic-info-flex-wrap')}>
-          <Container margin="none" className={cx('item-name')}>
-            홈페이지
-          </Container>
-          <ArticleLink
-            item={{
-              type: 'links',
-              value: { links: [{ href: officialSiteUrl, label: officialSiteUrl }] },
-            }}
-            regionId={regionId}
-            dataUrl={dataUrl}
-          />
-        </Container>
-      ) : null}
+    <Card.Content>
+      {Object.entries(INFO_TAG_CONTENT).map(([key, content]) =>
+        content ? <InfoItem key={key} item={key as keyof InfoTagType} content={content} /> : null
+      )}
     </Card.Content>
   );
 };

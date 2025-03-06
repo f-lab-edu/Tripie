@@ -5,10 +5,3 @@
   @include background('1');
   padding: 50px 0;
 }
-
-.wrap {
-  display: inline-flex;
-  flex-direction: column;
-  gap: 1rem;
-  flex-wrap: nowrap !important;
-}

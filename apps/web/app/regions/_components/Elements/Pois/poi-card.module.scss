@@ -1,43 +1,9 @@
 @use 'variables' as *;
 @use 'mixins' as *;
 
-.embedded-card-wrap {
-  overflow-x: scroll;
-  height: 100%;
-  align-items: stretch !important;
-}
-
 .poi-card {
-  min-height: 21rem;
-  height: auto !important;
-  min-width: 20rem;
-
-  & > div:first-child {
-    height: 12rem !important;
-    max-height: 8rem; /* Restrict image height */
-    min-height: 8rem; /* Restrict image height */
-    overflow: hidden;
-    display: block !important;
-    position: relative;
+  min-width: 21rem;
+  @media (max-width: 450) {
+    min-width: 17rem;
   }
-
-  & > div {
-    margin: 0 !important;
-  }
-}
-
-.poi-img-source-ref {
-  max-width: 8rem;
-  font-size: 0.6rem;
-}
-
-.carousel {
-  position: relative;
-  width: 100%;
-  margin: auto;
-  overflow: hidden;
-}
-
-.flex-items {
-  @include flex-items;
 }

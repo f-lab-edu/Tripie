@@ -2,27 +2,22 @@
 @use 'mixins' as *;
 
 .card-wrap {
-  height: 34rem !important;
+  height: 34rem;
 }
 .card-content-wrap {
-  // 스크롤 바 스타일
-  // overflow-y: scroll !important;
-  // position: relative !important;
-  // scrollbar-color: $theme-50 $theme-300;
-  // scrollbar-width: thin;
   @include scroll;
 }
 
 .card-region-wrap {
   & div > div > ul {
     @media (min-width: 1356px) {
-      grid-template-columns: repeat(6, 1fr) !important;
+      grid-template-columns: repeat(6, 1fr);
     }
   }
 }
 
 .scroll {
   @include scroll;
-  // @include visible-scroll(true);
+
   @include visible-scroll(false);
 }

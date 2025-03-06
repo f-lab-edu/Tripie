@@ -42,33 +42,29 @@ const ArticleCard = ({
       {item.map((embeddedItem: EmbeddedCardProps, index: number) => {
         const { type } = embeddedItem;
         switch (type) {
-          case 'images':
-            if (embeddedItem.value?.images) {
-              return embeddedItem.value.images?.map(({ sizes, sourceUrl, blurData }) => (
-                <TripieImage.WithSourceUrl
-                  sourceUrl={sourceUrl}
-                  src={sizes.full.url}
-                  alt={sizes.full.url}
-                  key={index + sizes.full.url}
-                  withBorder={true}
-                  sizes={'card'}
-                  blurDataURL={blurData?.data}
-                />
-              ));
-            }
-            return (embeddedItem.value as unknown as ImageProps['value']['images'])?.map(
-              ({ sizes, sourceUrl, blurData }) => (
-                <TripieImage.WithSourceUrl
-                  sourceUrl={sourceUrl}
-                  src={sizes.full.url}
-                  alt={sizes.full.url}
-                  key={index + sizes.full.url}
-                  withBorder={true}
-                  sizes={'card'}
-                  blurDataURL={blurData?.data}
-                />
-              )
+          case 'images': {
+            const images = embeddedItem.value?.images
+              ? embeddedItem.value.images
+              : (embeddedItem.value as unknown as ImageProps['value']['images']);
+
+            return (
+              <Carousel
+                className={cx('card-images')}
+                key={JSON.stringify(images)}
+                items={images?.map(({ sizes, sourceUrl, blurData }, imgIndex) => (
+                  <TripieImage.WithSourceUrl
+                    sourceUrl={sourceUrl}
+                    src={sizes.full.url}
+                    alt={sizes.full.url}
+                    key={`${index}-${sizes.full.url}-${imgIndex}`}
+                    withBorder={true}
+                    sizes={'card'}
+                    blurDataURL={blurData?.data}
+                  />
+                ))}
+              />
             );
+          }
           case 'heading1':
           case 'heading2':
           case 'heading3':

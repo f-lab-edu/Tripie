@@ -5,7 +5,7 @@
   @media (max-width: 800px) {
     flex-wrap: wrap;
     & > div {
-      width: 100% !important;
+      width: 100%;
     }
   }
 }

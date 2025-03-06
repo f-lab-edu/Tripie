@@ -17,7 +17,7 @@ const ArticleNote = ({ item }: { item: NoteProps }) => {
     <Card.Content className={cx('fit-content')} key={item.value.body}>
       <Headings.H3>{item.value.title}</Headings.H3>
       <Container applyMargin="top-bottom">
-        <Text>{decodedStr}</Text>
+        <Text className={cx('note')}>{decodedStr}</Text>
       </Container>
     </Card.Content>
   );

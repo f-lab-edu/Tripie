@@ -25,6 +25,7 @@ const RegionBody = ({ source, dataUrl }: { source: AttractionArticle['source']; 
         coordinates={source?.geolocation.coordinates}
         directions={source?.directions}
         basicInfo={{
+          dataUrl,
           addresses: source?.addresses,
           phoneNumber: source?.phoneNumber,
           officialSiteUrl: source?.officialSiteUrl,

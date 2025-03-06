@@ -1,10 +1,9 @@
 'use client';
-import { Container, TextUnderLineAnimation } from '@tripie-pyotato/design-system';
+import { Container, Link, TextUnderLineAnimation } from '@tripie-pyotato/design-system';
 import classNames from 'classnames/bind';
 
 import useFilterLink from 'hooks/useFilterLink';
 import { Link as LinkType } from 'models/Link';
-import Link from 'next/link';
 
 import Style from './link.module.scss';
 
@@ -22,10 +21,12 @@ const ArticleLink = ({ item, regionId, dataUrl }: { item: LinkProps; regionId: s
     return null;
   }
   return (
-    <Container applyMargin="top" className={cx('link-wrap')}>
+    <Container margin="none" className={cx('link-wrap')}>
       {filteredLinks.map(({ label, href }) => (
         <TextUnderLineAnimation key={href} className={cx('link')}>
-          <Link href={href}>{label}</Link>
+          <Link size="small" href={href}>
+            {label}
+          </Link>
         </TextUnderLineAnimation>
       ))}
     </Container>

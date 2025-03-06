@@ -2,13 +2,15 @@
 import { Card, Container, TripieImage } from '@tripie-pyotato/design-system';
 import getArticleDetail from 'app/api/articles/detail';
 import Title from 'app/regions/_components/Title';
-import classNames from 'classnames/bind';
 import API from 'constants/api-routes';
 import ROUTE from 'constants/routes';
 import type { Metadata, ResolvingMetadata } from 'next';
 import { sharedMetaData } from '../../../../shared-metadata';
-import Style from './article-body.module.scss';
+
 import ArticleBody, { BodyItemProps } from './ArticleBody';
+
+import classNames from 'classnames/bind';
+import Style from './article.module.scss';
 
 const cx = classNames.bind(Style);
 
@@ -56,7 +58,7 @@ const Articles = async ({ params }: Props) => {
         <Container margin="m" applyMargin="left-right">
           <Title withNavigation={false}>{data?.metadataContents?.title}</Title>
         </Container>
-        <Container margin="m" applyMargin="all" className={cx('img-container')}>
+        <Container margin="m" applyMargin="all">
           <TripieImage
             src={data?.metadataContents?.image?.sizes?.full?.url}
             alt={`${data?.metadataContents?.image?.sizes?.full?.url}의 썸네일`}
@@ -64,7 +66,7 @@ const Articles = async ({ params }: Props) => {
             sizes="large"
           />
         </Container>
-        <Container margin="m" applyMargin="left-right">
+        <Container margin="m" applyMargin="left-right-bottom">
           <ArticleBody items={data?.body as BodyItemProps[]} regionId={regionId} dataUrl={data.id} />
         </Container>
       </Card.Content>

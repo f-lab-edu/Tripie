@@ -59,7 +59,7 @@ const Attractions = async ({ params }: Props) => {
         <Container margin="m" applyMargin="top-left-right">
           <AttractionTitle names={data.source.names} />
         </Container>
-        <Container margin="m" applyMargin="all" className={cx('img-container')}>
+        <Container margin="m" applyMargin="all">
           <TripieImage
             blurDataURL={blurredThumbnail?.data}
             src={data.source.image.sizes.full.url}

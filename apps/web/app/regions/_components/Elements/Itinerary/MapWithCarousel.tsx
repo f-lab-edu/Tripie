@@ -44,7 +44,11 @@ const CarouselItems = memo(
     const cardRefs = useRef<Array<React.RefObject<HTMLDivElement>>>(pois.map(() => createRef()));
 
     return pois.map((poi, index) => (
-      <Container margin="none" key={index + poi.id + poi.source.areas?.[0]?.id} className={cx('total-wrap')}>
+      <Container
+        margin="none"
+        key={index + poi.id + poi.source.areas?.[0]?.id}
+        className={cx('total-wrap', index === 0 ? 'first-card-wrap' : '')}
+      >
         {transportation[index].map(({ value }) => (
           <Container
             margin="none"
@@ -69,7 +73,7 @@ const CarouselItems = memo(
         {/* 처음과 마지막 이동 정보는 표기하는 대신 깃발 아이콘 표시*/}
         {index === 0 ? <Icon.Transport active={false} type={'FLAG'} className={cx('flag')} /> : null}
         {index === pois.length - 1 ? (
-          <Container margin="none" className={cx('last-flag')}>
+          <Container margin="none" className={cx('flag', 'last-flag')}>
             <Icon.Transport active={false} type={'FLAG'} />
           </Container>
         ) : null}

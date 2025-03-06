@@ -4,7 +4,7 @@
 .carousel {
   position: relative;
   width: 100%;
-  margin: auto;
+  // margin: auto;
   overflow: hidden;
 }
 
@@ -15,5 +15,9 @@
 .embedded-card-wrap {
   overflow-x: scroll;
   height: 100%;
-  align-items: stretch !important;
+  align-items: stretch;
+}
+
+.card-images {
+  margin: 0;
 }

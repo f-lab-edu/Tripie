@@ -5,6 +5,7 @@
 @use '../TripieButton/Animated/animated-button.module' as *;
 @use '../../mixins.scss' as *;
 
+
 @use 'sass:map';
 
 .text {
@@ -66,23 +67,17 @@
 }
 
 .animated-text {
-  // height: 4rem;
   overflow-y: hidden;
   color: inherit;
-
-  // align-content: center;
-  // align-items: center;
   display: inline-flex;
   height: 2rem;
   flex-direction: column;
-  // flex-wrap: nowrap;
-  // gap: 1.2rem;
-  // justify-content: center;
-  // position: relative;
-  // text-decoration: none;
-  // width: fit-content;
-  // min-width: 4rem;
-  // cursor: pointer;
-  // background: none;
-  // border: none;
+ 
+}
+.small{
+font-size: 0.8rem;
+}
+
+.bold{
+font-weight: font-weight(bold);
 }

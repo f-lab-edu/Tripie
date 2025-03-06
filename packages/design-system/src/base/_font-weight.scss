@@ -1,4 +1,4 @@
-@use "sass:map";
+@use 'sass:map';
 
 /** default 아래의 스타일들은 root element 에 적용
  base, medium은 regular의 alias
@@ -6,19 +6,18 @@
 $config-font-weight: () !default;
 $config-font-weight: map.deep-merge(
   (
-    "default": 400,
-
-    "thin": 100,
-    "extra-light": 200,
-    "light": 300,
-    "regular": 400,
-    "normal": 400,
-    "base": 400,
-    "medium": 500,
-    "semi-bold": 600,
-    "bold": 700,
-    "extra-bold": 800,
-    "black": 900,
+    'default': 400,
+    'thin': 100,
+    'extra-light': 200,
+    'light': 300,
+    'regular': 400,
+    'normal': 400,
+    'base': 400,
+    'medium': 500,
+    'semi-bold': 600,
+    'bold': 700,
+    'extra-bold': 800,
+    'black': 900,
   ),
   $config-font-weight
 );

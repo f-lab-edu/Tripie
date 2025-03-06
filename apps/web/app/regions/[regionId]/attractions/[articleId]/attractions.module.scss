@@ -2,7 +2,7 @@
 @use 'mixins' as *;
 
 .fit-content {
-  height: fit-content !important;
+  height: fit-content;
   @media (min-width: 998px) {
     width: 70vw;
   }

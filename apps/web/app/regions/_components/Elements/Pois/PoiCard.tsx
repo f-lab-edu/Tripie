@@ -46,12 +46,7 @@ const PoiCard = ({
   }, [selected, tripieMap, poi]);
 
   return (
-    <Card.ClickableContent
-      ref={cardRef}
-      className={cx('embedded-card', 'poi-card', className)}
-      selected={selected}
-      onClick={action}
-    >
+    <Card.ClickableContent ref={cardRef} className={cx('poi-card', className)} selected={selected} onClick={action}>
       <TripieImage.WithSourceUrl
         sourceUrl={poi.source.image.sourceUrl}
         src={poi.source.image?.sizes.full.url}
