@@ -14,9 +14,9 @@
 }
 .scroll {
   height: 40vh;
-  overflow-y: scroll !important;
-  position: relative !important;
 
-  // @include visible-scroll(true);
+  overflow-y: scroll;
+  position: relative;
+
   @include visible-scroll(false);
 }

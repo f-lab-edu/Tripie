@@ -4,8 +4,8 @@
 .flag-image {
   width: 2rem;
   & img {
-    position: relative !important;
-    width: 2rem !important;
-    object-fit: contain !important;
+    position: relative;
+    width: 2rem;
+    object-fit: contain;
   }
 }

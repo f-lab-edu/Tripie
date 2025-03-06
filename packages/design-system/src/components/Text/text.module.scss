@@ -5,7 +5,6 @@
 @use '../TripieButton/Animated/animated-button.module' as *;
 @use '../../mixins.scss' as *;
 
-
 @use 'sass:map';
 
 .text {
@@ -23,7 +22,7 @@
 .flick {
   z-index: 30;
   width: fit-content;
-  height: 3rem !important;
+  height: 3rem;
 }
 
 .min {
@@ -43,7 +42,7 @@
 }
 
 .gray {
-  color: color(default, 800) !important;
+  color: color(default, 800);
 }
 .danger {
   color: color(danger, 600);
@@ -72,12 +71,11 @@
   display: inline-flex;
   height: 2rem;
   flex-direction: column;
- 
 }
-.small{
-font-size: 0.8rem;
+.small {
+  font-size: 0.8rem;
 }
 
-.bold{
-font-weight: font-weight(bold);
+.bold {
+  font-weight: font-weight(bold);
 }

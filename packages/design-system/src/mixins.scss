@@ -147,12 +147,12 @@ $background-gradients: (
 
 @mixin chip {
   min-width: fit-content;
-  padding: 1rem !important;
+  padding: 1rem;
 }
 
 @mixin button-chip {
   min-width: fit-content;
-  padding: 1rem !important;
+  padding: 1rem;
 }
 
 @mixin grid-wrap {
@@ -181,13 +181,13 @@ $background-gradients: (
 }
 
 @mixin submit-button {
-  width: 100% !important;
+  width: 100%;
 }
 
 @mixin submit-button-long-text {
   @media (max-width: 400px) {
     & > span {
-      transform: translateY(1.5rem) !important;
+      transform: translateY(1.5rem);
     }
   }
 }
@@ -228,8 +228,8 @@ $background-gradients: (
 
 @mixin scroll {
   // 스크롤 바 스타일
-  overflow-y: scroll !important;
-  position: relative !important;
+  overflow-y: scroll;
+  position: relative;
 }
 // 스크롤 바 스타일
 @mixin visible-scroll($visible-scroll: true) {

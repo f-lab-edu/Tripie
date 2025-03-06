@@ -22,7 +22,7 @@ const ExternalLinkCard = ({ link, index }: { link: ExternalLink; index: number }
           alt={link.imageUrl}
           blurDataURL={link.blurData?.data}
         />
-        <Container margin="none" className={cx('attraction-card-text')}>
+        <Container margin="none">
           <ArticleHeading item={{ type: 'heading3', value: { text: link.title } }} />
           <ArticleText item={{ type: 'text', value: { text: link.publisher } }} />
         </Container>

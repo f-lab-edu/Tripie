@@ -8,17 +8,17 @@
 }
 
 .card-item {
-  height: fit-content !important;
+  height: fit-content;
 }
 
 .trip-activity {
-  align-items: flex-start !important;
-  width: 40vw I !important;
+  align-items: flex-start;
+  width: 100%;
 }
 
 // 여행 일정 지역에 따른 버튼 색깔
 .label {
-  border-radius: 100% !important;
+  border-radius: 100%;
   width: 1.5rem;
   height: 1.5rem;
   display: inline-flex;
@@ -40,8 +40,4 @@
 
 .selected {
   @include map-marker('selected');
-}
-
-.at-place {
-  font-size: 0.8rem !important;
 }

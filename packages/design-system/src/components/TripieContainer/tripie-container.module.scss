@@ -2,10 +2,7 @@
 @use 'sass:map';
 
 .preserve-white-space {
-  // @media (max-width:400px) {
-  // white-space: pre-wrap !important;
   white-space: pre-wrap;
-  // }
 }
 
 .layout-fill-available {

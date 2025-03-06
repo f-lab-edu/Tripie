@@ -18,6 +18,7 @@
 }
 
 .menu-toggle {
+  display: inline-flex;
   border-bottom-width: 1px;
   border-color: $theme-400;
   border-left-width: 1px;
@@ -30,9 +31,8 @@
   transform-origin: 50% 50% 100px;
   will-change: auto;
   background: none;
-  width: 40px !important;
-  display: inline-flex;
-  height: 40px !important;
+  width: 40px;
+  height: 40px;
   align-items: center;
   justify-content: center;
 }

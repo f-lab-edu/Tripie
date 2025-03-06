@@ -2,7 +2,7 @@
 @use 'mixins' as *;
 
 .card-wrap {
-  height: 100% !important;
+  height: 100%;
 }
 .flex {
   @include flex;
@@ -22,13 +22,12 @@
 }
 
 .animated-text {
-  padding: 0 !important;
+  padding: 0;
 }
 
 .grid-wrap {
   max-height: 35vh;
   height: fit-content;
   @include scroll;
-  // @include visible-scroll(true);
   @include visible-scroll(false);
 }

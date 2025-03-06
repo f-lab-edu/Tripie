@@ -8,19 +8,15 @@
 
 .animated-text {
   @media (min-width: 901px) {
-    width: fit-content !important;
+    width: fit-content;
     & > span {
       width: fit-content;
     }
   }
-  // @media (max-width: 901px) {
-  // gap: 1.5rem;
-  // }
 }
 .scroll {
-  // height: 18vh;
-  overflow-y: scroll !important;
-  position: relative !important;
-  // @include visible-scroll(true);
+  position: relative;
+  @include scroll;
+
   @include visible-scroll(false);
 }

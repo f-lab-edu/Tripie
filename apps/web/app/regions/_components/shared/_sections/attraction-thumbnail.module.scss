@@ -1,13 +1,12 @@
 .img-wrap {
-  padding: 0 !important;
-  height: 24rem !important;
+  padding: 0;
   overflow: hidden;
 
   @media (max-width: 400px) {
-    height: 18rem !important;
+    height: 18rem;
   }
   @media (min-width: 1000px) {
-    height: 36rem !important;
+    height: 36rem;
   }
   & > img {
     width: 100%;
@@ -18,5 +17,5 @@
 }
 
 .img-container {
-  margin-bottom: 0 !important;
+  margin-bottom: 0;
 }

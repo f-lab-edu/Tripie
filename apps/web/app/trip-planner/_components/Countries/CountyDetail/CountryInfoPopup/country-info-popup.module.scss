@@ -2,7 +2,7 @@
 @use 'mixins' as *;
 
 .popup {
-  width: 100% !important;
+  width: 100%;
   list-style: none;
   padding-left: 0;
   border-radius: 13rem;
@@ -14,7 +14,7 @@
 
 .capital,
 .language {
-  width: 30% !important;
+  width: 30%;
   text-wrap: nowrap;
 }
 
@@ -43,6 +43,6 @@
 }
 .verticle-center {
   display: inline-flex;
-  width: 7rem !important;
+  width: 7rem;
   align-items: center;
 }

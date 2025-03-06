@@ -4,14 +4,14 @@
 .card-wrap {
   height: fit-content;
   & > div {
-    margin: 0 !important;
+    margin: 0;
   }
 }
 
 .info-wrap {
   display: inline-flex;
   width: min(100%, 60rem);
-  padding: 0 !important;
+  padding: 0;
   list-style: none;
   gap: 1rem;
   & > li {
@@ -33,13 +33,13 @@
 .flag-skeleton {
   background-size:
     50% 100%,
-    100% 100% !important;
+    100% 100%;
 }
 
 .info-text {
   list-style: none;
   & > ul {
-    padding: 0 !important;
+    padding: 0;
   }
 
   & > ul > li {
@@ -61,19 +61,19 @@
 }
 .capital,
 .language {
-  width: 30% !important;
+  width: 30%;
   text-wrap: nowrap;
 }
 
 .submit-button {
-  width: 100% !important;
+  width: 100%;
 }
 
 .capital-name {
   width: 100%;
 }
 .flex {
-  margin: 0 !important;
+  margin: 0;
   display: inline-flex;
   flex-direction: row;
 

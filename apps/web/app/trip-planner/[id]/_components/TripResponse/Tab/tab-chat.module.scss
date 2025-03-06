@@ -2,16 +2,17 @@
 @use 'mixins' as *;
 
 .text-left {
-  align-items: flex-start !important;
+  align-items: flex-start;
 }
 
 .card-wrap {
   width: 100%;
   display: inline-block;
   padding-right: 1rem;
-  background-color: inherit !important;
+
+  background-color: inherit;
   @media (min-width: 501px) {
-    width: 40vw;
+    width: 100%;
   }
 }
 
@@ -19,10 +20,11 @@
   height: 80vh;
   @include scroll;
   @include visible-scroll(false);
+  width: 50vw;
 
   @media (max-width: 500px) {
-    height: 40vh !important;
-    width: 100% !important;
+    height: 40vh;
+    width: 100%;
   }
 }
 
@@ -34,13 +36,14 @@
 }
 
 .trip-days-chips-wrap > ul {
-  display: inline-flex !important;
+  display: inline-flex;
   flex-direction: row;
-  flex-wrap: nowrap !important;
+
+  flex-wrap: nowrap;
   gap: 0.4rem;
 }
 
 .chip {
-  min-width: 4rem !important;
-  padding: 0.5rem !important;
+  min-width: 4rem;
+  padding: 0.5rem;
 }

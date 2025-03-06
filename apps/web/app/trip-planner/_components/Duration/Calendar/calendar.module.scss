@@ -13,7 +13,7 @@
 .submit-button.long-text {
   @media (max-width: 400) {
     & > span {
-      transform: translateY(1rem) !important;
+      transform: translateY(1rem);
     }
   }
 }

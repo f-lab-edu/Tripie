@@ -24,15 +24,16 @@ body,
   height: 100%;
   width: 100%;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  font-family: 'MaruBuri', sans-serif !important;
-  scroll-behavior: smooth !important;
+  font-family: 'MaruBuri', sans-serif;
+  scroll-behavior: smooth;
   @include visible-scroll(true);
 }
 
 button,
 input {
-  font-family: inherit !important;
+  font-family: inherit;
   font-display: swap;
 }
 

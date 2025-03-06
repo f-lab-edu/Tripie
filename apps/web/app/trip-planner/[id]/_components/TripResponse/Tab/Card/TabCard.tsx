@@ -66,11 +66,10 @@ const TabCard = ({
         {comments}
         <Container margin="sm" applyMargin="top">
           <TextUnderLineAnimation
-            className={cx('at-place')}
             // 새로운 탭에 구글 검색
             onClick={() => openNewTab(`https://www.google.com/search?q=@${place}`)}
           >
-            <Text.Accented>@</Text.Accented>
+            <Text.Accented size="small">@</Text.Accented>
             {place}
           </TextUnderLineAnimation>
         </Container>

@@ -20,7 +20,7 @@
   }
 
   &[aria-disabled='true'] {
-    cursor: not-allowed !important;
-    color: color(default, 400) !important;
+    cursor: not-allowed;
+    color: color(default, 400);
   }
 }
