@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 import { InView } from 'react-intersection-observer';
 import COLORS from '../../shared/colors';
 
-import Motion, { MotionMotionStyle } from '../../shared/wrappers/motion-wrapper';
+import Motion, { MotionProps } from '../../shared/wrappers/motion-wrapper';
 import { CustomAnimationProps } from '../TripieCard';
 import TripieContainer from '../TripieContainer/TripieContainer';
 import Style from './text-fill-animation.module.scss';
@@ -30,7 +30,7 @@ const TextFillAnimation = ({
               style={
                 {
                   color: baseColor ?? endColor,
-                } as MotionMotionStyle
+                } as MotionProps['motionStyle']
               }
               animate={inView ? 'visible' : 'hidden'}
               initial={{ width: '0%' }}
