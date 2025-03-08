@@ -14,14 +14,16 @@ export interface LinkProps extends React.RefAttributes<HTMLAnchorElement> {
   'aria-selected'?: boolean;
   'aria-disabled'?: boolean;
   role?: string;
-  size?:TextProps['size']
-  bold?:TextProps['bold']
+  size?: TextProps['size'];
+  bold?: TextProps['bold'];
 }
 
-function UnstyledLink({ children, className, href, role,size='default', ...props }: Readonly<LinkProps>) {
+function UnstyledLink({ children, className, href, role, size = 'default', ...props }: Readonly<LinkProps>) {
   return (
     <Link href={href} className={style('link', className)} role={role} {...props}>
-      <Text bold={true} size={size}>{children}</Text>
+      <Text bold={true} size={size}>
+        {children}
+      </Text>
     </Link>
   );
 }
