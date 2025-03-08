@@ -15,23 +15,8 @@ const nextConfig = {
     includePaths: [path.join(__dirname, 'styles'), path.join(__dirname, '../../packages/design-system/src')],
 
     silenceDeprecations: ['legacy-js-api'],
-    // prependData: `@import "@tripie-pyotato/design-system/shared";`,
-    // prependData: `
-    // @import "@tripie-pyotato/design-system/global";
-    // @import "@tripie-pyotato/design-system/styles";
-    // `,
   },
 
-  // webpack: config => {
-  //   config.module.rules = config.module.rules.filter(rule => !(rule.test && rule.test.toString().includes('.scss')));
-
-  //   config.module.rules.push({
-  //     test: /\.module\.scss$/,
-  //     use: ['style-loader', 'css-loader', 'sass-loader'],
-  //   });
-
-  //   return config;
-  // },
   transpilePackages: ['@tripie-pyotato/design-system'],
   outputFileTracingIncludes: {
     '/api/gpt': ['node_modules/.prisma/client/**', 'node_modules/@prisma/engines/**'],
@@ -184,24 +169,8 @@ const nextConfig = {
         destination: 'https://tripie-server.vercel.app/api/trip-advisor',
         permanent: true,
       },
-
-      // https://nextjs.org/docs/app/api-reference/next-config-js/redirects
-      //
     ];
   },
-
-  // async rewrites() {
-  //   return [
-  //     {
-  //       source: '/api/:path*',
-  //       destination: '/api/:path*',
-  //     },
-  //     {
-  //       source: '/(.*)',
-  //       destination: '/',
-  //     },
-  //   ];
-  // },
 };
 
 export default nextConfig;
