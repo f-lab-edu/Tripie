@@ -1,4 +1,6 @@
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
+
+export type MotionWraperVariants = Variants;
 
 const MotionWrapper = {
   Div: motion.div,
