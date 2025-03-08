@@ -1,5 +1,5 @@
-import { Variants } from 'framer-motion';
 import COLORS from '../../shared/colors';
+import { MotionProps } from '../../shared/wrappers/motion-wrapper';
 
 export const TEXT_UNDERLINE_VARIANTS = {
   DIVIDER: {
@@ -20,4 +20,4 @@ export const TEXT_UNDERLINE_VARIANTS = {
       },
     }),
   },
-} as Variants;
+} as MotionProps['variants'];

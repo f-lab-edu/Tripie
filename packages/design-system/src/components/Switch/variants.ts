@@ -1,5 +1,5 @@
-import { Variants } from 'framer-motion';
 import COLORS from '../../shared/colors';
+import { MotionProps } from '../../shared/wrappers/motion-wrapper';
 
 export const SWITCH_VARIANTS = {
   BACKGROUND: {
@@ -11,7 +11,7 @@ export const SWITCH_VARIANTS = {
       backgroundColor: COLORS[50],
       borderColor: COLORS[50],
     }),
-  } as Variants,
+  } as MotionProps['variants'],
   BUTTON: {
     off: () => ({
       x: '150%',
@@ -21,7 +21,7 @@ export const SWITCH_VARIANTS = {
       x: '30%',
       backgroundColor: COLORS[50],
     }),
-  } as Variants,
+  } as MotionProps['variants'],
   TEXT: {
     off: () => ({
       x: '0%',
@@ -30,5 +30,5 @@ export const SWITCH_VARIANTS = {
       x: '200%',
       color: COLORS[50],
     }),
-  } as Variants,
+  } as MotionProps['variants'],
 };

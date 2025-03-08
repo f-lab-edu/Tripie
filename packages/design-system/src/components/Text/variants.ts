@@ -1,4 +1,4 @@
-import { Variants } from 'framer-motion';
+import { MotionProps } from '../../shared/wrappers/motion-wrapper';
 
 export const VARIANTS = {
   FLICK_TEXT: {
@@ -10,7 +10,7 @@ export const VARIANTS = {
         duration: 0.5,
       },
     },
-  } as Variants,
+  } as MotionProps['variants'],
 
   TEXT: {
     rest: { opacity: 1, y: '2rem', duration: 0.5 },
@@ -21,7 +21,7 @@ export const VARIANTS = {
         duration: 0.5,
       },
     },
-  } as Variants,
+  } as MotionProps['variants'],
 
   TITLE: (restY: number, hoverY: number) =>
     ({
@@ -33,7 +33,7 @@ export const VARIANTS = {
           duration: 0.5,
         },
       },
-    }) as Variants,
+    }) as MotionProps['variants'],
   SLIDE: (duration: number) =>
     ({
       rest: () => ({}),
@@ -45,5 +45,5 @@ export const VARIANTS = {
           bounce: 1,
         },
       }),
-    }) as Variants,
+    }) as MotionProps['variants'],
 };

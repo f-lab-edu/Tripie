@@ -1,5 +1,5 @@
-import { Variants } from 'framer-motion';
 import COLORS from '../../shared/colors';
+import { MotionProps } from '../../shared/wrappers/motion-wrapper';
 
 export const ACCORDIAN_VARIANTS = {
   DIVIDER: {
@@ -19,5 +19,5 @@ export const ACCORDIAN_VARIANTS = {
         duration: 0.5,
       },
     }),
-  } as Variants,
+  } as MotionProps['variants'],
 };

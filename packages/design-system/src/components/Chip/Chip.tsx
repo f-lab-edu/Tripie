@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 import Style from './chip.module.scss';
 
 import { GLOW_VARIANT, SHINE_VARIANT } from '../../shared/variants';
-import MotionWrapper from '../../shared/wrappers/motion-wrapper';
+import Motion from '../../shared/wrappers/motion-wrapper';
 
 const cx = classNames.bind(Style);
 
@@ -20,7 +20,7 @@ type ChipProps = {
 
 const Chip = ({ children, className, onClick, selected, disabled = false }: Readonly<ChipProps>) => {
   return (
-    <MotionWrapper.Button
+    <Motion.Button
       whileHover={'shine'}
       whileTap={'shine'}
       disabled={disabled}
@@ -30,13 +30,13 @@ const Chip = ({ children, className, onClick, selected, disabled = false }: Read
       className={cx('chip', 'with-border', className)}
     >
       {children}
-    </MotionWrapper.Button>
+    </Motion.Button>
   );
 };
 
 const AccentedChip = ({ children, current, className, onClick }: Readonly<ChipProps>) => {
   return (
-    <MotionWrapper.Button
+    <Motion.Button
       initial={'rest'}
       className={cx('wrap', 'with-border', current === 'on' ? 'selected' : 'chip', className)}
       variants={GLOW_VARIANT}
@@ -44,7 +44,7 @@ const AccentedChip = ({ children, current, className, onClick }: Readonly<ChipPr
       onClick={onClick}
     >
       <div className={cx('accented', current === 'on' ? 'selected' : 'chip')}>{children}</div>
-      <MotionWrapper.Div
+      <Motion.Div
         className={cx('glow')}
         animate={{ rotate: 360 }}
         transition={{
@@ -54,7 +54,7 @@ const AccentedChip = ({ children, current, className, onClick }: Readonly<ChipPr
           repeat: Infinity,
         }}
       />
-    </MotionWrapper.Button>
+    </Motion.Button>
   );
 };
 

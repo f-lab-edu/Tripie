@@ -1,17 +1,17 @@
 'use client';
 import classNames from 'classnames/bind';
-import { AnimationProps, Variants } from 'framer-motion';
+
 import { useRouter } from 'next/navigation';
 import { ReactNode } from 'react';
 import Style from './icon.module.scss';
 
 import { ICON_RESOURCE } from '../../shared/resource';
-import MotionWrapper from '../../shared/wrappers/motion-wrapper';
+import Motion, { MotionProps } from '../../shared/wrappers/motion-wrapper';
 import { ICON_VARIANTS } from './variants';
 
 const cx = classNames.bind(Style);
 
-export type MotionSlideUpProps = Partial<AnimationProps> & { children?: ReactNode; className?: string };
+export type MotionSlideUpProps = Partial<MotionProps['animationProps']> & { children?: ReactNode; className?: string };
 
 export type Transport = 'WALK' | 'TRAM' | 'TRAIN' | 'SHIP' | 'BUS' | 'FLAG' | 'CAR';
 
@@ -19,10 +19,10 @@ export type IconProps = {
   className?: string;
   withBorder?: boolean;
   onTapStart?: () => void;
-  animate?: AnimationProps['animate'];
-  variants?: Variants;
+  animate?: MotionProps['animationProps']['animate'];
+  variants?: MotionProps['variants'];
   src?: string;
-  transition?: AnimationProps['transition'];
+  transition?: MotionProps['animationProps']['transition'];
   onTap?: () => void;
   sizes?: 'large' | 'icon';
 };
@@ -38,7 +38,7 @@ const Icon = ({
   transition,
 }: Readonly<IconProps>) => {
   return (
-    <MotionWrapper.Div
+    <Motion.Div
       onTapStart={onTapStart}
       className={cx(sizes, className)}
       variants={variants}
@@ -46,7 +46,7 @@ const Icon = ({
       animate={animate}
     >
       <img src={src} alt={`${src} icon`} />
-    </MotionWrapper.Div>
+    </Motion.Div>
   );
 };
 
@@ -70,7 +70,7 @@ const NavigateIcon = ({
   };
 
   return (
-    <MotionWrapper.Button
+    <Motion.Button
       disabled={disabled}
       onTapStart={() => onNavigate({ direction })}
       whileTap={'hover'}
@@ -82,13 +82,13 @@ const NavigateIcon = ({
       animate={animate}
     >
       <img src={ICON_RESOURCE('ARROW')} alt={src + '버튼'} />
-    </MotionWrapper.Button>
+    </Motion.Button>
   );
 };
 
 const RefreshIcon = ({ className, onTapStart, animate, transition, sizes = 'icon' }: Readonly<IconProps>) => {
   return (
-    <MotionWrapper.Div
+    <Motion.Div
       onTapStart={onTapStart}
       whileTap={'hover'}
       whileHover={'hover'}
@@ -99,13 +99,13 @@ const RefreshIcon = ({ className, onTapStart, animate, transition, sizes = 'icon
       animate={animate}
     >
       <img src={ICON_RESOURCE('REFRESH')} alt={'새로고침 버튼'} />
-    </MotionWrapper.Div>
+    </Motion.Div>
   );
 };
 
 const PlaneIcon = ({ className, sizes = 'icon' }: Readonly<IconProps>) => {
   return (
-    <MotionWrapper.Img
+    <Motion.Img
       variants={ICON_VARIANTS.PLANE}
       animate={'fly'}
       initial={'rotate'}
@@ -117,7 +117,7 @@ const PlaneIcon = ({ className, sizes = 'icon' }: Readonly<IconProps>) => {
 
 const CloudIcon = ({ index = 0, sizes = 'icon' }: { index: number; sizes?: IconProps['sizes'] }) => {
   return (
-    <MotionWrapper.Img
+    <Motion.Img
       variants={ICON_VARIANTS.CLOUD}
       initial={{
         opacity: `${0.2}`,
@@ -134,7 +134,7 @@ const CloudIcon = ({ index = 0, sizes = 'icon' }: { index: number; sizes?: IconP
 
 const LoadingIcon = ({ className, sizes = 'icon' }: Readonly<IconProps>) => {
   return (
-    <MotionWrapper.Img
+    <Motion.Img
       animate={{ rotate: '360deg' }}
       transition={{ repeat: Infinity, duration: 10, bounce: 0 }}
       src={ICON_RESOURCE('LOADING')}
@@ -150,7 +150,7 @@ const CursorIcon = ({
   sizes = 'icon',
 }: Readonly<IconProps> & { hovered?: string }) => {
   return (
-    <MotionWrapper.Img
+    <Motion.Img
       variants={ICON_VARIANTS.CURSOR}
       src={ICON_RESOURCE('CURSOR')}
       initial={'initial'}
@@ -173,7 +173,7 @@ const ScrollIcon = ({
   next?: boolean;
 }) => {
   return (
-    <MotionWrapper.Img
+    <Motion.Img
       variants={ICON_VARIANTS.SCROLL(next)}
       onTapStart={onTapStart}
       src={ICON_RESOURCE('NEXT')}
@@ -195,7 +195,7 @@ const TransportIcon = ({
   type?: Transport;
 }) => {
   return (
-    <MotionWrapper.Img
+    <Motion.Img
       animate={active ? { rotate: [0, 10, -10, 0] } : { rotate: 0 }}
       transition={active ? { repeat: Infinity, repeatType: 'loop', duration: 0.8, ease: 'easeInOut' } : {}}
       className={cx(sizes, className)}
@@ -205,11 +205,11 @@ const TransportIcon = ({
 };
 
 const XIcon = ({ className, sizes = 'icon' }: Readonly<IconProps>) => {
-  return <MotionWrapper.Img className={cx(sizes, className)} src={ICON_RESOURCE('X')} />;
+  return <Motion.Img className={cx(sizes, className)} src={ICON_RESOURCE('X')} />;
 };
 
 const CheckIcon = ({ className, sizes = 'icon' }: Readonly<IconProps>) => {
-  return <MotionWrapper.Img className={cx(sizes, className)} src={ICON_RESOURCE('CHECK')} />;
+  return <Motion.Img className={cx(sizes, className)} src={ICON_RESOURCE('CHECK')} />;
 };
 
 Icon.Navigate = NavigateIcon;

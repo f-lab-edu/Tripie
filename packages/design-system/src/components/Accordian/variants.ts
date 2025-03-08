@@ -1,5 +1,5 @@
-import { Variants } from 'framer-motion';
 import COLORS from '../../shared/colors';
+import { MotionProps } from '../../shared/wrappers/motion-wrapper';
 
 export const ACCORDIAN_VARIANTS = {
   DETAILS: {
@@ -19,7 +19,7 @@ export const ACCORDIAN_VARIANTS = {
         stiffness: 10,
       },
     }),
-  } as unknown as Variants,
+  } as unknown as MotionProps['variants'],
   BUTTON: {
     closed: () => ({}),
     open: () => ({
@@ -29,7 +29,7 @@ export const ACCORDIAN_VARIANTS = {
         bounce: 0,
       },
     }),
-  } as Variants,
+  } as MotionProps['variants'],
   DIVIDER: {
     closed: () => ({
       backgroundColor: COLORS[400],
@@ -41,5 +41,5 @@ export const ACCORDIAN_VARIANTS = {
         bounce: 0,
       },
     }),
-  } as Variants,
+  } as MotionProps['variants'],
 };

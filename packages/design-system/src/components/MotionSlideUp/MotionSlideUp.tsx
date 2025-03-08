@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import MotionWrapper, { MotionWraperAnimationProps } from '../../shared/wrappers/motion-wrapper';
+import Motion, { MotionWraperAnimationProps } from '../../shared/wrappers/motion-wrapper';
 
 import { InView } from 'react-intersection-observer';
 export type MotionSlideUpProps = Partial<MotionWraperAnimationProps> & { children?: ReactNode; className?: string };
@@ -21,7 +21,7 @@ const MotionSlideUp = ({ duration = 1, delay = 0, replays = true, children, clas
   return (
     <InView>
       {({ inView, ref }) => (
-        <MotionWrapper.Div
+        <Motion.Div
           animate={inView ? 'visible' : 'hidden'}
           ref={ref}
           variants={cardMotion}
@@ -29,7 +29,7 @@ const MotionSlideUp = ({ duration = 1, delay = 0, replays = true, children, clas
           className={className}
         >
           {children}
-        </MotionWrapper.Div>
+        </Motion.Div>
       )}
     </InView>
   );

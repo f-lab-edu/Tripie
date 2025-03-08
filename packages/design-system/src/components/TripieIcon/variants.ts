@@ -1,4 +1,4 @@
-import { Variants } from 'framer-motion';
+import { MotionProps } from '../../shared/wrappers/motion-wrapper';
 
 export const ICON_VARIANTS = {
   DEFAULT: {
@@ -17,7 +17,7 @@ export const ICON_VARIANTS = {
         bounce: 0,
       },
     }),
-  } as Variants,
+  } as MotionProps['variants'],
   NAVIGATE: (direction: 'back' | 'front') =>
     (direction === 'back'
       ? {
@@ -51,7 +51,7 @@ export const ICON_VARIANTS = {
               bounce: 1,
             },
           }),
-        }) as Variants,
+        }) as MotionProps['variants'],
   REFRESH: (action: 'redo' | 'undo') =>
     (action === 'redo'
       ? {
@@ -85,7 +85,7 @@ export const ICON_VARIANTS = {
               bounce: 1,
             },
           }),
-        }) as Variants,
+        }) as MotionProps['variants'],
   PLANE: {
     rotate: {
       rotate: '90deg',
@@ -98,7 +98,7 @@ export const ICON_VARIANTS = {
         bounce: 1,
       },
     }),
-  } as Variants,
+  } as MotionProps['variants'],
   CLOUD: {
     rest: () => ({
       opacity: `${Math.random()}`,
@@ -115,7 +115,7 @@ export const ICON_VARIANTS = {
         bounce: 1,
       },
     }),
-  } as Variants,
+  } as MotionProps['variants'],
   CURSOR: {
     initial: () => ({
       translateY: '-10px',
@@ -130,7 +130,7 @@ export const ICON_VARIANTS = {
         bounce: 0,
       },
     }),
-  } as Variants,
+  } as MotionProps['variants'],
   SCROLL: (next: boolean) =>
     (next
       ? {
@@ -164,5 +164,5 @@ export const ICON_VARIANTS = {
               bounce: 1,
             },
           }),
-        }) as Variants,
+        }) as MotionProps['variants'],
 };

@@ -1,5 +1,8 @@
-import { Variant, Variants } from 'framer-motion';
+import { MotionProps } from './wrappers/motion-wrapper';
+
 import COLORS from './colors';
+
+type Variant = MotionProps['variants'][string];
 
 const GLOW_VARIANT = {
   rest: { boxShadow: 'none' } as Variant,
@@ -48,7 +51,7 @@ const ACCORDIAN_VARIANTS = {
         bounce: 0,
       },
     }),
-  } as Variants,
+  } as MotionProps['variants'],
   DIVIDER: {
     closed: () => ({
       backgroundColor: COLORS[400],
@@ -60,7 +63,7 @@ const ACCORDIAN_VARIANTS = {
         bounce: 0,
       },
     }),
-  } as Variants,
+  } as MotionProps['variants'],
 };
 
 export { ACCORDIAN_VARIANTS, GLOW_VARIANT, SHINE_VARIANT };

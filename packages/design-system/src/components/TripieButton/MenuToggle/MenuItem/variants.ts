@@ -1,4 +1,4 @@
-import { Variants } from 'framer-motion';
+import { MotionProps } from '../../../../shared/wrappers/motion-wrapper';
 
 export const MENU_ITEM_VARIANT = {
   open: {
@@ -15,4 +15,4 @@ export const MENU_ITEM_VARIANT = {
       y: { stiffness: 1000 },
     },
   },
-} as Variants;
+} as MotionProps['variants'];

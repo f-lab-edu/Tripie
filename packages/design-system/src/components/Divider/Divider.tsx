@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 
-import MotionWrapper, { MotionWraperVariants } from '../../shared/wrappers/motion-wrapper';
+import Motion, { MotionProps } from '../../shared/wrappers/motion-wrapper';
 
 import { ACCORDIAN_VARIANTS } from '../../shared/variants';
 
@@ -10,12 +10,12 @@ import Style from './divider.module.scss';
 
 const cx = classNames.bind(Style);
 
-export type DividerProps = Partial<{ current: string; variants: MotionWraperVariants; className: string }>;
+export type DividerProps = Partial<{ current: string; variants: MotionProps['variants']; className: string }>;
 
 export type ArticleDividerProps = { type: 'hr1' | 'hr2' | 'hr3' | 'hr4' | 'hr5' };
 
 const Divider = ({ className, current, variants = ACCORDIAN_VARIANTS.DIVIDER }: DividerProps) => {
-  return <MotionWrapper.Div variants={variants} animate={current} className={cx('divider', className)} />;
+  return <Motion.Div variants={variants} animate={current} className={cx('divider', className)} />;
 };
 
 const ArticleDivider = ({ item }: { item: ArticleDividerProps }) => {

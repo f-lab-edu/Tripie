@@ -1,10 +1,19 @@
-import { AnimationProps, motion, MotionStyle, SVGMotionProps, Variants } from 'framer-motion';
+import { AnimationProps, motion, MotionStyle, SVGMotionProps, Variant, Variants } from 'framer-motion';
 
-export type MotionWraperVariants = Variants;
-export type MotionWraperAnimationProps = AnimationProps;
-export type MotionWrapperMotionStyle = MotionStyle;
-export type MotionWrapperSVGMotionProps = SVGMotionProps<SVGPathElement>;
-const MotionWrapper = {
+export type MotionVariant = Variant;
+export type MotionVariants = Variants;
+export type MotionAnimationProps = AnimationProps;
+export type MotionStyleProps = MotionStyle;
+export type MotionSVGProps = SVGMotionProps<SVGPathElement>;
+
+export interface MotionProps {
+  variants: Variants;
+  animationProps: AnimationProps;
+  motionStyle: MotionStyle;
+  svgProps: SVGMotionProps<SVGPathElement>;
+}
+
+export const Motion = {
   Div: motion.div,
   Button: motion.button,
   Section: motion.section,
@@ -15,5 +24,4 @@ const MotionWrapper = {
   Path: motion.path,
   Nav: motion.nav,
 };
-
-export default MotionWrapper;
+export default Motion;

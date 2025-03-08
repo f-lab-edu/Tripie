@@ -1,5 +1,3 @@
-import { Variants } from 'framer-motion';
-
 export const BUTTON_VARIANTS = {
   TEXT: {
     rest: { opacity: 1, y: 15, duration: 0.5 },
@@ -10,5 +8,5 @@ export const BUTTON_VARIANTS = {
         duration: 0.5,
       },
     },
-  } as Variants,
+  },
 };

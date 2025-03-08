@@ -3,7 +3,7 @@
 import classNames from 'classnames/bind';
 
 import { ReactNode } from 'react';
-import MotionWrapper from '../../../shared/wrappers/motion-wrapper';
+import Motion from '../../../shared/wrappers/motion-wrapper';
 import Text from '../../Text';
 import TripieContainer from '../../TripieContainer/TripieContainer';
 import Style from './animated-button.module.scss';
@@ -30,7 +30,7 @@ const AnimatedButton = ({
   withMinWidth?: boolean;
 }>) => {
   return (
-    <MotionWrapper.Button
+    <Motion.Button
       disabled={disabled}
       onClick={onClick}
       className={cx('button', withBorder && 'with-border', withMinWidth && 'min', className)}
@@ -42,7 +42,7 @@ const AnimatedButton = ({
       <Text.Flick>{children}</Text.Flick>
       <TripieContainer applyMargin="top"> </TripieContainer>
       <Text.Flick className={cx('hovered')}>{otherChild}</Text.Flick>
-    </MotionWrapper.Button>
+    </Motion.Button>
   );
 };
 
@@ -66,7 +66,7 @@ export const AnimatedText = ({
   withMinWidth?: boolean;
 }>) => {
   return (
-    <MotionWrapper.Div
+    <Motion.Div
       className={cx('button', withBorder && 'with-border', withMinWidth && 'min', className)}
       initial="rest"
       whileHover={disabled ? 'rest' : 'hover'}
@@ -76,7 +76,7 @@ export const AnimatedText = ({
       <Text.Flick>{children}</Text.Flick>
       <TripieContainer applyMargin="top"> </TripieContainer>
       <Text.Flick className={cx('hovered')}>{otherChild}</Text.Flick>
-    </MotionWrapper.Div>
+    </Motion.Div>
   );
 };
 

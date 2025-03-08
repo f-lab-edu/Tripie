@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 
 import { MutableRefObject, ReactNode, RefObject } from 'react';
 import { SHINE_VARIANT } from '../../shared/variants';
-import MotionWrapper from '../../shared/wrappers/motion-wrapper';
+import Motion from '../../shared/wrappers/motion-wrapper';
 import Divider from '../Divider';
 import MotionSlideUp from '../MotionSlideUp/MotionSlideUp';
 import Text from '../Text';
@@ -67,7 +67,7 @@ const ClickableCardContent = ({
   selected?: boolean;
 }>) => {
   return (
-    <MotionWrapper.Div
+    <Motion.Div
       ref={ref}
       whileHover={'shine'}
       whileTap={'shine'}
@@ -77,7 +77,7 @@ const ClickableCardContent = ({
       className={cx('chip', 'with-border', 'inner-wrap', className)}
     >
       {children}
-    </MotionWrapper.Div>
+    </Motion.Div>
   );
 };
 

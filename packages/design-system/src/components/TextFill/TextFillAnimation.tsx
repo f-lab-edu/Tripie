@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 import { InView } from 'react-intersection-observer';
 import COLORS from '../../shared/colors';
 
-import MotionWrapper, { MotionWrapperMotionStyle } from '../../shared/wrappers/motion-wrapper';
+import Motion, { MotionMotionStyle } from '../../shared/wrappers/motion-wrapper';
 import { CustomAnimationProps } from '../TripieCard';
 import TripieContainer from '../TripieContainer/TripieContainer';
 import Style from './text-fill-animation.module.scss';
@@ -25,12 +25,12 @@ const TextFillAnimation = ({
         <TripieContainer margin="none" className={cx('animation', baseColor == null ? 'default' : '')} ref={ref}>
           <span className={cx('wrap')}>
             {text}
-            <MotionWrapper.Span
+            <Motion.Span
               className={cx('text')}
               style={
                 {
                   color: baseColor ?? endColor,
-                } as MotionWrapperMotionStyle
+                } as MotionMotionStyle
               }
               animate={inView ? 'visible' : 'hidden'}
               initial={{ width: '0%' }}
@@ -41,7 +41,7 @@ const TextFillAnimation = ({
               transition={{ baseColor, endColor, duration, delay, replays }}
             >
               {text}
-            </MotionWrapper.Span>
+            </Motion.Span>
           </span>
         </TripieContainer>
       )}
@@ -64,7 +64,7 @@ const TitleTextFillAnimation = ({
         <div className={cx('animation', 'pre-title', 'default')} ref={ref}>
           <span className={cx('wrap')}>
             {children}
-            <MotionWrapper.Span
+            <Motion.Span
               className={cx('text', 'title')}
               animate={inView ? 'visible' : 'hidden'}
               initial={{ width: '0%' }}
@@ -75,7 +75,7 @@ const TitleTextFillAnimation = ({
               transition={{ repeat, duration }}
             >
               {children}
-            </MotionWrapper.Span>
+            </Motion.Span>
           </span>
         </div>
       )}

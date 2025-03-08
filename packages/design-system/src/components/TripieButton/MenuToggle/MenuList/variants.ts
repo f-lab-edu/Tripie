@@ -1,4 +1,4 @@
-import { Variants } from 'framer-motion';
+import { MotionProps } from '../../../../shared/wrappers/motion-wrapper';
 
 export const NAVIGATION_VARIANT = {
   open: {
@@ -11,4 +11,4 @@ export const NAVIGATION_VARIANT = {
     display: 'none',
     transition: { staggerChildren: 0.05, staggerDirection: -1 },
   },
-} as Variants;
+} as MotionProps['variants'];

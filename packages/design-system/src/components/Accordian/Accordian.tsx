@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 
 import { createContext, ReactNode, useContext, useMemo } from 'react';
 
-import MotionWrapper from '../../shared/wrappers/motion-wrapper';
+import Motion from '../../shared/wrappers/motion-wrapper';
 
 import { useCycle } from '../../hooks';
 import Divider from '../Divider/Divider';
@@ -30,7 +30,7 @@ const Accordion = ({ children, className }: Partial<AccordionProps>) => {
 
   return (
     <AccordionContext.Provider value={value}>
-      <MotionWrapper.Div className={cx('accordion', className)}>{children}</MotionWrapper.Div>
+      <Motion.Div className={cx('accordion', className)}>{children}</Motion.Div>
     </AccordionContext.Provider>
   );
 };
@@ -43,9 +43,9 @@ export const AccordionDivider = ({ className }: AccordionProps) => {
 export const AccordionHeader = ({ children }: AccordionProps) => {
   const { cycle } = useContext(AccordionContext);
   return (
-    <MotionWrapper.Div className={cx('accordion-header')} whileHover={{ cursor: 'pointer' }} onTapStart={() => cycle()}>
+    <Motion.Div className={cx('accordion-header')} whileHover={{ cursor: 'pointer' }} onTapStart={() => cycle()}>
       {children}
-    </MotionWrapper.Div>
+    </Motion.Div>
   );
 };
 
@@ -60,9 +60,9 @@ export const AccordionBody = ({ children }: AccordionProps) => {
   const { current } = useContext(AccordionContext);
 
   return (
-    <MotionWrapper.Div variants={ACCORDIAN_VARIANTS.DETAILS} animate={current} className={cx('accordion-body')}>
+    <Motion.Div variants={ACCORDIAN_VARIANTS.DETAILS} animate={current} className={cx('accordion-body')}>
       {children}
-    </MotionWrapper.Div>
+    </Motion.Div>
   );
 };
 
