@@ -8,7 +8,8 @@
 .layout-fill-available {
   width: -moz-available;
   width: -webkit-fill-available;
-  width: fill-available;
+  // width: fill-available;
+  width: stretch; // spec has changed
 }
 
 .align-center {
