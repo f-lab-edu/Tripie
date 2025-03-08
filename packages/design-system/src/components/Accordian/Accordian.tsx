@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 
 import { createContext, ReactNode, useContext, useMemo } from 'react';
 
-import MotionWrapper from 'shared/wrappers/motion-wrapper';
+import MotionWrapper from '../../shared/wrappers/motion-wrapper';
 
 import { useCycle } from '../../hooks';
 import Divider from '../Divider/Divider';
