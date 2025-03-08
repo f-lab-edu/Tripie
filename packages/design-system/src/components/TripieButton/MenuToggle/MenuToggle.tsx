@@ -1,9 +1,9 @@
 import classNames from 'classnames/bind';
 
-import { SVGMotionProps, motion } from 'framer-motion';
 import { ReactNode } from 'react';
 import { useCycle } from '../../../hooks/useCycle';
 import COLORS from '../../../shared/colors';
+import MotionWrapper, { MotionWrapperSVGMotionProps } from '../../../shared/wrappers/motion-wrapper';
 import TripieContainer from '../../TripieContainer/TripieContainer';
 import NoStyleButton from '../NoStyle/NoStyleButton';
 import Style from './menu-toggle.module.scss';
@@ -12,8 +12,8 @@ import MenuList from './MenuList';
 
 const cx = classNames.bind(Style);
 
-export const Path = (props: SVGMotionProps<SVGPathElement>) => (
-  <motion.path fill="transparent" strokeWidth="1" stroke={COLORS[0]} strokeLinecap="round" {...props} />
+export const Path = (props: MotionWrapperSVGMotionProps) => (
+  <MotionWrapper.Path fill="transparent" strokeWidth="1" stroke={COLORS[0]} strokeLinecap="round" {...props} />
 );
 
 const ToggleButton = ({ toggle }: { toggle: () => void }) => (
@@ -54,10 +54,10 @@ const MenuToggle = ({
 }) => {
   const [isOpen, toggleOpen] = useCycle(initial, true);
   return (
-    <motion.nav className={cx('nav', className)} initial={initial} animate={isOpen ? 'open' : 'closed'}>
+    <MotionWrapper.Nav className={cx('nav', className)} initial={initial} animate={isOpen ? 'open' : 'closed'}>
       <TripieContainer margin="none">{children}</TripieContainer>
       <ToggleButton toggle={toggleOpen} />
-    </motion.nav>
+    </MotionWrapper.Nav>
   );
 };
 

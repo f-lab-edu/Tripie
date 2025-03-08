@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
-import { motion } from 'framer-motion';
 
+import MotionWrapper from '../../shared/wrappers/motion-wrapper';
 import Style from './switch.module.scss';
 import { SWITCH_VARIANTS } from './variants';
 
@@ -18,17 +18,25 @@ const Switch = ({
   className?: string;
 }) => {
   return (
-    <motion.div className={cx('switch', className)} animate={current} onTapStart={() => cycle()}>
-      <motion.div
+    <MotionWrapper.Div className={cx('switch', className)} animate={current} onTapStart={() => cycle()}>
+      <MotionWrapper.Div
         className={cx('background')}
         variants={SWITCH_VARIANTS.BACKGROUND}
         transition={{ ease: 'easeInOut' }}
       />
-      <motion.div className={cx('button')} variants={SWITCH_VARIANTS.BUTTON} transition={{ ease: 'easeInOut' }} />
-      <motion.div className={cx('switch-text')} variants={SWITCH_VARIANTS.TEXT} transition={{ ease: 'easeInOut' }}>
+      <MotionWrapper.Div
+        className={cx('button')}
+        variants={SWITCH_VARIANTS.BUTTON}
+        transition={{ ease: 'easeInOut' }}
+      />
+      <MotionWrapper.Div
+        className={cx('switch-text')}
+        variants={SWITCH_VARIANTS.TEXT}
+        transition={{ ease: 'easeInOut' }}
+      >
         {text}
-      </motion.div>
-    </motion.div>
+      </MotionWrapper.Div>
+    </MotionWrapper.Div>
   );
 };
 

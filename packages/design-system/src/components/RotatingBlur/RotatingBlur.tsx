@@ -1,12 +1,12 @@
 import classNames from 'classnames/bind';
-import { motion } from 'framer-motion';
+import MotionWrapper from '../../shared/wrappers/motion-wrapper';
 import Style from './rotating-blur.module.scss';
 
 const cx = classNames.bind(Style);
 
 const RotatingBlur = () => {
   return (
-    <motion.div
+    <MotionWrapper.Div
       className={cx('pie', 'rotating-blur')}
       initial={{ rotate: 0 }}
       animate={{ scale: [1, 1.2, 1.5, 1.2, 1], rotate: 360 }}
@@ -17,10 +17,10 @@ const RotatingBlur = () => {
         ease: 'linear',
       }}
     >
-      <motion.div className={cx('segment', 'segment-1')}></motion.div>
-      <motion.div className={cx('segment', 'segment-2')}></motion.div>
-      <motion.div className={cx('segment', 'segment-3')}></motion.div>
-    </motion.div>
+      <MotionWrapper.Div className={cx('segment', 'segment-1')}></MotionWrapper.Div>
+      <MotionWrapper.Div className={cx('segment', 'segment-2')}></MotionWrapper.Div>
+      <MotionWrapper.Div className={cx('segment', 'segment-3')}></MotionWrapper.Div>
+    </MotionWrapper.Div>
   );
 };
 

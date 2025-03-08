@@ -1,7 +1,8 @@
 import classNames from 'classnames/bind';
-import { AnimationProps, motion } from 'framer-motion';
+
 import { ReactNode } from 'react';
 import { Container } from '..';
+import MotionWrapper, { MotionWraperAnimationProps } from '../../shared/wrappers/motion-wrapper';
 import TripieContainer from '../TripieContainer/TripieContainer';
 import Style from './text.module.scss';
 import { VARIANTS } from './variants';
@@ -42,9 +43,9 @@ export const FlickText = ({
   className?: string;
 }>) => {
   return (
-    <motion.span className={cx('flick', className)} variants={VARIANTS['TEXT']}>
+    <MotionWrapper.Span className={cx('flick', className)} variants={VARIANTS['TEXT']}>
       {children}
-    </motion.span>
+    </MotionWrapper.Span>
   );
 };
 
@@ -56,9 +57,9 @@ export const FlickText2 = ({
   className?: string;
 }>) => {
   return (
-    <motion.span className={cx('flick', className)} variants={VARIANTS['FLICK_TEXT']}>
+    <MotionWrapper.Span className={cx('flick', className)} variants={VARIANTS['FLICK_TEXT']}>
       {children}
-    </motion.span>
+    </MotionWrapper.Span>
   );
 };
 
@@ -78,7 +79,7 @@ const AnimatedText = ({
   animate?: 'rest' | 'hover';
 }>) => {
   return (
-    <motion.div
+    <MotionWrapper.Div
       className={cx('animated-text', withBorder && 'with-border', className)}
       initial="rest"
       whileHover={disabled ? 'rest' : 'hover'}
@@ -88,7 +89,7 @@ const AnimatedText = ({
       <FlickText2>{children}</FlickText2>
       <Container applyMargin="top"> </Container>
       <FlickText2 className={cx('hovered')}>{otherChild}</FlickText2>
-    </motion.div>
+    </MotionWrapper.Div>
   );
 };
 
@@ -102,7 +103,7 @@ const JumpingText = ({
   return (
     <TripieContainer className={cx('box')} margin="none">
       {children.split('').map((item: string, index: number) => (
-        <motion.span
+        <MotionWrapper.Span
           key={index + item}
           className={cx('box', className)}
           animate={{ y: [-5, 0] }}
@@ -114,7 +115,7 @@ const JumpingText = ({
           }}
         >
           {item}
-        </motion.span>
+        </MotionWrapper.Span>
       ))}
     </TripieContainer>
   );
@@ -130,11 +131,11 @@ const SlidingText = ({
   children: ReactNode;
   className?: string;
   animate?: 'rest' | 'fly';
-  transition?: AnimationProps['transition'];
+  transition?: MotionWraperAnimationProps['transition'];
   duration?: number;
 }>) => {
   return (
-    <motion.div
+    <MotionWrapper.Div
       className={cx(className)}
       initial="rest"
       animate={animate}
@@ -142,7 +143,7 @@ const SlidingText = ({
       variants={VARIANTS.SLIDE(duration)}
     >
       {children}
-    </motion.div>
+    </MotionWrapper.Div>
   );
 };
 

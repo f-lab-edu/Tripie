@@ -1,7 +1,8 @@
 import classNames from 'classnames/bind';
-import { Variants, motion } from 'framer-motion';
+import { Variants } from 'framer-motion';
 import { ReactNode } from 'react';
 
+import MotionWrapper from '../../shared/wrappers/motion-wrapper';
 import Divider from '../Divider';
 import Style from './text-underline.module.scss';
 import { TEXT_UNDERLINE_VARIANTS } from './variants';
@@ -18,7 +19,7 @@ const TextUnderLineAnimation = ({
   className?: string;
 }) => {
   return (
-    <motion.div
+    <MotionWrapper.Div
       className={cx('wrap', className)}
       onClick={onClick}
       variants={TEXT_UNDERLINE_VARIANTS}
@@ -27,7 +28,7 @@ const TextUnderLineAnimation = ({
     >
       {children}
       <Divider variants={TEXT_UNDERLINE_VARIANTS.DIVIDER as unknown as Variants} className={cx('divider')} />
-    </motion.div>
+    </MotionWrapper.Div>
   );
 };
 
