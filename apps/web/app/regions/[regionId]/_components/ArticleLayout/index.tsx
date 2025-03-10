@@ -19,7 +19,7 @@ const ArticleLayout = async ({
   return (
     <Container applyMargin="top" margin="l" align="center">
       <Card.Content className={cx('fit-content')}>
-        <Container margin="m" applyMargin="left-right">
+        <Container margin="m" applyMargin="top-left-right">
           {title}
         </Container>
         <Container margin="m" applyMargin="all" className={cx('img-container')}>

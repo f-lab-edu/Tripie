@@ -55,7 +55,7 @@
 .default {
   width: 100%;
   max-width: 24rem;
-  min-width: max(16rem, 12vw);
+  min-width: min(20rem, 70vw);
 }
 
 .marker {
