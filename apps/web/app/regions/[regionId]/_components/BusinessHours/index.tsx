@@ -1,7 +1,7 @@
 'use client';
 import { Container } from '@tripie-pyotato/design-system';
 
-import ArticleHeading from 'app/regions/[regionId]/_components/ArticleLayout/Elements/Header';
+import ArticleHeading from 'app/regions/[regionId]/_components/Elements/Header';
 import classNames from 'classnames/bind';
 import BUSINESS_DATE from 'constants/date';
 import { BusinessHour } from 'models/Attraction';

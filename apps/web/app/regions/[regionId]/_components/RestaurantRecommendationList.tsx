@@ -1,10 +1,10 @@
 'use client';
 import { Container, Divider } from '@tripie-pyotato/design-system';
 
-import ArticleImages from 'app/regions/[regionId]/_components/ArticleLayout/Elements/ArticleImages';
-import ArticleHeading from 'app/regions/[regionId]/_components/ArticleLayout/Elements/Header';
-import ArticleLink from 'app/regions/[regionId]/_components/ArticleLayout/Elements/Link';
-import ArticleText from 'app/regions/[regionId]/_components/ArticleLayout/Elements/Text';
+import ArticleImages from 'app/regions/[regionId]/_components/Elements/ArticleImages';
+import ArticleHeading from 'app/regions/[regionId]/_components/Elements/Header';
+import ArticleLink from 'app/regions/[regionId]/_components/Elements/Link';
+import ArticleText from 'app/regions/[regionId]/_components/Elements/Text';
 import { RestaurantRecommendation } from 'models/Attraction';
 
 const RestaurantRecommendationList = ({

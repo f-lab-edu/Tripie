@@ -1,6 +1,6 @@
 'use client';
 import { Divider } from '@tripie-pyotato/design-system';
-import ArticleHeading from 'app/regions/[regionId]/_components/ArticleLayout/Elements/Header';
+import ArticleHeading from 'app/regions/[regionId]/_components/Elements/Header';
 import { AttractionArticle } from 'models/Attraction';
 
 const ArticleDescription = ({ comment }: { comment: AttractionArticle['source']['comment'] }) => {

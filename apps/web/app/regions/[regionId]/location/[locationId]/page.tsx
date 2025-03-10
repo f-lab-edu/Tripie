@@ -6,9 +6,9 @@ import { sharedMetaData } from 'app/shared-metadata';
 import API from 'constants/api-routes';
 import ROUTE from 'constants/routes';
 import { Metadata } from 'next';
-import RegionList from '../../../_components/Region/RegionList';
-import RegionSelect from '../../../_components/Region/Select';
-import Title from '../../../_components/Region/Title';
+import RegionList from '../../../_components/RegionList';
+import RegionSelect from '../../../_components/Select';
+import Title from '../../../_components/Title';
 import { Params, parseParams } from '../../parse-params';
 
 type Props = {

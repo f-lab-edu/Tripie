@@ -1,11 +1,11 @@
 'use client';
 import { Container, Divider } from '@tripie-pyotato/design-system';
-import ArticleHeading from 'app/regions/[regionId]/_components/ArticleLayout/Elements/Header';
-import ArticleText from 'app/regions/[regionId]/_components/ArticleLayout/Elements/Text';
+import ArticleHeading from 'app/regions/[regionId]/_components/Elements/Header';
+import ArticleText from 'app/regions/[regionId]/_components/Elements/Text';
 import { AttractionArticle } from 'models/Attraction';
 import { Geolocation } from 'models/Geo';
-import BasicInfo, { BasicInfoProps } from '.';
-import TripieMap from '../ArticleLayout/Elements/TripieMap';
+import BasicInfo, { BasicInfoProps } from './BasicInfo';
+import TripieMap from './Elements/TripieMap';
 
 const BasicInfoSection = ({
   coordinates,

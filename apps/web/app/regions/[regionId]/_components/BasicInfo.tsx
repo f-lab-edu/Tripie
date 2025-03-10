@@ -1,6 +1,6 @@
 'use client';
 import { Card, Container } from '@tripie-pyotato/design-system';
-import ArticleLink from 'app/regions/[regionId]/_components/ArticleLayout/Elements/Link';
+import ArticleLink from 'app/regions/[regionId]/_components/Elements/Link';
 import { AttractionArticle } from 'models/Attraction';
 import { useMemo } from 'react';
 import InfoItem, { InfoTagType } from './InfoTag';

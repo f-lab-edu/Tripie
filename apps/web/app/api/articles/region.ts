@@ -1,4 +1,4 @@
-import { RegionArticleData } from 'app/regions/_components/Region/RegionCard';
+import { RegionArticleData } from 'app/regions/_components/RegionCard';
 import API from 'constants/api-routes';
 import { RegionArticleInfo } from 'models/Article';
 import firestoreService from '../firebase';

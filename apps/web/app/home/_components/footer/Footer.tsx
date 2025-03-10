@@ -16,6 +16,19 @@ import Style from './footer.module.scss';
 
 const cx = classNames.bind(Style);
 
+const footerItems = [
+  { label: 'year', content: '© 2024' },
+  {
+    label: 'contacts',
+    content: (
+      <>
+        mail
+        <Text.Accented>@</Text.Accented>tripie-pyotato.com
+      </>
+    ),
+  },
+];
+
 export default function Footer() {
   const router = useRouter();
   return (
@@ -30,15 +43,11 @@ export default function Footer() {
         </Container>
         <Divider />
         <List>
-          <List.Item>
-            <Headings.H3>© 2024</Headings.H3>
-          </List.Item>
-          <List.Item>
-            <Headings.H3>
-              mail
-              <Text.Accented>@</Text.Accented>tripie-pyotato.com
-            </Headings.H3>
-          </List.Item>
+          {footerItems.map(({ label, content }) => (
+            <List.Item key={label}>
+              <Headings.H3>{content}</Headings.H3>
+            </List.Item>
+          ))}
         </List>
         <Divider />
         <List>

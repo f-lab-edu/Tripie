@@ -7,7 +7,7 @@ import API from 'constants/api-routes';
 import ROUTE from 'constants/routes';
 import { Metadata } from 'next';
 import ArticleLayout from '../../_components/ArticleLayout';
-import ArticleTitle from '../../_components/ArticleLayout/Elements/ArticleTitle';
+import ArticleTitle from '../../_components/Elements/ArticleTitle';
 import ArticleBody, { BodyItemProps } from './ArticleBody';
 
 // https://nextjs.org/docs/app/building-your-application/optimizing/metadata

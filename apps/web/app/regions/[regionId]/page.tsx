@@ -1,11 +1,11 @@
 'use server';
 
-import RegionList from '../_components/Region/RegionList';
-import RegionSelect from '../_components/Region/Select';
+import RegionList from '../_components/RegionList';
+import RegionSelect from '../_components/Select';
 
 import { Text } from '@tripie-pyotato/design-system';
 import getRegionArticles from 'app/api/articles/region';
-import Title from '../_components/Region/Title';
+import Title from '../_components/Title';
 import { parseParams } from './parse-params';
 
 import { sharedMetaData } from 'app/shared-metadata';

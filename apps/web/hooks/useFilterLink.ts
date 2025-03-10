@@ -1,4 +1,4 @@
-import { LinkProps } from 'app/regions/[regionId]/_components/ArticleLayout/Elements/Link';
+import { LinkProps } from 'app/regions/[regionId]/_components/Elements/Link';
 import { useMemo } from 'react';
 
 /**

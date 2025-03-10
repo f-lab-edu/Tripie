@@ -3,13 +3,13 @@
 import { Container } from '@tripie-pyotato/design-system';
 
 import { AttractionArticle } from 'models/Attraction';
-import ArticleDescription from './BasicInfo/ArticleDescription';
-import BasicInfoSection from './BasicInfo/BasicInfoSection';
-import FeeDescription from './BasicInfo/FeeDescription';
-import TipDescription from './BasicInfo/TipDescription';
+import ArticleDescription from './ArticleDescription';
+import BasicInfoSection from './BasicInfoSection';
 import BusinessHours from './BusinessHours';
 import ExternalLinks from './ExternalLinks';
+import FeeDescription from './FeeDescription';
 import RestaurantRecommendationList from './RestaurantRecommendationList';
+import TipDescription from './TipDescription';
 
 const ArticleBody = ({ source, dataUrl }: { source: AttractionArticle['source']; dataUrl: string }) => {
   const today = new Date().getDay();

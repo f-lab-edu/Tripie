@@ -2,7 +2,7 @@
 import { TripieImage } from '@tripie-pyotato/design-system';
 
 import ArticleBody from 'app/regions/[regionId]/_components/ArticleBody';
-import ArticleTitle from 'app/regions/[regionId]/_components/ArticleLayout/Elements/ArticleTitle';
+import ArticleTitle from 'app/regions/[regionId]/_components/Elements/ArticleTitle';
 import { sharedMetaData } from 'app/shared-metadata';
 import API from 'constants/api-routes';
 import ROUTE from 'constants/routes';

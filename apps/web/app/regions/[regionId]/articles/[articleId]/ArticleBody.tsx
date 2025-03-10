@@ -1,14 +1,14 @@
 'use client';
 
 import Divider, { ArticleDividerProps } from '@tripie-pyotato/design-system/components/Divider/Divider';
-import ArticleImages, { ImageProps } from 'app/regions/[regionId]/_components/ArticleLayout/Elements/ArticleImages';
-import ArticleEmbedded, { EmbeddedProps } from 'app/regions/[regionId]/_components/ArticleLayout/Elements/Embedded';
-import ArticleHeading, { HeadingProps } from 'app/regions/[regionId]/_components/ArticleLayout/Elements/Header';
-import ArticleItinerary, { ItineraryProps } from 'app/regions/[regionId]/_components/ArticleLayout/Elements/Itinerary';
-import ArticleLink, { LinkProps } from 'app/regions/[regionId]/_components/ArticleLayout/Elements/Link';
-import ArticleNote, { NoteProps } from 'app/regions/[regionId]/_components/ArticleLayout/Elements/Note';
-import ArticlePois, { PoisProps } from 'app/regions/[regionId]/_components/ArticleLayout/Elements/Pois';
-import ArticleText, { ArticleTextProps } from 'app/regions/[regionId]/_components/ArticleLayout/Elements/Text';
+import ArticleImages, { ImageProps } from 'app/regions/[regionId]/_components/Elements/ArticleImages';
+import ArticleEmbedded, { EmbeddedProps } from 'app/regions/[regionId]/_components/Elements/Embedded';
+import ArticleHeading, { HeadingProps } from 'app/regions/[regionId]/_components/Elements/Header';
+import ArticleItinerary, { ItineraryProps } from 'app/regions/[regionId]/_components/Elements/Itinerary';
+import ArticleLink, { LinkProps } from 'app/regions/[regionId]/_components/Elements/Link';
+import ArticleNote, { NoteProps } from 'app/regions/[regionId]/_components/Elements/Note';
+import ArticlePois, { PoisProps } from 'app/regions/[regionId]/_components/Elements/Pois';
+import ArticleText, { ArticleTextProps } from 'app/regions/[regionId]/_components/Elements/Text';
 
 export type BodyItemProps =
   | ArticleDividerProps
