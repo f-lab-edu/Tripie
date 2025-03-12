@@ -24,7 +24,9 @@ export default function SeverError() {
 
         <Container className={cx('button-wrap')} margin="none">
           Oops, something went wrong.
-          <Chip.Accented onClick={handleClickHome}>bring me back home</Chip.Accented>
+          <Container align="center" margin="none" className={cx('chip-wrap')}>
+            <Chip.Accented onClick={handleClickHome}>bring me back home</Chip.Accented>
+          </Container>
         </Container>
       </Container>
     </ParticleBackground>
