@@ -4,8 +4,7 @@
 .background {
   @include background('0');
   display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
+  height: 100vh;
   flex-wrap: nowrap;
   padding: 2rem 1rem;
   min-height: 100%;
@@ -14,6 +13,24 @@
   position: relative;
   &.centered {
     justify-content: center;
+  }
+}
+.main-wrap {
+  height: 85%;
+}
+.break-text {
+  display: inline;
+  @media (max-width: 500px) {
+    display: inline-block;
+  }
+}
+
+.list-wrap {
+  & > div {
+    height: 70vh;
+    @media (max-width: 500px) {
+      height: 60vh;
+    }
   }
 }
 
