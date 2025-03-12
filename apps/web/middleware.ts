@@ -9,12 +9,12 @@ export function middleware(request: NextRequest) {
 
   // dev 일 경우에만 playground 경로 접근
   if (process.env.NODE_ENV === 'production' && pathname.startsWith('/playground')) {
-    return NextResponse.redirect('/home');
+    return NextResponse.redirect(new URL('/home', request.url));
   }
 
   // '/' 경로는 /home으로 redirect
   if (pathname === '/') {
-    return NextResponse.redirect('/home');
+    return NextResponse.redirect(new URL('/home', request.url));
   }
 
   // https://continentl.com/api/country-list 에서 국가 리스트 정보 가져오기 위한
