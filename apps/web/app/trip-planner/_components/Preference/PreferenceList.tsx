@@ -2,7 +2,6 @@ import { Chip, Container, Icon } from '@tripie-pyotato/design-system';
 import PREFERENCE_LIST from 'constants/preferences';
 import { Dispatch, SetStateAction } from 'react';
 import classNames from 'wrapper';
-// import Icon from 'shared/components/Icon/Icon';
 import { Preference } from '.';
 import Style from './preference-list.module.scss';
 
