@@ -1,5 +1,5 @@
 'use client';
-import classNames from 'classnames/bind';
+import { classNames } from '../../shared/wrappers';
 
 import { ReactElement, ReactNode, RefObject, useCallback, useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';

@@ -3,9 +3,9 @@
 import { Marker } from 'react-map-gl/maplibre';
 
 import { ChipMarker } from '@tripie-pyotato/design-system';
-import classNames from 'classnames/bind';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { LocationMarker } from 'models/Geo';
+import classNames from 'wrapper';
 import Style from './marker.module.scss';
 import './marker.scss';
 

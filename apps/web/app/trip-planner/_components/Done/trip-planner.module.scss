@@ -15,3 +15,25 @@
   height: 100vh;
   overflow: hidden;
 }
+
+.title-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cloud-wrap {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+
+  @media (min-width: 400px) {
+    height: 20vh;
+  }
+}
+
+.text-color {
+  color: $theme-50;
+  width: fit-content;
+  display: block;
+}

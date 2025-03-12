@@ -1,8 +1,8 @@
 'use client';
 import { Container, Text } from '@tripie-pyotato/design-system';
-import classNames from 'classnames/bind';
 import Markdown from 'markdown-to-jsx';
 import { decodeUnicodes } from 'utils/string';
+import classNames from 'wrapper';
 import Style from './text.module.scss';
 
 export type ArticleTextProps = { type: 'text'; value: TextValue & Partial<RichTextValue> };

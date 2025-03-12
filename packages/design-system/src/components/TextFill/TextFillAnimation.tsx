@@ -1,10 +1,9 @@
-import classNames from 'classnames/bind';
+import { classNames, Motion, MotionProps } from '../../shared/wrappers';
 
 import { ReactNode } from 'react';
 import { InView } from 'react-intersection-observer';
 import COLORS from '../../shared/colors';
 
-import Motion, { MotionProps } from '../../shared/wrappers/motion-wrapper';
 import { CustomAnimationProps } from '../TripieCard';
 import TripieContainer from '../TripieContainer/TripieContainer';
 import Style from './text-fill-animation.module.scss';

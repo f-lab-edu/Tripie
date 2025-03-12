@@ -1,5 +1,5 @@
 'use client';
-import classNames from 'classnames/bind';
+import classNames from 'wrapper';
 
 import { Card, Chip, Headings, List } from '@tripie-pyotato/design-system';
 import { AiTripPlanResponse } from 'app/api/chat/route';

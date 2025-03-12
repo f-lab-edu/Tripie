@@ -12,7 +12,7 @@ import {
   Text,
 } from '@tripie-pyotato/design-system';
 
-import classNames from 'classnames/bind';
+import classNames from 'wrapper';
 
 import { TRIPIE_REGION_BY_LOCATION, TRIPIE_REGION_IDS } from 'constants/tripie-country';
 import { useRouter } from 'next/navigation';

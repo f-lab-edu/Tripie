@@ -1,5 +1,5 @@
-import classNames from 'classnames/bind';
 import { ComponentProps, ReactNode, RefObject } from 'react';
+import { classNames } from '../../shared/wrappers';
 import Style from './tripie-container.module.scss';
 
 export type TripieContainerProps = {

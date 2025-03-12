@@ -1,7 +1,7 @@
 'use client';
 import { AnimatedButton, Container, Headings, Icon, Text } from '@tripie-pyotato/design-system';
-import classNames from 'classnames/bind';
 import PREFERENCE_LIST from 'constants/preferences';
+import classNames from 'wrapper';
 
 import { ContinentKeys } from 'models/Continent';
 import { useCallback, useMemo, useState } from 'react';
@@ -14,11 +14,12 @@ const cx = classNames.bind(Style);
 interface Props {
   context: { continent: ContinentKeys; country: string; city: { all: string[]; selected: string[] } };
   onNext: (cities: string[]) => void;
+  onPrev: () => void;
 }
 
 export type Preference = keyof typeof PREFERENCE_LIST;
 
-const CityStep = ({ context, onNext }: Props) => {
+const CityStep = ({ context, onNext, onPrev }: Props) => {
   // 전체 도시
   const cities = useMemo(() => {
     return context.city.all;
@@ -31,9 +32,14 @@ const CityStep = ({ context, onNext }: Props) => {
 
   return (
     <>
-      <Container margin="none">
+      <Container applyMargin="top" margin="l">
         <Headings.H2 className={cx('flex-text')}>
-          <Icon.Navigate sizes="large" />
+          <Icon.Navigate
+            sizes="large"
+            onTapStart={() => {
+              onPrev();
+            }}
+          />
           <Container margin="none">
             내가 여행하고 싶은 <Text.Accented>{'\n'}도시</Text.Accented>는?
           </Container>

@@ -1,9 +1,9 @@
 'use client';
 import { Card, Container, TripieImage } from '@tripie-pyotato/design-system';
-import classNames from 'classnames/bind';
 import POI_TYPE from 'constants/triple';
 import { Poi } from 'models/Aws';
 import { RefObject, useEffect } from 'react';
+import classNames from 'wrapper';
 import ArticleHeading from '../Header';
 import Style from './poi-card.module.scss';
 

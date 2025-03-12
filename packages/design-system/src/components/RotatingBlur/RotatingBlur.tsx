@@ -1,5 +1,4 @@
-import classNames from 'classnames/bind';
-import Motion from '../../shared/wrappers/motion-wrapper';
+import { classNames, Motion } from '../../shared/wrappers';
 import Style from './rotating-blur.module.scss';
 
 const cx = classNames.bind(Style);

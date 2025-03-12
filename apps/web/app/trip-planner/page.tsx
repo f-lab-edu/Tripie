@@ -1,16 +1,17 @@
 'use client';
 
-import { Container, Icon, Text } from '@tripie-pyotato/design-system';
+import { Container } from '@tripie-pyotato/design-system';
 import { getTripPlan } from 'app/api/chat/route';
 import { increment } from 'firebase/firestore/lite';
 
-import classNames from 'classnames/bind';
 import API from 'constants/api-routes';
 import { CHAT_DB_NAME, DB_NAME } from 'constants/auth';
 import useFunnel from 'hooks/useFunnel';
+import classNames from 'wrapper';
 
 import firestoreService from 'app/api/firebase';
 import { CustomUser } from 'app/api/gpt/route';
+import Nav from 'app/home/_components/nav/Nav';
 import ROUTE from 'constants/routes';
 import { useDebounce } from 'hooks/useDebounce';
 import { TripPlanner } from 'models/Aws';
@@ -18,12 +19,11 @@ import { ContinentKeys } from 'models/Continent';
 import { Continentl } from 'models/Continentl';
 import { signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
-import { randomInt } from 'utils/random';
 import CityStep from './_components/Cities';
 import CompanionStep from './_components/Companion';
 import { ContinentStep } from './_components/Continents';
 import { CountryStep } from './_components/Countries';
+import DoneStep from './_components/Done';
 import DurationStep from './_components/Duration';
 import PreferenceStep from './_components/Preference';
 import Style from './trip-planner.module.scss';
@@ -77,7 +77,7 @@ const handleSubmit = async (chatItems: TripPlanner, id: string) => {
 const TripPlan = () => {
   const navigate = useRouter();
   const { status, data: userData } = useSession();
-  const [isLoading, setIsLoading] = useState(false);
+
   const funnel = useFunnel<{
     CONTINENT: {
       continent?: ContinentKeys;
@@ -127,11 +127,20 @@ const TripPlan = () => {
       companion: string;
       preference?: string;
     };
+    DONE: {
+      continent: ContinentKeys;
+      country: string;
+      city: { all: string[]; selected: string[] };
+      duration: string;
+      companion: string;
+      preference: string;
+    };
   }>({
     id: 'trip-plan',
     initial: {
       step: 'CONTINENT',
       context: { continent: 'ALL' },
+      index: 0,
     },
   });
 
@@ -140,57 +149,14 @@ const TripPlan = () => {
   }
 
   const onHandleSubmit = useDebounce(async () => {
-    setIsLoading(true);
     const id = await handleSubmit(funnel.context as TripPlanner, (userData?.user as CustomUser)?.id);
-    setIsLoading(false);
     funnel.history.clear();
-
     navigate.replace(`${ROUTE.TRIP_PLANNER.href}/${id}`);
   });
 
-  if (isLoading) {
-    const {
-      preference,
-      continent,
-      city: { selected },
-      country,
-      companion,
-      duration,
-    } = funnel.context as TripPlanner;
-    const selectedOptions = [
-      ...preference.split(','),
-      continent,
-      selected,
-      country,
-      ...companion.split(','),
-      duration,
-    ].flat();
-    return (
-      <Container margin="none" className={cx('background', 'title-wrap')}>
-        <Container className={cx('cloud-wrap')}>
-          {Array.from({ length: 17 }, (_, index) => (
-            <Icon.Cloud key={index} index={index} />
-          ))}
-          <Icon.Plane />
-        </Container>
-        <Container margin="none">
-          {selectedOptions.map(text => (
-            <Text.Slide animate="fly" duration={randomInt()} key={text}>
-              <div className={cx('text-color')}>{text}</div>
-            </Text.Slide>
-          ))}
-        </Container>
-        <Container className={cx('cloud-wrap')}>
-          {Array.from({ length: 13 }, (_, index) => (
-            <Icon.Cloud key={index} index={index} />
-          ))}
-        </Container>
-      </Container>
-    );
-  }
-
   return (
     <Container margin="none" className={cx('background')}>
+      <Nav />
       <funnel.Render
         CONTINENT={({ context, history }) => (
           <ContinentStep
@@ -212,6 +178,7 @@ const TripPlan = () => {
               history.push('CITY', { ...context, ...selected });
             }}
             context={context}
+            onPrev={history.back}
           />
         )}
         CITY={({ context, history }) => (
@@ -219,24 +186,29 @@ const TripPlan = () => {
             onNext={(selected: string[]) => {
               history.push('DURATION', { ...context, city: { ...context.city, selected } });
             }}
+            onPrev={history.back}
             context={context}
           />
         )}
         DURATION={({ context, history }) => (
-          <DurationStep context={context} onNext={duration => history.push('COMPANION', { duration })} />
+          <DurationStep context={context} onNext={duration => history.push('COMPANION', { ...context, duration })} />
         )}
         COMPANION={({ context, history }) => (
-          <CompanionStep context={context} onNext={companion => history.push('PREFERENCE', { companion })} />
+          <CompanionStep
+            context={context}
+            onNext={companion => history.push('PREFERENCE', { ...context, companion })}
+          />
         )}
         PREFERENCE={({ context, history }) => (
           <PreferenceStep
             context={context}
             onNext={preference => {
-              history.push('PREFERENCE', { preference });
+              history.push('DONE', { ...context, preference });
               onHandleSubmit();
             }}
           />
         )}
+        DONE={({ context }) => <DoneStep context={context} />}
       />
     </Container>
   );

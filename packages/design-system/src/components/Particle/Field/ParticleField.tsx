@@ -1,7 +1,6 @@
 import Particle from '../Particles/Particles';
 
-import classNames from 'classnames/bind';
-
+import { classNames } from '../../../shared/wrappers';
 import Style from './particle-field.module.scss';
 const cx = classNames.bind(Style);
 

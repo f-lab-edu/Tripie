@@ -1,5 +1,5 @@
-import classNames from 'classnames/bind';
 import { ReactNode } from 'react';
+import { classNames } from '../../shared/wrappers';
 import TripieContainer from '../TripieContainer/TripieContainer';
 import Style from './list.module.scss';
 

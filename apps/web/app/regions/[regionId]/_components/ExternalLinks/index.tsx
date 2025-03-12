@@ -3,7 +3,7 @@ import { Card, Container, Divider, TripieImage } from '@tripie-pyotato/design-sy
 
 import ArticleHeading from 'app/regions/[regionId]/_components/Elements/Header';
 import ArticleText from 'app/regions/[regionId]/_components/Elements/Text';
-import classNames from 'classnames/bind';
+import classNames from 'wrapper';
 
 import { ExternalLink } from 'models/Link';
 import { useRouter } from 'next/navigation';

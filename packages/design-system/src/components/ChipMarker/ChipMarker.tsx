@@ -1,4 +1,4 @@
-import classNames from 'classnames/bind';
+import { classNames } from '../../shared/wrappers';
 
 import { useMemo } from 'react';
 import Chip from '../Chip/Chip';

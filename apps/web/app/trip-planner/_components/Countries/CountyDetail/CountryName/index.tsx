@@ -1,8 +1,8 @@
 'use client';
 import { Headings, List, Text, TripieImage } from '@tripie-pyotato/design-system';
 
-import classNames from 'classnames/bind';
 import { Continentl } from 'models/Continentl';
+import classNames from 'wrapper';
 import Style from './country-name.module.scss';
 
 const cx = classNames.bind(Style);

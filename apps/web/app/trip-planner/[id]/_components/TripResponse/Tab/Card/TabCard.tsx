@@ -1,5 +1,5 @@
 'use client';
-import classNames from 'classnames/bind';
+import classNames from 'wrapper';
 
 import { Card, Chip, Container, Divider, Text, TextUnderLineAnimation } from '@tripie-pyotato/design-system';
 

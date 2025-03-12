@@ -1,5 +1,5 @@
 import { AnimatedButton, Container, Headings, Icon, Text } from '@tripie-pyotato/design-system';
-import classNames from 'classnames/bind';
+import classNames from 'wrapper';
 
 import PREFERENCE_LIST from 'constants/preferences';
 
@@ -35,7 +35,7 @@ const PreferenceStep = ({ context, onNext }: Props) => {
 
   return (
     <>
-      <Container margin="none">
+      <Container applyMargin="top" margin="l">
         <Headings.H2 className={cx('flex-text')}>
           <Icon.Navigate sizes="large" />
           <Container margin="none">
@@ -47,7 +47,6 @@ const PreferenceStep = ({ context, onNext }: Props) => {
         {Array.from({ length: 30 }, (_, index) => (
           <Icon.Cloud key={index} index={index} />
         ))}
-
         <Icon.Plane />
       </Container>
       <PreferenceList selected={selected} setSelected={setSelected} />

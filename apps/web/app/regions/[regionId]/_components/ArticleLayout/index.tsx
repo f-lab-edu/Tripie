@@ -1,6 +1,6 @@
 'use server';
 import { Card, Container } from '@tripie-pyotato/design-system';
-import classNames from 'classnames/bind';
+import classNames from 'wrapper';
 
 import { ReactNode } from 'react';
 import Style from './article-layout.module.scss';

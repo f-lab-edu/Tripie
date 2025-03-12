@@ -1,14 +1,12 @@
 'use client';
 
-import { AnimatedButton, Card, Container, Headings, Text, TextUnderLineAnimation } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Container, Headings, Icon, Text, TextUnderLineAnimation } from '@tripie-pyotato/design-system';
 import Nav from 'app/home/_components/nav/Nav';
 import RegionInfo from 'app/home/_components/our-service/_components/RegionInfo';
-import classNames from 'classnames/bind';
 import ROUTE from 'constants/routes';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { Suspense } from 'react';
-import Loading from 'shared/components/Loading';
+import classNames from 'wrapper';
 import Style from './contact-admin.module.scss';
 
 const cx = classNames.bind(Style);
@@ -21,19 +19,20 @@ const ContactAdmin = () => {
       <Container margin="none" className={cx('background')}>
         <Container margin="l" applyMargin="top">
           <Headings.H2>
-            <Text.Accented>
-              <Container margin="none" className={cx('break-text')}>
-                이런! 토큰을{' '}
-              </Container>
-              다 사용했네요!
-            </Text.Accented>
+            <Container margin="none" className={cx('break-text')}>
+              이런! <Text.Accented>토큰을 </Text.Accented>
+            </Container>
+            <Text.Accented>다 사용했네요!</Text.Accented>
           </Headings.H2>
         </Container>
         <Container margin="none" className={cx('main-wrap')}>
           <Container className={cx('text-wrap')} margin="none">
             <TextUnderLineAnimation>
-              <Link href="mailto:pyotato.dev@gmail.com?subject=Hello&body=Can I have extra tokens?">
-                <Text.Accented>@관리자</Text.Accented>에게 토큰 요청하기
+              <Link
+                className={cx('link-wrap')}
+                href="mailto:pyotato.dev@gmail.com?subject=Hello&body=Can I have extra tokens?"
+              >
+                <Text.Accented>@관리자</Text.Accented>에게 토큰 요청하기 <Icon />
               </Link>
             </TextUnderLineAnimation>
           </Container>
@@ -46,15 +45,7 @@ const ContactAdmin = () => {
             </Container>
           </Container>
           <Container margin="none" className={cx('list-wrap')}>
-            <Suspense
-              fallback={
-                <Card.Content>
-                  <Loading />
-                </Card.Content>
-              }
-            >
-              <RegionInfo />
-            </Suspense>
+            <RegionInfo />
           </Container>
         </Container>
         <Container applyMargin="top-bottom">

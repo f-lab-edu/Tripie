@@ -1,9 +1,7 @@
 'use client';
-import classNames from 'classnames/bind';
+import { classNames, Motion } from '../../shared/wrappers';
 
 import { createContext, ReactNode, useContext, useMemo } from 'react';
-
-import Motion from '../../shared/wrappers/motion-wrapper';
 
 import { useCycle } from '../../hooks';
 import Divider from '../Divider/Divider';

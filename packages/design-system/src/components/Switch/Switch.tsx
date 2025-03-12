@@ -1,6 +1,4 @@
-import classNames from 'classnames/bind';
-
-import Motion from '../../shared/wrappers/motion-wrapper';
+import { classNames, Motion } from '../../shared/wrappers';
 import Style from './switch.module.scss';
 import { SWITCH_VARIANTS } from './variants';
 

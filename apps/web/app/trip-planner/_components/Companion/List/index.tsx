@@ -1,6 +1,6 @@
 'use client';
 import { Chip, Container, Icon } from '@tripie-pyotato/design-system';
-import classNames from 'classnames/bind';
+import classNames from 'wrapper';
 
 import COMPANION_LIST from 'constants/companions';
 import { ContinentKeys } from 'models/Continent';

@@ -43,7 +43,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const TripPlan = async ({ params }: { params: Promise<{ id: string }> }) => {
   const id = (await params).id;
-
   const plan = await firestoreService.getItem(CHAT_DB_NAME, decodeURIComponent(id));
 
   if (plan?.data == null) {

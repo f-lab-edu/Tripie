@@ -1,14 +1,13 @@
 'use client';
-import classNames from 'classnames/bind';
+import classNames from 'wrapper';
 
-import { Container, Headings, Icon, Text } from '@tripie-pyotato/design-system';
+import { Container } from '@tripie-pyotato/design-system';
 
+import Nav from 'app/home/_components/nav/Nav';
 import ROUTE from 'constants/routes';
-import useChatToken from 'hooks/useChatToken';
 import { TripContent } from 'models/Aws';
 import { Coordinate } from 'models/Geo';
 import { DefaultUser } from 'next-auth';
-import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { Dispatch, SetStateAction, Suspense, createContext, useEffect, useMemo, useState } from 'react';
 import Loading from 'shared/components/Loading';
@@ -36,8 +35,6 @@ export const SelectedDateContext = createContext<{ currentDate: number; dateCycl
 });
 
 const TripResponse = ({ data }: { data: ChatResponseData }) => {
-  const { remainingToken, isAdmin, usedGptToken, status } = useChatToken();
-
   const router = useRouter();
 
   // 뒤로 가기 시 강제로 처음으로
@@ -81,31 +78,13 @@ const TripResponse = ({ data }: { data: ChatResponseData }) => {
     return <Loading />;
   }
 
-  // 다른 일정을 찾는다면 처음으로 이동
-  const handleNavigation = () => {
-    if (status === 'unauthenticated') {
-      return signIn();
-    }
-    router.push(ROUTE.TRIP_PLANNER.href + '?trip-plan.step=CONTINENT');
-  };
-
   return (
     <Suspense fallback={<Loading />}>
+      <Nav />
       <Container margin="none" className={cx('background')}>
         <TabContext.Provider value={selectedActivityValues}>
           <SelectedDateContext.Provider value={selectedDateValues}>
-            <Container margin="none">
-              <Icon onTapStart={handleNavigation} />
-              {remainingToken != null && !isAdmin ? `${remainingToken}토큰으로 다른 일정 추천 받아보기` : ''}
-              {isAdmin ? `어드민님, (${usedGptToken}개 사용) 다른 일정 추천 받기` : null}
-              {status === 'unauthenticated' && '로그인하고 일정 추천받아보기'}
-              <Headings.H2>
-                <Text.Accented>Chat</Text.Accented>
-              </Headings.H2>
-            </Container>
-            <Container margin="none" className={cx('trip-content-wrap')}>
-              <MapTab data={data.plans} coordinates={coordinates} />
-            </Container>
+            <MapTab data={data.plans} coordinates={coordinates} />
           </SelectedDateContext.Provider>
         </TabContext.Provider>
       </Container>

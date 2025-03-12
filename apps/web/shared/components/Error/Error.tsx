@@ -1,10 +1,10 @@
 'use client';
 import { Chip, Container, Headings, ParticleBackground, Text } from '@tripie-pyotato/design-system';
 
-import classNames from 'classnames/bind';
-import { useRouter } from 'next/navigation';
-import Style from './error.module.scss';
 import ROUTE from 'constants/routes';
+import { useRouter } from 'next/navigation';
+import classNames from 'wrapper';
+import Style from './error.module.scss';
 
 const cx = classNames.bind(Style);
 

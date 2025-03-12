@@ -1,7 +1,7 @@
 'use client';
 
-import classNames from 'classnames/bind';
 import Link from 'next/link';
+import { classNames } from '../../shared/wrappers';
 import Text, { TextProps } from '../Text';
 import Style from './link.module.scss';
 

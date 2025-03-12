@@ -1,12 +1,11 @@
 'use client';
-import classNames from 'classnames/bind';
+import { classNames, Motion, MotionProps } from '../../shared/wrappers';
 
 import { useRouter } from 'next/navigation';
 import { ReactNode } from 'react';
 import Style from './icon.module.scss';
 
 import { ICON_RESOURCE } from '../../shared/resource';
-import Motion, { MotionProps } from '../../shared/wrappers/motion-wrapper';
 import { ICON_VARIANTS } from './variants';
 
 const cx = classNames.bind(Style);
@@ -50,7 +49,7 @@ const Icon = ({
   );
 };
 
-export type NavigationDirection = { direction?: 'back' | 'front'; disabled?: boolean };
+export type NavigationDirection = { direction?: 'back' | 'front'; disabled?: boolean; navigateUrl?: string };
 export type NavigationIconProps = IconProps & NavigationDirection;
 
 const NavigateIcon = ({
@@ -60,19 +59,26 @@ const NavigateIcon = ({
   sizes = 'icon',
   animate,
   disabled,
+  onTapStart,
+  navigateUrl,
   variants = ICON_VARIANTS.NAVIGATE(direction),
   transition,
 }: Readonly<NavigationIconProps>) => {
   const navigate = useRouter();
 
   const onNavigate = ({ direction }: NavigationDirection) => {
+    if (navigateUrl != null) {
+      return navigate.replace(navigateUrl);
+    }
     direction === 'back' ? navigate.back() : navigate.forward();
   };
 
   return (
     <Motion.Button
       disabled={disabled}
-      onTapStart={() => onNavigate({ direction })}
+      onTapStart={() => {
+        onTapStart != null ? onTapStart() : onNavigate({ direction });
+      }}
       whileTap={'hover'}
       whileHover={'hover'}
       className={cx(sizes, className)}

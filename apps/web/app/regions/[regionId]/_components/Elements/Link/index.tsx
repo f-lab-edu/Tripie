@@ -1,6 +1,6 @@
 'use client';
 import { Container, Link, TextUnderLineAnimation } from '@tripie-pyotato/design-system';
-import classNames from 'classnames/bind';
+import classNames from 'wrapper';
 
 import useFilterLink from 'hooks/useFilterLink';
 import { Link as LinkType } from 'models/Link';

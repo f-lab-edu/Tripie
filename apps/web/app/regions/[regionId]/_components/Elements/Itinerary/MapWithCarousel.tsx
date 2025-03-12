@@ -1,9 +1,9 @@
 'use client';
 import { Carousel, Chip, Container, Divider, Icon } from '@tripie-pyotato/design-system';
-import classNames from 'classnames/bind';
 import { Poi } from 'models/Aws';
 import { ItineraryItem } from 'models/Itinery';
 import { Dispatch, SetStateAction, createRef, memo, useRef } from 'react';
+import classNames from 'wrapper';
 
 import { Transport } from '@tripie-pyotato/design-system/components/TripieIcon/Icon';
 import PoiCard from '../Pois/PoiCard';

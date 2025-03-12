@@ -1,6 +1,6 @@
 import { AnimatedButton, Container, Headings, Icon, Text } from '@tripie-pyotato/design-system';
-import classNames from 'classnames/bind';
 import { CONTINENTS } from 'constants/continents';
+import classNames from 'wrapper';
 
 import { ContinentKeys } from 'models/Continent';
 import { useMemo, useState } from 'react';
@@ -35,7 +35,7 @@ export function ContinentStep({ context, onNext }: Readonly<Props>) {
 
   return (
     <>
-      <Container margin="none">
+      <Container applyMargin="top" margin="l">
         <Headings.H2>
           떠나고 싶은 <Text.Accented>지역</Text.Accented>은?
         </Headings.H2>

@@ -1,7 +1,7 @@
 'use client';
 
 import { Container, Headings, MotionSlideUp, Text } from '@tripie-pyotato/design-system';
-import classNames from 'classnames/bind';
+import classNames from 'wrapper';
 import PlanList from './PlanList';
 import Style from './plan.module.scss';
 

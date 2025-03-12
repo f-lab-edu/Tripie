@@ -1,5 +1,5 @@
-import classNames from 'classnames/bind';
 import { ReactNode } from 'react';
+import { classNames } from '../../../shared/wrappers';
 import Style from './no-style-button.module.scss';
 
 const cx = classNames.bind(Style);

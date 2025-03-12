@@ -1,6 +1,4 @@
-import classNames from 'classnames/bind';
-
-import Motion, { MotionProps } from '../../shared/wrappers/motion-wrapper';
+import { classNames, Motion, MotionProps } from '../../shared/wrappers';
 
 import { ACCORDIAN_VARIANTS } from '../../shared/variants';
 

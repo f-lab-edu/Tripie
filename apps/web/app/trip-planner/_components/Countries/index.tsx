@@ -4,7 +4,7 @@ import 'shared/components/AwsMap/Marker/marker.scss';
 import { useQueryClient } from '@tanstack/react-query';
 import { AnimatedButton, Container, Headings, Icon, Text } from '@tripie-pyotato/design-system';
 import firestoreService from 'app/api/firebase';
-import classNames from 'classnames/bind';
+import classNames from 'wrapper';
 
 import useContinentl from 'hooks/query/useContinentl';
 import useCountries from 'hooks/query/useCountries';
@@ -25,11 +25,12 @@ interface Props {
     city?: { all: string[]; selected: string[] };
     duration?: string;
   }) => void;
+  onPrev: () => void;
 }
 
 const cx = classNames.bind(Style);
 
-export function CountryStep({ context, onNext }: Readonly<Props>) {
+export function CountryStep({ context, onNext, onPrev }: Readonly<Props>) {
   const { data, isLoading } = useCountries(context.continent ?? 'all');
   const [selectedCountry, setSelectedCountry] = useState(() =>
     context?.country == null || data == null || data.filter(country => country.name === context.country).length == 0
@@ -56,9 +57,14 @@ export function CountryStep({ context, onNext }: Readonly<Props>) {
 
   return (
     <>
-      <Container margin="none">
+      <Container applyMargin="top" margin="l">
         <Headings.H2 className={cx('flex-text')}>
-          <Icon.Navigate sizes="large" />
+          <Icon.Navigate
+            sizes="large"
+            onTapStart={() => {
+              onPrev();
+            }}
+          />
           <Container margin="none">
             떠나고 싶은 <Text.Accented>나라</Text.Accented>는?
           </Container>

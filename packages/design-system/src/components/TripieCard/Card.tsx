@@ -1,8 +1,7 @@
-import classNames from 'classnames/bind';
-
 import { MutableRefObject, ReactNode, RefObject } from 'react';
 import { SHINE_VARIANT } from '../../shared/variants';
-import Motion from '../../shared/wrappers/motion-wrapper';
+import { classNames, Motion } from '../../shared/wrappers';
+
 import Divider from '../Divider';
 import MotionSlideUp from '../MotionSlideUp/MotionSlideUp';
 import Text from '../Text';

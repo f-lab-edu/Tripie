@@ -1,12 +1,12 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { Chip, Container } from '@tripie-pyotato/design-system';
 import firestoreService from 'app/api/firebase';
-import classNames from 'classnames/bind';
 import { CONTINENTS } from 'constants/continents';
 import useCountries from 'hooks/query/useCountries';
 import { ContinentIds, ContinentKeys } from 'models/Continent';
 import { Country } from 'models/Country';
 import { Dispatch, SetStateAction } from 'react';
+import classNames from 'wrapper';
 
 import Style from './continent-list.module.scss';
 

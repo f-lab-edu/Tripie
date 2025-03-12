@@ -1,8 +1,8 @@
 'use client';
-import classNames from 'classnames/bind';
+
 import { ReactNode } from 'react';
 
-import Motion from '../../../../shared/wrappers/motion-wrapper';
+import { classNames, Motion } from '../../../../shared/wrappers';
 import Style from './menu-item.module.scss';
 import { MENU_ITEM_VARIANT } from './variants';
 

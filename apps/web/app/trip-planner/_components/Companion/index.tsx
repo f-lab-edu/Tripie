@@ -1,6 +1,6 @@
 'use client';
 import { AnimatedButton, Container, Headings, Icon, Text } from '@tripie-pyotato/design-system';
-import classNames from 'classnames/bind';
+import classNames from 'wrapper';
 
 import COMPANION_LIST from 'constants/companions';
 
@@ -35,7 +35,7 @@ const CompanionStep = ({ context, onNext }: Props) => {
 
   return (
     <>
-      <Container margin="none">
+      <Container applyMargin="top" margin="l">
         <Headings.H2 className={cx('flex-text')}>
           <Icon.Navigate sizes="large" />
           <Text.Accented>누구</Text.Accented>와 떠나나요?

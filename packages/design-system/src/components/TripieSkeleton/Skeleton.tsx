@@ -1,5 +1,5 @@
-import classNames from 'classnames/bind';
 import { ComponentProps } from 'react';
+import { classNames } from '../../shared/wrappers';
 import Style from './skeleton.module.scss';
 
 export type GridProps = ComponentProps<'div'>;

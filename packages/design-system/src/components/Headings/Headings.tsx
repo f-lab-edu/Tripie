@@ -1,6 +1,6 @@
 'use client';
 
-import classNames from 'classnames/bind';
+import { classNames } from '../../shared/wrappers';
 import Text, { TextProps } from '../Text/Text';
 import Style from './headings.module.scss';
 

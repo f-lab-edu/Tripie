@@ -8,6 +8,14 @@
       "@components/*": ["components/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", "../../typings", "jest.setup.cjs", "~/*.ts", "~/*.tsx"],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "../../typings",
+    "jest.setup.cjs",
+    "~/*.ts",
+    "~/*.tsx",
+    "src/shared/wrappers/index.tsz"
+  ],
   "exclude": ["dist"]
 }

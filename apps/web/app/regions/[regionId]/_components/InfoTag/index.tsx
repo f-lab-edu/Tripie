@@ -1,8 +1,8 @@
 'use client';
 import { Container } from '@tripie-pyotato/design-system';
 
-import classNames from 'classnames/bind';
 import { ReactNode } from 'react';
+import classNames from 'wrapper';
 import Style from './info-tag.module.scss';
 
 const cx = classNames.bind(Style);

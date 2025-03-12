@@ -1,6 +1,6 @@
 'use client';
 import { Card, Container } from '@tripie-pyotato/design-system';
-import classNames from 'classnames/bind';
+import classNames from 'wrapper';
 
 import Style from './region-info.module.scss';
 
@@ -8,6 +8,8 @@ import RegionList, { RegionArticleData } from 'app/regions/_components/RegionLis
 import RegionSelect from 'app/regions/_components/Select';
 import { TRIPIE_REGION_BY_LOCATION, TRIPIE_REGION_IDS } from 'constants/tripie-country';
 import useCountryArticle from 'hooks/query/useCountryArticles';
+import { Suspense } from 'react';
+import Loading from 'shared/components/Loading';
 
 const cx = classNames.bind(Style);
 
@@ -30,7 +32,11 @@ const RegionInfo = () => {
   const { data } = useCountryArticle() as unknown as { data: RegionArticleData[] };
 
   if (data == null) {
-    return <></>;
+    return <Loading />;
+  }
+
+  if (data.length === 0) {
+    return <>no items...</>;
   }
 
   return (
@@ -39,10 +45,12 @@ const RegionInfo = () => {
         <Container margin="none" className={cx('card-region-wrap')}>
           <RegionSelect selected={currentRegionId} selectedRegion={selectedRegion} />
           <Container margin="none">
-            <RegionList
-              data={data.filter(item => item.regionId === selectedRegion)?.[0]?.data}
-              selectedRegion={selectedRegion}
-            />
+            <Suspense fallback={<Loading />}>
+              <RegionList
+                data={data.filter(item => item.regionId === selectedRegion)?.[0]?.data}
+                selectedRegion={selectedRegion}
+              />
+            </Suspense>
           </Container>
         </Container>
       </Container>

@@ -1,9 +1,7 @@
 'use client';
 
-import classNames from 'classnames/bind';
-
 import { ReactNode } from 'react';
-import Motion from '../../../shared/wrappers/motion-wrapper';
+import { classNames, Motion } from '../../../shared/wrappers';
 import Text from '../../Text';
 import TripieContainer from '../../TripieContainer/TripieContainer';
 import Style from './animated-button.module.scss';

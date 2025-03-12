@@ -1,6 +1,5 @@
-import classNames from 'classnames/bind';
+import { classNames, Motion } from '../../../shared/wrappers';
 
-import Motion from '../../../shared/wrappers/motion-wrapper';
 import Style from './particles.module.scss';
 
 const cx = classNames.bind(Style);

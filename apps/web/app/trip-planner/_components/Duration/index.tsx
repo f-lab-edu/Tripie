@@ -1,6 +1,6 @@
 'use client';
 import { Container, Headings, Icon, Text } from '@tripie-pyotato/design-system';
-import classNames from 'classnames/bind';
+import classNames from 'wrapper';
 import Calendar from './Calendar';
 
 import { ContinentKeys } from 'models/Continent';
@@ -23,7 +23,7 @@ interface Props {
 const DurationStep = ({ context, onNext }: Props) => {
   return (
     <>
-      <Container margin="none">
+      <Container applyMargin="top" margin="l">
         <Headings.H2 className={cx('flex-text')}>
           <Icon.Navigate sizes="large" />
           <Container margin="none">
