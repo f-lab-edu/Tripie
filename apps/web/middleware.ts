@@ -17,7 +17,7 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect('/home');
   }
 
-  // Redirect specific API routes dynamically
+  // https://continentl.com/api/country-list 에서 국가 리스트 정보 가져오기 위한
   if (pathname.startsWith('/api/continentl/country-list')) {
     return NextResponse.redirect('https://continentl.com/api/country-list');
   }
@@ -50,7 +50,6 @@ export function middleware(request: NextRequest) {
   });
 }
 
-// Apply middleware only to API routes
 export const config = {
-  matcher: ['/api/:path*'], // Runs middleware for all `/api/*` requests
+  matcher: ['/', '/playground', '/api/:path*'],
 };
