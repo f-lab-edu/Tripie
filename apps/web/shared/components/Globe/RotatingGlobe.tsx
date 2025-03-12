@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic';
 import { Suspense, useEffect, useRef } from 'react';
 
-import { COLORS } from '@tripie-pyotato/design-system';
+import { COLORS, Container } from '@tripie-pyotato/design-system';
 import { GlobeMethods } from 'react-globe.gl';
 import Countries from './countries.json';
 import './globe.scss';
@@ -34,8 +34,7 @@ const RotatingGlobe = () => {
   }, []);
 
   return (
-    // <div className={cx('globe')}>
-    <div className={'globe'}>
+    <Container className={'globe'}>
       <Suspense fallback={null}>
         <Globe
           height={500}
@@ -47,7 +46,7 @@ const RotatingGlobe = () => {
           atmosphereColor={COLORS[50]}
         />
       </Suspense>
-    </div>
+    </Container>
   );
 };
 
