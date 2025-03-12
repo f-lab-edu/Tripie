@@ -21,8 +21,8 @@ import { signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import CityStep from './_components/Cities';
 import CompanionStep from './_components/Companion';
-import { ContinentStep } from './_components/Continents';
-import { CountryStep } from './_components/Countries';
+import ContinentStep from './_components/Continents';
+import CountryStep from './_components/Countries';
 import DoneStep from './_components/Done';
 import DurationStep from './_components/Duration';
 import PreferenceStep from './_components/Preference';
@@ -43,7 +43,6 @@ const handleSubmit = async (chatItems: TripPlanner, id: string) => {
         const docId = `${serverTime}-${id}`;
         if (data != null) {
           await firestoreService.updateItem(DB_NAME, id, {
-            // usedTokens: increment(1),
             usedTokens: increment(1),
           });
           const {
@@ -191,16 +190,22 @@ const TripPlan = () => {
           />
         )}
         DURATION={({ context, history }) => (
-          <DurationStep context={context} onNext={duration => history.push('COMPANION', { ...context, duration })} />
+          <DurationStep
+            onPrev={history.back}
+            context={context}
+            onNext={duration => history.push('COMPANION', { ...context, duration })}
+          />
         )}
         COMPANION={({ context, history }) => (
           <CompanionStep
+            onPrev={history.back}
             context={context}
             onNext={companion => history.push('PREFERENCE', { ...context, companion })}
           />
         )}
         PREFERENCE={({ context, history }) => (
           <PreferenceStep
+            onPrev={history.back}
             context={context}
             onNext={preference => {
               history.push('DONE', { ...context, preference });

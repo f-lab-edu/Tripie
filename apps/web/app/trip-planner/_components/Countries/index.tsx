@@ -30,7 +30,7 @@ interface Props {
 
 const cx = classNames.bind(Style);
 
-export function CountryStep({ context, onNext, onPrev }: Readonly<Props>) {
+export default function CountryStep({ context, onNext, onPrev }: Readonly<Props>) {
   const { data, isLoading } = useCountries(context.continent ?? 'all');
   const [selectedCountry, setSelectedCountry] = useState(() =>
     context?.country == null || data == null || data.filter(country => country.name === context.country).length == 0
