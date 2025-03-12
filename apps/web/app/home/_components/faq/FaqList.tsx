@@ -1,7 +1,7 @@
 'use client';
 import { Accordion, Container } from '@tripie-pyotato/design-system';
-import classNames from 'classnames/bind';
 import FAQS from 'constants/faq';
+import classNames from 'wrapper';
 
 import Style from './faq.module.scss';
 

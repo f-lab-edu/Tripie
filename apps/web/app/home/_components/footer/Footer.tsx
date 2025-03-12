@@ -8,9 +8,9 @@ import {
   Text,
   TextUnderLineAnimation,
 } from '@tripie-pyotato/design-system';
-import classNames from 'classnames/bind';
 import { LANDING_SECTION } from 'constants/routes';
 import { useRouter } from 'next/navigation';
+import classNames from 'wrapper';
 
 import Style from './footer.module.scss';
 

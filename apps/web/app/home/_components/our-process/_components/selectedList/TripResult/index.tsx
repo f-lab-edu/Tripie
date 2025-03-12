@@ -1,7 +1,7 @@
 'use client';
 import { Container } from '@tripie-pyotato/design-system';
-import classNames from 'classnames/bind';
 import 'maplibre-gl/dist/maplibre-gl.css';
+import classNames from 'wrapper';
 import Style from './trip-results.module.scss';
 
 import { AI_PLAN } from '../constants/selected';

@@ -1,12 +1,11 @@
 'use client';
 import { Chip, Container, Icon } from '@tripie-pyotato/design-system';
-import classNames from 'classnames/bind';
+import classNames from 'wrapper';
 import Style from './shared/selected-list.module.scss';
 
 import PREFERENCE_LIST from 'constants/preferences';
 
 import NextButton from 'app/home/_components/our-process/_components/selectedList/shared/NextAnimatedButton';
-// import Icon from 'shared/components/Icon/Icon';
 import { SELECTED_PREFERENCE } from './constants/selected';
 
 const cx = classNames.bind(Style);

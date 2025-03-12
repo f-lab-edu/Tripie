@@ -1,6 +1,6 @@
 'use client';
 import { Chip, Container, Icon } from '@tripie-pyotato/design-system';
-import classNames from 'classnames/bind';
+import classNames from 'wrapper';
 import Style from './shared/selected-list.module.scss';
 
 import NextButton from 'app/home/_components/our-process/_components/selectedList/shared/NextAnimatedButton';

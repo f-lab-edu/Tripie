@@ -1,8 +1,8 @@
 'use client';
 import { AnimatedButton, Container, Icon } from '@tripie-pyotato/design-system';
-import classNames from 'classnames/bind';
 import { ReactNode } from 'react';
 import { InView } from 'react-intersection-observer';
+import classNames from 'wrapper';
 import Style from './next-animated-button.module.scss';
 
 const cx = classNames.bind(Style);

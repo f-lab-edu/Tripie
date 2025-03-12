@@ -1,5 +1,5 @@
 import { Container, Headings, MotionSlideUp, Text } from '@tripie-pyotato/design-system';
-import classNames from 'classnames/bind';
+import classNames from 'wrapper';
 
 import CitySelect from './_components/selectedList/City';
 import CompanionSelect from './_components/selectedList/Companion';
