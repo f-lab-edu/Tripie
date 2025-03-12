@@ -25,7 +25,7 @@ interface Props {
     city?: { all: string[]; selected: string[] };
     duration?: string;
   }) => void;
-  onPrev: () => void;
+  onPrev: (country: { country: string }) => void;
 }
 
 const cx = classNames.bind(Style);
@@ -62,7 +62,7 @@ export default function CountryStep({ context, onNext, onPrev }: Readonly<Props>
           <Icon.Navigate
             sizes="large"
             onTapStart={() => {
-              onPrev();
+              onPrev({ country: selectedCountry });
             }}
           />
           <Container margin="none">

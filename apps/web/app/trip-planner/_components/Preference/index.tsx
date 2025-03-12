@@ -20,11 +20,12 @@ interface Props {
     preference?: string;
   };
   onNext: (preference: string) => void;
+  onPrev: () => void;
 }
 
 export type Preference = keyof typeof PREFERENCE_LIST;
 
-const PreferenceStep = ({ context, onNext }: Props) => {
+const PreferenceStep = ({ context, onNext, onPrev }: Props) => {
   const [selected, setSelected] = useState<Array<Preference> | []>(
     context?.preference == null ? [] : (context.preference.split(',') as Array<Preference>)
   );
@@ -37,7 +38,12 @@ const PreferenceStep = ({ context, onNext }: Props) => {
     <>
       <Container applyMargin="top" margin="l">
         <Headings.H2 className={cx('flex-text')}>
-          <Icon.Navigate sizes="large" />
+          <Icon.Navigate
+            sizes="large"
+            onTapStart={() => {
+              onPrev();
+            }}
+          />
           <Container margin="none">
             내가 선호하는 여행 <Text.Accented>스타일</Text.Accented>은?
           </Container>

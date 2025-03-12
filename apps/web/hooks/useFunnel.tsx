@@ -1,9 +1,10 @@
 'use client';
 
-import ROUTE from 'constants/routes';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { ComponentType, ReactNode, useCallback, useEffect, useMemo, useState } from 'react';
+import { ComponentType, ReactNode, Suspense, useCallback, useEffect, useState } from 'react';
+import Loading from 'shared/components/Loading';
 import { useLocalStorage } from 'usehooks-ts';
+import ROUTE from '../constants/routes';
 
 type FunnelState<T> = {
   id: string;
@@ -11,6 +12,7 @@ type FunnelState<T> = {
   history: {
     push: (step: keyof T, context: Partial<T[keyof T]>) => void;
     clear: () => void;
+    back: () => void;
   };
 };
 
@@ -21,6 +23,7 @@ type FunnelRenderProps<T> = {
 type StepState<T> = {
   step: keyof T;
   context: Partial<T[keyof T]>;
+  index: number;
 };
 
 // https://stackoverflow.com/questions/71518896/type-is-not-assignable-to-type-librarymanagedattributes 참고
@@ -39,7 +42,7 @@ function useFunnel<T>({ id, initial }: { id: string; initial: StepState<T> }) {
   const [state, setState] = useState<FunnelState<T>>({
     id,
     historyState: [initial],
-    history: { push: () => {}, clear: () => {} },
+    history: { push: () => {}, clear: () => {}, back: () => {} },
   });
   const [currentStep, setCurrentStep] = useState<StepState<T>>(initial);
   const [funnelStorage, setFunnelStorage] = useLocalStorage(id, [initial]);
@@ -58,15 +61,15 @@ function useFunnel<T>({ id, initial }: { id: string; initial: StepState<T> }) {
     [searchParams, state]
   );
 
-  // 다음 step의 context에 이전 state.historyState 배열의 context들을 누적하기 위한 값
-  const accumulatedHistory = useMemo(() => {
-    return state.historyState.reduce(
-      (_, curr) => {
-        return curr.context;
-      },
-      {} as Partial<T[keyof T]>
-    );
-  }, [state, searchParams, id]);
+  useEffect(() => {
+    const currentState = searchParams.get(`${state.id}.step`);
+    if (pathname == ROUTE.TRIP_PLANNER.href && currentState == null) {
+      router.replace(pathname + '?' + createQueryString(`${state.id}.step`, initial.step as string));
+      if (funnelStorage.length == 0) {
+        setFunnelStorage([initial]);
+      }
+    }
+  }, [pathname, funnelStorage, state]);
 
   // 새로 고침 시에도 현재 파람 정보를 로컬 스토리지에서 찾고, 현재 파람의 컴포넌트 랜더하기
   useEffect(() => {
@@ -78,68 +81,98 @@ function useFunnel<T>({ id, initial }: { id: string; initial: StepState<T> }) {
     }
 
     if (currentState != null) {
-      setCurrentStep({
+      setCurrentStep(prev => ({
+        ...prev,
         step: currentState as keyof T,
         context: filtered,
-      });
+        index: funnelStorage.findIndex(item => item.step === currentState),
+      }));
     } else {
       setCurrentStep(initial);
     }
   }, [searchParams, state, id]);
 
-  // 첫 퍼널 단계 진입 시
+  /**
+   *  앞뒤로 이동 시 변경 사항이 생기면 다음의 정보를 제거해줘야한다.
+   *  !! 현재는 이전으로 넘어가면 앞서 선택했던 정보를 삭제해줬다. 만약에 같은 옵션을 선택했다면 그래도 삭제해주기를 바랄까?
+   * */
+  const onNavigateBack = useCallback(() => {
+    setFunnelStorage(prev => {
+      return prev.filter(item => item.index < currentStep.index).map(item => ({ ...item, context: item.context }));
+    });
+    const filteredStep = [...funnelStorage.filter(item => item.index < currentStep.index)].sort(
+      (a, b) => a.index - b.index
+    );
+    router.push(
+      pathname + '?' + createQueryString(`${state.id}.step`, filteredStep[filteredStep.length - 1].step as string)
+    );
+  }, [funnelStorage, currentStep, state]);
+
+  // 초기화 되었을 경우 현재 단계를 처음 단계로 설정하고 쿼리 스트링 설정
   useEffect(() => {
-    const currentState = searchParams.get(`${state.id}.step`);
-
-    if (currentState == null) {
-      setCurrentStep(state.historyState[0]);
-
-      if (state.historyState.length == 1) {
-        router.push(pathname + '?' + createQueryString(`${state.id}.step`, state.historyState[0].step as string));
-      }
+    if (currentStep.context == null) {
+      setCurrentStep(initial);
+      router.push(pathname + '?' + createQueryString(`${state.id}.step`, initial.step as string));
     }
-  }, [searchParams, state]);
+  }, [state, currentStep]);
 
   const history = {
     push: (select: keyof T, context: Partial<T[keyof T]>) => {
+      // 다음 step의 context에 이전 state.historyState 배열의 context들을 누적하기 위한 값
       const updatedHistoryStateContext = {
-        ...accumulatedHistory,
+        ...state.historyState.filter(item => item.index < currentStep.index)[0]?.context,
         ...context,
       };
 
-      // 다음 퍼널 select으로 이동 전 현재 퍼널의 historyState 업데이트
-      setState({
-        ...state,
-        historyState: state.historyState.reduce(
-          (acc, curr) => {
-            acc.push({ context: { ...updatedHistoryStateContext }, step: curr.step });
-            return acc;
-          },
-          [] as FunnelState<T>['historyState']
-        ),
-      });
+      // 로컬 스토리지에 step 정보 저장하기
+      setFunnelStorage(prev =>
+        prev.length <= 1 && prev[prev.length - 1].step === initial.step
+          ? [
+              {
+                step: initial.step,
+                context: updatedHistoryStateContext,
+                index: 0,
+              },
+              {
+                step: select,
+                context: updatedHistoryStateContext,
+                index: 1,
+              },
+            ]
+          : [
+              ...prev
+                .filter(item => item.step !== select)
+                .reduce((acc, curr) => {
+                  const currentStateStep = searchParams.get(`${state.id}.step`);
+                  if (curr.step == currentStateStep) {
+                    curr.context = updatedHistoryStateContext;
+                  }
+                  acc.push(curr);
+                  return acc;
+                }, [] as StepState<T>[]),
+              {
+                step: select,
+                context: { ...prev.reduce((_, curr) => curr.context, {}), ...updatedHistoryStateContext },
+                index:
+                  prev.findIndex(item => item.step === select) >= 0
+                    ? prev.findIndex(item => item.step === select)
+                    : prev.length,
+              },
+            ].sort((a, b) => a.index - b.index)
+      );
+
+      setState(prev => ({
+        ...prev,
+        historyState: funnelStorage.filter(item => item.step === searchParams.get(`${state.id}.step`)),
+      }));
 
       // searchParam에 새로운 step 추가해주기
       router.push(pathname + '?' + createQueryString(`${state.id}.step`, select as string));
-
-      // 로컬 스토리지에 step 정보 저장하기
-      setFunnelStorage([
-        ...funnelStorage
-          .filter(item => item.step !== select)
-          .reduce((acc, curr) => {
-            curr.context = { ...curr.context, ...updatedHistoryStateContext };
-            acc.push(curr);
-            return acc;
-          }, [] as StepState<T>[]),
-        {
-          step: select,
-          context: { ...funnelStorage.reduce((_, curr) => curr.context, {}), ...updatedHistoryStateContext },
-        },
-      ]);
     },
     clear: () => {
       setFunnelStorage([initial]);
     },
+    back: onNavigateBack,
   };
 
   return {
@@ -157,7 +190,11 @@ function useFunnel<T>({ id, initial }: { id: string; initial: StepState<T> }) {
         Component,
         componentProps,
       }: FunnelComponentWithProps<T, P>) => {
-        return <Component {...componentProps} />;
+        return (
+          <Suspense fallback={<Loading />}>
+            <Component {...componentProps} />
+          </Suspense>
+        );
       };
       return renderStepComponentWithProps({
         Component: StepComponent,

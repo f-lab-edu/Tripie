@@ -20,11 +20,12 @@ interface Props {
     companion?: string;
   };
   onNext: (companion: string) => void;
+  onPrev: () => void;
 }
 
 export type Companion = keyof typeof COMPANION_LIST;
 
-const CompanionStep = ({ context, onNext }: Props) => {
+const CompanionStep = ({ context, onNext, onPrev }: Props) => {
   const [selected, setSelected] = useState<Array<Companion> | []>(
     context?.companion == null ? [] : (context.companion.split(',') as Array<Companion>)
   );
@@ -37,7 +38,12 @@ const CompanionStep = ({ context, onNext }: Props) => {
     <>
       <Container applyMargin="top" margin="l">
         <Headings.H2 className={cx('flex-text')}>
-          <Icon.Navigate sizes="large" />
+          <Icon.Navigate
+            sizes="large"
+            onTapStart={() => {
+              onPrev();
+            }}
+          />
           <Text.Accented>누구</Text.Accented>와 떠나나요?
         </Headings.H2>
       </Container>

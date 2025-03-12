@@ -18,14 +18,20 @@ interface Props {
     preference?: string;
   };
   onNext: (duration: string) => void;
+  onPrev: () => void;
 }
 
-const DurationStep = ({ context, onNext }: Props) => {
+const DurationStep = ({ context, onNext, onPrev }: Props) => {
   return (
     <>
       <Container applyMargin="top" margin="l">
         <Headings.H2 className={cx('flex-text')}>
-          <Icon.Navigate sizes="large" />
+          <Icon.Navigate
+            sizes="large"
+            onTapStart={() => {
+              onPrev();
+            }}
+          />
           <Container margin="none">
             여행 <Text.Accented>기간</Text.Accented>은?
           </Container>
