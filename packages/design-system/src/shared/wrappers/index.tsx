@@ -1,3 +1,4 @@
 import classNames from './classNames';
 import Motion, { MotionProps } from './motion-wrapper';
-export { classNames, Motion, MotionProps };
+// Type error: Re-exporting a type when 'isolatedModules' is enabled requires using 'export type'.
+export { classNames, Motion, type MotionProps };
