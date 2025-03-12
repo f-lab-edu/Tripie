@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation';
 
 import Link from 'next/link';
 
+import AiTripButton from './AiTripButtons';
 import AuthButton from './AuthButton';
 
 const cx = classNames.bind(Style);
@@ -17,9 +18,6 @@ const Nav = () => {
 
   return (
     <MenuToggle>
-      {/* <AnimatedButton onClick={() => navigate.push(ROUTE.HOME.href)} className={cx('tripie-home-btn')}>
-        Tripie
-      </AnimatedButton> */}
       <NoStyleButton action={() => navigate.push(ROUTE.HOME.href)}>
         <Text.Animated withBorder={false} className={cx('tripie-home-btn')}>
           Tripie
@@ -36,6 +34,7 @@ const Nav = () => {
           <Link href={ROUTE.REGIONS.href}>{ROUTE.REGIONS.label}</Link>
           <Icon />
         </MenuToggle.Item>
+        <AiTripButton />
         <AuthButton />
         {process.env.NODE_ENV === 'development' ? (
           <MenuToggle.Item key={'dev'}>
