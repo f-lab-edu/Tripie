@@ -1,8 +1,14 @@
 @use '../../functions/' as *;
 @use 'sass:map';
 
+// .preserve-white-space {
+//   white-space: pre-wrap;
+// }
+
 .preserve-white-space {
-  white-space: pre-wrap;
+  @media (max-width: 470px) {
+    white-space: pre-wrap;
+  }
 }
 
 .layout-fill-available {
