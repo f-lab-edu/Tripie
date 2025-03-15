@@ -18,6 +18,15 @@ export const ICON_VARIANTS = {
       },
     }),
   } as MotionProps['variants'],
+  ROTATE: {
+    hover: () => ({
+      rotate: '360deg',
+      transition: {
+        duration: 1.2,
+        bounce: 0.5,
+      },
+    }),
+  } as MotionProps['variants'],
   NAVIGATE: (direction: 'back' | 'front') =>
     (direction === 'back'
       ? {
