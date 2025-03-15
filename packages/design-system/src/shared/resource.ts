@@ -19,6 +19,8 @@ export const RESOURCE = {
   FLAG: '/flag.png',
   CURSOR: '/cursor.png',
   NEXT: '/next.png',
+  KAKAO: '/kakao.png',
+  GITHUB:'/github.png'
 };
 
 export const ICON_RESOURCE = (key: keyof typeof RESOURCE) => ICON_URL + RESOURCE[key];

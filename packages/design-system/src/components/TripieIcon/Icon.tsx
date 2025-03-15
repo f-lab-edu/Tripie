@@ -29,7 +29,6 @@ export type IconProps = {
 const Icon = ({
   className,
   onTapStart,
-  // src = './icons/arrow.png',
   src = ICON_RESOURCE('ARROW'),
   animate,
   sizes = 'icon',
@@ -218,6 +217,10 @@ const CheckIcon = ({ className, sizes = 'icon' }: Readonly<IconProps>) => {
   return <Motion.Img className={cx(sizes, className)} src={ICON_RESOURCE('CHECK')} />;
 };
 
+const AuthIcon = ({ className, sizes = 'icon', src = ICON_RESOURCE('GITHUB') }: Readonly<IconProps>) => {
+  return <Motion.Img className={cx(sizes, className)} variants={ICON_VARIANTS.ROTATE} src={src} />;
+};
+
 Icon.Navigate = NavigateIcon;
 Icon.Refresh = RefreshIcon;
 Icon.Plane = PlaneIcon;
@@ -227,6 +230,7 @@ Icon.Transport = TransportIcon;
 Icon.Cursor = CursorIcon;
 Icon.Scroll = ScrollIcon;
 Icon.X = XIcon;
+Icon.Auth = AuthIcon;
 Icon.Check = CheckIcon;
 
 export default Icon;
