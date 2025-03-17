@@ -2,10 +2,9 @@
 
 import { Container } from '@tripie-pyotato/design-system';
 import { getTripPlan } from 'app/api/chat/route';
-import { increment } from 'firebase/firestore/lite';
 
 import API from 'constants/api-routes';
-import { CHAT_DB_NAME, DB_NAME } from 'constants/auth';
+import { CHAT_CACHE_DB_NAME, DB_NAME } from 'constants/auth';
 import useFunnel from 'hooks/useFunnel';
 import classNames from 'wrapper';
 
@@ -17,7 +16,7 @@ import { useDebounce } from 'hooks/useDebounce';
 import { TripPlanner } from 'models/Aws';
 import { ContinentKeys } from 'models/Continent';
 import { Continentl } from 'models/Continentl';
-import { signIn, useSession } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import CityStep from './_components/Cities';
 import CompanionStep from './_components/Companion';
@@ -40,11 +39,8 @@ const handleSubmit = async (chatItems: TripPlanner, id: string) => {
         // iso31661로 같은 code의 세자리 버전을 aws에 FilterCountry로 넘겨 검색 정확도를 높이기 위해 국가 코드 두자리를 code로 넘겨줍니다.
         const { code } = countries?.filter((place: Continentl) => place.id === chatItems.country)[0] as Continentl;
         const data = await getTripPlan({ ...chatItems, code });
-        const docId = `${serverTime}-${id}`;
         if (data != null) {
-          await firestoreService.updateItem(DB_NAME, id, {
-            usedTokens: increment(1),
-          });
+          await firestoreService.increment(DB_NAME, id, 'usedTokens');
           const {
             duration,
             companion,
@@ -53,10 +49,9 @@ const handleSubmit = async (chatItems: TripPlanner, id: string) => {
             preference,
             city: { selected },
           } = chatItems;
-          await firestoreService.addItem(CHAT_DB_NAME, {
+          return await firestoreService.getAddedItemId(CHAT_CACHE_DB_NAME, {
             duration,
             data: JSON.stringify(data),
-            id: docId,
             city: selected,
             companion: companion.split(','),
             continent,
@@ -66,7 +61,6 @@ const handleSubmit = async (chatItems: TripPlanner, id: string) => {
             preference,
           });
         }
-        return docId;
       });
     }
   }
@@ -75,7 +69,8 @@ const handleSubmit = async (chatItems: TripPlanner, id: string) => {
 
 const TripPlan = () => {
   const navigate = useRouter();
-  const { status, data: userData } = useSession();
+
+  const { data: userData } = useSession();
 
   const funnel = useFunnel<{
     CONTINENT: {
@@ -143,12 +138,11 @@ const TripPlan = () => {
     },
   });
 
-  if (status === 'unauthenticated') {
-    signIn();
-  }
-
   const onHandleSubmit = useDebounce(async () => {
-    const id = await handleSubmit(funnel.context as TripPlanner, (userData?.user as CustomUser)?.id);
+    if (userData.user.id == null) {
+      return;
+    }
+    const id = await handleSubmit(funnel.context as TripPlanner, userData?.user?.id as CustomUser['id']);
     funnel.history.clear();
     navigate.replace(`${ROUTE.TRIP_PLANNER.href}/${id}`);
   });
