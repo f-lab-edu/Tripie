@@ -11,7 +11,10 @@ import Style from './contacts.module.scss';
 const cx = classNames.bind(Style);
 
 const contacts = {
-  Email: { child: <> mail@tripie-pyotato.com</>, link: ' mail@tripie-pyotato.com' },
+  Email: {
+    child: <>mail@tripie-pyotato.com</>,
+    link: 'mailto:mail@tripie-pyotato.com?subject=Hello&body=How%20can%20I%20help%20you?',
+  },
   Github: {
     child: (
       <>
