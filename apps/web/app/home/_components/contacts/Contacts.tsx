@@ -1,10 +1,9 @@
 'use client';
 
-import { Container, Headings, Icon, MotionSlideUp, Text } from '@tripie-pyotato/design-system';
+import { Container, Headings, MotionSlideUp, Text } from '@tripie-pyotato/design-system';
 import classNames from 'wrapper';
 
 import ROUTE from 'constants/routes';
-import Link from 'next/link';
 
 import Contact from './Contact';
 import Style from './contacts.module.scss';
@@ -12,22 +11,15 @@ import Style from './contacts.module.scss';
 const cx = classNames.bind(Style);
 
 const contacts = {
-  Email: (
-    <Container margin="none" align="left" className={cx('flex')}>
-      <Link href="mailto:mail@tripie-pyotato.com?subject=Hello&body=How%20can%20I%20help%20you?">
-        mail@tripie-pyotato.com
-      </Link>
-      <Icon sizes={'large'} />
-    </Container>
-  ),
-  Github: (
-    <Container margin="none" align="left" className={cx('flex')}>
-      <Link href="mailto:pyotato.dev@gmail.com?subject=Hello&body=How%20can%20I%20help%20you?">
+  Email: { child: <> mail@tripie-pyotato.com</>, link: ' mail@tripie-pyotato.com' },
+  Github: {
+    child: (
+      <>
         <Text.Accented>@</Text.Accented> Pyotato
-      </Link>
-      <Icon sizes={'large'} />
-    </Container>
-  ),
+      </>
+    ),
+    link: 'mailto:pyotato.dev@gmail.com?subject=Hello&body=How%20can%20I%20help%20you?',
+  },
 };
 
 export default function Contacts() {

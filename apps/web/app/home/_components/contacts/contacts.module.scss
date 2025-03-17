@@ -8,4 +8,5 @@
 
 .flex {
   @include flex;
+  justify-content: flex-start;
 }
