@@ -15,6 +15,7 @@ type ChipProps = {
   disabled?: boolean;
   cycle?: (state?: any) => void;
   onClick?: () => void;
+  type?: "submit" | "reset" | "button" ;
 };
 
 const Chip = ({ children, className, onClick, selected, disabled = false }: Readonly<ChipProps>) => {
@@ -33,7 +34,7 @@ const Chip = ({ children, className, onClick, selected, disabled = false }: Read
   );
 };
 
-const AccentedChip = ({ children, current, className, onClick }: Readonly<ChipProps>) => {
+ const AccentedChip = ({ children, current, className, onClick,type='button' }: Readonly<ChipProps>) => {
   return (
     <Motion.Button
       initial={'rest'}
@@ -41,6 +42,7 @@ const AccentedChip = ({ children, current, className, onClick }: Readonly<ChipPr
       variants={GLOW_VARIANT}
       whileHover={'glow'}
       onClick={onClick}
+      type={type}
     >
       <div className={cx('accented', current === 'on' ? 'selected' : 'chip')}>{children}</div>
       <Motion.Div
