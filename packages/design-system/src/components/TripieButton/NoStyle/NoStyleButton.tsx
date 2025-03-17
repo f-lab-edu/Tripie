@@ -7,15 +7,15 @@ const cx = classNames.bind(Style);
 const NoStyleButton = ({
   action,
   children,
-  name = '',
-  type='button',
+  name = 'no-style-button',
+  type = 'button',
   className,
 }: {
   action?: () => void | Promise<unknown>;
   name?: string;
   children: ReactNode;
   className?: string;
-  type?: "submit" | "reset" | "button" ;
+  type?: 'submit' | 'reset' | 'button';
 }) => {
   return (
     <button type={type} name={name} onClick={action} className={cx('clear-btn', className)}>
