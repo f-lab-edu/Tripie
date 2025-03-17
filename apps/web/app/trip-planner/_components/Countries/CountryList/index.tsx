@@ -44,7 +44,7 @@ export function CountryList({ countries, selectedCountry, setSelectedCountry }: 
 
   return (
     <Container margin="none" className={cx('scroll')}>
-      <List.Grid className={cx('grid-wrap')}>
+      <List.Grid>
         {countries.map((country: Country) => (
           <Chip
             onClick={() => {
