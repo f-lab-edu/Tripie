@@ -44,8 +44,8 @@ const AccentedChip = ({ children, current, className, onClick, type = 'button' }
       onClick={onClick}
       type={type}
     >
-      <div className={cx('accented', current === 'on' ? 'selected' : 'chip')}>{children}</div>
-      <Motion.Div
+      <span className={cx('accented', current === 'on' ? 'selected' : 'chip')}>{children}</span>
+      <Motion.Span
         className={cx('glow')}
         animate={{ rotate: 360 }}
         transition={{
