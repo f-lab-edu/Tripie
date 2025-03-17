@@ -8,15 +8,17 @@ const NoStyleButton = ({
   action,
   children,
   name = '',
+  type='button',
   className,
 }: {
-  action: () => void | Promise<unknown>;
+  action?: () => void | Promise<unknown>;
   name?: string;
   children: ReactNode;
   className?: string;
+  type?: "submit" | "reset" | "button" ;
 }) => {
   return (
-    <button name={name} onClick={action} className={cx('clear-btn', className)}>
+    <button type={type} name={name} onClick={action} className={cx('clear-btn', className)}>
       {children}
     </button>
   );

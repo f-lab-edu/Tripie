@@ -23,7 +23,7 @@ describe('AnimatedButton Component', () => {
     expect(buttonElement).toHaveTextContent('other child');
   });
 
-  it('버튼에 마우스를 올리면 otherChild와 original text가 translateY(-105%)로 이동한다.', async () => {
+  it('버튼에 마우스를 올리면 otherChild와 original text가 translateY(2rem)로 이동한다.', async () => {
     render(<AnimatedButton otherChild="other child">original text</AnimatedButton>);
 
     const buttonElement = screen.getByRole('button');
@@ -34,8 +34,8 @@ describe('AnimatedButton Component', () => {
     const hoveredOriginalText = screen.getByText(/original text/i);
     const hoveredChildText = screen.getByText(/original text/i);
 
-    expect(getComputedStyle(hoveredOriginalText).transform).toContain('translateY(105%)');
-    expect(getComputedStyle(hoveredChildText).transform).toContain('translateY(105%)');
+    expect(getComputedStyle(hoveredOriginalText).transform).toContain('translateY(2rem)');
+    expect(getComputedStyle(hoveredChildText).transform).toContain('translateY(2rem)');
   });
 
   it('disabled={true} 설정 시 비활성화된다.', () => {
