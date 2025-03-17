@@ -15,9 +15,9 @@ const AuthButton = () => {
       <Link href={ROUTE.SIGN_IN.href}>{ROUTE.SIGN_IN.label}</Link>
     </MenuToggle.Item>
   ) : (
-    <NoStyleButton action={() => signOut()}>
-      <MenuToggle.Item key={`${data?.user?.name}-authenticated-signout`}>Sign out</MenuToggle.Item>
-    </NoStyleButton>
+    <MenuToggle.Item key={`${data?.user?.name}-authenticated-signout`}>
+      <NoStyleButton action={() => signOut()}>Sign out</NoStyleButton>
+    </MenuToggle.Item>
   );
 };
 export default AuthButton;
