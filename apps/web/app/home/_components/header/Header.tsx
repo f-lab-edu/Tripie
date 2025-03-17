@@ -11,10 +11,10 @@ import {
 import classNames from 'wrapper';
 
 import ROUTE from 'constants/routes';
-import Link from 'next/link';
 
 import Nav from '../nav/Nav';
 
+import { useRouter } from 'next/navigation';
 import Style from './header.module.scss';
 
 const cx = classNames.bind(Style);
@@ -30,6 +30,7 @@ const PageTitle = () => {
 };
 
 const ShortCutButtons = () => {
+  const navigation = useRouter();
   const SHORT_CUT_LINKS = [
     { tag: 'services', link: ROUTE.SERVICES.href, contents: 'Our services' },
     {
@@ -46,11 +47,15 @@ const ShortCutButtons = () => {
   return (
     <Container align="center" margin="none" className={cx('flex', 'button-wrap')}>
       {SHORT_CUT_LINKS.map(({ tag, link, contents }) => (
-        <Link href={link} key={tag}>
-          <AnimatedButton withBorder={true} className={cx('main-button')} withMinWidth={true}>
-            {contents}
-          </AnimatedButton>
-        </Link>
+        <AnimatedButton
+          withBorder={true}
+          key={tag}
+          className={cx('main-button')}
+          withMinWidth={true}
+          onClick={() => navigation.push(link)}
+        >
+          {contents}
+        </AnimatedButton>
       ))}
     </Container>
   );

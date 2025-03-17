@@ -32,7 +32,7 @@ const AnimatedButton = ({
   return (
     <Motion.Button
       disabled={disabled}
-      onClick={onClick}
+      onTap={onClick}
       type={type}
       className={cx('button', withBorder && 'with-border', withMinWidth && 'min', className)}
       initial="rest"
