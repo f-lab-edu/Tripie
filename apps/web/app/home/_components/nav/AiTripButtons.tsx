@@ -2,7 +2,6 @@
 
 import ROUTE from 'constants/routes';
 import useChatToken from 'hooks/useChatToken';
-import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 
 import { Icon, MenuToggle } from '@tripie-pyotato/design-system';
@@ -11,16 +10,15 @@ import { usePathname } from 'next/navigation';
 
 // ai 일정짜기 버튼, 토큰이 없는 경우 /not-enough-tokens로 이동
 const AiTripButton = () => {
-  const { data } = useSession();
   const pathName = usePathname();
   const { isEligible } = useChatToken();
 
-  if (pathName === ROUTE.TRIP_PLANNER.href) {
+  if (pathName.startsWith(ROUTE.TRIP_PLANNER.href)) {
     return null;
   }
 
   return (
-    <MenuToggle.Item key={`${data?.user?.name}-authenticated`}>
+    <MenuToggle.Item>
       <Link href={`${API.BASE_URL + ROUTE.TRIP_PLANNER.href}${isEligible ? '' : '/not-enough-tokens'}`}>
         AI 추천 맞춤일정
       </Link>
