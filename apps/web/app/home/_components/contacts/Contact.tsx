@@ -8,9 +8,9 @@ const Contact = ({ sectionName, content }: { sectionName: string; content: JSX.E
       <Container margin="none">
         <Text size="tiny">{sectionName}</Text>
         <Container applyMargin="bottom">
-          <TextUnderLineAnimation>
-            <Headings.H2>{content}</Headings.H2>
-          </TextUnderLineAnimation>
+          <Headings.H2>
+            <TextUnderLineAnimation>{content}</TextUnderLineAnimation>
+          </Headings.H2>
         </Container>
         <Divider />
       </Container>
