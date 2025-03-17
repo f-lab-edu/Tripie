@@ -5,7 +5,7 @@ const ROUTE = {
   CONTACT: { label: 'Contact', href: '/home#Contact' },
   TRIP_PLANNER: { label: 'Trip Planner', href: '/trip-planner' },
   REGIONS: { label: '도시별 여행 정보', href: '/regions' },
-  SIGN_IN: { label: 'Sign in', href: '/api/auth/signin' },
+  SIGN_IN: { label: 'Sign in', href: '/sign-in' },
 };
 
 export const LANDING_SECTION = [
