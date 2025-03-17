@@ -1,13 +1,5 @@
 'use client';
-import {
-  Container,
-  Divider,
-  Headings,
-  List,
-  NoStyleButton,
-  Text,
-  TextUnderLineAnimation,
-} from '@tripie-pyotato/design-system';
+import { Container, Divider, Headings, List, Text, TextUnderLineAnimation } from '@tripie-pyotato/design-system';
 import { LANDING_SECTION } from 'constants/routes';
 import { useRouter } from 'next/navigation';
 import classNames from 'wrapper';
@@ -53,9 +45,7 @@ export default function Footer() {
         <List>
           {LANDING_SECTION.map(({ label, href }) => (
             <List.Item key={href}>
-              <NoStyleButton action={() => router.push(href)}>
-                <TextUnderLineAnimation>{label}</TextUnderLineAnimation>
-              </NoStyleButton>
+              <TextUnderLineAnimation onClick={() => router.push(href)}>{label}</TextUnderLineAnimation>
             </List.Item>
           ))}
         </List>
