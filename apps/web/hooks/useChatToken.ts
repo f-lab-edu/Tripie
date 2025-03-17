@@ -34,9 +34,10 @@ const useChatToken = () => {
   // 사용한 토큰 개수, 남은 토큰 개수, 어드민 여부의 state를 적용.
   useEffect(() => {
     const checkEligibility = async () => {
-      const id = (data?.user as CustomUser)?.id;
+      const id = data?.user?.id as CustomUser['id'];
       if (id != null) {
         const user = await firestoreService.getItem(DB_NAME, id);
+
         if (user?.isAdmin) {
           setIsAdmin(true);
         }
