@@ -1,24 +1,18 @@
-import { CHAT_DB_NAME } from 'constants/auth';
 import {
+  addDoc,
   collection,
   deleteDoc,
   doc,
-  DocumentData,
+  increment as firebaseIncrement,
   getDoc,
   getDocs,
-  query,
-  QueryDocumentSnapshot,
   setDoc,
   updateDoc,
-  where,
 } from 'firebase/firestore/lite';
+
 import { AttractionData } from 'models/Attraction';
 import { RestaurantData } from 'models/Restaurant';
 import { TripieArticle } from 'models/Triple';
-interface GptDocumentData extends DocumentData {
-  data: string;
-  city: string[];
-}
 
 class FirestoreService {
   private readonly db;
@@ -32,7 +26,6 @@ class FirestoreService {
     try {
       const docRef = doc(this.db, collectionName, item.id);
       await setDoc(docRef, item);
-      // console.log(`Document with ID: ${item.id} successfully written.`);
     } catch (error) {
       console.error('Error adding document:', error);
     }
@@ -45,10 +38,8 @@ class FirestoreService {
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
-        // console.log('Document data:', docSnap.data());
         return docSnap.data();
       } else {
-        // console.log('No such document!');
         return null;
       }
     } catch (error) {
@@ -139,58 +130,26 @@ class FirestoreService {
     }
   }
 
-  // !!캐싱된 지피티 기록 가져오기
-  async getCachedGptResponse({
-    createdBy,
-    continent,
-    companion,
-    duration,
-    preference,
-    city,
-    country,
-  }: {
-    createdBy: string;
-    continent: string;
-    country: string;
-    companion: string[];
-    duration: string;
-    preference: string;
-    city: string[];
-  }): Promise<any> {
+  // collectionName 의 itemId에 해당되는 key의 숫자를 counter만큼 업데이트
+  async increment(collectionName: string, itemId: string, key: string, counter = 1): Promise<void> {
     try {
-      let q = query(collection(this.db, CHAT_DB_NAME), where('createdBy', '==', createdBy));
-
-      q = query(q, where('continent', '==', continent));
-      q = query(q, where('country', '==', country));
-      q = query(q, where('duration', '==', duration));
-      q = query(q, where('preference', '==', preference));
-      q = query(q, where('companion', 'array-contains-any', companion));
-
-      const querySnapshot = await getDocs(q);
-
-      // firebase는 여러개의 array-contains-any를 사용할 수 없으므로 직접 필터
-      const res = querySnapshot.docs as unknown as QueryDocumentSnapshot<GptDocumentData, GptDocumentData>[];
-      const filtered = res
-        .map(doc => ({ id: doc.id, ...doc.data() }))
-        .filter(
-          doc => Array.isArray(doc.city) && city.every(val => doc.city.includes(val)) && doc.city.length === city.length
-        );
-
-      // !! 하나만 가져오기로 했는데, 사실 최신순으로 정렬하는 조건도 추가해줘야할듯
-      return filtered.length > 0 ? JSON.parse(filtered[0]?.data) : null;
+      const docRef = doc(this.db, collectionName, itemId);
+      const updated: Record<string, any> = {};
+      updated[key] = firebaseIncrement(counter);
+      await updateDoc(docRef, updated);
     } catch (error) {
-      console.error('Error fetching cached GPT response:', error);
-      return null;
+      console.error('Error updating document:', error);
     }
   }
 
-  // document 업데이트
-  async updateItem(collectionName: string, itemId: string, updatedData: any): Promise<void> {
+  // document 추가 및 업데이트
+  async getAddedItemId(collectionName: string, item: any): Promise<string | void> {
     try {
-      const docRef = doc(this.db, collectionName, itemId);
-      await updateDoc(docRef, updatedData);
+      const docRef = await addDoc(collection(this.db, collectionName), item);
+      await updateDoc(docRef, { id: docRef.id });
+      return docRef.id;
     } catch (error) {
-      console.error('Error updating document:', error);
+      console.error('Error adding document:', error);
     }
   }
 

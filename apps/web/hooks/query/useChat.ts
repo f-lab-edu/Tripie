@@ -1,10 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import { increment } from 'firebase/firestore/lite';
 
 import { getTripPlan } from 'app/api/chat/route';
 import firestoreService from 'app/api/firebase';
 import API from 'constants/api-routes';
-import { CHAT_DB_NAME, DB_NAME } from 'constants/auth';
+import { CHAT_CACHE_DB_NAME, DB_NAME } from 'constants/auth';
 
 import { TripPlanner } from 'models/Aws';
 import { Continentl } from 'models/Continentl';
@@ -22,9 +21,7 @@ const useChat = (chatItems: TripPlanner, id: string) => {
             const { code } = countries?.filter((place: Continentl) => place.id === chatItems.country)[0] as Continentl;
             const data = await getTripPlan({ ...chatItems, code });
             if (data != null) {
-              await firestoreService.updateItem(DB_NAME, id, {
-                usedTokens: increment(1),
-              });
+              await firestoreService.increment(DB_NAME, id, 'usedTokens');
               const {
                 duration,
                 companion,
@@ -33,7 +30,7 @@ const useChat = (chatItems: TripPlanner, id: string) => {
                 preference,
                 city: { selected },
               } = chatItems;
-              await firestoreService.addItem(CHAT_DB_NAME, {
+              await firestoreService.addItem(CHAT_CACHE_DB_NAME, {
                 duration,
                 data: JSON.stringify(data),
                 id: `${serverTime}-${id}`,
