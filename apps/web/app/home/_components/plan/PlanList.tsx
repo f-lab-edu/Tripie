@@ -33,9 +33,9 @@ export default function PlanList() {
       </List>
       <Container align="center" margin="none">
         <AnimatedButton withBorder={true} className={cx('submit-button')} withMinWidth={true}>
-          <Container margin="none" className={cx('flex-text')}>
+          <span className={cx('flex-text')}>
             Get started with {PLANS[key].label} <Icon />
-          </Container>
+          </span>
         </AnimatedButton>
       </Container>
     </Card>
