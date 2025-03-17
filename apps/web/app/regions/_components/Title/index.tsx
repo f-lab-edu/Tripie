@@ -11,7 +11,7 @@ const cx = classNames.bind(Style);
 
 const Title = ({ children, withNavigation = true }: { children: ReactNode; withNavigation?: boolean }) => {
   return (
-    <Container applyMargin="top" className={cx('title-wrap')}>
+    <Container margin="none" className={cx('title-wrap')}>
       <Headings.H2>
         {withNavigation ? <Icon.Navigate /> : null} {children}
       </Headings.H2>

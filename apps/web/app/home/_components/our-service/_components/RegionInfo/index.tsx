@@ -1,5 +1,5 @@
 'use client';
-import { Card, Container } from '@tripie-pyotato/design-system';
+import { Card, Container, Headings, Text } from '@tripie-pyotato/design-system';
 import classNames from 'wrapper';
 
 import Style from './region-info.module.scss';
@@ -42,6 +42,11 @@ const RegionInfo = () => {
   return (
     <Card.Content className={cx('card-wrap', 'scroll')}>
       <Container className={cx('card-content-wrap')} margin="none">
+        <Container applyMargin="top-bottom">
+          <Headings.H4>
+            어떤 <Text.Accented>지역</Text.Accented>이 궁금하세요?
+          </Headings.H4>
+        </Container>
         <Container margin="none" className={cx('card-region-wrap')}>
           <RegionSelect selected={currentRegionId} selectedRegion={selectedRegion} />
           <Container margin="none">

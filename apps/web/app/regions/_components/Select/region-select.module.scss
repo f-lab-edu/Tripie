@@ -1,6 +1,25 @@
 @use 'variables' as *;
 @use 'mixins' as *;
 
+.carousel {
+  overflow-y: hidden;
+  @include visible-scroll(false);
+}
+.carousel-inner {
+  width: fit-content;
+  display: inline-flex;
+  gap: 1rem;
+}
+
+.place-chip {
+  padding: 0.8rem;
+  min-width: 6rem;
+}
+
+.selected-wrap {
+  min-height: 12vh;
+}
+
 .card-wrap {
   height: 100%;
 }
@@ -14,6 +33,7 @@
 }
 .chip-wrap {
   display: inline-flex;
+
   justify-content: center;
 }
 

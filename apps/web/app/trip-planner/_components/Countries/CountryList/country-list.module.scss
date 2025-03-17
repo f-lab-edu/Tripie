@@ -17,6 +17,6 @@
 .scroll {
   position: relative;
   @include scroll;
-
+  height: 100%;
   @include visible-scroll(false);
 }

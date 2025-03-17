@@ -16,7 +16,9 @@ export default function Layout({
   return (
     <Container margin="none" className={cx('background')}>
       <Nav />
-      {children}
+      <Container margin="l" applyMargin="top">
+        {children}
+      </Container>
     </Container>
   );
 }

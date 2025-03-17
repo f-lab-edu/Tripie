@@ -82,29 +82,29 @@ export default function CountryStep({ context, onNext, onPrev }: Readonly<Props>
             }
           />
           <CountryList countries={data} setSelectedCountry={setSelectedCountry} selectedCountry={selectedCountry} />
-          <Container margin="none">
-            <AnimatedButton
-              withBorder={true}
-              onClick={async () => {
-                const states = await getCitys(selectedCountry);
-                if (states != null) {
-                  onNext({ country: selectedCountry, city: { all: states?.[0]?.states, selected: [] } });
-                }
-              }}
-              disabled={selectedCountry === ''}
-              className={cx('submit-button')}
-            >
-              <Container margin="none" className={cx('flex-text')}>
-                {selectedCountry === '' ? (
-                  <>여행할 나라를 선택해주세요.</>
-                ) : (
-                  <>
-                    "{selectedCountry}"로 보기 <Icon />
-                  </>
-                )}
-              </Container>
-            </AnimatedButton>
-          </Container>
+          {/* <Container margin="none"> */}
+          <AnimatedButton
+            withBorder={true}
+            onClick={async () => {
+              const states = await getCitys(selectedCountry);
+              if (states != null) {
+                onNext({ country: selectedCountry, city: { all: states?.[0]?.states, selected: [] } });
+              }
+            }}
+            disabled={selectedCountry === ''}
+            className={cx('submit-button')}
+          >
+            <Container margin="none" className={cx('flex-text')}>
+              {selectedCountry === '' ? (
+                <>여행할 나라를 선택해주세요.</>
+              ) : (
+                <>
+                  "{selectedCountry}"로 보기 <Icon />
+                </>
+              )}
+            </Container>
+          </AnimatedButton>
+          {/* </Container> */}
         </>
       )}
     </>
