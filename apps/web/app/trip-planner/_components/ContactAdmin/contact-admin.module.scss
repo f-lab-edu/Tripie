@@ -19,7 +19,7 @@
   height: 85%;
 }
 .break-text {
-  display: inline;
+  display: inline-block;
   @media (max-width: 500px) {
     display: inline-block;
   }

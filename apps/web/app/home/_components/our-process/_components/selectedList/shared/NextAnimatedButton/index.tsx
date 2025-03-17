@@ -13,9 +13,7 @@ const NextButton = ({ children }: { children: ReactNode }) => {
       {({ inView, ref }) => (
         <Container ref={ref} margin="none" className={cx('next-button-wrap')}>
           <AnimatedButton withBorder={true} animate={inView ? 'hover' : 'rest'} className={cx('submit-button')}>
-            <Container margin="none" className={cx('flex-text')}>
-              {children}
-            </Container>
+            <span className={cx('flex-text')}>{children}</span>
           </AnimatedButton>
           <Container margin="none">
             <Icon.Cursor hovered={inView ? 'hover' : ''} className={cx('all-info-cursor')} />

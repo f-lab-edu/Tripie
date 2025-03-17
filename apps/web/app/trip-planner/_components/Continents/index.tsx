@@ -48,9 +48,9 @@ export default function ContinentStep({ context, onNext }: Readonly<Props>) {
         className={cx('chip', 'submit-button')}
         onClick={() => onNext({ continent: CONTINENTS[selectedContinent]['id'] as ContinentKeys })}
       >
-        <Container className={cx('flex-text')} margin="none">
+        <span className={cx('flex-text')}>
           "{selectedContinentName?.name}"{selectedContinentName?.name === '유럽' ? '으' : null}로 보기 <Icon />
-        </Container>
+        </span>
       </AnimatedButton>
     </>
   );

@@ -9,11 +9,11 @@ const cx = classNames.bind(Style);
 const OAuthButton = ({ provider }: { provider: { name: string } }) => {
   return (
     <AnimatedButton type="submit" withBorder={true} withMinWidth={false}>
-      <div className={cx('center')}>
+      <span className={cx('center')}>
         <Text className={cx('text')}>Sign in with </Text>
         <Text className={cx('text')}>{provider.name}</Text>
         <Icon.Auth src={ICON_RESOURCE(provider.name.toUpperCase() as keyof typeof RESOURCE)} />
-      </div>
+      </span>
     </AnimatedButton>
   );
 };

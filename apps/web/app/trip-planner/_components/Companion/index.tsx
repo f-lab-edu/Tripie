@@ -63,7 +63,7 @@ const CompanionStep = ({ context, onNext, onPrev }: Props) => {
         onClick={handleSubmit}
         className={cx('submit-button')}
       >
-        <Container margin="none" className={cx('flex-text')}>
+        <span className={cx('flex-text')}>
           {selected.length === 0 ? (
             '다중 선택이 가능해요.'
           ) : (
@@ -71,7 +71,7 @@ const CompanionStep = ({ context, onNext, onPrev }: Props) => {
               다음 <Icon />
             </>
           )}
-        </Container>
+        </span>
       </AnimatedButton>
     </>
   );

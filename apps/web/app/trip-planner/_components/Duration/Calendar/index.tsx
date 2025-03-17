@@ -93,15 +93,15 @@ const Calendars = ({
         onClick={handleSubmit}
         className={cx('submit-button', duration.end !== '' && 'long-text')}
       >
-        <Container margin="none">
+        <span>
           {duration.end === '' ? (
             '여행의 시작과 끝나는 날짜를 선택해주세요.'
           ) : (
-            <Container margin="none" className={cx('flex-text')}>
+            <span className={cx('flex-text')}>
               다음 <Icon />
-            </Container>
+            </span>
           )}
-        </Container>
+        </span>
       </AnimatedButton>
     </>
   );

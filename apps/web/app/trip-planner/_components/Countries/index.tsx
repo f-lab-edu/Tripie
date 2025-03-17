@@ -94,7 +94,7 @@ export default function CountryStep({ context, onNext, onPrev }: Readonly<Props>
             disabled={selectedCountry === ''}
             className={cx('submit-button')}
           >
-            <Container margin="none" className={cx('flex-text')}>
+            <span className={cx('flex-text')}>
               {selectedCountry === '' ? (
                 <>여행할 나라를 선택해주세요.</>
               ) : (
@@ -102,7 +102,7 @@ export default function CountryStep({ context, onNext, onPrev }: Readonly<Props>
                   "{selectedCountry}"로 보기 <Icon />
                 </>
               )}
-            </Container>
+            </span>
           </AnimatedButton>
           {/* </Container> */}
         </>
