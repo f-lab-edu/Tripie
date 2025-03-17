@@ -2,7 +2,7 @@
 import classNames from 'wrapper';
 import Style from './nav.module.scss';
 
-import { Icon, MenuToggle, NoStyleButton, Text } from '@tripie-pyotato/design-system';
+import { Icon, MenuToggle, Text } from '@tripie-pyotato/design-system';
 import ROUTE, { LANDING_SECTION } from 'constants/routes';
 import { usePathname, useRouter } from 'next/navigation';
 
@@ -19,11 +19,9 @@ const Nav = () => {
 
   return (
     <MenuToggle>
-      <NoStyleButton action={() => navigate.push(ROUTE.HOME.href)}>
-        <Text.Animated withBorder={false} className={cx('tripie-home-btn')}>
-          Tripie
-        </Text.Animated>
-      </NoStyleButton>
+      <Text.Animated withBorder={false} className={cx('tripie-home-btn')} action={() => navigate.push(ROUTE.HOME.href)}>
+        Tripie
+      </Text.Animated>
       <MenuToggle.List>
         {LANDING_SECTION.map(({ label, href }, index) => (
           <MenuToggle.Item key={href + index}>

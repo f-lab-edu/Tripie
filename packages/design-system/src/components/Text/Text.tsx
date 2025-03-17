@@ -69,6 +69,7 @@ const AnimatedText = ({
   otherChild = children,
   withBorder = false,
   animate = 'rest',
+  action
 }: Readonly<{
   children: ReactNode;
   disabled?: boolean;
@@ -76,6 +77,7 @@ const AnimatedText = ({
   className?: string;
   withBorder?: boolean;
   animate?: 'rest' | 'hover';
+  action?:()=>void;
 }>) => {
   return (
     <Motion.Div
@@ -84,6 +86,7 @@ const AnimatedText = ({
       whileHover={disabled ? 'rest' : 'hover'}
       whileTap={disabled ? 'rest' : 'hover'}
       animate={animate}
+      onTap={action}
     >
       <FlickText2>{children}</FlickText2>
       <Container applyMargin="top"> </Container>

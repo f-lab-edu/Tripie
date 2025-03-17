@@ -71,6 +71,9 @@
   display: inline-flex;
   height: 2rem;
   flex-direction: column;
+  &:hover{
+    cursor: pointer;
+  }
 }
 .small {
   font-size: 0.8rem;
