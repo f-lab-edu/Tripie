@@ -10,4 +10,4 @@ export const GPT_API_KEY = process.env.NEXT_PUBLIC_GPT_API_KEY as string;
 
 export const DB_NAME = process.env.NEXT_PUBLIC_USER_TOKEN_DB_NAME as string;
 
-export const CHAT_DB_NAME = process.env.NEXT_PUBLIC_CHAT_DB_NAME as string;
+export const CHAT_CACHE_DB_NAME = process.env.NEXT_PUBLIC_CHAT_CACHE_DB_NAME as string;
