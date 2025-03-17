@@ -3,10 +3,10 @@ import Style from './rotating-blur.module.scss';
 
 const cx = classNames.bind(Style);
 
-const RotatingBlur = ({className}:{className?:string}) => {
+const RotatingBlur = ({ className }: { className?: string }) => {
   return (
     <Motion.Div
-      className={cx('pie', 'rotating-blur',className)}
+      className={cx('pie', 'rotating-blur', className)}
       initial={{ rotate: 0 }}
       animate={{ scale: [1, 1.2, 1.5, 1.2, 1], rotate: 360 }}
       transition={{
