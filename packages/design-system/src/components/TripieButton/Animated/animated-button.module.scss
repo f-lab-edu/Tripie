@@ -6,26 +6,10 @@
   z-index: 30;
   color: $theme-50;
 }
-
-// .button {
-//   height: 3rem;
-//   overflow-y: hidden;
-//   color: inherit;
-//   align-content: center;
-//   align-items: center;
-//   display: inline-flex;
-//   flex-direction: column;
-//   flex-wrap: nowrap;
-//   gap: 1.2rem;
-//   justify-content: center;
-//   position: relative;
-//   text-decoration: none;
-//   width: fit-content;
-//   min-width: 4rem;
-//   cursor: pointer;
-//   background: none;
-//   border: none;
-// }
+.gap {
+  display: inline-block;
+  padding: 0.2rem;
+}
 
 .button {
   height: 3rem;

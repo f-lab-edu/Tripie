@@ -36,15 +36,14 @@ const Icon = ({
   transition,
 }: Readonly<IconProps>) => {
   return (
-    <Motion.Div
-      onTapStart={onTapStart}
-      className={cx(sizes, className)}
-      variants={variants}
-      transition={transition}
-      animate={animate}
-    >
-      <img src={src} alt={`${src} icon`} />
-    </Motion.Div>
+    <Motion.Img
+    onTapStart={onTapStart}
+    className={cx(sizes, className)}
+    variants={variants}
+    transition={transition}
+    animate={animate}
+    src={src} alt={`${src} icon`}
+  />
   );
 };
 

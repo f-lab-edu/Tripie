@@ -41,7 +41,7 @@ const AnimatedButton = ({
       animate={animate}
     >
       <Text.Flick>{children}</Text.Flick>
-      <TripieContainer applyMargin="top"> </TripieContainer>
+      <span className={cx('gap')}>{' '}</span>
       <Text.Flick className={cx('hovered')}>{otherChild}</Text.Flick>
     </Motion.Button>
   );

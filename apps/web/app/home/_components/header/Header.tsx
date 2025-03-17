@@ -37,9 +37,9 @@ const ShortCutButtons = () => {
       tag: 'contacts',
       link: ROUTE.CONTACT.href,
       contents: (
-        <Container margin="none" className={cx('flex')}>
+        <span className={cx('flex')}>
           Get in touch <Icon />
-        </Container>
+        </span>
       ),
     },
   ];

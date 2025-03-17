@@ -16,7 +16,7 @@ export const VARIANTS = {
     rest: { opacity: 1, y: '2rem', duration: 0.5 },
     hover: {
       opacity: 1,
-      y: '-2.25rem',
+      y: '-2rem',
       transition: {
         duration: 0.5,
       },
