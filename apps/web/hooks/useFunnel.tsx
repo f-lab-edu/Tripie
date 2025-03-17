@@ -2,9 +2,9 @@
 
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { ComponentType, ReactNode, Suspense, useCallback, useEffect, useState } from 'react';
-import Loading from 'shared/components/Loading';
 import { useLocalStorage } from 'usehooks-ts';
 import ROUTE from '../constants/routes';
+import Loading from '../shared/components/Loading';
 
 type FunnelState<T> = {
   id: string;
