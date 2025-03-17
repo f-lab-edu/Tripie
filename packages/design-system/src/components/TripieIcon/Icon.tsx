@@ -115,6 +115,7 @@ const PlaneIcon = ({ className, sizes = 'icon' }: Readonly<IconProps>) => {
       animate={'fly'}
       initial={'rotate'}
       src={ICON_RESOURCE('PLANE')}
+      alt={'plane icon'}
       className={cx(sizes, 'plane', className)}
     />
   );
@@ -133,6 +134,7 @@ const CloudIcon = ({ index = 0, sizes = 'icon' }: { index: number; sizes?: IconP
       transition={{ decelerate: 2, repeat: Infinity, duration: 35, bounce: 0, delay: index * 0.1 }}
       src={ICON_RESOURCE('CLOUD')}
       className={cx(sizes)}
+      alt={'cloud icon'}
     />
   );
 };
@@ -144,6 +146,7 @@ const LoadingIcon = ({ className, sizes = 'icon' }: Readonly<IconProps>) => {
       transition={{ repeat: Infinity, duration: 10, bounce: 0 }}
       src={ICON_RESOURCE('LOADING')}
       className={cx(sizes, className)}
+      alt={'loading icon'}
     />
   );
 };
@@ -161,6 +164,7 @@ const CursorIcon = ({
       initial={'initial'}
       animate={hovered}
       transition={transition}
+      alt={'cursor icon'}
       className={cx(sizes, className)}
     />
   );
@@ -184,6 +188,7 @@ const ScrollIcon = ({
       src={ICON_RESOURCE('NEXT')}
       initial={'initial'}
       animate={hovered}
+      alt={'next icon'}
       transition={transition}
       className={cx(sizes, next ? 'next' : 'prev', className)}
     />
@@ -205,20 +210,21 @@ const TransportIcon = ({
       transition={active ? { repeat: Infinity, repeatType: 'loop', duration: 0.8, ease: 'easeInOut' } : {}}
       className={cx(sizes, className)}
       src={ICON_RESOURCE(type)}
+      alt={`${type} 아이콘`}
     />
   );
 };
 
 const XIcon = ({ className, sizes = 'icon' }: Readonly<IconProps>) => {
-  return <Motion.Img className={cx(sizes, className)} src={ICON_RESOURCE('X')} />;
+  return <Motion.Img className={cx(sizes, className)} src={ICON_RESOURCE('X')} alt={`X 아이콘`} />;
 };
 
 const CheckIcon = ({ className, sizes = 'icon' }: Readonly<IconProps>) => {
-  return <Motion.Img className={cx(sizes, className)} src={ICON_RESOURCE('CHECK')} />;
+  return <Motion.Img className={cx(sizes, className)} src={ICON_RESOURCE('CHECK')} alt={`체크 아이콘`} />;
 };
 
 const AuthIcon = ({ className, sizes = 'icon', src = ICON_RESOURCE('GITHUB') }: Readonly<IconProps>) => {
-  return <Motion.Img className={cx(sizes, className)} variants={ICON_VARIANTS.ROTATE} src={src} />;
+  return <Motion.Img className={cx(sizes, className)} variants={ICON_VARIANTS.ROTATE} src={src} alt={`oauth 아이콘`} />;
 };
 
 Icon.Navigate = NavigateIcon;
