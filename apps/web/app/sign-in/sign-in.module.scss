@@ -1,0 +1,82 @@
+@use 'mixins' as *;
+@use 'variables' as *;
+
+$bottom-shade: #08070700;
+
+.header {
+  align-items: center;
+  background: radial-gradient(50% 50% at 0% 0%, $theme-600 0%, $theme-500 100%); //dark
+  display: inline-flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  height: 100vh;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0;
+  width: inherit;
+  position: relative;
+  @media (max-width: 500px) {
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-content: center;
+  }
+}
+.heading {
+  display: inline-flex;
+  gap: 7px;
+}
+
+.gradient-bottom {
+  background: radial-gradient(75% 50% at 100% 100%, $theme-600 0%, $bottom-shade 100%); //dark
+  inset: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: 0;
+}
+.center {
+  align-content: center;
+  align-items: center;
+  display: inline-flex;
+  flex: none;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 25px;
+  height: min-content;
+  justify-content: center;
+  max-width: 1440px;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  z-index: 5;
+}
+
+.wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+.chip {
+  height: 4rem;
+}
+.login-wrap {
+  display: inline-flex;
+  align-items: center;
+  width: 80%;
+}
+
+.submit {
+  & > button {
+    width: 100%;
+    @media (max-width: 350) {
+      padding: 10px;
+    }
+    @media (max-width: 300) {
+      width: 100%;
+      padding: 0;
+      min-width: 3rem;
+    }
+  }
+}

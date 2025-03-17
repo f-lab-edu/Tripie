@@ -1,0 +1,21 @@
+'use client';
+
+import { AnimatedButton, Icon, ICON_RESOURCE, RESOURCE, Text } from '@tripie-pyotato/design-system';
+import classNames from 'wrapper';
+import Style from './o-auth-button.module.scss';
+
+const cx = classNames.bind(Style);
+
+const OAuthButton = ({ provider }: { provider: { name: string } }) => {
+  return (
+    <AnimatedButton type="submit" withBorder={true} withMinWidth={false}>
+      <div className={cx('center')}>
+        <Text className={cx('text')}>Sign in with </Text>
+        <Text className={cx('text')}>{provider.name}</Text>
+        <Icon.Auth src={ICON_RESOURCE(provider.name.toUpperCase() as keyof typeof RESOURCE)} />
+      </div>
+    </AnimatedButton>
+  );
+};
+
+export default OAuthButton;

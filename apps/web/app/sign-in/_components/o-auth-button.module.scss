@@ -1,0 +1,15 @@
+@use 'mixins' as *;
+@use 'variables' as *;
+
+.center {
+  display: inline-flex;
+  justify-content: center;
+  gap: 0.4rem;
+  align-items: flex-end;
+}
+
+.text {
+  @media (max-width: 300px) {
+    display: none;
+  }
+}
