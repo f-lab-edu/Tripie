@@ -3,7 +3,7 @@
 import firestoreService from 'app/api/firebase';
 import { sharedMetaData } from 'app/shared-metadata';
 import API from 'constants/api-routes';
-import { CHAT_DB_NAME } from 'constants/auth';
+import { CHAT_CACHE_DB_NAME } from 'constants/auth';
 import ROUTE from 'constants/routes';
 import { Metadata } from 'next';
 import SeverError from 'shared/components/Error/Error';
@@ -17,7 +17,8 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const id = (await params).id;
-  const plan = await firestoreService.getItem(CHAT_DB_NAME, decodeURIComponent(id));
+
+  const plan = await firestoreService.getItem(CHAT_CACHE_DB_NAME, decodeURIComponent(id));
 
   if (plan?.data == null) {
     return { title: sharedMetaData?.title, description: sharedMetaData?.description, openGraph: sharedMetaData };
@@ -43,7 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const TripPlan = async ({ params }: { params: Promise<{ id: string }> }) => {
   const id = (await params).id;
-  const plan = await firestoreService.getItem(CHAT_DB_NAME, decodeURIComponent(id));
+  const plan = await firestoreService.getItem(CHAT_CACHE_DB_NAME, decodeURIComponent(id));
 
   if (plan?.data == null) {
     return <SeverError />;
