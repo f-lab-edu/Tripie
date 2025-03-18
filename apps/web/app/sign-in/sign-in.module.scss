@@ -65,6 +65,7 @@ $bottom-shade: #08070700;
   display: inline-flex;
   align-items: center;
   width: 80%;
+  justify-content: center;
 }
 
 .submit {
@@ -79,4 +80,8 @@ $bottom-shade: #08070700;
       min-width: 3rem;
     }
   }
+}
+
+.login-card {
+  width: 16vw;
 }

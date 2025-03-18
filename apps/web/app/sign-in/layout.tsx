@@ -18,7 +18,7 @@ export default function Layout({
         <Nav />
         <Container className={cx('gradient-bottom')} margin="none" />
         <Container margin="none" className={cx('login-wrap')}>
-          <Card.Content>
+          <Card className={cx('login-card')}>
             <Container applyMargin="top" margin="l" align="center">
               <Text.Accented>
                 <Headings.H2>Welcome</Headings.H2>
@@ -29,7 +29,7 @@ export default function Layout({
             </Container>
             <Divider />
             {children}
-          </Card.Content>
+          </Card>
         </Container>
         <ParticleField />
       </Container>
