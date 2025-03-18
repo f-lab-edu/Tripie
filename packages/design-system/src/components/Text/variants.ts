@@ -2,25 +2,28 @@ import { MotionProps } from '../../shared/wrappers/motion-wrapper';
 
 export const VARIANTS = {
   FLICK_TEXT: {
-    rest: { opacity: 1, y: '0', 
-    // duration: 0.5 
-  },
+    rest: {
+      opacity: 1,
+      y: '0',
+    },
     hover: {
       opacity: 1,
       y: '-3rem',
       transition: {
-        bounce:0
-        // duration: 0.5,
+        bounce: 0,
       },
     },
   },
   TEXT: {
-    rest: { opacity: 1, y: '2rem', duration: 0.5 },
+    rest: {
+      opacity: 1,
+      y: '2rem',
+    },
     hover: {
       opacity: 1,
       y: '-2rem',
       transition: {
-        duration: 0.5,
+        bounce: 0,
       },
     },
   },
