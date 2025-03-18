@@ -30,7 +30,10 @@ const Card = ({ duration, replays, delay = 0.3, children, className }: Partial<C
       replays={replays}
       className={cx('with-border', 'outer-wrap', className)}
     >
-      {children}
+      <TripieContainer margin="none" className={cx('noise-contents-contrast')}>
+        {children}
+      </TripieContainer>
+
       <div className={cx('noise')}></div>
     </MotionSlideUp>
   );

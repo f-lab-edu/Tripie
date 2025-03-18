@@ -14,12 +14,12 @@ export default function PlanList() {
       <Container align="left" margin="none">
         {PLANS[key].label}
       </Container>
-      <Container margin="none" align="left">
+      <Container align="left" applyMargin="bottom">
         <Headings.H3 className={cx('max')}>
           <Text.Accented>{PLANS[key].price}</Text.Accented>
         </Headings.H3>
       </Container>
-      <Container margin="none" align="left">
+      <Container applyMargin="top-bottom" align="left">
         Per month
       </Container>
       <Divider />
@@ -31,13 +31,14 @@ export default function PlanList() {
           </List.Item>
         ))}
       </List>
-      <Container align="center" margin="none">
-        <AnimatedButton withBorder={true} className={cx('submit-button')} withMinWidth={true}>
-          <span className={cx('flex-text')}>
-            Get started with {PLANS[key].label} <Icon />
-          </span>
-        </AnimatedButton>
-      </Container>
+      <AnimatedButton
+        withBorder={true}
+        className={cx('submit-button')}
+        withMinWidth={true}
+        onClick={() => alert(`chose ${PLANS[key].label}`)}
+      >
+        Get started with {PLANS[key].label}
+      </AnimatedButton>
     </Card>
   ));
 }
