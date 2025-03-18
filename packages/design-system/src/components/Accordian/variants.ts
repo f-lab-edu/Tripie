@@ -13,7 +13,7 @@ export const ACCORDIAN_VARIANTS = {
         height: 'fit-content',
       },
       transition: {
-        duration: 2,
+        animationDuration: 2,
         bounce: 0,
         damping: 2,
         stiffness: 10,
@@ -25,7 +25,7 @@ export const ACCORDIAN_VARIANTS = {
     open: () => ({
       rotate: '45deg',
       transition: {
-        duration: 0.5,
+        animationDuration: 0.5,
         bounce: 0,
       },
     }),
@@ -37,7 +37,7 @@ export const ACCORDIAN_VARIANTS = {
     open: () => ({
       backgroundColor: COLORS[50],
       transition: {
-        duration: 0.5,
+        animationDuration: 0.5,
         bounce: 0,
       },
     }),
