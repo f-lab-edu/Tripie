@@ -8,22 +8,22 @@ const cx = classNames.bind(Style);
 
 const SplashScreen = ({ children }: Readonly<{ children: ReactNode }>) => {
   return (
-    <Motion.Section
-      className={cx('section')}
+    <Motion.Div
+      className={cx('splash-full-screen')}
       initial={{ opacity: 1, y: 0 }}
       animate={{ opacity: 1, y: '-120%' }}
       transition={{ duration: 0.8, delay: 1 }}
     >
       <Container align="center">{children}</Container>
-    </Motion.Section>
+    </Motion.Div>
   );
 };
 
 const ControlledSplashScreen = ({ children }: Readonly<{ children: ReactNode }>) => {
   return (
-    <Motion.Section className={cx('section')} initial={{ opacity: 1, y: 0 }}>
+    <Motion.Div className={cx('splash-full-screen')} initial={{ opacity: 1, y: 0 }}>
       <Container align="center">{children}</Container>
-    </Motion.Section>
+    </Motion.Div>
   );
 };
 

@@ -1,7 +1,7 @@
 @use '../../variables' as *;
 @use '../../mixins' as *;
 
-.section {
+.splash-full-screen {
   @include background('8');
   height: 100vh;
   width: 100vw;
