@@ -1,11 +1,16 @@
 'use client';
 import { useAppTheme } from '@tripie-pyotato/design-system';
-import { ReactNode } from 'react';
+import { ReactNode, useEffect } from 'react';
 export default function ThemeProvider({
   children,
 }: Readonly<{
   children: ReactNode;
 }>) {
-  useAppTheme();
+  const { setMode } = useAppTheme();
+
+  useEffect(() => {
+    setMode('dark');
+  }, []);
+
   return <>{children}</>;
 }
