@@ -5,10 +5,9 @@ import { Card, Chip, Headings, List } from '@tripie-pyotato/design-system';
 import { AiTripPlanResponse } from 'app/api/chat/route';
 import { useContext } from 'react';
 
-import Style from './tab-chat.module.scss';
-
 import { SelectedDateContext } from '..';
 import TabList from './List';
+import Style from './tab-chat.module.scss';
 
 const cx = classNames.bind(Style);
 

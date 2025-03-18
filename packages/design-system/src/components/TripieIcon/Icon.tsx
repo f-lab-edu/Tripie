@@ -37,13 +37,14 @@ const Icon = ({
 }: Readonly<IconProps>) => {
   return (
     <Motion.Img
-    onTapStart={onTapStart}
-    className={cx(sizes, className)}
-    variants={variants}
-    transition={transition}
-    animate={animate}
-    src={src} alt={`${src} icon`}
-  />
+      onTapStart={onTapStart}
+      className={cx(sizes, className)}
+      variants={variants}
+      transition={transition}
+      animate={animate}
+      src={src}
+      alt={`${src} icon`}
+    />
   );
 };
 
