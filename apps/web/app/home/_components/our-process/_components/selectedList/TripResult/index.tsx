@@ -26,7 +26,7 @@ const TripResultExample = () => {
       <AwsMap
         center={center[currentDate]}
         interactive={false}
-        style={{ height: '80vh' }}
+        style={{ height: '85vh' }}
         initialViewState={{
           zoom: 9,
           ...center[currentDate],
