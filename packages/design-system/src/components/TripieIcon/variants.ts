@@ -6,14 +6,14 @@ export const ICON_VARIANTS = {
     open: () => ({
       rotate: '45deg',
       transition: {
-        duration: 0.5,
+        animationDuration: 0.5,
         bounce: 0,
       },
     }),
     hover: () => ({
       rotate: '45deg',
       transition: {
-        duration: 0.5,
+        animationDuration: 0.5,
         bounce: 0,
       },
     }),
@@ -22,7 +22,7 @@ export const ICON_VARIANTS = {
     hover: () => ({
       rotate: '360deg',
       transition: {
-        duration: 1.2,
+        animationDuration: 1.2,
         bounce: 0.5,
       },
     }),
@@ -33,14 +33,14 @@ export const ICON_VARIANTS = {
           closed: () => ({
             rotate: '-135deg',
             transition: {
-              duration: 0.1,
+              animationDuration: 0.1,
               bounce: 1,
             },
           }),
           hover: () => ({
             rotate: '-90deg',
             transition: {
-              duration: 0.1,
+              animationDuration: 0.1,
               bounce: 1,
             },
           }),
@@ -49,14 +49,14 @@ export const ICON_VARIANTS = {
           closed: () => ({
             rotate: '45deg',
             transition: {
-              duration: 0.1,
+              animationDuration: 0.1,
               bounce: 1,
             },
           }),
           hover: () => ({
             rotate: '0deg',
             transition: {
-              duration: 0.1,
+              animationDuration: 0.1,
               bounce: 1,
             },
           }),
@@ -67,14 +67,14 @@ export const ICON_VARIANTS = {
           closed: () => ({
             rotate: '-135deg',
             transition: {
-              duration: 0.1,
+              animationDuration: 0.1,
               bounce: 1,
             },
           }),
           hover: () => ({
             rotate: '-90deg',
             transition: {
-              duration: 0.1,
+              animationDuration: 0.1,
               bounce: 1,
             },
           }),
@@ -83,14 +83,14 @@ export const ICON_VARIANTS = {
           closed: () => ({
             rotate: '45deg',
             transition: {
-              duration: 0.1,
+              animationDuration: 0.1,
               bounce: 1,
             },
           }),
           hover: () => ({
             rotate: '0deg',
             transition: {
-              duration: 0.1,
+              animationDuration: 0.1,
               bounce: 1,
             },
           }),
@@ -103,7 +103,7 @@ export const ICON_VARIANTS = {
       translateX: '100vw',
       transition: {
         repeat: Infinity,
-        duration: 5,
+        animationDuration: 5,
         bounce: 1,
       },
     }),
@@ -120,7 +120,7 @@ export const ICON_VARIANTS = {
       transition: {
         decelerate: 2,
         repeat: Infinity,
-        duration: 8,
+        animationDuration: 8,
         bounce: 1,
       },
     }),
@@ -135,7 +135,7 @@ export const ICON_VARIANTS = {
       translateY: '-5px',
       transition: {
         decelerate: 2,
-        duration: 0.5,
+        animationDuration: 0.5,
         bounce: 0,
       },
     }),
@@ -146,14 +146,14 @@ export const ICON_VARIANTS = {
           initial: () => ({
             rotate: '0deg',
             transition: {
-              duration: 0.1,
+              animationDuration: 0.1,
               bounce: 1,
             },
           }),
           hover: () => ({
             rotate: '-90deg',
             transition: {
-              duration: 0.1,
+              animationDuration: 0.1,
               bounce: 1,
             },
           }),
@@ -162,14 +162,14 @@ export const ICON_VARIANTS = {
           initial: () => ({
             rotate: '-180deg',
             transition: {
-              duration: 0.1,
+              animationDuration: 0.1,
               bounce: 1,
             },
           }),
           hover: () => ({
             rotate: '0deg',
             transition: {
-              duration: 0.1,
+              animationDuration: 0.1,
               bounce: 1,
             },
           }),

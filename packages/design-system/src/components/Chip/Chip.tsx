@@ -50,7 +50,7 @@ const AccentedChip = ({ children, current, className, onClick, type = 'button' }
         animate={{ rotate: 360 }}
         transition={{
           type: 'tween',
-          duration: 2,
+          animationDuration: 2,
           ease: 'linear',
           repeat: Infinity,
         }}
