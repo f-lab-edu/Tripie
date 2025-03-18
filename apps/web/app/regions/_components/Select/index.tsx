@@ -1,6 +1,6 @@
 'use client';
 
-import { AnimatedButton, Card, Chip, Container, Divider, List } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Card, Container, Divider, List } from '@tripie-pyotato/design-system';
 
 import classNames from 'wrapper';
 
@@ -20,20 +20,21 @@ const RegionSelect = ({ selected, selectedRegion }: { selected: string; selected
           <Container margin="none" className={cx('carousel')}>
             <Container applyMargin="top-bottom" className={cx('carousel-inner')}>
               {Object.keys(TRIPIE_REGION_BY_LOCATION).map(place => (
-                <Chip
+                <AnimatedButton
+                  selected={selected === place}
+                  withBorder={true}
                   key={place}
                   className={cx('place-chip')}
+                  withMinWidth={true}
                   onClick={() => {
                     if (selected == place) {
                       return;
                     }
                     navigate.push(`/regions/${place}`);
                   }}
-                  selected={selected === place}
                 >
                   {place}
-                  {/* <AnimatedButton.Text className={cx('animated-text', 'chip')}>{place}</AnimatedButton.Text> */}
-                </Chip>
+                </AnimatedButton>
               ))}
             </Container>
           </Container>
@@ -42,20 +43,20 @@ const RegionSelect = ({ selected, selectedRegion }: { selected: string; selected
 
           <List.Grid className={cx('grid-wrap')}>
             {TRIPIE_REGION_BY_LOCATION[selected as keyof typeof TRIPIE_REGION_BY_LOCATION].map(place => (
-              <Chip
+              <AnimatedButton
+                selected={TRIPIE_REGION_IDS[selectedRegion as keyof typeof TRIPIE_REGION_IDS] === place}
+                withBorder={true}
+                key={place}
+                className={cx('chip-wrap')}
                 onClick={() => {
                   const selectedLocation = Object.keys(TRIPIE_REGION_IDS).filter(
                     key => TRIPIE_REGION_IDS[key as keyof typeof TRIPIE_REGION_IDS] === place
                   )?.[0];
-
                   navigate.push(`/regions/${selected}/location/${selectedLocation}`);
                 }}
-                key={place}
-                className={cx('chip-wrap')}
-                selected={TRIPIE_REGION_IDS[selectedRegion as keyof typeof TRIPIE_REGION_IDS] === place}
               >
-                <AnimatedButton.Text className={cx('animated-text', 'chip')}>{place}</AnimatedButton.Text>
-              </Chip>
+                {place}
+              </AnimatedButton>
             ))}
           </List.Grid>
         </Card.Content>

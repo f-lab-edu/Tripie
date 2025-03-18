@@ -1,6 +1,10 @@
 @use '../../../variables' as *;
 @use '../../../mixins' as *;
 
+.selected {
+  background-color: $theme-100 !important;
+}
+
 .hovered {
   position: relative;
   z-index: 30;
