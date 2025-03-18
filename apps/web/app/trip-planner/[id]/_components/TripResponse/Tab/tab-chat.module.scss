@@ -41,6 +41,10 @@
 
   flex-wrap: nowrap;
   gap: 0.4rem;
+
+  & li {
+    width: fit-content;
+  }
 }
 
 .chip {

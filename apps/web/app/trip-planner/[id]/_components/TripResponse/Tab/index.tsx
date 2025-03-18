@@ -21,16 +21,17 @@ const ChatTab = ({ data, scrollIntoView = true }: { data: AiTripPlanResponse; sc
       <Headings.H2> {data.name}</Headings.H2>
       <List className={cx('trip-days-chips-wrap')}>
         {data.trips.map(trip => (
-          <Chip
-            className={cx('chip')}
-            key={trip.date + trip.day}
-            selected={currentDate === trip.day - 1}
-            onClick={() => {
-              dateCycle(trip.day - 1);
-            }}
-          >
-            {trip.day}일차
-          </Chip>
+          <List.Item key={trip.date + trip.day}>
+            <Chip
+              className={cx('chip')}
+              selected={currentDate === trip.day - 1}
+              onClick={() => {
+                dateCycle(trip.day - 1);
+              }}
+            >
+              {trip.day}일차
+            </Chip>
+          </List.Item>
         ))}
       </List>
       <TabList
