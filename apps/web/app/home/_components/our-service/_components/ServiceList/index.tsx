@@ -39,7 +39,7 @@ export default function ServiceList() {
   return serviceList.map(({ label, content, description }) => (
     <Card key={label} className={cx('card-wrap')}>
       {content}
-      <Card.Description>
+      <Card.Description className={cx('card-description')}>
         <Description descriptionTitle={label}>{description}</Description>
       </Card.Description>
     </Card>
