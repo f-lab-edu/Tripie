@@ -4,7 +4,7 @@ import Style from './particles.module.scss';
 
 const cx = classNames.bind(Style);
 
-const Particles = ({ x, y, duration }: { x: number; y: number; duration: number }) => {
+const Particles = ({ x, y, duration = 0.5 }: { x: number; y: number; duration: number }) => {
   return (
     <Motion.Div
       initial={{ opacity: 0, x: 0, y: 0 }}
@@ -12,7 +12,7 @@ const Particles = ({ x, y, duration }: { x: number; y: number; duration: number 
       transition={{
         repeat: Infinity,
         repeatType: 'mirror',
-        duration: duration,
+        duration,
       }}
       className={cx('particle')}
     />
