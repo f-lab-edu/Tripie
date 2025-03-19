@@ -1,7 +1,7 @@
 import { Container, Divider } from '@tripie-pyotato/design-system';
 import { RefAttributes } from 'react';
-import { CalendarProps, Calendar as ReactCalendar } from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import { CalendarProps, ReactCalendar } from 'wrapper';
 import './calendar-custom.scss';
 
 type CustomCalendarProps = CalendarProps & RefAttributes<unknown>;

@@ -1,19 +1,9 @@
 'use client';
 import { Container, Text } from '@tripie-pyotato/design-system';
-import Markdown from 'markdown-to-jsx';
+import { ArticleTextProps } from 'models/Props';
 import { decodeUnicodes } from 'utils/string';
-import { classNames } from 'wrapper';
+import { classNames, Markdown } from 'wrapper';
 import Style from './text.module.scss';
-
-export type ArticleTextProps = { type: 'text'; value: TextValue & Partial<RichTextValue> };
-export type TextValue = { text: string };
-
-// html 혹은 markdown 형식으로 데이터가 주어진다면 해당 형식으로 데이터 보여주기
-export type RichTextValue = {
-  rich: boolean;
-  markdownText: string;
-  rawHTML: string;
-} & TextValue;
 
 const cx = classNames.bind(Style);
 

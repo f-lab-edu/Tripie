@@ -1,5 +1,6 @@
 import classNames from './className';
-
+import { Markdown } from './markdown-to-jsx';
+import { CalendarProps, ReactCalendar } from './react-calendar';
 import {
   Layer,
   Map,
@@ -19,10 +20,13 @@ export {
   Layer,
   Map,
   MapProvider,
+  Markdown,
   Marker,
   Popup,
+  ReactCalendar,
   Source,
   useMap,
+  type CalendarProps,
   type LngLatBoundsLike,
   type PaddingOptions,
   type PointLike,

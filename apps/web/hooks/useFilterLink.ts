@@ -1,4 +1,4 @@
-import { LinkProps } from 'app/posts/_components/Elements/Link';
+import { LinkProps } from 'models/Props';
 import { useMemo } from 'react';
 
 /**

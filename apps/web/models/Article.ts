@@ -1,7 +1,7 @@
-import { BodyItemProps } from 'app/posts/[postId]/articles/[articleId]/ArticleBody';
 import { GeoTag } from './Geo';
 import { ImageUrl } from './Image';
 import { Metadata } from './MetaData';
+import { BodyItemProps } from './Props';
 import { MetaDataContents, TripleImage } from './Triple';
 
 export type RegionInfoSource = {

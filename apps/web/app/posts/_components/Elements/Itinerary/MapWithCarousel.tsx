@@ -1,23 +1,14 @@
 'use client';
 import { Carousel, Chip, Container, Divider, Icon } from '@tripie-pyotato/design-system';
-import { Poi } from 'models/Aws';
-import { ItineraryItem } from 'models/Itinery';
+
 import { Dispatch, SetStateAction, createRef, memo, useRef } from 'react';
 import { classNames } from 'wrapper';
 
 import { Transport } from '@tripie-pyotato/design-system/components/TripieIcon/Icon';
+import { MapWithCarouselProps } from 'models/Props';
 import PoiCard from '../Pois/PoiCard';
 import Style from './map-with-carousel.module.scss';
 
-export type MapWithCarouselProps = {
-  type: 'pois';
-  value: {
-    pois: Array<Poi>;
-    memo?: Array<ItineraryItem['memo']>;
-    schedule: Array<ItineraryItem['schedule']>;
-    transportation: Array<ItineraryItem['transportation']>;
-  };
-};
 const TRANSPORT = {
   walk: 'WALK',
   tram: 'TRAM',

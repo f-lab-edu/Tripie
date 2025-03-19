@@ -1,16 +1,14 @@
 'use client';
-import { Poi } from 'models/Aws';
 import { createRef, useRef } from 'react';
 
 import usePoi from 'hooks/usePoi';
 
 import { Carousel, Container } from '@tripie-pyotato/design-system';
 import TripieContainer from '@tripie-pyotato/design-system/components/TripieContainer/TripieContainer';
+import { PoisProps } from 'models/Props';
 import { MapProvider } from 'react-map-gl/dist/esm/exports-maplibre';
 import AwsMap from '../TripieMap';
 import PoiCard from './PoiCard';
-
-export type PoisProps = { type: 'pois'; value: { pois: Poi[] } };
 
 const ArticlePois = ({ item }: { item: PoisProps }) => {
   const { pois } = item.value;

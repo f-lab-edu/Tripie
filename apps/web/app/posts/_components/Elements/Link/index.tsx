@@ -3,15 +3,10 @@ import { Container, Link, TextUnderLineAnimation } from '@tripie-pyotato/design-
 import { classNames } from 'wrapper';
 
 import useFilterLink from 'hooks/useFilterLink';
-import { Link as LinkType } from 'models/Link';
 
+import { LinkProps } from 'models/Props';
 import { useMemo } from 'react';
 import Style from './link.module.scss';
-
-export type LinkProps = {
-  type: 'links';
-  value: { links: Pick<LinkType, 'href' | 'label'>[] };
-};
 
 const cx = classNames.bind(Style);
 

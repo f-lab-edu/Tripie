@@ -1,18 +1,13 @@
 'use client';
 import { Chip, Container, Icon } from '@tripie-pyotato/design-system';
-import { classNames } from 'wrapper';
-
 import { Dispatch, SetStateAction, useMemo } from 'react';
-
-// import Icon from 'shared/components/Icon/Icon';
-
+import { classNames } from 'wrapper';
 import Style from './city-list.module.scss';
 
 const cx = classNames.bind(Style);
 
 interface CityListProps {
   cities: string[];
-  // context?: { continent: ContinentKeys; country: string; city: { all: string[]; selected: string[] } };
   selected: Array<string> | [];
   setSelected: Dispatch<SetStateAction<Array<string> | []>>;
 }

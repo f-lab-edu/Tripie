@@ -3,23 +3,14 @@ import { Chip, Container, Icon } from '@tripie-pyotato/design-system';
 import { classNames } from 'wrapper';
 
 import COMPANION_LIST from 'constants/companions';
-import { ContinentKeys } from 'models/Continent';
 import { Dispatch, SetStateAction } from 'react';
 
-// import Icon from 'shared/components/Icon/Icon';
 import { Companion } from '..';
 import Style from './companion-list.module.scss';
 
 const cx = classNames.bind(Style);
 
 interface Props {
-  context?: {
-    continent: ContinentKeys;
-    country: string;
-    city: { all: string[]; selected: string[] };
-    duration: string;
-    companion?: string;
-  };
   selected: Array<Companion> | [];
   setSelected: Dispatch<SetStateAction<Array<Companion> | []>>;
 }

@@ -1,7 +1,6 @@
 'use client';
 import { Card, Container, TripieImage } from '@tripie-pyotato/design-system';
 import POI_TYPE from 'constants/triple';
-import { Poi } from 'models/Aws';
 import { RefObject, useEffect } from 'react';
 import { classNames, useMap } from 'wrapper';
 import ArticleHeading from '../Header';
@@ -9,8 +8,8 @@ import Style from './poi-card.module.scss';
 
 import useImgAlt from 'hooks/useImgAlt';
 
+import { Poi } from 'models/Aws';
 import ArticleText from '../Text';
-export type PoisProps = { type: 'pois'; value: { pois: Array<Poi> } };
 
 const cx = classNames.bind(Style);
 

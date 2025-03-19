@@ -1,13 +1,9 @@
 'use client';
 import { Card, Container, Headings, Text } from '@tripie-pyotato/design-system';
+import { NoteProps } from 'models/Props';
 import { decodeUnicodes } from 'utils/string';
 import { classNames } from 'wrapper';
 import Style from './note.module.scss';
-
-export type NoteProps = {
-  type: 'note';
-  value: { body: string; title: string };
-};
 
 const cx = classNames.bind(Style);
 

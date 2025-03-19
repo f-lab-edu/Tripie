@@ -8,15 +8,12 @@ import ArticleTitle from 'app/posts/_components/Elements/ArticleTitle';
 import { sharedMetaData } from 'app/shared-metadata';
 import API from 'constants/api-routes';
 import ROUTE from 'constants/routes';
+import { BodyItemProps, ParamProps } from 'models/Props';
 import { Metadata } from 'next';
-import ArticleBody, { BodyItemProps } from './ArticleBody';
+import ArticleBody from './ArticleBody';
 
 // https://nextjs.org/docs/app/building-your-application/optimizing/metadata
-export type Props = {
-  params: Promise<{ postId: string; articleId: string }>;
-};
-
-export async function pageParamData({ params }: Props) {
+export async function pageParamData({ params }: ParamProps) {
   const postId = (await params).postId;
   const articleId = (await params).articleId;
 
@@ -28,7 +25,7 @@ export async function pageParamData({ params }: Props) {
   return { postId, articleId, data, blurredThumbnail, description, title };
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: ParamProps): Promise<Metadata> {
   const { postId, articleId, data, description, title } = await pageParamData({ params });
 
   return {
@@ -44,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-const Articles = async ({ params }: Props) => {
+const Articles = async ({ params }: ParamProps) => {
   const { postId, data, blurredThumbnail } = await pageParamData({ params });
 
   if (data?.metadataContents?.title == null) {

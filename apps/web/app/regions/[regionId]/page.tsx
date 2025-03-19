@@ -4,13 +4,10 @@ import { Container } from '@tripie-pyotato/design-system';
 import getRegionArticles from 'app/api/articles/region';
 import { parseParams } from 'app/parse-params';
 import { TRIPIE_REGION_BY_LOCATION, TRIPIE_REGION_IDS } from 'constants/tripie-country';
+import { RegionParamProps } from 'models/Props';
 import RegionTitle from '../_components/RegionTitle';
 
-type Props = {
-  params: Promise<{ regionId: string }>;
-};
-
-async function pageParamData({ params }: Props) {
+async function pageParamData({ params }: RegionParamProps) {
   const { regionId } = await parseParams(params);
   const selectedRegion = Object.keys(TRIPIE_REGION_IDS).filter(
     item =>

@@ -3,12 +3,9 @@
 import { Params, parseParams } from 'app/parse-params';
 import RegionSelect from 'app/regions/_components/Select';
 import { TRIPIE_REGION_BY_LOCATION, TRIPIE_REGION_IDS } from 'constants/tripie-country';
+import { RegionParamProps } from 'models/Props';
 
-type Props = {
-  params: Promise<{ regionId: string }>;
-};
-
-async function pageParamData({ params }: Props) {
+async function pageParamData({ params }: RegionParamProps) {
   const { regionId } = await parseParams(params);
   return { regionId };
 }

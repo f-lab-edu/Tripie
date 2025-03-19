@@ -9,13 +9,10 @@ import ArticleBody from 'app/posts/_components/ArticleBody';
 import ArticleLayout from 'app/posts/_components/ArticleLayout';
 import ArticleTitle from 'app/posts/_components/Elements/ArticleTitle';
 import { AttractionArticle } from 'models/Attraction';
+import { ParamProps } from 'models/Props';
 import { Metadata, ResolvingMetadata } from 'next';
 import { headers } from 'next/headers';
 import { getPreferredTitle } from 'utils/string';
-
-type Props = {
-  params: Promise<{ postId: string; articleId: string }>;
-};
 
 const PAGE = {
   attractions: 'attraction',
@@ -23,7 +20,7 @@ const PAGE = {
   article: 'article',
 } as const;
 
-export async function pageParamData({ params }: Props) {
+export async function pageParamData({ params }: ParamProps) {
   const headersList = await headers();
   const headerPathname = headersList.get('x-pathname') || '';
 
@@ -42,7 +39,7 @@ export async function pageParamData({ params }: Props) {
   return { key, title, description, postId, articleId, data, images, blurredThumbnail };
 }
 
-export async function generateMetadata({ params }: Props, parent: ResolvingMetadata): Promise<Metadata> {
+export async function generateMetadata({ params }: ParamProps, parent: ResolvingMetadata): Promise<Metadata> {
   const previousImages = (await parent).openGraph?.images || [];
 
   const { title, description, postId, articleId, key, images } = await pageParamData({ params });

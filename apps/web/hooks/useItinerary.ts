@@ -1,5 +1,5 @@
-import { ItineraryProps } from 'app/regions/post/_components/Elements/Itinerary';
 import { Activity } from 'models/Aws';
+import { ItineraryProps } from 'models/Props';
 import { useMemo, useState } from 'react';
 
 /**

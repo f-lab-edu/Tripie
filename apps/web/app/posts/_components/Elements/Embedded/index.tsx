@@ -1,30 +1,13 @@
 'use client';
 import { Card, Carousel, Divider, TripieImage } from '@tripie-pyotato/design-system';
 import { classNames } from 'wrapper';
-import ArticleHeading, { HeadingProps } from '../Header';
-
-import { ArticleDividerProps } from '@tripie-pyotato/design-system/components/Divider/Divider';
-import { ImageProps } from '../ArticleImages';
-import ArticleLink, { LinkProps } from '../Link';
-import ArticleNote, { NoteProps } from '../Note';
-import ArticleText, { ArticleTextProps } from '../Text';
+import ArticleHeading from '../Header';
+import ArticleLink from '../Link';
+import ArticleNote from '../Note';
+import ArticleText from '../Text';
 import Style from './embedded.module.scss';
 
-import { ItineraryProps } from '../Itinerary';
-import { PoisProps } from '../Pois';
-
-type EmbeddedCardProps =
-  | ArticleDividerProps
-  | ArticleTextProps
-  | HeadingProps
-  | NoteProps
-  | ImageProps
-  | LinkProps
-  | EmbeddedProps
-  | PoisProps
-  | ItineraryProps;
-
-export type EmbeddedProps = { type: 'embedded'; value: { entries: Array<Array<EmbeddedCardProps>> } };
+import { BodyItemProps, EmbeddedProps, ImageProps } from 'models/Props';
 
 const cx = classNames.bind(Style);
 
@@ -33,13 +16,13 @@ const ArticleCard = ({
   regionId,
   dataUrl,
 }: {
-  item: Array<EmbeddedCardProps>;
+  item: Array<BodyItemProps>;
   regionId: string;
   dataUrl: string;
 }) => {
   return (
     <Card.ClickableContent className={cx('embedded-card')}>
-      {item.map((embeddedItem: EmbeddedCardProps, index: number) => {
+      {item.map((embeddedItem: BodyItemProps, index: number) => {
         const { type } = embeddedItem;
         switch (type) {
           case 'images': {

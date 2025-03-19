@@ -8,14 +8,11 @@ import { Metadata } from 'next';
 import getArticleDetail from 'app/api/articles/detail';
 import ArticleTitle from 'app/posts/_components/Elements/ArticleTitle';
 import { AttractionArticle } from 'models/Attraction';
+import { ParamProps } from 'models/Props';
 import { headers } from 'next/headers';
 import { getPreferredTitle } from 'utils/string';
 import ArticleBody from '../../../_components/ArticleBody';
 import ArticleLayout from '../../../_components/ArticleLayout';
-
-type Props = {
-  params: Promise<{ postId: string; articleId: string }>;
-};
 
 const PAGE = {
   attractions: 'attraction',
@@ -23,7 +20,7 @@ const PAGE = {
   article: 'article',
 } as const;
 
-export async function pageParamData({ params }: Props) {
+export async function pageParamData({ params }: ParamProps) {
   const headersList = await headers();
   const headerPathname = headersList.get('x-pathname') || '';
 
@@ -42,7 +39,7 @@ export async function pageParamData({ params }: Props) {
   return { key, title, description, postId, articleId, data, images, blurredThumbnail };
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: ParamProps): Promise<Metadata> {
   const { postId, articleId, images, title, description, key } = await pageParamData({ params });
 
   return {
@@ -58,7 +55,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-const Attractions = async ({ params }: Props) => {
+const Attractions = async ({ params }: ParamProps) => {
   const { data, blurredThumbnail, title, images } = await pageParamData({ params });
 
   if (data == null) {

@@ -1,16 +1,14 @@
 'use client';
 
 import useItinerary from 'hooks/useItinerary';
-import { Itinerary, ItineraryItem } from 'models/Itinery';
 
 import { MapProvider } from 'wrapper';
 
 import { useMemo } from 'react';
 
+import { ItineraryProps } from 'models/Props';
 import TripieMap from '../TripieMap';
 import MapWithCarousel from './MapWithCarousel';
-
-export type ItineraryProps = { type: 'itinerary'; value: { itinerary: Itinerary } };
 
 const ArticleItinerary = ({ item }: { item: ItineraryProps }) => {
   const {
@@ -25,10 +23,10 @@ const ArticleItinerary = ({ item }: { item: ItineraryProps }) => {
     return {
       type: 'pois' as const,
       value: {
-        pois: items.map(({ poi }: ItineraryItem) => poi),
-        memo: items.map(({ memo }: ItineraryItem) => memo),
-        schedule: items.map(({ schedule }: ItineraryItem) => schedule),
-        transportation: items.map(({ transportation }: ItineraryItem) => transportation),
+        pois: items.map(({ poi }) => poi),
+        memo: items.map(({ memo }) => memo),
+        schedule: items.map(({ schedule }) => schedule),
+        transportation: items.map(({ transportation }) => transportation),
       },
     };
   }, [items]);

@@ -4,12 +4,9 @@ import { Container } from '@tripie-pyotato/design-system';
 import { Params, parseParams } from 'app/parse-params';
 import RegionTitle from 'app/regions/_components/RegionTitle';
 import { TRIPIE_REGION_IDS } from 'constants/tripie-country';
+import { RegionParamProps } from 'models/Props';
 
-type Props = {
-  params: Promise<{ regionId: string }>;
-};
-
-async function pageParamData({ params }: Props) {
+async function pageParamData({ params }: RegionParamProps) {
   const { regionId, locationId } = await parseParams(params);
   return { locationId, regionId };
 }

@@ -1,25 +1,15 @@
 'use client';
 
-import Divider, { ArticleDividerProps } from '@tripie-pyotato/design-system/components/Divider/Divider';
-import ArticleImages, { ImageProps } from 'app/posts/_components/Elements/ArticleImages';
-import ArticleEmbedded, { EmbeddedProps } from 'app/posts/_components/Elements/Embedded';
-import ArticleHeading, { HeadingProps } from 'app/posts/_components/Elements/Header';
-import ArticleItinerary, { ItineraryProps } from 'app/posts/_components/Elements/Itinerary';
-import ArticleLink, { LinkProps } from 'app/posts/_components/Elements/Link';
-import ArticleNote, { NoteProps } from 'app/posts/_components/Elements/Note';
-import ArticlePois, { PoisProps } from 'app/posts/_components/Elements/Pois';
-import ArticleText, { ArticleTextProps } from 'app/posts/_components/Elements/Text';
-
-export type BodyItemProps =
-  | ArticleDividerProps
-  | ArticleTextProps
-  | HeadingProps
-  | NoteProps
-  | ImageProps
-  | LinkProps
-  | EmbeddedProps
-  | PoisProps
-  | ItineraryProps;
+import Divider from '@tripie-pyotato/design-system/components/Divider/Divider';
+import ArticleImages from 'app/posts/_components/Elements/ArticleImages';
+import ArticleEmbedded from 'app/posts/_components/Elements/Embedded';
+import ArticleHeading from 'app/posts/_components/Elements/Header';
+import ArticleItinerary from 'app/posts/_components/Elements/Itinerary';
+import ArticleLink from 'app/posts/_components/Elements/Link';
+import ArticleNote from 'app/posts/_components/Elements/Note';
+import ArticlePois from 'app/posts/_components/Elements/Pois';
+import ArticleText from 'app/posts/_components/Elements/Text';
+import { BodyItemProps } from 'models/Props';
 
 const ArticleBody = ({
   items,

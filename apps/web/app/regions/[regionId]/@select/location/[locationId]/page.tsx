@@ -2,12 +2,9 @@
 
 import { Params, parseParams } from 'app/parse-params';
 import RegionSelect from 'app/regions/_components/Select';
+import { RegionParamProps } from 'models/Props';
 
-type Props = {
-  params: Promise<{ regionId: string }>;
-};
-
-async function pageParamData({ params }: Props) {
+async function pageParamData({ params }: RegionParamProps) {
   const { regionId, locationId } = await parseParams(params);
   return { locationId, regionId };
 }

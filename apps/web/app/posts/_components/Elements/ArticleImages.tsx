@@ -1,8 +1,6 @@
 'use client';
 import { Carousel, Container, TripieImage } from '@tripie-pyotato/design-system';
-import { ArticleImage } from 'models/Article';
-
-export type ImageProps = { type: 'images'; value: { images: ArticleImage[] } };
+import { ImageProps } from 'models/Props';
 
 const ArticleImages = ({ item }: { item: ImageProps }) => {
   const { images } = item.value;

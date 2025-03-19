@@ -2,8 +2,8 @@ import { Container, Headings } from '@tripie-pyotato/design-system';
 import { Value, ValuePiece } from 'app/trip-planner/_components/Duration/Calendar';
 import { differenceInCalendarDays } from 'date-fns';
 import { RefAttributes, useCallback, useMemo } from 'react';
-import { CalendarProps, Calendar as ReactCalendar } from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import { CalendarProps, ReactCalendar } from 'wrapper';
 import './calendar-custom.scss';
 // https://github.com/wojtekmaj/react-calendar/wiki/Recipes#selectively-style-tiles 참고
 function isSameDay(a: Date, b: Date): number {
