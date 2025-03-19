@@ -51,10 +51,7 @@ const RegionInfo = () => {
           <RegionSelect selected={currentRegionId} selectedRegion={selectedRegion} />
           <Container margin="none">
             <Suspense fallback={<Loading />}>
-              <RegionList
-                data={data.filter(item => item.regionId === selectedRegion)?.[0]?.data}
-                selectedRegion={selectedRegion}
-              />
+              <RegionList data={data.filter(item => item.regionId === selectedRegion)?.[0]?.data} />
             </Suspense>
           </Container>
         </Container>

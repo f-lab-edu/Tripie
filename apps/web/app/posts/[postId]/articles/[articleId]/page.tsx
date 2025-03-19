@@ -1,5 +1,4 @@
 'use server';
-import getArticleDetail from 'app/api/articles/detail';
 
 import { TripieImage } from '@tripie-pyotato/design-system';
 
@@ -10,30 +9,18 @@ import API from 'constants/api-routes';
 import ROUTE from 'constants/routes';
 import { BodyItemProps, ParamProps } from 'models/Props';
 import { Metadata } from 'next';
+import { pageParamData } from '../../page-param-data';
 import ArticleBody from './ArticleBody';
 
-// https://nextjs.org/docs/app/building-your-application/optimizing/metadata
-export async function pageParamData({ params }: ParamProps) {
-  const postId = (await params).postId;
-  const articleId = (await params).articleId;
-
-  const { data, blurredThumbnail } = await getArticleDetail('article', postId, articleId);
-
-  const description = data?.metadataContents?.description ?? sharedMetaData?.description;
-  const title = data?.metadataContents.title ?? '';
-
-  return { postId, articleId, data, blurredThumbnail, description, title };
-}
-
 export async function generateMetadata({ params }: ParamProps): Promise<Metadata> {
-  const { postId, articleId, data, description, title } = await pageParamData({ params });
+  const { postId, articleId, metadataContents, description, title } = await pageParamData({ params });
 
   return {
     title,
     description,
     openGraph: {
       ...sharedMetaData,
-      images: [data?.metadataContents.image.sizes?.full?.url ?? ''],
+      images: [metadataContents?.image.sizes?.full?.url ?? ''],
       url: `${API.BASE_URL}${ROUTE.REGIONS.href}/${postId}/articles/${articleId}`,
       title,
       description,
@@ -42,24 +29,24 @@ export async function generateMetadata({ params }: ParamProps): Promise<Metadata
 }
 
 const Articles = async ({ params }: ParamProps) => {
-  const { postId, data, blurredThumbnail } = await pageParamData({ params });
+  const { postId, id, blurredThumbnail, metadataContents, body } = await pageParamData({ params });
 
-  if (data?.metadataContents?.title == null) {
+  if (metadataContents?.title == null || id == null) {
     return <>missing...</>;
   }
 
   return (
     <ArticleLayout
-      title={<ArticleTitle names={data.metadataContents.title} />}
+      title={<ArticleTitle names={metadataContents.title} />}
       thumbnail={
         <TripieImage
-          src={data?.metadataContents?.image?.sizes?.full?.url}
-          alt={`${data?.metadataContents?.image?.sizes?.full?.url}의 썸네일`}
+          src={metadataContents?.image?.sizes?.full?.url}
+          alt={`${metadataContents?.image?.sizes?.full?.url}의 썸네일`}
           blurDataURL={blurredThumbnail?.data}
           sizes="large"
         />
       }
-      articleBody={<ArticleBody items={data?.body as BodyItemProps[]} regionId={postId} dataUrl={data.id} />}
+      articleBody={<ArticleBody items={body as BodyItemProps[]} regionId={postId} dataUrl={id} />}
     />
   );
 };

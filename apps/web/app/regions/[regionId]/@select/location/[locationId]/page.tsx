@@ -1,16 +1,11 @@
 'use server';
 
-import { Params, parseParams } from 'app/parse-params';
+import { Params } from 'app/parse-params';
 import RegionSelect from 'app/regions/_components/Select';
-import { RegionParamProps } from 'models/Props';
-
-async function pageParamData({ params }: RegionParamProps) {
-  const { regionId, locationId } = await parseParams(params);
-  return { locationId, regionId };
-}
+import regionPageParamData from 'app/regions/regions-page-param.data';
 
 const Articles = async ({ params }: { params: Promise<Params> }) => {
-  const { regionId, locationId } = await pageParamData({ params });
+  const { regionId, locationId } = await regionPageParamData({ params });
 
   if (locationId == null) {
     return <>missing..</>;

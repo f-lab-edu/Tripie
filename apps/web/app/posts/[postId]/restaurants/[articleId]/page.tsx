@@ -4,40 +4,13 @@ import { sharedMetaData } from 'app/shared-metadata';
 import API from 'constants/api-routes';
 
 import { TripieImage } from '@tripie-pyotato/design-system';
-import getArticleDetail from 'app/api/articles/detail';
 import ArticleBody from 'app/posts/_components/ArticleBody';
 import ArticleLayout from 'app/posts/_components/ArticleLayout';
 import ArticleTitle from 'app/posts/_components/Elements/ArticleTitle';
 import { AttractionArticle } from 'models/Attraction';
 import { ParamProps } from 'models/Props';
 import { Metadata, ResolvingMetadata } from 'next';
-import { headers } from 'next/headers';
-import { getPreferredTitle } from 'utils/string';
-
-const PAGE = {
-  attractions: 'attraction',
-  restaurants: 'retaurant',
-  article: 'article',
-} as const;
-
-export async function pageParamData({ params }: ParamProps) {
-  const headersList = await headers();
-  const headerPathname = headersList.get('x-pathname') || '';
-
-  const key = 'restaurants';
-
-  console.log('headerPathname', headerPathname);
-
-  const postId = (await params).postId;
-  const articleId = (await params).articleId;
-
-  const { data, blurredThumbnail } = await getArticleDetail(PAGE[key], postId, articleId);
-
-  const title = getPreferredTitle({ names: (data as AttractionArticle)?.source.names });
-  const description = (data as AttractionArticle)?.source?.comment ?? '';
-  const images = (data as AttractionArticle)?.source.image.sizes.full.url;
-  return { key, title, description, postId, articleId, data, images, blurredThumbnail };
-}
+import { pageParamData } from '../../page-param-data';
 
 export async function generateMetadata({ params }: ParamProps, parent: ResolvingMetadata): Promise<Metadata> {
   const previousImages = (await parent).openGraph?.images || [];

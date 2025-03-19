@@ -1,17 +1,12 @@
 'use server';
 
-import { Params, parseParams } from 'app/parse-params';
+import { Params } from 'app/parse-params';
 import RegionSelect from 'app/regions/_components/Select';
+import regionPageParamData from 'app/regions/regions-page-param.data';
 import { TRIPIE_REGION_BY_LOCATION, TRIPIE_REGION_IDS } from 'constants/tripie-country';
-import { RegionParamProps } from 'models/Props';
-
-async function pageParamData({ params }: RegionParamProps) {
-  const { regionId } = await parseParams(params);
-  return { regionId };
-}
 
 const Articles = async ({ params }: { params: Promise<Params> }) => {
-  const { regionId } = await pageParamData({ params });
+  const { regionId } = await regionPageParamData({ params });
 
   const selectedRegion = Object.keys(TRIPIE_REGION_IDS).filter(
     item =>

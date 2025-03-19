@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 
 export type RegionArticleData = { regionId: string; data: RegionArticleInfo[] };
 
-const RegionCard = ({ article, selectedRegion }: { article: RegionArticleInfo; selectedRegion: string }) => {
+const RegionCard = ({ article }: { article: RegionArticleInfo }) => {
   const navigate = useRouter();
   const { alt } = useImgAlt({ imgUrl: article.source.image.sizes.full.url });
 
@@ -20,7 +20,7 @@ const RegionCard = ({ article, selectedRegion }: { article: RegionArticleInfo; s
       imageSize="card"
       withBorder={false}
       blurDataURL={article.source.image.blurData?.data}
-      onClick={() => navigate.push(`/posts/${selectedRegion}/articles/${article.id}`)}
+      onClick={() => navigate.push(`/posts/${article.source.regionId}/articles/${article.id}`)}
     />
   );
 };

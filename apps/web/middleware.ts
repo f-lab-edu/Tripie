@@ -5,12 +5,12 @@ import authConfig from './auth.config';
 const { auth } = NextAuth(authConfig);
 
 export default auth(async function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+
   // Your custom middleware logic goes here
   // https://nextjs.org/docs/app/api-reference/functions/headers
   const requestHeaders = new Headers(request.headers);
-  requestHeaders.set('x-pathname', request.nextUrl.pathname);
-
-  const { pathname } = request.nextUrl;
+  requestHeaders.set('x-pathname', pathname);
 
   const session = await auth();
 
@@ -68,6 +68,8 @@ export const config = {
     '/playground',
     '/api/:path*',
     '/trip-planner',
+    '/posts/:path*',
+    '/regions/:path*',
     // '/trip-planner/:path*' // /trip-planner 하위 모든 경로 X, 링크 공유 시에는 비로그인, 작성자 아니어도 모두 볼 수는 있도록
   ],
 };

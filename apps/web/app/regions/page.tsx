@@ -48,7 +48,7 @@ const Articles = async () => {
     <Container>
       <RegionTitle />
       <RegionSelect selected={currentRegionId} selectedRegion={selectedRegion} />
-      <RegionList data={dynamicBlurDataUrl} selectedRegion={selectedRegion} />
+      <RegionList data={dynamicBlurDataUrl} />
     </Container>
   );
 };
