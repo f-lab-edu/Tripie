@@ -13,7 +13,7 @@ import { pageParamData } from '../../page-param-data';
 import ArticleBody from './ArticleBody';
 
 export async function generateMetadata({ params }: ParamProps): Promise<Metadata> {
-  const { postId, articleId, metadataContents, description, title } = await pageParamData({ params });
+  const { postId, articleId, metadataContents, description, path, title, id } = await pageParamData({ params });
 
   return {
     title,
@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: ParamProps): Promise<Metadata
     openGraph: {
       ...sharedMetaData,
       images: [metadataContents?.image.sizes?.full?.url ?? ''],
-      url: `${API.BASE_URL}${ROUTE.REGIONS.href}/${postId}/articles/${articleId}`,
+      url: `${API.BASE_URL}${ROUTE.POSTS.href}/${postId}/${path}/${articleId}`,
       title,
       description,
     },

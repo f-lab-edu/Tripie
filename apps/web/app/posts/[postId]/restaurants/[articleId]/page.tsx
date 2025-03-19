@@ -7,6 +7,7 @@ import { TripieImage } from '@tripie-pyotato/design-system';
 import ArticleBody from 'app/posts/_components/ArticleBody';
 import ArticleLayout from 'app/posts/_components/ArticleLayout';
 import ArticleTitle from 'app/posts/_components/Elements/ArticleTitle';
+import ROUTE from 'constants/routes';
 import { AttractionArticle } from 'models/Attraction';
 import { ParamProps } from 'models/Props';
 import { Metadata, ResolvingMetadata } from 'next';
@@ -15,7 +16,7 @@ import { pageParamData } from '../../page-param-data';
 export async function generateMetadata({ params }: ParamProps, parent: ResolvingMetadata): Promise<Metadata> {
   const previousImages = (await parent).openGraph?.images || [];
 
-  const { title, description, postId, articleId, key, images } = await pageParamData({ params });
+  const { title, description, postId, articleId, images, path } = await pageParamData({ params });
 
   return {
     title,
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }: ParamProps, parent: Resolving
       title,
       description,
       images: [images ?? '', ...previousImages],
-      url: `${API.BASE_URL}/posts/${postId}/${key}/${articleId}`,
+      url: `${API.BASE_URL}${ROUTE.POSTS.href}/${postId}/${path}/${articleId}`,
     },
   };
 }

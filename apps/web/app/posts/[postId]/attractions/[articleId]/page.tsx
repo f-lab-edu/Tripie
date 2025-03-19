@@ -6,6 +6,7 @@ import API from 'constants/api-routes';
 import { Metadata } from 'next';
 
 import ArticleTitle from 'app/posts/_components/Elements/ArticleTitle';
+import ROUTE from 'constants/routes';
 import { AttractionArticle } from 'models/Attraction';
 import { ParamProps } from 'models/Props';
 import ArticleBody from '../../../_components/ArticleBody';
@@ -13,7 +14,7 @@ import ArticleLayout from '../../../_components/ArticleLayout';
 import { pageParamData } from '../../page-param-data';
 
 export async function generateMetadata({ params }: ParamProps): Promise<Metadata> {
-  const { postId, articleId, images, title, description, key } = await pageParamData({ params });
+  const { postId, articleId, images, title, description, path } = await pageParamData({ params });
 
   return {
     title,
@@ -23,7 +24,7 @@ export async function generateMetadata({ params }: ParamProps): Promise<Metadata
       title,
       description,
       images: [images ?? ''],
-      url: `${API.BASE_URL}/posts/${postId}/${key}/${articleId}`,
+      url: `${API.BASE_URL}${ROUTE.POSTS.href}/${postId}/${path}/${articleId}`,
     },
   };
 }

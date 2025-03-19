@@ -34,6 +34,7 @@ export async function pageParamData({ params }: ParamProps) {
     return {
       title: metadataContents.title,
       id,
+      path: key,
       postId,
       articleId,
       metadataContents,
@@ -47,5 +48,5 @@ export async function pageParamData({ params }: ParamProps) {
   const description = (data as AttractionArticle)?.source?.comment ?? '';
 
   const images = (data as AttractionArticle)?.source.image.sizes.full.url;
-  return { key, title, description, postId, articleId, data, images, blurredThumbnail };
+  return { title, description, postId, path: key, articleId, data, images, blurredThumbnail };
 }
