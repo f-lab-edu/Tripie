@@ -13,7 +13,7 @@ import { pageParamData } from '../../page-param-data';
 import ArticleBody from './ArticleBody';
 
 export async function generateMetadata({ params }: ParamProps): Promise<Metadata> {
-  const { postId, articleId, metadataContents, description, path, title, id } = await pageParamData({ params });
+  const { postId, articleId, metadataContents, description, path, title } = await pageParamData({ params });
 
   return {
     title,
