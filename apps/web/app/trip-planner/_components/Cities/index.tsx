@@ -1,7 +1,7 @@
 'use client';
 import { AnimatedButton, Container, Headings, Icon, Text } from '@tripie-pyotato/design-system';
 import PREFERENCE_LIST from 'constants/preferences';
-import classNames from 'wrapper';
+import { classNames } from 'wrapper';
 
 import { ContinentKeys } from 'models/Continent';
 import { useCallback, useMemo, useState } from 'react';

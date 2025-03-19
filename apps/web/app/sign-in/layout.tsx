@@ -2,7 +2,7 @@
 import { Card, Container, Divider, Headings, ParticleField, Text } from '@tripie-pyotato/design-system';
 import Nav from 'app/home/_components/nav/Nav';
 import { ReactNode } from 'react';
-import classNames from 'wrapper';
+import { classNames } from 'wrapper';
 
 import Style from './sign-in.module.scss';
 const cx = classNames.bind(Style);

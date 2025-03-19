@@ -1,6 +1,6 @@
 'use client';
 
-import { Layer, Source } from 'react-map-gl/maplibre';
+import { Layer, Source } from 'wrapper';
 
 import 'maplibre-gl/dist/maplibre-gl.css';
 

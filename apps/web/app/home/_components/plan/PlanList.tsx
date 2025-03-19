@@ -2,7 +2,7 @@
 
 import { AnimatedButton, Card, Container, Divider, Headings, Icon, List, Text } from '@tripie-pyotato/design-system';
 import PLANS from 'constants/plans';
-import classNames from 'wrapper';
+import { classNames } from 'wrapper';
 
 import Style from './plan-list.module.scss';
 

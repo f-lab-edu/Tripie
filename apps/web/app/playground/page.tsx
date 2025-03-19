@@ -1,11 +1,16 @@
-import getRegionArticles from 'app/api/articles/region';
-import PlaygroundButton from './_components/Button';
+'use client';
 
-// export default async function Playground() {
-export default async function Playground() {
-  const dynamicBlurDataUrl = await getRegionArticles('23c5965b-01ad-486b-a694-a2ced15f245c');
+import Loading from 'shared/components/Loading';
 
-  console.log('dynamicBlurDataUrl', dynamicBlurDataUrl);
+// import getRegionArticles from 'app/api/articles/region';
+// import PlaygroundButton from './_components/Button';
+export default function Playground() {
+  return <Loading.SemiTransparent />;
+  // export default async function Playground() {
+  // export default async function Playground() {
+  //   const dynamicBlurDataUrl = await getRegionArticles('23c5965b-01ad-486b-a694-a2ced15f245c');
+
+  // console.log('dynamicBlurDataUrl', dynamicBlurDataUrl);
 
   // const updatedUser = await prisma.gpt.update({
   //   where: { id: id, userId: userId },
@@ -288,9 +293,5 @@ export default async function Playground() {
   //   })
   // );
 
-  return (
-    <div>
-      <PlaygroundButton />
-    </div>
-  );
+  return <div>{/* <PlaygroundButton /> */}</div>;
 }

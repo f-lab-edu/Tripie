@@ -2,7 +2,7 @@
 
 import { Container, Icon, Text } from '@tripie-pyotato/design-system';
 
-import classNames from 'wrapper';
+import { classNames } from 'wrapper';
 
 import { TripPlanner } from 'models/Aws';
 import { randomInt } from 'utils/random';

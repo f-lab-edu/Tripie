@@ -9,7 +9,7 @@ import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useContext, useEffect } from 'react';
 import AwsMap from 'shared/components/AwsMap';
-import classNames from 'wrapper';
+import { classNames } from 'wrapper';
 import { SelectedDateContext, TabContext } from '..';
 import ChatTab from '../Tab';
 import Style from './trip-response.module.scss';

@@ -1,5 +1,5 @@
 'use client';
-import { LngLatBoundsLike, Map, PaddingOptions, PointLike, ViewState } from 'react-map-gl/maplibre';
+import { LngLatBoundsLike, Map, PaddingOptions, PointLike, ViewState } from 'wrapper';
 
 import { FULL_MAP_STYLE, MAP_ID, STYLE } from 'constants/maps';
 

@@ -1,7 +1,7 @@
 'use client';
 
 import { Container, Headings, MotionSlideUp, Text } from '@tripie-pyotato/design-system';
-import classNames from 'wrapper';
+import { classNames } from 'wrapper';
 import ServiceList from './_components/ServiceList';
 import Style from './our-service.module.scss';
 

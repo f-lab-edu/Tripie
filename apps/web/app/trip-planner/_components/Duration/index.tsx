@@ -1,6 +1,6 @@
 'use client';
 import { Container, Headings, Icon, Text } from '@tripie-pyotato/design-system';
-import classNames from 'wrapper';
+import { classNames } from 'wrapper';
 import Calendar from './Calendar';
 
 import { ContinentKeys } from 'models/Continent';

@@ -88,6 +88,7 @@ export const TRIPIE_REGION_IDS = {
   'a166ef2c-3654-4d0a-8ee7-ad544596309f': '칸쿤',
   '9a643db8-5e53-4e78-a0ae-221580a27e88': '시애틀',
   '765cc008-e4f7-49c6-85c5-173676829009': '마닐라',
+  // 'a352b9f0-6983-412b-8df1-49f3b4e07c39':'자그레브'
 };
 
 export const TRIPIE_REGION_BY_LOCATION = {
@@ -126,7 +127,7 @@ export const TRIPIE_REGION_BY_LOCATION = {
     '밀라노',
     '브뤼셀',
     '세비야',
-    '자그레브',
+    // '자그레브',
     '포르투',
     '프라하',
     '로마',

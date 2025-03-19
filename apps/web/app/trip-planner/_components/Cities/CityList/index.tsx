@@ -1,6 +1,6 @@
 'use client';
 import { Chip, Container, Icon } from '@tripie-pyotato/design-system';
-import classNames from 'wrapper';
+import { classNames } from 'wrapper';
 
 import { Dispatch, SetStateAction, useMemo } from 'react';
 

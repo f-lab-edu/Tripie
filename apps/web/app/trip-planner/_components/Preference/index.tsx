@@ -1,5 +1,5 @@
 import { AnimatedButton, Container, Headings, Icon, Text } from '@tripie-pyotato/design-system';
-import classNames from 'wrapper';
+import { classNames } from 'wrapper';
 
 import PREFERENCE_LIST from 'constants/preferences';
 

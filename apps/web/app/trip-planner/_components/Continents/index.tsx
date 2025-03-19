@@ -1,6 +1,6 @@
 import { AnimatedButton, Container, Headings, Icon, Text } from '@tripie-pyotato/design-system';
 import { CONTINENTS } from 'constants/continents';
-import classNames from 'wrapper';
+import { classNames } from 'wrapper';
 
 import { ContinentKeys } from 'models/Continent';
 import { useMemo, useState } from 'react';

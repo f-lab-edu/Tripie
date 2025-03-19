@@ -6,7 +6,7 @@ import useCountries from 'hooks/query/useCountries';
 import { ContinentIds, ContinentKeys } from 'models/Continent';
 import { Country } from 'models/Country';
 import { Dispatch, SetStateAction } from 'react';
-import classNames from 'wrapper';
+import { classNames } from 'wrapper';
 
 import Style from './continent-list.module.scss';
 

@@ -2,8 +2,7 @@ import { Card, Chip, Container, List, Text } from '@tripie-pyotato/design-system
 import Description from 'app/home/_components/our-process/_components/Description';
 import { Continentl } from 'models/Continentl';
 import { Dispatch, SetStateAction, useEffect } from 'react';
-import { Popup, useMap } from 'react-map-gl/maplibre';
-import classNames from 'wrapper';
+import { classNames, Popup, useMap } from 'wrapper';
 
 import Style from './country-info-popup.module.scss';
 

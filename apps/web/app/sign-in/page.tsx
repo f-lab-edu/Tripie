@@ -1,7 +1,7 @@
 import { Container } from '@tripie-pyotato/design-system';
 import { AuthError } from 'next-auth';
 import { redirect } from 'next/navigation';
-import classNames from 'wrapper';
+import { classNames } from 'wrapper';
 import { providerMap, signIn } from '../../auth';
 import OAuthButton from './_components/OAuthButton';
 import Style from './sign-in.module.scss';

@@ -1,5 +1,5 @@
 'use client';
-import classNames from 'wrapper';
+import { classNames } from 'wrapper';
 import Style from './nav.module.scss';
 
 import { Icon, MenuToggle, Text } from '@tripie-pyotato/design-system';

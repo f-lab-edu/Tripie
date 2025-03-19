@@ -5,7 +5,7 @@ import useContinentl from 'hooks/query/useContinentl';
 import { Continentl } from 'models/Continentl';
 import { Country } from 'models/Country';
 import { Dispatch, SetStateAction } from 'react';
-import classNames from 'wrapper';
+import { classNames } from 'wrapper';
 
 import { regionNameToLocal } from 'utils/lang';
 import Style from './country-list.module.scss';

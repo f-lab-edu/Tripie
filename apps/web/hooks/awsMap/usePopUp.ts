@@ -2,7 +2,7 @@
 
 import { LocationMarker } from 'models/Geo';
 import { useEffect, useMemo, useState } from 'react';
-import { useMap } from 'react-map-gl/maplibre';
+import { useMap } from 'wrapper';
 
 /**
 

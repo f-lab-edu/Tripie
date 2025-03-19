@@ -1,6 +1,6 @@
 'use client';
 import { Accordion, Container, Headings, Text } from '@tripie-pyotato/design-system';
-import classNames from 'wrapper';
+import { classNames } from 'wrapper';
 
 import Style from './our-work-list.module.scss';
 

@@ -1,5 +1,5 @@
 'use client';
-import classNames from 'wrapper';
+import { classNames } from 'wrapper';
 
 import { Headings, List, Text } from '@tripie-pyotato/design-system';
 

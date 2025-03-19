@@ -1,16 +1,16 @@
 'use server';
 
 import { TRIPIE_REGION_BY_LOCATION, TRIPIE_REGION_IDS } from 'constants/tripie-country';
-import RegionSelect from './_components/Select';
 
-import { Text } from '@tripie-pyotato/design-system';
+import { Container } from '@tripie-pyotato/design-system';
 import getRegionArticles from 'app/api/articles/region';
 import API from 'constants/api-routes';
 import ROUTE from 'constants/routes';
 import { Metadata } from 'next';
 import { sharedMetaData } from '../shared-metadata';
 import RegionList from './_components/RegionList';
-import Title from './_components/Title';
+import RegionTitle from './_components/RegionTitle';
+import RegionSelect from './_components/Select';
 
 export async function generateMetadata(): Promise<Metadata> {
   const regions = Object.keys(TRIPIE_REGION_BY_LOCATION);
@@ -30,7 +30,6 @@ export async function generateMetadata(): Promise<Metadata> {
       ...sharedMetaData,
       title,
       description,
-
       url: `${API.BASE_URL}${ROUTE.REGIONS.href}`,
     },
   };
@@ -45,15 +44,12 @@ const Articles = async () => {
   )?.[0];
 
   const dynamicBlurDataUrl = await getRegionArticles(selectedRegion);
-
   return (
-    <>
-      <Title>
-        도시 별<Text.Accented> 여행 </Text.Accented>정보
-      </Title>
+    <Container>
+      <RegionTitle />
       <RegionSelect selected={currentRegionId} selectedRegion={selectedRegion} />
       <RegionList data={dynamicBlurDataUrl} selectedRegion={selectedRegion} />
-    </>
+    </Container>
   );
 };
 

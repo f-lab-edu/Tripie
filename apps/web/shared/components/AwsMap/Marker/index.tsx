@@ -1,6 +1,6 @@
 'use client';
 
-import { Popup, useMap } from 'react-map-gl/maplibre';
+import { Popup, useMap } from 'wrapper';
 
 import { TabContext } from 'app/trip-planner/[id]/_components/TripResponse';
 import usePopUp from 'hooks/awsMap/usePopUp';

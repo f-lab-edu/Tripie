@@ -3,7 +3,7 @@
 import { Container, Divider, Headings, Icon, Text } from '@tripie-pyotato/design-system';
 import Link from 'next/link';
 import { ReactNode } from 'react';
-import classNames from 'wrapper';
+import { classNames } from 'wrapper';
 import Style from './contacts.module.scss';
 
 const cx = classNames.bind(Style);

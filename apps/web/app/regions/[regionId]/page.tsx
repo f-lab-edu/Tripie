@@ -1,64 +1,39 @@
 'use server';
 
-import RegionList from '../_components/RegionList';
-import RegionSelect from '../_components/Select';
-
-import { Text } from '@tripie-pyotato/design-system';
+import { Container } from '@tripie-pyotato/design-system';
 import getRegionArticles from 'app/api/articles/region';
-import Title from '../_components/Title';
-import { parseParams } from './parse-params';
-
-import { sharedMetaData } from 'app/shared-metadata';
-import API from 'constants/api-routes';
-import ROUTE from 'constants/routes';
-import { Metadata, ResolvingMetadata } from 'next';
+import { parseParams } from 'app/parse-params';
+import { TRIPIE_REGION_BY_LOCATION, TRIPIE_REGION_IDS } from 'constants/tripie-country';
+import RegionTitle from '../_components/RegionTitle';
 
 type Props = {
   params: Promise<{ regionId: string }>;
 };
 
 async function pageParamData({ params }: Props) {
-  const { regionId, selectedRegionCity } = await parseParams(params);
-  const dynamicBlurDataUrl = await getRegionArticles(selectedRegionCity);
-  return { regionId, selectedRegionCity, dynamicBlurDataUrl };
-}
+  const { regionId } = await parseParams(params);
+  const selectedRegion = Object.keys(TRIPIE_REGION_IDS).filter(
+    item =>
+      TRIPIE_REGION_IDS[item as keyof typeof TRIPIE_REGION_IDS] ===
+      TRIPIE_REGION_BY_LOCATION[regionId as keyof typeof TRIPIE_REGION_BY_LOCATION][0]
+  )?.[0];
 
-export async function generateMetadata({ params }: Props, parent: ResolvingMetadata): Promise<Metadata> {
-  const { regionId, dynamicBlurDataUrl, selectedRegionCity } = await pageParamData({ params });
-
-  const previousImages = (await parent).openGraph?.images || [];
-  const title = `도시 별 여행 정보 > ${regionId}`;
-  const sneakPeak = dynamicBlurDataUrl.slice(0, 5);
-  const description = `${regionId} 여행 정보\n ${sneakPeak
-    .map(item => {
-      return `✔️ ${item.source.title} | ${item.source.summary}`;
-    })
-    .join('\n')}\n...\n👉 트리피에서 자세히 알아보기!`;
-
-  return {
-    title,
-    description,
-    openGraph: {
-      ...sharedMetaData,
-      title,
-      description,
-      images: [...sneakPeak.map(item => item.source.image.sizes.full.url), ...previousImages],
-      url: `${API.BASE_URL}${ROUTE.REGIONS.href}/${selectedRegionCity}`,
-    },
-  };
+  const dynamicBlurDataUrl = await getRegionArticles(selectedRegion);
+  return { regionId, selectedRegion, dynamicBlurDataUrl };
 }
 
 const Articles = async ({ params }: { params: Promise<{ regionId: string }> }) => {
-  const { regionId, dynamicBlurDataUrl, selectedRegionCity } = await pageParamData({ params });
+  const { regionId, dynamicBlurDataUrl } = await pageParamData({ params });
 
+  if (dynamicBlurDataUrl == null) {
+    return <>missing..</>;
+  }
+
+  // locationId파람이 없음
   return (
-    <>
-      <Title>
-        도시 별<Text.Accented> 여행 </Text.Accented>정보 {` > `} <Text.Accented>{regionId}</Text.Accented>
-      </Title>
-      <RegionSelect selected={regionId} selectedRegion={selectedRegionCity} />
-      <RegionList data={dynamicBlurDataUrl} selectedRegion={selectedRegionCity} />
-    </>
+    <Container applyMargin="left">
+      <RegionTitle regionId={regionId} />
+    </Container>
   );
 };
 

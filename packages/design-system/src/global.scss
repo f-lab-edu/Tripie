@@ -28,6 +28,7 @@ body,
   box-sizing: border-box;
   font-family: 'MaruBuri', sans-serif;
   scroll-behavior: smooth;
+  font-display: 'swap';
   @include visible-scroll(true);
 }
 

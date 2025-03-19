@@ -1,4 +1,4 @@
-import { LinkProps } from 'app/regions/[regionId]/_components/Elements/Link';
+import { LinkProps } from 'app/posts/_components/Elements/Link';
 import { useMemo } from 'react';
 
 /**
@@ -8,7 +8,7 @@ import { useMemo } from 'react';
 const useFilterLink = ({ item, dataUrl, regionId }: { item: LinkProps; regionId: string; dataUrl: string }) => {
   const { links } = item.value;
 
-  const filteredLinks = useMemo(() => {
+  const filteredLinks: Array<{ label: string; href: string }> = useMemo(() => {
     // 트리플 구매 서비스 내부 링크는 제외
     const regex = /(inlink|air)\?path=(.+)/g;
     // 항공권 예약 링크 제외

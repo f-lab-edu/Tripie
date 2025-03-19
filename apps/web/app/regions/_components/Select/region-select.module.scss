@@ -51,3 +51,9 @@
   @include scroll;
   @include visible-scroll(false);
 }
+
+.options {
+  max-height: 16vh;
+  overflow-y: scroll;
+  @include visible-scroll(false);
+}

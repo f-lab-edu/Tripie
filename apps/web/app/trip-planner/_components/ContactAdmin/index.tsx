@@ -6,7 +6,7 @@ import RegionInfo from 'app/home/_components/our-service/_components/RegionInfo'
 import ROUTE from 'constants/routes';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import classNames from 'wrapper';
+import { classNames } from 'wrapper';
 import Style from './contact-admin.module.scss';
 
 const cx = classNames.bind(Style);
@@ -17,11 +17,11 @@ const ContactAdmin = () => {
     <>
       <Nav />
       <Container margin="none" className={cx('background')}>
-        <Container margin="l" applyMargin="top">
+        <Container margin="xl" applyMargin="top">
           <Headings.H2>
-            <Container margin="none" className={cx('break-text')}>
+            <span className={cx('break-text')}>
               이런! <Text.Accented>토큰을 </Text.Accented>
-            </Container>
+            </span>
             <Text.Accented>다 사용했네요!</Text.Accented>
           </Headings.H2>
         </Container>
@@ -54,9 +54,7 @@ const ContactAdmin = () => {
             onClick={() => navigate.replace(ROUTE.HOME.href)}
             className={cx('submit-button')}
           >
-            <Container margin="none" className={cx('flex')}>
-              홈으로 돌아가기
-            </Container>
+            <span className={cx('flex')}>홈으로 돌아가기</span>
           </AnimatedButton>
         </Container>
       </Container>

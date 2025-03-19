@@ -20,7 +20,7 @@ const RegionCard = ({ article, selectedRegion }: { article: RegionArticleInfo; s
       imageSize="card"
       withBorder={false}
       blurDataURL={article.source.image.blurData?.data}
-      onClick={() => navigate.push(`/regions/${selectedRegion}/articles/${article.id}`)}
+      onClick={() => navigate.push(`/posts/${selectedRegion}/articles/${article.id}`)}
     />
   );
 };

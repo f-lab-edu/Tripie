@@ -1,6 +1,6 @@
 import { Container, Headings, Text } from '@tripie-pyotato/design-system';
 import { ReactNode } from 'react';
-import classNames from 'wrapper';
+import { classNames } from 'wrapper';
 import Style from './description.module.scss';
 
 const cx = classNames.bind(Style);

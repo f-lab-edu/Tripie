@@ -1,7 +1,7 @@
 'use client';
 
 import { Container, Headings, Icon } from '@tripie-pyotato/design-system';
-import classNames from 'wrapper';
+import { classNames } from 'wrapper';
 
 import { ReactNode } from 'react';
 

@@ -46,6 +46,8 @@
 .scroll-icon {
   position: absolute;
   z-index: 100;
+  border: 1px solid $theme-50;
+  border-radius: 100%;
 }
 
 .next-icon {

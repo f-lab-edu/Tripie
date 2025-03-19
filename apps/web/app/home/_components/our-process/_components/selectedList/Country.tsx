@@ -1,5 +1,5 @@
 'use client';
-import classNames from 'wrapper';
+import { classNames } from 'wrapper';
 import Style from './shared/selected-list.module.scss';
 
 import { Chip, Container, Icon } from '@tripie-pyotato/design-system';

@@ -4,7 +4,7 @@ import 'shared/components/AwsMap/Marker/marker.scss';
 import { useQueryClient } from '@tanstack/react-query';
 import { AnimatedButton, Container, Headings, Icon, Text } from '@tripie-pyotato/design-system';
 import firestoreService from 'app/api/firebase';
-import classNames from 'wrapper';
+import { classNames } from 'wrapper';
 
 import useContinentl from 'hooks/query/useContinentl';
 import useCountries from 'hooks/query/useCountries';

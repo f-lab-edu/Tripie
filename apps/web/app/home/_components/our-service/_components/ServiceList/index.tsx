@@ -2,7 +2,7 @@
 
 import { Card } from '@tripie-pyotato/design-system';
 import RotatingGlobe from 'shared/components/Globe/RotatingGlobe';
-import classNames from 'wrapper';
+import { classNames } from 'wrapper';
 import Description from '../../../our-process/_components/Description';
 import RegionInfo from '../RegionInfo';
 import Subscription from '../Subscription';

@@ -1,7 +1,7 @@
 'use client';
 import { AnimatedButton, Container, Icon } from '@tripie-pyotato/design-system';
 
-import classNames from 'wrapper';
+import { classNames } from 'wrapper';
 
 import { ContinentKeys } from 'models/Continent';
 import { useCallback, useMemo, useState } from 'react';

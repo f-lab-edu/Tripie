@@ -12,7 +12,7 @@ import CalendarHeader from 'shared/components/Calendar/CalendarHeader';
 
 import NextButton from 'app/home/_components/our-process/_components/selectedList/shared/NextAnimatedButton';
 import 'maplibre-gl/dist/maplibre-gl.css';
-import classNames from 'wrapper';
+import { classNames } from 'wrapper';
 import Style from './duration.module.scss';
 
 const cx = classNames.bind(Style);

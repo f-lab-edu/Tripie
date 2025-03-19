@@ -81,23 +81,7 @@ describe('useFunnel', () => {
   });
 
   it('should restore step from localStorage if present', () => {
-    // useLocalStorage.mockReturnValue([
-    //   [
-    //     { step: 'step1', context: { foo: 'bar', baz: 'quz' } },
-    //     { step: 'step2', context: { foo: 'bar', baz: 'quz' } },
-    //   ],
-    //   vi.fn(),
-    // ]);
-
-    useLocalStorage.mockReturnValue(
-      // 'test', [
-      // [
-      { step: 'step1', context: { foo: 'bar' } },
-      // { step: 'step2', context: { foo: 'bar', baz: 'quz' } },
-      // ],
-      vi.fn()
-      //]
-    );
+    useLocalStorage.mockReturnValue({ step: 'step1', context: { foo: 'bar' } }, vi.fn());
 
     const { result } = renderHook(() =>
       useFunnel<{

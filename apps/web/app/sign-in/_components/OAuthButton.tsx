@@ -1,7 +1,7 @@
 'use client';
 
 import { AnimatedButton, Icon, ICON_RESOURCE, RESOURCE, Text } from '@tripie-pyotato/design-system';
-import classNames from 'wrapper';
+import { classNames } from 'wrapper';
 import Style from './o-auth-button.module.scss';
 
 const cx = classNames.bind(Style);

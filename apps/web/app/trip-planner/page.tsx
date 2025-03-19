@@ -6,7 +6,7 @@ import { getTripPlan } from 'app/api/chat/route';
 import API from 'constants/api-routes';
 import { CHAT_CACHE_DB_NAME, DB_NAME } from 'constants/auth';
 import useFunnel from 'hooks/useFunnel';
-import classNames from 'wrapper';
+import { classNames } from 'wrapper';
 
 import firestoreService from 'app/api/firebase';
 import { CustomUser } from 'app/api/gpt/route';
