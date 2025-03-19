@@ -66,15 +66,16 @@ const RegionSelect = ({ selected, selectedRegion }: { selected: string; selected
           <Container margin="none" className={cx('options')}>
             <List.Grid className={cx('grid-wrap')}>
               {TRIPIE_REGION_BY_LOCATION[selected as keyof typeof TRIPIE_REGION_BY_LOCATION].map(place => (
-                <AnimatedButton
-                  selected={TRIPIE_REGION_IDS[selectedRegion as keyof typeof TRIPIE_REGION_IDS] === place}
-                  withBorder={true}
-                  key={place}
-                  className={cx('chip-wrap')}
-                  onClick={() => handleRegionSelect(place)}
-                >
-                  {place}
-                </AnimatedButton>
+                <List.Item key={place}>
+                  <AnimatedButton
+                    selected={TRIPIE_REGION_IDS[selectedRegion as keyof typeof TRIPIE_REGION_IDS] === place}
+                    withBorder={true}
+                    className={cx('chip-wrap')}
+                    onClick={() => handleRegionSelect(place)}
+                  >
+                    {place}
+                  </AnimatedButton>
+                </List.Item>
               ))}
             </List.Grid>
           </Container>
