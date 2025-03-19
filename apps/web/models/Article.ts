@@ -1,4 +1,4 @@
-import { BodyItemProps } from 'app/regions/post/[postId]/articles/[articleId]/ArticleBody';
+import { BodyItemProps } from 'app/posts/[postId]/articles/[articleId]/ArticleBody';
 import { GeoTag } from './Geo';
 import { ImageUrl } from './Image';
 import { Metadata } from './MetaData';
