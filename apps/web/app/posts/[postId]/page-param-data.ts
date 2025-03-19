@@ -23,8 +23,6 @@ export async function pageParamData({ params }: ParamProps) {
   const postId = (await params).postId;
   const articleId = (await params).articleId;
 
-  console.log(postId, articleId);
-
   const { data, blurredThumbnail } = await getArticleDetail(PAGE[key], postId, articleId);
 
   if (key === 'articles') {
@@ -33,7 +31,16 @@ export async function pageParamData({ params }: ParamProps) {
     const body = (data as ArticleData)?.body;
     const id = (data as ArticleData)?.id;
 
-    return { id, postId, articleId, metadataContents, blurredThumbnail, description, body };
+    return {
+      title: metadataContents.title,
+      id,
+      postId,
+      articleId,
+      metadataContents,
+      blurredThumbnail,
+      description,
+      body,
+    };
   }
 
   const title = getPreferredTitle({ names: (data as AttractionArticle)?.source.names });
