@@ -108,6 +108,7 @@ const CardWithImage = ({
   imageSize = 'medium',
   displaySource = false,
   withBorder,
+  isFullSize = false, // width 100% card
   blurDataURL,
 }: {
   onClick?: () => void;
@@ -121,9 +122,10 @@ const CardWithImage = ({
   displaySource?: boolean;
   withBorder?: boolean;
   blurDataURL?: string;
+  isFullSize?: boolean;
 }) => {
   return (
-    <Card.ClickableContent onClick={onClick} className={cx('article-card', className)}>
+    <Card.ClickableContent onClick={onClick} className={cx('article-card', isFullSize ? 'full-size' : '', className)}>
       <TripieContainer margin="none" className={cx('img-wrap')}>
         {sourceUrl == null || !displaySource ? (
           <TripieImage

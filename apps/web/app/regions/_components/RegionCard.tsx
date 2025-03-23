@@ -15,6 +15,7 @@ const RegionCard = ({ article }: { article: RegionArticleInfo }) => {
       <Card.WithCoverImage
         src={article.source.image.sizes.small_square.url}
         alt={alt}
+        isFullSize={true}
         sourceUrl={article.source.image?.sourceUrl}
         title={article?.source?.title}
         summary={article?.source?.summary}
