@@ -1,10 +1,6 @@
 @use '../../functions/' as *;
 @use 'sass:map';
 
-// .preserve-white-space {
-//   white-space: pre-wrap;
-// }
-
 .preserve-white-space {
   @media (max-width: 470px) {
     white-space: pre-wrap;
@@ -14,7 +10,6 @@
 .layout-fill-available {
   width: -moz-available;
   width: -webkit-fill-available;
-  // width: fill-available;
   width: stretch; // spec has changed
 }
 
