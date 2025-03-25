@@ -182,6 +182,7 @@ $background-gradients: (
 
 @mixin submit-button {
   width: 100%;
+  min-height: 3rem;
 }
 
 @mixin submit-button-long-text {
@@ -230,6 +231,7 @@ $background-gradients: (
   // 스크롤 바 스타일
   overflow-y: scroll;
   position: relative;
+  height: 100%;
 }
 // 스크롤 바 스타일
 @mixin visible-scroll($visible-scroll: true) {

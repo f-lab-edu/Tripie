@@ -4,11 +4,11 @@
 .chip {
   @include chip;
   padding: 1rem;
+  height: 1rem;
 }
 
 .submit-button {
-  width: 100%;
-  height: 3rem;
+  @include submit-button;
 }
 .flex {
   @include flex;
