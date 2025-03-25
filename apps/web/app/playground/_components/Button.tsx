@@ -1,14 +1,21 @@
 'use client';
 
-// import API from 'constants/api-routes';
+import { upload } from '@tripie-pyotato/cloudinary';
 
 export default function PlaygroundButton() {
   // { data }: { data: any }
+
   const getPage = async () => {
-    // if (data?.user) {
-    //   const res = await incrementUsedGptToken({ data }).then(v => v);
-    //   console.log('incrementUsedGptToken', res);
-    // }
+    const res = await upload(
+      'https://media.triple.guide/triple-cms/c_fill,f_auto,h_256,w_256/89c590e0-e026-444e-9307-684d22e7cc42.jpeg',
+      {
+        apiKey: process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY,
+        cloudinaryName: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
+        secret: process.env.NEXT_PUBLIC_CLOUDINARY_API_SECRET,
+      }
+    );
+
+    console.log(res);
 
     // const blurDataURLs = await Promise.all(
     //   data.map(async contents => {

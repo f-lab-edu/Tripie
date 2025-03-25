@@ -1,11 +1,12 @@
-'use client';
+// import Loading from 'shared/components/Loading';
 
-import Loading from 'shared/components/Loading';
+import PlaygroundButton from './_components/Button';
 
 // import getRegionArticles from 'app/api/articles/region';
 // import PlaygroundButton from './_components/Button';
-export default function Playground() {
-  return <Loading.SemiTransparent />;
+export default async function Playground() {
+  // return <Loading.SemiTransparent />;
+  return <PlaygroundButton />;
   // export default async function Playground() {
   // export default async function Playground() {
   //   const dynamicBlurDataUrl = await getRegionArticles('23c5965b-01ad-486b-a694-a2ced15f245c');

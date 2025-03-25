@@ -1,0 +1,34 @@
+{
+  "name": "@tripie-pyotato/cloudinary",
+  "description": "cloudinary에 이미지 업로드, 읽기 등 작업",
+  "sideEffects": false,
+  "version": "0.0.1",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "build:pkg": "rimraf dist && tsc && tsup",
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
+    "clean": "rm -rf ./node_modules && rm -rf ./.turbo && rm -rf ./dist"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "js-sha1": "^0.7.0",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18",
+    "react": "^18.3.1",
+    "tsup": "^8.1.2",
+    "typescript": "^5"
+  },
+  "peerDependencies": {
+    "react": "*"
+  }
+}
