@@ -17,10 +17,10 @@
 }
 
 .trip-list-wrap {
-  height: 85vh;
   @include scroll;
   @include visible-scroll(false);
   width: 50vw;
+  height: 85vh;
 
   @media (max-width: 500px) {
     height: 40vh;

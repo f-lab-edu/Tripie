@@ -19,10 +19,14 @@ const Description = ({
   return (
     <>
       {descriptionTitle != null ? (
-        <Headings.H3>
-          {order != null ? <Text.Accented>{order.toString.length === 1 ? '0' + order : order}. </Text.Accented> : null}
-          {descriptionTitle}
-        </Headings.H3>
+        <Container applyMargin="top-bottom" margin="sm">
+          <Headings.H3>
+            {order != null ? (
+              <Text.Accented>{order.toString.length === 1 ? '0' + order : order}. </Text.Accented>
+            ) : null}
+            {descriptionTitle}
+          </Headings.H3>
+        </Container>
       ) : null}
       <Container className={cx('description', lineBreak ? 'line-break' : '')} margin="none">
         {children}

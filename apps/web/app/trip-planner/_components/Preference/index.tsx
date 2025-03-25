@@ -44,8 +44,8 @@ const PreferenceStep = ({ context, onNext, onPrev }: Props) => {
               onPrev();
             }}
           />
-          <Container margin="none">
-            내가 선호하는 여행 <Text.Accented>스타일</Text.Accented>은?
+          <Container margin="none" preserveWhiteSpace={true}>
+            내가 선호하는 여행 <Text.Accented>{'\n'}스타일</Text.Accented>은?
           </Container>
         </Headings.H2>
       </Container>

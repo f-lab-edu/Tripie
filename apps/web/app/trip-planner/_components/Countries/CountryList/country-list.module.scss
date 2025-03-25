@@ -6,6 +6,11 @@
   justify-content: center;
 }
 
+.list-wrap {
+  height: 11rem;
+  min-height: 11rem;
+}
+
 .animated-text {
   @media (min-width: 901px) {
     width: fit-content;
@@ -17,6 +22,6 @@
 .scroll {
   position: relative;
   @include scroll;
-  height: 100%;
   @include visible-scroll(false);
+  height: 11rem;
 }

@@ -82,7 +82,6 @@ export default function CountryStep({ context, onNext, onPrev }: Readonly<Props>
             }
           />
           <CountryList countries={data} setSelectedCountry={setSelectedCountry} selectedCountry={selectedCountry} />
-          {/* <Container margin="none"> */}
           <AnimatedButton
             withBorder={true}
             onClick={async () => {
@@ -104,7 +103,6 @@ export default function CountryStep({ context, onNext, onPrev }: Readonly<Props>
               )}
             </span>
           </AnimatedButton>
-          {/* </Container> */}
         </>
       )}
     </>

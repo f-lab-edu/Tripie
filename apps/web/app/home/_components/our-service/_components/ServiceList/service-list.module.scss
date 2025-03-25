@@ -9,6 +9,10 @@
 .content-wrap {
   height: 12rem;
 }
-.card-description {
-  margin-top: 1rem;
+
+.info-wrap {
+  height: 45rem;
+  & div {
+    @include visible-scroll(false);
+  }
 }

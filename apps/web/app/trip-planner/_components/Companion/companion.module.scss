@@ -25,4 +25,5 @@
 .wrap {
   @include scroll;
   @include visible-scroll(false);
+  height: fit-content;
 }

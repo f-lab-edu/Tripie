@@ -1,9 +1,9 @@
 'use client';
 
-import { Card } from '@tripie-pyotato/design-system';
+import { Card, Container } from '@tripie-pyotato/design-system';
+import Description from 'app/home/_components/our-process/_components/Description';
 import RotatingGlobe from 'shared/components/Globe/RotatingGlobe';
 import { classNames } from 'wrapper';
-import Description from '../../../our-process/_components/Description';
 import RegionInfo from '../RegionInfo';
 import Subscription from '../Subscription';
 import Style from './service-list.module.scss';
@@ -29,7 +29,11 @@ const serviceList = [
 
   {
     label: '도시별 여행 정보',
-    content: <RegionInfo />,
+    content: (
+      <Container margin="none" className={cx('info-wrap')}>
+        <RegionInfo />
+      </Container>
+    ),
     description:
       '어디로 떠날 지 정하셨나요? 아직 고민 중이거나 여행지에 대해 아직 낯설다면 위치 정보부터, 주변 맛집, 여행 팁을 살펴보세요.',
   },

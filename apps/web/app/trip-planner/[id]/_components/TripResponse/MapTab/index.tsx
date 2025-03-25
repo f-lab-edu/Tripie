@@ -1,5 +1,5 @@
 'use client';
-import { Container, Icon, Text } from '@tripie-pyotato/design-system';
+import { Container, Icon, Text, TextUnderLineAnimation } from '@tripie-pyotato/design-system';
 import { AiTripPlanResponse } from 'app/api/chat/route';
 import ROUTE from 'constants/routes';
 import useAwsMap from 'hooks/awsMap/useAwsMap';
@@ -46,18 +46,20 @@ const MapTab = ({ data, coordinates }: { data: ChatResponseData['plans']; coordi
 
   return (
     <>
-      <Container align="left" applyMargin="top" margin="l" className={cx('center')}>
-        <Icon onTapStart={handleNavigation} />
+      <Container align="left" applyMargin="top" margin="l">
         {status === 'loading' ? (
           <>
             <Icon.Loading /> <Text.Jump>토큰 확인중...</Text.Jump>
           </>
         ) : (
-          <>
-            {remainingToken != null && !isAdmin ? `${remainingToken}토큰으로 다른 일정 추천 받아보기` : ''}
-            {isAdmin ? `어드민님, (${usedGptToken}개 사용) 다른 일정 추천 받기` : null}
-            {status === 'unauthenticated' && '로그인하고 일정 추천받아보기'}
-          </>
+          <TextUnderLineAnimation onClick={handleNavigation}>
+            <Container margin="none" className={cx('center')}>
+              <Icon />
+              {remainingToken != null && !isAdmin ? `${remainingToken}토큰으로 다른 일정 추천 받아보기` : ''}
+              {isAdmin ? `어드민님, (${usedGptToken}개 사용) 다른 일정 추천 받기` : null}
+              {status === 'unauthenticated' && '로그인하고 일정 추천받아보기'}
+            </Container>
+          </TextUnderLineAnimation>
         )}
       </Container>
       <Container margin="none" className={cx('trip-content-wrap')}>

@@ -17,6 +17,9 @@ const getRegionArticles = async (selectedRegion: string) => {
           return { ...data };
         }
 
+        console.log('imageUrl', imageUrl);
+        console.log(data);
+
         const response = await fetch(`${API.BASE_URL}${API.BASE}${API.BLUR_IMAGE}?url=${imageUrl}`);
 
         // Ensure response is OK and is JSON

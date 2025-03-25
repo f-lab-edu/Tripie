@@ -33,6 +33,7 @@
     "@tanstack/react-query": "^5.64.2",
     "@tanstack/react-query-devtools": "^5.55.4",
     "@tripie-pyotato/db": "workspace:*",
+    "@tripie-pyotato/cloudinary": "workspace:*",
     "@tripie-pyotato/design-system": "workspace:*",
     "@tripie-pyotato/hooks": "workspace:*",
     "@types/mdx": "^2.0.13",

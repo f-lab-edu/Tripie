@@ -12,7 +12,6 @@ const CountryInfoPopup = ({
   coordinates,
   capital,
   officialLanguage,
-
   showPopup,
   setShowPopup,
 }: {
@@ -38,7 +37,7 @@ const CountryInfoPopup = ({
       content: (
         <List.Item alignItems="center" gap="l">
           <Text.Accented className={cx('capital', 'verticle-center')}>수도</Text.Accented>
-          <div className={cx('capital-name')}>{capital}</div>
+          <span className={cx('capital-name')}>{capital}</span>
         </List.Item>
       ),
     },

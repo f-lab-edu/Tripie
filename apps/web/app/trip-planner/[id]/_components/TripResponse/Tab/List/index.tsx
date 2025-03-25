@@ -12,7 +12,7 @@ const cx = classNames.bind(Style);
 
 const TabList = ({ trip, scrollIntoView }: { trip: TripContent; scrollIntoView?: boolean }) => {
   return (
-    <List>
+    <List className={cx('list-wrap')}>
       <List.Item>
         <Headings.H3>
           <Text.Accented>Day {trip.day}</Text.Accented>

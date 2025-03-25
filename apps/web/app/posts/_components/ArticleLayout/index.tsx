@@ -17,7 +17,7 @@ const ArticleLayout = async ({
   articleBody: ReactNode;
 }) => {
   return (
-    <Container applyMargin="left-right-bottom" margin="xl" align="center">
+    <Container applyMargin="left-right-bottom" margin="xl" align="center" className={cx('article-container')}>
       <Card.Content className={cx('fit-content')}>
         <Container margin="m" applyMargin="top-left-right">
           {title}

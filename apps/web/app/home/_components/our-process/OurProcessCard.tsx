@@ -2,7 +2,7 @@ import { Card, Container } from '@tripie-pyotato/design-system';
 import Description from './_components/Description';
 import { Process } from './OurProcess';
 
-export default function OurProcessCard({ content, description, label, index }: Process) {
+export default function OurProcessCard({ content, description, label, index }: Readonly<Process>) {
   return (
     <Container applyMargin="bottom">
       <Card>

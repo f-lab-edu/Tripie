@@ -7,6 +7,9 @@
 
 .chip-wrap {
   @include grid-wrap;
+  @include visible-scroll(false);
+  @include scroll;
+  max-height: 47vh;
 }
 
 .flex {

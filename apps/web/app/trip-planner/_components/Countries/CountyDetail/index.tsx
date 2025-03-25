@@ -37,14 +37,14 @@ const CountryDetail = ({ selectedCountry }: { selectedCountry: string }) => {
   }
 
   return (
-    <Container margin="none">
-      <Card.Content className={cx('card-wrap')}>
-        <CountryName
-          name={countryDetail.name}
-          blurDataUrl={countryDetail?.blurDataURL}
-          code={countryDetail.code}
-          flagImage={countryDetail['flag-image']}
-        />
+    <Card.Content className={cx('card-wrap')}>
+      <CountryName
+        name={countryDetail.name}
+        blurDataUrl={countryDetail?.blurDataURL}
+        code={countryDetail.code}
+        flagImage={countryDetail['flag-image']}
+      />
+      <Container margin="none" className={cx('map-wrap')}>
         <Map
           id={MAP_ID}
           interactive={true}
@@ -73,8 +73,8 @@ const CountryDetail = ({ selectedCountry }: { selectedCountry: string }) => {
             className={cx('marker')}
           />
         </Map>
-      </Card.Content>
-    </Container>
+      </Container>
+    </Card.Content>
   );
 };
 export default CountryDetail;
