@@ -1,21 +1,13 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "@tripie-pyotato/typescript-config/nextjs.json",
   "compilerOptions": {
-    "jsx": "preserve",
-    "lib": ["dom", "es2017", "dom.iterable", "esnext"],
     "baseUrl": ".",
     "paths": {
       "~/*": ["./src/*"]
     },
     "typeRoots": ["./node_modules/@types"],
     "types": ["react", "node", "jest"],
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
-    "preserveSymlinks": true,
-    "allowJs": true
+    "preserveSymlinks": true
   },
   "include": [
     "next-env.d.ts",

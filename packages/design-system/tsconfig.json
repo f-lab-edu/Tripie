@@ -1,4 +1,5 @@
 {
+  "extends": "@tripie-pyotato/typescript-config/nextjs.json",
   "compilerOptions": {
     "rootDir": ".",
     "outDir": "./dist",

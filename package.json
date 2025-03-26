@@ -1,7 +1,7 @@
 {
   "name": "tripie",
-  "private": true,
   "packageManager": "pnpm@9.0.0",
+  "repository": "git://github.com/Pyotato/Tripie.git",
   "main": "index.js",
   "type": "module",
   "engines": {
@@ -23,9 +23,13 @@
     "clean": "turbo run clean && rm -rf ./node_modules && pnpm i --frozen-lockfile",
     "typecheck": "turbo typecheck --filter=web",
     "db:generate": "turbo run db:generate",
-    "db:migrate": "turbo run db:migrate"
+    "db:migrate": "turbo run db:migrate",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "turbo run build --filter=@tripie-pyotato/cloudinary... && changeset publish"
   },
   "dependencies": {
+    "@changesets/cli": "^2.28.1",
     "@prisma/client": "^6.2.1",
     "turbo": "^2.0.11"
   },
@@ -52,7 +56,6 @@
     "rimraf": "^6.0.1",
     "tsup": "^8.1.2",
     "turbo": "^2.0.6",
-    "typescript": "^5.4.5",
     "typescript-eslint": "^8.0.0"
   },
   "lint-staged": {

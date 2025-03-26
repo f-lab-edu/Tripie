@@ -1,7 +1,6 @@
 {
   "name": "web",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.1",
   "description": "",
   "type": "module",
   "main": "index.ts",
@@ -35,6 +34,7 @@
     "@tripie-pyotato/db": "workspace:*",
     "@tripie-pyotato/cloudinary": "workspace:*",
     "@tripie-pyotato/design-system": "workspace:*",
+    "@tripie-pyotato/typescript-config": "workspace:*",
     "@tripie-pyotato/hooks": "workspace:*",
     "@types/mdx": "^2.0.13",
     "@vis.gl/react-google-maps": "^1.1.0",
