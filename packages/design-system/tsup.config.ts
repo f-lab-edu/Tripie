@@ -21,12 +21,12 @@ export default defineConfig({
   ],
   outDir: 'dist',
   esbuildPlugins: [sassPlugin()],
-  target: ['es2022', 'node18', 'esnext'],
+  target: 'esnext',
   dts: {
     resolve: true,
     // build types for `src/index.ts` only
     // otherwise `Options` will not be exported by `tsup`, not sure how this happens, probably a bug in rollup-plugin-dts
-    entry: './src/index.ts',
+    entry: ['./src/index.ts'],
   },
   metafile: true,
   sourcemap: false,

@@ -6,12 +6,12 @@ export type MotionAnimationProps = AnimationProps;
 export type MotionStyleProps = MotionStyle;
 export type MotionSVGProps = SVGMotionProps<SVGPathElement>;
 
-export interface MotionProps {
+export type MotionProps = {
   variants: Variants;
   animationProps: AnimationProps;
   motionStyle: MotionStyle;
   svgProps: SVGMotionProps<SVGPathElement>;
-}
+};
 
 export const Motion = {
   Div: motion.div,
