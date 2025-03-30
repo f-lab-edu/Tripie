@@ -20,7 +20,7 @@ export const createServer = (): Express => {
       return res.json({ ok: true });
     })
     .post('/openai', async (req, res) => getTripPlan({ res, req }))
-    .get('/cloudinary', async (req, res) => getAssetInfo({ res, req }))
+    .get('/cloudinary/asset', async (req, res) => getAssetInfo({ res, req }))
     .post('/cloudinary', async (req, res) => upload({ res, req }));
 
   return app;

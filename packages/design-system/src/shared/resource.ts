@@ -1,26 +1,28 @@
 export const PLACEHOLDER = 'https://placehold.co/600x600?text=NO IMAGE';
 export const LOADING_IMG = 'https://placehold.co/600x600?text=LOADING';
 
-export const ICON_URL = '/icons';
+const CLOUDINARY_BUCKET_NAME = 'dbzzletpw';
+export const CLOUDINARY_ICON_URL = `https://res.cloudinary.com/${CLOUDINARY_BUCKET_NAME}/image/upload/`;
+
 export const RESOURCE = {
-  ARROW: '/arrow.png',
-  CHECK: '/check.png',
-  X: '/x.png',
-  REFRESH: '/refresh.png',
-  PLANE: '/plane.png',
-  CLOUD: '/cloud.png',
-  LOADING: '/loading.png',
-  TRAM: '/tram.png',
-  TRAIN: '/train.png',
-  WALK: '/walk.png',
-  SHIP: '/ship.png',
-  BUS: '/bus.png',
-  CAR: '/car.png',
-  FLAG: '/flag.png',
-  CURSOR: '/cursor.png',
-  NEXT: '/next.png',
-  KAKAO: '/kakao.png',
-  GITHUB: '/github.png',
+  ARROW: 'v1743149708/arrow.avif',
+  CHECK: 'v1743150067/check.avif',
+  X: 'v1743150099/x.avif',
+  REFRESH: 'v1743150107/refresh.png',
+  PLANE: 'v1743150122/plane.png',
+  CLOUD: 'v1743150128/cloud.png',
+  LOADING: 'v1743150142/loading.png',
+  TRAM: 'v1743150147/tram.png',
+  TRAIN: 'v1743150152/train.png',
+  WALK: 'v1743150157/walk.png',
+  SHIP: 'v1743150164/ship.png',
+  BUS: 'v1743150170/bus.png',
+  CAR: 'v1743150175/car.png',
+  FLAG: 'v1743150180/flag.png',
+  CURSOR: 'v1743150185/cursor.avif',
+  NEXT: 'v1743150189/next.png',
+  KAKAO: 'v1743150194/kakao.png',
+  GITHUB: 'v1743150199/github.png',
 };
 
-export const ICON_RESOURCE = (key: keyof typeof RESOURCE) => ICON_URL + RESOURCE[key];
+export const ICON_RESOURCE = (key: keyof typeof RESOURCE) => CLOUDINARY_ICON_URL + RESOURCE[key];

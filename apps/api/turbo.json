@@ -2,7 +2,16 @@
   "extends": ["//"],
   "tasks": {
     "build": {
-      "env": ["PORT"],
+      "env": [
+        "PORT",
+        "CLOUDINARY_API_KEY",
+        "CLOUDINARY_CLOUD_NAME",
+        "CLOUDINARY_API_KEY",
+        "CLOUDINARY_API_SECRET",
+        "CLOUDINARY_URL",
+        "OPENAI_API_KEY",
+        "ALLOWED_ORIGIN"
+      ],
       "outputs": ["dist/**"]
     }
   }

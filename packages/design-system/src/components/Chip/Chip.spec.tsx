@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { describe, it, vi } from 'vitest';
 
 import { motion } from 'framer-motion';
-import '../../shared/variants';
+import '../../shared/motion-variants';
 
 import Chip from './Chip';
 // !! motion framer 올바르게 mock 하는 방법? props 못 읽는 문제..

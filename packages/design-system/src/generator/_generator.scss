@@ -1,6 +1,7 @@
-@use "../base/" as *;
-@use "../functions/" as *;
-@use "../mixins/" as *;
+@use '../base/' as *;
+@use '../functions/' as *;
+@use '../mixins/' as *;
+@use '../mixins/index.scss' as *;
 
 /// 모든 스타일 생성
 @mixin generate-styles {
@@ -10,10 +11,7 @@
   @include generate-color-variables;
 
   @each $key, $value in $config-theme {
-    @include generate-color-variables(
-      $colors: $value,
-      $selector: "[data-theme=#{$key}]:root"
-    );
+    @include generate-color-variables($colors: $value, $selector: '[data-theme=#{$key}]:root');
   }
 
   @include generate-default;

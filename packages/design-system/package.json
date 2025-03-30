@@ -1,26 +1,13 @@
 {
   "name": "@tripie-pyotato/design-system",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "트리피에 사용되는 디자인 시스템",
   "main": "index.js",
+  "type": "module",
+  "sideEffects": false,
   "exports": {
-    "./global": [
-      "./src/global.scss"
-    ],
-    ".": [
-      "./src/index.ts",
-      "./src/index.tsx"
-    ],
-    "./*": [
-      "./src/*.tsx",
-      "./src/*.ts",
-      "./src/*/index.ts"
-    ],
-    "./*/*": [
-      "./src/*/*.tsx",
-      "./src/*/*.ts"
-    ],
-    "./styles": "./src/styles/index.scss"
+    "import": "./dist/index.js",
+    "require": "./dist/index.cjs"
   },
   "scripts": {
     "build": "tsup",
@@ -39,6 +26,8 @@
     "@testing-library/react": "^16.0.1",
     "@testing-library/user-event": "^14.4.3",
     "@tripie-pyotato/jest": "workspace:*",
+    "@tripie-pyotato/typescript-config": "workspace:*",
+    "@tripie-pyotato/eslint-config": "workspace:*",
     "@turbo/gen": "^2.0.11",
     "@types/jest": "^29.5.12",
     "@types/node": "^20.11.24",
@@ -57,7 +46,6 @@
   },
   "dependencies": {
     "@swc/core": "^1.11.13",
-    "@tripie-pyotato/typescript-config": "workspace:*",
     "classnames": "^2.5.1",
     "framer": "^2.4.1",
     "framer-motion": "^11.11.17",

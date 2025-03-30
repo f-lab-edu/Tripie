@@ -1,12 +1,14 @@
 {
   "name": "@tripie-pyotato/db",
   "version": "0.0.0",
+  "private": true,
   "dependencies": {
     "@prisma/client": "^6.2.1"
   },
   "devDependencies": {
     "prisma": "^6.2.1",
-    "turbo": "^2.0.11"
+    "turbo": "^2.0.11",
+    "@tripie-pyotato/eslint-config": "workspace:*"
   },
   "scripts": {
     "db:generate": "prisma generate --schema=./prisma/schema.prisma",

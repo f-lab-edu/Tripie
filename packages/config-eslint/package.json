@@ -1,0 +1,33 @@
+{
+  "name": "@tripie-pyotato/eslint-config",
+  "version": "0.0.0",
+  "private": true,
+  "files": [
+    "eslint.config.js",
+    "library.js",
+    "next.js",
+    "react-internal.js",
+    "react.js",
+    "storybook.js"
+  ],
+  "devDependencies": {
+    "@vercel/style-guide": "^5.2.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-turbo": "^2.0.0",
+    "eslint-plugin-only-warn": "^1.1.0",
+    "typescript": "5.5.4",
+    "eslint-plugin-functional": "^6.6.3",
+    "eslint-plugin-next": "^0.0.0",
+    "eslint-plugin-react": "^7.35.0",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "typescript-eslint": "^8.0.0",
+    "@eslint/js": "^9.8.0",
+    "@next/eslint-plugin-next": "^14.2.5",
+    "@types/eslint": "^8.56.5",
+    "@types/eslint__js": "^8.42.3",
+    "@types/node": "^22.13.1",
+    "@typescript-eslint/eslint-plugin": "^7.1.0",
+    "@typescript-eslint/parser": "^7.1.0",
+    "@tripie-pyotato/typescript-config": "workspace:*"
+  }
+}

@@ -1,6 +1,4 @@
-@use '../../functions/' as *;
-@use '../../mixins/' as *;
-@use 'sass:map';
+@use '../../mixins/skeleton' as *;
 
 .skeleton {
   @include skeleton(1);

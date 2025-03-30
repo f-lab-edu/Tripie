@@ -1,6 +1,5 @@
-import { MotionProps } from './wrappers/motion-wrapper';
-
 import COLORS from './colors';
+import { MotionProps } from './wrappers/motion-wrapper';
 
 type Variant = MotionProps['variants'][string];
 

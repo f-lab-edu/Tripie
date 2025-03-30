@@ -1,6 +1,7 @@
 import type { Preview } from '@storybook/react';
 
 import '@tripie-pyotato/design-system/global';
+import '@tripie-pyotato/design-system/styles';
 
 const preview: Preview = {
   parameters: {

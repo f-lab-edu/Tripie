@@ -1,6 +1,6 @@
 import { classNames, Motion, MotionProps } from '../../shared/wrappers';
 
-import { ACCORDIAN_VARIANTS } from '../../shared/variants';
+import { ACCORDIAN_VARIANTS } from '../../shared/motion-variants';
 
 import TripieContainer, { TripieContainerProps } from '../TripieContainer/TripieContainer';
 import HR_MARGINS from './constants';

@@ -2,7 +2,8 @@
   "extends": "@tripie-pyotato/typescript-config/base.json",
   "compilerOptions": {
     "lib": ["ES2015"],
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "incremental": false
   },
   "exclude": ["node_modules"],
   "include": ["."]

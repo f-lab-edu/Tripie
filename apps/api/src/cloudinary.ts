@@ -29,7 +29,7 @@ export async function upload({ res, req }: { req: any; res: any }) {
 // Gets details of an uploaded image
 /////////////////////////////////////
 export async function getAssetInfo({ req, res }: { req: any; res: any }) {
-  const { public_id } = req.params;
+  const { id } = req.params;
   const options = {
     transformation: [
       { dpr: 'auto', responsive: true, width: 'auto', crop: 'scale' },
@@ -38,8 +38,9 @@ export async function getAssetInfo({ req, res }: { req: any; res: any }) {
   };
 
   try {
-    const result = await cloudinary.url(public_id, options);
-    return res.json({ message: result, status: 200 });
+    const data = await cloudinary.url(id, options);
+    console.log('data', data);
+    return res.json({ data, status: 200 });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ error: `Internal Server Error: ${error}` });

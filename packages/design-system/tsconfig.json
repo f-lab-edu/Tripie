@@ -2,12 +2,14 @@
   "extends": "@tripie-pyotato/typescript-config/nextjs.json",
   "compilerOptions": {
     "rootDir": ".",
+    "target": "ESNext",
     "outDir": "./dist",
     "jsx": "preserve",
     "baseUrl": "./src",
     "paths": {
       "@components/*": ["components/*"]
-    }
+    },
+    "incremental": false
   },
   "include": [
     "**/*.ts",
@@ -16,7 +18,7 @@
     "jest.setup.cjs",
     "~/*.ts",
     "~/*.tsx",
-    "src/shared/wrappers/index.tsz"
+    "src/shared/wrappers/index.tsx"
   ],
   "exclude": ["dist"]
 }

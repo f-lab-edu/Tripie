@@ -3,7 +3,7 @@ import { classNames, Motion } from '../../shared/wrappers';
 import { ReactNode } from 'react';
 import Style from './chip.module.scss';
 
-import { GLOW_VARIANT, SHINE_VARIANT } from '../../shared/variants';
+import { GLOW_VARIANT, SHINE_VARIANT } from '../../shared/motion-variants';
 
 const cx = classNames.bind(Style);
 

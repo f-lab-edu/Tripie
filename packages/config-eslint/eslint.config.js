@@ -1,3 +1,4 @@
+// From ESLint v9.0.0, the default configuration file is now eslint.config.js.
 /** https://stackoverflow.com/questions/74237042/how-to-correctly-configure-the-parser-plugins-with-eslints-new-flat-config 참고 */
 import ts from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
@@ -27,7 +28,7 @@ export default [
           modules: true,
         },
         projectService: true,
-        project: '../../tsconfig.json',
+        project: '@tripie-pyotato/typescript-config/base.json',
         ecmaVersion: 'latest',
       },
       globals: { ...globals.browser, ...globals.node },

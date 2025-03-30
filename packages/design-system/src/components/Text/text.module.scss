@@ -1,8 +1,7 @@
 @use '../../base/' as *;
 @use '../../functions/' as *;
 @use '../../generator/' as *;
-@use '../../mixins/' as *;
-@use '../TripieButton/Animated/animated-button.module' as *;
+@use '../../mixins/index.scss' as *;
 @use '../../mixins.scss' as *;
 
 @use 'sass:map';
@@ -71,7 +70,7 @@
   display: inline-flex;
   height: 2rem;
   flex-direction: column;
-  &:hover{
+  &:hover {
     cursor: pointer;
   }
 }

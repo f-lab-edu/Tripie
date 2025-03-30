@@ -81,6 +81,18 @@
     "build:storybook": {
       "env": ["CHROMATIC_TOKEN"]
     },
+    "build:api": {
+      "env": [
+        "CLOUDINARY_API_KEY",
+        "CLOUDINARY_CLOUD_NAME",
+        "CLOUDINARY_API_KEY",
+        "CLOUDINARY_API_SECRET",
+        "CLOUDINARY_URL",
+        "OPENAI_API_KEY",
+        "ALLOWED_ORIGIN"
+      ]
+    },
+
     "lint": {
       "dependsOn": ["^lint"]
     },
