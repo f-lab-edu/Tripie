@@ -255,8 +255,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/database
       '@tripie-pyotato/design-system':
-        specifier: ^0.1.2
-        version: 0.1.2(@swc/helpers@0.5.15)(next@15.1.7(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6))(react@18.3.1)
+        specifier: ^0.1.3
+        version: 0.1.3(@swc/helpers@0.5.15)(next@15.1.7(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6))(react@18.3.1)
       '@tripie-pyotato/hooks':
         specifier: workspace:*
         version: link:../../packages/hooks
@@ -3762,8 +3762,8 @@ packages:
       next: '*'
       react: '*'
 
-  '@tripie-pyotato/design-system@0.1.2':
-    resolution: {integrity: sha512-5sv/s8nUHo9YBOGSyCNPKy2fJfzrFzEWrw/il2eJC/pZAxnaAc3J4wboKBFQ2j1Z7svgkBmaAgqyapsvBbWU/g==}
+  '@tripie-pyotato/design-system@0.1.3':
+    resolution: {integrity: sha512-a/TA9EVxurv6UyoMWy3ZoZCANQ2a7rmkmc/QbUIY+M54kp/Yig2NLSea2OVvBxwj4kwPDndAaNCuXppnMgDA3g==}
     peerDependencies:
       next: '*'
       react: '*'
@@ -14297,7 +14297,7 @@ snapshots:
       - '@emotion/is-prop-valid'
       - '@swc/helpers'
 
-  '@tripie-pyotato/design-system@0.1.2(@swc/helpers@0.5.15)(next@15.1.7(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6))(react@18.3.1)':
+  '@tripie-pyotato/design-system@0.1.3(@swc/helpers@0.5.15)(next@15.1.7(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6))(react@18.3.1)':
     dependencies:
       '@swc/core': 1.11.13(@swc/helpers@0.5.15)
       classnames: 2.5.1
