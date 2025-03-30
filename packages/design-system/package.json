@@ -6,8 +6,16 @@
   "type": "module",
   "sideEffects": false,
   "exports": {
-    "import": "./dist/index.js",
-    "require": "./dist/index.cjs"
+    "import": [
+      "./dist/index.js",
+      "./dist/*.js",
+      "./dist/*/*.js"
+    ],
+    "require": [
+      "./dist/index.cjs",
+      "./dist/*.cjs",
+      "./dist/*/*.cjs"
+    ]
   },
   "scripts": {
     "build": "tsup",
