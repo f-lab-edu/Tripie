@@ -1,22 +1,33 @@
 'use client';
 
-import { upload } from '@tripie-pyotato/cloudinary';
+import addImage from 'app/api/cloudinary/addImage';
 
 export default function PlaygroundButton() {
-  // { data }: { data: any }
-
   const getPage = async () => {
-    const res = await upload(
-      'https://media.triple.guide/triple-cms/c_fill,f_auto,h_256,w_256/89c590e0-e026-444e-9307-684d22e7cc42.jpeg',
-      {
-        apiKey: process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY,
-        cloudinaryName: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
-        secret: process.env.NEXT_PUBLIC_CLOUDINARY_API_SECRET,
-      }
-    );
+    // const res = await upload(
+    //   'https://media.triple.guide/triple-cms/c_fill,f_auto,h_256,w_256/89c590e0-e026-444e-9307-684d22e7cc42.jpeg',
+    //   {
+    //     apiKey: process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY,
+    //     cloudinaryName: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
+    //     secret: process.env.NEXT_PUBLIC_CLOUDINARY_API_SECRET,
+    //   }
+    // );
 
-    console.log(res);
+    // const res = await getTripPlan({
+    //   duration: '3/27/2025 12:00:00 AM ~ 3/28/2025 11:59:59 PM',
+    //   city: { selected: ['Tainan'], all: ['Kaohsiung', 'Tainan'] },
+    //   country: 'Taiwan',
+    //   companion: 'FRIENDS',
+    //   preference: 'SNS_HOT',
+    //   continent: 'ASIA',
+    // });
 
+    // console.log('PlaygroundButton', res);
+
+    // https://res.cloudinary.com/dbzzletpw/image/upload/v1743150199/github.png
+    // const res = await getImage('a3f30646-f436-418f-b41f-693ff4555706');
+    const res = await addImage('https://tripie-mauve.vercel.app/noise.png');
+    console.log('PlaygroundButton', res);
     // const blurDataURLs = await Promise.all(
     //   data.map(async contents => {
     //     const blurredThumbnail = await Promise.all(

@@ -3,7 +3,6 @@ import { classNames } from 'wrapper';
 
 import { Container } from '@tripie-pyotato/design-system';
 
-import Nav from 'app/home/_components/nav/Nav';
 import ROUTE from 'constants/routes';
 import { TripContent } from 'models/Aws';
 import { Coordinate } from 'models/Geo';
@@ -77,7 +76,6 @@ const TripResponse = ({ data }: { data: ChatResponseData }) => {
 
   return (
     <Suspense fallback={<Loading />}>
-      <Nav />
       <Container margin="none" className={cx('background')}>
         <TabContext.Provider value={selectedActivityValues}>
           <SelectedDateContext.Provider value={selectedDateValues}>

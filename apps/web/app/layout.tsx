@@ -6,6 +6,7 @@ import '@tripie-pyotato/design-system/styles';
 import { ReactNode, Suspense } from 'react';
 import Loading from 'shared/components/Loading';
 import Provider from '../provider/layout';
+import Nav from './home/_components/nav/Nav';
 import { sharedMetaData } from './shared-metadata';
 
 export const metadata: Metadata = {
@@ -24,7 +25,10 @@ export default function RootLayout({
       <body>
         {/* useSearchParams() should be wrapped in a suspense boundary: https://github.com/vercel/next.js/discussions/61654#discussioncomment-8820940 */}
         <Suspense fallback={<Loading />}>
-          <Provider>{children}</Provider>
+          <Provider>
+            <Nav />
+            {children}
+          </Provider>
         </Suspense>
       </body>
     </html>

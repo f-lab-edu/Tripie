@@ -1,4 +1,4 @@
-import { AiTripPlanResponse } from 'app/api/chat/route';
+import { AiTripPlanResponse } from 'app/api/openai/getTripPlan';
 import COMPANION_LIST from 'constants/companions';
 import { CONTINENTS } from 'constants/continents';
 import PREFERENCE_LIST from 'constants/preferences';

@@ -12,8 +12,6 @@ import { classNames } from 'wrapper';
 
 import ROUTE from 'constants/routes';
 
-import Nav from '../nav/Nav';
-
 import { useRouter } from 'next/navigation';
 import Style from './header.module.scss';
 
@@ -64,7 +62,6 @@ const ShortCutButtons = () => {
 export default function Header() {
   return (
     <ParticleBackground>
-      <Nav />
       <RotatingBlur />
       <Container align="center" className={cx('wrap')} margin="none">
         <PageTitle />

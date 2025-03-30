@@ -35,4 +35,22 @@ export const awsApi = ky.extend({
   },
 });
 
+export const backendApi = ky.extend({
+  prefixUrl: 'http://localhost:5001/',
+  timeout: 30_000, // https://www.npmjs.com/package/ky/v/0.9.0?activeTab=readme#timeout
+  hooks: {
+    afterResponse: [
+      (_, __, res) => {
+        console.log(res?.status);
+        if (res?.status === 401) {
+          console.log('invalid token');
+        } else if (res?.status === 429) {
+          console.log('too many requests..');
+        }
+        console.log(res);
+      },
+    ],
+  },
+});
+
 export default api;

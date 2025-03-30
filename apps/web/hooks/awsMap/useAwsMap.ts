@@ -1,6 +1,6 @@
 'use client';
 
-import { AiTripPlanResponse } from 'app/api/chat/route';
+import { AiTripPlanResponse } from 'app/api/openai/getTripPlan';
 import { Coordinate } from 'models/Geo';
 import { useMemo } from 'react';
 

@@ -1,21 +1,18 @@
 'use client';
 
 import { Container } from '@tripie-pyotato/design-system';
-import { getTripPlan } from 'app/api/chat/route';
 
-import API from 'constants/api-routes';
-import { CHAT_CACHE_DB_NAME, DB_NAME } from 'constants/auth';
+import { DB_NAME } from 'constants/auth';
 import useFunnel from 'hooks/useFunnel';
 import { classNames } from 'wrapper';
 
 import firestoreService from 'app/api/firebase';
-import { CustomUser } from 'app/api/gpt/route';
-import Nav from 'app/home/_components/nav/Nav';
+import getTripPlan from 'app/api/openai/getTripPlan';
+import incrementedTokenId from 'app/api/openai/incrementedTokenId';
 import ROUTE from 'constants/routes';
 import { useDebounce } from 'hooks/useDebounce';
 import { TripPlanner } from 'models/Aws';
 import { ContinentKeys } from 'models/Continent';
-import { Continentl } from 'models/Continentl';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import CityStep from './_components/Cities';
@@ -30,41 +27,21 @@ import Style from './trip-planner.module.scss';
 const cx = classNames.bind(Style);
 
 const handleSubmit = async (chatItems: TripPlanner, id: string) => {
-  const { serverTime } = await fetch(`${API.BASE}${API.SERVER_TIME}`).then(v => v.json());
-  if (id != null) {
-    const user = await firestoreService.getItem(DB_NAME, id);
-    if (user != null) {
-      return await // firestoreService.getListWithIds('continentl').then(async countries => {
-      firestoreService.getListWithIds('continentl').then(async countries => {
-        // iso31661로 같은 code의 세자리 버전을 aws에 FilterCountry로 넘겨 검색 정확도를 높이기 위해 국가 코드 두자리를 code로 넘겨줍니다.
-        const { code } = countries?.filter((place: Continentl) => place.id === chatItems.country)[0] as Continentl;
-        const data = await getTripPlan({ ...chatItems, code });
-        if (data != null) {
-          await firestoreService.increment(DB_NAME, id, 'usedTokens');
-          const {
-            duration,
-            companion,
-            continent,
-            country,
-            preference,
-            city: { selected },
-          } = chatItems;
-          return await firestoreService.getAddedItemId(CHAT_CACHE_DB_NAME, {
-            duration,
-            data: JSON.stringify(data),
-            city: selected,
-            companion: companion.split(','),
-            continent,
-            country,
-            createdAt: serverTime,
-            createdBy: id,
-            preference,
-          });
-        }
-      });
-    }
+  if (id == null) {
+    return null;
   }
-  return null;
+  const user = await firestoreService.getItem(DB_NAME, id);
+  if (user == null) {
+    return null;
+  }
+
+  return await firestoreService.getListWithIds('continentl').then(async () => {
+    const res = await getTripPlan({ ...chatItems });
+    if (res.data == null) {
+      return null;
+    }
+    return await incrementedTokenId(chatItems, id, res.data);
+  });
 };
 
 const TripPlan = () => {
@@ -142,14 +119,17 @@ const TripPlan = () => {
     if (userData.user.id == null) {
       return;
     }
-    const id = await handleSubmit(funnel.context as TripPlanner, userData?.user?.id as CustomUser['id']);
+    const id = await handleSubmit(funnel.context as TripPlanner, userData?.user?.id);
     funnel.history.clear();
-    navigate.replace(`${ROUTE.TRIP_PLANNER.href}/${id}`);
+
+    if (id != null) {
+      navigate.replace(`${ROUTE.TRIP_PLANNER.href}/${id}`);
+    }
+    // 에러 발생!
   });
 
   return (
     <Container margin="none" className={cx('background')}>
-      <Nav />
       <funnel.Render
         CONTINENT={({ context, history }) => (
           <ContinentStep

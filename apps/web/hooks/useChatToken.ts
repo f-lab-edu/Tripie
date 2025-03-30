@@ -1,10 +1,11 @@
 'use client';
 
 import firestoreService from 'app/api/firebase';
-import { CustomUser } from 'app/api/gpt/route';
+
 import { DB_NAME } from 'constants/auth';
 import { MAX_TOKEN } from 'constants/chat';
 import ROUTE from 'constants/routes';
+import { User } from 'models/User';
 import { useSession } from 'next-auth/react';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
@@ -34,7 +35,7 @@ const useChatToken = () => {
   // 사용한 토큰 개수, 남은 토큰 개수, 어드민 여부의 state를 적용.
   useEffect(() => {
     const checkEligibility = async () => {
-      const id = data?.user?.id as CustomUser['id'];
+      const id = data?.user?.id as User['session']['user']['id'];
       if (id != null) {
         const user = await firestoreService.getItem(DB_NAME, id);
 

@@ -2,9 +2,10 @@
 import { classNames } from 'wrapper';
 
 import { Card, Chip, Headings, List } from '@tripie-pyotato/design-system';
-import { AiTripPlanResponse } from 'app/api/chat/route';
+
 import { useContext } from 'react';
 
+import { AiTripPlanResponse } from 'app/api/openai/getTripPlan';
 import { SelectedDateContext } from '..';
 import TabList from './List';
 import Style from './tab-chat.module.scss';

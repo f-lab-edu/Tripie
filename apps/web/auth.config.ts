@@ -1,6 +1,7 @@
 import firestoreService from 'app/api/firebase';
-import { CustomUser } from 'app/api/gpt/route';
+
 import { DB_NAME, GITHUB_ID, GITHUB_SECRET, KAKAO_ID, KAKAO_SECRET, NEXT_AUTH_SECRET } from 'constants/auth';
+import { User } from 'models/User';
 import type { NextAuthConfig } from 'next-auth';
 import GitHub from 'next-auth/providers/github';
 import Kakao from 'next-auth/providers/kakao';
@@ -18,7 +19,7 @@ export default {
   ],
   secret: NEXT_AUTH_SECRET,
   callbacks: {
-    async session({ session, token }: CustomUser) {
+    async session({ session, token }: User) {
       const { picture, email, name, sub, ...others } = token;
       session.token = others;
       session.user = { id: sub, name, email, picture };
@@ -29,7 +30,7 @@ export default {
           await firestoreService.addItem(DB_NAME, { id: sub, usedTokens: 0, isAdmin: false });
         } else {
           // user 가 있는 지 set으로 확인
-          const userIdSet = new Set(userToken?.map((user: CustomUser) => user.id));
+          const userIdSet = new Set(userToken?.map(user => user.id));
           if (!userIdSet.has(sub)) {
             await firestoreService.addItem(DB_NAME, { id: sub, usedTokens: 0 });
           }
