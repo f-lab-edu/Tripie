@@ -57,7 +57,7 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.0.1",
     "@testing-library/user-event": "^14.4.3",
-    "@tripie-pyotato/eslint-config": "workspace:*",
+    "@tripie-pyotato/eslint-config": "^0.0.0",
     "@tripie-pyotato/jest": "workspace:*",
     "@tripie-pyotato/typescript-config": "^0.0.2",
     "@turbo/gen": "^2.0.11",

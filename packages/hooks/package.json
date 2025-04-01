@@ -2,6 +2,7 @@
   "name": "@tripie-pyotato/hooks",
   "description": "tripie 공통 hooks",
   "sideEffects": false,
+  "type": "module",
   "version": "0.0.1",
   "main": "./src/index.ts",
   "exports": {

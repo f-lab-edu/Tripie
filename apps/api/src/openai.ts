@@ -1,5 +1,6 @@
 import { createOpenAI } from '@ai-sdk/openai';
 import { generateObject, GenerateObjectResult } from 'ai';
+import { Request, Response } from 'express';
 import { z } from 'zod';
 
 export type Activity = {
@@ -22,16 +23,6 @@ export type AiTripPlanResponse = {
   trips: TripContent[];
 };
 
-export interface Response {
-  message: string;
-  status: number;
-}
-
-export interface ErrorResponse extends Response {
-  data: null;
-  error: string;
-}
-
 export interface SuccessResponse extends Response {
   data: Array<{
     plans: GenerateObjectResult<AiTripPlanResponse>;
@@ -40,13 +31,13 @@ export interface SuccessResponse extends Response {
   }>;
 }
 
-export type ChatGptResponse = ErrorResponse | SuccessResponse;
+export type ChatGptResponse = Response | SuccessResponse;
 
 const openai = createOpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-async function getTripPlan({ res, req }: { req: any; res: any }): Promise<ChatGptResponse> {
+async function getTripPlan({ res, req }: { req: Request; res: Response }): Promise<ChatGptResponse> {
   try {
     const { duration, selectedCities, country, companion, preference } = req.body;
 

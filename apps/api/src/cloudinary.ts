@@ -1,4 +1,5 @@
 import { v2 as cloudinary } from 'cloudinary';
+import { Request, Response } from 'express';
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -7,7 +8,7 @@ cloudinary.config({
   secure: true,
 });
 
-export async function upload({ res, req }: { req: any; res: any }) {
+export async function upload({ res, req }: { req: Request; res: Response }) {
   // Use the uploaded file's name as the asset's public ID and
   // allow overwriting the asset with new versions
   const options = {
@@ -28,7 +29,7 @@ export async function upload({ res, req }: { req: any; res: any }) {
 /////////////////////////////////////
 // Gets details of an uploaded image
 /////////////////////////////////////
-export async function getAssetInfo({ req, res }: { req: any; res: any }) {
+export async function getAssetInfo({ req, res }: { req: Request; res: Response }) {
   const { id } = req.params;
   const options = {
     transformation: [

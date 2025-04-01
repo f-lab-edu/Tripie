@@ -61,7 +61,7 @@
     "@testing-library/jest-dom": "^6.4.8",
     "@testing-library/react": "^16.0.0",
     "@testing-library/react-hooks": "^8.0.1",
-    "@tripie-pyotato/eslint-config": "workspace:*",
+    "@tripie-pyotato/eslint-config": "^0.0.0",
     "@tripie-pyotato/jest": "workspace:*",
     "@tripie-pyotato/typescript-config": "^0.0.2",
     "@types/geojson": "^7946.0.14",

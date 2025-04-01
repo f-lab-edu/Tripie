@@ -2,6 +2,7 @@
   "name": "@tripie-pyotato/jest",
   "description": "테스트 라이브러리",
   "sideEffects": false,
+  "type": "module",
   "version": "0.0.1",
   "main": "./src/index.ts",
   "exports": {
@@ -42,7 +43,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
     "@tripie-pyotato/typescript-config": "^0.0.2",
-    "@tripie-pyotato/eslint-config": "workspace:*",
+    "@tripie-pyotato/eslint-config": "^0.0.0",
     "@types/jest": "^29.5.12",
     "@types/react": "^18.3.3",
     "jest": "^29.7.0",

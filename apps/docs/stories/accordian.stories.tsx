@@ -14,7 +14,7 @@ const meta: Meta<typeof Accordion> = {
     },
   },
   decorators: [
-    (story, context) => {
+    story => {
       const { mode } = useAppTheme();
       return <div className={`${mode}`}>{story()}</div>;
     },

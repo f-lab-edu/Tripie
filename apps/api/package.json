@@ -3,13 +3,23 @@
   "version": "0.0.0",
   "type": "module",
   "private": true,
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "main": "index.js",
+  "exports": {
+    ".": {
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      },
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
   "scripts": {
     "start": "node dist/index.js",
     "dev": "tsup --watch --onSuccess \"node dist/index.cjs\"",
-    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "build": "tsup",
     "check-types": "tsc --noEmit",
     "lint": "eslint src/ --max-warnings 0",
     "test": "jest --detectOpenHandles"
@@ -30,8 +40,9 @@
   },
   "devDependencies": {
     "@jest/globals": "^29.7.0",
-    "@tripie-pyotato/eslint-config": "workspace:*",
+    "@tripie-pyotato/eslint-config": "^0.0.0",
     "@tripie-pyotato/jest": "workspace:*",
+    "eslint-plugin-storybook": "^0.8.0",
     "@tripie-pyotato/typescript-config": "^0.0.2",
     "@types/body-parser": "^1.19.5",
     "@types/cors": "^2.8.17",
