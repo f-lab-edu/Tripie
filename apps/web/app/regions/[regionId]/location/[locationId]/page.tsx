@@ -1,15 +1,9 @@
 'use server';
 
-import { Container } from '@tripie-pyotato/design-system';
-import { Params, parseParams } from 'app/parse-params';
-import RegionTitle from 'app/regions/_components/RegionTitle';
+import { Params } from 'app/parse-params';
+import LocationSection from 'app/regions/_components/LocationSection';
 import { TRIPIE_REGION_IDS } from 'constants/tripie-country';
-import { RegionParamProps } from 'models/Props';
-
-async function pageParamData({ params }: RegionParamProps) {
-  const { regionId, locationId } = await parseParams(params);
-  return { locationId, regionId };
-}
+import { pageParamData } from './layout';
 
 const Articles = async ({ params }: { params: Promise<Params> }) => {
   const { regionId, locationId } = await pageParamData({ params });
@@ -18,11 +12,7 @@ const Articles = async ({ params }: { params: Promise<Params> }) => {
     return <>missing..</>;
   }
 
-  return (
-    <Container applyMargin="left">
-      <RegionTitle regionId={regionId} city={TRIPIE_REGION_IDS[locationId as keyof typeof TRIPIE_REGION_IDS]} />
-    </Container>
-  );
+  return <LocationSection regionId={regionId} city={TRIPIE_REGION_IDS[locationId as keyof typeof TRIPIE_REGION_IDS]} />;
 };
 
 export default Articles;

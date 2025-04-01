@@ -1,16 +1,10 @@
-import '@tripie-pyotato/design-system/global';
-
-import { Container } from '@tripie-pyotato/design-system';
 import { ReactNode } from 'react';
+import PostLayout from '../_components/PostSection';
 
 export default function Layout({
   children,
 }: Readonly<{
   children: ReactNode;
 }>) {
-  return (
-    <Container margin="xl" applyMargin="top">
-      {children}
-    </Container>
-  );
+  return <PostLayout>{children}</PostLayout>;
 }

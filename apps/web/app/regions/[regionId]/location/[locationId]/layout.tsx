@@ -1,16 +1,19 @@
-import '@tripie-pyotato/design-system/global';
+'use server';
 
-import { Container } from '@tripie-pyotato/design-system';
+import { RegionParamProps } from 'models/Props';
 import { ReactNode } from 'react';
 
-export default function Layout({
+import { parseParams } from 'app/parse-params';
+
+export async function pageParamData({ params }: RegionParamProps) {
+  const { regionId, locationId } = await parseParams(params);
+  return { locationId, regionId };
+}
+
+export default async function Layout({
   children,
 }: Readonly<{
   children: ReactNode;
 }>) {
-  return (
-    <Container margin="xl" applyMargin="top">
-      {children}
-    </Container>
-  );
+  return <>{children}</>;
 }

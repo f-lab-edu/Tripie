@@ -1,6 +1,7 @@
 'use client';
 import { Container } from '@tripie-pyotato/design-system';
 import BUSINESS_DATE from 'constants/date';
+import useServerTime from 'hooks/useServerTime';
 import { BusinessHour } from 'models/Attraction';
 import { classNames } from 'wrapper';
 import ArticleHeading from '../Elements/Header';
@@ -8,7 +9,9 @@ import Style from './business-hours.module.scss';
 
 const cx = classNames.bind(Style);
 
-const BusinessHours = ({ readableBusinessHours, today }: { readableBusinessHours: BusinessHour[]; today: number }) => {
+const BusinessHours = ({ readableBusinessHours }: { readableBusinessHours: BusinessHour[] }) => {
+  const { dayOfToday } = useServerTime();
+
   return (
     <>
       <ArticleHeading item={{ type: 'heading3', value: { text: '이용가능시간, 휴무일' } }} />
@@ -20,7 +23,9 @@ const BusinessHours = ({ readableBusinessHours, today }: { readableBusinessHours
               <Container
                 margin="none"
                 key={dayOfWeek}
-                className={cx(BUSINESS_DATE[today] === BUSINESS_DATE[dayOfWeek] ? 'today' : null)}
+                className={cx(
+                  dayOfToday == null || BUSINESS_DATE[dayOfToday] != BUSINESS_DATE[dayOfWeek] ? '' : 'today'
+                )}
               >
                 <Container margin="none" className={cx('day')}>
                   {BUSINESS_DATE[dayOfWeek]}
@@ -34,7 +39,9 @@ const BusinessHours = ({ readableBusinessHours, today }: { readableBusinessHours
               <Container
                 margin="none"
                 key={dayOfWeek}
-                className={cx(BUSINESS_DATE[today] === BUSINESS_DATE[dayOfWeek] ? 'today' : null)}
+                className={cx(
+                  dayOfToday == null || BUSINESS_DATE[dayOfToday] != BUSINESS_DATE[dayOfWeek] ? '' : 'today'
+                )}
               >
                 <Container margin="none" className={cx('day')}>
                   {BUSINESS_DATE[dayOfWeek]}

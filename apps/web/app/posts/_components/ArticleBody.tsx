@@ -1,4 +1,4 @@
-'use server';
+'use client';
 
 import { Container } from '@tripie-pyotato/design-system';
 
@@ -12,7 +12,6 @@ import RestaurantRecommendationList from './RestaurantRecommendationList';
 import TipDescription from './TipDescription';
 
 const ArticleBody = ({ source, dataUrl }: { source: AttractionArticle['source']; dataUrl: string }) => {
-  const today = new Date().getDay();
   return (
     <Container margin="none">
       <ArticleDescription comment={source?.comment} />
@@ -33,7 +32,7 @@ const ArticleBody = ({ source, dataUrl }: { source: AttractionArticle['source'];
         }}
         dataUrl={dataUrl}
       />
-      <BusinessHours readableBusinessHours={source?.readableBusinessHours} today={today} />
+      <BusinessHours readableBusinessHours={source?.readableBusinessHours} />
       <FeeDescription feeComment={source?.feeComment} />
       <TipDescription tips={source?.tips} />
       {source.externalLinks.length === 0 ? null : <ExternalLinks externalLinks={source.externalLinks} />}

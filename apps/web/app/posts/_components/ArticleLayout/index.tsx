@@ -1,4 +1,4 @@
-'use server';
+'use client';
 import { Card, Container } from '@tripie-pyotato/design-system';
 import { classNames } from 'wrapper';
 
@@ -7,7 +7,7 @@ import Style from './article-layout.module.scss';
 
 const cx = classNames.bind(Style);
 
-const ArticleLayout = async ({
+const ArticleLayout = ({
   title,
   thumbnail,
   articleBody,

@@ -7,6 +7,7 @@ const useServerTime = (baseTime?: string) => {
   const [serverTime, setServerTime] = useState<string>('');
   const [date, setDate] = useState<Date>();
   const [today, setToday] = useState<Date>();
+  const [dayOfToday, setDayOfToday] = useState<number>();
 
   useEffect(() => {
     const interval = setInterval(async () => {
@@ -14,6 +15,7 @@ const useServerTime = (baseTime?: string) => {
       setServerTime(response.serverTime);
       setDate(new Date(response.serverTime));
       setToday(new Date(response.serverTime));
+      setDayOfToday(new Date(response.serverTime).getDay());
     }, 10_000); // 매 10 초마다 갱신
 
     return () => clearInterval(interval);
@@ -27,6 +29,6 @@ const useServerTime = (baseTime?: string) => {
     }
   }, [baseTime, serverTime]);
 
-  return { serverTime, isValidTime, date, today };
+  return { serverTime, isValidTime, date, today, dayOfToday };
 };
 export default useServerTime;

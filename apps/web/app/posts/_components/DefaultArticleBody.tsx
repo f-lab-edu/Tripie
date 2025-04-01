@@ -11,7 +11,7 @@ import ArticlePois from 'app/posts/_components/Elements/Pois';
 import ArticleText from 'app/posts/_components/Elements/Text';
 import { BodyItemProps } from 'models/Props';
 
-const ArticleBody = ({
+const DefaultArticleBody = ({
   items,
   regionId,
   dataUrl,
@@ -60,4 +60,4 @@ const ArticleBody = ({
   });
 };
 
-export default ArticleBody;
+export default DefaultArticleBody;
