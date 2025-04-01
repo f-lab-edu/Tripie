@@ -1,4 +1,4 @@
-import COLORS from '../../shared/colors';
+import { COLORS } from '../../shared/colors';
 import { MotionProps } from '../../shared/wrappers/motion-wrapper';
 
 export const TEXT_UNDERLINE_VARIANTS = {

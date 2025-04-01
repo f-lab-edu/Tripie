@@ -18,7 +18,7 @@ const AnimatedButton = ({
   onClick,
   animate = 'rest',
   withMinWidth = false,
-  selected=false
+  selected = false,
 }: Readonly<{
   children: ReactNode;
   disabled?: boolean;
@@ -29,21 +29,27 @@ const AnimatedButton = ({
   onClick?: () => void;
   animate?: 'rest' | 'hover';
   withMinWidth?: boolean;
-  selected?:boolean;
+  selected?: boolean;
 }>) => {
   return (
     <Motion.Button
       disabled={disabled}
       onTap={onClick}
       type={type}
-      className={cx('button', withBorder && 'with-border', withMinWidth && 'min',className,selected?'selected':'')}
+      className={cx(
+        'button',
+        withBorder && 'with-border',
+        withMinWidth && 'min',
+        className,
+        selected ? 'selected' : ''
+      )}
       initial="rest"
       whileHover={disabled ? 'rest' : 'hover'}
       whileTap={disabled ? 'rest' : 'hover'}
       animate={animate}
     >
       <Text.Flick>{children}</Text.Flick>
-      <span className={cx('gap')}>{' '}</span>
+      <span className={cx('gap')}> </span>
       <Text.Flick className={cx('hovered')}>{otherChild}</Text.Flick>
     </Motion.Button>
   );

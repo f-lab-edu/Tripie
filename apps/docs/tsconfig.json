@@ -1,0 +1,16 @@
+{
+  "extends": "@tripie-pyotato/typescript-config/nextjs.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "declaration": false,
+    "declarationMap": false,
+    "incremental": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "esnext",
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "target": "es5"
+  },
+  "include": ["."],
+  "exclude": ["dist", "build", "node_modules"]
+}

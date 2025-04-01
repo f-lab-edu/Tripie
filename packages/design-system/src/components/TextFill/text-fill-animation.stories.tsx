@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { useEffect } from 'react';
 
 import { useAppTheme } from '../../hooks';
-import COLORS from '../../shared/colors';
+import { COLORS } from '../../shared/colors';
 import TextFillAnimation from './TextFillAnimation';
 
 const meta: Meta<typeof TextFillAnimation> = {

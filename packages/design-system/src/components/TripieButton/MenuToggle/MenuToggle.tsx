@@ -1,8 +1,9 @@
+'use client';
 import { classNames, Motion, MotionProps } from '../../../shared/wrappers';
 
 import { ReactNode } from 'react';
 import { useCycle } from '../../../hooks/useCycle';
-import COLORS from '../../../shared/colors';
+import { COLORS } from '../../../shared/colors';
 
 import TripieContainer from '../../TripieContainer/TripieContainer';
 import NoStyleButton from '../NoStyle/NoStyleButton';

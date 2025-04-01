@@ -12,10 +12,10 @@
   font-family: 'MaruBuri';
   src:
     local('MaruBuri'),
-    url('./static/fonts/MaruBuri-Regular.woff2') format('woff2'),
-    url('./static/fonts/MaruBuri-Regular.woff') format('woff'),
-    url('./static/fonts/MaruBuri-Regular.otf') format('otf'),
-    url('./static/fonts/MaruBuri-Regular.eot') format('eot');
+    url('../static/fonts/MaruBuri-Regular.woff2') format('woff2'),
+    url('../static/fonts/MaruBuri-Regular.woff') format('woff'),
+    url('../static/fonts/MaruBuri-Regular.otf') format('otf'),
+    url('../static/fonts/MaruBuri-Regular.eot') format('eot');
 }
 
 html,

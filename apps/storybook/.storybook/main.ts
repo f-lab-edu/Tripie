@@ -26,7 +26,7 @@ const config: StorybookConfig = {
     '../static',
     '../../web/public/',
     { from: '../../web/public/icons', to: '/icons' },
-    { from: '../../../packages/design-system/src/static/fonts', to: './preview.tsx' },
+    { from: '../../../packages/design-system/static/fonts', to: './preview.tsx' },
   ],
   refs: {
     // 👇 Upper-case characters not supported in the refs key

@@ -69,7 +69,7 @@ const AnimatedText = ({
   otherChild = children,
   withBorder = false,
   animate = 'rest',
-  action
+  action,
 }: Readonly<{
   children: ReactNode;
   disabled?: boolean;
@@ -77,7 +77,7 @@ const AnimatedText = ({
   className?: string;
   withBorder?: boolean;
   animate?: 'rest' | 'hover';
-  action?:()=>void;
+  action?: () => void;
 }>) => {
   return (
     <Motion.Div

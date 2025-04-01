@@ -6,10 +6,10 @@ import Container from '../TripieContainer/TripieContainer';
 import Style from './splash-screen.module.scss';
 const cx = classNames.bind(Style);
 
-const SplashScreen = ({ children,className }: Readonly<{ children: ReactNode ,className?:string}>) => {
+const SplashScreen = ({ children, className }: Readonly<{ children: ReactNode; className?: string }>) => {
   return (
     <Motion.Div
-      className={cx('splash-full-screen',className)}
+      className={cx('splash-full-screen', className)}
       initial={{ opacity: 1, y: 0 }}
       animate={{ opacity: 1, y: '-120%' }}
       transition={{ duration: 0.8, delay: 1 }}
@@ -19,9 +19,9 @@ const SplashScreen = ({ children,className }: Readonly<{ children: ReactNode ,cl
   );
 };
 
-const ControlledSplashScreen = ({ children,className }: Readonly<{ children: ReactNode,className?:string }>) => {
+const ControlledSplashScreen = ({ children, className }: Readonly<{ children: ReactNode; className?: string }>) => {
   return (
-    <Motion.Div className={cx('splash-full-screen',className)} initial={{ opacity: 1, y: 0 }}>
+    <Motion.Div className={cx('splash-full-screen', className)} initial={{ opacity: 1, y: 0 }}>
       <Container align="center">{children}</Container>
     </Motion.Div>
   );

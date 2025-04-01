@@ -1,4 +1,4 @@
-import { COLORS } from '@tripie-pyotato/design-system';
+import { COLORS } from '@tripie-pyotato/design-system/shared';
 
 // aws 지도 호출 상수들
 const MAP_NAME = 'explore.map.Esri';
