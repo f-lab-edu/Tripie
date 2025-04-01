@@ -1,6 +1,6 @@
 'use client';
 
-import Divider from '@tripie-pyotato/design-system/components/Divider/Divider';
+import { Divider } from '@tripie-pyotato/design-system';
 import ArticleImages from 'app/posts/_components/Elements/ArticleImages';
 import ArticleEmbedded from 'app/posts/_components/Elements/Embedded';
 import ArticleHeading from 'app/posts/_components/Elements/Header';

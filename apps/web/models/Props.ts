@@ -1,3 +1,4 @@
+import { MotionProps } from '@tripie-pyotato/design-system';
 import { Link as LinkType } from 'models/Link';
 import { ArticleImage } from './Article';
 import { Poi } from './Aws';

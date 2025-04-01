@@ -4,7 +4,7 @@ import { Carousel, Chip, Container, Divider, Icon } from '@tripie-pyotato/design
 import { Dispatch, SetStateAction, createRef, memo, useRef } from 'react';
 import { classNames } from 'wrapper';
 
-import { Transport } from '@tripie-pyotato/design-system/components/TripieIcon/Icon';
+import { Transport } from 'models/Itinery';
 import { MapWithCarouselProps } from 'models/Props';
 import PoiCard from '../Pois/PoiCard';
 import Style from './map-with-carousel.module.scss';

@@ -1,9 +1,9 @@
-import { Transport } from '@tripie-pyotato/design-system/components/TripieIcon/Icon';
 import { ArticleImage } from './Article';
 import { Activity, Poi } from './Aws';
 
 export type Category = { id: string; name: string };
 export type Region = { source: { names: { en: string; ko: string } } };
+export type Transport = 'WALK' | 'TRAM' | 'TRAIN' | 'SHIP' | 'BUS' | 'FLAG' | 'CAR';
 
 export type Geolocation = {
   coordinates: number[];

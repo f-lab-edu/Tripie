@@ -4,7 +4,6 @@ import { createRef, useRef } from 'react';
 import usePoi from 'hooks/usePoi';
 
 import { Carousel, Container } from '@tripie-pyotato/design-system';
-import TripieContainer from '@tripie-pyotato/design-system/components/TripieContainer/TripieContainer';
 import { PoisProps } from 'models/Props';
 import { MapProvider } from 'react-map-gl/dist/esm/exports-maplibre';
 import AwsMap from '../TripieMap';
@@ -18,7 +17,7 @@ const ArticlePois = ({ item }: { item: PoisProps }) => {
   return (
     <Container applyMargin="top-bottom">
       <MapProvider>
-        <TripieContainer applyMargin="bottom" margin="m">
+        <Container applyMargin="bottom" margin="m">
           <Carousel.Controlled>
             {pois.map((poi, index) => (
               <PoiCard
@@ -30,7 +29,7 @@ const ArticlePois = ({ item }: { item: PoisProps }) => {
               />
             ))}
           </Carousel.Controlled>
-        </TripieContainer>
+        </Container>
         {coordinates.length === 0 ? null : (
           <AwsMap locations={coordinates} center={center} current={current} setCurrent={setCurrent} />
         )}
