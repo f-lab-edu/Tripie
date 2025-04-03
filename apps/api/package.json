@@ -24,9 +24,6 @@
     "lint": "eslint src/ --max-warnings 0",
     "test": "jest --detectOpenHandles"
   },
-  "jest": {
-    "preset": "@tripie-pyotato/jest/server"
-  },
   "dependencies": {
     "@ai-sdk/openai": "^0.0.58",
     "ai": "^3.3.30",
@@ -41,7 +38,6 @@
   "devDependencies": {
     "@jest/globals": "^29.7.0",
     "@tripie-pyotato/eslint-config": "^0.0.0",
-    "@tripie-pyotato/jest": "workspace:*",
     "eslint-plugin-storybook": "^0.8.0",
     "@tripie-pyotato/typescript-config": "^0.0.2",
     "@types/body-parser": "^1.19.5",

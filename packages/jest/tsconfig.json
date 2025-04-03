@@ -1,11 +1,11 @@
 {
-  "extends": "@tripie-pyotato/typescript-config/base.json",
+  "extends": "@tripie-pyotato/typescript-config/base",
   "compilerOptions": {
     "rootDir": ".",
     "outDir": "./dist",
     "types": ["jest", "react"],
     "emitDeclarationOnly": true
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["**/*.ts", "**/*.tsx", "../config-jest/src/jest.config.ts"],
   "exclude": ["dist"]
 }

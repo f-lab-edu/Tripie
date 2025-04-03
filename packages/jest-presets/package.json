@@ -1,0 +1,12 @@
+{
+  "name": "@tripie-pyotato/jest-presets",
+  "version": "0.0.0",
+  "private": true,
+  "files": [
+    "node/jest-preset.ts"
+  ],
+  "dependencies": {
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5"
+  }
+}

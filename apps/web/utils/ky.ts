@@ -36,7 +36,7 @@ export const awsApi = ky.extend({
 });
 
 export const backendApi = ky.extend({
-  prefixUrl: 'http://localhost:5001/',
+  prefixUrl: API.BACKEND_URL,
   timeout: 60_000, // https://www.npmjs.com/package/ky/v/0.9.0?activeTab=readme#timeout
   hooks: {
     afterResponse: [

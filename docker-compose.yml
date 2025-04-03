@@ -1,0 +1,30 @@
+services:
+  # web:
+  #   container_name: web
+  #   build:
+  #     context: .
+  #     dockerfile: ./apps/web/Dockerfile
+  #   restart: always
+  #   ports:
+  #     - 3000:3000
+  #   networks:
+  #     - app_network
+  api:
+    container_name: api
+    build:
+      context: .
+      dockerfile: ./apps/api/Dockerfile
+    restart: always
+    ports:
+      - 5001:5001
+    networks:
+      # - tripie-pyotato # https://forums.docker.com/t/set-default-network-name-for-compose/36779/5
+      - app_network
+
+# Define a network, which allows containers to communicate
+# with each other, by using their container name as a hostname
+networks:
+  # tripie-pyotato:
+  # name: tripie-pyotato-app-network
+  app_network:
+    external: true

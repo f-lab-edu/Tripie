@@ -19,6 +19,7 @@ const API = {
   GOOGLE_SEARCH_URL: 'https://www.google.com/maps/search/',
   TRIPLE_ARTICLES: 'articles',
   BLUR_IMAGE: '/blur-image',
+  BACKEND_URL: process.env.NEXT_PUBLIC_BACKEND_URL,
 };
 
 export default API;

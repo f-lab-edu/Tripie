@@ -2,7 +2,6 @@
   "name": "@tripie-pyotato/hooks",
   "description": "tripie 공통 hooks",
   "sideEffects": false,
-  "type": "module",
   "version": "0.0.1",
   "main": "./src/index.ts",
   "exports": {
@@ -27,7 +26,7 @@
     "react": "^18.3.1",
     "tsup": "^8.1.2",
     "typescript": "^5",
-    "@tripie-pyotato/typescript-config": "^0.0.2",
+    "@tripie-pyotato/typescript-config": "workspace:*",
     "@tripie-pyotato/eslint-config": "workspace:*"
   },
   "peerDependencies": {
