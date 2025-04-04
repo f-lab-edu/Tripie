@@ -49,7 +49,8 @@
         "VERCEL_ENV",
         "VERCEL_URL",
         "PRISMA_QUERY_ENGINE_LIBRARY",
-        "NEXT_PUBLIC_DOMAIN"
+        "NEXT_PUBLIC_DOMAIN",
+        "NEXT_PUBLIC_BACKEND_URL"
       ]
     },
     "web#build": {
@@ -74,7 +75,8 @@
         "NEXT_GITHUB_ID",
         "NEXT_GITHUB_SECRET",
         "AUTH_KAKAO_ID",
-        "AUTH_KAKAO_SECRET"
+        "AUTH_KAKAO_SECRET",
+        "NEXT_PUBLIC_BACKEND_URL"
       ],
       "outputs": [".next/**", "!.next/cache/**"]
     },
