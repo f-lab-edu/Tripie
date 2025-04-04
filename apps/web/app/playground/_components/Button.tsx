@@ -1,6 +1,8 @@
 'use client';
 
-import addImage from 'app/api/cloudinary/addImage';
+import { backendApi } from 'utils/ky';
+
+// import addImage from 'app/api/cloudinary/addImage';
 
 export default function PlaygroundButton() {
   const getPage = async () => {
@@ -24,10 +26,20 @@ export default function PlaygroundButton() {
 
     // console.log('PlaygroundButton', res);
 
+    const res = await backendApi.post('openai', {
+      json: {
+        companion: 'PARTNER',
+        country: 'Portugal',
+        duration: '4/4/2025 12:00:00 AM ~ 4/4/2025 11:59:59 PM',
+        preference: 'CULTURE_ART_HISTORY,VACATION_VIBES',
+        selectedCities: 'Aveiro',
+      },
+    });
+
     // https://res.cloudinary.com/dbzzletpw/image/upload/v1743150199/github.png
     // const res = await getImage('a3f30646-f436-418f-b41f-693ff4555706');
-    const res = await addImage('https://tripie-mauve.vercel.app/noise.png');
-    console.log('PlaygroundButton', res);
+    // const res = await addImage('https://tripie-mauve.vercel.app/noise.png');
+    // console.log('PlaygroundButton', res);
     // const blurDataURLs = await Promise.all(
     //   data.map(async contents => {
     //     const blurredThumbnail = await Promise.all(
@@ -160,7 +172,7 @@ export default function PlaygroundButton() {
     //   })
     // );
 
-    console.log('done');
+    console.log(res, 'done');
   };
 
   // console.log('data', data);

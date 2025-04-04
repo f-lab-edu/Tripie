@@ -38,6 +38,10 @@ const openai = createOpenAI({
 });
 
 async function getTripPlan({ res, req }: { req: Request; res: Response }): Promise<ChatGptResponse> {
+  if (!process.env.OPENAI_API_KEY) {
+    return res.status(500).json({ error: 'Internal Server Error', data: null, message: 'no OPENAI_API_KEY in env' });
+  }
+
   try {
     const { duration, selectedCities, country, companion, preference } = req.body;
 

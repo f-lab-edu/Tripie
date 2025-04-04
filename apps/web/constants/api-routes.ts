@@ -20,6 +20,7 @@ const API = {
   TRIPLE_ARTICLES: 'articles',
   BLUR_IMAGE: '/blur-image',
   BACKEND_URL: process.env.NEXT_PUBLIC_BACKEND_URL,
+  //  process.env.NODE_ENV === 'development' ? 'http://localhost:5001' : process.env.NEXT_PUBLIC_BACKEND_URL,
 };
 
 export default API;
