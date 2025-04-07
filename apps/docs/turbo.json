@@ -1,0 +1,15 @@
+{
+  "extends": ["//"],
+  "tasks": {
+    "build:storybook-docs": {
+      "dependsOn": ["^build:storybook-docs"],
+      "env": ["CHROMATIC_PROJECT_TOKEN"],
+      "outputs": ["storybook-static/**"]
+    },
+    "chromatic": {
+      "dependsOn": ["^chromatic"],
+      "env": ["CHROMATIC_PROJECT_TOKEN"],
+      "outputs": ["storybook-static/**"]
+    }
+  }
+}

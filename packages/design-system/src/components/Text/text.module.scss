@@ -1,4 +1,5 @@
 @use '../../base/' as *;
+@use '../../variables' as *;
 @use '../../functions/' as *;
 @use '../../generator/' as *;
 @use '../../mixins/index.scss' as *;
@@ -7,6 +8,7 @@
 @use 'sass:map';
 
 .text {
+  color: inherit;
   @include word-wrap;
   font-size: font-size(text);
   &[aria-selected='false'] {
@@ -15,13 +17,13 @@
   &[aria-selected='true'] {
     color: color(default, 900);
   }
-  color: inherit;
 }
 
 .flick {
   z-index: 30;
   width: fit-content;
   height: 3rem;
+  @include flex;
 }
 
 .min {
@@ -80,4 +82,9 @@
 
 .bold {
   font-weight: font-weight(bold);
+}
+
+.cross {
+  text-decoration: line-through;
+  color: $theme-40;
 }

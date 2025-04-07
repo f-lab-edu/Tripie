@@ -36,7 +36,7 @@ const PreferenceStep = ({ context, onNext, onPrev }: Props) => {
 
   return (
     <>
-      <Container applyMargin="top" margin="l">
+      <Container applyMargin="top" margin="l" padding="l" applyPadding="top">
         <Headings.H2 className={cx('flex-text')}>
           <Icon.Navigate
             sizes="large"
@@ -58,6 +58,7 @@ const PreferenceStep = ({ context, onNext, onPrev }: Props) => {
       <PreferenceList selected={selected} setSelected={setSelected} />
       <Container margin="l" applyMargin="top">
         <AnimatedButton
+          isFullSize={true}
           withBorder={true}
           disabled={selected.length === 0}
           onClick={handleSubmit}

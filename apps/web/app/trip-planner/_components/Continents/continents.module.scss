@@ -3,15 +3,6 @@
 
 .chip {
   @include chip;
-  padding: 1rem;
-  height: 1rem;
-}
-
-.submit-button {
-  @include submit-button;
-}
-.flex {
-  @include flex;
 }
 
 .flex-text {

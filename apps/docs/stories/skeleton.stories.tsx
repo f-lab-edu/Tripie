@@ -1,0 +1,25 @@
+import type { Meta, StoryObj } from '@storybook/react';
+import { Skeleton, useAppTheme } from '@tripie-pyotato/design-system';
+
+const meta: Meta<typeof Skeleton> = {
+  title: 'tripie-design/Skeleton',
+  component: Skeleton,
+  tags: ['autodocs'],
+  decorators: [
+    (story, context) => {
+      const { mode } = useAppTheme();
+      context.globals.theme = mode;
+      return <div className={`${mode}`}>{story()}</div>;
+    },
+  ],
+};
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
+  name: 'Default Skeleton',
+  args: {
+    children: <Skeleton></Skeleton>,
+  },
+};

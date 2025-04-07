@@ -1,18 +1,7 @@
 @use 'sass:math';
 @use 'sass:map';
 @use 'variables' as *;
-
-$background-gradients: (
-  '0': $background-gradient-0,
-  '1': $background-gradient-1,
-  '2': $background-gradient-2,
-  '3': $background-gradient-3,
-  '4': $background-gradient-4,
-  '5': $background-gradient-5,
-  '6': $background-gradient-6,
-  '7': $background-gradient-7,
-  '8': $background-gradient-8,
-);
+@use './functions/' as *;
 
 @mixin background($variant) {
   align-content: flex-start;
@@ -265,11 +254,112 @@ $background-gradients: (
   }
 }
 
+@mixin margins($direction, $size) {
+  @if ($direction == 'top-bottom') {
+    margin: $size 0;
+  } @else if ($direction == 'left-right') {
+    margin: 0 $size;
+  } @else if ($direction == 'top-left-right') {
+    margin: $size;
+    margin-bottom: 0;
+  } @else if($direction == 'left-right-bottom') {
+    margin: $size;
+    margin-top: 0;
+  } @else if ($direction == 'left') {
+    margin: 0;
+    margin-left: $size;
+  } @else if ($direction == 'right') {
+    margin: 0;
+    margin-right: $size;
+  } @else if ($direction == 'top') {
+    margin: 0;
+    margin-top: $size;
+  } @else if ($direction == 'bottom') {
+    margin: 0;
+    margin-bottom: $size;
+  } @else if ($direction == 'all') {
+    margin: $size;
+  }
+}
+
 @mixin flex-text {
   display: inline-flex;
   align-items: center;
   gap: 0.2rem;
   @media (max-width: 300px) {
     align-items: baseline;
+  }
+}
+
+@mixin padding($direction, $size) {
+  @if ($direction == 'top-bottom') {
+    padding: $size 0;
+  } @else if ($direction == 'left-right') {
+    padding: 0 $size;
+  } @else if ($direction == 'top-left-right') {
+    padding: $size;
+    padding-bottom: 0;
+  } @else if($direction == 'left-right-bottom') {
+    padding: $size;
+    padding-top: 0;
+  } @else if ($direction == 'left') {
+    padding: 0;
+    padding-left: $size;
+  } @else if ($direction == 'right') {
+    padding: 0;
+    padding-right: $size;
+  } @else if ($direction == 'top') {
+    padding: 0;
+    padding-top: $size;
+  } @else if ($direction == 'bottom') {
+    padding: 0;
+    padding-bottom: $size;
+  } @else if ($direction == 'all') {
+    padding: $size;
+  }
+}
+
+@each $key, $value in $padding-space-map {
+  .container.padding-all.#{$key} {
+    @include padding('all', $value);
+  }
+  .container.padding-top-bottom.#{$key} {
+    @include padding('top-bottom', $value);
+  }
+  .container.padding-left-right.#{$key} {
+    @include padding('left-right', $value);
+  }
+  .container.padding-left.#{$key} {
+    @include padding('left', $value);
+  }
+  .container.padding-right.#{$key} {
+    @include padding('right', $value);
+  }
+  .container.top.#{$key} {
+    @include padding('top', $value);
+  }
+  .container.padding-bottom.#{$key} {
+    @include padding('bottom', $value);
+  }
+  .container.padding-top-left-right.#{$key} {
+    @include padding('top-left-right', $value);
+  }
+  .container.padding-left-right-bottom.#{$key} {
+    @include padding('left-right-bottom', $value);
+  }
+}
+
+@mixin justify-content($orientation) {
+  @if ($orientation!= 'none') {
+    @include flex;
+    gap: 0.5rem;
+    justify-content: $orientation;
+  }
+}
+
+@mixin align-items($orientation) {
+  @if ($orientation!= 'none') {
+    @include flex;
+    align-items: $orientation;
   }
 }

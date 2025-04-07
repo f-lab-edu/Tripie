@@ -24,7 +24,7 @@ interface Props {
 const DurationStep = ({ context, onNext, onPrev }: Props) => {
   return (
     <>
-      <Container applyMargin="top" margin="l">
+      <Container applyMargin="top" margin="l" padding="l" applyPadding="top">
         <Headings.H2 className={cx('flex-text')}>
           <Icon.Navigate
             sizes="large"

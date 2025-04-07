@@ -129,7 +129,7 @@ const TripPlan = () => {
   });
 
   return (
-    <Container margin="none" className={cx('background')}>
+    <Container margin="none" className={cx('background')} padding="m">
       <funnel.Render
         CONTINENT={({ context, history }) => (
           <ContinentStep

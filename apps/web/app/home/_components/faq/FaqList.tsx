@@ -1,20 +1,15 @@
 'use client';
 import { Accordion, Container } from '@tripie-pyotato/design-system';
 import FAQS from 'constants/faq';
-import { classNames } from 'wrapper';
-
-import Style from './faq.module.scss';
-
-const cx = classNames.bind(Style);
 
 export default function FaqList() {
   return (
-    <Container className={cx('wrap')} applyMargin="top-bottom">
+    <Container applyMargin="top-bottom">
       {FAQS.map(({ tag, header, details }) => (
-        <Container key={tag} applyMargin="all">
+        <Container key={tag} applyMargin="top-bottom" padding="sm" applyPadding="bottom">
           <Accordion>
             <Accordion.Header>
-              <Container className={cx('flex')} margin="sm" applyMargin="top-bottom">
+              <Container justifyContent="start" margin="none">
                 <Accordion.Icon />
                 {header}
               </Container>

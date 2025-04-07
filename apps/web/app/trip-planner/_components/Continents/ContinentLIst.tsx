@@ -45,7 +45,7 @@ export function ContinentList({ selectedContinent, action }: Readonly<Props>) {
           key={JSON.stringify(continent)}
           onClick={() => {
             action(Object.keys(CONTINENTS)[index] as ContinentKeys);
-            prefetch(CONTINENTS[continent as ContinentKeys].id as ContinentIds);
+            prefetch(CONTINENTS[continent as ContinentKeys].id);
           }}
         >
           {CONTINENTS[continent as ContinentKeys].name}

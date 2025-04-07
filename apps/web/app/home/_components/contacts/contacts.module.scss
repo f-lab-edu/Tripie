@@ -5,8 +5,3 @@
   @include background('1');
   padding: 50px 0;
 }
-
-.flex {
-  @include flex;
-  justify-content: flex-start;
-}

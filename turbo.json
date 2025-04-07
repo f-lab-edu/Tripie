@@ -76,7 +76,10 @@
       ],
       "outputs": [".next/**", "!.next/cache/**"]
     },
-    "build:storybook": {
+    "build:storybook-docs": {
+      "env": ["CHROMATIC_TOKEN"]
+    },
+    "chromatic": {
       "env": ["CHROMATIC_TOKEN"]
     },
     "build:api": {

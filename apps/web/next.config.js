@@ -86,6 +86,12 @@ const nextConfig = {
         port: '',
         pathname: '/wikipedia/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.comg',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 };

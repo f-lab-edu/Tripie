@@ -14,6 +14,7 @@ const Articles = async () => {
   )?.[0];
 
   const dynamicBlurDataUrl = await getRegionArticles(selectedRegion);
+
   return (
     <RegionSection
       dynamicBlurDataUrl={dynamicBlurDataUrl}

@@ -1,11 +1,6 @@
 @use 'mixins' as *;
 @use 'variables' as *;
 
-.card-wrap {
-  align-items: stretch;
-  justify-content: flex-start;
-}
-
 .content-wrap {
   height: 12rem;
 }

@@ -2,11 +2,6 @@
 import { Container, Divider, Headings, List, Text, TextUnderLineAnimation } from '@tripie-pyotato/design-system';
 import { LANDING_SECTION } from 'constants/routes';
 import { useRouter } from 'next/navigation';
-import { classNames } from 'wrapper';
-
-import Style from './footer.module.scss';
-
-const cx = classNames.bind(Style);
 
 const footerItems = [
   { label: 'year', content: '© 2024' },
@@ -24,8 +19,8 @@ const footerItems = [
 export default function Footer() {
   const router = useRouter();
   return (
-    <footer className={cx('footer-wrap')}>
-      <Container margin="m" applyMargin="left-right-bottom">
+    <footer>
+      <Container margin="m" applyMargin="left-right-bottom" applyPadding="bottom" padding="m">
         <Container applyMargin="bottom" margin="sm" align="left">
           <TextUnderLineAnimation>
             <Headings.H3>

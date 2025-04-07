@@ -1,15 +1,5 @@
 @use 'mixins' as *;
-@use 'variables' as *;
 
-.flex-text {
-  @include flex-text;
-}
-
-.cross {
-  text-decoration: line-through;
-  color: $theme-40;
-}
-
-.submit-button {
-  width: 100%;
+.wrap {
+  @include list-wrap;
 }

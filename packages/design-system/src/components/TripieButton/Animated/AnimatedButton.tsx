@@ -16,12 +16,14 @@ const AnimatedButton = ({
   otherChild = children,
   withBorder = false,
   onClick,
+  isFullSize = false,
   animate = 'rest',
   withMinWidth = false,
   selected = false,
 }: Readonly<{
   children: ReactNode;
   disabled?: boolean;
+  isFullSize?: boolean;
   otherChild?: ReactNode;
   className?: string;
   withBorder?: boolean;
@@ -41,7 +43,8 @@ const AnimatedButton = ({
         withBorder && 'with-border',
         withMinWidth && 'min',
         className,
-        selected ? 'selected' : ''
+        selected ? 'selected' : '',
+        isFullSize ? 'is-full-size' : ''
       )}
       initial="rest"
       whileHover={disabled ? 'rest' : 'hover'}
@@ -61,7 +64,7 @@ export const AnimatedText = ({
   disabled = false,
   otherChild = children,
   withBorder = false,
-
+  isFullSize = false,
   animate = 'rest',
   withMinWidth = false,
 }: Readonly<{
@@ -70,13 +73,19 @@ export const AnimatedText = ({
   otherChild?: ReactNode;
   className?: string;
   withBorder?: boolean;
-
+  isFullSize?: boolean;
   animate?: 'rest' | 'hover';
   withMinWidth?: boolean;
 }>) => {
   return (
     <Motion.Div
-      className={cx('button', withBorder && 'with-border', withMinWidth && 'min', className)}
+      className={cx(
+        'button',
+        withBorder && 'with-border',
+        withMinWidth && 'min',
+        isFullSize ? 'is-full-size' : '',
+        className
+      )}
       initial="rest"
       whileHover={disabled ? 'rest' : 'hover'}
       whileTap={disabled ? 'rest' : 'hover'}

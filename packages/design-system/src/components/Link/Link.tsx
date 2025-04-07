@@ -1,15 +1,16 @@
 'use client';
 
 import Link from 'next/link';
+import { ReactNode } from 'react';
 import { classNames } from '../../shared/wrappers';
 import Text, { TextProps } from '../Text';
 import Style from './link.module.scss';
 
-const style = classNames.bind(Style);
+const cs = classNames.bind(Style);
 
 export interface LinkProps extends React.RefAttributes<HTMLAnchorElement> {
   href: string;
-  children: string;
+  children: ReactNode | string;
   className?: string;
   'aria-selected'?: boolean;
   'aria-disabled'?: boolean;
@@ -20,10 +21,14 @@ export interface LinkProps extends React.RefAttributes<HTMLAnchorElement> {
 
 function UnstyledLink({ children, className, href, role, size = 'default', ...props }: Readonly<LinkProps>) {
   return (
-    <Link href={href} className={style('link', className)} role={role} {...props}>
-      <Text bold={true} size={size}>
-        {children}
-      </Text>
+    <Link href={href} className={cs('link', className)} role={role} {...props}>
+      {children?.toString === children ? (
+        <Text bold={true} size={size}>
+          {children}
+        </Text>
+      ) : (
+        children
+      )}
     </Link>
   );
 }

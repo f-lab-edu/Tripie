@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic';
 import { Suspense, useEffect, useRef } from 'react';
 
-import { COLORS, Container } from '@tripie-pyotato/design-system';
+import { CLOUDINARY_URL, COLORS, Container } from '@tripie-pyotato/design-system';
 import { GlobeMethods } from 'react-globe.gl';
 import Countries from './countries.json';
 import './globe.scss';
@@ -40,7 +40,7 @@ const RotatingGlobe = () => {
           height={500}
           ref={globeRef}
           backgroundColor={COLORS['100000']}
-          globeImageUrl="/earth-dark.jpeg"
+          globeImageUrl={`${CLOUDINARY_URL}earth-dark_evevy1.jpg`}
           hexPolygonsData={Countries.features}
           hexPolygonColor={() => COLORS[50]}
           atmosphereColor={COLORS[50]}

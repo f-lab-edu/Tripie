@@ -11,11 +11,11 @@ export default function Subscription() {
 
   return (
     <Card.Content>
-      <Container margin="l" className={cx('with-border', 'chip-wrap')} applyMargin="bottom">
+      <Container margin="m" withBorder={true} className={cx('chip-wrap')} applyMargin="bottom" padding="sm">
         <Switch current={current} cycle={cycle} text={current} />
-        <div>Subscription</div>
+        <span>Subscription</span>
       </Container>
-      <Container margin="none" className={cx('with-border', 'chip-wrap')}>
+      <Container margin="none" withBorder={true} className={cx('chip-wrap')} padding="m">
         <Chip>Basic</Chip>
         <Chip.Accented current={current} cycle={cycle}>
           Pro

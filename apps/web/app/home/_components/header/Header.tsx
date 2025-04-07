@@ -19,7 +19,7 @@ const cx = classNames.bind(Style);
 
 const PageTitle = () => {
   return (
-    <Container margin="none" align="center" className={cx('preserve-white-space')}>
+    <Container margin="none" align="center" preserveWhiteSpace={true}>
       <Headings.H1>
         <Text.Accented>AI </Text.Accented>enhanced{'\n'}trip planner.
       </Headings.H1>
@@ -35,23 +35,17 @@ const ShortCutButtons = () => {
       tag: 'contacts',
       link: ROUTE.CONTACT.href,
       contents: (
-        <span className={cx('flex')}>
+        <>
           Get in touch <Icon />
-        </span>
+        </>
       ),
     },
   ];
 
   return (
-    <Container align="center" margin="none" className={cx('flex', 'button-wrap')}>
+    <Container align="center" margin="none" justifyContent="center">
       {SHORT_CUT_LINKS.map(({ tag, link, contents }) => (
-        <AnimatedButton
-          withBorder={true}
-          key={tag}
-          className={cx('main-button')}
-          withMinWidth={true}
-          onClick={() => navigation.push(link)}
-        >
+        <AnimatedButton withBorder={true} key={tag} withMinWidth={true} onClick={() => navigation.push(link)}>
           {contents}
         </AnimatedButton>
       ))}

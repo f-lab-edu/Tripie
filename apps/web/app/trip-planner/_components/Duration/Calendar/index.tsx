@@ -90,6 +90,7 @@ const Calendars = ({
       <AnimatedButton
         withBorder={true}
         disabled={duration.end === ''}
+        isFullSize={true}
         onClick={handleSubmit}
         className={cx('submit-button', duration.end !== '' && 'long-text')}
       >

@@ -13,12 +13,24 @@ export interface TextProps {
   bold?: boolean;
   children: ReactNode;
   className?: string;
+  crossOut?: boolean;
 }
 
-const Text = ({ children, className, size = 'default', bold = false, ...props }: Readonly<TextProps>) => {
+const Text = ({
+  children,
+  className,
+  size = 'default',
+  bold = false,
+  crossOut = false,
+  ...props
+}: Readonly<TextProps>) => {
   const splitText = `${children}`.split('\n').map((sentence, index) => {
     return (
-      <span className={cx('text', bold ? 'bold' : '', size, className)} key={index + sentence} {...props}>
+      <span
+        className={cx('text', bold ? 'bold' : '', size, crossOut ? 'cross' : '', className)}
+        key={index + sentence}
+        {...props}
+      >
         {sentence}
       </span>
     );

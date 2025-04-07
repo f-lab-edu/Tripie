@@ -1,6 +1,0 @@
-{
-  "projectId": "Project:",
-  "buildScriptName": "build:storybook",
-  "exitZeroOnChanges": true,
-  "autoAcceptChanges": true
-}

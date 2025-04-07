@@ -18,9 +18,7 @@ export default function Plan() {
             </Headings.H2>
           </Container>
         </MotionSlideUp>
-        <Container className={cx('wrap')} margin="l" applyMargin="top-bottom">
-          <PlanList />
-        </Container>
+        <PlanList />
       </Container>
     </section>
   );

@@ -1,10 +1,5 @@
 'use client';
 import { Accordion, Container, Headings, Text } from '@tripie-pyotato/design-system';
-import { classNames } from 'wrapper';
-
-import Style from './our-work-list.module.scss';
-
-const cx = classNames.bind(Style);
 
 const ourWorkList = [
   {
@@ -39,7 +34,7 @@ export default function OurWorkList() {
             <Container margin="m" applyMargin="top">
               <Text.Accented>{year}</Text.Accented>
             </Container>
-            <Container className={cx('flex')} margin="sm" applyMargin="top-bottom">
+            <Container margin="sm" applyMargin="top-bottom" justifyContent="start">
               <Headings.H3>{header}</Headings.H3>
               <Accordion.Icon />
             </Container>

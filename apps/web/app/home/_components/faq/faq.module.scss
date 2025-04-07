@@ -5,13 +5,3 @@
   @include background('1');
   padding: 50px 0 100px;
 }
-.wrap {
-  background-color: $theme-200;
-  border-radius: 10px;
-  padding-bottom: 0.5rem;
-}
-
-.flex {
-  @include flex;
-  gap: 0.5rem;
-}

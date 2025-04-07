@@ -23,7 +23,6 @@ const preview: Preview = {
     // https://stackoverflow.com/questions/74515807/uncaught-error-invariant-expected-app-router-to-be-mounted
     nextjs: { appDirectory: true },
   },
-
   globalTypes: {
     theme: {
       description: 'Global theme for components',

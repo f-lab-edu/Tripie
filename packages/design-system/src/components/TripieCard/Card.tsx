@@ -5,7 +5,7 @@ import { Motion, classNames } from '../../shared/wrappers';
 import Divider from '../Divider';
 import MotionSlideUp from '../MotionSlideUp/MotionSlideUp';
 import Text from '../Text';
-import TripieContainer from '../TripieContainer/TripieContainer';
+import TripieContainer, { TripieContainerProps } from '../TripieContainer/TripieContainer';
 import TripieImage, { ImageSizes } from '../TripieImage';
 import Style from './card.module.scss';
 
@@ -20,9 +20,23 @@ export type CustomAnimationProps = {
   children?: ReactNode;
   className?: string;
   baseColor?: string;
-};
+} & TripieContainerProps;
 
-const Card = ({ duration, replays, delay = 0.3, children, className }: Partial<CustomAnimationProps>) => {
+const Card = ({
+  duration,
+  replays,
+  delay = 0.3,
+  children,
+  className,
+  applyPadding,
+  margin = 'none',
+  padding,
+  justifyContent,
+  align,
+  refs,
+  preserveWhiteSpace,
+  applyMargin,
+}: Partial<CustomAnimationProps>) => {
   return (
     <MotionSlideUp
       delay={delay}
@@ -30,7 +44,17 @@ const Card = ({ duration, replays, delay = 0.3, children, className }: Partial<C
       replays={replays}
       className={cx('with-border', 'outer-wrap', className)}
     >
-      <TripieContainer margin="none" className={cx('noise-contents-contrast')}>
+      <TripieContainer
+        padding={padding}
+        margin={margin}
+        justifyContent={justifyContent}
+        align={align}
+        refs={refs}
+        preserveWhiteSpace={preserveWhiteSpace}
+        className={cx('noise-contents-contrast')}
+        applyMargin={applyMargin}
+        applyPadding={applyPadding}
+      >
         {children}
       </TripieContainer>
 
@@ -43,13 +67,26 @@ const CardContent = ({
   children,
   className,
   ref,
-}: Readonly<{
-  children: ReactNode;
-  className?: string;
-  ref?: MutableRefObject<HTMLDivElement | null>;
-}>) => {
+  margin = 'none',
+  padding = 'm',
+  justifyContent,
+  applyPadding,
+  align,
+  preserveWhiteSpace,
+  applyMargin,
+}: Readonly<Partial<Omit<CustomAnimationProps, 'refs'> & { ref?: MutableRefObject<HTMLDivElement | null> }>>) => {
   return (
-    <TripieContainer margin="none" ref={ref} className={cx('with-border', 'inner-wrap', className)}>
+    <TripieContainer
+      padding={padding}
+      margin={margin}
+      justifyContent={justifyContent}
+      align={align}
+      preserveWhiteSpace={preserveWhiteSpace}
+      applyMargin={applyMargin}
+      applyPadding={applyPadding}
+      ref={ref}
+      className={cx('with-border', 'inner-wrap', className)}
+    >
       {children}
     </TripieContainer>
   );
@@ -86,12 +123,25 @@ const ClickableCardContent = ({
 const CardDescription = ({
   children,
   className,
-}: Readonly<{
-  children: ReactNode;
-  className?: string;
-}>) => {
+  margin = 'none',
+  padding = 'none',
+  justifyContent,
+  applyPadding,
+  align,
+  preserveWhiteSpace,
+  applyMargin,
+}: Readonly<TripieContainerProps>) => {
   return (
-    <TripieContainer margin="none" className={cx('inner-wrap', 'with-description', className)}>
+    <TripieContainer
+      padding={padding}
+      justifyContent={justifyContent}
+      applyMargin={applyMargin}
+      align={align}
+      applyPadding={applyPadding}
+      preserveWhiteSpace={preserveWhiteSpace}
+      margin={margin}
+      className={cx('inner-wrap', 'with-description', className)}
+    >
       {children}
     </TripieContainer>
   );

@@ -59,3 +59,7 @@
   right: 2rem;
   float: right;
 }
+
+.is-full-size {
+  @include submit-button;
+}

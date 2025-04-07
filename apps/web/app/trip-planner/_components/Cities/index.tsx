@@ -32,7 +32,7 @@ const CityStep = ({ context, onNext, onPrev }: Props) => {
 
   return (
     <>
-      <Container applyMargin="top" margin="l">
+      <Container applyMargin="top" margin="l" padding="l" applyPadding="top">
         <Headings.H2 className={cx('flex-text')}>
           <Icon.Navigate
             sizes="large"
@@ -54,6 +54,7 @@ const CityStep = ({ context, onNext, onPrev }: Props) => {
       <CityList cities={cities} selected={selected} setSelected={setSelected} />
       <AnimatedButton
         withBorder={true}
+        isFullSize={true}
         disabled={selected.length === 0}
         onClick={handleSubmit}
         className={cx('submit-button')}

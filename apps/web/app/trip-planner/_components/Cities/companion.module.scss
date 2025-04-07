@@ -1,10 +1,6 @@
 @use 'variables' as *;
 @use 'mixins' as *;
 
-.submit-button {
-  @include submit-button;
-}
-
 .flex {
   @include flex;
 }

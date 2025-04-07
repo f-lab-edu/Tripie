@@ -1,6 +1,10 @@
-@use '../../functions/' as *;
 @use 'sass:map';
+@use '../../mixins' as *;
+@use '../../variables' as *;
 
+.container {
+  display: inline-block;
+}
 .preserve-white-space {
   @media (max-width: 470px) {
     white-space: pre-wrap;
@@ -24,42 +28,6 @@
   justify-content: flex-end;
   align-content: stretch;
   flex-wrap: nowrap;
-}
-
-$space-map: (
-  xl: space(4rem),
-  l: space(2rem),
-  m: space(1rem),
-  sm: space(0.6rem),
-  xsm: space(0.2rem),
-);
-
-@mixin margins($direction, $size) {
-  @if ($direction == 'top-bottom') {
-    margin: $size 0;
-  } @else if ($direction == 'left-right') {
-    margin: 0 $size;
-  } @else if ($direction == 'top-left-right') {
-    margin: $size;
-    margin-bottom: 0;
-  } @else if($direction == 'left-right-bottom') {
-    margin: $size;
-    margin-top: 0;
-  } @else if ($direction == 'left') {
-    margin: 0;
-    margin-left: $size;
-  } @else if ($direction == 'right') {
-    margin: 0;
-    margin-right: $size;
-  } @else if ($direction == 'top') {
-    margin: 0;
-    margin-top: $size;
-  } @else if ($direction == 'bottom') {
-    margin: 0;
-    margin-bottom: $size;
-  } @else if ($direction == 'all') {
-    margin: $size;
-  }
 }
 
 @each $key, $value in $space-map {
@@ -90,4 +58,20 @@ $space-map: (
   .container.left-right-bottom.#{$key} {
     @include margins('left-right-bottom', $value);
   }
+}
+
+@each $value in $justify-content-values {
+  .justify-content-#{$value} {
+    @include justify-content($value);
+  }
+}
+
+@each $value in $align-items-values {
+  .align-items-#{$value} {
+    @include align-items($value);
+  }
+}
+
+.with-border {
+  @include with-border;
 }

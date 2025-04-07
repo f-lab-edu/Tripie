@@ -57,7 +57,7 @@ export default function CountryStep({ context, onNext, onPrev }: Readonly<Props>
 
   return (
     <>
-      <Container applyMargin="top" margin="l">
+      <Container applyMargin="top" margin="l" padding="l" applyPadding="top">
         <Headings.H2 className={cx('flex-text')}>
           <Icon.Navigate
             sizes="large"
@@ -83,6 +83,7 @@ export default function CountryStep({ context, onNext, onPrev }: Readonly<Props>
           />
           <CountryList countries={data} setSelectedCountry={setSelectedCountry} selectedCountry={selectedCountry} />
           <AnimatedButton
+            isFullSize={true}
             withBorder={true}
             onClick={async () => {
               const states = await getCitys(selectedCountry);

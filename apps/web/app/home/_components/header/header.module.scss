@@ -17,24 +17,3 @@
     width: 80%;
   }
 }
-.preserve-white-space {
-  @media (max-width: 470px) {
-    white-space: pre-wrap;
-  }
-}
-
-.flex {
-  @include flex;
-}
-
-.button-wrap {
-  gap: 10px;
-}
-
-.main-button {
-  @media (max-width: 500px) {
-    width: 3vw;
-    overflow: hidden;
-    justify-content: center;
-  }
-}

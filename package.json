@@ -9,7 +9,8 @@
   },
   "scripts": {
     "build": "turbo build",
-    "build:storybook": "turbo run build:storybook --filter=storybook",
+    "build:storybook-docs": "turbo run build:storybook-docs --filter=docs",
+    "chromatic": "turbo run chromatic -- --force-rebuild --filter=docs",
     "build:api": "turbo run build:api --filter=api",
     "dev": "turbo dev",
     "lint": "turbo lint",

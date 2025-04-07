@@ -9,20 +9,3 @@
   position: relative;
   overflow: hidden;
 }
-
-.with-border {
-  @include with-border;
-}
-
-.inner-wrap {
-  @include with-border;
-  @include flexbox(column);
-  gap: 15px;
-  z-index: 1;
-  height: 220px;
-  overflow: hidden;
-  padding: 1rem;
-  position: relative;
-  width: 100%;
-  background-color: $theme-200;
-}

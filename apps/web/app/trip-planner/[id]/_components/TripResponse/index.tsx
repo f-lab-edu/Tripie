@@ -76,7 +76,7 @@ const TripResponse = ({ data }: { data: ChatResponseData }) => {
 
   return (
     <Suspense fallback={<Loading />}>
-      <Container margin="none" className={cx('background')}>
+      <Container margin="none" className={cx('background')} padding="m">
         <TabContext.Provider value={selectedActivityValues}>
           <SelectedDateContext.Provider value={selectedDateValues}>
             <MapTab data={data.plans} coordinates={coordinates} />

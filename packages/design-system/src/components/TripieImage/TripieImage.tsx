@@ -1,8 +1,6 @@
 'use client';
 import { classNames } from '../../shared/wrappers';
 
-import Image from 'next/image';
-
 import { PLACEHOLDER } from '../../shared/resource';
 import Text from '../Text';
 import TripieContainer from '../TripieContainer';
@@ -20,7 +18,7 @@ const TripieImage = ({
   className,
   withBorder = true,
   blurDataURL,
-  fill = true,
+  // fill = true,
 }: {
   alt: string;
   src?: string;
@@ -29,14 +27,21 @@ const TripieImage = ({
   sizes?: ImageSizes;
   blurDataURL?: string;
   withBorder?: boolean;
-  fill?: boolean;
+  // fill?: boolean;
 }) => {
+  console.log(blurDataURL);
   return (
     <TripieContainer
       margin="none"
       className={cx('tripie-image', 'img-wrap', sizes, withBorder && 'with-border', className)}
     >
-      {blurDataURL == null ? (
+      <img
+        className={cx('tripie-image', 'img-wrap', sizes, withBorder && 'with-border')}
+        src={src ?? PLACEHOLDER}
+        alt={`${alt}의 이미지일 수 있음`}
+        ref={refs}
+      />
+      {/* {blurDataURL == null ? (
         <img
           className={cx('tripie-image', 'img-wrap', sizes, withBorder && 'with-border')}
           src={src ?? PLACEHOLDER}
@@ -53,7 +58,7 @@ const TripieImage = ({
           blurDataURL={blurDataURL}
           ref={refs}
         />
-      )}
+      )} */}
     </TripieContainer>
   );
 };

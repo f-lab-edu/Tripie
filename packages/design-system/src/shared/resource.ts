@@ -2,7 +2,7 @@ export const PLACEHOLDER = 'https://placehold.co/600x600?text=NO IMAGE';
 export const LOADING_IMG = 'https://placehold.co/600x600?text=LOADING';
 
 const CLOUDINARY_BUCKET_NAME = 'dbzzletpw';
-export const CLOUDINARY_ICON_URL = `https://res.cloudinary.com/${CLOUDINARY_BUCKET_NAME}/image/upload/`;
+export const CLOUDINARY_URL = `https://res.cloudinary.com/${CLOUDINARY_BUCKET_NAME}/image/upload/`;
 
 export const RESOURCE = {
   ARROW: 'v1743149708/arrow.avif',
@@ -25,4 +25,4 @@ export const RESOURCE = {
   GITHUB: 'v1743150199/github.png',
 };
 
-export const ICON_RESOURCE = (key: keyof typeof RESOURCE) => CLOUDINARY_ICON_URL + RESOURCE[key];
+export const ICON_RESOURCE = (key: keyof typeof RESOURCE) => CLOUDINARY_URL + RESOURCE[key];

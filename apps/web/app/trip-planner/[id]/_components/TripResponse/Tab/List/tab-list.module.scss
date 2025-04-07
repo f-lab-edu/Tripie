@@ -2,9 +2,6 @@
 @use 'mixins' as *;
 
 .trip-item {
-  display: inline-flex;
+  @include flex;
   flex-direction: column;
-  flex-wrap: nowrap;
-  gap: 1rem;
-  width: 100%;
 }

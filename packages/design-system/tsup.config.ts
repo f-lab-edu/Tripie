@@ -13,7 +13,6 @@ export default defineConfig(options => ({
     js: `'use client';`, // https://esbuild.github.io/api/#banner // https://github.com/evanw/esbuild/issues/3115#issuecomment-1546184806
   },
   esbuildPlugins: [
-    // useClientPlugin,
     sassPlugin({
       filter: /\.module\.scss$/,
       transform: postcssModules({ basedir: './dist' }),

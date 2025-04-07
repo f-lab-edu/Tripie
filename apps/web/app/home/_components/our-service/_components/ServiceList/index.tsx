@@ -41,9 +41,9 @@ const serviceList = [
 
 export default function ServiceList() {
   return serviceList.map(({ label, content, description }) => (
-    <Card key={label} className={cx('card-wrap')}>
+    <Card key={label}>
       {content}
-      <Card.Description className={cx('card-description')}>
+      <Card.Description>
         <Description descriptionTitle={label}>{description}</Description>
       </Card.Description>
     </Card>

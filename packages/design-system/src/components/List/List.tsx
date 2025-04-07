@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { classNames } from '../../shared/wrappers';
-import TripieContainer from '../TripieContainer/TripieContainer';
+import TripieContainer, { TripieContainerProps } from '../TripieContainer/TripieContainer';
 import Style from './list.module.scss';
 
 const cx = classNames.bind(Style);
@@ -29,8 +29,8 @@ export const ListItem = ({
   className,
 }: {
   children: ReactNode;
-  justifyContent?: 'flex-start' | 'center' | 'flex-end';
-  alignItems?: 'normal' | 'center' | 'start' | 'stretch' | 'end';
+  justifyContent?: TripieContainerProps['justifyContent'];
+  alignItems?: TripieContainerProps['alignItems'];
   gap?: 'default' | 'l'; // 0.5rem 1rem
   className?: string;
 }) => {

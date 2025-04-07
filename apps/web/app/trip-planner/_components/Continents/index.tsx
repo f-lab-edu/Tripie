@@ -35,17 +35,17 @@ export default function ContinentStep({ context, onNext }: Readonly<Props>) {
 
   return (
     <>
-      <Container applyMargin="top" margin="l">
+      <Container applyMargin="top" margin="l" padding="l" applyPadding="top">
         <Headings.H2>
           떠나고 싶은 <Text.Accented>지역</Text.Accented>은?
         </Headings.H2>
       </Container>
       <RotatingGlobe />
       <ContinentList selectedContinent={selectedContinent} action={setSelectedContinent} />
-
       <AnimatedButton
+        isFullSize={true}
         withBorder={true}
-        className={cx('chip', 'submit-button')}
+        className={cx('chip')}
         onClick={() => onNext({ continent: CONTINENTS[selectedContinent]['id'] as ContinentKeys })}
       >
         <span className={cx('flex-text')}>
