@@ -1,14 +1,6 @@
 @use 'mixins' as *;
 
 .loading-wrap {
-  height: 20rem;
+  height: 30rem;
   width: 100%;
-}
-
-.flex {
-  @include flex;
-}
-
-.text-wrap {
-  gap: 0.2rem;
 }

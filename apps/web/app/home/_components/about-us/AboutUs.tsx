@@ -11,7 +11,7 @@ const cx = classNames.bind(Style);
 
 export default function AboutUs() {
   return (
-    <Container className={cx('about-us')} margin="none">
+    <Container className={cx('about-us')} margin="none" alignItems="center">
       <Container applyMargin="left-right" margin="m">
         <TextFillAnimation text={`We're a trip planner`} />
         <TextFillAnimation text={`Enhanced with AI.`} endColor={COLORS[50]} />

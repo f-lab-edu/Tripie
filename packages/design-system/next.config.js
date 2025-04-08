@@ -4,23 +4,12 @@
  * https://nextjs.org/docs/app/building-your-application/styling/sass#customizing-sass-options
  */
 
-import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  sassOptions: {
-    includePaths: [path.join(__dirname, 'styles'), path.join(__dirname, '../../packages/design-system/src')],
-
-    silenceDeprecations: ['legacy-js-api'],
-  },
-
-  transpilePackages: ['@tripie-pyotato/design-system'],
-  outputFileTracingIncludes: {
-    '/api/gpt': ['node_modules/.prisma/client/**', 'node_modules/@prisma/engines/**'],
-  },
   images: {
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
@@ -56,6 +45,7 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
+
       {
         protocol: 'http',
         hostname: 'blogthumb2.naver.net',
@@ -88,7 +78,7 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'res.cloudinary.comg',
+        hostname: 'res.cloudinary.com',
         port: '',
         pathname: '/**',
       },

@@ -8,7 +8,7 @@ export default function PostLayout({
   children: ReactNode;
 }>) {
   return (
-    <Container margin="xl" applyMargin="top">
+    <Container margin="xl" applyMargin="top" justifyContent="center">
       {children}
     </Container>
   );

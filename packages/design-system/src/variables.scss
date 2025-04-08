@@ -58,7 +58,7 @@ $justify-content-values: (
   none
 );
 
-$align-items-values: (normal, center, start, stretch, end, flex-start, flex-end, none);
+$align-items-values: (baseline, normal, center, start, stretch, end, flex-start, flex-end, none);
 
 $space-map: (
   xl: space(4rem),
@@ -67,6 +67,7 @@ $space-map: (
   sm: space(0.6rem),
   xsm: space(0.2rem),
 );
+
 $padding-space-map: (
   padding-xl: space(4rem),
   padding-l: space(2rem),
@@ -74,4 +75,11 @@ $padding-space-map: (
   padding-sm: space(0.6rem),
   padding-xsm: space(0.2rem),
   padding-none: 0,
+);
+
+$gap-space-map: (
+  sm: space(0.2rem),
+  default: space(0.5rem),
+  l: space(1rem),
+  none: 0,
 );

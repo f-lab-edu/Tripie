@@ -13,6 +13,7 @@ const cx = classNames.bind(Style);
 
 const ExternalLinkCard = ({ link, index }: { link: ExternalLink; index: number }) => {
   const navigate = useRouter();
+
   return (
     <Card key={link.url + index} className={cx('attraction-card-wrap')}>
       <Card.ClickableContent className={cx('attraction-card')} onClick={() => navigate.push(link.url)}>

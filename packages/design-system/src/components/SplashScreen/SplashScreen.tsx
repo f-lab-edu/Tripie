@@ -14,7 +14,9 @@ const SplashScreen = ({ children, className }: Readonly<{ children: ReactNode; c
       animate={{ opacity: 1, y: '-120%' }}
       transition={{ duration: 0.8, delay: 1 }}
     >
-      <Container align="center">{children}</Container>
+      <Container alignItems="center" justifyContent="center">
+        {children}
+      </Container>
     </Motion.Div>
   );
 };
@@ -22,7 +24,9 @@ const SplashScreen = ({ children, className }: Readonly<{ children: ReactNode; c
 const ControlledSplashScreen = ({ children, className }: Readonly<{ children: ReactNode; className?: string }>) => {
   return (
     <Motion.Div className={cx('splash-full-screen', className)} initial={{ opacity: 1, y: 0 }}>
-      <Container align="center">{children}</Container>
+      <Container alignItems="center" justifyContent="center">
+        {children}
+      </Container>
     </Motion.Div>
   );
 };

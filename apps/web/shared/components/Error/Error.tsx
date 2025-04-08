@@ -31,7 +31,7 @@ export default function SeverError() {
 
         <Container className={cx('button-wrap')} margin="none">
           {errors.msg}
-          <Container align="center" margin="none" className={cx('chip-wrap')}>
+          <Container align="center" margin="none" justifyContent="center" padding="l" applyPadding="top">
             <Chip.Accented onClick={handleClickHome}>bring me back home</Chip.Accented>
           </Container>
         </Container>

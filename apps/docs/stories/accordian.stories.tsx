@@ -24,52 +24,35 @@ const meta: Meta<typeof Accordion> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const dummyContents = [
+  {
+    header: 'title 1',
+    content: 'content 1',
+  },
+  {
+    header: 'title 2',
+    content: 'content 2',
+  },
+];
+
 export const Default: Story = {
   name: 'Default',
   render: () => {
     return (
-      <Accordion>
-        <Accordion.Header>
-          <Container margin="m" applyMargin="top">
-            Default <Accordion.Icon />
-          </Container>
-        </Accordion.Header>
-        <Accordion.Divider />
-        <Container applyMargin="top-bottom">
-          <Accordion.Body>default content</Accordion.Body>
-        </Container>
-      </Accordion>
-    );
-  },
-};
-
-export const MultipleAccordion: Story = {
-  name: 'Multiple',
-  render: () => {
-    return (
       <>
-        <Accordion>
-          <Accordion.Header>
-            <Container margin="m" applyMargin="top">
-              Accordion 1 <Accordion.Icon />
+        {dummyContents.map(({ header, content }: { header: string; content: string }) => (
+          <Accordion key={header}>
+            <Accordion.Header>
+              <Container margin="m" applyMargin="top">
+                {header} <Accordion.Icon />
+              </Container>
+            </Accordion.Header>
+            <Accordion.Divider />
+            <Container applyMargin="top-bottom">
+              <Accordion.Body>{content}</Accordion.Body>
             </Container>
-          </Accordion.Header>
-          <Accordion.Divider />
-          <Container applyMargin="top-bottom">
-            <Accordion.Body>Accordion content 1</Accordion.Body>
-          </Container>
-        </Accordion>
-        <Accordion>
-          <Accordion.Header>
-            <Container margin="m" applyMargin="top">
-              Accordion 2<Accordion.Icon />
-            </Container>
-          </Accordion.Header>
-          <Accordion.Divider />
-          <Container applyMargin="top-bottom">
-            <Accordion.Body>Accordion content 2</Accordion.Body>
-          </Container>
-        </Accordion>
+          </Accordion>
+        ))}
       </>
     );
   },

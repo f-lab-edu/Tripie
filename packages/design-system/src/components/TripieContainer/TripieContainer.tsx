@@ -45,6 +45,7 @@ export type TripieContainerProps = {
     | 'right'
     | 'top'
     | 'bottom';
+  gap?: 'none' | 'sm' | 'default' | 'l';
   withBorder?: boolean;
 } & Omit<ComponentProps<'div'>, 'children'>;
 
@@ -61,6 +62,7 @@ const TripieContainer = ({
   applyPadding = 'all',
   preserveWhiteSpace = false,
   refs,
+  gap = 'none',
   justifyContent = 'none',
   withBorder = false,
   ...props
@@ -72,6 +74,7 @@ const TripieContainer = ({
         'layout-fill-available',
         `align-${align}`,
         `align-items-${alignItems}`,
+        alignItems != 'none' || gap !== 'none' || justifyContent !== 'none' ? 'flex' : '',
         'container',
         `padding-${padding}`,
         `padding-${applyPadding}`,
@@ -79,6 +82,7 @@ const TripieContainer = ({
         margin,
         withBorder ? 'with-border' : '',
         `justify-content-${justifyContent}`,
+        `gap-${gap}`,
         preserveWhiteSpace ? 'preserve-white-space' : '',
         className
       )}

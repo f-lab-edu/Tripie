@@ -1,7 +1,10 @@
+@use 'mixins' as *;
+
 .map-wrap {
   display: inline-flex;
   width: 100%;
   gap: 1rem;
+
   @media (max-width: 800px) {
     flex-wrap: wrap;
     & > div {

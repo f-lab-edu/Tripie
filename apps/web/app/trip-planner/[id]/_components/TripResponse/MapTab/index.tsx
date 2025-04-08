@@ -47,11 +47,11 @@ const MapTab = ({ data, coordinates }: { data: ChatResponseData['plans']; coordi
 
   return (
     <>
-      <Container align="left" margin="none" className={cx('button-wrap')}>
+      <Container gap="sm" margin="none" className={cx('button-wrap')} justifyContent="left">
         {status === 'loading' ? (
-          <>
+          <Container margin="none" gap="sm">
             <Icon.Loading /> <Text.Jump>토큰 확인중...</Text.Jump>
-          </>
+          </Container>
         ) : (
           <TextUnderLineAnimation>
             <NoStyleButton className={cx('center')} action={handleNavigation}>

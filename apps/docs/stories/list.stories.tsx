@@ -38,19 +38,3 @@ export const Default: Story = {
     children: Children(),
   },
 };
-
-export const ListItem: Story = {
-  name: 'Default',
-  args: {
-    children: Children(),
-  },
-};
-
-export const RowList: Story = {
-  name: 'List.Row',
-  render: () => (
-    <List rowView={true}>
-      <Children />
-    </List>
-  ),
-};

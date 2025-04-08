@@ -67,7 +67,6 @@
   display: inline-flex;
   width: 100%;
   flex-basis: auto;
-
   flex-direction: $direction;
   align-items: $align;
   justify-content: $justify;
@@ -320,46 +319,48 @@
 }
 
 @each $key, $value in $padding-space-map {
-  .container.padding-all.#{$key} {
+  .padding-all.#{$key} {
     @include padding('all', $value);
   }
-  .container.padding-top-bottom.#{$key} {
+  .padding-top-bottom.#{$key} {
     @include padding('top-bottom', $value);
   }
-  .container.padding-left-right.#{$key} {
+  .padding-left-right.#{$key} {
     @include padding('left-right', $value);
   }
-  .container.padding-left.#{$key} {
+  .padding-left.#{$key} {
     @include padding('left', $value);
   }
-  .container.padding-right.#{$key} {
+  .padding-right.#{$key} {
     @include padding('right', $value);
   }
-  .container.top.#{$key} {
+  .top.#{$key} {
     @include padding('top', $value);
   }
-  .container.padding-bottom.#{$key} {
+  .padding-bottom.#{$key} {
     @include padding('bottom', $value);
   }
-  .container.padding-top-left-right.#{$key} {
+  .padding-top-left-right.#{$key} {
     @include padding('top-left-right', $value);
   }
-  .container.padding-left-right-bottom.#{$key} {
+  .padding-left-right-bottom.#{$key} {
     @include padding('left-right-bottom', $value);
   }
 }
 
 @mixin justify-content($orientation) {
   @if ($orientation!= 'none') {
-    @include flex;
     gap: 0.5rem;
     justify-content: $orientation;
   }
 }
 
 @mixin align-items($orientation) {
-  @if ($orientation!= 'none') {
-    @include flex;
+  @if ($orientation!= none) {
     align-items: $orientation;
   }
+}
+
+@mixin gap($size, $value) {
+  gap: $value;
 }

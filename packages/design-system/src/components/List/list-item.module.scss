@@ -1,23 +1,14 @@
 @use '../../variables' as *;
 @use '../../mixins' as *;
 
-.accordion-header {
-  flex-direction: column;
-}
-.divider {
-  height: 1.5px;
-}
-.accordion-body {
-  color: $theme-40;
-  &.preserve-white-space {
-    @media (max-width: 470px) {
-      white-space: pre-wrap;
+.list-item {
+  display: inline-block;
+  width: 100%;
+  @each $key, $value in $gap-space-map {
+    &.gap-#{$key} {
+      @include gap($key, $value);
     }
   }
-}
-.accordion {
-  width: 100%;
-  height: 100%;
 }
 
 .flex {

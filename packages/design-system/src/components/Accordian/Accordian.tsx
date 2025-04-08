@@ -3,6 +3,7 @@ import { classNames, Motion } from '../../shared/wrappers';
 
 import { createContext, ReactNode, useContext, useMemo } from 'react';
 
+import { TripieContainerProps } from '@components/TripieContainer';
 import { useCycle } from '../../hooks';
 import Divider from '../Divider/Divider';
 import Icon, { IconProps } from '../TripieIcon/Icon';
@@ -16,7 +17,7 @@ const AccordionContext = createContext<{ current: string; cycle: () => null }>({
   cycle: () => null,
 });
 
-export type AccordionProps = Partial<{ children: ReactNode; className: string }>;
+export type AccordionProps = Partial<TripieContainerProps & { children: ReactNode; className: string }>;
 
 const Accordion = ({ children, className }: Partial<AccordionProps>) => {
   const [current, cycle] = useCycle('closed', 'open');
@@ -38,10 +39,35 @@ export const AccordionDivider = ({ className }: AccordionProps) => {
   return <Divider current={current} className={cx(className)} />;
 };
 
-export const AccordionHeader = ({ children }: AccordionProps) => {
+export const AccordionHeader = ({
+  children,
+  applyMargin,
+  margin,
+  alignItems = 'flex-start',
+  gap = 'default',
+  justifyContent = 'center',
+  padding,
+  applyPadding,
+  className,
+}: AccordionProps & Partial<TripieContainerProps>) => {
   const { cycle } = useContext(AccordionContext);
   return (
-    <Motion.Div className={cx('accordion-header')} whileHover={{ cursor: 'pointer' }} onTapStart={() => cycle()}>
+    <Motion.Div
+      className={cx(
+        'accordion-header',
+        `padding-${padding}`,
+        `padding-${applyPadding}`,
+        applyMargin,
+        margin,
+        alignItems != 'none' || gap !== 'none' || justifyContent !== 'none' ? 'flex' : '',
+        `align-items-${alignItems}`,
+        `justify-content-${justifyContent}`,
+        `gap-${gap}`,
+        className
+      )}
+      whileHover={{ cursor: 'pointer' }}
+      onTapStart={() => cycle()}
+    >
       {children}
     </Motion.Div>
   );
@@ -54,11 +80,39 @@ export const AccordionIcon = ({ src, className, sizes = 'icon' }: IconProps) => 
   );
 };
 
-export const AccordionBody = ({ children }: AccordionProps) => {
+export const AccordionBody = ({
+  children,
+  applyMargin,
+  margin,
+  alignItems = 'flex-start',
+  gap = 'default',
+  justifyContent = 'center',
+  padding,
+  applyPadding,
+  preserveWhiteSpace,
+  className,
+}: AccordionProps & Partial<TripieContainerProps>) => {
   const { current } = useContext(AccordionContext);
 
   return (
-    <Motion.Div variants={ACCORDIAN_VARIANTS.DETAILS} animate={current} className={cx('accordion-body')}>
+    <Motion.Div
+      variants={ACCORDIAN_VARIANTS.DETAILS}
+      animate={current}
+      className={cx(
+        'accordion-body',
+        'accordion-header',
+        `padding-${padding}`,
+        `padding-${applyPadding}`,
+        applyMargin,
+        margin,
+        alignItems != 'none' || gap !== 'none' || justifyContent !== 'none' ? 'flex' : '',
+        `align-items-${alignItems}`,
+        `justify-content-${justifyContent}`,
+        `gap-${gap}`,
+        preserveWhiteSpace ? 'preserve-white-space' : '',
+        className
+      )}
+    >
       {children}
     </Motion.Div>
   );

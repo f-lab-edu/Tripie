@@ -21,11 +21,11 @@ export default function PlanList() {
               <Text.Accented>{PLANS[key].price}</Text.Accented>
             </Headings.H3>
           </Container>
-          <Container applyMargin="top-bottom" align="left">
+          <Container applyMargin="bottom" align="left">
             Per month
           </Container>
           <Divider />
-          <List>
+          <List view="column" gap={'default'}>
             {PLANS[key].items.map(({ label, description, icon }) => (
               <List.Item gap="default" justifyContent="flex-start" alignItems="center" key={label}>
                 {icon === 'X' ? <Icon.X /> : <Icon.Check />}

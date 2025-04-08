@@ -19,7 +19,7 @@ const ChatTab = ({ data, scrollIntoView = true }: { data: AiTripPlanResponse; sc
   return (
     <Card.Content className={cx('text-left', 'card-wrap', 'trip-list-wrap')}>
       <Headings.H2> {data.name}</Headings.H2>
-      <List className={cx('trip-days-chips-wrap')}>
+      <List className={cx('trip-days-chips-wrap')} view={'row'}>
         {data.trips.map(trip => (
           <List.Item key={trip.date + trip.day}>
             <Chip

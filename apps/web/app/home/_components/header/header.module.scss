@@ -2,7 +2,6 @@
 @use 'mixins' as *;
 
 .wrap {
-  align-items: center;
   display: inline-flex;
   flex-direction: column;
   flex-wrap: nowrap;

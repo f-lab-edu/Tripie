@@ -19,7 +19,7 @@ const CountryName = ({
   blurDataUrl: Continentl['blurDataURL'];
 }) => {
   return (
-    <List.Item alignItems="center">
+    <List.Item alignItems="center" justifyContent="flex-start" padding="sm" applyPadding="bottom">
       <TripieImage
         className={cx('flag-image')}
         src={flagImage[0]}

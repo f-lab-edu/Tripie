@@ -29,7 +29,7 @@ export default function Footer() {
           </TextUnderLineAnimation>
         </Container>
         <Divider />
-        <List>
+        <List view="column" gap="l">
           {footerItems.map(({ label, content }) => (
             <List.Item key={label}>
               <Headings.H3>{content}</Headings.H3>
@@ -37,7 +37,7 @@ export default function Footer() {
           ))}
         </List>
         <Divider />
-        <List>
+        <List view="column" gap="l">
           {LANDING_SECTION.map(({ label, href }) => (
             <List.Item key={href}>
               <TextUnderLineAnimation onClick={() => router.push(href)}>{label}</TextUnderLineAnimation>

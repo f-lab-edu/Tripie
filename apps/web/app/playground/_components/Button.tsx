@@ -1,11 +1,12 @@
 'use client';
 
-import { backendApi } from 'utils/ky';
+import firestoreService from 'app/api/firebase';
 
 // import addImage from 'app/api/cloudinary/addImage';
 
 export default function PlaygroundButton() {
   const getPage = async () => {
+    const res = await firestoreService.getList('article-details');
     // const res = await upload(
     //   'https://media.triple.guide/triple-cms/c_fill,f_auto,h_256,w_256/89c590e0-e026-444e-9307-684d22e7cc42.jpeg',
     //   {
@@ -26,15 +27,15 @@ export default function PlaygroundButton() {
 
     // console.log('PlaygroundButton', res);
 
-    const res = await backendApi.post('openai', {
-      json: {
-        companion: 'PARTNER',
-        country: 'Portugal',
-        duration: '4/4/2025 12:00:00 AM ~ 4/4/2025 11:59:59 PM',
-        preference: 'CULTURE_ART_HISTORY,VACATION_VIBES',
-        selectedCities: 'Aveiro',
-      },
-    });
+    // const res = await backendApi.post('openai', {
+    //   json: {
+    //     companion: 'PARTNER',
+    //     country: 'Portugal',
+    //     duration: '4/4/2025 12:00:00 AM ~ 4/4/2025 11:59:59 PM',
+    //     preference: 'CULTURE_ART_HISTORY,VACATION_VIBES',
+    //     selectedCities: 'Aveiro',
+    //   },
+    // });
 
     // https://res.cloudinary.com/dbzzletpw/image/upload/v1743150199/github.png
     // const res = await getImage('a3f30646-f436-418f-b41f-693ff4555706');
@@ -172,6 +173,11 @@ export default function PlaygroundButton() {
     //   })
     // );
 
+    // console.log(
+    //   res.map(item => {
+    //     return { id: item.id, articles: item.articles.map(item => ({ body: item.body })) };
+    //   })
+    // );
     console.log(res, 'done');
   };
 

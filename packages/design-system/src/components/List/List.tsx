@@ -2,50 +2,22 @@ import { ReactNode } from 'react';
 import { classNames } from '../../shared/wrappers';
 import TripieContainer, { TripieContainerProps } from '../TripieContainer/TripieContainer';
 import Style from './list.module.scss';
+import ListItem from './ListItem';
 
 const cx = classNames.bind(Style);
 
 const List = ({
   children,
   className,
-  rowView = false,
-}: {
-  children: ReactNode;
-  className?: string;
-  rowView?: boolean;
+  view = 'row',
+  gap = 'none',
+}: Partial<TripieContainerProps> & {
+  view?: 'row' | 'column';
 }) => {
   return (
     <TripieContainer margin="m" className={cx(className)} applyMargin="top-bottom">
-      <ul className={cx('list', rowView ? 'row-view' : '')}>{children}</ul>
+      <ul className={cx('list', `gap-${gap}`, view)}>{children}</ul>
     </TripieContainer>
-  );
-};
-
-export const ListItem = ({
-  children,
-  justifyContent = 'flex-start',
-  alignItems = 'normal',
-  gap = 'default',
-  className,
-}: {
-  children: ReactNode;
-  justifyContent?: TripieContainerProps['justifyContent'];
-  alignItems?: TripieContainerProps['alignItems'];
-  gap?: 'default' | 'l'; // 0.5rem 1rem
-  className?: string;
-}) => {
-  return (
-    <li
-      className={cx(
-        'list-item',
-        `justify-content-${justifyContent}`,
-        `align-items-${alignItems}`,
-        `gap-${gap}`,
-        className
-      )}
-    >
-      {children}
-    </li>
   );
 };
 

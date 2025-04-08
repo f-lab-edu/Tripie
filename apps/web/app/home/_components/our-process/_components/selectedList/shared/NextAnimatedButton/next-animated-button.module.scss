@@ -25,7 +25,8 @@
   display: inline-flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  gap: 1rem;
+  // gap: 1rem;
+  gap: gap(default);
   justify-content: center;
   position: relative;
   text-decoration: none;

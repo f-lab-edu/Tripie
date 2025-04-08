@@ -10,6 +10,9 @@
     white-space: pre-wrap;
   }
 }
+.flex {
+  @include flex;
+}
 
 .layout-fill-available {
   width: -moz-available;
@@ -19,13 +22,13 @@
 
 .align-center {
   display: inline-flex;
-  justify-content: center;
+  // justify-content: center;
   align-content: stretch;
   flex-wrap: nowrap;
 }
 .align-right {
   display: inline-flex;
-  justify-content: flex-end;
+  // justify-content: flex-end;
   align-content: stretch;
   flex-wrap: nowrap;
 }
@@ -69,6 +72,12 @@
 @each $value in $align-items-values {
   .align-items-#{$value} {
     @include align-items($value);
+  }
+}
+
+@each $key, $value in $gap-space-map {
+  .gap-#{$key} {
+    @include gap($key, $value);
   }
 }
 

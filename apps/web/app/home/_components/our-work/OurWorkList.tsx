@@ -27,20 +27,18 @@ const ourWorkList = [
 
 export default function OurWorkList() {
   return (
-    <Container>
+    <Container applyMargin="top-left-right">
       {ourWorkList.map(({ year, tag, header, details }) => (
         <Accordion key={tag}>
           <Accordion.Header>
-            <Container margin="m" applyMargin="top">
-              <Text.Accented>{year}</Text.Accented>
-            </Container>
-            <Container margin="sm" applyMargin="top-bottom" justifyContent="start">
+            <Text.Accented size="tiny">{year}</Text.Accented>
+            <Container margin="sm" alignItems="center" applyMargin="bottom" justifyContent="start" gap="default">
               <Headings.H3>{header}</Headings.H3>
               <Accordion.Icon />
             </Container>
           </Accordion.Header>
           <Accordion.Divider />
-          <Container applyMargin="top-bottom">
+          <Container padding="m" applyMargin="bottom" applyPadding="top-bottom">
             <Accordion.Body>{details}</Accordion.Body>
           </Container>
         </Accordion>

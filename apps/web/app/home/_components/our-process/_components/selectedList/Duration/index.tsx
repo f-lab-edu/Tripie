@@ -75,20 +75,16 @@ const DurationSelect = () => {
 
   if (today == null || duration == null) {
     return (
-      <Container margin="none" className={cx('loading-wrap', 'flex')} align="center">
-        <Container margin="none" className={cx('text-wrap')} align="center">
-          <Icon.Loading />
-          Loading...
-        </Container>
+      <Container margin="none" gap={'sm'} className={cx('loading-wrap')} alignItems="center" justifyContent="center">
+        <Icon.Loading />
+        Loading...
       </Container>
     );
   }
 
   return (
     <Container margin="none">
-      <Container margin="none">
-        <Calendars calendar={calendar.slice(0, 1)} duration={duration} selected={selected as LooseValue} />
-      </Container>
+      <Calendars calendar={calendar.slice(0, 1)} duration={duration} selected={selected as LooseValue} />
       <NextButton>
         {duration.start} ~ {duration.end} <Icon />
       </NextButton>

@@ -15,7 +15,7 @@ const meta: Meta<typeof List.Item> = {
       control: { type: 'radio' },
     },
     gap: {
-      options: ['default', 'l'],
+      options: ['none', 'sm', 'default', 'l'],
       control: { type: 'radio' },
     },
   },
@@ -33,7 +33,7 @@ export const Default: Story = {
   name: 'Default',
   render: args => {
     return (
-      <List.Item alignItems="normal" {...args}>
+      <List.Item {...args}>
         <Icon />
         list item
       </List.Item>
@@ -69,7 +69,7 @@ export const Default: Story = {
       defaultValue: 'default',
       description: 'flex gap 속성을 "default"로 설정시 0.5rem, "l"로 설정 시 1rem',
       table: {
-        type: { summary: "'default' | 'l'" },
+        type: { summary: "'none' | 'sm' | 'default' | 'l'" },
         defaultValue: { summary: 'default' },
       },
     },

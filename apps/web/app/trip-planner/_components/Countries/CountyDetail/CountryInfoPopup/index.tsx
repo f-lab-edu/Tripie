@@ -35,7 +35,7 @@ const CountryInfoPopup = ({
     {
       label: 'capital name',
       content: (
-        <List.Item alignItems="center" gap="l">
+        <List.Item alignItems="center" gap="l" padding="m">
           <Text.Accented className={cx('capital', 'verticle-center')}>수도</Text.Accented>
           <span className={cx('capital-name')}>{capital}</span>
         </List.Item>
@@ -44,7 +44,7 @@ const CountryInfoPopup = ({
     {
       label: 'languages',
       content: (
-        <List.Item alignItems="center" gap="l">
+        <List.Item alignItems="center" gap="l" padding="m">
           <Text.Accented className={cx('language', 'center', 'verticle-center')}>공식 언어</Text.Accented>
           {officialLanguage != null ? (
             <List className={cx('flex')}>

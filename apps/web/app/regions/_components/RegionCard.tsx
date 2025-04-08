@@ -11,7 +11,7 @@ const RegionCard = ({ article }: { article: RegionArticleInfo }) => {
   const { alt } = useImgAlt({ imgUrl: article.source.image.sizes.full.url });
 
   return (
-    <List.Item>
+    <List.Item alignItems="stretch">
       <Card.WithCoverImage
         src={article.source.image.sizes.small_square.url}
         alt={alt}

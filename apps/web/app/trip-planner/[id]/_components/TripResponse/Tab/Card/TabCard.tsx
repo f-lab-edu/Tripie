@@ -56,23 +56,23 @@ const TabCard = ({
         cycle(`${trip.day - 1}-${index}`);
       }}
     >
-      <Container margin="sm" applyMargin="bottom" className={cx('title')}>
+      <Container justifyContent="left" margin="sm" applyMargin="bottom" className={cx('title')}>
         <div ref={current === `${trip.day - 1}-${index}` ? ref : null} />
         <Chip className={cx('label', label)}>{index + 1}</Chip>
         <Text.Accented>{activity}</Text.Accented>
       </Container>
       <Divider />
-      <Container margin="sm" applyMargin="top">
+      <Container margin="sm" applyMargin="top" padding="sm" applyPadding="top-bottom">
         {comments}
-        <Container margin="sm" applyMargin="top">
-          <TextUnderLineAnimation
-            // 새로운 탭에 구글 검색
-            onClick={() => openNewTab(`https://www.google.com/search?q=@${place}`)}
-          >
-            <Text.Accented size="small">@</Text.Accented>
-            {place}
-          </TextUnderLineAnimation>
-        </Container>
+      </Container>
+      <Container justifyContent="left" margin="sm" applyMargin="top">
+        <TextUnderLineAnimation
+          // 새로운 탭에 구글 검색
+          onClick={() => openNewTab(`https://www.google.com/search?q=@${place}`)}
+        >
+          <Text.Accented size="small">@</Text.Accented>
+          {place}
+        </TextUnderLineAnimation>
       </Container>
     </Card.ClickableContent>
   );

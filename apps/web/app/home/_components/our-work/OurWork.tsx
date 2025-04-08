@@ -10,11 +10,9 @@ export default function OurWork() {
     <section className={cx('our-work')} id="Work">
       <Container applyMargin="left-right" margin="m">
         <MotionSlideUp>
-          <Container applyMargin="top" margin="sm">
-            <Headings.H2>
-              Our <Text.Accented>work</Text.Accented>
-            </Headings.H2>
-          </Container>
+          <Headings.H2>
+            Our <Text.Accented>work</Text.Accented>
+          </Headings.H2>
         </MotionSlideUp>
       </Container>
       <OurWorkList />

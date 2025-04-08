@@ -19,7 +19,7 @@ const cx = classNames.bind(Style);
 
 const PageTitle = () => {
   return (
-    <Container margin="none" align="center" preserveWhiteSpace={true}>
+    <Container margin="none" alignItems="center" justifyContent="center" preserveWhiteSpace={true}>
       <Headings.H1>
         <Text.Accented>AI </Text.Accented>enhanced{'\n'}trip planner.
       </Headings.H1>
@@ -57,7 +57,7 @@ export default function Header() {
   return (
     <ParticleBackground>
       <RotatingBlur />
-      <Container align="center" className={cx('wrap')} margin="none">
+      <Container align="center" alignItems="center" className={cx('wrap')} margin="none">
         <PageTitle />
         <ShortCutButtons />
       </Container>

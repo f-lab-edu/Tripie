@@ -2,6 +2,7 @@ import API from 'constants/api-routes';
 import { ArticleData } from 'models/Article';
 import { AttractionArticle, ParsedAttractionResponse } from 'models/Attraction';
 import { RestaurantData } from 'models/Restaurant';
+import addImage from '../cloudinary/addImage';
 import firestoreService from '../firebase';
 
 type DetailResponse<T> = {
@@ -26,13 +27,14 @@ const getArticleDetail = async <T extends 'article' | 'attraction' | 'retaurant'
     ).then(v => v.json());
 
     const dynamicBlurDataUrl = await Promise.all(
-      data.body.map(async v => {
+      data?.body.map(async v => {
         if (v.type === 'images') {
           return {
             ...v,
             value: {
               images: await Promise.all(
                 v.value.images.map(async image => {
+                  await addImage(image?.sizes.full.url);
                   return {
                     ...image,
                     blurData: await fetch(
@@ -68,23 +70,29 @@ const getArticleDetail = async <T extends 'article' | 'attraction' | 'retaurant'
       source: {
         ...data.source,
         recommendations: await Promise.all(
-          data.source.recommendations.map(async recommendation => ({
-            ...recommendation,
-            image: {
-              ...recommendation.image,
-              blurData: await fetch(
-                API.BASE_URL + API.BASE + API.BLUR_IMAGE + `?url=${recommendation.image.sizes.small_square.url}`
-              ).then(v => v.json()),
-            },
-          }))
+          data.source.recommendations.map(async recommendation => {
+            await addImage(recommendation.image.sizes?.full.url);
+            return {
+              ...recommendation,
+              image: {
+                ...recommendation.image,
+                blurData: await fetch(
+                  API.BASE_URL + API.BASE + API.BLUR_IMAGE + `?url=${recommendation.image.sizes.small_square.url}`
+                ).then(v => v.json()),
+              },
+            };
+          })
         ),
         externalLinks: await Promise.all(
-          data.source?.externalLinks.map(async externalLink => ({
-            ...externalLink,
-            blurData: await fetch(API.BASE_URL + API.BASE + API.BLUR_IMAGE + `?url=${externalLink.imageUrl}`).then(v =>
-              v.json()
-            ),
-          }))
+          data.source?.externalLinks.map(async externalLink => {
+            await addImage(externalLink.imageUrl);
+            return {
+              ...externalLink,
+              blurData: await fetch(API.BASE_URL + API.BASE + API.BLUR_IMAGE + `?url=${externalLink.imageUrl}`).then(
+                v => v.json()
+              ),
+            };
+          })
         ),
       },
     };
