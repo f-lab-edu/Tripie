@@ -1,12 +1,15 @@
 // import Loading from 'shared/components/Loading';
 
-import PlaygroundButton from './_components/Button';
+import DurationSelect from 'app/home/_components/our-process/_components/selectedList/Duration';
+
+// import PlaygroundButton from './_components/Button';
 
 // import getRegionArticles from 'app/api/articles/region';
 // import PlaygroundButton from './_components/Button';
 export default async function Playground() {
+  return <DurationSelect />;
   // return <Loading.SemiTransparent />;
-  return <PlaygroundButton />;
+  // return <PlaygroundButton />;
   // export default async function Playground() {
   // export default async function Playground() {
   //   const dynamicBlurDataUrl = await getRegionArticles('23c5965b-01ad-486b-a694-a2ced15f245c');

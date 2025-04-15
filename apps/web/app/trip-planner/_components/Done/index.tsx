@@ -1,11 +1,9 @@
 'use client';
 
 import { Container, Icon, Text } from '@tripie-pyotato/design-system';
-
-import { classNames } from 'wrapper';
-
+import { randomIntBtw } from '@tripie-pyotato/utils/@number';
 import { TripPlanner } from 'models/Aws';
-import { randomInt } from 'utils/random';
+import { classNames } from 'wrapper';
 import Style from './trip-planner.module.scss';
 
 const cx = classNames.bind(Style);
@@ -38,7 +36,7 @@ const DoneStep = ({ context }: { context: TripPlanner }) => {
       </Container>
       <Container margin="none">
         {selectedOptions.map(text => (
-          <Text.Slide animate="fly" duration={randomInt()} key={text}>
+          <Text.Slide animate="fly" duration={randomIntBtw()} key={text}>
             <div className={cx('text-color')}>{text}</div>
           </Text.Slide>
         ))}

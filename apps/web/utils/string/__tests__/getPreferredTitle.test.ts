@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { getPreferredTitle } from '..';
+import getPreferredTitle from '../getPreferredTitle';
 
 describe('getPreferredTitle', () => {
   it('names가 null이거나 undefined일 경우 빈 문자열을 리턴한다.', () => {

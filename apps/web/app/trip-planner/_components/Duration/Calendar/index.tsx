@@ -1,17 +1,15 @@
 'use client';
-import { AnimatedButton, Container, Icon } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Calendar, Icon } from '@tripie-pyotato/design-system';
 
 import { classNames } from 'wrapper';
 
 import { ContinentKeys } from 'models/Continent';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback } from 'react';
 
-import useCalendar from 'hooks/useCalendar';
-import { LooseValue } from 'react-calendar/dist/esm/shared/types.js';
-import Calendar from 'shared/components/Calendar';
-import CalendarHeader from 'shared/components/Calendar/CalendarHeader';
+import { useCalendar } from '@tripie-pyotato/design-system/@hooks';
+import useServerTime from 'hooks/useServerTime';
 import { localeString2Date } from 'utils/date';
-import SelectedDates from '../SelectedDates';
+
 import Style from './calendar.module.scss';
 
 const cx = classNames.bind(Style);
@@ -33,28 +31,15 @@ const Calendars = ({
     companion?: string;
   };
 }) => {
-  const { calendarFormatTime, calendar, isValidTime } = useCalendar(context?.duration?.split(' ~ ')[0]);
-
-  const [selected, setSelected] = useState<Date[] | Date>(() =>
-    context?.duration == null || !isValidTime ? calendarFormatTime : localeString2Date(context.duration.split(' ~ '))
-  );
-
-  /**
-   *  여행 시작과 끝 날짜를 memoize한 값
-   *  */
-  const duration = useMemo(() => {
-    const dates = selected?.toLocaleString().split(',');
-    // 시작과 끝 날짜를 정한 경우
-    if (dates.length === 4) {
-      const [startDate, startTime, endDate, endTime] = dates;
-      return { start: startDate + startTime, end: endDate + endTime };
-    } else if (dates.length === 2) {
-      const [startDate, startTime] = dates;
-      return { start: startDate + startTime, end: '' };
-    } else {
-      return { start: '', end: '' };
-    }
-  }, [selected, context, selected]);
+  const { isValidTime, serverTime } = useServerTime(context?.duration?.split(' ~ ')[0]);
+  const { calendarFormatTime, calendar, selected, setSelected, duration } = useCalendar({
+    serverTime,
+    isValidTime,
+    selectedTime: () =>
+      context?.duration == null || isValidTime !== true
+        ? calendarFormatTime
+        : localeString2Date(context.duration.split(' ~ ')),
+  });
 
   const handleSubmit = useCallback(() => {
     if (duration.end === '' || duration.start === '') {
@@ -66,27 +51,18 @@ const Calendars = ({
 
   return (
     <>
-      <SelectedDates duration={duration} />
-      <CalendarHeader selectRange={true} allowPartialRange={false} />
-      <Container margin="none" className={cx('calendar-wrap')}>
-        {calendar.map(({ days, min, max }, index) => (
-          <Calendar
-            minDate={min}
-            maxDate={max}
-            value={selected as LooseValue}
-            onChange={value => {
-              setSelected((Array.isArray(value) ? value : [value]) as Date[]);
-            }}
-            onClickDay={setSelected}
-            selectRange={true}
-            key={days.toDateString() + index}
-            allowPartialRange={false}
-            showNeighboringMonth={true}
-            activeStartDate={days}
-            showNavigation={false}
-          />
-        ))}
-      </Container>
+      <Calendar
+        calendar={calendar}
+        onChange={value => {
+          setSelected((Array.isArray(value) ? value : [value]) as Date[]);
+        }}
+        selected={selected}
+        onClickDay={setSelected}
+        selectRange={true}
+        allowPartialRange={false}
+        showNeighboringMonth={true}
+        showNavigation={false}
+      />
       <AnimatedButton
         withBorder={true}
         disabled={duration.end === ''}

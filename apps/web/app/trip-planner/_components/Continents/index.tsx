@@ -1,11 +1,9 @@
-import { AnimatedButton, Container, Headings, Icon, Text } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Container, Globe, Headings, Icon, Text } from '@tripie-pyotato/design-system';
 import { CONTINENTS } from 'constants/continents';
 import { classNames } from 'wrapper';
 
 import { ContinentKeys } from 'models/Continent';
 import { useMemo, useState } from 'react';
-
-import RotatingGlobe from 'shared/components/Globe/RotatingGlobe';
 
 import { ContinentList } from './ContinentLIst';
 import Style from './continents.module.scss';
@@ -40,7 +38,8 @@ export default function ContinentStep({ context, onNext }: Readonly<Props>) {
           떠나고 싶은 <Text.Accented>지역</Text.Accented>은?
         </Headings.H2>
       </Container>
-      <RotatingGlobe />
+      <Globe />
+
       <ContinentList selectedContinent={selectedContinent} action={setSelectedContinent} />
       <AnimatedButton
         isFullSize={true}

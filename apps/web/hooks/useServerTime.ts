@@ -21,7 +21,7 @@ const useServerTime = (baseTime?: string) => {
     return () => clearInterval(interval);
   }, []);
 
-  const isValidTime = useMemo(() => {
+  const isValidTime: boolean | 'loading' = useMemo(() => {
     if (baseTime == null || serverTime == null) {
       return 'loading';
     } else {

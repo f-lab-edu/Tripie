@@ -1,11 +1,6 @@
 @use 'variables' as *;
 @use 'mixins' as *;
 
-.calendar-wrap {
-  height: 100%;
-  overflow-y: scroll;
-}
-
 .submit-button {
   @include submit-button;
 }

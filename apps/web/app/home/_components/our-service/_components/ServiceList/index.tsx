@@ -1,8 +1,7 @@
 'use client';
 
-import { Card, Container } from '@tripie-pyotato/design-system';
+import { Card, Container, Globe } from '@tripie-pyotato/design-system';
 import Description from 'app/home/_components/our-process/_components/Description';
-import RotatingGlobe from 'shared/components/Globe/RotatingGlobe';
 import { classNames } from 'wrapper';
 import RegionInfo from '../RegionInfo';
 import Subscription from '../Subscription';
@@ -21,7 +20,7 @@ const serviceList = [
     label: 'AI 추천 맞춤 일정',
     content: (
       <Card.Content className={cx('content-wrap')}>
-        <RotatingGlobe />
+        <Globe />
       </Card.Content>
     ),
     description: '트리피 회원이신가요? 취향에 맞게 일정을 추천해 드립니다! 순식간에 여행 준비 끝!',

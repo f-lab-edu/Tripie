@@ -5,7 +5,7 @@ import { ArticleData } from 'models/Article';
 import { AttractionArticle } from 'models/Attraction';
 import { ParamProps } from 'models/Props';
 import { headers } from 'next/headers';
-import { getPreferredTitle } from 'utils/string';
+import getPreferredTitle from 'utils/string/getPreferredTitle';
 
 const PAGE = {
   attractions: 'attraction',

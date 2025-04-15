@@ -1,6 +1,7 @@
 'use client';
 
 import { Container } from '@tripie-pyotato/design-system';
+import { useDebounce } from '@tripie-pyotato/hooks';
 
 import { DB_NAME } from 'constants/auth';
 import useFunnel from 'hooks/useFunnel';
@@ -10,7 +11,6 @@ import firestoreService from 'app/api/firebase';
 import getTripPlan from 'app/api/openai/getTripPlan';
 import incrementedTokenId from 'app/api/openai/incrementedTokenId';
 import ROUTE from 'constants/routes';
-import { useDebounce } from 'hooks/useDebounce';
 import { TripPlanner } from 'models/Aws';
 import { ContinentKeys } from 'models/Continent';
 import { useSession } from 'next-auth/react';
