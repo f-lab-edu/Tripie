@@ -125,8 +125,8 @@ importers:
   apps/docs:
     dependencies:
       '@tripie-pyotato/design-system':
-        specifier: ^0.1.7
-        version: 0.1.7(@types/react@18.3.18)(esbuild@0.25.2)(next@14.2.4(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.85.0))(react@18.3.1)(rollup@4.34.8)(sass-embedded@1.86.0)
+        specifier: ^0.1.8
+        version: 0.1.8(@types/react@18.3.18)(esbuild@0.25.2)(next@14.2.4(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.85.0))(react@18.3.1)(rollup@4.34.8)(sass-embedded@1.86.0)
       '@tripie-pyotato/hooks':
         specifier: ^0.0.2
         version: 0.0.2(react@18.3.1)
@@ -291,8 +291,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/database
       '@tripie-pyotato/design-system':
-        specifier: ^0.1.7
-        version: 0.1.7(@types/react@18.3.18)(esbuild@0.25.2)(next@15.1.7(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6))(react@18.3.1)(rollup@4.34.8)(sass-embedded@1.86.0)
+        specifier: ^0.1.8
+        version: 0.1.8(@types/react@18.3.18)(esbuild@0.25.2)(next@15.1.7(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6))(react@18.3.1)(rollup@4.34.8)(sass-embedded@1.86.0)
       '@tripie-pyotato/hooks':
         specifier: ^0.0.3
         version: 0.0.3(react@18.3.1)
@@ -4148,19 +4148,14 @@ packages:
   '@tootallnate/quickjs-emscripten@0.23.0':
     resolution: {integrity: sha512-C5Mc6rdnsaJDjO3UpGW/CQTHtCKaYlScZTly4JIu97Jxo/odCiH0ITnDXSJPTOrEKk/ycSZ0AOgTmkDtkOsvIA==}
 
-  '@tripie-pyotato/design-system@0.1.7':
-    resolution: {integrity: sha512-Ee4+5Mu56ExfuS8kmBS6bD1YpFqioOLmbSR+7IJM/o3ugLNTnimyFyeYFstFzGCXZ94/4w8UYeoGGsIKJHdKbw==}
+  '@tripie-pyotato/design-system@0.1.8':
+    resolution: {integrity: sha512-37A194SdC19VLmR9qh4OqYxSrcRFae24ZUca7pT4yrR7+tPYTGT1c4EN1MGd8QOh3Lvwi58fP4NBFCUbnNlSAQ==}
     peerDependencies:
       next: '*'
       react: '*'
 
   '@tripie-pyotato/eslint-config@0.0.1':
     resolution: {integrity: sha512-opm4nsOsz2aK/LymBMxcoZx/GfFJfpvvmu0Zg0JX+Ve42wYHZeUgM34VjJrwDprk3hxpM3kTAaqjcq6ERGiWjw==}
-
-  '@tripie-pyotato/hooks@0.0.1':
-    resolution: {integrity: sha512-Z6ECtZ7LKfqhAgFhJEJwySoq7WdoD0+Yj8IpK8ytPn9kTSZ3gu5mooTogkZ7oK0i1Dt4+x0M9Mgh2Zd+o7fvxw==}
-    peerDependencies:
-      react: '*'
 
   '@tripie-pyotato/hooks@0.0.2':
     resolution: {integrity: sha512-bWUfGkKA+D6J2iI1C2cvkibguPSGKjUnkwZ2vKtX4NKvkUfnax3jhRMolKTC6H++isEawokec3Q/JyOzaQQEOQ==}
@@ -4174,11 +4169,6 @@ packages:
 
   '@tripie-pyotato/typescript-config@0.0.2':
     resolution: {integrity: sha512-XiMX2iaCv+5uVvR25IqbTYN1Yo7nD2mHgHOul8fTAYOMs6FkrFcCH1Pe2fd66VJuW5O8tC32BaEz3r6FuUOetQ==}
-
-  '@tripie-pyotato/utils@0.0.1':
-    resolution: {integrity: sha512-K+7bCYaT4Xm712aqPvAlFxrXzSb53GlXkSR9DJS2rdJLdTFdBBz5HPYUkxTwRND9YkHlAy8JAQXpqB+e3uvQmA==}
-    peerDependencies:
-      react: '*'
 
   '@tripie-pyotato/utils@0.0.2':
     resolution: {integrity: sha512-vtTFRACZ7Kur1QpsHX6DygO9ko1EZfXAtJxN6PZ179o4lclOswSicbjXrB+2tnAjjw9zmr4wXTyZ++wNB3D5Zg==}
@@ -15826,10 +15816,10 @@ snapshots:
 
   '@tootallnate/quickjs-emscripten@0.23.0': {}
 
-  '@tripie-pyotato/design-system@0.1.7(@types/react@18.3.18)(esbuild@0.25.2)(next@14.2.4(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.85.0))(react@18.3.1)(rollup@4.34.8)(sass-embedded@1.86.0)':
+  '@tripie-pyotato/design-system@0.1.8(@types/react@18.3.18)(esbuild@0.25.2)(next@14.2.4(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.85.0))(react@18.3.1)(rollup@4.34.8)(sass-embedded@1.86.0)':
     dependencies:
-      '@tripie-pyotato/hooks': 0.0.1(react@18.3.1)
-      '@tripie-pyotato/utils': 0.0.1(react@18.3.1)
+      '@tripie-pyotato/hooks': 0.0.3(react@18.3.1)
+      '@tripie-pyotato/utils': 0.0.3(react@18.3.1)
       classnames: 2.5.1
       date-fns: 4.1.0
       esbuild-sass-plugin: 3.3.1(esbuild@0.25.2)(sass-embedded@1.86.0)
@@ -15851,10 +15841,10 @@ snapshots:
       - rollup
       - sass-embedded
 
-  '@tripie-pyotato/design-system@0.1.7(@types/react@18.3.18)(esbuild@0.25.2)(next@15.1.7(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6))(react@18.3.1)(rollup@4.34.8)(sass-embedded@1.86.0)':
+  '@tripie-pyotato/design-system@0.1.8(@types/react@18.3.18)(esbuild@0.25.2)(next@15.1.7(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6))(react@18.3.1)(rollup@4.34.8)(sass-embedded@1.86.0)':
     dependencies:
-      '@tripie-pyotato/hooks': 0.0.1(react@18.3.1)
-      '@tripie-pyotato/utils': 0.0.1(react@18.3.1)
+      '@tripie-pyotato/hooks': 0.0.3(react@18.3.1)
+      '@tripie-pyotato/utils': 0.0.3(react@18.3.1)
       classnames: 2.5.1
       date-fns: 4.1.0
       esbuild-sass-plugin: 3.3.1(esbuild@0.25.2)(sass-embedded@1.86.0)
@@ -15878,13 +15868,6 @@ snapshots:
 
   '@tripie-pyotato/eslint-config@0.0.1': {}
 
-  '@tripie-pyotato/hooks@0.0.1(react@18.3.1)':
-    dependencies:
-      '@tripie-pyotato/utils': 0.0.1(react@18.3.1)
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-      usehooks-ts: 3.1.1(react@18.3.1)
-
   '@tripie-pyotato/hooks@0.0.2(react@18.3.1)':
     dependencies:
       '@tripie-pyotato/utils': 0.0.2(react@18.3.1)
@@ -15900,12 +15883,6 @@ snapshots:
       usehooks-ts: 3.1.1(react@18.3.1)
 
   '@tripie-pyotato/typescript-config@0.0.2': {}
-
-  '@tripie-pyotato/utils@0.0.1(react@18.3.1)':
-    dependencies:
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-      usehooks-ts: 3.1.1(react@18.3.1)
 
   '@tripie-pyotato/utils@0.0.2(react@18.3.1)':
     dependencies:
