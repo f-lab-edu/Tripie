@@ -33,7 +33,7 @@
     "@tripie-pyotato/db": "workspace:*",
     "@tripie-pyotato/design-system": "^0.1.7",
     "@tripie-pyotato/hooks": "^0.0.1",
-    "@tripie-pyotato/utils": "^0.0.1",
+    "@tripie-pyotato/utils": "^0.0.2",
     "@types/mdx": "^2.0.13",
     "@vis.gl/react-google-maps": "^1.1.0",
     "autoprefixer": "^10.4.0",
