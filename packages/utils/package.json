@@ -1,0 +1,90 @@
+{
+  "name": "@tripie-pyotato/utils",
+  "description": "tripie 공통 utils",
+  "sideEffects": false,
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": {
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      },
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
+    "./@date": {
+      "require": {
+        "types": "./dist/date/index.d.cts",
+        "default": "./dist/date/index.cjs"
+      },
+      "import": {
+        "types": "./dist/date/index.d.ts",
+        "default": "./dist/date/index.js"
+      }
+    },
+    "./@debounce": {
+      "require": {
+        "types": "./dist/debounce/index.d.cts",
+        "default": "./dist/debounce/index.cjs"
+      },
+      "import": {
+        "types": "./dist/debounce/index.d.ts",
+        "default": "./dist/debounce/index.js"
+      }
+    },
+    "./@number": {
+      "require": {
+        "types": "./dist/number/index.d.cts",
+        "default": "./dist/number/index.cjs"
+      },
+      "import": {
+        "types": "./dist/number/index.d.ts",
+        "default": "./dist/number/index.js"
+      }
+    },
+    "./@window": {
+      "require": {
+        "types": "./dist/window/index.d.cts",
+        "default": "./dist/window/index.cjs"
+      },
+      "import": {
+        "types": "./dist/window/index.d.ts",
+        "default": "./dist/window/index.js"
+      }
+    }
+  },
+  "scripts": {
+    "build": "rimraf dist && tsc && tsup",
+    "test": "vitest run",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
+    "prettier": "prettier --check '**/*.{ts,mts,cts,tsx,js,mjs,cjs,jsx,json,md}'",
+    "prettier:fix": "prettier --write '**/*.{ts,mts,cts,tsx,js,mjs,cjs,jsx,json,md}'",
+    "clean": "rm -rf ./node_modules && rm -rf ./.turbo && rm -rf ./dist"
+  },
+  "dependencies": {
+    "react-dom": "^18.3.1",
+    "usehooks-ts": "^3.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18",
+    "react": "^18.3.1",
+    "tsup": "^8.1.2",
+    "typescript": "^5",
+    "@tripie-pyotato/typescript-config": "workspace:*",
+    "@tripie-pyotato/eslint-config": "workspace:*",
+    "@tripie-pyotato/vitest-config": "^0.0.1",
+    "vitest": "^3.0.6",
+    "@vitejs/plugin-react": "^4.2.1",
+    "@vitest/coverage-istanbul": "^3.0.7"
+  },
+  "peerDependencies": {
+    "react": "*"
+  }
+}
