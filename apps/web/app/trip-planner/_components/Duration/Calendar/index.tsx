@@ -53,6 +53,7 @@ const Calendars = ({
     <>
       <Calendar
         calendar={calendar}
+        // @ts-ignore
         onChange={value => {
           setSelected((Array.isArray(value) ? value : [value]) as Date[]);
         }}
