@@ -5,11 +5,16 @@ export default defineConfig(options => ({
   entry: ['src'],
   minify: true,
   splitting: true,
-  treeshake: 'recommended',
   format: ['cjs', 'esm'],
   dts: {
     resolve: true,
-    entry: ['./src/index.ts', './src/shared/index.ts', './src/hooks/index.ts', './src/wrappers/index.tsx'],
+    entry: [
+      './src/index.ts',
+      './src/components/index.ts',
+      './src/shared/index.ts',
+      './src/hooks/index.ts',
+      './src/wrappers/index.tsx',
+    ],
   },
   external: ['react', 'next'],
   banner: {
