@@ -1,0 +1,10 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`UnstyledLink Component > renders the link with the correct text and href 1`] = `
+<a
+  class="_link_1izjp_382"
+  href="/home"
+>
+  Go Home
+</a>
+`;

@@ -1,5 +1,18 @@
+// {
+//   "extends": "@tripie-pyotato/typescript-config/react-app.json",
+//   "include": [".", "next-env.d.ts", "**/*.ts", "**/*.tsx"],
+//   "exclude": ["dist", "build", "node_modules", "storybook-static"]
+// }
+
 {
-  "extends": "@tripie-pyotato/typescript-config/react-app.json",
-  "include": [".", "next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["dist", "build", "node_modules", "storybook-static"]
+  "extends": "@tripie-pyotato/typescript-config/nextjs.json",
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": ["**/*.ts", "**/*.tsx", "next-env.d.ts", "next.config.js", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }

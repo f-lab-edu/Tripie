@@ -6,14 +6,16 @@
   "scripts": {
     "dev": "storybook dev -p 6007",
     "build": "storybook build --docs",
+    "test": "vitest run",
+    "check-types": "tsc --noEmit",
     "preview-storybook": "serve storybook-static",
     "chromatic": "pnpm dlx chromatic --project-token",
     "clean": "rm -rf .turbo node_modules",
     "lint": "eslint ./stories/*.stories.tsx --max-warnings 0"
   },
   "dependencies": {
-    "@tripie-pyotato/design-system": "workspace:*",
-    "@tripie-pyotato/hooks": "workspace:*",
+    "@tripie-pyotato/design-system": "^0.1.7",
+    "@tripie-pyotato/hooks": "^0.0.1",
     "next": "14.2.4",
     "path": "^0.12.7",
     "react": "^18.2.0",
@@ -32,12 +34,17 @@
     "@storybook/react": "^8.2.6",
     "@storybook/react-vite": "^8.2.6",
     "@storybook/test": "^8.6.11",
-    "@tripie-pyotato/eslint-config": "^0.0.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@tripie-pyotato/eslint-config": "^0.0.1",
     "@tripie-pyotato/typescript-config": "^0.0.2",
+    "@tripie-pyotato/vitest-config": "^0.0.2",
     "@types/node": "^20.17.19",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@vitejs/plugin-react": "^4.2.1",
+    "@vitest/coverage-istanbul": "^3.0.7",
     "chromatic": "^11.5.5",
     "eslint": "^9.23.0",
     "eslint-plugin-mdx": "^3.3.1",
@@ -46,7 +53,8 @@
     "serve": "^14.2.1",
     "storybook": "^8.6.11",
     "typescript": "^5",
-    "vite": "^5.1.4"
+    "vite": "^5.1.4",
+    "vitest": "^3.0.7"
   },
   "storybook": {
     "url": "https://<branch>--<appid>.chromatic.com"

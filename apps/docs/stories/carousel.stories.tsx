@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Carousel, TripieImage } from '@tripie-pyotato/design-system';
-import images from './images';
+import images from '../tests/images';
 
 const meta: Meta<typeof Carousel> = {
   title: 'tripie-design/Carousel',
