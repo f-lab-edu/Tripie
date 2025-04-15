@@ -1,7 +1,8 @@
 'use client';
 import { Card, Container, Headings, Text } from '@tripie-pyotato/design-system';
 import { NoteProps } from 'models/Props';
-import { decodeUnicodes } from 'utils/string';
+
+import decodeUnicodes from 'utils/string/decodeUnicodes';
 import { classNames } from 'wrapper';
 import Style from './note.module.scss';
 

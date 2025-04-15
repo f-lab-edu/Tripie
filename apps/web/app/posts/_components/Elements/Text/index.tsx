@@ -1,7 +1,7 @@
 'use client';
 import { Container, Text } from '@tripie-pyotato/design-system';
 import { ArticleTextProps } from 'models/Props';
-import { decodeUnicodes } from 'utils/string';
+import decodeUnicodes from 'utils/string/decodeUnicodes';
 import { classNames, Markdown } from 'wrapper';
 import Style from './text.module.scss';
 
