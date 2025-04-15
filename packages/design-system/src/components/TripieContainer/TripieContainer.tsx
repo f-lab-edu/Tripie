@@ -1,6 +1,6 @@
 'use client';
 import { ComponentProps, ReactNode, RefObject } from 'react';
-import { classNames } from '../../shared/wrappers';
+import { classNames } from '../../wrappers';
 import Style from './tripie-container.module.scss';
 
 export type TripieContainerProps = {

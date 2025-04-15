@@ -1,7 +1,7 @@
 'use client';
 
 import { ReactNode } from 'react';
-import { classNames, Motion } from '../../shared/wrappers';
+import { classNames, Motion } from '../../wrappers';
 import Container from '../TripieContainer/TripieContainer';
 import Style from './splash-screen.module.scss';
 const cx = classNames.bind(Style);

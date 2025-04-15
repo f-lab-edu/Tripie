@@ -1,5 +1,5 @@
 import { COLORS } from '../../shared/colors';
-import { MotionProps } from '../../shared/wrappers/motion-wrapper';
+import { MotionProps } from '../../wrappers/motion-wrapper';
 
 export const TEXT_UNDERLINE_VARIANTS = {
   DIVIDER: {

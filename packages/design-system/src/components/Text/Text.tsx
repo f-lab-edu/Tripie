@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { Container } from '..';
 
-import { classNames, Motion, MotionProps } from '../../shared/wrappers';
+import { classNames, Motion, MotionProps } from '../../wrappers';
 import TripieContainer from '../TripieContainer/TripieContainer';
 import Style from './text.module.scss';
 import { VARIANTS } from './variants';

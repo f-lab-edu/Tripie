@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { ReactNode } from 'react';
-import { classNames } from '../../shared/wrappers';
+import { classNames } from '../../wrappers';
 import Text, { TextProps } from '../Text';
 import Style from './link.module.scss';
 

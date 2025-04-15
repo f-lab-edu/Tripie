@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { classNames, Motion, MotionProps } from '../../shared/wrappers';
+import { classNames, Motion, MotionProps } from '../../wrappers';
 
 import Divider from '../Divider';
 import Style from './text-underline.module.scss';

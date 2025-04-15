@@ -1,4 +1,4 @@
-import { MotionProps } from '../../shared/wrappers/motion-wrapper';
+import { MotionProps } from '../../wrappers/motion-wrapper';
 
 export const VARIANTS = {
   FLICK_TEXT: {

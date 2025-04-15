@@ -9,14 +9,6 @@
     },
     "incremental": false
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    "../../typings",
-    "jest.setup.cjs",
-    "~/*.ts",
-    "~/*.tsx",
-    "src/shared/wrappers/index.tsx"
-  ],
+  "include": ["**/*.ts", "**/*.tsx", "../../typings", "jest.setup.cjs", "~/*.ts", "~/*.tsx", "src/wrappers/index.tsx"],
   "exclude": ["dist"]
 }

@@ -1,4 +1,4 @@
-import { classNames, Motion, MotionProps } from '../../shared/wrappers';
+import { classNames, Motion, MotionProps } from '../../wrappers';
 
 import { ReactNode } from 'react';
 import { InView } from 'react-intersection-observer';

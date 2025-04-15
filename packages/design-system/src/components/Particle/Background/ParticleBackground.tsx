@@ -1,4 +1,4 @@
-import { classNames } from '../../../shared/wrappers';
+import { classNames } from '../../../wrappers';
 
 import { ReactNode } from 'react';
 import TripieContainer from '../../TripieContainer';

@@ -1,8 +1,10 @@
 export { default as Accordion } from './Accordian/Accordian';
+export { default as Calendar } from './Calendar';
 export { default as Carousel } from './Carousel/Carousel';
 export { default as Chip } from './Chip/Chip';
 export { default as ChipMarker } from './ChipMarker';
 export { default as Divider } from './Divider';
+export { default as Globe } from './Globe';
 export { default as Headings } from './Headings';
 export { default as Link } from './Link';
 export { default as List } from './List/List';

@@ -2,7 +2,7 @@
 
 import { ReactNode } from 'react';
 
-import { classNames, Motion } from '../../../../shared/wrappers';
+import { classNames, Motion } from '../../../../wrappers';
 import Style from './menu-item.module.scss';
 import { MENU_ITEM_VARIANT } from './variants';
 

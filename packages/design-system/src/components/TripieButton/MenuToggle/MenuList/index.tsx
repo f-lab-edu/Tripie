@@ -1,6 +1,6 @@
 'use client';
 
-import { classNames, Motion } from '../../../../shared/wrappers';
+import { classNames, Motion } from '../../../../wrappers';
 
 import { ReactNode } from 'react';
 

@@ -1,4 +1,4 @@
-import { classNames } from '../../shared/wrappers';
+import { classNames } from '../../wrappers';
 
 import { useMemo } from 'react';
 import Chip from '../Chip/Chip';

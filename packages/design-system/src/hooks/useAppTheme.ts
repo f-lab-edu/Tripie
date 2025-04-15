@@ -18,7 +18,7 @@ type UseAppThemeOutput = {
   setMode: (mode: ThemeMode) => void;
 };
 
-export const useAppTheme = (): UseAppThemeOutput => {
+const useAppTheme = (): UseAppThemeOutput => {
   const isDarkOS = useMediaQuery(COLOR_SCHEME_QUERY);
   const [themeMode, setThemeMode] = useLocalStorage<ThemeMode>('tripie-app-theme', THEME_MODE.DARK);
 
@@ -39,3 +39,5 @@ export const useAppTheme = (): UseAppThemeOutput => {
     setMode: mode => setThemeMode(mode),
   };
 };
+
+export default useAppTheme;

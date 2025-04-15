@@ -7,7 +7,10 @@ export default defineConfig(options => ({
   splitting: true,
   treeshake: 'recommended',
   format: ['cjs', 'esm'],
-  dts: { resolve: true, entry: ['./src/index.ts', './src/shared/index.ts'] },
+  dts: {
+    resolve: true,
+    entry: ['./src/index.ts', './src/shared/index.ts', './src/hooks/index.ts', './src/wrappers/index.tsx'],
+  },
   external: ['react', 'next'],
   banner: {
     js: `'use client';`, // https://esbuild.github.io/api/#banner // https://github.com/evanw/esbuild/issues/3115#issuecomment-1546184806

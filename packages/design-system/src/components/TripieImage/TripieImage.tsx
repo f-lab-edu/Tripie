@@ -1,5 +1,5 @@
 'use client';
-import { classNames } from '../../shared/wrappers';
+import { classNames } from '../../wrappers';
 
 import { PLACEHOLDER } from '../../shared/resource';
 import Text from '../Text';

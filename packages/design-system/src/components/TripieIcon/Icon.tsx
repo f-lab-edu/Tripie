@@ -1,5 +1,5 @@
 'use client';
-import { classNames, Motion, MotionProps } from '../../shared/wrappers';
+import { classNames, Motion, MotionProps } from '../../wrappers';
 
 import { useRouter } from 'next/navigation';
 import { ReactNode } from 'react';

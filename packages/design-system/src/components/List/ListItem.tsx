@@ -1,4 +1,4 @@
-import { classNames } from '../../shared/wrappers';
+import { classNames } from '../../wrappers';
 import { TripieContainerProps } from '../TripieContainer/TripieContainer';
 import Style from './list-item.module.scss';
 

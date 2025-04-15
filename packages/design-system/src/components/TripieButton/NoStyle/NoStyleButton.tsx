@@ -1,5 +1,5 @@
 import { TripieContainerProps } from '@components/TripieContainer';
-import { classNames } from '../../../shared/wrappers';
+import { classNames } from '../../../wrappers';
 import Style from './no-style-button.module.scss';
 
 const cx = classNames.bind(Style);
