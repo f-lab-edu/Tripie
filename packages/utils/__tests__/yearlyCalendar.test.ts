@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import yearlyCalendar from '../src/yearlyCalendar';
+import yearlyCalendar from '../src/date/yearlyCalendar';
 
 describe('yearlyCalendar', () => {
   beforeEach(() => {

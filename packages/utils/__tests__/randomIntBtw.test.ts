@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import randomIntBtw from '../src/randomIntBtw';
+import randomIntBtw from '../src/number/randomIntBtw';
 
 describe('randomIntBetween test : returns random int number between start and end', () => {
   it('should return random number between default start(8) and end(8), when no parameters are provided', () => {
