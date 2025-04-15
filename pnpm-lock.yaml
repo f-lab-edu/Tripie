@@ -788,8 +788,8 @@ importers:
         specifier: workspace:*
         version: link:../config-eslint
       '@tripie-pyotato/typescript-config':
-        specifier: workspace:*
-        version: link:../config-typescript
+        specifier: ^0.0.2
+        version: 0.0.2
       '@tripie-pyotato/vitest-config':
         specifier: ^0.0.2
         version: 0.0.2
