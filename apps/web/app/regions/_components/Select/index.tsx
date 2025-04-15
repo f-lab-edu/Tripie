@@ -1,6 +1,6 @@
 'use client';
 
-import { AnimatedButton, Card, Container, Divider, List } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Card, Container, Divider, List } from '@tripie-pyotato/design-system/@components';
 
 import { classNames } from 'wrapper';
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { List } from '@tripie-pyotato/design-system';
+import { List } from '@tripie-pyotato/design-system/@components';
 import { RegionArticleInfo } from 'models/Article';
 
 import RegionCard from './RegionCard';

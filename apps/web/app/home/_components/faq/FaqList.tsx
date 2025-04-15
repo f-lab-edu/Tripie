@@ -1,5 +1,5 @@
 'use client';
-import { Accordion, Container } from '@tripie-pyotato/design-system';
+import { Accordion, Container } from '@tripie-pyotato/design-system/@components';
 import FAQS from 'constants/faq';
 
 export default function FaqList() {

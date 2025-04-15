@@ -1,6 +1,6 @@
 'use client';
 
-import { Container, Headings, MotionSlideUp, Text } from '@tripie-pyotato/design-system';
+import { Container, Headings, MotionSlideUp, Text } from '@tripie-pyotato/design-system/@components';
 import { classNames } from 'wrapper';
 
 import ROUTE from 'constants/routes';

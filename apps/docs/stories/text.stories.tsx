@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Text, useAppTheme } from '@tripie-pyotato/design-system';
+import { Text } from '@tripie-pyotato/design-system/@components';
+import { useAppTheme } from '@tripie-pyotato/design-system/@hooks';
 
 const meta: Meta<typeof Text> = {
   title: 'tripie-design/Text',

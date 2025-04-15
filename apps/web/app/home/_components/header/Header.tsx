@@ -7,7 +7,7 @@ import {
   ParticleBackground,
   RotatingBlur,
   Text,
-} from '@tripie-pyotato/design-system';
+} from '@tripie-pyotato/design-system/@components';
 import { classNames } from 'wrapper';
 
 import ROUTE from 'constants/routes';

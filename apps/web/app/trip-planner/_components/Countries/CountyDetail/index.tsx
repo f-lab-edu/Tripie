@@ -1,6 +1,6 @@
 'use client';
 
-import { Card, Container } from '@tripie-pyotato/design-system';
+import { Card, Container } from '@tripie-pyotato/design-system/@components';
 import { DEFAULT_STYLE, MAP_ID, STYLE } from 'constants/maps';
 import useContinentl from 'hooks/query/useContinentl';
 import { useEffect, useMemo, useState } from 'react';

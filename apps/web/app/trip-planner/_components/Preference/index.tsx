@@ -1,4 +1,4 @@
-import { AnimatedButton, Container, Headings, Icon, Text } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Container, Headings, Icon, Text } from '@tripie-pyotato/design-system/@components';
 import { classNames } from 'wrapper';
 
 import PREFERENCE_LIST from 'constants/preferences';

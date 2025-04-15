@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Card, List, useAppTheme } from '@tripie-pyotato/design-system';
+import { Card, List } from '@tripie-pyotato/design-system/@components';
+import { useAppTheme } from '@tripie-pyotato/design-system/@hooks';
 
 const meta: Meta<typeof List> = {
   title: 'tripie-design/List',

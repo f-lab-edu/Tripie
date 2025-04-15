@@ -1,4 +1,4 @@
-import { COLORS } from '@tripie-pyotato/design-system';
+import { COLORS } from '@tripie-pyotato/design-system/shared';
 
 /**
  * 좌표 사이 간선 스타일

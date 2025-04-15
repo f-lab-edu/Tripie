@@ -1,6 +1,6 @@
 'use client';
 
-import { Container } from '@tripie-pyotato/design-system';
+import { Container } from '@tripie-pyotato/design-system/@components';
 
 import RegionTitle from '../_components/RegionTitle';
 

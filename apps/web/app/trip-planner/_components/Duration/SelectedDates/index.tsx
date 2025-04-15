@@ -1,5 +1,5 @@
 'use client';
-import { Card, Container, Headings, Text } from '@tripie-pyotato/design-system';
+import { Card, Container, Headings, Text } from '@tripie-pyotato/design-system/@components';
 import { classNames } from 'wrapper';
 
 import Style from './selected-dates.module.scss';

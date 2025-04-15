@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Icon, useAppTheme } from '@tripie-pyotato/design-system';
+import { Icon } from '@tripie-pyotato/design-system/@components';
+import { useAppTheme } from '@tripie-pyotato/design-system/@hooks';
 
 const meta: Meta<typeof Icon> = {
   title: 'tripie-design/Icon',

@@ -1,6 +1,6 @@
 'use client';
 
-import { ChipMarker } from '@tripie-pyotato/design-system';
+import { ChipMarker } from '@tripie-pyotato/design-system/@components';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { LocationMarker } from 'models/Geo';
 import { classNames, Marker } from 'wrapper';

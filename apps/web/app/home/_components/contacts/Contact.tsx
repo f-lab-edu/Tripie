@@ -1,6 +1,6 @@
 'use client';
 
-import { Container, Divider, Headings, Icon, Link, Text } from '@tripie-pyotato/design-system';
+import { Container, Divider, Headings, Icon, Link, Text } from '@tripie-pyotato/design-system/@components';
 import { ReactNode } from 'react';
 
 const Contact = ({

@@ -1,5 +1,5 @@
 'use client';
-import { Chip, Container, Headings, ParticleBackground, Text } from '@tripie-pyotato/design-system';
+import { Chip, Container, Headings, ParticleBackground, Text } from '@tripie-pyotato/design-system/@components';
 
 import ROUTE from 'constants/routes';
 import { useRouter } from 'next/navigation';

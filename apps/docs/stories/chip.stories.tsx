@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chip, useAppTheme } from '@tripie-pyotato/design-system';
+import { Chip } from '@tripie-pyotato/design-system/@components';
+import { useAppTheme } from '@tripie-pyotato/design-system/@hooks';
 
 const meta: Meta<typeof Chip> = {
   title: 'tripie-design/Chip',

@@ -1,5 +1,5 @@
 'use client';
-import { Chip, Container, Icon } from '@tripie-pyotato/design-system';
+import { Chip, Container, Icon } from '@tripie-pyotato/design-system/@components';
 import { Dispatch, SetStateAction, useMemo } from 'react';
 import { classNames } from 'wrapper';
 import Style from './city-list.module.scss';

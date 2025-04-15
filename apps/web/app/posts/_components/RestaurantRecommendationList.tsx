@@ -1,5 +1,5 @@
 'use client';
-import { Container, Divider } from '@tripie-pyotato/design-system';
+import { Container, Divider } from '@tripie-pyotato/design-system/@components';
 
 import { RestaurantRecommendation } from 'models/Attraction';
 import ArticleImages from './Elements/ArticleImages';

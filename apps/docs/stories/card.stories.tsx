@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Card, useAppTheme } from '@tripie-pyotato/design-system';
+import { Card } from '@tripie-pyotato/design-system/@components';
+import { useAppTheme } from '@tripie-pyotato/design-system/@hooks';
 
 const meta: Meta<typeof Card> = {
   title: 'tripie-design/Card',

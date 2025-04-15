@@ -1,4 +1,4 @@
-import { Container, Headings, MotionSlideUp, Text } from '@tripie-pyotato/design-system';
+import { Container, Headings, MotionSlideUp, Text } from '@tripie-pyotato/design-system/@components';
 import { classNames } from 'wrapper';
 import OurWorkList from './OurWorkList';
 import Style from './our-work.module.scss';

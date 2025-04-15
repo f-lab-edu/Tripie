@@ -1,5 +1,12 @@
 'use client';
-import { Container, Divider, Headings, List, Text, TextUnderLineAnimation } from '@tripie-pyotato/design-system';
+import {
+  Container,
+  Divider,
+  Headings,
+  List,
+  Text,
+  TextUnderLineAnimation,
+} from '@tripie-pyotato/design-system/@components';
 import { LANDING_SECTION } from 'constants/routes';
 import { useRouter } from 'next/navigation';
 

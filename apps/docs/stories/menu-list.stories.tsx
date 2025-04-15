@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { MenuToggle, useAppTheme } from '@tripie-pyotato/design-system';
+
+import { MenuToggle } from '@tripie-pyotato/design-system/@components';
+import { useAppTheme } from '@tripie-pyotato/design-system/@hooks';
 
 const meta: Meta<typeof MenuToggle.List> = {
   title: 'tripie-design/Button/Menu/List',

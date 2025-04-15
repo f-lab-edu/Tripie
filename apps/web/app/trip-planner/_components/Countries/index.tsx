@@ -2,7 +2,7 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import 'shared/components/AwsMap/Marker/marker.scss';
 
 import { useQueryClient } from '@tanstack/react-query';
-import { AnimatedButton, Container, Headings, Icon, Text } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Container, Headings, Icon, Text } from '@tripie-pyotato/design-system/@components';
 import firestoreService from 'app/api/firebase';
 import { classNames } from 'wrapper';
 

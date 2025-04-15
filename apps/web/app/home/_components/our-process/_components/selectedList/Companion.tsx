@@ -1,5 +1,5 @@
 'use client';
-import { Chip, Container, Icon } from '@tripie-pyotato/design-system';
+import { Chip, Container, Icon } from '@tripie-pyotato/design-system/@components';
 import { classNames } from 'wrapper';
 import Style from './shared/selected-list.module.scss';
 

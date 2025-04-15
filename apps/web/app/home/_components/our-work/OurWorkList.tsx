@@ -1,5 +1,5 @@
 'use client';
-import { Accordion, Container, Headings, Text } from '@tripie-pyotato/design-system';
+import { Accordion, Container, Headings, Text } from '@tripie-pyotato/design-system/@components';
 
 const ourWorkList = [
   {

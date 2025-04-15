@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Accordion, Container, useAppTheme } from '@tripie-pyotato/design-system';
+import { Accordion, Container } from '@tripie-pyotato/design-system/@components';
+import { useAppTheme } from '@tripie-pyotato/design-system/@hooks';
 
 const meta: Meta<typeof Accordion> = {
   title: 'tripie-design/Accordion',

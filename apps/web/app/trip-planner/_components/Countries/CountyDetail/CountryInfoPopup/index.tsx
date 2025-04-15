@@ -1,4 +1,4 @@
-import { Card, Chip, Container, List, Text } from '@tripie-pyotato/design-system';
+import { Card, Chip, Container, List, Text } from '@tripie-pyotato/design-system/@components';
 import Description from 'app/home/_components/our-process/_components/Description';
 import { Continentl } from 'models/Continentl';
 import { Dispatch, SetStateAction, useEffect } from 'react';

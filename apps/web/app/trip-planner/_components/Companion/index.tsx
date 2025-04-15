@@ -1,5 +1,5 @@
 'use client';
-import { AnimatedButton, Container, Headings, Icon, Text } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Container, Headings, Icon, Text } from '@tripie-pyotato/design-system/@components';
 import { classNames } from 'wrapper';
 
 import COMPANION_LIST from 'constants/companions';

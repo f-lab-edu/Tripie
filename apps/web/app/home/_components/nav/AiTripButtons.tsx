@@ -4,7 +4,7 @@ import ROUTE from 'constants/routes';
 import useChatToken from 'hooks/useChatToken';
 import Link from 'next/link';
 
-import { Icon, MenuToggle } from '@tripie-pyotato/design-system';
+import { Icon, MenuToggle } from '@tripie-pyotato/design-system/@components';
 import API from 'constants/api-routes';
 import { usePathname } from 'next/navigation';
 

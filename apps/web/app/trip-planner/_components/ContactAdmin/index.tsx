@@ -1,6 +1,13 @@
 'use client';
 
-import { AnimatedButton, Container, Headings, Icon, Text, TextUnderLineAnimation } from '@tripie-pyotato/design-system';
+import {
+  AnimatedButton,
+  Container,
+  Headings,
+  Icon,
+  Text,
+  TextUnderLineAnimation,
+} from '@tripie-pyotato/design-system/@components';
 import RegionInfo from 'app/home/_components/our-service/_components/RegionInfo';
 import ROUTE from 'constants/routes';
 import Link from 'next/link';

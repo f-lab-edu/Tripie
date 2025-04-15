@@ -1,5 +1,11 @@
 'use client';
-import { Container, Icon, NoStyleButton, Text, TextUnderLineAnimation } from '@tripie-pyotato/design-system';
+import {
+  Container,
+  Icon,
+  NoStyleButton,
+  Text,
+  TextUnderLineAnimation,
+} from '@tripie-pyotato/design-system/@components';
 
 import { AiTripPlanResponse } from 'app/api/openai/getTripPlan';
 import ROUTE from 'constants/routes';

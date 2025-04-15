@@ -1,7 +1,7 @@
 'use client';
 import { classNames } from 'wrapper';
 
-import { Headings, List, Text } from '@tripie-pyotato/design-system';
+import { Headings, List, Text } from '@tripie-pyotato/design-system/@components';
 
 import Style from './tab-list.module.scss';
 

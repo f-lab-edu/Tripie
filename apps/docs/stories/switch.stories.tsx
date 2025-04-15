@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Switch, useAppTheme, useCycle } from '@tripie-pyotato/design-system';
+
+import { Switch } from '@tripie-pyotato/design-system/@components';
+import { useAppTheme, useCycle } from '@tripie-pyotato/design-system/@hooks';
 
 const meta: Meta<typeof Switch> = {
   title: 'tripie-design/Switch',

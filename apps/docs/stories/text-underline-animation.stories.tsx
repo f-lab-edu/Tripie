@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { TextUnderLineAnimation, useAppTheme } from '@tripie-pyotato/design-system';
+
+import { TextUnderLineAnimation } from '@tripie-pyotato/design-system/@components';
+import { useAppTheme } from '@tripie-pyotato/design-system/@hooks';
 
 const meta: Meta<typeof TextUnderLineAnimation> = {
   title: 'tripie-design/Text/UnderlineAnimation',

@@ -1,5 +1,5 @@
 'use client';
-import { Headings, List, Text, TripieImage } from '@tripie-pyotato/design-system';
+import { Headings, List, Text, TripieImage } from '@tripie-pyotato/design-system/@components';
 
 import { Continentl } from 'models/Continentl';
 import { classNames } from 'wrapper';

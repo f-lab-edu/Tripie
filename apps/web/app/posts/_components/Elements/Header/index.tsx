@@ -1,5 +1,5 @@
 'use client';
-import { Container, Headings, Text } from '@tripie-pyotato/design-system';
+import { Container, Headings, Text } from '@tripie-pyotato/design-system/@components';
 import { HeadingProps } from 'models/Props';
 
 import decodeUnicodes from 'utils/string/decodeUnicodes';

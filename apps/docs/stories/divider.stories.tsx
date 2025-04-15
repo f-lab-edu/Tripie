@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Divider, useAppTheme } from '@tripie-pyotato/design-system';
+import { Divider } from '@tripie-pyotato/design-system/@components';
+import { useAppTheme } from '@tripie-pyotato/design-system/@hooks';
 
 const meta: Meta<typeof Divider> = {
   title: 'tripie-design/Divider',

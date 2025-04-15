@@ -1,6 +1,6 @@
 'use client';
 
-import { Card, Container, Globe } from '@tripie-pyotato/design-system';
+import { Card, Container, Globe } from '@tripie-pyotato/design-system/@components';
 import Description from 'app/home/_components/our-process/_components/Description';
 import { classNames } from 'wrapper';
 import RegionInfo from '../RegionInfo';

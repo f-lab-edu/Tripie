@@ -1,5 +1,5 @@
 'use client';
-import { Container, Headings, MotionSlideUp } from '@tripie-pyotato/design-system';
+import { Container, Headings, MotionSlideUp } from '@tripie-pyotato/design-system/@components';
 import { classNames } from 'wrapper';
 
 import FaqList from './FaqList';
