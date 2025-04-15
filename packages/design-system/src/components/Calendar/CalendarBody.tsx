@@ -7,16 +7,18 @@ import { CalendarProps, ReactCalendar } from '../../wrappers';
 import Headings from '../Headings/Headings';
 import TripieContainer from '../TripieContainer/TripieContainer';
 
+import { Value } from 'wrappers/react-calendar';
 import './calendar-custom.scss';
 
+export type ValuePiece = Date | null;
+
 // https://github.com/wojtekmaj/react-calendar/wiki/Recipes#selectively-style-tiles 참고
-function isSameDay(a: Date, b: Date): number {
+function isSameDay(a: ValuePiece, b: ValuePiece): null | number {
+  if (a == null || b == null) {
+    return null;
+  }
   return differenceInCalendarDays(a, b);
 }
-
-export type ValuePiece = Date;
-
-export type Value = ValuePiece | [ValuePiece, ValuePiece];
 
 export type CustomCalendarProps = CalendarProps & RefAttributes<unknown>;
 
@@ -43,9 +45,16 @@ const CalendarBody = ({
    */
   const addSelectedTileClassName = useCallback(
     ({ date, value }: { date: Date; value: Value }) => {
+      if (value == null || !Array.isArray(value)) {
+        return 'start-date end-date';
+      }
+
       // range가 두 시간대에 걸쳐 있는 경우
       if (Array.isArray(value) && value.length === 2) {
         const [start, end] = value.map(dDate => isSameDay(dDate, date));
+        if (start == null || end == null) {
+          return '';
+        }
         //   시작일
         if (start === 0) {
           return 'start-date';
@@ -55,7 +64,7 @@ const CalendarBody = ({
           return 'end-date';
         }
         // 시작과 끝 날짜 사이의 tile들
-        else if (Math.abs(start + end) <= Math.abs(isSameDay(...value))) {
+        else if (Math.abs(start + end) <= Math.abs(isSameDay(...value) as number)) {
           return 'in-range';
         }
       } else {
