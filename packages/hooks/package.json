@@ -3,12 +3,22 @@
   "description": "tripie 공통 hooks",
   "sideEffects": false,
   "version": "0.0.1",
+  "type": "module",
   "main": "./src/index.ts",
   "exports": {
-    ".": "./src/index.ts"
+    ".": {
+      "require": {
+        "types": "./dist/src/index.d.cts",
+        "default": "./dist/src/index.cjs"
+      },
+      "import": {
+        "types": "./dist/src/index.d.ts",
+        "default": "./dist/src/index.js"
+      }
+    }
   },
   "scripts": {
-    "build:pkg": "rimraf dist && tsc && tsup",
+    "build": "rimraf dist && tsc && tsup",
     "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
     "prettier": "prettier --check '**/*.{ts,mts,cts,tsx,js,mjs,cjs,jsx,json,md}'",
     "prettier:fix": "prettier --write '**/*.{ts,mts,cts,tsx,js,mjs,cjs,jsx,json,md}'",
@@ -16,7 +26,8 @@
   },
   "dependencies": {
     "react-dom": "^18.3.1",
-    "usehooks-ts": "^3.1.0"
+    "usehooks-ts": "^3.1.0",
+    "@tripie-pyotato/utils": "^0.0.1"
   },
   "devDependencies": {
     "@types/lodash.debounce": "^4.0.9",
@@ -26,8 +37,8 @@
     "react": "^18.3.1",
     "tsup": "^8.1.2",
     "typescript": "^5",
-    "@tripie-pyotato/typescript-config": "workspace:*",
-    "@tripie-pyotato/eslint-config": "workspace:*"
+    "@tripie-pyotato/typescript-config": "^0.0.2",
+    "@tripie-pyotato/eslint-config": "^0.0.1"
   },
   "peerDependencies": {
     "react": "*"
