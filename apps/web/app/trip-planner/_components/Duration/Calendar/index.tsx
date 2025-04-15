@@ -1,5 +1,5 @@
 'use client';
-import { AnimatedButton, Calendar, Icon } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Calendar, Icon } from '@tripie-pyotato/design-system/@components';
 
 import { classNames } from 'wrapper';
 
