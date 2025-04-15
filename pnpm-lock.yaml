@@ -128,8 +128,8 @@ importers:
         specifier: ^0.1.7
         version: 0.1.7(@types/react@18.3.18)(esbuild@0.25.2)(next@14.2.4(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.85.0))(react@18.3.1)(rollup@4.34.8)(sass-embedded@1.86.0)
       '@tripie-pyotato/hooks':
-        specifier: ^0.0.1
-        version: 0.0.1(react@18.3.1)
+        specifier: ^0.0.2
+        version: 0.0.2(react@18.3.1)
       next:
         specifier: 14.2.4
         version: 14.2.4(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.85.0)
@@ -294,11 +294,11 @@ importers:
         specifier: ^0.1.7
         version: 0.1.7(@types/react@18.3.18)(esbuild@0.25.2)(next@15.1.7(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6))(react@18.3.1)(rollup@4.34.8)(sass-embedded@1.86.0)
       '@tripie-pyotato/hooks':
-        specifier: ^0.0.1
-        version: 0.0.1(react@18.3.1)
+        specifier: ^0.0.3
+        version: 0.0.3(react@18.3.1)
       '@tripie-pyotato/utils':
-        specifier: ^0.0.1
-        version: 0.0.1(react@18.3.1)
+        specifier: ^0.0.3
+        version: 0.0.3(react@18.3.1)
       '@types/mdx':
         specifier: ^2.0.13
         version: 2.0.13
@@ -553,11 +553,11 @@ importers:
   packages/design-system:
     dependencies:
       '@tripie-pyotato/hooks':
-        specifier: ^0.0.1
-        version: 0.0.1(react@18.3.1)
+        specifier: ^0.0.3
+        version: 0.0.3(react@18.3.1)
       '@tripie-pyotato/utils':
-        specifier: ^0.0.1
-        version: 0.0.1(react@18.3.1)
+        specifier: ^0.0.3
+        version: 0.0.3(react@18.3.1)
       classnames:
         specifier: ^2.5.1
         version: 2.5.1
@@ -686,8 +686,8 @@ importers:
   packages/hooks:
     dependencies:
       '@tripie-pyotato/utils':
-        specifier: ^0.0.1
-        version: 0.0.1(react@18.3.1)
+        specifier: ^0.0.3
+        version: 0.0.3(react@18.3.1)
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
@@ -782,8 +782,8 @@ importers:
         version: 3.1.1(react@18.3.1)
     devDependencies:
       '@tripie-pyotato/eslint-config':
-        specifier: workspace:*
-        version: link:../config-eslint
+        specifier: ^0.0.1
+        version: 0.0.1
       '@tripie-pyotato/typescript-config':
         specifier: ^0.0.2
         version: 0.0.2
@@ -4162,11 +4162,31 @@ packages:
     peerDependencies:
       react: '*'
 
+  '@tripie-pyotato/hooks@0.0.2':
+    resolution: {integrity: sha512-bWUfGkKA+D6J2iI1C2cvkibguPSGKjUnkwZ2vKtX4NKvkUfnax3jhRMolKTC6H++isEawokec3Q/JyOzaQQEOQ==}
+    peerDependencies:
+      react: '*'
+
+  '@tripie-pyotato/hooks@0.0.3':
+    resolution: {integrity: sha512-iqy3gR7oGqZk7vbq+ry7gwXaXmc/RE2SGlNktE6RTfTfvkt6VRk8pCTeE3E4AOl2sD6GU7juxWlqPYrGXZ14gQ==}
+    peerDependencies:
+      react: '*'
+
   '@tripie-pyotato/typescript-config@0.0.2':
     resolution: {integrity: sha512-XiMX2iaCv+5uVvR25IqbTYN1Yo7nD2mHgHOul8fTAYOMs6FkrFcCH1Pe2fd66VJuW5O8tC32BaEz3r6FuUOetQ==}
 
   '@tripie-pyotato/utils@0.0.1':
     resolution: {integrity: sha512-K+7bCYaT4Xm712aqPvAlFxrXzSb53GlXkSR9DJS2rdJLdTFdBBz5HPYUkxTwRND9YkHlAy8JAQXpqB+e3uvQmA==}
+    peerDependencies:
+      react: '*'
+
+  '@tripie-pyotato/utils@0.0.2':
+    resolution: {integrity: sha512-vtTFRACZ7Kur1QpsHX6DygO9ko1EZfXAtJxN6PZ179o4lclOswSicbjXrB+2tnAjjw9zmr4wXTyZ++wNB3D5Zg==}
+    peerDependencies:
+      react: '*'
+
+  '@tripie-pyotato/utils@0.0.3':
+    resolution: {integrity: sha512-i7eCcqAZ0NqldFJUf9PU5kS9hWrNqosaGqOtca74S03M14ALnjI5HaayaXXaK9056QBwyozZjj7JGH5V2QX3Gg==}
     peerDependencies:
       react: '*'
 
@@ -15865,9 +15885,35 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       usehooks-ts: 3.1.1(react@18.3.1)
 
+  '@tripie-pyotato/hooks@0.0.2(react@18.3.1)':
+    dependencies:
+      '@tripie-pyotato/utils': 0.0.2(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+      usehooks-ts: 3.1.1(react@18.3.1)
+
+  '@tripie-pyotato/hooks@0.0.3(react@18.3.1)':
+    dependencies:
+      '@tripie-pyotato/utils': 0.0.3(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+      usehooks-ts: 3.1.1(react@18.3.1)
+
   '@tripie-pyotato/typescript-config@0.0.2': {}
 
   '@tripie-pyotato/utils@0.0.1(react@18.3.1)':
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+      usehooks-ts: 3.1.1(react@18.3.1)
+
+  '@tripie-pyotato/utils@0.0.2(react@18.3.1)':
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+      usehooks-ts: 3.1.1(react@18.3.1)
+
+  '@tripie-pyotato/utils@0.0.3(react@18.3.1)':
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)

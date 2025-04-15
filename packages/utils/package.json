@@ -79,7 +79,7 @@
     "tsup": "^8.1.2",
     "typescript": "^5",
     "@tripie-pyotato/typescript-config": "^0.0.2",
-    "@tripie-pyotato/eslint-config": "workspace:*",
+    "@tripie-pyotato/eslint-config": "^0.0.1",
     "@tripie-pyotato/vitest-config": "^0.0.2",
     "vitest": "^3.0.6",
     "@vitejs/plugin-react": "^4.2.1",

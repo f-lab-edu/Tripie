@@ -2,7 +2,7 @@
   "name": "@tripie-pyotato/hooks",
   "description": "tripie 공통 hooks",
   "sideEffects": false,
-  "version": "0.0.1",
+  "version": "0.0.3",
   "type": "module",
   "main": "./src/index.ts",
   "exports": {
@@ -27,7 +27,7 @@
   "dependencies": {
     "react-dom": "^18.3.1",
     "usehooks-ts": "^3.1.0",
-    "@tripie-pyotato/utils": "^0.0.2"
+    "@tripie-pyotato/utils": "^0.0.3"
   },
   "devDependencies": {
     "@types/node": "^20",
