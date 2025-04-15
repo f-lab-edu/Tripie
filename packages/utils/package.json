@@ -2,7 +2,7 @@
   "name": "@tripie-pyotato/utils",
   "description": "tripie 공통 utils",
   "sideEffects": false,
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "private": false,
   "main": "./src/index.ts",
