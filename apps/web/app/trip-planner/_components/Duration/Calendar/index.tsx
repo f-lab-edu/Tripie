@@ -1,5 +1,5 @@
 'use client';
-import { AnimatedButton, Calendar, Icon } from '@tripie-pyotato/design-system/@components';
+import { AnimatedButton, Calendar, Container, Icon } from '@tripie-pyotato/design-system/@components';
 
 import { classNames } from 'wrapper';
 
@@ -64,23 +64,25 @@ const Calendars = ({
         showNeighboringMonth={true}
         showNavigation={false}
       />
-      <AnimatedButton
-        withBorder={true}
-        disabled={duration.end === ''}
-        isFullSize={true}
-        onClick={handleSubmit}
-        className={cx('submit-button', duration.end !== '' && 'long-text')}
-      >
-        <span>
-          {duration.end === '' ? (
-            '여행의 시작과 끝나는 날짜를 선택해주세요.'
-          ) : (
-            <span className={cx('flex-text')}>
-              다음 <Icon />
-            </span>
-          )}
-        </span>
-      </AnimatedButton>
+      <Container padding="m" applyPadding="bottom" margin="none">
+        <AnimatedButton
+          withBorder={true}
+          disabled={duration.end === ''}
+          isFullSize={true}
+          onClick={handleSubmit}
+          className={cx('submit-button', duration.end !== '' && 'long-text')}
+        >
+          <span>
+            {duration.end === '' ? (
+              '여행의 시작과 끝나는 날짜를 선택해주세요.'
+            ) : (
+              <span className={cx('flex-text')}>
+                다음 <Icon />
+              </span>
+            )}
+          </span>
+        </AnimatedButton>
+      </Container>
     </>
   );
 };

@@ -1,0 +1,25 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.card-wrap {
+  height: 100%;
+  display: inline-flex;
+  flex-direction: column;
+
+  & > div {
+    margin: 0;
+  }
+}
+
+.map-wrap {
+  height: 90%;
+  & > div {
+    height: 100% !important;
+  }
+}
+
+.marker {
+  & g {
+    fill: $theme-50;
+  }
+}

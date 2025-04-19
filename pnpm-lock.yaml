@@ -511,7 +511,7 @@ importers:
         version: 0.0.2
       '@vitejs/plugin-react':
         specifier: ^4.3.4
-        version: 4.3.4(vite@6.1.1(@types/node@22.13.13)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.0))
+        version: 4.3.4(vite@5.4.16(@types/node@22.13.13)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0))
       '@vitest/coverage-istanbul':
         specifier: ^3.0.7
         version: 3.1.1(vitest@3.1.1(@types/debug@4.1.12)(@types/node@22.13.13)(@vitest/ui@3.0.7)(jsdom@26.0.0)(msw@2.7.1(@types/node@22.13.13)(typescript@5.8.2))(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0))
@@ -529,7 +529,7 @@ importers:
         version: 17.1.0
       vite-tsconfig-paths:
         specifier: ^5.1.4
-        version: 5.1.4(typescript@5.8.2)(vite@6.1.1(@types/node@22.13.13)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.0))
+        version: 5.1.4(typescript@5.8.2)(vite@5.4.16(@types/node@22.13.13)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0))
       vitest:
         specifier: ^3.1.1
         version: 3.1.1(@types/debug@4.1.12)(@types/node@22.13.13)(@vitest/ui@3.0.7)(jsdom@26.0.0)(msw@2.7.1(@types/node@22.13.13)(typescript@5.8.2))(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)
@@ -16715,6 +16715,17 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  '@vitejs/plugin-react@4.3.4(vite@5.4.16(@types/node@22.13.13)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0))':
+    dependencies:
+      '@babel/core': 7.26.9
+      '@babel/plugin-transform-react-jsx-self': 7.25.9(@babel/core@7.26.9)
+      '@babel/plugin-transform-react-jsx-source': 7.25.9(@babel/core@7.26.9)
+      '@types/babel__core': 7.20.5
+      react-refresh: 0.14.2
+      vite: 5.4.16(@types/node@22.13.13)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)
+    transitivePeerDependencies:
+      - supports-color
+
   '@vitejs/plugin-react@4.3.4(vite@6.1.1(@types/node@20.17.19)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.0))':
     dependencies:
       '@babel/core': 7.26.9
@@ -16723,17 +16734,6 @@ snapshots:
       '@types/babel__core': 7.20.5
       react-refresh: 0.14.2
       vite: 6.1.1(@types/node@20.17.19)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.0)
-    transitivePeerDependencies:
-      - supports-color
-
-  '@vitejs/plugin-react@4.3.4(vite@6.1.1(@types/node@22.13.13)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.0))':
-    dependencies:
-      '@babel/core': 7.26.9
-      '@babel/plugin-transform-react-jsx-self': 7.25.9(@babel/core@7.26.9)
-      '@babel/plugin-transform-react-jsx-source': 7.25.9(@babel/core@7.26.9)
-      '@types/babel__core': 7.20.5
-      react-refresh: 0.14.2
-      vite: 6.1.1(@types/node@22.13.13)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -24872,13 +24872,13 @@ snapshots:
       - supports-color
       - terser
 
-  vite-tsconfig-paths@5.1.4(typescript@5.8.2)(vite@6.1.1(@types/node@22.13.13)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.0)):
+  vite-tsconfig-paths@5.1.4(typescript@5.8.2)(vite@5.4.16(@types/node@22.13.13)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)):
     dependencies:
       debug: 4.4.0
       globrex: 0.1.2
       tsconfck: 3.1.5(typescript@5.8.2)
     optionalDependencies:
-      vite: 6.1.1(@types/node@22.13.13)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.0)
+      vite: 5.4.16(@types/node@22.13.13)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -24926,20 +24926,6 @@ snapshots:
       rollup: 4.34.8
     optionalDependencies:
       '@types/node': 20.17.19
-      fsevents: 2.3.3
-      jiti: 1.21.7
-      sass: 1.85.0
-      sass-embedded: 1.86.0
-      terser: 5.39.0
-      yaml: 2.7.0
-
-  vite@6.1.1(@types/node@22.13.13)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.0):
-    dependencies:
-      esbuild: 0.24.2
-      postcss: 8.5.3
-      rollup: 4.34.8
-    optionalDependencies:
-      '@types/node': 22.13.13
       fsevents: 2.3.3
       jiti: 1.21.7
       sass: 1.85.0

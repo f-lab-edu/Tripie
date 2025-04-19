@@ -13,7 +13,7 @@ const Globe = dynamic(() => import('react-globe.gl').then(mod => mod.default), {
   ssr: false,
 });
 
-const RotatingGlobe = () => {
+const RotatingGlobe = ({ className }: { className?: string }) => {
   const globeRef = useRef<GlobeMethods>();
 
   // Globe 가 충분히 로드될때까지 초기화 대기
@@ -34,7 +34,7 @@ const RotatingGlobe = () => {
   }, []);
 
   return (
-    <TripieContainer className={'globe'}>
+    <TripieContainer className={`globe ${className}`}>
       <Suspense fallback={null}>
         <Globe
           height={500}

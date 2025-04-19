@@ -8,3 +8,9 @@
 .flex-text {
   @include flex-text;
 }
+.wrap {
+  @media (max-width: 600) {
+    @include visible-scroll(false);
+    @include scroll;
+  }
+}

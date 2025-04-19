@@ -39,18 +39,21 @@ export default function ContinentStep({ context, onNext }: Readonly<Props>) {
         </Headings.H2>
       </Container>
       <Globe />
-
-      <ContinentList selectedContinent={selectedContinent} action={setSelectedContinent} />
-      <AnimatedButton
-        isFullSize={true}
-        withBorder={true}
-        className={cx('chip')}
-        onClick={() => onNext({ continent: CONTINENTS[selectedContinent]['id'] as ContinentKeys })}
-      >
-        <span className={cx('flex-text')}>
-          "{selectedContinentName?.name}"{selectedContinentName?.name === '유럽' ? '으' : null}로 보기 <Icon />
-        </span>
-      </AnimatedButton>
+      <Container margin="none" padding="none" className={cx('wrap')}>
+        <ContinentList selectedContinent={selectedContinent} action={setSelectedContinent} />
+      </Container>
+      <Container padding="m" applyPadding="bottom" margin="none">
+        <AnimatedButton
+          isFullSize={true}
+          withBorder={true}
+          className={cx('chip')}
+          onClick={() => onNext({ continent: CONTINENTS[selectedContinent]['id'] as ContinentKeys })}
+        >
+          <span className={cx('flex-text')}>
+            "{selectedContinentName?.name}"{selectedContinentName?.name === '유럽' ? '으' : null}로 보기 <Icon />
+          </span>
+        </AnimatedButton>
+      </Container>
     </>
   );
 }

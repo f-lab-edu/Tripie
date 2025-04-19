@@ -33,15 +33,17 @@ const CityStep = ({ context, onNext, onPrev }: Props) => {
   return (
     <>
       <Container applyMargin="top" margin="l" padding="l" applyPadding="top">
-        <Headings.H2 className={cx('flex-text')}>
-          <Icon.Navigate
-            sizes="large"
-            onTapStart={() => {
-              onPrev();
-            }}
-          />
-          <Container margin="none">
-            내가 여행하고 싶은 <Text.Accented>{'\n'}도시</Text.Accented>는?
+        <Headings.H2>
+          <Container margin="none" alignItems="start" justifyContent="start" preserveWhiteSpace={true} gap="sm">
+            <Icon.Navigate
+              sizes="large"
+              onTapStart={() => {
+                onPrev();
+              }}
+            />
+            <span>
+              내가 여행하고 싶은 <Text.Accented>{'\n'}도시</Text.Accented>는?
+            </span>
           </Container>
         </Headings.H2>
       </Container>
@@ -52,23 +54,25 @@ const CityStep = ({ context, onNext, onPrev }: Props) => {
         <Icon.Plane />
       </Container>
       <CityList cities={cities} selected={selected} setSelected={setSelected} />
-      <AnimatedButton
-        withBorder={true}
-        isFullSize={true}
-        disabled={selected.length === 0}
-        onClick={handleSubmit}
-        className={cx('submit-button')}
-      >
-        <span className={cx('flex-text')}>
-          {selected.length === 0 ? (
-            '다중 선택이 가능해요.'
-          ) : (
-            <>
-              다음 <Icon />
-            </>
-          )}
-        </span>
-      </AnimatedButton>
+      <Container padding="m" applyPadding="bottom" margin="none">
+        <AnimatedButton
+          withBorder={true}
+          isFullSize={true}
+          disabled={selected.length === 0}
+          onClick={handleSubmit}
+          className={cx('submit-button')}
+        >
+          <span className={cx('flex-text')}>
+            {selected.length === 0 ? (
+              '다중 선택이 가능해요.'
+            ) : (
+              <>
+                다음 <Icon />
+              </>
+            )}
+          </span>
+        </AnimatedButton>
+      </Container>
     </>
   );
 };

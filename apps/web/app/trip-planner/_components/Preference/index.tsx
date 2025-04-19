@@ -56,7 +56,7 @@ const PreferenceStep = ({ context, onNext, onPrev }: Props) => {
         <Icon.Plane />
       </Container>
       <PreferenceList selected={selected} setSelected={setSelected} />
-      <Container margin="l" applyMargin="top">
+      <Container padding="m" applyPadding="bottom" margin="none">
         <AnimatedButton
           isFullSize={true}
           withBorder={true}

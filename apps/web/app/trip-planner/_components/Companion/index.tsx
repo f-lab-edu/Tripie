@@ -51,29 +51,30 @@ const CompanionStep = ({ context, onNext, onPrev }: Props) => {
         {Array.from({ length: 30 }, (_, index) => (
           <Icon.Cloud key={index} index={index} />
         ))}
-
         <Icon.Plane />
       </Container>
       <Container margin="none" className={cx('wrap')}>
         <CompanionList context={context} selected={selected} setSelected={setSelected} />
       </Container>
-      <AnimatedButton
-        withBorder={true}
-        isFullSize={true}
-        disabled={selected.length === 0}
-        onClick={handleSubmit}
-        className={cx('submit-button')}
-      >
-        <span className={cx('flex-text')}>
-          {selected.length === 0 ? (
-            '다중 선택이 가능해요.'
-          ) : (
-            <>
-              다음 <Icon />
-            </>
-          )}
-        </span>
-      </AnimatedButton>
+      <Container padding="m" applyPadding="bottom" margin="none">
+        <AnimatedButton
+          withBorder={true}
+          isFullSize={true}
+          disabled={selected.length === 0}
+          onClick={handleSubmit}
+          className={cx('submit-button')}
+        >
+          <span className={cx('flex-text')}>
+            {selected.length === 0 ? (
+              '다중 선택이 가능해요.'
+            ) : (
+              <>
+                다음 <Icon />
+              </>
+            )}
+          </span>
+        </AnimatedButton>
+      </Container>
     </>
   );
 };

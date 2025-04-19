@@ -8,7 +8,7 @@ import 'shared/components/AwsMap/Marker/marker.module.scss';
 import Loading from 'shared/components/Loading';
 import dmsToDecimalLatLng from 'utils/coordinate';
 import { Map, Marker, classNames } from 'wrapper';
-import Style from '../countries.module.scss';
+import Style from './countries.module.scss';
 import CountryInfoPopup from './CountryInfoPopup';
 import CountryName from './CountryName';
 const cx = classNames.bind(Style);
@@ -44,7 +44,7 @@ const CountryDetail = ({ selectedCountry }: { selectedCountry: string }) => {
         code={countryDetail.code}
         flagImage={countryDetail['flag-image']}
       />
-      <Container margin="none" className={cx('map-wrap')}>
+      <Container margin="none" className={cx('map-wrap')} padding="sm" applyPadding="bottom">
         <Map
           id={MAP_ID}
           interactive={true}

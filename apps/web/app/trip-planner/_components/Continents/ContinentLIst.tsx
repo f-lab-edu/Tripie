@@ -40,9 +40,9 @@ export function ContinentList({ selectedContinent, action }: Readonly<Props>) {
     <Container className={cx('wrap')} applyMargin="bottom">
       {Object.keys(CONTINENTS).map((continent, index) => (
         <Chip
+          key={JSON.stringify(continent)}
           selected={selectedContinent === continent}
           className={cx('chip')}
-          key={JSON.stringify(continent)}
           onClick={() => {
             action(Object.keys(CONTINENTS)[index] as ContinentKeys);
             prefetch(CONTINENTS[continent as ContinentKeys].id);

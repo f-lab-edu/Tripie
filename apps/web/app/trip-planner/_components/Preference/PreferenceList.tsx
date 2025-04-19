@@ -29,8 +29,8 @@ const PreferenceList = ({ selected, setSelected }: Props) => {
 
   return (
     <Container margin="none">
-      <Icon.Refresh onTapStart={() => setSelected([])} />{' '}
-      <Container className={cx('chip-wrap')} margin="none">
+      <Icon.Refresh onTapStart={() => setSelected([])} />
+      <Container className={cx('chip-wrap')} applyMargin="top">
         {Object.values(PREFERENCE_LIST).map((tagName, index) => (
           <Chip
             key={tagName.tag}

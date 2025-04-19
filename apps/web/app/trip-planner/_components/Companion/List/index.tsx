@@ -41,7 +41,7 @@ const CompanionList = ({ selected, setSelected }: Props) => {
   return (
     <Container margin="none">
       <Icon.Refresh onTapStart={() => setSelected([])} />{' '}
-      <Container className={cx('chip-wrap')} margin="none">
+      <Container className={cx('chip-wrap')} applyMargin="top">
         {Object.values(COMPANION_LIST).map((tagName, index) => (
           <Chip
             key={tagName.tag}
