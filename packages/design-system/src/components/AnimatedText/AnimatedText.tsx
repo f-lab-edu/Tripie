@@ -132,8 +132,7 @@ export const SlidingText = ({
 };
 
 AnimatedText.Slide = SlidingText;
-AnimatedText.Jump = SlidingText;
-AnimatedText.Jump = SlidingText;
-AnimatedText.Flick = FlickText;
+AnimatedText.Jump = JumpingText;
+AnimatedText.Flick = FlickText; //default
 
 export default AnimatedText;

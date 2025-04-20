@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-// import { Carousel, TripieImage } from '@tripie-pyotato/design-system/@components';
 import { Carousel } from '@tripie-pyotato/design-system/@components';
 import { TripieImage } from '@tripie-pyotato/design-system/@components/core';
 import images from '../tests/images';
