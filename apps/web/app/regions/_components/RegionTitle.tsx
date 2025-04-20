@@ -1,5 +1,5 @@
 'use client';
-import { Text } from '@tripie-pyotato/design-system/@components';
+import { Text } from '@tripie-pyotato/design-system/@components/core';
 import Title from './Title';
 
 const RegionTitle = ({ city, regionId }: { regionId?: string; city?: string | null }) => {

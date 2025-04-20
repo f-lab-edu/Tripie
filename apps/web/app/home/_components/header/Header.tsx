@@ -1,15 +1,8 @@
 'use client';
 
-import {
-  AnimatedButton,
-  Headings,
-  Icon,
-  ParticleBackground,
-  RotatingBlur,
-  Text,
-} from '@tripie-pyotato/design-system/@components';
+import { AnimatedButton, Icon, ParticleBackground, RotatingBlur } from '@tripie-pyotato/design-system/@components';
 
-import { Container } from '@tripie-pyotato/design-system/@components/core';
+import { Container, Headings, Text } from '@tripie-pyotato/design-system/@components/core';
 import { classNames } from 'wrapper';
 
 import ROUTE from 'constants/routes';

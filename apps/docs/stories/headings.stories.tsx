@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Heading from '../../../packages/design-system/src/components/Headings/Headings';
-import { useAppTheme } from '../../../packages/design-system/src/hooks';
+import { Headings } from '@tripie-pyotato/design-system/@components/core';
+import { useAppTheme } from '@tripie-pyotato/design-system/@hooks';
 
-const meta: Meta<typeof Heading> = {
+const meta: Meta<typeof Headings> = {
   title: 'tripie-design/Typography/Headings',
   tags: ['autodocs'],
-  component: Heading,
+  component: Headings,
   decorators: [
     (story, context) => {
       const { mode } = useAppTheme();

@@ -1,6 +1,6 @@
 'use client';
-import { Card, Headings, Text } from '@tripie-pyotato/design-system/@components';
-import { Container } from '@tripie-pyotato/design-system/@components/core';
+import { Card } from '@tripie-pyotato/design-system/@components';
+import { Container, Headings, Text } from '@tripie-pyotato/design-system/@components/core';
 import { NoteProps } from 'models/Props';
 
 import decodeUnicodes from 'utils/string/decodeUnicodes';

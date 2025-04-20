@@ -1,10 +1,10 @@
 import { classNames } from '../../../wrappers';
 import { TripieContainerProps } from '../../core/TripieContainer/TripieContainer';
-import Style from './no-style-button.module.scss';
+import Style from './unstyled-button.module.scss';
 
 const cx = classNames.bind(Style);
 
-const NoStyleButton = ({
+const UnStyledButton = ({
   action,
   children,
   name = 'no-style-button',
@@ -45,4 +45,4 @@ const NoStyleButton = ({
   );
 };
 
-export default NoStyleButton;
+export default UnStyledButton;

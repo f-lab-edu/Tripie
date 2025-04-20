@@ -2,11 +2,11 @@ import { MutableRefObject, ReactNode, RefObject } from 'react';
 import { SHINE_VARIANT } from '../../shared/motion-variants';
 import { Motion, classNames } from '../../wrappers';
 
-import Divider from '../Divider';
-import MotionSlideUp from '../MotionSlideUp/MotionSlideUp';
-import Text from '../Text';
+import Text from '../AnimatedText';
 import TripieContainer, { TripieContainerProps } from '../core/TripieContainer/TripieContainer';
 import TripieImage, { ImageSizes } from '../core/TripieImage/TripieImage';
+import Divider from '../Divider';
+import MotionSlideUp from '../MotionSlideUp/MotionSlideUp';
 import Style from './card.module.scss';
 
 const cx = classNames.bind(Style);

@@ -6,7 +6,7 @@ import useCycle from '../../../hooks/useCycle';
 import { COLORS } from '../../../shared/colors';
 
 import TripieContainer from '../../core/TripieContainer/TripieContainer';
-import NoStyleButton from '../NoStyle/NoStyleButton';
+import UnStyledButton from '../UnStyled/UnStyledButton';
 import Style from './menu-toggle.module.scss';
 import MenuItem from './MenuItem';
 import MenuList from './MenuList';
@@ -18,7 +18,7 @@ export const Path = (props: MotionProps['svgProps']) => (
 );
 
 const ToggleButton = ({ toggle }: { toggle: () => void }) => (
-  <NoStyleButton action={() => toggle()} className={cx('menu-toggle')}>
+  <UnStyledButton action={() => toggle()} className={cx('menu-toggle')}>
     <svg width="24" height="24" viewBox="0 0 24 24" className={cx('svg')}>
       <Path
         variants={{
@@ -41,7 +41,7 @@ const ToggleButton = ({ toggle }: { toggle: () => void }) => (
         }}
       />
     </svg>
-  </NoStyleButton>
+  </UnStyledButton>
 );
 
 const MenuToggle = ({

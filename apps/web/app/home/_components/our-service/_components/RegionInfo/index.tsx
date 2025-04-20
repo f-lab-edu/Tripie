@@ -1,6 +1,6 @@
 'use client';
-import { Card, Headings, Text } from '@tripie-pyotato/design-system/@components';
-import { Container } from '@tripie-pyotato/design-system/@components/core';
+import { Card } from '@tripie-pyotato/design-system/@components';
+import { Container, Headings, Text } from '@tripie-pyotato/design-system/@components/core';
 import { classNames } from 'wrapper';
 
 import Style from './region-info.module.scss';

@@ -1,5 +1,5 @@
 'use client';
-import { Icon, Text } from '@tripie-pyotato/design-system/@components';
+import { AnimatedText, Icon } from '@tripie-pyotato/design-system/@components';
 import { Container } from '@tripie-pyotato/design-system/@components/core';
 import { randomIntBtw } from '@tripie-pyotato/utils/@number';
 import { TripPlanner } from 'models/Aws';
@@ -36,9 +36,9 @@ const DoneStep = ({ context }: { context: TripPlanner }) => {
       </Container>
       <Container margin="none">
         {selectedOptions.map(text => (
-          <Text.Slide animate="fly" duration={randomIntBtw()} key={text}>
+          <AnimatedText.Slide animate="fly" duration={randomIntBtw()} key={text}>
             <div className={cx('text-color')}>{text}</div>
-          </Text.Slide>
+          </AnimatedText.Slide>
         ))}
       </Container>
       <Container className={cx('cloud-wrap')}>

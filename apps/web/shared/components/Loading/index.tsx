@@ -1,5 +1,5 @@
 'use client';
-import { Icon, SplashScreen, Text, TextFillAnimation } from '@tripie-pyotato/design-system/@components';
+import { AnimatedText, Icon, SplashScreen, TextFillAnimation } from '@tripie-pyotato/design-system/@components';
 import { Container } from '@tripie-pyotato/design-system/@components/core';
 import { classNames } from 'wrapper';
 import Style from './loader.module.scss';
@@ -26,7 +26,7 @@ const SemiTransparentLoader = () => {
   return (
     <SplashScreen.Controlled className={cx('semi-transparent')}>
       <Container margin="none" align="center" className={cx('loader-wrap')}>
-        <Icon.Loading /> <Text.Jump>loading...</Text.Jump>
+        <Icon.Loading /> <AnimatedText.Jump>loading...</AnimatedText.Jump>
       </Container>
     </SplashScreen.Controlled>
   );

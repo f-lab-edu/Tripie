@@ -16,36 +16,6 @@ export interface TextProps {
   crossOut?: boolean;
 }
 
-const Text = ({
-  children,
-  className,
-  size = 'default',
-  bold = false,
-  crossOut = false,
-  ...props
-}: Readonly<TextProps>) => {
-  const splitText = `${children}`.split('\n').map((sentence, index) => {
-    return (
-      <span
-        className={cx('text', bold ? 'bold' : '', size, crossOut ? 'cross' : '', className)}
-        key={index + sentence}
-        {...props}
-      >
-        {sentence}
-      </span>
-    );
-  });
-  return <>{splitText}</>;
-};
-
-const AccentedText = ({ children, className, bold, size = 'default', ...props }: Readonly<TextProps>) => {
-  return (
-    <span className={cx('text', 'accented', size, bold ? 'bold' : '', className)} {...props}>
-      {children}
-    </span>
-  );
-};
-
 export const FlickText = ({
   children,
   className,
@@ -60,7 +30,7 @@ export const FlickText = ({
   );
 };
 
-export const FlickText2 = ({
+const FlickText2 = ({
   children,
   className,
 }: Readonly<{
@@ -74,7 +44,7 @@ export const FlickText2 = ({
   );
 };
 
-const AnimatedText = ({
+export const AnimatedText = ({
   children,
   className,
   disabled = false,
@@ -107,7 +77,7 @@ const AnimatedText = ({
   );
 };
 
-const JumpingText = ({
+export const JumpingText = ({
   children,
   className,
 }: Readonly<{
@@ -135,7 +105,7 @@ const JumpingText = ({
   );
 };
 
-const SlidingText = ({
+export const SlidingText = ({
   children,
   className,
   transition,
@@ -161,10 +131,9 @@ const SlidingText = ({
   );
 };
 
-Text.Accented = AccentedText;
-Text.Slide = SlidingText;
-Text.Animated = AnimatedText;
-Text.Flick = FlickText;
-Text.Jump = JumpingText;
+AnimatedText.Slide = SlidingText;
+AnimatedText.Jump = SlidingText;
+AnimatedText.Jump = SlidingText;
+AnimatedText.Flick = FlickText;
 
-export default Text;
+export default AnimatedText;

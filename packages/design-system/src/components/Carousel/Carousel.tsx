@@ -5,7 +5,7 @@ import { ReactElement, ReactNode, RefObject, useCallback, useEffect, useRef, use
 import { useInView } from 'react-intersection-observer';
 
 import TripieContainer from '../core/TripieContainer/TripieContainer';
-import NoStyleButton from '../TripieButton/NoStyle/NoStyleButton';
+import UnStyledButton from '../TripieButton/UnStyled/UnStyledButton';
 import Icon from '../TripieIcon/Icon';
 import Style from './carousel.module.scss';
 
@@ -41,9 +41,9 @@ const Carousel = ({ items, className }: { items: ReactElement[]; className?: str
   return (
     <TripieContainer margin="none" className={cx('carousel')}>
       {items.length > 1 && focusedIndex != 0 ? (
-        <NoStyleButton name="previous" action={() => handleScrollButton('prev')}>
+        <UnStyledButton name="previous" action={() => handleScrollButton('prev')}>
           <Icon.Scroll className={cx('scroll-icon', 'next-icon')} next={false} />
-        </NoStyleButton>
+        </UnStyledButton>
       ) : null}
       <TripieContainer margin="none" className={cx('flex-items', 'carousel-inner')}>
         <TripieContainer margin="none" className={cx('insta-like-carousel-container', className)} refs={ref}>
@@ -60,9 +60,9 @@ const Carousel = ({ items, className }: { items: ReactElement[]; className?: str
         </TripieContainer>
       </TripieContainer>
       {items.length > 1 && focusedIndex != items.length - 1 ? (
-        <NoStyleButton name="next" action={() => handleScrollButton('next')}>
+        <UnStyledButton name="next" action={() => handleScrollButton('next')}>
           <Icon.Scroll className={cx('scroll-icon', 'prev-icon')} />
-        </NoStyleButton>
+        </UnStyledButton>
       ) : null}
     </TripieContainer>
   );

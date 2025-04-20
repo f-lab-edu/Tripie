@@ -1,6 +1,6 @@
 'use client';
-import { Card, Chip, Divider, Text, TextUnderLineAnimation } from '@tripie-pyotato/design-system/@components';
-import { Container } from '@tripie-pyotato/design-system/@components/core';
+import { Card, Chip, Divider, TextUnderLineAnimation } from '@tripie-pyotato/design-system/@components';
+import { Container, Text } from '@tripie-pyotato/design-system/@components/core';
 import { openNewTab } from '@tripie-pyotato/utils/@window';
 import { classNames } from 'wrapper';
 

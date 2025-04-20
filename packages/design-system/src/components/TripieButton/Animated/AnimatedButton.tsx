@@ -2,7 +2,7 @@
 
 import { ReactNode } from 'react';
 import { classNames, Motion } from '../../../wrappers';
-import Text from '../../Text';
+import AnimatedText from '../../AnimatedText/AnimatedText';
 import TripieContainer from '../../core/TripieContainer/TripieContainer';
 import Style from './animated-button.module.scss';
 
@@ -51,14 +51,14 @@ const AnimatedButton = ({
       whileTap={disabled ? 'rest' : 'hover'}
       animate={animate}
     >
-      <Text.Flick>{children}</Text.Flick>
+      <AnimatedText.Flick>{children}</AnimatedText.Flick>
       <span className={cx('gap')}> </span>
-      <Text.Flick className={cx('hovered')}>{otherChild}</Text.Flick>
+      <AnimatedText.Flick className={cx('hovered')}>{otherChild}</AnimatedText.Flick>
     </Motion.Button>
   );
 };
 
-export const AnimatedText = ({
+const AnimatedButtonText = ({
   children,
   className,
   disabled = false,
@@ -91,13 +91,13 @@ export const AnimatedText = ({
       whileTap={disabled ? 'rest' : 'hover'}
       animate={animate}
     >
-      <Text.Flick>{children}</Text.Flick>
+      <AnimatedText.Flick>{children}</AnimatedText.Flick>
       <TripieContainer applyMargin="top"> </TripieContainer>
-      <Text.Flick className={cx('hovered')}>{otherChild}</Text.Flick>
+      <AnimatedText.Flick className={cx('hovered')}>{otherChild}</AnimatedText.Flick>
     </Motion.Div>
   );
 };
 
-AnimatedButton.Text = AnimatedText;
+AnimatedButton.Text = AnimatedButtonText;
 
 export default AnimatedButton;

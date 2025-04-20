@@ -1,4 +1,4 @@
-import { classNames } from '../../wrappers';
+import { classNames } from '../../../wrappers';
 import Text, { TextProps } from '../Text/Text';
 import Style from './headings.module.scss';
 

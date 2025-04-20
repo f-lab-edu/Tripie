@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { ReactNode } from 'react';
 import { classNames } from '../../wrappers';
-import Text, { TextProps } from '../Text';
+import Text, { TextProps } from '../core/Text/Text';
 import Style from './link.module.scss';
 
 const cs = classNames.bind(Style);

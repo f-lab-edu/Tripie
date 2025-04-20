@@ -1,6 +1,6 @@
 'use client';
 
-import { Calendar, Icon, Text } from '@tripie-pyotato/design-system/@components';
+import { AnimatedText, Calendar, Icon } from '@tripie-pyotato/design-system/@components';
 import { Container } from '@tripie-pyotato/design-system/@components/core';
 import { useCalendar } from '@tripie-pyotato/design-system/@hooks';
 
@@ -35,7 +35,7 @@ const DurationSelect = () => {
       <Container className={cx('loading-wrap')} margin="none" alignItems="center" justifyContent="center">
         <Container margin="none" gap={'sm'} className={cx('text-wrap')} alignItems="center" justifyContent="center">
           <Icon.Loading />
-          <Text.Jump>Loading...</Text.Jump>
+          <AnimatedText.Jump>Loading...</AnimatedText.Jump>
         </Container>
       </Container>
     );

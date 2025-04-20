@@ -1,5 +1,5 @@
 'use client';
-import { Icon, NoStyleButton, Text, TextUnderLineAnimation } from '@tripie-pyotato/design-system/@components';
+import { AnimatedText, Icon, TextUnderLineAnimation, UnStyledButton } from '@tripie-pyotato/design-system/@components';
 import { Container } from '@tripie-pyotato/design-system/@components/core';
 import { AiTripPlanResponse } from 'app/api/openai/getTripPlan';
 import ROUTE from 'constants/routes';
@@ -50,16 +50,16 @@ const MapTab = ({ data, coordinates }: { data: ChatResponseData['plans']; coordi
       <Container gap="sm" margin="none" className={cx('button-wrap')} justifyContent="left">
         {status === 'loading' ? (
           <Container margin="none" gap="sm">
-            <Icon.Loading /> <Text.Jump>토큰 확인중...</Text.Jump>
+            <Icon.Loading /> <AnimatedText.Jump>토큰 확인중...</AnimatedText.Jump>
           </Container>
         ) : (
           <TextUnderLineAnimation>
-            <NoStyleButton className={cx('center')} action={handleNavigation}>
+            <UnStyledButton className={cx('center')} action={handleNavigation}>
               <Icon />
               {remainingToken != null && !isAdmin ? `${remainingToken}토큰으로 다른 일정 추천 받아보기` : ''}
               {isAdmin ? `어드민님, (${usedGptToken}개 사용) 다른 일정 추천 받기` : null}
               {status === 'unauthenticated' && '로그인하고 일정 추천받아보기'}
-            </NoStyleButton>
+            </UnStyledButton>
           </TextUnderLineAnimation>
         )}
       </Container>

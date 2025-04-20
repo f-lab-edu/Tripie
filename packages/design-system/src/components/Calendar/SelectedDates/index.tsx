@@ -1,9 +1,9 @@
 'use client';
 import { classNames } from '../../.././wrappers';
-import Headings from '../../Headings/Headings';
-import Text from '../../Text/Text';
-import Card from '../../TripieCard/Card';
+import AnimatedText from '../../AnimatedText/AnimatedText';
+import Headings from '../../core/Headings/Headings';
 import TripieContainer from '../../core/TripieContainer/TripieContainer';
+import Card from '../../TripieCard/Card';
 
 import { useMemo } from 'react';
 import { LooseValue } from 'wrappers/react-calendar';
@@ -40,7 +40,7 @@ const DateSection = ({ date, selected }: { date: keyof SelectedDateProps['durati
       <TripieContainer margin="sm" applyMargin="top">
         {duration[date] === '' ? (
           <TripieContainer margin="none" className={cx('not-selected')}>
-            <Text.Jump>날짜를 선택해주세요!</Text.Jump>
+            <AnimatedText.Jump>날짜를 선택해주세요!</AnimatedText.Jump>
           </TripieContainer>
         ) : (
           duration[date]
