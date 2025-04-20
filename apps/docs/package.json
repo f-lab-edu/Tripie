@@ -14,7 +14,7 @@
     "lint": "eslint ./stories/*.stories.tsx --max-warnings 0"
   },
   "dependencies": {
-    "@tripie-pyotato/design-system": "workspace:*",
+    "@tripie-pyotato/design-system": "^0.1.10",
     "@tripie-pyotato/hooks": "^0.0.2",
     "next": "^15.0.3",
     "path": "^0.12.7",

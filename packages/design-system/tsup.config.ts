@@ -64,5 +64,6 @@ export default defineConfig(options => ({
     }),
     esbuildUseClient(),
   ],
+  jsx: 'automatic', // https://github.com/egoist/tsup/issues/792
   ...options,
 }));
