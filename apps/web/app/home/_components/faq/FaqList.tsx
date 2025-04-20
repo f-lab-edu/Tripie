@@ -1,5 +1,5 @@
 'use client';
-// import { Accordion, Container } from '@tripie-pyotato/design-system/@components';
+
 import { Accordion } from '@tripie-pyotato/design-system/@components';
 import { Container } from '@tripie-pyotato/design-system/@components/core';
 import FAQS from 'constants/faq';

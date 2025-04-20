@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
-import { Container } from '..';
+import TripieContainer from '../core/TripieContainer/TripieContainer';
 
 import { classNames, Motion, MotionProps } from '../../wrappers';
-import TripieContainer from '../TripieContainer/TripieContainer';
+
 import Style from './text.module.scss';
 import { VARIANTS } from './variants';
 
@@ -101,7 +101,7 @@ const AnimatedText = ({
       onTap={action}
     >
       <FlickText2>{children}</FlickText2>
-      <Container applyMargin="top"> </Container>
+      <TripieContainer applyMargin="top"> </TripieContainer>
       <FlickText2 className={cx('hovered')}>{otherChild}</FlickText2>
     </Motion.Div>
   );

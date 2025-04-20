@@ -3,7 +3,7 @@ import { classNames } from '../../.././wrappers';
 import Headings from '../../Headings/Headings';
 import Text from '../../Text/Text';
 import Card from '../../TripieCard/Card';
-import TripieContainer from '../../TripieContainer/TripieContainer';
+import TripieContainer from '../../core/TripieContainer/TripieContainer';
 
 import { useMemo } from 'react';
 import { LooseValue } from 'wrappers/react-calendar';

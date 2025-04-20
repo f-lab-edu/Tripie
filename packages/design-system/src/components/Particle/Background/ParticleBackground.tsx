@@ -1,7 +1,7 @@
 import { classNames } from '../../../wrappers';
 
 import { ReactNode } from 'react';
-import TripieContainer from '../../TripieContainer';
+import TripieContainer from '../../core/TripieContainer';
 import ParticleField from '../Field/ParticleField';
 import Style from './particle-background.module.scss';
 

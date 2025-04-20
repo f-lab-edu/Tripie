@@ -1,6 +1,6 @@
 'use client';
 
-import { Container } from '@tripie-pyotato/design-system/@components';
+import { Container } from '@tripie-pyotato/design-system/@components/core';
 import { useDebounce } from '@tripie-pyotato/hooks';
 
 import { DB_NAME } from 'constants/auth';

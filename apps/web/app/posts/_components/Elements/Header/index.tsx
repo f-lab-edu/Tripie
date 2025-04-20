@@ -1,7 +1,7 @@
 'use client';
-import { Container, Headings, Text } from '@tripie-pyotato/design-system/@components';
+import { Headings, Text } from '@tripie-pyotato/design-system/@components';
+import { Container } from '@tripie-pyotato/design-system/@components/core';
 import { HeadingProps } from 'models/Props';
-
 import decodeUnicodes from 'utils/string/decodeUnicodes';
 import { classNames } from 'wrapper';
 import Style from './header.module.scss';

@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 import { Suspense, useEffect, useRef } from 'react';
 import { GlobeMethods } from 'react-globe.gl';
 import { CLOUDINARY_URL, COLORS } from '../../shared';
-import TripieContainer from '../TripieContainer/TripieContainer';
+import TripieContainer from '../core/TripieContainer/TripieContainer';
 import Countries from './countries.json';
 import './globe.scss';
 

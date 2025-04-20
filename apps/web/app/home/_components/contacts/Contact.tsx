@@ -1,6 +1,5 @@
-'use client';
+// 'use client';
 
-// import { Container, Divider, Headings, Icon, Link, Text } from '@tripie-pyotato/design-system/@components';
 import { Divider, Headings, Icon, Link, Text } from '@tripie-pyotato/design-system/@components';
 import { Container } from '@tripie-pyotato/design-system/@components/core';
 import { ReactNode } from 'react';

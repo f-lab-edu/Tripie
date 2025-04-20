@@ -1,7 +1,6 @@
 'use client';
 
-import { Container } from '@tripie-pyotato/design-system/@components';
-
+import { Container } from '@tripie-pyotato/design-system/@components/core';
 import RegionTitle from '../_components/RegionTitle';
 
 const LocationSection = ({ regionId, city }: { regionId: string; city?: string }) => {

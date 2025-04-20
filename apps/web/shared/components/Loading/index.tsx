@@ -1,5 +1,6 @@
 'use client';
-import { Container, Icon, SplashScreen, Text, TextFillAnimation } from '@tripie-pyotato/design-system/@components';
+import { Icon, SplashScreen, Text, TextFillAnimation } from '@tripie-pyotato/design-system/@components';
+import { Container } from '@tripie-pyotato/design-system/@components/core';
 import { classNames } from 'wrapper';
 import Style from './loader.module.scss';
 

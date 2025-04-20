@@ -1,6 +1,7 @@
 'use client';
 
-import { Calendar, Container, Icon, Text } from '@tripie-pyotato/design-system/@components';
+import { Calendar, Icon, Text } from '@tripie-pyotato/design-system/@components';
+import { Container } from '@tripie-pyotato/design-system/@components/core';
 import { useCalendar } from '@tripie-pyotato/design-system/@hooks';
 
 import useServerTime from 'hooks/useServerTime';

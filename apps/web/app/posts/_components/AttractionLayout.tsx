@@ -1,5 +1,5 @@
 'use client';
-import { TripieImage } from '@tripie-pyotato/design-system/@components';
+import { TripieImage } from '@tripie-pyotato/design-system/@components/core';
 import ArticleBody from 'app/posts/_components/ArticleBody';
 import ArticleLayout from 'app/posts/_components/ArticleLayout';
 import ArticleTitle from 'app/posts/_components/Elements/ArticleTitle';

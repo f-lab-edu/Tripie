@@ -1,12 +1,6 @@
 'use client';
-import {
-  Container,
-  Icon,
-  NoStyleButton,
-  Text,
-  TextUnderLineAnimation,
-} from '@tripie-pyotato/design-system/@components';
-
+import { Icon, NoStyleButton, Text, TextUnderLineAnimation } from '@tripie-pyotato/design-system/@components';
+import { Container } from '@tripie-pyotato/design-system/@components/core';
 import { AiTripPlanResponse } from 'app/api/openai/getTripPlan';
 import ROUTE from 'constants/routes';
 import useAwsMap from 'hooks/awsMap/useAwsMap';

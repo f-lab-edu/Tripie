@@ -4,8 +4,8 @@ import { classNames } from '../../wrappers';
 import { ReactElement, ReactNode, RefObject, useCallback, useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
+import TripieContainer from '../core/TripieContainer/TripieContainer';
 import NoStyleButton from '../TripieButton/NoStyle/NoStyleButton';
-import TripieContainer from '../TripieContainer/TripieContainer';
 import Icon from '../TripieIcon/Icon';
 import Style from './carousel.module.scss';
 

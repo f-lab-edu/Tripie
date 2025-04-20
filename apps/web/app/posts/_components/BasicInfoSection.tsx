@@ -1,5 +1,6 @@
 'use client';
-import { Container, Divider } from '@tripie-pyotato/design-system/@components';
+import { Divider } from '@tripie-pyotato/design-system/@components';
+import { Container } from '@tripie-pyotato/design-system/@components/core';
 import { AttractionArticle } from 'models/Attraction';
 import { Geolocation } from 'models/Geo';
 import BasicInfo, { BasicInfoProps } from './BasicInfo';

@@ -1,5 +1,5 @@
 'use client';
-import { Container } from '@tripie-pyotato/design-system/@components';
+import { Container } from '@tripie-pyotato/design-system/@components/core';
 import BUSINESS_DATE from 'constants/date';
 import useServerTime from 'hooks/useServerTime';
 import { BusinessHour } from 'models/Attraction';

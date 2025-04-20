@@ -6,7 +6,7 @@ import { InView } from 'react-intersection-observer';
 import { COLORS } from '../../shared/colors';
 
 import { CustomAnimationProps } from '../TripieCard';
-import TripieContainer from '../TripieContainer/TripieContainer';
+import TripieContainer from '../core/TripieContainer/TripieContainer';
 import Style from './text-fill-animation.module.scss';
 
 const cx = classNames.bind(Style);

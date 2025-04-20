@@ -3,7 +3,7 @@
 import { ReactNode } from 'react';
 import { classNames, Motion } from '../../../wrappers';
 import Text from '../../Text';
-import TripieContainer from '../../TripieContainer/TripieContainer';
+import TripieContainer from '../../core/TripieContainer/TripieContainer';
 import Style from './animated-button.module.scss';
 
 const cx = classNames.bind(Style);

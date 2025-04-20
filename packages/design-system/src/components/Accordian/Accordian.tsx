@@ -4,8 +4,8 @@ import { classNames, Motion } from '../../wrappers';
 import { createContext, ReactNode, useContext, useMemo } from 'react';
 
 import { useCycle } from '../../hooks';
+import { TripieContainerProps } from '../core/TripieContainer/TripieContainer';
 import Divider from '../Divider/Divider';
-import { TripieContainerProps } from '../TripieContainer/TripieContainer';
 import Icon, { IconProps } from '../TripieIcon/Icon';
 import Style from './accordian.module.scss';
 import { ACCORDIAN_VARIANTS } from './variants';

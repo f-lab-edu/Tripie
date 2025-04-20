@@ -1,5 +1,6 @@
 'use client';
-import { Chip, Container, Icon } from '@tripie-pyotato/design-system/@components';
+import { Chip, Icon } from '@tripie-pyotato/design-system/@components';
+import { Container } from '@tripie-pyotato/design-system/@components/core';
 import { classNames } from 'wrapper';
 
 import COMPANION_LIST from 'constants/companions';

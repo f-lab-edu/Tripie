@@ -1,9 +1,9 @@
 'use client';
 import { createRef, useRef } from 'react';
 
+import { Carousel } from '@tripie-pyotato/design-system/@components';
+import { Container } from '@tripie-pyotato/design-system/@components/core';
 import usePoi from 'hooks/usePoi';
-
-import { Carousel, Container } from '@tripie-pyotato/design-system/@components';
 import { PoisProps } from 'models/Props';
 import { MapProvider } from 'react-map-gl/dist/esm/exports-maplibre';
 import AwsMap from '../TripieMap';

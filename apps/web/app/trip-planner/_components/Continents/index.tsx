@@ -1,4 +1,5 @@
-import { AnimatedButton, Container, Globe, Headings, Icon, Text } from '@tripie-pyotato/design-system/@components';
+import { AnimatedButton, Globe, Headings, Icon, Text } from '@tripie-pyotato/design-system/@components';
+import { Container } from '@tripie-pyotato/design-system/@components/core';
 import { CONTINENTS } from 'constants/continents';
 import { classNames } from 'wrapper';
 

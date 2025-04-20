@@ -1,6 +1,6 @@
 'use client';
-import { Card, Container, Divider, TripieImage } from '@tripie-pyotato/design-system/@components';
-
+import { Card, Divider } from '@tripie-pyotato/design-system/@components';
+import { Container, TripieImage } from '@tripie-pyotato/design-system/@components/core';
 import { classNames } from 'wrapper';
 
 import { ExternalLink } from 'models/Link';

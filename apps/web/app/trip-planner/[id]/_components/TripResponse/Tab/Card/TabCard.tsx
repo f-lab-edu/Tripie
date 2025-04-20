@@ -1,15 +1,8 @@
 'use client';
-import { classNames } from 'wrapper';
-
-import {
-  Card,
-  Chip,
-  Container,
-  Divider,
-  Text,
-  TextUnderLineAnimation,
-} from '@tripie-pyotato/design-system/@components';
+import { Card, Chip, Divider, Text, TextUnderLineAnimation } from '@tripie-pyotato/design-system/@components';
+import { Container } from '@tripie-pyotato/design-system/@components/core';
 import { openNewTab } from '@tripie-pyotato/utils/@window';
+import { classNames } from 'wrapper';
 
 import Style from './tab-card.module.scss';
 

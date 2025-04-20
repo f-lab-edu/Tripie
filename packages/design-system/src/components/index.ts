@@ -21,7 +21,5 @@ export { default as AnimatedButton, default as AnimatedText } from './TripieButt
 export { default as MenuToggle } from './TripieButton/MenuToggle';
 export { default as NoStyleButton } from './TripieButton/NoStyle';
 export { default as Card } from './TripieCard/Card';
-export { default as Container } from './TripieContainer/TripieContainer';
 export { default as Icon } from './TripieIcon/Icon';
-export { default as TripieImage } from './TripieImage/TripieImage';
 export { default as Skeleton } from './TripieSkeleton';

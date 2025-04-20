@@ -2,7 +2,7 @@ import { RefAttributes } from 'react';
 import 'react-calendar/dist/Calendar.css';
 import { CalendarProps, ReactCalendar } from '../../wrappers';
 import Divider from '../Divider/Divider';
-import TripieContainer from '../TripieContainer/TripieContainer';
+import TripieContainer from '../core/TripieContainer/TripieContainer';
 import './calendar-custom.scss';
 
 type CustomCalendarProps = CalendarProps & RefAttributes<unknown>;

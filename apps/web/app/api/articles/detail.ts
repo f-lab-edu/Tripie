@@ -2,7 +2,7 @@ import API from 'constants/api-routes';
 import { ArticleData } from 'models/Article';
 import { AttractionArticle, ParsedAttractionResponse } from 'models/Attraction';
 import { RestaurantData } from 'models/Restaurant';
-import addImage from '../cloudinary/addImage';
+// import addImage from '../cloudinary/addImage';
 import firestoreService from '../firebase';
 
 type DetailResponse<T> = {
@@ -34,7 +34,7 @@ const getArticleDetail = async <T extends 'article' | 'attraction' | 'retaurant'
             value: {
               images: await Promise.all(
                 v.value.images.map(async image => {
-                  await addImage(image?.sizes.full.url);
+                  // await addImage(image?.sizes.full.url);
                   return {
                     ...image,
                     blurData: await fetch(
@@ -71,7 +71,7 @@ const getArticleDetail = async <T extends 'article' | 'attraction' | 'retaurant'
         ...data.source,
         recommendations: await Promise.all(
           data.source.recommendations.map(async recommendation => {
-            await addImage(recommendation.image.sizes?.full.url);
+            // await addImage(recommendation.image.sizes?.full.url);
             return {
               ...recommendation,
               image: {
@@ -85,7 +85,7 @@ const getArticleDetail = async <T extends 'article' | 'attraction' | 'retaurant'
         ),
         externalLinks: await Promise.all(
           data.source?.externalLinks.map(async externalLink => {
-            await addImage(externalLink.imageUrl);
+            // await addImage(externalLink.imageUrl);
             return {
               ...externalLink,
               blurData: await fetch(API.BASE_URL + API.BASE + API.BLUR_IMAGE + `?url=${externalLink.imageUrl}`).then(

@@ -1,5 +1,6 @@
 'use client';
-import { Card, Container } from '@tripie-pyotato/design-system/@components';
+import { Card } from '@tripie-pyotato/design-system/@components';
+import { Container } from '@tripie-pyotato/design-system/@components/core';
 import { classNames } from 'wrapper';
 
 import { ReactNode } from 'react';

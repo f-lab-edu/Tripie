@@ -1,5 +1,5 @@
 'use client';
-import { Container } from '@tripie-pyotato/design-system/@components';
+import { Container } from '@tripie-pyotato/design-system/@components/core';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { classNames } from 'wrapper';
 import Style from './trip-results.module.scss';

@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { classNames } from '../../wrappers';
-import TripieContainer, { TripieContainerProps } from '../TripieContainer/TripieContainer';
+import TripieContainer, { TripieContainerProps } from '../core/TripieContainer/TripieContainer';
 import Style from './list.module.scss';
 import ListItem from './ListItem';
 

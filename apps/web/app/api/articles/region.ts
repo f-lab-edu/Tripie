@@ -1,7 +1,7 @@
 import { RegionArticleData } from 'app/regions/_components/RegionCard';
 import API from 'constants/api-routes';
 import { RegionArticleInfo } from 'models/Article';
-import addImage from '../cloudinary/addImage';
+// import addImage from '../cloudinary/addImage' / ;
 import firestoreService from '../firebase';
 
 const getRegionArticles = async (selectedRegion: string) => {
@@ -18,7 +18,7 @@ const getRegionArticles = async (selectedRegion: string) => {
           return { ...data };
         }
 
-        await addImage(data.source.image.sizes.full.url);
+        // await addImage(data.source.image.sizes.full.url);
 
         const response = await fetch(`${API.BASE_URL}${API.BASE}${API.BLUR_IMAGE}?url=${imageUrl}`);
 

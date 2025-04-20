@@ -5,7 +5,7 @@ import { RefAttributes, useCallback, useMemo } from 'react';
 import 'react-calendar/dist/Calendar.css';
 import { CalendarProps, ReactCalendar } from '../../wrappers';
 import Headings from '../Headings/Headings';
-import TripieContainer from '../TripieContainer/TripieContainer';
+import TripieContainer from '../core/TripieContainer/TripieContainer';
 
 import { Value } from 'wrappers/react-calendar';
 import './calendar-custom.scss';

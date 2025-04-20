@@ -1,5 +1,6 @@
 'use client';
-import { Card, Carousel, Divider, TripieImage } from '@tripie-pyotato/design-system/@components';
+import { Card, Carousel, Divider } from '@tripie-pyotato/design-system/@components';
+import { TripieImage } from '@tripie-pyotato/design-system/@components/core';
 import { classNames } from 'wrapper';
 import ArticleHeading from '../Header';
 import ArticleLink from '../Link';

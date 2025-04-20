@@ -5,7 +5,7 @@ import { ReactNode } from 'react';
 import useCycle from '../../../hooks/useCycle';
 import { COLORS } from '../../../shared/colors';
 
-import TripieContainer from '../../TripieContainer/TripieContainer';
+import TripieContainer from '../../core/TripieContainer/TripieContainer';
 import NoStyleButton from '../NoStyle/NoStyleButton';
 import Style from './menu-toggle.module.scss';
 import MenuItem from './MenuItem';

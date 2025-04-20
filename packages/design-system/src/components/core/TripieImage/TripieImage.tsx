@@ -1,9 +1,8 @@
-'use client';
-import { classNames } from '../../wrappers';
+import { classNames } from '../../../wrappers';
 
-import { PLACEHOLDER } from '../../shared/resource';
-import Text from '../Text';
-import TripieContainer from '../TripieContainer';
+import { PLACEHOLDER } from '../../../shared/resource';
+import Text from '../../Text';
+import TripieContainer from '../TripieContainer/TripieContainer';
 import Style from './tripie-image.module.scss';
 
 const cx = classNames.bind(Style);

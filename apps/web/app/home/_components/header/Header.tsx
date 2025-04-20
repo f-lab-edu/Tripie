@@ -1,13 +1,5 @@
 'use client';
-// import {
-//   AnimatedButton,
-//   Container,
-//   Headings,
-//   Icon,
-//   ParticleBackground,
-//   RotatingBlur,
-//   Text,
-// } from '@tripie-pyotato/design-system/@components';
+
 import {
   AnimatedButton,
   Headings,

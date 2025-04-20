@@ -1,8 +1,7 @@
 'use client';
 import { classNames } from 'wrapper';
 
-import { Container } from '@tripie-pyotato/design-system/@components';
-
+import { Container } from '@tripie-pyotato/design-system/@components/core';
 import ROUTE from 'constants/routes';
 import { TripContent } from 'models/Aws';
 import { Coordinate } from 'models/Geo';

@@ -1,5 +1,6 @@
 import { useQueryClient } from '@tanstack/react-query';
-import { Chip, Container } from '@tripie-pyotato/design-system/@components';
+import { Chip } from '@tripie-pyotato/design-system/@components';
+import { Container } from '@tripie-pyotato/design-system/@components/core';
 import firestoreService from 'app/api/firebase';
 import { CONTINENTS } from 'constants/continents';
 import useCountries from 'hooks/query/useCountries';

@@ -1,6 +1,6 @@
 'use client';
 
-import { Container } from '@tripie-pyotato/design-system/@components';
+import { Container } from '@tripie-pyotato/design-system/@components/core';
 import { ReactNode } from 'react';
 
 const RegionLayout = ({ children }: { children: ReactNode }) => {

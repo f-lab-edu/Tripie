@@ -1,5 +1,6 @@
 'use client';
-import { Carousel, Container, TripieImage } from '@tripie-pyotato/design-system/@components';
+import { Carousel } from '@tripie-pyotato/design-system/@components';
+import { Container, TripieImage } from '@tripie-pyotato/design-system/@components/core';
 import { ImageProps } from 'models/Props';
 
 const ArticleImages = ({ item }: { item: ImageProps }) => {
