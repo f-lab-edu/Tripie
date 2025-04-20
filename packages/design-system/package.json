@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "sideEffects": [
-    "*.scss"
+    "*.scss",
+    "*.css"
   ],
   "exports": {
     ".": {
