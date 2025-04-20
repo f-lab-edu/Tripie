@@ -1,3 +1,4 @@
+'use client';
 import { classNames, Motion, MotionProps } from '../../wrappers';
 
 import { ReactNode } from 'react';

@@ -2,7 +2,8 @@
 import { classNames } from 'wrapper';
 import Style from './shared/selected-list.module.scss';
 
-import { Chip, Container, Icon } from '@tripie-pyotato/design-system/@components';
+import { Chip, Icon } from '@tripie-pyotato/design-system/@components';
+import { Container } from '@tripie-pyotato/design-system/@components/core';
 
 import useCountries from 'hooks/query/useCountries';
 import { Country } from 'models/Country';

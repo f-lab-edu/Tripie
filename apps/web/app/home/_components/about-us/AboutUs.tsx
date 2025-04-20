@@ -1,4 +1,4 @@
-'use client';
+// 'use client';
 // import { Container, TextFillAnimation } from '@tripie-pyotato/design-system/@components';
 import { TextFillAnimation } from '@tripie-pyotato/design-system/@components';
 import { Container } from '@tripie-pyotato/design-system/@components/core';
