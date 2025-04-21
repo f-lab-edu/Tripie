@@ -1,2 +1,2 @@
-export * from './MotionSlideUp';
-export { default } from './MotionSlideUp';
+export * from './MotionSlideUp.client';
+export { default } from './MotionSlideUp.client';

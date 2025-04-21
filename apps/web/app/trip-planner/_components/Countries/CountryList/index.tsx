@@ -1,6 +1,6 @@
 import { useQueryClient } from '@tanstack/react-query';
-import { AnimatedButton, Chip, List } from '@tripie-pyotato/design-system/@components';
-import { Container } from '@tripie-pyotato/design-system/@components/core';
+import { AnimatedButton, Chip } from '@tripie-pyotato/design-system';
+import { Container, List } from '@tripie-pyotato/design-system/@core';
 import firestoreService from 'app/api/firebase';
 import useContinentl from 'hooks/query/useContinentl';
 import { Continentl } from 'models/Continentl';

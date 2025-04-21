@@ -1,6 +1,6 @@
 'use client';
-import { AnimatedText, Icon } from '@tripie-pyotato/design-system/@components';
-import { Container } from '@tripie-pyotato/design-system/@components/core';
+import { AnimatedText, Icon } from '@tripie-pyotato/design-system';
+import { Container } from '@tripie-pyotato/design-system/@core';
 import { randomIntBtw } from '@tripie-pyotato/utils/@number';
 import { TripPlanner } from 'models/Aws';
 import { classNames } from 'wrapper';

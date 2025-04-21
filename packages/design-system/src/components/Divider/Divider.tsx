@@ -2,7 +2,7 @@ import { classNames, Motion, MotionProps } from '../../wrappers';
 
 import { ACCORDIAN_VARIANTS } from '../../shared/motion-variants';
 
-import TripieContainer, { TripieContainerProps } from '../core/TripieContainer';
+import TripieContainer, { TripieContainerProps } from '../TripieContainer';
 import HR_MARGINS from './constants';
 import Style from './divider.module.scss';
 

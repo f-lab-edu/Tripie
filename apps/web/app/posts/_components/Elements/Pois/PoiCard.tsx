@@ -1,6 +1,6 @@
 'use client';
-import { Card } from '@tripie-pyotato/design-system/@components';
-import { Container, TripieImage } from '@tripie-pyotato/design-system/@components/core';
+import { Card } from '@tripie-pyotato/design-system';
+import { Container, TripieImage } from '@tripie-pyotato/design-system/@core';
 import POI_TYPE from 'constants/triple';
 import { RefObject, useEffect } from 'react';
 import { classNames, useMap } from 'wrapper';

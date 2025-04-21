@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Link } from '@tripie-pyotato/design-system/@components';
+import { Link } from '@tripie-pyotato/design-system';
 import { beforeAll, describe, expect, test } from 'vitest';
 
 describe('UnstyledLink Component', () => {

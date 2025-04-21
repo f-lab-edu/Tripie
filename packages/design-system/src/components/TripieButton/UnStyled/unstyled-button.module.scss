@@ -34,6 +34,36 @@
       @include margins('left-right-bottom', $value);
     }
   }
+
+  @each $key, $value in $padding-space-map {
+    .padding-all.#{$key} {
+      @include padding('all', $value);
+    }
+    .padding-top-bottom.#{$key} {
+      @include padding('top-bottom', $value);
+    }
+    .padding-left-right.#{$key} {
+      @include padding('left-right', $value);
+    }
+    .padding-left.#{$key} {
+      @include padding('left', $value);
+    }
+    .padding-right.#{$key} {
+      @include padding('right', $value);
+    }
+    .top.#{$key} {
+      @include padding('top', $value);
+    }
+    .padding-bottom.#{$key} {
+      @include padding('bottom', $value);
+    }
+    .padding-top-left-right.#{$key} {
+      @include padding('top-left-right', $value);
+    }
+    .padding-left-right-bottom.#{$key} {
+      @include padding('left-right-bottom', $value);
+    }
+  }
 }
 
 @each $value in $justify-content-values {

@@ -4,9 +4,9 @@ import { classNames } from '../../wrappers';
 import { ReactElement, ReactNode, RefObject, useCallback, useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
-import TripieContainer from '../core/TripieContainer/TripieContainer';
-import UnStyledButton from '../TripieButton/UnStyled/UnStyledButton';
-import Icon from '../TripieIcon/Icon';
+import UnStyledButton from '../TripieButton/UnStyled/UnStyledButton.client';
+import TripieContainer from '../TripieContainer/TripieContainer';
+import Icon from '../TripieIcon/Icon.client';
 import Style from './carousel.module.scss';
 
 const cx = classNames.bind(Style);

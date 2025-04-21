@@ -1,6 +1,6 @@
 'use client';
 
-import { Container } from '@tripie-pyotato/design-system/@components/core';
+import { Container } from '@tripie-pyotato/design-system/@core';
 import { AttractionArticle } from 'models/Attraction';
 import ArticleDescription from './ArticleDescription';
 import BasicInfoSection from './BasicInfoSection';

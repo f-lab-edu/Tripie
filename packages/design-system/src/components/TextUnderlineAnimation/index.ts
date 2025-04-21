@@ -1,2 +1,2 @@
-export * from './TextUnderlineAnimation';
-export { default } from './TextUnderlineAnimation';
+export * from './TextUnderlineAnimation.client';
+export { default } from './TextUnderlineAnimation.client';

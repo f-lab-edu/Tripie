@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { TextFillAnimation } from '@tripie-pyotato/design-system/@components';
+import { TextFillAnimation } from '@tripie-pyotato/design-system';
 import { useAppTheme } from '@tripie-pyotato/design-system/@hooks';
 import { COLORS } from '@tripie-pyotato/design-system/shared';
 
 const meta: Meta<typeof TextFillAnimation> = {
-  title: 'tripie-design/Text/FillAnimation',
+  title: 'tripie-design/AnimatedText/FillAnimation',
   component: TextFillAnimation,
   tags: ['autodocs'],
   argTypes: {},

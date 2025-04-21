@@ -2,7 +2,7 @@
 import { classNames } from 'wrapper';
 import Style from './nav.module.scss';
 
-import { AnimatedText, Icon, MenuToggle } from '@tripie-pyotato/design-system/@components';
+import { AnimatedText, Icon, MenuToggle } from '@tripie-pyotato/design-system';
 import ROUTE, { LANDING_SECTION } from 'constants/routes';
 import { usePathname, useRouter } from 'next/navigation';
 

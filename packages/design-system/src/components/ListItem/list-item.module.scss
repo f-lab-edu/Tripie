@@ -1,0 +1,62 @@
+@use 'sass:map';
+@use '../../mixins' as *;
+@use '../../variables' as *;
+
+.list-item {
+  display: inline-block;
+}
+
+.flex {
+  @include flex;
+}
+
+@each $key, $value in $space-map {
+  .all.#{$key} {
+    @include margins('all', $value);
+  }
+  .top-bottom.#{$key} {
+    @include margins('top-bottom', $value);
+  }
+  .left-right.#{$key} {
+    @include margins('left-right', $value);
+  }
+  .left.#{$key} {
+    @include margins('left', $value);
+  }
+  .right.#{$key} {
+    @include margins('right', $value);
+  }
+  .top.#{$key} {
+    @include margins('top', $value);
+  }
+  .bottom.#{$key} {
+    @include margins('bottom', $value);
+  }
+  .top-left-right.#{$key} {
+    @include margins('top-left-right', $value);
+  }
+  .left-right-bottom.#{$key} {
+    @include margins('left-right-bottom', $value);
+  }
+}
+
+@each $value in $justify-content-values {
+  .justify-content-#{$value} {
+    @include justify-content($value);
+  }
+}
+
+@each $value in $align-items-values {
+  .align-items-#{$value} {
+    @include align-items($value);
+  }
+}
+
+@each $key, $value in $gap-space-map {
+  .gap-#{$key} {
+    @include gap($key, $value);
+  }
+}
+
+// _layout-fill-available_9fbqv_308 align-left align-items-none _container_9fbqv_291 _padding-none_9fbqv_249 _padding-all_9fbqv_39 _all_9fbqv_326 _m_9fbqv_410 justify-content-none _gap-none_9fbqv_640
+// _align-items-normal_1n3uu_576 _flex_1n3uu_32 _list-item_1n3uu_291 _padding-none_1n3uu_249 _padding-all_1n3uu_39 _all_1n3uu_302 none _justify-content-flex-start_1n3uu_542 _gap-default_1n3uu_608

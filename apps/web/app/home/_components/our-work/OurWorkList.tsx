@@ -1,6 +1,6 @@
 'use client';
-import { Accordion } from '@tripie-pyotato/design-system/@components';
-import { Container, Headings, Text } from '@tripie-pyotato/design-system/@components/core';
+import { Accordion } from '@tripie-pyotato/design-system';
+import { Container, Headings, Text } from '@tripie-pyotato/design-system/@core';
 const ourWorkList = [
   {
     year: 2023,

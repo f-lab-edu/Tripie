@@ -6,7 +6,7 @@
 
 - ~~All the components are marked `'use client';`~~
 - `@components` : for client components (marked with `'use client;'`)`
-- `@components/core` : base components available as server components
+- `@components@core` : base components available as server components
 - `@shared` : shared variables
 
 |        Name        |    Category    | Description                                               | Usage                                                                                                                                        |

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { UnStyledButton } from '@tripie-pyotato/design-system/@components';
+import { UnStyledButton } from '@tripie-pyotato/design-system';
 
 const meta: Meta<typeof UnStyledButton> = {
   title: 'tripie-design/Button/No style',

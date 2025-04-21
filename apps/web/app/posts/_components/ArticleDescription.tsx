@@ -1,5 +1,5 @@
 'use client';
-import { Divider } from '@tripie-pyotato/design-system/@components';
+import { Divider } from '@tripie-pyotato/design-system';
 import { AttractionArticle } from 'models/Attraction';
 import ArticleHeading from './Elements/Header';
 

@@ -1,2 +1,2 @@
-export * from './ParticleField';
-export { default } from './ParticleField';
+export * from './ParticleField.client';
+export { default } from './ParticleField.client';

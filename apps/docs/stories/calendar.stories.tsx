@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Calendar } from '@tripie-pyotato/design-system/@components';
+import { Calendar } from '@tripie-pyotato/design-system';
 import { useAppTheme } from '@tripie-pyotato/design-system/@hooks';
 
 const meta: Meta<typeof Calendar> = {

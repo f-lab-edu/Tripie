@@ -1,2 +1,2 @@
-export * from './ParticleBackground';
-export { default } from './ParticleBackground';
+export * from './ParticleBackground.client';
+export { default } from './ParticleBackground.client';

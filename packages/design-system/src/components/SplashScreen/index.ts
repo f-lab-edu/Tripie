@@ -1,2 +1,2 @@
-export * from './SplashScreen';
-export { default } from './SplashScreen';
+export * from './SplashScreen.client';
+export { default } from './SplashScreen.client';

@@ -1,6 +1,6 @@
 'use client';
-import { AnimatedText, Card } from '@tripie-pyotato/design-system/@components';
-import { Container, Headings } from '@tripie-pyotato/design-system/@components/core';
+import { AnimatedText, Card } from '@tripie-pyotato/design-system';
+import { Container, Headings } from '@tripie-pyotato/design-system/@core';
 import { classNames } from 'wrapper';
 
 import Style from './selected-dates.module.scss';

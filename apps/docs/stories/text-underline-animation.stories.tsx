@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { TextUnderLineAnimation } from '@tripie-pyotato/design-system/@components';
+import { TextUnderLineAnimation } from '@tripie-pyotato/design-system';
 import { useAppTheme } from '@tripie-pyotato/design-system/@hooks';
 
 const meta: Meta<typeof TextUnderLineAnimation> = {
-  title: 'tripie-design/Text/UnderlineAnimation',
+  title: 'tripie-design/AnimatedText/UnderlineAnimation',
   component: TextUnderLineAnimation,
   tags: ['autodocs'],
   parameters: {

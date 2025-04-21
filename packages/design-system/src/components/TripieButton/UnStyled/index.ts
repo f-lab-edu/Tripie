@@ -1,2 +1,2 @@
-export * from './UnStyledButton';
-export { default } from './UnStyledButton';
+export * from './UnStyledButton.client';
+export { default } from './UnStyledButton.client';

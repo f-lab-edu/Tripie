@@ -4,10 +4,6 @@
   "description": "트리피에 사용되는 디자인 시스템",
   "main": "index.js",
   "type": "module",
-  "sideEffects": [
-    "*.scss",
-    "*.css"
-  ],
   "exports": {
     ".": {
       "require": {
@@ -39,17 +35,17 @@
         "default": "./dist/hooks/index.js"
       }
     },
-    "./@components/core": {
+    "./@core": {
       "require": {
-        "types": "./dist/components/core/index.d.cts",
-        "default": "./dist/components/core/index.cjs"
+        "types": "./dist/@core/index.d.cts",
+        "default": "./dist/@core/index.cjs"
       },
       "import": {
-        "types": "./dist/components/core/index.d.ts",
-        "default": "./dist/components/core/index.js"
+        "types": "./dist/@core/index.d.ts",
+        "default": "./dist/@core/index.js"
       }
     },
-    "./@components": {
+    "./components": {
       "require": {
         "types": "./dist/components/index.d.cts",
         "default": "./dist/components/index.cjs"
@@ -134,6 +130,7 @@
     "date-fns": "^4.1.0",
     "esbuild": "^0.25.2",
     "esbuild-sass-plugin": "^3.3.1",
+    "fast-glob": "^3.3.3",
     "framer": "^2.4.1",
     "framer-motion": "^11.11.17",
     "postcss-copy-assets": "^0.3.1",

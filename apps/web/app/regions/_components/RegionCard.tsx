@@ -1,5 +1,6 @@
 'use client';
-import { Card, List } from '@tripie-pyotato/design-system/@components';
+import { Card } from '@tripie-pyotato/design-system';
+import { List } from '@tripie-pyotato/design-system/@core';
 import useImgAlt from 'hooks/useImgAlt';
 import { RegionArticleInfo } from 'models/Article';
 import { useRouter } from 'next/navigation';

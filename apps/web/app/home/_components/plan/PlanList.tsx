@@ -1,7 +1,7 @@
 'use client';
 
-import { AnimatedButton, Card, Divider, Icon, List } from '@tripie-pyotato/design-system/@components';
-import { Container, Headings, Text } from '@tripie-pyotato/design-system/@components/core';
+import { AnimatedButton, Card, Divider, Icon } from '@tripie-pyotato/design-system';
+import { Container, Headings, List, Text } from '@tripie-pyotato/design-system/@core';
 import PLANS from 'constants/plans';
 import { classNames } from 'wrapper';
 
@@ -26,9 +26,9 @@ export default function PlanList() {
             Per month
           </Container>
           <Divider />
-          <List view="column" gap={'default'}>
+          <List view={'column'} gap={'default'}>
             {PLANS[key].items.map(({ label, description, icon }) => (
-              <List.Item gap="default" justifyContent="flex-start" alignItems="center" key={label}>
+              <List.Item gap={'default'} justifyContent={'flex-start'} alignItems={'center'} key={label}>
                 {icon === 'X' ? <Icon.X /> : <Icon.Check />}
                 <Text crossOut={icon === 'X'}>{description}</Text>
               </List.Item>

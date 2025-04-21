@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import TripieContainer from '../core/TripieContainer/TripieContainer';
+import TripieContainer from '../TripieContainer/TripieContainer';
 
 import { classNames, Motion, MotionProps } from '../../wrappers';
 

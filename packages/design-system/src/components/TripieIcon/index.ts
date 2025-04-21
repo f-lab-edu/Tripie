@@ -1,2 +1,2 @@
-export * from './Icon';
-export { default } from './Icon';
+export * from './Icon.client';
+export { default } from './Icon.client';

@@ -1,2 +1,2 @@
-export * from './Switch';
-export { default } from './Switch';
+export * from './Switch.client';
+export { default } from './Switch.client';

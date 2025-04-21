@@ -1,2 +1,2 @@
-export * from './AnimatedButton';
-export { default } from './AnimatedButton';
+export * from './AnimatedButton.client';
+export { default } from './AnimatedButton.client';

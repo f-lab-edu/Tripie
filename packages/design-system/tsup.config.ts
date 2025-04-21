@@ -1,23 +1,37 @@
 import { Plugin } from 'esbuild';
-import { postcssModules, sassPlugin } from 'esbuild-sass-plugin'; //https://github.com/vercel/turborepo/discussions/692#discussioncomment-6415071
-import { defineConfig } from 'tsup';
-
+import { postcssModules, sassPlugin } from 'esbuild-sass-plugin';
+import fg from 'fast-glob';
 import fs from 'fs/promises';
+import path from 'path';
+import { defineConfig, Options } from 'tsup';
+
+// components not marked with "use client;"
+const coreEntries = fg.sync(path.resolve(__dirname, 'src/**/*.{ts,tsx}'), {
+  ignore: ['**/*.client.ts', '**/*.client.tsx'],
+});
+
+// hooks marked with "use client;"
+const clientHookEntries = fg.sync(path.resolve(__dirname, 'src/hooks/**/*.client.{ts,tsx}'));
+
+// components marked with "use client;"
+const clientEntries = fg.sync(path.resolve(__dirname, 'src/components/**/*.client.{ts,tsx}'));
+
+// other entries
+const otherEntries = fg.sync(path.resolve(__dirname, 'src/**/*.{ts,tsx,scss}'), {
+  ignore: ['**/*.client.ts', '**/*.client.tsx'],
+});
 
 interface ESBuildUseClientOptions {
   filter?: RegExp;
 }
 
 // https://github.com/evanw/esbuild/issues/3196
-export const esbuildUseClient = ({ filter = /\.(ts|tsx|js|jsx)$/ }: ESBuildUseClientOptions = {}): Plugin => ({
+// export const esbuildUseClient = ({ filter = /\.(ts|tsx|js|jsx)$/ }: ESBuildUseClientOptions = {}): Plugin => ({
+
+export const esbuildUseClient = ({ filter = /\/.client\.tsx?$/ }: ESBuildUseClientOptions = {}): Plugin => ({
   name: 'use-client',
   setup(build): void {
     build.onLoad({ filter }, async args => {
-      // Skip files in `/core/`
-      if (args.path.includes('/core/')) {
-        return;
-      }
-
       const source = await fs.readFile(args.path, 'utf8');
       const loader = args.path.endsWith('.tsx') ? 'tsx' : 'ts';
 
@@ -34,36 +48,60 @@ export const esbuildUseClient = ({ filter = /\.(ts|tsx|js|jsx)$/ }: ESBuildUseCl
   },
 });
 
-export default defineConfig(options => ({
-  entry: ['src'],
+const defaultConfig = {
   minify: true,
   splitting: true,
-  format: ['cjs', 'esm'],
-  dts: {
-    resolve: true,
-    entry: [
-      './src/index.ts',
-      './src/components/index.ts',
-      './src/components/core/index.ts',
-      './src/shared/index.ts',
-      './src/hooks/index.ts',
-      './src/wrappers/index.tsx',
-    ],
-  },
   external: ['react', 'next'],
-  // banner: {
-  //   js: `'use client';`, // https://esbuild.github.io/api/#banner // https://github.com/evanw/esbuild/issues/3115#issuecomment-1546184806
-  // },
+  format: ['cjs', 'esm'],
+  clean: true,
+  dts: true,
   esbuildPlugins: [
     sassPlugin({
       filter: /\.module\.scss$/,
       transform: postcssModules({ basedir: './dist' }),
     }),
+
     sassPlugin({
       filter: /\.scss$/,
     }),
     esbuildUseClient(),
   ],
   jsx: 'automatic', // https://github.com/egoist/tsup/issues/792
-  ...options,
-}));
+} as Options;
+
+export default defineConfig(options => [
+  {
+    ...options,
+    entry: coreEntries,
+    outDir: 'dist/@core',
+    ...defaultConfig,
+  },
+  {
+    ...options,
+    entry: clientEntries,
+    outDir: 'dist/@components',
+    ...defaultConfig,
+  },
+  {
+    ...options,
+    entry: clientHookEntries,
+    outDir: 'dist/hooks',
+    ...defaultConfig,
+    dts: {
+      resolve: true,
+      entry: ['./src/hooks/index.ts'],
+    },
+  },
+  {
+    ...options,
+    entry: otherEntries,
+    outDir: 'dist',
+    ...defaultConfig,
+    dts: {
+      resolve: true,
+      entry: ['./src/index.ts', './src/shared/index.ts', './src/wrappers/index.tsx'],
+    },
+  },
+]);
+
+console.log('clientEntries', clientEntries);

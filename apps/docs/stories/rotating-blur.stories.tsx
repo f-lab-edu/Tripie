@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { RotatingBlur } from '@tripie-pyotato/design-system/@components';
+import { RotatingBlur } from '@tripie-pyotato/design-system';
 import { useAppTheme } from '@tripie-pyotato/design-system/@hooks';
 
 const meta: Meta<typeof RotatingBlur> = {

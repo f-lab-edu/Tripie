@@ -1,5 +1,5 @@
 'use client';
-import { Headings } from '@tripie-pyotato/design-system/@components/core';
+import { Headings } from '@tripie-pyotato/design-system/@core';
 import { AttractionArticle } from 'models/Attraction';
 import getPreferredTitle from 'utils/string/getPreferredTitle';
 

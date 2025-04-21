@@ -1,6 +1,6 @@
 'use client';
-import { List } from '@tripie-pyotato/design-system/@components';
-import { Headings, Text, TripieImage } from '@tripie-pyotato/design-system/@components/core';
+
+import { Headings, List, Text, TripieImage } from '@tripie-pyotato/design-system/@core';
 import { Continentl } from 'models/Continentl';
 import { classNames } from 'wrapper';
 import Style from './country-name.module.scss';

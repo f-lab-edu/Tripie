@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ChipMarker } from '@tripie-pyotato/design-system/@components';
+import { ChipMarker } from '@tripie-pyotato/design-system';
 import { useAppTheme } from '@tripie-pyotato/design-system/@hooks';
 
 const meta: Meta<typeof ChipMarker> = {

@@ -1,6 +1,6 @@
 'use client';
-import { AnimatedButton, Calendar, Icon } from '@tripie-pyotato/design-system/@components';
-import { Container } from '@tripie-pyotato/design-system/@components/core';
+import { AnimatedButton, Calendar, Icon } from '@tripie-pyotato/design-system';
+import { Container } from '@tripie-pyotato/design-system/@core';
 import { classNames } from 'wrapper';
 
 import { ContinentKeys } from 'models/Continent';

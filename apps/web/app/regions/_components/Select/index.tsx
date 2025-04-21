@@ -1,7 +1,7 @@
 'use client';
 
-import { AnimatedButton, Card, Divider, List } from '@tripie-pyotato/design-system/@components';
-import { Container } from '@tripie-pyotato/design-system/@components/core';
+import { AnimatedButton, Card, Divider } from '@tripie-pyotato/design-system';
+import { Container, List } from '@tripie-pyotato/design-system/@core';
 import { classNames } from 'wrapper';
 
 import { TRIPIE_REGION_BY_LOCATION, TRIPIE_REGION_IDS } from 'constants/tripie-country';

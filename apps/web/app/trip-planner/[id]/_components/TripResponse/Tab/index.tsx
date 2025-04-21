@@ -1,8 +1,8 @@
 'use client';
 import { classNames } from 'wrapper';
 
-import { Card, Chip, List } from '@tripie-pyotato/design-system/@components';
-import { Headings } from '@tripie-pyotato/design-system/@components/core';
+import { Card, Chip } from '@tripie-pyotato/design-system';
+import { Headings, List } from '@tripie-pyotato/design-system/@core';
 
 import { useContext } from 'react';
 
@@ -24,6 +24,7 @@ const ChatTab = ({ data, scrollIntoView = true }: { data: AiTripPlanResponse; sc
         {data.trips.map(trip => (
           <List.Item key={trip.date + trip.day}>
             <Chip
+              // padding={'default'}
               className={cx('chip')}
               selected={currentDate === trip.day - 1}
               onClick={() => {

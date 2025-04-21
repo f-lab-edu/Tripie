@@ -1,9 +1,9 @@
 'use client';
 import { classNames } from '../../.././wrappers';
 import AnimatedText from '../../AnimatedText/AnimatedText';
-import Headings from '../../core/Headings/Headings';
-import TripieContainer from '../../core/TripieContainer/TripieContainer';
-import Card from '../../TripieCard/Card';
+import Headings from '../../Headings/Headings';
+import Card from '../../TripieCard/Card.client';
+import TripieContainer from '../../TripieContainer/TripieContainer';
 
 import { useMemo } from 'react';
 import { LooseValue } from 'wrappers/react-calendar';

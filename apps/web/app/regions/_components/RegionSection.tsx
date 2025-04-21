@@ -1,6 +1,6 @@
 'use client';
 
-import { Container } from '@tripie-pyotato/design-system/@components/core';
+import { Container } from '@tripie-pyotato/design-system/@core';
 import RegionList, { RegionArticleData } from './RegionList';
 import RegionTitle from './RegionTitle';
 import RegionSelect from './Select';

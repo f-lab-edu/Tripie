@@ -1,7 +1,7 @@
 'use client';
 
 import { LooseValue } from 'wrappers/react-calendar';
-import TripieContainer from '../core/TripieContainer/TripieContainer';
+import TripieContainer from '../TripieContainer/TripieContainer';
 
 import { yearlyCalendar } from '@tripie-pyotato/utils/@date';
 import { useMemo } from 'react';

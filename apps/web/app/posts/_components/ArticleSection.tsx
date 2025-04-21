@@ -1,4 +1,4 @@
-import { TripieImage } from '@tripie-pyotato/design-system/@components/core';
+import { TripieImage } from '@tripie-pyotato/design-system/@core';
 
 import ArticleLayout from 'app/posts/_components/ArticleLayout';
 import ArticleTitle from 'app/posts/_components/Elements/ArticleTitle';

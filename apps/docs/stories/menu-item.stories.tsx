@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import MenuToggle from '../../../packages/design-system/src/components/TripieButton/MenuToggle/MenuToggle';
+import MenuToggle from '../../../packages/design-system/src/components/TripieButton/MenuToggle/MenuToggle.client';
 import { useAppTheme } from '../../../packages/design-system/src/hooks';
 
 const meta: Meta<typeof MenuToggle.Item> = {
