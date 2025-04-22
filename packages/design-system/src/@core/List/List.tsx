@@ -13,13 +13,13 @@ const List = ({
   children,
   className,
   view = 'row',
-  // justifyContent = 'flex-start',
-  // alignItems = 'normal',
-  // padding = 'none',
-  // applyPadding = 'all',
-  // margin = 'none',
-  // applyMargin = 'all',
-  // gap = 'none',
+  justifyContent = 'flex-start',
+  alignItems = 'normal',
+  padding = 'none',
+  applyPadding = 'all',
+  margin = 'none',
+  applyMargin = 'all',
+  gap = 'none',
 }: ListProps) => {
   return (
     <TripieContainer margin="m" applyMargin="top-bottom">
@@ -27,13 +27,13 @@ const List = ({
         className={cx(
           'list',
           view,
-          // `align-items-${alignItems}`,
-          // `padding-${padding}`,
-          // `padding-${applyPadding}`,
-          // applyMargin,
-          // margin,
-          // `justify-content-${justifyContent}`,
-          // `gap-${gap}`,
+          `align-items-${alignItems}`,
+          `padding-${padding}`,
+          `padding-${applyPadding}`,
+          applyMargin,
+          margin,
+          `justify-content-${justifyContent}`,
+          `gap-${gap}`,
           className
         )}
       >

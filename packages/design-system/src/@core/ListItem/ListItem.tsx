@@ -9,7 +9,7 @@ export type ListItemProps = Partial<TripieContainerProps>;
 const ListItem = ({
   children,
   justifyContent = 'flex-start',
-  alignItems = 'normal',
+  alignItems = 'center',
   gap = 'default',
   padding = 'none',
   applyPadding = 'all',

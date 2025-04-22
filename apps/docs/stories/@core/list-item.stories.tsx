@@ -43,7 +43,7 @@ const meta: Meta<typeof ListItem> = {
         type: {
           summary: "'normal' | 'center' | 'start' | 'stretch' | 'end'",
         },
-        defaultValue: { summary: 'normal' },
+        defaultValue: { summary: 'center' },
       },
     },
     applyMargin: {
