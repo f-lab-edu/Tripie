@@ -21,11 +21,11 @@ const H3 = ({ children, className }: TextProps) => {
 const H4 = ({ children, className }: TextProps) => {
   return <h4 className={style('h4', className)}>{children}</h4>;
 };
-const Headline = ({ children, className }: TextProps) => {
-  return <h4 className={style('headline', className)}>{children}</h4>;
-};
+// const Headline = ({ children, className }: TextProps) => {
+//   return <h4 className={style('headline', className)}>{children}</h4>;
+// };
 
-Heading.Headline = Headline;
+// Heading.Headline = Headline;
 Heading.H1 = H1;
 Heading.H2 = H2;
 Heading.H3 = H3;

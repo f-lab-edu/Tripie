@@ -6,6 +6,13 @@ const meta: Meta<typeof Headings> = {
   title: 'tripie-design@core/Headings',
   tags: ['autodocs'],
   component: Headings,
+  parameters: {
+    docs: {
+      description: {
+        component: '`<h1/>`, `<h2/>`, `<h3/>`, `<h4/>` 컴포넌트',
+      },
+    },
+  },
   decorators: [
     (story, context) => {
       const { mode } = useAppTheme();
@@ -62,25 +69,25 @@ export const H4: Story = {
   ],
 };
 
-export const Headline: Story = {
-  name: 'Headline',
-  decorators: [
-    story => {
-      return story().type.H4({
-        children: 'Headline',
-      });
-    },
-  ],
-};
+// export const Headline: Story = {
+//   name: 'Headline',
+//   decorators: [
+//     story => {
+//       return story().type.H4({
+//         children: 'Headline',
+//       });
+//     },
+//   ],
+// };
 
-export const HeadlineSecondary: Story = {
-  name: 'Headline secondary',
-  decorators: [
-    story => {
-      return story().type.H4({
-        children: 'Headline',
-        className: 'secondary',
-      });
-    },
-  ],
-};
+// export const HeadlineSecondary: Story = {
+//   name: 'Headline secondary',
+//   decorators: [
+//     story => {
+//       return story().type.H4({
+//         children: 'Headline',
+//         className: 'secondary',
+//       });
+//     },
+//   ],
+// };
