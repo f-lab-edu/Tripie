@@ -2,18 +2,20 @@
 @use '../../functions/' as *;
 @use '../../generator/' as *;
 @use '../../mixins/index.scss' as *;
-
+@use '../../mixins/' as *;
+@use '../../variables/' as *;
 @use 'sass:map';
 
 .headings {
   @include text-ellipsis(1);
   @include word-wrap;
   font-size: font-size(text);
+  width: fit-content;
 }
 
-.headline {
-  font-size: font-size(small);
-}
+// .headline {
+//   font-size: font-size(small);
+// }
 
 .default {
   font-size: font-size(default);
@@ -42,4 +44,10 @@
 }
 .tiny {
   font-size: font-size(tiny);
+}
+
+@each $value in $break-point-values {
+  .preserve-white-space-#{$value} {
+    @include break-text($value);
+  }
 }

@@ -33,7 +33,8 @@ export type TripieContainerProps = {
   alignItems?: 'none' | 'normal' | 'center' | 'start' | 'stretch' | 'end' | 'flex-start' | 'flex-end';
   children?: ReactNode;
   refs?: RefObject<HTMLDivElement>;
-  preserveWhiteSpace?: boolean;
+  // preserveWhiteSpace?: boolean;
+  preserveWhiteSpace?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'none';
   applyMargin?:
     | 'top-bottom'
     | 'top-left-right'
@@ -59,7 +60,7 @@ const TripieContainer = ({
   margin = 'm',
   applyMargin = 'all',
   applyPadding = 'all',
-  preserveWhiteSpace = false,
+  preserveWhiteSpace = 'none',
   refs,
   gap = 'none',
   justifyContent = 'none',

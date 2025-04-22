@@ -68,26 +68,3 @@ export const H4: Story = {
     },
   ],
 };
-
-// export const Headline: Story = {
-//   name: 'Headline',
-//   decorators: [
-//     story => {
-//       return story().type.H4({
-//         children: 'Headline',
-//       });
-//     },
-//   ],
-// };
-
-// export const HeadlineSecondary: Story = {
-//   name: 'Headline secondary',
-//   decorators: [
-//     story => {
-//       return story().type.H4({
-//         children: 'Headline',
-//         className: 'secondary',
-//       });
-//     },
-//   ],
-// };

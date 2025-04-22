@@ -14,9 +14,11 @@ const cx = classNames.bind(Style);
 
 const PageTitle = () => {
   return (
-    <Container margin="none" alignItems="center" justifyContent="center" preserveWhiteSpace={true}>
+    <Container margin="none" alignItems="center" justifyContent="center">
       <Headings.H1>
-        <Text.Accented>AI </Text.Accented>enhanced{'\n'}trip planner.
+        {/* <Text.Accented>AI </Text.Accented>enhanced{'\n'}trip planner. */}
+        <Text.Accented>AI</Text.Accented> enhanced{'\n'}trip planner.
+        {/* <Text></Text> */}
       </Headings.H1>
     </Container>
   );
