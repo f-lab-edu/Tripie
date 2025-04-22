@@ -17,7 +17,12 @@ export default function FaqList() {
               </Container>
             </Accordion.Header>
             <Accordion.Divider />
-            <Accordion.Body preserveWhiteSpace={true} padding={'sm'} applyPadding="top-bottom" margin="none">
+            <Accordion.Body
+              // preserveWhiteSpace={''}
+              padding={'sm'}
+              applyPadding="top-bottom"
+              margin="none"
+            >
               {details}
             </Accordion.Body>
           </Accordion>

@@ -35,7 +35,13 @@ const CityStep = ({ context, onNext, onPrev }: Props) => {
     <>
       <Container applyMargin="top" margin="l" padding="l" applyPadding="top">
         <Headings.H2>
-          <Container margin="none" alignItems="start" justifyContent="start" preserveWhiteSpace={true} gap="sm">
+          <Container
+            margin="none"
+            alignItems="start"
+            justifyContent="start"
+            // preserveWhiteSpace={true}
+            gap="sm"
+          >
             <Icon.Navigate
               sizes="large"
               onTapStart={() => {

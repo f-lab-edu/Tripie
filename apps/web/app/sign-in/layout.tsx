@@ -22,7 +22,11 @@ export default function Layout({
               <Headings.H2>Welcome</Headings.H2>
             </Text.Accented>
           </Container>
-          <Container preserveWhiteSpace={true} align="center" applyMargin="top-bottom">
+          <Container
+            // preserveWhiteSpace={true}
+            align="center"
+            applyMargin="top-bottom"
+          >
             모든 서비스를 이용하기 위해 {'\n'}로그인을 해주세요.
           </Container>
           <Divider />

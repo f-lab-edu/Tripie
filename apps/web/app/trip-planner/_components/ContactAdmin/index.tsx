@@ -34,7 +34,11 @@ const ContactAdmin = () => {
           </TextUnderLineAnimation>
         </Container>
         <Container applyMargin="bottom">
-          <Container applyMargin="top-bottom" margin="sm" preserveWhiteSpace={true}>
+          <Container
+            applyMargin="top-bottom"
+            margin="sm"
+            //preserveWhiteSpace={true}
+          >
             <Container margin="none" className={cx('break-text')}>
               여행지에 대한 <Text.Accented>팁</Text.Accented>이나 <Text.Accented>아이디어</Text.Accented>를
             </Container>
