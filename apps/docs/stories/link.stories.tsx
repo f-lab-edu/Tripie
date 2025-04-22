@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Link } from '@tripie-pyotato/design-system';
+import { Link } from '@tripie-pyotato/design-system/@components';
 import { Text } from '@tripie-pyotato/design-system/@core';
 import { useAppTheme } from '@tripie-pyotato/design-system/@hooks';
 

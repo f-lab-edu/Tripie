@@ -6,15 +6,15 @@ import path from 'path';
 import { defineConfig, Options } from 'tsup';
 
 // components not marked with "use client;"
-const coreEntries = fg.sync(path.resolve(__dirname, 'src/**/*.{ts,tsx}'), {
+const coreEntries = fg.sync(path.resolve(__dirname, 'src/@core/**/*.{ts,tsx}'), {
   ignore: ['**/*.client.ts', '**/*.client.tsx'],
 });
 
 // hooks marked with "use client;"
-const clientHookEntries = fg.sync(path.resolve(__dirname, 'src/hooks/**/*.client.{ts,tsx}'));
+const clientHookEntries = fg.sync(path.resolve(__dirname, 'src/@hooks/*.client.{ts,tsx}'));
 
 // components marked with "use client;"
-const clientEntries = fg.sync(path.resolve(__dirname, 'src/components/**/*.client.{ts,tsx}'));
+const clientComponentEntries = fg.sync(path.resolve(__dirname, 'src/@components/**/*.client.{ts,tsx}'));
 
 // other entries
 const otherEntries = fg.sync(path.resolve(__dirname, 'src/**/*.{ts,tsx,scss}'), {
@@ -48,7 +48,7 @@ export const esbuildUseClient = ({ filter = /\/.client\.tsx?$/ }: ESBuildUseClie
   },
 });
 
-const defaultConfig = {
+const defaultConfig: Partial<Options> = {
   minify: true,
   splitting: true,
   external: ['react', 'next'],
@@ -66,8 +66,11 @@ const defaultConfig = {
     }),
     esbuildUseClient(),
   ],
-  jsx: 'automatic', // https://github.com/egoist/tsup/issues/792
-} as Options;
+  esbuildOptions(options) {
+    options.jsx = 'automatic'; // https://github.com/egoist/tsup/issues/792
+    options.inject = [path.resolve(__dirname, './react-import.ts')]; // !!THIS IS A WORKAROUND !! solution https://github.com/egoist/tsup/issues/792 is not working!!
+  },
+};
 
 export default defineConfig(options => [
   {
@@ -78,20 +81,21 @@ export default defineConfig(options => [
   },
   {
     ...options,
-    entry: clientEntries,
+    entry: clientComponentEntries,
     outDir: 'dist/@components',
     ...defaultConfig,
+    dts: {
+      resolve: true,
+      entry: ['./src/@components/index.ts'],
+    },
   },
   {
     ...options,
     entry: clientHookEntries,
-    outDir: 'dist/hooks',
+    outDir: 'dist/@hooks',
     ...defaultConfig,
-    dts: {
-      resolve: true,
-      entry: ['./src/hooks/index.ts'],
-    },
   },
+
   {
     ...options,
     entry: otherEntries,
@@ -99,9 +103,7 @@ export default defineConfig(options => [
     ...defaultConfig,
     dts: {
       resolve: true,
-      entry: ['./src/index.ts', './src/shared/index.ts', './src/wrappers/index.tsx'],
+      entry: ['./src/index.ts', './src/shared/index.ts', './src/wrappers/index.tsx', './src/@hooks/index.ts'],
     },
   },
 ]);
-
-console.log('clientEntries', clientEntries);

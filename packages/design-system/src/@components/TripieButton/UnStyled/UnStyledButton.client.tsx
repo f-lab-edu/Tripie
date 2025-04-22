@@ -1,0 +1,49 @@
+import { TripieContainerProps } from '@core/TripieContainer';
+import { classNames } from '../../../wrappers';
+
+import Style from './unstyled-button.module.scss';
+
+const cx = classNames.bind(Style);
+
+const UnStyledButton = ({
+  action,
+  children,
+  name = 'no-style-button',
+  type = 'button',
+  className,
+  alignItems,
+  padding,
+  applyPadding,
+  applyMargin,
+  margin,
+  justifyContent,
+  gap,
+}: Partial<TripieContainerProps> & {
+  action?: () => void | Promise<unknown>;
+  name?: string;
+  type?: 'submit' | 'reset' | 'button';
+}) => {
+  return (
+    <button
+      type={type}
+      name={name}
+      onClick={action}
+      className={cx(
+        'clear-btn',
+        `align-items-${alignItems}`,
+        'container',
+        `padding-${padding}`,
+        `padding-${applyPadding}`,
+        applyMargin,
+        margin,
+        `justify-content-${justifyContent}`,
+        `gap-${gap}`,
+        className
+      )}
+    >
+      {children}
+    </button>
+  );
+};
+
+export default UnStyledButton;

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import AnimatedButton from '../../../packages/design-system/src/components/TripieButton/Animated';
-import { useAppTheme } from '../../../packages/design-system/src/hooks';
+import { AnimatedButton } from '@tripie-pyotato/design-system/@components';
+import { useAppTheme } from '@tripie-pyotato/design-system/@hooks';
 
 const meta: Meta<typeof AnimatedButton> = {
   title: 'tripie-design/Button/Animated',

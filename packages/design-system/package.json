@@ -27,12 +27,12 @@
     },
     "./@hooks": {
       "require": {
-        "types": "./dist/hooks/index.d.cts",
-        "default": "./dist/hooks/index.cjs"
+        "types": "./dist/@hooks/index.d.cts",
+        "default": "./dist/@hooks/index.cjs"
       },
       "import": {
-        "types": "./dist/hooks/index.d.ts",
-        "default": "./dist/hooks/index.js"
+        "types": "./dist/@hooks/index.d.ts",
+        "default": "./dist/@hooks/index.js"
       }
     },
     "./@core": {
@@ -45,14 +45,14 @@
         "default": "./dist/@core/index.js"
       }
     },
-    "./components": {
+    "./@components": {
       "require": {
-        "types": "./dist/components/index.d.cts",
-        "default": "./dist/components/index.cjs"
+        "types": "./dist/@components/index.d.cts",
+        "default": "./dist/@components/index.cjs"
       },
       "import": {
-        "types": "./dist/components/index.d.ts",
-        "default": "./dist/components/index.js"
+        "types": "./dist/@components/index.d.ts",
+        "default": "./dist/@components/index.js"
       }
     },
     "./@wrappers": {
@@ -82,7 +82,7 @@
     }
   },
   "scripts": {
-    "build": "tsup --inject ./react-import.ts",
+    "build": "tsup",
     "metafile": "tsup --format cjs,esm",
     "build:pkg": "tsc",
     "lint": "eslint '**/*.{js,jsx,ts,tsx}'",

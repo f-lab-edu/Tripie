@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { AnimatedText } from '@tripie-pyotato/design-system';
+import { AnimatedText } from '@tripie-pyotato/design-system/@components';
 import { useAppTheme } from '@tripie-pyotato/design-system/@hooks';
 
 const meta: Meta<typeof AnimatedText> = {

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { TextFillAnimation } from '@tripie-pyotato/design-system';
+import { TextFillAnimation } from '@tripie-pyotato/design-system/@components';
 import { useAppTheme } from '@tripie-pyotato/design-system/@hooks';
 import { COLORS } from '@tripie-pyotato/design-system/shared';
 

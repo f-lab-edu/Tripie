@@ -4,10 +4,8 @@
     "rootDir": ".",
     "outDir": "./dist",
     "baseUrl": "./src",
-    "paths": {
-      "@components/*": ["components/*"]
-    },
-    "incremental": false
+    "incremental": false,
+    "jsxImportSource": "react"
   },
   "include": ["**/*.ts", "**/*.tsx", "../../typings", "jest.setup.cjs", "~/*.ts", "~/*.tsx"],
   "exclude": ["dist"]
