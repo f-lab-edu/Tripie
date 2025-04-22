@@ -94,9 +94,9 @@ const nextConfig = {
       },
     ],
   },
-  // experimental: {
-  //   optimizePackageImports: ['@tripie-pyotato/design-system'], // https://nextjs.org/docs/app/api-reference/config/next-config-js/optimizePackageImports
-  // },
+  experimental: {
+    optimizePackageImports: ['@tripie-pyotato/design-system'], // https://nextjs.org/docs/app/api-reference/config/next-config-js/optimizePackageImports
+  },
 };
 
 export default nextConfig;

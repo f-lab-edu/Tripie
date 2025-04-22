@@ -1,15 +1,19 @@
-// @ts-check
-
 /**
  * https://nextjs.org/docs/app/building-your-application/styling/sass#customizing-sass-options
  */
 
-import { fileURLToPath } from 'url';
+// import { fileURLToPath } from 'url';
 
-const __dirname = fileURLToPath(new URL('.', import.meta.url));
-
+// const __dirname = fileURLToPath(new URL('.', import.meta.url));
+import path from 'path';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  sassOptions: {
+    includePaths: [path.join(__dirname, 'styles'), path.join(__dirname, '../../packages/design-system/src')],
+
+    silenceDeprecations: ['legacy-js-api'],
+  },
+
   images: {
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
