@@ -36,14 +36,12 @@ const ArticleHeading = ({ item }: { item: HeadingProps }) => {
   };
 
   return (
-    <Container applyMargin="top-bottom" margin={type == 'heading1' ? 'l' : 'm'} key={headerText}>
+    <>
       {headline !== '' && headline != null ? (
-        <Container applyMargin="top">
-          <Text.Accented>{headline.replaceAll('트리플', 'Tripie')}</Text.Accented>
-        </Container>
+        <Text.Accented>{headline.replaceAll('트리플', 'Tripie')}</Text.Accented>
       ) : null}
       {renderHeading()}
-    </Container>
+    </>
   );
 };
 

@@ -4,7 +4,7 @@ import ROUTE from 'constants/routes';
 import useChatToken from 'hooks/useChatToken';
 import Link from 'next/link';
 
-import { Icon, MenuToggle } from '@tripie-pyotato/design-system';
+import { Icon, Menu } from '@tripie-pyotato/design-system/@components';
 import API from 'constants/api-routes';
 import { usePathname } from 'next/navigation';
 
@@ -18,12 +18,12 @@ const AiTripButton = () => {
   }
 
   return (
-    <MenuToggle.Item>
+    <Menu.Item>
       <Link href={`${API.BASE_URL + ROUTE.TRIP_PLANNER.href}${isEligible ? '' : '/not-enough-tokens'}`}>
         AI 추천 맞춤일정
       </Link>
       <Icon />
-    </MenuToggle.Item>
+    </Menu.Item>
   );
 };
 export default AiTripButton;

@@ -1,0 +1,37 @@
+@use '../../../variables' as *;
+
+.title {
+  font-weight: bold;
+  background: linear-gradient(to top, $theme-600 2%, $theme-50);
+  background-clip: text;
+  color: transparent;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  font-size: 55px;
+}
+
+.pre-title {
+  font-weight: bold;
+  font-size: 55px;
+}
+
+.animation {
+  width: '100%';
+  white-space: 'nowrap';
+}
+.default {
+  color: $theme-600;
+}
+.wrap {
+  position: relative;
+  display: inline-block;
+  text-wrap: nowrap;
+}
+.text {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  width: 0%;
+  white-space: nowrap;
+}

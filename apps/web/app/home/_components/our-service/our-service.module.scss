@@ -1,11 +1,7 @@
 @import 'mixins';
 @import 'variables';
 
-.our-service {
-  @include background('4');
-  padding: 50px 0;
-}
-
+// !!TODO : https://mui.com/material-ui/react-stack/
 .wrap {
   display: grid;
   justify-content: center;

@@ -1,0 +1,5 @@
+@use '../../../mixins/skeleton' as *;
+
+.skeleton {
+  @include skeleton(1);
+}

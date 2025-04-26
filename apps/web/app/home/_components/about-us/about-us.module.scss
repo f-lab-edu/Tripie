@@ -2,10 +2,8 @@
 @import 'variables';
 
 .about-us {
-  @include background('2');
   font-size: 2rem;
   @media (max-width: 360) {
     font-size: 1.8rem; // 360px 미만 화면에서는 긴텍스트 애니메이션이 부적합
   }
-  gap: gap('sm');
 }

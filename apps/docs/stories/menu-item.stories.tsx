@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { MenuToggle } from '@tripie-pyotato/design-system/@components';
+import { Menu } from '@tripie-pyotato/design-system/@components';
 import { useAppTheme } from '@tripie-pyotato/design-system/@hooks';
 
-const meta: Meta<typeof MenuToggle.Item> = {
+const meta: Meta<typeof Menu.Item> = {
   title: 'tripie-design/Button/Menu/Item',
-  component: MenuToggle.Item,
+  component: Menu.Item,
   tags: ['autodocs'],
   argTypes: {},
   parameters: {
@@ -31,6 +31,6 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   name: 'Default',
   render: () => {
-    return <MenuToggle.Item>아이템1</MenuToggle.Item>;
+    return <Menu.Item>아이템1</Menu.Item>;
   },
 };

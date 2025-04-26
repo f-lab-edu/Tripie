@@ -1,12 +1,11 @@
 'use client';
 
-import { Container } from '@tripie-pyotato/design-system/@core';
 import { useDebounce } from '@tripie-pyotato/hooks';
 
 import { DB_NAME } from 'constants/auth';
 import useFunnel from 'hooks/useFunnel';
-import { classNames } from 'wrapper';
 
+import { Background } from '@tripie-pyotato/design-system';
 import firestoreService from 'app/api/firebase';
 import getTripPlan from 'app/api/openai/getTripPlan';
 import incrementedTokenId from 'app/api/openai/incrementedTokenId';
@@ -22,9 +21,6 @@ import CountryStep from './_components/Countries';
 import DoneStep from './_components/Done';
 import DurationStep from './_components/Duration';
 import PreferenceStep from './_components/Preference';
-import Style from './trip-planner.module.scss';
-
-const cx = classNames.bind(Style);
 
 const handleSubmit = async (chatItems: TripPlanner, id: string) => {
   if (id == null) {
@@ -129,7 +125,7 @@ const TripPlan = () => {
   });
 
   return (
-    <Container margin="none" className={cx('background')} padding="m">
+    <Background variant={0} applyPadding="left-right" padding="m" alignItems="center" justifyContent="space-between">
       <funnel.Render
         CONTINENT={({ context, history }) => (
           <ContinentStep
@@ -189,7 +185,7 @@ const TripPlan = () => {
         )}
         DONE={({ context }) => <DoneStep context={context} />}
       />
-    </Container>
+    </Background>
   );
 };
 

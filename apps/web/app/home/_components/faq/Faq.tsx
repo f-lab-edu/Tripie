@@ -1,21 +1,18 @@
 'use client';
 import { MotionSlideUp } from '@tripie-pyotato/design-system';
-import { Container, Headings } from '@tripie-pyotato/design-system/@core';
-import { classNames } from 'wrapper';
+import { Background, Container, Headings } from '@tripie-pyotato/design-system/@core';
 
 import FaqList from './FaqList';
-import Style from './faq.module.scss';
-const cx = classNames.bind(Style);
 
 export default function Faq() {
   return (
-    <section className={cx('faq')}>
-      <Container applyMargin="left-right" margin="m">
+    <Background variant={1} padding="m" applyPadding="left-right">
+      <Container applyMargin="top-bottom" margin="xl">
         <MotionSlideUp>
           <Headings.H2>FAQ</Headings.H2>
           <FaqList />
         </MotionSlideUp>
       </Container>
-    </section>
+    </Background>
   );
 }

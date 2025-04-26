@@ -1,6 +1,6 @@
 'use client';
 
-import { AnimatedButton, Icon } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Icon } from '@tripie-pyotato/design-system/@components';
 import { Text } from '@tripie-pyotato/design-system/@core';
 
 import { ICON_RESOURCE, RESOURCE } from '@tripie-pyotato/design-system/shared';

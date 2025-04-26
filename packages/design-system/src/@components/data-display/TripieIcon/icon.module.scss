@@ -1,0 +1,38 @@
+@use '../../../functions/' as *;
+
+@mixin sizes($size: 'default') {
+  background-color: inherit;
+  border: none;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+
+  @if ($size == 'default') {
+    width: 1rem;
+    height: 1rem;
+  } @else if($size == 'large') {
+    height: 2rem;
+    width: 2rem;
+  }
+}
+
+.icon {
+  @include sizes('default');
+}
+.plane {
+  @include sizes('default');
+  position: absolute;
+  top: 50%;
+  z-index: z(loadder);
+  // z-index: 600;
+}
+
+.large {
+  @include sizes('large');
+}
+
+.icon-image {
+  min-width: 1rem;
+  min-height: 1rem;
+}

@@ -1,0 +1,12 @@
+@use '../../../variables' as *;
+@use '../../../mixins' as *;
+@use '../../../functions/' as *;
+@use 'sass:math';
+@use 'sass:map';
+
+// .app-bar {
+// }
+
+.fixed {
+  position: fixed;
+}

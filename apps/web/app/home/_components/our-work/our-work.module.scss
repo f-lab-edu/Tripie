@@ -1,7 +1,0 @@
-@use 'mixins' as *;
-@use 'variables' as *;
-
-.our-work {
-  @include background('5');
-  padding: 50px 0;
-}

@@ -1,7 +1,6 @@
 'use client';
-import { classNames } from 'wrapper';
 
-import { Container } from '@tripie-pyotato/design-system/@core';
+import { Background } from '@tripie-pyotato/design-system/@core';
 import ROUTE from 'constants/routes';
 import { TripContent } from 'models/Aws';
 import { Coordinate } from 'models/Geo';
@@ -9,9 +8,6 @@ import { useRouter } from 'next/navigation';
 import { Dispatch, SetStateAction, Suspense, createContext, useEffect, useMemo, useState } from 'react';
 import Loading from 'shared/components/Loading';
 import MapTab, { ChatResponseData } from './MapTab';
-import Style from './trip-response.module.scss';
-
-const cx = classNames.bind(Style);
 
 /** props drilling 완화를 위해 컨텍스트로 state 관리. 전역으로 사용될 state는 아니기 때문에 간단히 내장 useContext 사용
  * 선택한 tab의 일정, `{일정 날짜}-{선택 일정 인덱스}`
@@ -75,13 +71,20 @@ const TripResponse = ({ data }: { data: ChatResponseData }) => {
 
   return (
     <Suspense fallback={<Loading />}>
-      <Container margin="none" className={cx('background')} padding="m">
+      <Background
+        margin="none"
+        variant={0}
+        justifyContent="flex-end"
+        alignItems="center"
+        padding="m"
+        applyPadding="all"
+      >
         <TabContext.Provider value={selectedActivityValues}>
           <SelectedDateContext.Provider value={selectedDateValues}>
             <MapTab data={data.plans} coordinates={coordinates} />
           </SelectedDateContext.Provider>
         </TabContext.Provider>
-      </Container>
+      </Background>
     </Suspense>
   );
 };

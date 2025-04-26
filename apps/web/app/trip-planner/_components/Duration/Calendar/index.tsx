@@ -70,7 +70,7 @@ const Calendars = ({
           disabled={duration.end === ''}
           isFullSize={true}
           onClick={handleSubmit}
-          className={cx('submit-button', duration.end !== '' && 'long-text')}
+          className={cx(duration.end !== '' && 'long-text')}
         >
           <span>
             {duration.end === '' ? (

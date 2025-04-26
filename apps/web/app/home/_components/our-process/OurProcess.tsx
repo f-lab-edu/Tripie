@@ -1,7 +1,5 @@
-import { MotionSlideUp } from '@tripie-pyotato/design-system';
-import { Container, Headings, Text } from '@tripie-pyotato/design-system/@core';
-
-import { classNames } from 'wrapper';
+import { MotionSlideUp } from '@tripie-pyotato/design-system/@components';
+import { Background, Container, Headings, Text } from '@tripie-pyotato/design-system/@core';
 
 import CitySelect from './_components/selectedList/City';
 import CompanionSelect from './_components/selectedList/Companion';
@@ -10,10 +8,8 @@ import CountrySelect from './_components/selectedList/Country';
 import DurationSelect from './_components/selectedList/Duration';
 import TravelStyleSelect from './_components/selectedList/TravelStyle';
 import TripResultExample from './_components/selectedList/TripResult';
-import Style from './our-process.module.scss';
-import OurProcessCard from './OurProcessCard';
 
-const cx = classNames.bind(Style);
+import OurProcessCard from './OurProcessCard';
 
 const cards = [
   {
@@ -59,21 +55,19 @@ export type Process = { label: string; content: JSX.Element; description: string
 
 export default function OurProcess() {
   return (
-    <section className={cx('our-process')} id="Process">
-      <Container applyMargin="left-right" margin="m">
-        <MotionSlideUp>
-          <Container applyMargin="top" margin="sm">
-            <Headings.H2>
-              Our <Text.Accented>process</Text.Accented>
-            </Headings.H2>
-          </Container>
-        </MotionSlideUp>
-        <Container margin="l" applyMargin="top-bottom">
-          {cards.map(({ label, content, description }, index) => (
-            <OurProcessCard key={label} label={label} content={content} description={description} index={index} />
-          ))}
+    <Background variant={1} id="Process" applyPadding="top-left-right" padding="m">
+      <MotionSlideUp>
+        <Container applyMargin="top" margin="sm">
+          <Headings.H2>
+            Our <Text.Accented>process</Text.Accented>
+          </Headings.H2>
         </Container>
+      </MotionSlideUp>
+      <Container margin="l" applyMargin="top-bottom">
+        {cards.map(({ label, content, description }, index) => (
+          <OurProcessCard key={label} label={label} content={content} description={description} index={index} />
+        ))}
       </Container>
-    </section>
+    </Background>
   );
 }

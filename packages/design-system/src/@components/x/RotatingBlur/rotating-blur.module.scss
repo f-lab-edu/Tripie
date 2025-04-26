@@ -1,0 +1,62 @@
+@use '../../../functions/' as *;
+
+.rotating-blur {
+  filter: blur(24px);
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  // z-index: 0;
+  z-index: z(base);
+}
+.pie {
+  width: 12rem;
+  height: 12rem;
+}
+.segment-1 {
+  opacity: 1;
+  box-shadow: -1px -9px 1px 7px #5aacd9;
+  border-radius: 500px;
+  inset: 0;
+  position: absolute;
+  display: inline-flex;
+  place-items: center;
+  place-content: center;
+  color: #85f;
+  background: conic-gradient(from 0deg at 50% 50%, rgb(255, 255, 255), rgb(19, 156, 229), rgb(13, 231, 180));
+  overflow: hidden;
+}
+.segment-3 {
+  box-shadow: -4px 7px 2px 8px #c73d3d;
+  border-radius: 500px;
+  inset: 0;
+  position: absolute;
+  display: inline-flex;
+  place-items: center;
+  place-content: center;
+  color: #85f;
+  background: conic-gradient(from 0deg at 50% 50%, rgb(255, 217, 173), rgb(11, 87, 64), rgb(13, 231, 180));
+  overflow: hidden;
+  opacity: 1;
+}
+.segment-2 {
+  box-shadow: -3px 7px 3px 4px #dda75f;
+  opacity: 0.8;
+  border-radius: 500px;
+  inset: 0;
+  position: absolute;
+  display: inline-flex;
+  place-items: center;
+  place-content: center;
+  color: #85f;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    rgb(255, 0, 0),
+    rgb(255, 0, 0),
+    rgb(20, 120, 90),
+    rgb(11, 86, 63),
+    rgb(11, 86, 63),
+    rgb(13, 231, 180),
+    rgb(255, 0, 0)
+  );
+  overflow: hidden;
+}

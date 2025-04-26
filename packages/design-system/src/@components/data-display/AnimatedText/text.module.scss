@@ -1,0 +1,63 @@
+@use '../../../base/' as *;
+@use '../../../variables' as *;
+@use '../../../functions/' as *;
+@use '../../../generator/' as *;
+@use '../../../mixins/index.scss' as *;
+@use '../../../mixins.scss' as *;
+
+@use 'sass:map';
+
+.text {
+  color: inherit;
+  @include word-wrap;
+  font-size: font-size(text);
+  &[aria-selected='false'] {
+    color: color(default, 500);
+  }
+  &[aria-selected='true'] {
+    color: color(default, 900);
+  }
+}
+
+.flick {
+  // z-index: 30;
+  z-index: z(mask);
+  width: fit-content;
+  height: 3rem;
+  color: inherit;
+  @include flex;
+}
+
+.min {
+  min-width: 9rem;
+}
+
+.box {
+  & > span {
+    position: relative;
+    display: inline-block;
+  }
+}
+
+.animated-text {
+  overflow-y: hidden;
+  color: inherit;
+  display: inline-flex;
+  height: 2rem;
+  flex-direction: column;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.small {
+  font-size: 0.8rem;
+}
+
+.bold {
+  font-weight: font-weight(bold);
+}
+
+.cross {
+  text-decoration: line-through;
+  color: $theme-40;
+}

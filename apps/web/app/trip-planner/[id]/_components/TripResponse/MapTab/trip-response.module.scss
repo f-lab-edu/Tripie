@@ -1,17 +1,10 @@
 @use 'variables' as *;
 @use 'mixins' as *;
 
+// !!TODO : https://mui.com/material-ui/react-stack/
 .trip-content-wrap {
-  display: inline-flex;
   width: 100%;
-  gap: 0.4rem;
   @media (max-width: 500px) {
     flex-wrap: wrap;
   }
-}
-
-.center {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.2rem;
 }

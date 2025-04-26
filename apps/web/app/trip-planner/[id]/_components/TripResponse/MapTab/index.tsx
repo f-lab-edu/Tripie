@@ -1,6 +1,6 @@
 'use client';
 import { AnimatedText, Icon, TextUnderLineAnimation, UnStyledButton } from '@tripie-pyotato/design-system';
-import { Container } from '@tripie-pyotato/design-system/@core';
+import { Container, Text } from '@tripie-pyotato/design-system/@core';
 import { AiTripPlanResponse } from 'app/api/openai/getTripPlan';
 import ROUTE from 'constants/routes';
 import useAwsMap from 'hooks/awsMap/useAwsMap';
@@ -54,16 +54,18 @@ const MapTab = ({ data, coordinates }: { data: ChatResponseData['plans']; coordi
           </Container>
         ) : (
           <TextUnderLineAnimation>
-            <UnStyledButton className={cx('center')} action={handleNavigation}>
-              <Icon />
-              {remainingToken != null && !isAdmin ? `${remainingToken}토큰으로 다른 일정 추천 받아보기` : ''}
-              {isAdmin ? `어드민님, (${usedGptToken}개 사용) 다른 일정 추천 받기` : null}
-              {status === 'unauthenticated' && '로그인하고 일정 추천받아보기'}
+            <UnStyledButton action={handleNavigation}>
+              <Text gap={'sm'}>
+                <Icon />
+                {remainingToken != null && !isAdmin ? `${remainingToken}토큰으로 다른 일정 추천 받아보기` : ''}
+                {isAdmin ? `어드민님, (${usedGptToken}개 사용) 다른 일정 추천 받기` : null}
+                {status === 'unauthenticated' && '로그인하고 일정 추천받아보기'}
+              </Text>
             </UnStyledButton>
           </TextUnderLineAnimation>
         )}
       </Container>
-      <Container margin="none" className={cx('trip-content-wrap')}>
+      <Container margin="none" className={cx('trip-content-wrap')} gap="default">
         <ChatTab data={data} />
         <AwsMap
           style={{ height: '85vh' }}

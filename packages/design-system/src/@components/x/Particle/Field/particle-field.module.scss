@@ -1,0 +1,8 @@
+@use '../../../../functions/' as *;
+.particle-field {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: z(base);
+  // z-index: 0;
+}

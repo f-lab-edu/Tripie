@@ -1,11 +1,7 @@
 @use 'variables' as *;
 @use 'mixins' as *;
 
-.submit-button {
-  @include submit-button;
-}
-
-.submit-button.long-text {
+.long-text {
   @media (max-width: 400) {
     & > span {
       transform: translateY(1rem);

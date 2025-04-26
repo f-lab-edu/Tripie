@@ -1,8 +1,5 @@
 'use client';
-import { classNames } from 'wrapper';
-import Style from './nav.module.scss';
-
-import { AnimatedText, Icon, MenuToggle } from '@tripie-pyotato/design-system';
+import { Icon, Menu } from '@tripie-pyotato/design-system/@components';
 import ROUTE, { LANDING_SECTION } from 'constants/routes';
 import { usePathname, useRouter } from 'next/navigation';
 
@@ -11,28 +8,31 @@ import Link from 'next/link';
 import AiTripButton from './AiTripButtons';
 import AuthButton from './AuthButton';
 
-const cx = classNames.bind(Style);
-
 const Nav = () => {
   const navigate = useRouter();
   const pathName = usePathname();
 
   return (
-    <MenuToggle>
-      <AnimatedText withBorder={false} className={cx('tripie-home-btn')} action={() => navigate.push(ROUTE.HOME.href)}>
+    <Menu>
+      {/* <AnimatedText withBorder={false} className={cx('tripie-home-btn')} action={() => navigate.push(ROUTE.HOME.href)}>
         Tripie
-      </AnimatedText>
-      <MenuToggle.List>
+      </AnimatedText> */}
+      {/* <AnimatedText action={() => navigate.push(ROUTE.HOME.href)}>
+        <Text.Accented gap="none" padding="none" margin="none" bold={true} size="h2">
+          Tripie
+        </Text.Accented>
+      </AnimatedText> */}
+      <Menu.List>
         {LANDING_SECTION.map(({ label, href }, index) => (
-          <MenuToggle.Item key={href + index}>
+          <Menu.Item key={href + index}>
             <Link href={href}>{label}</Link>
             {label === 'Contact' ? <Icon /> : null}
-          </MenuToggle.Item>
+          </Menu.Item>
         ))}
-        <MenuToggle.Item>
+        <Menu.Item>
           <Link href={ROUTE.REGIONS.href}>{ROUTE.REGIONS.label}</Link>
           <Icon />
-        </MenuToggle.Item>
+        </Menu.Item>
 
         {/** 로그인 페이지에 있을 경우 버튼 표시 X */}
         {pathName === ROUTE.SIGN_IN.href ? null : (
@@ -43,12 +43,12 @@ const Nav = () => {
         )}
 
         {process.env.NODE_ENV === 'development' ? (
-          <MenuToggle.Item key={'dev'}>
+          <Menu.Item key={'dev'}>
             <Link href={ROUTE.PLAYGROUND.href}>{ROUTE.PLAYGROUND.label}</Link>
-          </MenuToggle.Item>
+          </Menu.Item>
         ) : null}
-      </MenuToggle.List>
-    </MenuToggle>
+      </Menu.List>
+    </Menu>
   );
 };
 

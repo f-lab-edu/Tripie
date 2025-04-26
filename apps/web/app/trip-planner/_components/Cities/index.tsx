@@ -1,5 +1,5 @@
 'use client';
-import { AnimatedButton, Icon } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Icon } from '@tripie-pyotato/design-system/@components';
 import { Container, Headings, Text } from '@tripie-pyotato/design-system/@core';
 import PREFERENCE_LIST from 'constants/preferences';
 import { classNames } from 'wrapper';
@@ -62,13 +62,7 @@ const CityStep = ({ context, onNext, onPrev }: Props) => {
       </Container>
       <CityList cities={cities} selected={selected} setSelected={setSelected} />
       <Container padding="m" applyPadding="bottom" margin="none">
-        <AnimatedButton
-          withBorder={true}
-          isFullSize={true}
-          disabled={selected.length === 0}
-          onClick={handleSubmit}
-          className={cx('submit-button')}
-        >
+        <AnimatedButton withBorder={true} isFullSize={true} disabled={selected.length === 0} onClick={handleSubmit}>
           <span className={cx('flex-text')}>
             {selected.length === 0 ? (
               '다중 선택이 가능해요.'

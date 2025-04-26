@@ -1,5 +1,5 @@
-import { TextFillAnimation } from '@tripie-pyotato/design-system';
-import { Container } from '@tripie-pyotato/design-system/@core';
+import { TextFillAnimation } from '@tripie-pyotato/design-system/@components';
+import { Background, Container } from '@tripie-pyotato/design-system/@core';
 import { COLORS } from '@tripie-pyotato/design-system/shared';
 
 import '@tripie-pyotato/design-system/styles';
@@ -11,13 +11,13 @@ const cx = classNames.bind(Style);
 
 export default function AboutUs() {
   return (
-    <Container className={cx('about-us')} margin="none" alignItems="center">
+    <Background variant={2} className={cx('about-us')} gap="sm">
       <Container applyMargin="left-right" margin="m">
         <TextFillAnimation text={`We're a trip planner`} />
         <TextFillAnimation text={`Enhanced with AI.`} endColor={COLORS[50]} />
         <TextFillAnimation text={`We help plan your trips`} />
         <TextFillAnimation text={`with the power of AI ✨`} endColor={COLORS[50]} />
       </Container>
-    </Container>
+    </Background>
   );
 }

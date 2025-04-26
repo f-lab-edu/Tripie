@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { MenuToggle } from '@tripie-pyotato/design-system/@components';
+import { Menu } from '@tripie-pyotato/design-system/@components';
 import { useAppTheme } from '@tripie-pyotato/design-system/@hooks';
 
-const meta: Meta<typeof MenuToggle> = {
+const meta: Meta<typeof Menu> = {
   title: 'tripie-design/Button/Menu/Toggle',
-  component: MenuToggle,
+  component: Menu,
   tags: ['autodocs'],
   argTypes: {},
   parameters: {
@@ -29,35 +29,35 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  name: 'MenuToggle',
+  name: 'Menu',
 };
 
 export const OpennedMenu: Story = {
-  name: 'MenuToggle.initalOpen',
+  name: 'Menu.initalOpen',
   render: () => {
     return (
-      <MenuToggle initial={true}>
-        <MenuToggle.List>
+      <Menu initial={true}>
+        <Menu.List>
           {Array.from({ length: 3 }, (_, i) => (
-            <MenuToggle.Item key={i}>아이템 {i + 1}</MenuToggle.Item>
+            <Menu.Item key={i}>아이템 {i + 1}</Menu.Item>
           ))}
-        </MenuToggle.List>
-      </MenuToggle>
+        </Menu.List>
+      </Menu>
     );
   },
 };
 
 export const ClosedMenu: Story = {
-  name: 'MenuToggle.initial.Closed',
+  name: 'Menu.initial.Closed',
   render: () => {
     return (
-      <MenuToggle initial={false}>
-        <MenuToggle.List>
+      <Menu initial={false}>
+        <Menu.List>
           {Array.from({ length: 3 }, (_, i) => (
-            <MenuToggle.Item key={i}>아이템 {i + 1}</MenuToggle.Item>
+            <Menu.Item key={i}>아이템 {i + 1}</Menu.Item>
           ))}
-        </MenuToggle.List>
-      </MenuToggle>
+        </Menu.List>
+      </Menu>
     );
   },
 };

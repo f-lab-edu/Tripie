@@ -2,7 +2,6 @@
 @use 'mixins' as *;
 
 .background {
-  @include background('0');
   display: inline-flex;
   align-items: center;
   justify-content: space-between;

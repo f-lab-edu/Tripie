@@ -1,4 +1,4 @@
-import { AnimatedButton, Icon } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Icon } from '@tripie-pyotato/design-system/@components';
 import { Container, Headings, Text } from '@tripie-pyotato/design-system/@core';
 import { classNames } from 'wrapper';
 
@@ -61,13 +61,7 @@ const PreferenceStep = ({ context, onNext, onPrev }: Props) => {
       </Container>
       <PreferenceList selected={selected} setSelected={setSelected} />
       <Container padding="m" applyPadding="bottom" margin="none">
-        <AnimatedButton
-          isFullSize={true}
-          withBorder={true}
-          disabled={selected.length === 0}
-          onClick={handleSubmit}
-          className={cx('submit-button')}
-        >
+        <AnimatedButton isFullSize={true} withBorder={true} disabled={selected.length === 0} onClick={handleSubmit}>
           <span className={cx('flex')}>
             {selected.length === 0 ? (
               '다중 선택이 가능해요.'

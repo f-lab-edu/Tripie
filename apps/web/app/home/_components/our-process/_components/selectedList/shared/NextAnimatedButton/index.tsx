@@ -1,5 +1,5 @@
 'use client';
-import { AnimatedButton, Icon } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Icon } from '@tripie-pyotato/design-system/@components';
 import { Container } from '@tripie-pyotato/design-system/@core';
 import { ReactNode } from 'react';
 import { InView } from 'react-intersection-observer';

@@ -60,6 +60,8 @@ $justify-content-values: (
 
 $align-items-values: (baseline, normal, center, start, stretch, end, flex-start, flex-end, none);
 
+$align-text-values: (center, left, right, justify, end, start);
+
 $space-map: (
   xl: space(4rem),
   l: space(2rem),

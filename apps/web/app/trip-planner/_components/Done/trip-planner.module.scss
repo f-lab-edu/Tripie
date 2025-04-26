@@ -2,17 +2,16 @@
 @use 'mixins' as *;
 
 .background {
-  @include background('0');
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: nowrap;
-  padding: 2rem 1rem;
+  // padding: 2rem 1rem;
   min-height: 100%;
   width: inherit;
-  gap: 1rem;
+  // gap: 1rem;
   position: relative;
-  height: 100vh;
+  // height: 100vh;
   overflow: hidden;
 }
 

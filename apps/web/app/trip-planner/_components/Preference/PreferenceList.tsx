@@ -1,4 +1,4 @@
-import { Chip, Icon } from '@tripie-pyotato/design-system';
+import { Chip, Icon } from '@tripie-pyotato/design-system/@components';
 import { Container } from '@tripie-pyotato/design-system/@core';
 import PREFERENCE_LIST from 'constants/preferences';
 import { Dispatch, SetStateAction } from 'react';

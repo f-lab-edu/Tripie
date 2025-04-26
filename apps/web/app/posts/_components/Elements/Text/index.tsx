@@ -15,7 +15,7 @@ const ArticleText = ({ item }: { item: ArticleTextProps }) => {
   const decodedStr = decodeUnicodes(item.value.text);
 
   return (
-    <Container applyMargin="top-bottom" key={decodedStr} className={cx('text-container')}>
+    <Container applyMargin="top-bottom" key={decodedStr} className={cx('text-container')} justifyContent="start">
       {item.value.markdownText != null ? (
         <Markdown>{item.value.markdownText.replaceAll('트리플', 'Tripie')}</Markdown>
       ) : (

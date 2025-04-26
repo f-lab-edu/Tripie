@@ -1,6 +1,6 @@
 'use client';
 import { AnimatedText, Icon } from '@tripie-pyotato/design-system';
-import { Container } from '@tripie-pyotato/design-system/@core';
+import { Background, Container } from '@tripie-pyotato/design-system/@core';
 import { randomIntBtw } from '@tripie-pyotato/utils/@number';
 import { TripPlanner } from 'models/Aws';
 import { classNames } from 'wrapper';
@@ -27,7 +27,7 @@ const DoneStep = ({ context }: { context: TripPlanner }) => {
   ].flat();
 
   return (
-    <Container margin="none" className={cx('background', 'title-wrap')}>
+    <Background variant={0} gap="default" padding="m" className={cx('background')}>
       <Container className={cx('cloud-wrap')}>
         {Array.from({ length: 17 }, (_, index) => (
           <Icon.Cloud key={index} index={index} />
@@ -46,7 +46,7 @@ const DoneStep = ({ context }: { context: TripPlanner }) => {
           <Icon.Cloud key={index} index={index} />
         ))}
       </Container>
-    </Container>
+    </Background>
   );
 };
 

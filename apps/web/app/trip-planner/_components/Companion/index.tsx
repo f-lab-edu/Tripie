@@ -1,5 +1,5 @@
 'use client';
-import { AnimatedButton, Icon } from '@tripie-pyotato/design-system';
+import { AnimatedButton, Icon } from '@tripie-pyotato/design-system/@components';
 import { Container, Headings, Text } from '@tripie-pyotato/design-system/@core';
 import { classNames } from 'wrapper';
 
@@ -58,13 +58,7 @@ const CompanionStep = ({ context, onNext, onPrev }: Props) => {
         <CompanionList context={context} selected={selected} setSelected={setSelected} />
       </Container>
       <Container padding="m" applyPadding="bottom" margin="none">
-        <AnimatedButton
-          withBorder={true}
-          isFullSize={true}
-          disabled={selected.length === 0}
-          onClick={handleSubmit}
-          className={cx('submit-button')}
-        >
+        <AnimatedButton withBorder={true} isFullSize={true} disabled={selected.length === 0} onClick={handleSubmit}>
           <span className={cx('flex-text')}>
             {selected.length === 0 ? (
               '다중 선택이 가능해요.'

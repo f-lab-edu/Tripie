@@ -1,7 +1,0 @@
-@use 'mixins' as *;
-@use 'variables' as *;
-
-.contact {
-  @include background('1');
-  padding: 50px 0;
-}

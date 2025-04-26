@@ -1,15 +1,11 @@
 'use client';
 
-import { MotionSlideUp } from '@tripie-pyotato/design-system';
-import { Container, Headings, Text } from '@tripie-pyotato/design-system/@core';
-import { classNames } from 'wrapper';
+import { MotionSlideUp } from '@tripie-pyotato/design-system/@components';
+import { Background, Container, Headings, Text } from '@tripie-pyotato/design-system/@core';
 
 import ROUTE from 'constants/routes';
 
 import Contact from './Contact';
-import Style from './contacts.module.scss';
-
-const cx = classNames.bind(Style);
 
 const contacts = {
   Email: {
@@ -28,23 +24,21 @@ const contacts = {
 
 export default function Contacts() {
   return (
-    <section className={cx('contact')} id={ROUTE.CONTACT.label}>
-      <Container applyMargin="left-right" margin="m">
-        <MotionSlideUp>
-          <Container applyMargin="top" margin="sm">
-            <Headings.H2>
-              Get in <Text.Accented>touch</Text.Accented>
-            </Headings.H2>
-          </Container>
-        </MotionSlideUp>
-        <Container margin="l" applyMargin="top-bottom">
-          {Object.keys(contacts).map(key => (
-            <Container key={key} applyMargin="bottom">
-              <Contact sectionName={key} content={contacts[key as keyof typeof contacts]} />
-            </Container>
-          ))}
+    <Background variant={1} applyPadding="left-right" id={ROUTE.CONTACT.label} padding="m">
+      <MotionSlideUp>
+        <Container applyMargin="top" margin="sm">
+          <Headings.H2>
+            Get in <Text.Accented>touch</Text.Accented>
+          </Headings.H2>
         </Container>
+      </MotionSlideUp>
+      <Container margin="l" applyMargin="top-bottom">
+        {Object.keys(contacts).map(key => (
+          <Container key={key} applyMargin="bottom">
+            <Contact sectionName={key} content={contacts[key as keyof typeof contacts]} />
+          </Container>
+        ))}
       </Container>
-    </section>
+    </Background>
   );
 }

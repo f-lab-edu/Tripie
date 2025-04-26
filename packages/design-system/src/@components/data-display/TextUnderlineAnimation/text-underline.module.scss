@@ -1,0 +1,13 @@
+@use '../../../mixins' as *;
+@use '../../../variables' as *;
+
+.wrap {
+  width: fit-content;
+  cursor: pointer;
+  font-size: inherit;
+}
+
+.divider {
+  cursor: pointer;
+  background-color: transparent;
+}

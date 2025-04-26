@@ -94,9 +94,10 @@ const nextConfig = {
       },
     ],
   },
-  experimental: {
-    optimizePackageImports: ['@tripie-pyotato/design-system'], // https://nextjs.org/docs/app/api-reference/config/next-config-js/optimizePackageImports
-  },
+  // https://mui.com/material-ui/guides/minimizing-bundle-size/#option-two-use-a-babel-plugin
+  // experimental: {
+  //   optimizePackageImports: ['@tripie-pyotato/design-system'], // https://nextjs.org/docs/app/api-reference/config/next-config-js/optimizePackageImports
+  // },
 };
 
 export default nextConfig;

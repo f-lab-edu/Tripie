@@ -1,0 +1,23 @@
+@use '../../../../variables' as *;
+@use '../../../../mixins' as *;
+@use '../../../../functions/' as *;
+.background {
+  align-items: center;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  height: inherit;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0;
+  width: inherit;
+  position: relative;
+}
+
+.gradient-bottom {
+  inset: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: z(base);
+  height: inherit;
+}

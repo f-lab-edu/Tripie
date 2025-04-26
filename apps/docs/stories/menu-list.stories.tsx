@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { MenuToggle } from '@tripie-pyotato/design-system/@components';
+import { Menu } from '@tripie-pyotato/design-system/@components';
 import { useAppTheme } from '@tripie-pyotato/design-system/@hooks';
 
-const meta: Meta<typeof MenuToggle.List> = {
+const meta: Meta<typeof Menu.List> = {
   title: 'tripie-design/Button/Menu/List',
-  component: MenuToggle.List,
+  component: Menu.List,
   tags: ['autodocs'],
   argTypes: {},
   parameters: {
@@ -33,11 +33,11 @@ export const Default: Story = {
   render: () => {
     return (
       <div style={{ height: '12rem' }}>
-        <MenuToggle.List>
+        <Menu.List>
           {Array.from({ length: 3 }, (_, i) => (
-            <MenuToggle.Item key={i}>아이템 {i + 1}</MenuToggle.Item>
+            <Menu.Item key={i}>아이템 {i + 1}</Menu.Item>
           ))}
-        </MenuToggle.List>
+        </Menu.List>
       </div>
     );
   },

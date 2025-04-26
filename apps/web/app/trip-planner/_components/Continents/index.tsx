@@ -47,7 +47,7 @@ export default function ContinentStep({ context, onNext }: Readonly<Props>) {
         <AnimatedButton
           isFullSize={true}
           withBorder={true}
-          className={cx('chip')}
+          // className={cx('chip')}
           onClick={() => onNext({ continent: CONTINENTS[selectedContinent]['id'] as ContinentKeys })}
         >
           <span className={cx('flex-text')}>

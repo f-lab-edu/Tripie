@@ -78,6 +78,18 @@ export default defineConfig(options => [
     entry: coreEntries,
     outDir: 'dist/@core',
     ...defaultConfig,
+    dts: {
+      resolve: true,
+      entry: [
+        './src/@components/data-display/index.ts',
+        './src/@components/feedback/index.ts',
+        './src/@components/inputs/index.ts',
+        './src/@components/navigation/index.ts',
+        './src/@components/surfaces/index.ts',
+        './src/@components/x/index.ts',
+        './src/@components/index.ts',
+      ],
+    },
   },
   {
     ...options,
@@ -86,7 +98,12 @@ export default defineConfig(options => [
     ...defaultConfig,
     dts: {
       resolve: true,
-      entry: ['./src/@components/index.ts'],
+      entry: [
+        './src/@core/data-display/index.ts',
+        './src/@core/feedback/index.ts',
+        './src/@core/layout/index.ts',
+        './src/@core/index.ts',
+      ],
     },
   },
   {
