@@ -1,7 +1,8 @@
 'use client';
 import { Icon, Menu } from '@tripie-pyotato/design-system/@components';
 import ROUTE, { LANDING_SECTION } from 'constants/routes';
-import { usePathname, useRouter } from 'next/navigation';
+// import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 import Link from 'next/link';
 
@@ -9,7 +10,7 @@ import AiTripButton from './AiTripButtons';
 import AuthButton from './AuthButton';
 
 const Nav = () => {
-  const navigate = useRouter();
+  // const navigate = useRouter();
   const pathName = usePathname();
 
   return (
