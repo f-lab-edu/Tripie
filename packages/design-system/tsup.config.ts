@@ -75,8 +75,8 @@ const defaultConfig: Partial<Options> = {
 export default defineConfig(options => [
   {
     ...options,
-    entry: coreEntries,
-    outDir: 'dist/@core',
+    entry: clientComponentEntries,
+    outDir: 'dist/@components',
     ...defaultConfig,
     dts: {
       resolve: true,
@@ -93,8 +93,8 @@ export default defineConfig(options => [
   },
   {
     ...options,
-    entry: clientComponentEntries,
-    outDir: 'dist/@components',
+    entry: coreEntries,
+    outDir: 'dist/@core',
     ...defaultConfig,
     dts: {
       resolve: true,
