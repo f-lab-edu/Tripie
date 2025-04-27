@@ -87,7 +87,7 @@ const NavigateIcon = ({
       initial={'closed'}
       animate={animate}
     >
-      <img src={ICON_RESOURCE('ARROW')} alt={src + '버튼'} className={cx('icon-image')} />
+      <img src={ICON_RESOURCE('ARROW')} alt={src + '버튼'} className={cx('icon-image')} crossOrigin="anonymous" />
     </Motion.Button>
   );
 };
@@ -104,7 +104,7 @@ const RefreshIcon = ({ className, onTapStart, animate, transition, sizes = 'icon
       initial={'closed'}
       animate={animate}
     >
-      <img src={ICON_RESOURCE('REFRESH')} alt={'새로고침 버튼'} className={cx('icon-image')} />
+      <img src={ICON_RESOURCE('REFRESH')} alt={'새로고침 버튼'} className={cx('icon-image')} crossOrigin="anonymous" />
     </Motion.Div>
   );
 };
