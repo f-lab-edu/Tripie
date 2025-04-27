@@ -223,15 +223,32 @@ const TransportIcon = ({
 };
 
 const XIcon = ({ className, sizes = 'icon' }: Readonly<IconProps>) => {
-  return <Motion.Img className={cx(sizes, className)} src={ICON_RESOURCE('X')} alt={`X 아이콘`} />;
+  return (
+    <Motion.Img className={cx(sizes, className)} src={ICON_RESOURCE('X')} alt={`X 아이콘`} crossOrigin="anonymous" />
+  );
 };
 
 const CheckIcon = ({ className, sizes = 'icon' }: Readonly<IconProps>) => {
-  return <Motion.Img className={cx(sizes, className)} src={ICON_RESOURCE('CHECK')} alt={`체크 아이콘`} />;
+  return (
+    <Motion.Img
+      className={cx(sizes, className)}
+      src={ICON_RESOURCE('CHECK')}
+      alt={`체크 아이콘`}
+      crossOrigin="anonymous"
+    />
+  );
 };
 
 const AuthIcon = ({ className, sizes = 'icon', src = ICON_RESOURCE('GITHUB') }: Readonly<IconProps>) => {
-  return <Motion.Img className={cx(sizes, className)} variants={ICON_VARIANTS.ROTATE} src={src} alt={`oauth 아이콘`} />;
+  return (
+    <Motion.Img
+      className={cx(sizes, className)}
+      variants={ICON_VARIANTS.ROTATE}
+      src={src}
+      alt={`oauth 아이콘`}
+      crossOrigin="anonymous"
+    />
+  );
 };
 
 Icon.Navigate = NavigateIcon;
