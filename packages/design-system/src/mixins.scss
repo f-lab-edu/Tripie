@@ -74,35 +74,35 @@
   flex-wrap: nowrap;
 }
 
-@mixin grid($item-count: 5) {
-  display: grid;
-  grid-gap: 10px;
+// @mixin grid($item-count: 5) {
+//   display: grid;
+//   grid-gap: 10px;
 
-  @if ($item-count == 5) {
-    @media (min-width: 998px) {
-      grid-template-columns: repeat(6, 1fr);
-      grid-template-rows: repeat(2, 1fr);
+//   @if ($item-count == 5) {
+//     @media (min-width: 998px) {
+//       grid-template-columns: repeat(6, 1fr);
+//       grid-template-rows: repeat(2, 1fr);
 
-      & > div {
-        grid-column: span 2;
-        grid-row: span 1;
-      }
-      & > div:nth-child(4),
-      & > div:nth-child(5) {
-        grid-column: span 3;
-        grid-row: span 1;
-      }
-    }
-  } @else {
-    @media (min-width: 998px) {
-      grid-auto-flow: column;
-    }
-  }
+//       & > div {
+//         grid-column: span 2;
+//         grid-row: span 1;
+//       }
+//       & > div:nth-child(4),
+//       & > div:nth-child(5) {
+//         grid-column: span 3;
+//         grid-row: span 1;
+//       }
+//     }
+//   } @else {
+//     @media (min-width: 998px) {
+//       grid-auto-flow: column;
+//     }
+//   }
 
-  @media (max-width: 998px) {
-    grid-auto-flow: row;
-  }
-}
+//   @media (max-width: 998px) {
+//     grid-auto-flow: row;
+//   }
+// }
 
 @mixin flex {
   display: inline-flex;

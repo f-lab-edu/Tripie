@@ -1,12 +1,9 @@
 'use client';
 
 import { MotionSlideUp } from '@tripie-pyotato/design-system';
-import { Background, Container, Headings, Text } from '@tripie-pyotato/design-system/@core';
-import { classNames } from 'wrapper';
-import ServiceList from './_components/ServiceList';
-import Style from './our-service.module.scss';
+import { Background, Container, Headings, Stack, Text } from '@tripie-pyotato/design-system/@core';
 
-const cx = classNames.bind(Style);
+import ServiceList from './_components/ServiceList';
 
 export default function OurService() {
   return (
@@ -18,9 +15,9 @@ export default function OurService() {
           </Headings.H2>
         </Container>
       </MotionSlideUp>
-      <Container className={cx('wrap')} margin="l" applyMargin="top-bottom">
+      <Stack display="grid" margin="l" applyMargin="top-bottom" gap="l" gridWrapOn="wrap-sm" justifyContent="center">
         <ServiceList />
-      </Container>
+      </Stack>
     </Background>
   );
 }

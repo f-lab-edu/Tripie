@@ -2,25 +2,24 @@ import { classNames } from '../../../wrappers';
 import TripieContainer, { TripieContainerProps } from '../TripieContainer';
 import Style from './stack.module.scss';
 
+export type GridWrapOn = 'no-wrap' | 'wrap-xs' | 'wrap-sm' | 'wrap-md' | 'wrap-lg' | 'wrap-xl' | 'wrap-xxl';
+
 export type FlexWrapOn =
-  | 'no-wrap'
   | 'wrap-reverse-xs'
   | 'wrap-reverse-sm'
   | 'wrap-reverse-md'
   | 'wrap-reverse-lg'
   | 'wrap-reverse-xl'
   | 'wrap-reverse-xxl'
-  | 'wrap-xs'
-  | 'wrap-sm'
-  | 'wrap-md'
-  | 'wrap-lg'
-  | 'wrap-xl'
-  | 'wrap-xxl';
+  | GridWrapOn;
 
 export type StackProps = {
   direction?: 'row' | 'column';
   display?: 'inline-flex' | 'grid';
-  flexWrapOn: FlexWrapOn;
+  flexWrapOn?: FlexWrapOn;
+  gridWrapOn?: GridWrapOn;
+  rows?: number;
+  cols?: number;
 } & Partial<TripieContainerProps>;
 
 const cx = classNames.bind(Style);
@@ -43,6 +42,9 @@ const Stack = ({
   withBorder = false,
   textAlign = 'start',
   flexWrapOn = 'no-wrap',
+  gridWrapOn = 'no-wrap',
+  rows = 1,
+  cols = 2,
   ...props
 }: StackProps) => {
   return (
@@ -58,7 +60,16 @@ const Stack = ({
       justifyContent={justifyContent}
       gap={gap}
       preserveWhiteSpace={preserveWhiteSpace}
-      className={cx(`stack-${display}`, `flex-${flexWrapOn}`, `direction-${direction}`, className)}
+      className={cx(
+        `stack-${display}`,
+        `flex-${flexWrapOn}`,
+        `direction-${direction}`,
+        display === 'grid' ? `grid` : '',
+        display === 'grid' || gridWrapOn != 'no-wrap' ? `grid-${gridWrapOn}` : '',
+        display === 'grid' ? `grid-template-rows-${rows}` : '',
+        display === 'grid' ? `grid-template-cols-${cols}` : '',
+        className
+      )}
       {...props}
     >
       {children}

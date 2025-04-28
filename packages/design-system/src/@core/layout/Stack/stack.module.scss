@@ -5,13 +5,10 @@
 
 $stack-display-map: (inline-flex, grid);
 
-@mixin display-stack($direction) {
-  @if (direction== grid) {
-    display: grid;
-  } @else {
-    display: inline-flex;
-  }
+@mixin display-stack($display) {
+  display: $display;
 }
+
 @each $key in $stack-display-map {
   .stack-#{$key} {
     @include display-stack($key);
@@ -59,5 +56,57 @@ $flex-wrap-map: (
 @each $key, $value in $flex-wrap-map {
   .flex-#{$key} {
     @include flex-wrap($value, $value);
+  }
+}
+
+// grid style
+
+$grid-template-map: (1, 2, 4, 5, 6);
+
+@mixin grid-col-template($count) {
+  grid-template-columns: repeat($count, 1fr);
+}
+
+@mixin grid-row-template($count) {
+  grid-template-rows: repeat($count, 1fr);
+}
+
+@each $key in $grid-template-map {
+  .grid-template-cols-#{$key} {
+    @include grid-col-template($key);
+  }
+  .grid-template-rows-#{$key} {
+    @include grid-row-template($key);
+  }
+  @if ($key%2==0) {
+    .grid {
+      & > div:last-child {
+        grid-column: 1 / -1;
+      }
+    }
+  }
+}
+
+$grid-wrap-map: (
+  no-wrap: nowrap,
+  wrap-xs: xs,
+  wrap-sm: sm,
+  wrap-md: md,
+  wrap-lg: lg,
+  wrap-xl: xl,
+  wrap-xxl: xxl,
+);
+
+@mixin grid-wrap($wrap, $breakpoint: null) {
+  @if ($wrap != nowrap) {
+    @media (max-width: breakpoint($breakpoint)) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
+
+@each $key, $value in $flex-wrap-map {
+  .grid-#{$key} {
+    @include grid-wrap($value, $value);
   }
 }
