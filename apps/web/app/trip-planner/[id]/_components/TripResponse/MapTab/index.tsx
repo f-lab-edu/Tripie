@@ -43,7 +43,7 @@ const MapTab = ({ data, coordinates }: { data: ChatResponseData['plans']; coordi
 
   return (
     <>
-      <Container gap="sm" margin="none" justifyContent="left">
+      <Container gap="sm" margin="l" applyMargin="top" justifyContent="left">
         {status === 'loading' ? (
           <Container margin="none" gap="sm">
             <Icon.Loading /> <AnimatedText.Jump>토큰 확인중...</AnimatedText.Jump>

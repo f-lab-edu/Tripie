@@ -17,16 +17,12 @@ export default function Layout({
       <Container className={cx('gradient-bottom')} margin="none" />
       <Container margin="none" className={cx('login-wrap')}>
         <Card className={cx('login-card')}>
-          <Container applyMargin="top" margin="l" align="center">
+          <Container applyMargin="top" margin="l" alignItems="center">
             <Text.Accented>
               <Headings.H2>Welcome</Headings.H2>
             </Text.Accented>
           </Container>
-          <Container
-            // preserveWhiteSpace={true}
-            align="center"
-            applyMargin="top-bottom"
-          >
+          <Container align="center" applyMargin="top-bottom">
             모든 서비스를 이용하기 위해 {'\n'}로그인을 해주세요.
           </Container>
           <Divider />

@@ -1,3 +1,4 @@
+// https://mui.com/material-ui/react-app-bar/
 import TripieContainer, { TripieContainerProps } from '@core/layout/TripieContainer';
 import { classNames } from '../../../wrappers';
 
@@ -24,9 +25,11 @@ const AppBar = ({
   prominence = 'fixed',
   className,
   children,
+  ...props
 }: Readonly<AppBarProps>) => {
   return (
     <TripieContainer
+      {...props}
       className={cx(
         'app-bar',
         `z-index-${!fixed ? 'sticky' : prominence}`,
@@ -34,6 +37,7 @@ const AppBar = ({
         position,
         className
       )}
+      alignItems={'start'}
     >
       {children}
     </TripieContainer>
@@ -45,9 +49,9 @@ export type AppBarWithMenuProps = {
   menuPosition?: 'left' | 'right';
 } & Partial<AppBarProps>;
 
-const AppWithMenu = ({ position, className, children, Menu }: Readonly<AppBarWithMenuProps>) => {
+const AppWithMenu = ({ position, className, children, Menu, ...props }: Readonly<AppBarWithMenuProps>) => {
   return (
-    <TripieContainer className={cx('app-bar', `menu-position-${position}`, className)}>
+    <TripieContainer {...props} className={cx('app-bar', `menu-position-${position}`, className)}>
       {Menu}
       {children}
     </TripieContainer>
@@ -59,9 +63,9 @@ export type AppBarWithLogoProps = {
   logoPosition?: 'left' | 'right';
 } & Partial<AppBarProps>;
 
-const AppBarWithLogo = ({ position, className, children, Logo }: Readonly<AppBarWithLogoProps>) => {
+const AppBarWithLogo = ({ position, className, children, Logo, ...props }: Readonly<AppBarWithLogoProps>) => {
   return (
-    <TripieContainer className={cx('', `menu-position-${position}`, className)}>
+    <TripieContainer {...props} className={cx('app-bar', `menu-position-${position}`, className)}>
       {Logo}
       {children}
     </TripieContainer>

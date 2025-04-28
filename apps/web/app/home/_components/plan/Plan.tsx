@@ -8,7 +8,7 @@ export default function Plan() {
   return (
     <Background variant={3} id="Plans" applyPadding="top-left-right" padding="m">
       <MotionSlideUp>
-        <Container applyMargin="top" margin="sm">
+        <Container applyMargin="top" margin="l">
           <Headings.H2>
             <Text.Accented>Plans</Text.Accented> to suit your needs
           </Headings.H2>

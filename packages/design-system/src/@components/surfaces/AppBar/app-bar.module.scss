@@ -1,0 +1,36 @@
+@use '../../../variables' as *;
+@use '../../../mixins' as *;
+@use '../../../mixins/' as *;
+@use '../../../functions/' as *;
+// .app-bar {
+// }
+
+$position-map: (top, bottom);
+
+@mixin position-app-bar($position) {
+  position: fixed;
+  @if ($position==top) {
+    top: 0;
+  } @else if($position==bottom) {
+    bottom: 0;
+  }
+  left: 0;
+  right: 0;
+}
+
+@each $key in $position-map {
+  .fixed-#{$key} {
+    @include position-app-bar($key);
+  }
+  .static-#{$key} {
+    @include position-app-bar($key);
+  }
+}
+
+$app-z-index-map: (sticky, fixed, overlay, above-all);
+
+@each $key in $app-z-index-map {
+  .z-index-#{$key} {
+    z-index: z($key);
+  }
+}

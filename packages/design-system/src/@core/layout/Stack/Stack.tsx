@@ -1,3 +1,7 @@
+// 참고
+// https://mui.com/material-ui/react-grid/
+// http://mui.com/material-ui/react-stack/
+
 import { classNames } from '../../../wrappers';
 import TripieContainer, { TripieContainerProps } from '../TripieContainer';
 import Style from './stack.module.scss';

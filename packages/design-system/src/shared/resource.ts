@@ -26,8 +26,10 @@ export const RESOURCE = {
   EARTH: 'v1744014709/earth-dark_evevy1.jpg',
 };
 
+export const ICON_SIZES = { icon: 32, large: 48 };
+
 export const ICON_RESOURCE = (key: keyof typeof RESOURCE) => CLOUDINARY_URL + RESOURCE[key];
 
-export const ICON_RESOURCE_ICON = (key: keyof typeof RESOURCE, width: number) =>
+export const ICON_RESOURCE_ICON = (key: keyof typeof RESOURCE, width = ICON_SIZES['icon']) =>
   CLOUDINARY_URL + `f_auto,q_auto:good,w_${width},dpr_auto/` + RESOURCE[key];
 // f_auto : avif if supported, else backup

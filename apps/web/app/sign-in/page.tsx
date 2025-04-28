@@ -40,7 +40,7 @@ export default async function SignIn(props: Readonly<{ searchParams: { callbackU
         }
       }}
     >
-      <OAuthButton provider={provider} />
+      <OAuthButton provider={provider} name={provider.name.toUpperCase()} />
     </form>
   ));
 }

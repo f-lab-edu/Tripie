@@ -25,19 +25,21 @@ const contacts = {
 export default function Contacts() {
   return (
     <Background variant={1} applyPadding="left-right" id={ROUTE.CONTACT.label} padding="m">
-      <MotionSlideUp>
-        <Container applyMargin="top" margin="sm">
-          <Headings.H2>
-            Get in <Text.Accented>touch</Text.Accented>
-          </Headings.H2>
-        </Container>
-      </MotionSlideUp>
-      <Container margin="l" applyMargin="top-bottom">
-        {Object.keys(contacts).map(key => (
-          <Container key={key} applyMargin="bottom">
-            <Contact sectionName={key} content={contacts[key as keyof typeof contacts]} />
+      <Container margin="l" applyMargin="top">
+        <MotionSlideUp>
+          <Container applyMargin="top-bottom" margin="l">
+            <Headings.H2>
+              Get in <Text.Accented>touch</Text.Accented>
+            </Headings.H2>
           </Container>
-        ))}
+        </MotionSlideUp>
+        <Container margin="l" applyMargin="bottom">
+          {Object.keys(contacts).map(key => (
+            <Container key={key} applyMargin="bottom">
+              <Contact sectionName={key} content={contacts[key as keyof typeof contacts]} />
+            </Container>
+          ))}
+        </Container>
       </Container>
     </Background>
   );

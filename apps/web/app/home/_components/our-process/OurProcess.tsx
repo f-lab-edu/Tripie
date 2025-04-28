@@ -57,7 +57,7 @@ export default function OurProcess() {
   return (
     <Background variant={1} id="Process" applyPadding="top-left-right" padding="m">
       <MotionSlideUp>
-        <Container applyMargin="top" margin="sm">
+        <Container margin="l" applyMargin="top">
           <Headings.H2>
             Our <Text.Accented>process</Text.Accented>
           </Headings.H2>
