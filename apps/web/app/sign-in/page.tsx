@@ -9,8 +9,6 @@ const cx = classNames.bind(Style);
 
 // https://authjs.dev/guides/pages/signin
 // https://nextjs.org/docs/messages/sync-dynamic-apis
-// export default async function SignIn(props: Readonly<{ searchParams: { callbackUrl?: string } }>) {
-//   const { callbackUrl } = await props.searchParams;
 export default async function SignIn(props: Readonly<{ searchParams: { callbackUrl?: string } }>) {
   const { callbackUrl } = props.searchParams;
   return Object.values(providerMap).map(provider => (
