@@ -29,4 +29,4 @@ export const RESOURCE = {
 export const ICON_RESOURCE = (key: keyof typeof RESOURCE) => CLOUDINARY_URL + RESOURCE[key];
 
 export const ICON_RESOURCE_ICON = (key: keyof typeof RESOURCE, width: number, height: number) =>
-  CLOUDINARY_URL + `c_limit,h_${height},w_${width}/` + RESOURCE[key];
+  CLOUDINARY_URL + `q_30,c_limit,h_${height},w_${width}/` + RESOURCE[key];

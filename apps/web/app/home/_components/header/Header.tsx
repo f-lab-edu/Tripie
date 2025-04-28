@@ -33,7 +33,7 @@ const ShortCutButtons = () => {
       link: ROUTE.CONTACT.href,
       contents: (
         <>
-          Get in touch <Icon />
+          Get in touch <Icon sizes="icon" />
         </>
       ),
     },
