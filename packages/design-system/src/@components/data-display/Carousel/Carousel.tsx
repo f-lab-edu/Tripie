@@ -42,7 +42,7 @@ const Carousel = ({ items, className }: { items: ReactElement[]; className?: str
   return (
     <TripieContainer margin="none" className={cx('carousel')}>
       {items.length > 1 && focusedIndex != 0 ? (
-        <UnStyledButton name="previous" action={() => handleScrollButton('prev')}>
+        <UnStyledButton name="previous" onclick={() => handleScrollButton('prev')}>
           <Icon.Scroll className={cx('scroll-icon', 'next-icon')} next={false} />
         </UnStyledButton>
       ) : null}
@@ -61,7 +61,7 @@ const Carousel = ({ items, className }: { items: ReactElement[]; className?: str
         </TripieContainer>
       </TripieContainer>
       {items.length > 1 && focusedIndex != items.length - 1 ? (
-        <UnStyledButton name="next" action={() => handleScrollButton('next')}>
+        <UnStyledButton name="next" onclick={() => handleScrollButton('next')}>
           <Icon.Scroll className={cx('scroll-icon', 'prev-icon')} />
         </UnStyledButton>
       ) : null}

@@ -13,7 +13,13 @@ export const Path = (props: MotionProps['svgProps']) => (
 );
 
 const MenuIcon = ({ toggle }: { toggle: () => void }) => (
-  <UnStyledButton action={() => toggle()} className={cx('menu-toggle')} padding="sm" name="burger icon">
+  <UnStyledButton
+    onclick={() => toggle()}
+    className={cx('menu-toggle')}
+    padding="sm"
+    name="burger icon"
+    aria-label="burger icon"
+  >
     <svg width="24" height="24" viewBox="0 0 24 24" className={cx('svg')}>
       <Path
         variants={{

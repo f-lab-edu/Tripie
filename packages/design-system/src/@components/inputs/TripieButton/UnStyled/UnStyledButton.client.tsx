@@ -1,12 +1,13 @@
 import { TripieContainerProps } from '@core/layout/TripieContainer';
 import { classNames } from '../../../../wrappers';
 
+import { ButtonHTMLAttributes, DetailedHTMLProps } from 'react';
 import Style from './unstyled-button.module.scss';
 
 const cx = classNames.bind(Style);
 
 const UnStyledButton = ({
-  action,
+  onclick,
   children,
   name = 'no-style-button',
   type = 'button',
@@ -18,16 +19,17 @@ const UnStyledButton = ({
   margin = 'none',
   justifyContent = 'center',
   gap,
+  ...args
 }: Partial<TripieContainerProps> & {
-  action?: () => void | Promise<unknown>;
+  onclick?: () => void | Promise<unknown>;
   name?: string;
   type?: 'submit' | 'reset' | 'button';
-}) => {
+} & DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>) => {
   return (
     <button
       type={type}
       name={name}
-      onClick={action}
+      onClick={onclick}
       className={cx(
         'clear-btn',
         `align-items-${alignItems}`,
@@ -39,6 +41,7 @@ const UnStyledButton = ({
         `gap-${gap}`,
         className
       )}
+      {...args}
     >
       {children}
     </button>

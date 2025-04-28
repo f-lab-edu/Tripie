@@ -19,7 +19,7 @@ type Story = StoryObj<typeof UnStyledButton>;
 export const Primary: Story = {
   render: () => (
     <UnStyledButton
-      action={(): void => {
+      onclick={(): void => {
         alert('Hello from Turborepo!');
       }}
     >

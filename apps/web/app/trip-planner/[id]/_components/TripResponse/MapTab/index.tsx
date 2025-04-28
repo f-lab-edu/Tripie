@@ -54,7 +54,7 @@ const MapTab = ({ data, coordinates }: { data: ChatResponseData['plans']; coordi
           </Container>
         ) : (
           <TextUnderLineAnimation>
-            <UnStyledButton action={handleNavigation}>
+            <UnStyledButton onclick={handleNavigation}>
               <Text gap={'sm'}>
                 <Icon />
                 {remainingToken != null && !isAdmin ? `${remainingToken}토큰으로 다른 일정 추천 받아보기` : ''}

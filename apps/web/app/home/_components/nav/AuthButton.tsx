@@ -16,7 +16,7 @@ const AuthButton = () => {
     </Menu.Item>
   ) : (
     <Menu.Item key={`${data?.user?.name}-authenticated-signout`}>
-      <UnStyledButton action={() => signOut()}>Sign out</UnStyledButton>
+      <UnStyledButton onclick={() => signOut()}>Sign out</UnStyledButton>
     </Menu.Item>
   );
 };
