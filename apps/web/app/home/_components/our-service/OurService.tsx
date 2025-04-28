@@ -18,7 +18,7 @@ export default function OurService() {
           </Headings.H2>
         </Container>
       </MotionSlideUp>
-      <Container className={cx('wrap')} margin="l" applyMargin="top-bottom">
+      <Container className={cx('wrap')} margin="l" applyMargin="top-bottom" gap="l">
         <ServiceList />
       </Container>
     </Background>
