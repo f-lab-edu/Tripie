@@ -10,8 +10,7 @@ import { ICON_VARIANTS } from './variants';
 
 const cx = classNames.bind(Style);
 
-// const iconSize = { icon: 16, large: 32 };
-const iconSize = { icon: 32, large: 32 };
+const iconSize = { icon: 32, large: 48 };
 
 export type MotionSlideUpProps = Partial<MotionProps['animationProps']> & { children?: ReactNode; className?: string };
 
