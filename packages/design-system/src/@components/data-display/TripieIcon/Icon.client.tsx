@@ -10,7 +10,7 @@ import { ICON_VARIANTS } from './variants';
 
 const cx = classNames.bind(Style);
 
-const iconSize = { icon: [16, 16], large: [32, 32] };
+const iconSize = { icon: 16, large: 32 };
 
 export type MotionSlideUpProps = Partial<MotionProps['animationProps']> & { children?: ReactNode; className?: string };
 
@@ -31,7 +31,7 @@ export type IconProps = {
 const Icon = ({
   className,
   onTapStart,
-  src = ICON_RESOURCE_ICON('ARROW', 16, 16),
+  src = ICON_RESOURCE_ICON('ARROW', iconSize['icon']),
   animate,
   sizes = 'icon',
   variants = ICON_VARIANTS.DEFAULT,
@@ -90,7 +90,7 @@ const NavigateIcon = ({
       animate={animate}
     >
       <img
-        src={ICON_RESOURCE_ICON('ARROW', ...(iconSize[sizes] as [number, number]))}
+        src={ICON_RESOURCE_ICON('ARROW', iconSize[sizes])}
         alt={src + '버튼'}
         className={cx('icon-image')}
         crossOrigin="anonymous"
@@ -113,7 +113,7 @@ const RefreshIcon = ({ className, onTapStart, animate, transition, sizes = 'icon
     >
       <img
         // src={ICON_RESOURCE('REFRESH')}
-        src={ICON_RESOURCE_ICON('REFRESH', ...(iconSize[sizes] as [number, number]))}
+        src={ICON_RESOURCE_ICON('REFRESH', iconSize[sizes])}
         alt={'새로고침 버튼'}
         className={cx('icon-image')}
         crossOrigin="anonymous"
@@ -129,7 +129,7 @@ const PlaneIcon = ({ className, sizes = 'icon' }: Readonly<IconProps>) => {
       animate={'fly'}
       initial={'rotate'}
       // src={ICON_RESOURCE('PLANE')}
-      src={ICON_RESOURCE_ICON('PLANE', ...(iconSize[sizes] as [number, number]))}
+      src={ICON_RESOURCE_ICON('PLANE', iconSize[sizes])}
       alt={'plane icon'}
       className={cx(sizes, 'plane', className)}
       crossOrigin="anonymous"
@@ -149,7 +149,7 @@ const CloudIcon = ({ index = 0, sizes = 'icon' }: { index: number; sizes?: IconP
       animate={{ translateX: '-100vw' }}
       transition={{ decelerate: 2, repeat: Infinity, duration: 35, bounce: 0, delay: index * 0.1 }}
       // src={ICON_RESOURCE('CLOUD')}
-      src={ICON_RESOURCE_ICON('CLOUD', ...(iconSize[sizes] as [number, number]))}
+      src={ICON_RESOURCE_ICON('CLOUD', iconSize[sizes])}
       className={cx(sizes)}
       alt={'cloud icon'}
       crossOrigin="anonymous"
@@ -163,7 +163,7 @@ const LoadingIcon = ({ className, sizes = 'icon' }: Readonly<IconProps>) => {
       animate={{ rotate: '360deg' }}
       transition={{ repeat: Infinity, duration: 10, bounce: 0 }}
       // src={ICON_RESOURCE('LOADING')}
-      src={ICON_RESOURCE_ICON('LOADING', ...(iconSize[sizes] as [number, number]))}
+      src={ICON_RESOURCE_ICON('LOADING', iconSize[sizes])}
       className={cx(sizes, className)}
       alt={'loading icon'}
       crossOrigin="anonymous"
@@ -182,7 +182,7 @@ const CursorIcon = ({
       crossOrigin="anonymous"
       variants={ICON_VARIANTS.CURSOR}
       // src={ICON_RESOURCE('CURSOR')}
-      src={ICON_RESOURCE_ICON('CURSOR', ...(iconSize[sizes] as [number, number]))}
+      src={ICON_RESOURCE_ICON('CURSOR', iconSize[sizes])}
       initial={'initial'}
       animate={hovered}
       transition={transition}
@@ -209,7 +209,7 @@ const ScrollIcon = ({
       crossOrigin="anonymous"
       onTapStart={onTapStart}
       // src={ICON_RESOURCE('NEXT')}
-      src={ICON_RESOURCE_ICON('NEXT', ...(iconSize[sizes] as [number, number]))}
+      src={ICON_RESOURCE_ICON('NEXT', iconSize[sizes])}
       initial={'initial'}
       animate={hovered}
       alt={'next icon'}
@@ -234,7 +234,7 @@ const TransportIcon = ({
       transition={active ? { repeat: Infinity, repeatType: 'loop', duration: 0.8, ease: 'easeInOut' } : {}}
       className={cx(sizes, className)}
       // src={ICON_RESOURCE(type)}
-      src={ICON_RESOURCE_ICON(type, ...(iconSize[sizes] as [number, number]))}
+      src={ICON_RESOURCE_ICON(type, iconSize[sizes])}
       alt={`${type} 아이콘`}
       crossOrigin="anonymous"
     />
@@ -246,7 +246,7 @@ const XIcon = ({ className, sizes = 'icon' }: Readonly<IconProps>) => {
     <Motion.Img
       className={cx(sizes, className)}
       // src={ICON_RESOURCE('X')}
-      src={ICON_RESOURCE_ICON('X', ...(iconSize[sizes] as [number, number]))}
+      src={ICON_RESOURCE_ICON('X', iconSize[sizes])}
       alt={`X 아이콘`}
       crossOrigin="anonymous"
     />
@@ -258,7 +258,7 @@ const CheckIcon = ({ className, sizes = 'icon' }: Readonly<IconProps>) => {
     <Motion.Img
       className={cx(sizes, className)}
       // src={ICON_RESOURCE('CHECK')}
-      src={ICON_RESOURCE_ICON('CHECK', ...(iconSize[sizes] as [number, number]))}
+      src={ICON_RESOURCE_ICON('CHECK', iconSize[sizes])}
       alt={`체크 아이콘`}
       crossOrigin="anonymous"
     />
@@ -271,7 +271,7 @@ const AuthIcon = ({ className, sizes = 'icon', src = 'GITHUB' }: Readonly<IconPr
       className={cx(sizes, className)}
       variants={ICON_VARIANTS.ROTATE}
       // src={src}
-      src={ICON_RESOURCE_ICON(src as keyof typeof RESOURCE, ...(iconSize[sizes] as [number, number]))}
+      src={ICON_RESOURCE_ICON(src as keyof typeof RESOURCE, iconSize[sizes])}
       alt={`oauth 아이콘`}
       crossOrigin="anonymous"
     />

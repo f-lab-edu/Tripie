@@ -28,5 +28,5 @@ export const RESOURCE = {
 
 export const ICON_RESOURCE = (key: keyof typeof RESOURCE) => CLOUDINARY_URL + RESOURCE[key];
 
-export const ICON_RESOURCE_ICON = (key: keyof typeof RESOURCE, width: number, height: number) =>
-  CLOUDINARY_URL + `c_auto,h_${height},w_${width}/` + RESOURCE[key];
+export const ICON_RESOURCE_ICON = (key: keyof typeof RESOURCE, width: number) =>
+  CLOUDINARY_URL + `f_auto,q_auto:good,w_${width},dpr_auto/` + RESOURCE[key];
