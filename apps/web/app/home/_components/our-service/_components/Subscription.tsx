@@ -2,22 +2,17 @@
 import { Card, Chip, Switch } from '@tripie-pyotato/design-system';
 import { Container } from '@tripie-pyotato/design-system/@core';
 import { useCycle } from '@tripie-pyotato/design-system/@hooks';
-import { classNames } from 'wrapper';
-
-import Style from './subscription.module.scss';
-
-const cx = classNames.bind(Style);
 
 export default function Subscription() {
   const [current, cycle] = useCycle('off', 'on');
 
   return (
     <Card.Content>
-      <Container margin="m" withBorder={true} className={cx('chip-wrap')} applyMargin="bottom" padding="sm">
+      <Container margin="m" withBorder={true} applyMargin="bottom" gap="l" alignItems="center" padding="sm">
         <Switch current={current} cycle={cycle} text={current} />
         <span>Subscription</span>
       </Container>
-      <Container margin="none" withBorder={true} className={cx('chip-wrap')} padding="m">
+      <Container margin="none" withBorder={true} gap="l" padding="m" alignItems="center">
         <Chip>Basic</Chip>
         <Chip.Accented current={current} cycle={cycle}>
           Pro
