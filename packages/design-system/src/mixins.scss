@@ -111,21 +111,6 @@
   align-items: center;
 }
 
-// !!TODO : https://mui.com/material-ui/react-stack/
-@mixin list-wrap {
-  display: inline-flex;
-  gap: 1rem;
-
-  @media (min-width: 998px) {
-    flex-direction: row;
-  }
-
-  @media (max-width: 998px) {
-    flex-direction: column;
-    flex-wrap: wrap;
-  }
-}
-
 @mixin background-static {
   background-repeat: repeat;
   background-position: left top;

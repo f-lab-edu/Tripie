@@ -1,24 +1,19 @@
 'use client';
 
 import { AnimatedButton, Card, Divider, Icon } from '@tripie-pyotato/design-system';
-import { Container, Headings, List, Text } from '@tripie-pyotato/design-system/@core';
+import { Container, Headings, List, Stack, Text } from '@tripie-pyotato/design-system/@core';
 import PLANS from 'constants/plans';
-import { classNames } from 'wrapper';
-
-import Style from './plan-list.module.scss';
-
-const cx = classNames.bind(Style);
 
 export default function PlanList() {
   return (
-    <Container className={cx('wrap')} margin="l" applyMargin="top-bottom">
+    <Stack margin="l" applyMargin="top-bottom" flexWrapOn="wrap-lg" gap="l">
       {Object.keys(PLANS).map(key => (
         <Card key={PLANS[key].label}>
           <Container align="left" margin="none">
             {PLANS[key].label}
           </Container>
           <Container align="left" applyMargin="bottom">
-            <Headings.H3 className={cx('max')}>
+            <Headings.H3>
               <Text.Accented>{PLANS[key].price}</Text.Accented>
             </Headings.H3>
           </Container>
@@ -44,6 +39,6 @@ export default function PlanList() {
           </AnimatedButton>
         </Card>
       ))}
-    </Container>
+    </Stack>
   );
 }
