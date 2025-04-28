@@ -7,7 +7,7 @@ export const CLOUDINARY_URL = `https://res.cloudinary.com/${CLOUDINARY_BUCKET_NA
 export const RESOURCE = {
   ARROW: 'v1745813635/arrow_x0nsyq.png',
   CHECK: 'v1745813630/check_kpylel.png',
-  X: 'v1743150099/x.avif',
+  X: 'v1745813794/x_1_z8ors7.png',
   REFRESH: 'v1743150107/refresh.png',
   PLANE: 'v1743150122/plane.png',
   CLOUD: 'v1743150128/cloud.png',
