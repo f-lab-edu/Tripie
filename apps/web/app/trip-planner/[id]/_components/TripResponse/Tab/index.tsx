@@ -24,7 +24,6 @@ const ChatTab = ({ data, scrollIntoView = true }: { data: AiTripPlanResponse; sc
         {data.trips.map(trip => (
           <List.Item key={trip.date + trip.day}>
             <Chip
-              // padding={'default'}
               className={cx('chip')}
               selected={currentDate === trip.day - 1}
               onClick={() => {

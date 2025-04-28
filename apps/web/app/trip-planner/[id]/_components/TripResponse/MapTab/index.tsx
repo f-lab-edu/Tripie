@@ -1,6 +1,6 @@
 'use client';
 import { AnimatedText, Icon, TextUnderLineAnimation, UnStyledButton } from '@tripie-pyotato/design-system';
-import { Container, Text } from '@tripie-pyotato/design-system/@core';
+import { Container, Stack, Text } from '@tripie-pyotato/design-system/@core';
 import { AiTripPlanResponse } from 'app/api/openai/getTripPlan';
 import ROUTE from 'constants/routes';
 import useAwsMap from 'hooks/awsMap/useAwsMap';
@@ -10,12 +10,8 @@ import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useContext, useEffect } from 'react';
 import AwsMap from 'shared/components/AwsMap';
-import { classNames } from 'wrapper';
 import { SelectedDateContext, TabContext } from '..';
 import ChatTab from '../Tab';
-import Style from './trip-response.module.scss';
-
-const cx = classNames.bind(Style);
 
 export type ChatResponseData = {
   plans: AiTripPlanResponse;
@@ -47,7 +43,7 @@ const MapTab = ({ data, coordinates }: { data: ChatResponseData['plans']; coordi
 
   return (
     <>
-      <Container gap="sm" margin="none" className={cx('button-wrap')} justifyContent="left">
+      <Container gap="sm" margin="none" justifyContent="left">
         {status === 'loading' ? (
           <Container margin="none" gap="sm">
             <Icon.Loading /> <AnimatedText.Jump>토큰 확인중...</AnimatedText.Jump>
@@ -65,7 +61,8 @@ const MapTab = ({ data, coordinates }: { data: ChatResponseData['plans']; coordi
           </TextUnderLineAnimation>
         )}
       </Container>
-      <Container margin="none" className={cx('trip-content-wrap')} gap="default">
+
+      <Stack margin="none" direction="row" flexWrapOn="wrap-sm" gap="default">
         <ChatTab data={data} />
         <AwsMap
           style={{ height: '85vh' }}
@@ -73,7 +70,7 @@ const MapTab = ({ data, coordinates }: { data: ChatResponseData['plans']; coordi
           center={center[currentDate]}
           locationMarker={locationMarker[currentDate]}
         />
-      </Container>
+      </Stack>
     </>
   );
 };

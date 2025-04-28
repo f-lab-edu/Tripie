@@ -1,0 +1,63 @@
+@use 'sass:map';
+@use '../../../mixins' as *;
+@use '../../../variables' as *;
+@use '../../../functions/' as *;
+
+$stack-display-map: (inline-flex, grid);
+
+@mixin display-stack($direction) {
+  @if (direction== grid) {
+    display: grid;
+  } @else {
+    display: inline-flex;
+  }
+}
+@each $key in $stack-display-map {
+  .stack-#{$key} {
+    @include display-stack($key);
+  }
+}
+
+$gap-direction-map: (column, row);
+
+@mixin flex-direction($direction) {
+  @if (direction== 'column') {
+    flex-direction: column;
+  } @else {
+    flex-direction: row;
+  }
+}
+
+@each $key in $gap-direction-map {
+  .direction-#{$key} {
+    @include flex-direction($key);
+  }
+}
+
+$flex-wrap-map: (
+  no-wrap: nowrap,
+  wrap-reverse: wrap-reverse,
+  wrap: wrap,
+  wrap-xs: xs,
+  wrap-sm: sm,
+  wrap-md: md,
+  wrap-lg: lg,
+  wrap-xl: xl,
+  wrap-xxl: xxl,
+);
+
+@mixin flex-wrap($wrap, $breakpoint: null) {
+  @if ($wrap == nowrap or $wrap == wrap or $wrap == wrap-reverse) {
+    flex-wrap: $wrap;
+  } @else {
+    @media (max-width: breakpoint($breakpoint)) {
+      flex-wrap: wrap;
+    }
+  }
+}
+
+@each $key, $value in $flex-wrap-map {
+  .flex-#{$key} {
+    @include flex-wrap($value, $value);
+  }
+}
