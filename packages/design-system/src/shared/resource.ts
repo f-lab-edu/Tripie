@@ -5,28 +5,29 @@ const CLOUDINARY_BUCKET_NAME = 'dbzzletpw';
 export const CLOUDINARY_URL = `https://res.cloudinary.com/${CLOUDINARY_BUCKET_NAME}/image/upload/`;
 
 export const RESOURCE = {
-  ARROW: 'v1743149708/arrow.avif',
-  CHECK: 'v1743150067/check.avif',
+  ARROW: 'v1745813635/arrow_x0nsyq.png',
+  CHECK: 'v1745813630/check_kpylel.png',
   X: 'v1743150099/x.avif',
-  REFRESH: 'v1745808760/refresh_iquptj.avif',
-  PLANE: 'v1745809301/wjpnkldeswh0katiamxs_l64dar.avif',
-  CLOUD: 'v1745809300/rrshvmw0ekltcld1sirl_ymtcjt.avif',
-  LOADING: 'v1745809300/wjao0eqj1ba5ihqg5cya_d8hwp7.avif',
-  TRAM: 'v1745809301/zsttthqumjrtvkzwpbng_c2lucu.avif',
-  TRAIN: 'v1745809299/asqn3oclevjny619qw2i_sj4hzm.avif',
-  WALK: 'v1745811840/vfa8pevtmmcak8ktmct8_oqhc4z.avif',
-  SHIP: 'v1745811839/ndquw2nybuiu7m2swvvh_jztia5.avif',
-  BUS: 'v1745809300/oo2rquaweg5lhwjl4h9k_zzxsdo.avif',
-  CAR: 'v1745809300/cvcmyoipmrcaxuboypit_btyq2m.avif',
-  FLAG: 'v1745809300/t4vv6o53zujpj0uggf8d_c8k42d.avif',
+  REFRESH: 'v1743150107/refresh.png',
+  PLANE: 'v1743150122/plane.png',
+  CLOUD: 'v1743150128/cloud.png',
+  LOADING: 'v1743150142/loading.png',
+  TRAM: 'v1743150147/tram.png',
+  TRAIN: 'v1743150152/train.png',
+  WALK: 'v1743150157/walk.png',
+  SHIP: 'v1743150164/ship.png',
+  BUS: 'v1743150170/bus.png',
+  CAR: 'v1743150175/car.png',
+  FLAG: 'v1743150180/flag.png',
   CURSOR: 'v1743150185/cursor.avif',
-  NEXT: 'v1745812110/next_dlb741.avif',
-  KAKAO: 'v1745812060/kakao_zf5nwh.avif',
-  GITHUB: 'v1745809300/s0z4wuv7lo5zhhnvjcgl_ahaoil.avif',
-  EARTH: 'v1745740431/earth-dark.avif',
+  NEXT: 'v1743150189/next.png',
+  KAKAO: 'v1743150194/kakao.png',
+  GITHUB: 'v1743150199/github.png',
+  EARTH: 'v1744014709/earth-dark_evevy1.jpg',
 };
 
 export const ICON_RESOURCE = (key: keyof typeof RESOURCE) => CLOUDINARY_URL + RESOURCE[key];
 
 export const ICON_RESOURCE_ICON = (key: keyof typeof RESOURCE, width: number) =>
   CLOUDINARY_URL + `f_auto,q_auto:good,w_${width},dpr_auto/` + RESOURCE[key];
+// f_auto : avif if supported, else backup
