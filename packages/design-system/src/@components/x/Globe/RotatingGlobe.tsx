@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic';
 import { Suspense, useEffect, useRef } from 'react';
 import { GlobeMethods } from 'react-globe.gl';
-import { CLOUDINARY_URL, COLORS } from '../../../shared';
+import { CLOUDINARY_URL, COLORS, RESOURCE } from '../../../shared';
 
 import TripieContainer from '@core/layout/TripieContainer';
 import Countries from './countries.json';
@@ -41,7 +41,7 @@ const RotatingGlobe = ({ className }: { className?: string }) => {
           height={500}
           ref={globeRef}
           backgroundColor={COLORS['100000']}
-          globeImageUrl={`${CLOUDINARY_URL}earth-dark_evevy1.jpg`}
+          globeImageUrl={`${CLOUDINARY_URL}${RESOURCE.EARTH}`}
           hexPolygonsData={Countries.features}
           hexPolygonColor={() => COLORS[50]}
           atmosphereColor={COLORS[50]}

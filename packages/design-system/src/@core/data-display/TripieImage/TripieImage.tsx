@@ -3,12 +3,25 @@ import { classNames } from '../../../wrappers';
 import { PLACEHOLDER } from '../../../shared/resource';
 
 import Text from '@core/data-display/Text';
+import { ImgHTMLAttributes } from 'react';
 import TripieContainer from '../../layout/TripieContainer/TripieContainer';
 import Style from './tripie-image.module.scss';
 
 const cx = classNames.bind(Style);
 
 export type ImageSizes = 'default' | 'full' | 'large' | 'medium' | 'small' | 'tiny' | 'icon' | 'card';
+
+export type ImageProps = {
+  alt: string;
+  src?: string;
+  refs?: (node?: Element | null | undefined) => void;
+  className?: string;
+  sizes?: ImageSizes;
+  blurDataURL?: string;
+  withBorder?: boolean;
+  loading?: ImgHTMLAttributes<HTMLImageElement>['loading']; // https://developer.chrome.com/docs/lighthouse/performance/offscreen-images/?utm_source=lighthouse&utm_medium=devtools
+  // fill?: boolean;
+};
 
 const TripieImage = ({
   alt,
@@ -18,17 +31,9 @@ const TripieImage = ({
   className,
   withBorder = true,
   blurDataURL,
+  loading,
   // fill = true,
-}: {
-  alt: string;
-  src?: string;
-  refs?: (node?: Element | null | undefined) => void;
-  className?: string;
-  sizes?: ImageSizes;
-  blurDataURL?: string;
-  withBorder?: boolean;
-  // fill?: boolean;
-}) => {
+}: ImageProps) => {
   console.log(blurDataURL);
   return (
     <TripieContainer
@@ -40,6 +45,7 @@ const TripieImage = ({
         src={src ?? PLACEHOLDER}
         alt={`${alt}의 이미지일 수 있음`}
         ref={refs}
+        loading={loading}
         crossOrigin="anonymous"
       />
       {/* {blurDataURL == null ? (
@@ -64,6 +70,11 @@ const TripieImage = ({
   );
 };
 
+export type ImageWithSourceUrlProps = ImageProps & {
+  blurDataURL?: string;
+  sourceUrl: string;
+};
+
 const ImageWithSourceUrl = ({
   alt,
   src,
@@ -73,19 +84,11 @@ const ImageWithSourceUrl = ({
   sourceUrl,
   withBorder = true,
   blurDataURL,
-}: {
-  alt: string;
-  src?: string;
-  refs?: (node?: Element | null | undefined) => void;
-  className?: string;
-  sourceUrl: string;
-  sizes?: ImageSizes;
-  withBorder?: boolean;
-  blurDataURL?: string;
-}) => {
+  loading,
+}: ImageWithSourceUrlProps) => {
   return (
     <TripieContainer margin="none" className={cx('img-wrap', withBorder ?? 'with-border', className)}>
-      <TripieImage src={src} alt={alt} refs={refs} sizes={sizes} blurDataURL={blurDataURL} />
+      <TripieImage src={src} alt={alt} refs={refs} sizes={sizes} loading={loading} blurDataURL={blurDataURL} />
       <Text className={cx('source-url', 'img-source')}>{`출처 ${sourceUrl}`}</Text>
     </TripieContainer>
   );

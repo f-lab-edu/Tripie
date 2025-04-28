@@ -23,6 +23,7 @@ export const RESOURCE = {
   NEXT: 'v1743150189/next.png',
   KAKAO: 'v1743150194/kakao.png',
   GITHUB: 'v1743150199/github.png',
+  EARTH: 'v1745740431/earth-dark.avif',
 };
 
 export const ICON_RESOURCE = (key: keyof typeof RESOURCE) => CLOUDINARY_URL + RESOURCE[key];
