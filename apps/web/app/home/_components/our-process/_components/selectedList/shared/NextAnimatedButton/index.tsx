@@ -13,7 +13,12 @@ const NextButton = ({ children }: { children: ReactNode }) => {
     <InView>
       {({ inView, ref }) => (
         <Container ref={ref} margin="none" className={cx('next-button-wrap')}>
-          <AnimatedButton withBorder={true} animate={inView ? 'hover' : 'rest'} className={cx('submit-button')}>
+          <AnimatedButton
+            withBorder={true}
+            animate={inView ? 'hover' : 'rest'}
+            className={cx('submit-button')}
+            isFullSize={true}
+          >
             <span className={cx('flex-text')}>{children}</span>
           </AnimatedButton>
           <Container margin="none">
