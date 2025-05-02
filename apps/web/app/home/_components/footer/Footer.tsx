@@ -22,7 +22,7 @@ export default function Footer() {
   return (
     <footer>
       <Container margin="m" applyMargin="left-right-bottom" applyPadding="bottom" padding="m">
-        <Container applyMargin="bottom" margin="sm" align="left">
+        <Container applyMargin="bottom" margin="sm" alignItems="start">
           <TextUnderLineAnimation>
             <Headings.H3>
               mail <Text.Accented>@</Text.Accented>tripie.com

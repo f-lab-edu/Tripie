@@ -7,7 +7,6 @@
 
 .hovered {
   position: relative;
-  // z-index: 30;
   z-index: z(mask);
   color: $theme-50;
 }

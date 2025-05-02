@@ -1,6 +1,6 @@
 'use client';
-import { Card, Divider, ParticleField } from '@tripie-pyotato/design-system/@components';
-import { Container, Headings, Text } from '@tripie-pyotato/design-system/@core';
+import { Card, Divider, ParticleBackground } from '@tripie-pyotato/design-system/@components';
+import { Container, Headings, Stack, Text } from '@tripie-pyotato/design-system/@core';
 import { ReactNode } from 'react';
 import { classNames } from 'wrapper';
 
@@ -13,23 +13,28 @@ export default function Layout({
   children: ReactNode;
 }>) {
   return (
-    <Container className={cx('background', 'header')} margin="none">
-      <Container className={cx('gradient-bottom')} margin="none" />
-      <Container margin="none" className={cx('login-wrap')}>
+    <ParticleBackground>
+      <Container
+        margin="none"
+        padding="m"
+        applyPadding="left-right"
+        justifyContent="center"
+        alignItems="center"
+        zIndex="default"
+      >
         <Card className={cx('login-card')}>
-          <Container applyMargin="top" margin="l" alignItems="center">
+          <Stack direction="column" gap="default" margin="none">
             <Text.Accented>
               <Headings.H2>Welcome</Headings.H2>
             </Text.Accented>
-          </Container>
-          <Container align="center" applyMargin="top-bottom">
-            모든 서비스를 이용하기 위해 {'\n'}로그인을 해주세요.
-          </Container>
-          <Divider />
-          <Container applyMargin="top-bottom">{children}</Container>
+            <Text alignItems="center" preserveWhiteSpace="none" applyMargin="top-bottom">
+              회원전용 서비스를 이용하기 위해 로그인을 해주세요.
+            </Text>
+            <Divider />
+            {children}
+          </Stack>
         </Card>
       </Container>
-      <ParticleField />
-    </Container>
+    </ParticleBackground>
   );
 }

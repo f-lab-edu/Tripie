@@ -25,7 +25,7 @@ const ControlledLoader = () => {
 const SemiTransparentLoader = () => {
   return (
     <SplashScreen.Controlled className={cx('semi-transparent')}>
-      <Container margin="none" align="center" className={cx('loader-wrap')}>
+      <Container margin="none" alignItems="center" className={cx('loader-wrap')}>
         <Icon.Loading /> <AnimatedText.Jump>loading...</AnimatedText.Jump>
       </Container>
     </SplashScreen.Controlled>

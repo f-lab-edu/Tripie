@@ -34,7 +34,7 @@ const Card = ({
   margin = 'none',
   padding,
   justifyContent,
-  align,
+  alignItems,
   refs,
   preserveWhiteSpace,
   applyMargin,
@@ -50,7 +50,7 @@ const Card = ({
         padding={padding}
         margin={margin}
         justifyContent={justifyContent}
-        align={align}
+        alignItems={alignItems}
         refs={refs}
         preserveWhiteSpace={preserveWhiteSpace}
         className={cx('noise-contents-contrast')}
@@ -61,7 +61,6 @@ const Card = ({
         {children}
       </TripieContainer>
       <TripieContainer margin="none" padding="none" className={cx('noise')} zIndex="base"></TripieContainer>
-      {/* <div className={cx('noise')}></div> */}
     </MotionSlideUp>
   );
 };
@@ -74,7 +73,7 @@ const CardContent = ({
   padding = 'm',
   justifyContent,
   applyPadding,
-  align,
+  alignItems,
   preserveWhiteSpace,
   applyMargin,
 }: Readonly<Partial<Omit<CustomAnimationProps, 'refs'> & { ref?: MutableRefObject<HTMLDivElement | null> }>>) => {
@@ -83,7 +82,7 @@ const CardContent = ({
       padding={padding}
       margin={margin}
       justifyContent={justifyContent}
-      align={align}
+      alignItems={alignItems}
       preserveWhiteSpace={preserveWhiteSpace}
       applyMargin={applyMargin}
       applyPadding={applyPadding}
@@ -130,7 +129,7 @@ const CardDescription = ({
   padding = 'none',
   justifyContent,
   applyPadding,
-  align,
+  alignItems,
   preserveWhiteSpace,
   applyMargin,
 }: Readonly<TripieContainerProps>) => {
@@ -139,7 +138,7 @@ const CardDescription = ({
       padding={padding}
       justifyContent={justifyContent}
       applyMargin={applyMargin}
-      align={align}
+      alignItems={alignItems}
       applyPadding={applyPadding}
       preserveWhiteSpace={preserveWhiteSpace}
       margin={margin}

@@ -13,7 +13,7 @@ const Contact = ({
     <>
       <Text size="tiny">{sectionName}</Text>
       <Container applyMargin="bottom">
-        <Container margin="none" align="left" justifyContent="flex-start">
+        <Container margin="none" justifyContent="flex-start" alignItems="start">
           <Headings.H2>
             <Link href={link}>{child}</Link>
           </Headings.H2>

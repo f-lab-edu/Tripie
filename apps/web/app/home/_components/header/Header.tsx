@@ -32,7 +32,7 @@ const ShortCutButtons = () => {
   ];
 
   return (
-    <Container align="center" margin="none" justifyContent="center" gap="default">
+    <Container alignItems="center" margin="none" justifyContent="center" gap="default">
       {SHORT_CUT_LINKS.map(({ tag, link, contents }) => (
         <AnimatedButton withBorder={true} key={tag} withMinWidth={true} onClick={() => navigation.push(link)}>
           {contents}
@@ -46,7 +46,7 @@ export default function Header() {
   return (
     <ParticleBackground>
       <RotatingBlur />
-      <Stack align="center" zIndex={'default'} alignItems="center" direction="column" gap="l" margin="none">
+      <Stack alignItems="center" zIndex={'default'} direction="column" gap="l" margin="none">
         <PageTitle />
         <ShortCutButtons />
       </Stack>

@@ -9,15 +9,15 @@ export default function PlanList() {
     <Stack margin="l" applyMargin="top-bottom" flexWrapOn="wrap-lg" gap="l">
       {Object.keys(PLANS).map(key => (
         <Card key={PLANS[key].label}>
-          <Container align="left" margin="none">
+          <Container justifyContent="start" margin="none">
             {PLANS[key].label}
           </Container>
-          <Container align="left" applyMargin="bottom">
+          <Container justifyContent="start" applyMargin="bottom" margin="xsm">
             <Headings.H3>
               <Text.Accented>{PLANS[key].price}</Text.Accented>
             </Headings.H3>
           </Container>
-          <Container applyMargin="bottom" align="left">
+          <Container applyMargin="bottom" justifyContent="start">
             Per month
           </Container>
           <Divider />
