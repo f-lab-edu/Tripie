@@ -1,19 +1,8 @@
 @use 'variables' as *;
 @use 'mixins' as *;
 
-.carousel {
-  overflow-y: hidden;
-  @include visible-scroll(false);
-}
-.carousel-inner {
-  width: fit-content;
-  display: inline-flex;
-  gap: 1rem;
-}
-
 .place-chip {
   padding: 0.8rem;
-  // min-width: 6rem;
   min-width: 8rem;
 }
 
@@ -31,11 +20,6 @@
 .accordian-body {
   @include scroll;
   @include visible-scroll(false);
-}
-.chip-wrap {
-  display: inline-flex;
-  justify-content: center;
-  width: 100%;
 }
 
 .chip {
