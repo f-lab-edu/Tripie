@@ -1,5 +1,5 @@
 'use client';
-import { MotionSlideUp } from '@tripie-pyotato/design-system';
+import { MotionSlideUp } from '@tripie-pyotato/design-system/@components/x';
 import { Headings } from '@tripie-pyotato/design-system/@core/data-display';
 import { Background, Container } from '@tripie-pyotato/design-system/@core/layout';
 

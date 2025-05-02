@@ -1,4 +1,4 @@
-import { MotionSlideUp } from '@tripie-pyotato/design-system';
+import { MotionSlideUp } from '@tripie-pyotato/design-system/@components/x';
 import { Background, Container, Headings, Text } from '@tripie-pyotato/design-system/@core';
 import OurWorkList from './OurWorkList';
 

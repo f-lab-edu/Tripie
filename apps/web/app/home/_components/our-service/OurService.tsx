@@ -1,6 +1,6 @@
 'use client';
 
-import { MotionSlideUp } from '@tripie-pyotato/design-system';
+import { MotionSlideUp } from '@tripie-pyotato/design-system/@components/x';
 import { Background, Container, Headings, Stack, Text } from '@tripie-pyotato/design-system/@core';
 
 import ServiceList from './_components/ServiceList';
