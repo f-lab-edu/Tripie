@@ -87,3 +87,22 @@ $gap-space-map: (
 );
 
 $break-point-values: (xs, sm, md, lg, xl, xxl);
+
+$z-index-map: (
+  deep,
+  hide,
+  base,
+  default,
+  masked,
+  mask,
+  sticky,
+  fixed,
+  overlay,
+  loader,
+  modal,
+  popup,
+  dropdown,
+  notification,
+  tooltip,
+  above-all
+);

@@ -15,18 +15,16 @@
   font-size: 55px;
 }
 
-.animation {
-  width: '100%';
-  white-space: 'nowrap';
-}
 .default {
   color: $theme-600;
 }
+
 .wrap {
   position: relative;
   display: inline-block;
   text-wrap: nowrap;
 }
+
 .text {
   position: absolute;
   overflow: hidden;
@@ -34,4 +32,9 @@
   left: 0;
   width: 0%;
   white-space: nowrap;
+}
+
+.animation {
+  width: '100%';
+  white-space: 'nowrap';
 }

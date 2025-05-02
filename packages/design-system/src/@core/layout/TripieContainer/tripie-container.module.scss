@@ -1,6 +1,7 @@
 @use 'sass:map';
 @use '../../../mixins' as *;
 @use '../../../variables' as *;
+@use '../../../functions/' as *;
 
 .container {
   display: inline-block;
@@ -87,4 +88,10 @@
 
 .with-border {
   @include with-border;
+}
+
+@each $key in $z-index-map {
+  .z-index-#{$key} {
+    z-index: z($key);
+  }
 }

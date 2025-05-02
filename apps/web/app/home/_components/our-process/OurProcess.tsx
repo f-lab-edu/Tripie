@@ -1,13 +1,13 @@
 import { MotionSlideUp } from '@tripie-pyotato/design-system/@components';
 import { Background, Container, Headings, Text } from '@tripie-pyotato/design-system/@core';
 
-import CitySelect from './_components/selectedList/City';
-import CompanionSelect from './_components/selectedList/Companion';
-import ContinentSelect from './_components/selectedList/Continent';
-import CountrySelect from './_components/selectedList/Country';
-import DurationSelect from './_components/selectedList/Duration';
-import TravelStyleSelect from './_components/selectedList/TravelStyle';
-import TripResultExample from './_components/selectedList/TripResult';
+import CitySelect from './SelectedList/City';
+import CompanionSelect from './SelectedList/Companion';
+import ContinentSelect from './SelectedList/Continent';
+import CountrySelect from './SelectedList/Country';
+import DurationSelect from './SelectedList/Duration';
+import TravelStyleSelect from './SelectedList/TravelStyle';
+import TripResultExample from './SelectedList/TripResult';
 
 import OurProcessCard from './OurProcessCard';
 
@@ -42,7 +42,7 @@ const cards = [
     label: '내가 선호하는 여행 스타일은?',
     content: <TravelStyleSelect />,
     description:
-      '자연 속을 거닐거나 힐링을 만끽하고 싶으신가요? 아니면 인생샷을 남길 곳을 찾거나 맛집투어를 하고 싶으신가요?\n 선호하는 여행 테마를 골라주시면 취향에 딱 맞는 일정을 짜드립니다!',
+      '자연 속을 거닐거나 힐링을 만끽하고 싶으신가요?\n 아니면 인생샷을 남길 곳을 찾거나 맛집투어를 하고 싶으신가요?\n 선호하는 여행 테마를 골라주시면 취향에 딱 맞는 일정을 짜드립니다!',
   },
   {
     label: '당장 떠나고 싶은 내 여행 일정 보기',

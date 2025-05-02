@@ -33,7 +33,6 @@ export type TripieContainerProps = {
   alignItems?: 'none' | 'normal' | 'center' | 'start' | 'stretch' | 'end' | 'flex-start' | 'flex-end';
   children?: ReactNode;
   refs?: RefObject<HTMLDivElement>;
-  // preserveWhiteSpace?: boolean;
   preserveWhiteSpace?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'none';
   applyMargin?:
     | 'top-bottom'
@@ -48,6 +47,23 @@ export type TripieContainerProps = {
   gap?: 'none' | 'sm' | 'default' | 'l';
   withBorder?: boolean;
   textAlign?: 'center' | 'left' | 'right' | 'justify' | 'end' | 'start';
+  zIndex?:
+    | 'default'
+    | 'deep'
+    | 'hide'
+    | 'base'
+    | 'mask'
+    | 'masked'
+    | 'sticky'
+    | 'fixed'
+    | 'overlay'
+    | 'loader'
+    | 'modal'
+    | 'popup'
+    | 'dropdown'
+    | 'notification'
+    | 'tooltip'
+    | 'above-all';
 } & Omit<ComponentProps<'div'>, 'children'>;
 
 const cx = classNames.bind(Style);
@@ -67,6 +83,7 @@ const TripieContainer = ({
   justifyContent = 'none',
   withBorder = false,
   textAlign = 'start',
+  zIndex = 'base',
   ...props
 }: TripieContainerProps) => {
   return (
@@ -87,6 +104,7 @@ const TripieContainer = ({
         `justify-content-${justifyContent}`,
         `gap-${gap}`,
         preserveWhiteSpace ? 'preserve-white-space' : '',
+        `z-index-${zIndex}`,
         className
       )}
       {...props}

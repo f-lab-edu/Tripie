@@ -49,10 +49,12 @@ const Stack = ({
   gridWrapOn = 'no-wrap',
   rows = 1,
   cols = 2,
+  zIndex = 'base',
   ...props
 }: StackProps) => {
   return (
     <TripieContainer
+      zIndex={zIndex}
       ref={refs}
       padding={padding}
       applyPadding={applyPadding}

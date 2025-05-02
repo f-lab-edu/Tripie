@@ -49,5 +49,9 @@ export const CustomStart_COLORS50End_COLOR40: Story = {
 
 export const TitleTextFillAnimation: Story = {
   name: 'TextFillAnimation.Title',
-  render: () => <TextFillAnimation.Title repeat={Infinity}>Title text fill animation</TextFillAnimation.Title>,
+  render: () => (
+    <TextFillAnimation isTitle={true} repeat={Infinity}>
+      Title text fill animation
+    </TextFillAnimation>
+  ),
 };

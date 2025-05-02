@@ -1,24 +1,16 @@
 'use client';
 
 import { AnimatedButton, Icon, ParticleBackground, RotatingBlur } from '@tripie-pyotato/design-system/@components';
-
-import { Container, Headings, Text } from '@tripie-pyotato/design-system/@core';
-import { classNames } from 'wrapper';
-
+import { Container, Headings, Stack, Text } from '@tripie-pyotato/design-system/@core';
 import ROUTE from 'constants/routes';
 
 import { useRouter } from 'next/navigation';
-import Style from './header.module.scss';
-
-const cx = classNames.bind(Style);
 
 const PageTitle = () => {
   return (
     <Container margin="none" alignItems="center" justifyContent="center">
       <Headings.H1>
-        {/* <Text.Accented>AI </Text.Accented>enhanced{'\n'}trip planner. */}
         <Text.Accented>AI</Text.Accented> enhanced{'\n'}trip planner.
-        {/* <Text></Text> */}
       </Headings.H1>
     </Container>
   );
@@ -54,10 +46,10 @@ export default function Header() {
   return (
     <ParticleBackground>
       <RotatingBlur />
-      <Container align="center" alignItems="center" className={cx('wrap')} margin="none">
+      <Stack align="center" zIndex={'default'} alignItems="center" direction="column" gap="l" margin="none">
         <PageTitle />
         <ShortCutButtons />
-      </Container>
+      </Stack>
     </ParticleBackground>
   );
 }

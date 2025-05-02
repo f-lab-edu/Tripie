@@ -4,7 +4,7 @@ import { Container } from '@tripie-pyotato/design-system/@core';
 import { classNames } from 'wrapper';
 import Style from './shared/selected-list.module.scss';
 
-import NextButton from 'app/home/_components/our-process/_components/selectedList/shared/NextAnimatedButton';
+import NextButton from 'app/home/_components/our-process/SelectedList/shared/NextAnimatedButton';
 import { KOR_CITIES, SELECTED_CITY } from './constants/selected';
 
 const cx = classNames.bind(Style);

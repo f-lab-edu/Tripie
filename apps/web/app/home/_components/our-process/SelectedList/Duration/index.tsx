@@ -6,7 +6,7 @@ import { useCalendar } from '@tripie-pyotato/design-system/@hooks';
 
 import useServerTime from 'hooks/useServerTime';
 
-import NextButton from 'app/home/_components/our-process/_components/selectedList/shared/NextAnimatedButton';
+import NextButton from 'app/home/_components/our-process/SelectedList/shared/NextAnimatedButton';
 import { useMemo } from 'react';
 import { classNames } from 'wrapper';
 import Style from './duration.module.scss';

@@ -9,7 +9,7 @@ const cx = classNames.bind(Style);
 const Loading = () => {
   return (
     <SplashScreen>
-      <TextFillAnimation.Title>Tripie.</TextFillAnimation.Title>
+      <TextFillAnimation isTitle={true}>Tripie.</TextFillAnimation>
     </SplashScreen>
   );
 };
@@ -17,7 +17,7 @@ const Loading = () => {
 const ControlledLoader = () => {
   return (
     <SplashScreen.Controlled>
-      <TextFillAnimation.Title>Tripie.</TextFillAnimation.Title>
+      <TextFillAnimation isTitle={true}>Tripie.</TextFillAnimation>
     </SplashScreen.Controlled>
   );
 };

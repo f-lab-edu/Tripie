@@ -1,6 +1,6 @@
 // import Loading from 'shared/components/Loading';
 
-import DurationSelect from 'app/home/_components/our-process/_components/selectedList/Duration';
+import DurationSelect from 'app/home/_components/our-process/SelectedList/Duration';
 
 // import PlaygroundButton from './_components/Button';
 

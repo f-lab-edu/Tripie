@@ -39,7 +39,7 @@ export const Loading: Story = {
   render: () => (
     <div style={{ height: '100vh' }}>
       <SplashScreen>
-        <TextFillAnimation.Title>Tripie.</TextFillAnimation.Title>
+        <TextFillAnimation isTitle={true}>Tripie.</TextFillAnimation>
       </SplashScreen>
     </div>
   ),

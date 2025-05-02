@@ -8,7 +8,7 @@ import { CONTINENTS } from 'constants/continents';
 
 import { ContinentKeys } from 'models/Continent';
 
-import NextButton from 'app/home/_components/our-process/_components/selectedList/shared/NextAnimatedButton';
+import NextButton from 'app/home/_components/our-process/SelectedList/shared/NextAnimatedButton';
 
 import { SELECTED_CONTINENT, SELECTED_CONTINENT_NAME } from './constants/selected';
 

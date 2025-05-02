@@ -6,7 +6,7 @@ import Style from './shared/selected-list.module.scss';
 
 import PREFERENCE_LIST from 'constants/preferences';
 
-import NextButton from 'app/home/_components/our-process/_components/selectedList/shared/NextAnimatedButton';
+import NextButton from 'app/home/_components/our-process/SelectedList/shared/NextAnimatedButton';
 import { SELECTED_PREFERENCE } from './constants/selected';
 
 const cx = classNames.bind(Style);

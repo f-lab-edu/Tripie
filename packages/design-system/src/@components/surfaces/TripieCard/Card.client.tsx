@@ -21,6 +21,7 @@ export type CustomAnimationProps = {
   children?: ReactNode;
   className?: string;
   baseColor?: string;
+  repeat?: number;
 } & TripieContainerProps;
 
 const Card = ({
@@ -54,12 +55,13 @@ const Card = ({
         preserveWhiteSpace={preserveWhiteSpace}
         className={cx('noise-contents-contrast')}
         applyMargin={applyMargin}
+        zIndex="default"
         applyPadding={applyPadding}
       >
         {children}
       </TripieContainer>
-
-      <div className={cx('noise')}></div>
+      <TripieContainer margin="none" padding="none" className={cx('noise')} zIndex="base"></TripieContainer>
+      {/* <div className={cx('noise')}></div> */}
     </MotionSlideUp>
   );
 };

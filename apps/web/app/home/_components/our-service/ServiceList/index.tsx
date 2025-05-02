@@ -1,11 +1,11 @@
 'use client';
 
 import { Card, Globe } from '@tripie-pyotato/design-system/@components';
-import { Container } from '@tripie-pyotato/design-system/@core';
-import Description from 'app/home/_components/our-process/_components/Description';
+import { Container, Headings, Text } from '@tripie-pyotato/design-system/@core';
+
 import { classNames } from 'wrapper';
 import RegionInfo from '../RegionInfo';
-import Subscription from '../Subscription';
+import Subscription from './Subscription';
 import Style from './service-list.module.scss';
 
 const cx = classNames.bind(Style);
@@ -13,9 +13,13 @@ const cx = classNames.bind(Style);
 const serviceList = [
   {
     label: '구독하기',
-    content: <Subscription />,
+    content: (
+      <Card.Content className={cx('content-wrap')}>
+        <Subscription />
+      </Card.Content>
+    ),
     description:
-      'Basic 플랜으로 ai가 추천해주는 맛보기 일정을 이용해보세요! Pro 플랜으로 새 일정을 하루에 최대 X개 추천받아보실 수 있습니다.',
+      'Basic 플랜으로 ai가 추천해주는 맛보기 일정을 이용해보세요!\n Pro 플랜으로 새 일정을 하루에 최대 X개 추천받아보실 수 있습니다.',
   },
   {
     label: 'AI 추천 맞춤 일정',
@@ -44,7 +48,16 @@ export default function ServiceList() {
     <Card key={label}>
       {content}
       <Card.Description>
-        <Description descriptionTitle={label}>{description}</Description>
+        {label != null ? (
+          <Container applyMargin="top-bottom" margin="sm">
+            <Headings.H3>{label}</Headings.H3>
+          </Container>
+        ) : null}
+        <Container margin="none" className={cx('description-wrap')}>
+          <Text margin="none" preserveWhiteSpace="m" alignItems={'start'}>
+            {description}
+          </Text>
+        </Container>
       </Card.Description>
     </Card>
   ));
