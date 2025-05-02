@@ -2,7 +2,7 @@ import { classNames } from '../../../../wrappers';
 
 import { ReactNode } from 'react';
 
-import { Background } from '@core';
+import { Background } from '../../../../@core/layout';
 import ParticleField from '../Field/ParticleField.client';
 import Style from './particle-background.module.scss';
 

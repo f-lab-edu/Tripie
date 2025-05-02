@@ -1,6 +1,6 @@
 'use client';
 
-import { Background } from '@tripie-pyotato/design-system/@core';
+import { Background } from '@tripie-pyotato/design-system/@core/layout';
 import ROUTE from 'constants/routes';
 import { TripContent } from 'models/Aws';
 import { Coordinate } from 'models/Geo';

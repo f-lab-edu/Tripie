@@ -5,7 +5,7 @@ import { useDebounce } from '@tripie-pyotato/hooks';
 import { DB_NAME } from 'constants/auth';
 import useFunnel from 'hooks/useFunnel';
 
-import { Background } from '@tripie-pyotato/design-system/@components';
+import { Background } from '@tripie-pyotato/design-system/@core/layout';
 import firestoreService from 'app/api/firebase';
 import getTripPlan from 'app/api/openai/getTripPlan';
 import incrementedTokenId from 'app/api/openai/incrementedTokenId';
