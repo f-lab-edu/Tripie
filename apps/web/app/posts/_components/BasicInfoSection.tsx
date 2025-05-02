@@ -39,7 +39,7 @@ const BasicInfoSection = ({
         }}
         current={'0-0'}
       />
-      <Container applyMargin="top">
+      <Container applyMargin="top-bottom">
         <BasicInfo
           addresses={basicInfo.addresses}
           phoneNumber={basicInfo.phoneNumber}

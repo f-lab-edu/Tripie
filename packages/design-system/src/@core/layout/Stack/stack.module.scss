@@ -18,11 +18,7 @@ $stack-display-map: (inline-flex, grid);
 $gap-direction-map: (column, row);
 
 @mixin flex-direction($direction) {
-  @if (direction== 'column') {
-    flex-direction: column;
-  } @else {
-    flex-direction: row;
-  }
+  flex-direction: $direction;
 }
 
 @each $key in $gap-direction-map {

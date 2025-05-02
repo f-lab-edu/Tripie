@@ -8,11 +8,12 @@ import Style from './text.module.scss';
 const cx = classNames.bind(Style);
 
 export type TextProps = {
-  size?: 'default' | 'h0' | 'h1' | 'h2' | 'h3' | 'h4' | 'text' | 'small' | 'tiny';
+  size?: 'inherit' | 'default' | 'h0' | 'h1' | 'h2' | 'h3' | 'h4' | 'text' | 'small' | 'tiny';
   bold?: boolean;
   children: ReactNode;
   className?: string;
   crossOut?: boolean;
+  display?: 'inline-block' | 'block' | 'inline' | 'contents';
 } & Partial<Omit<TripieContainerProps, 'withBorder'>>;
 
 const Text = ({
@@ -26,10 +27,11 @@ const Text = ({
   gap = 'none',
   justifyContent = 'start',
   children,
-  size = 'default',
+  size = 'inherit',
   bold = false,
   textAlign = 'start',
   crossOut = false,
+  display = 'inline-block',
 }: Readonly<TextProps>) => {
   if (typeof children !== 'string') {
     return (
@@ -37,11 +39,12 @@ const Text = ({
         className={cx(
           'text',
           bold ? 'bold' : '',
-          size,
+          // size,
+          `font-size-${size}`,
           crossOut ? 'cross' : '',
           `align-items-${alignItems}`,
           `align-text-${textAlign}`,
-          alignItems != 'none' || gap !== 'none' || justifyContent !== 'none' ? 'flex' : '',
+          alignItems != 'none' || gap !== 'none' || justifyContent !== 'none' ? 'flex' : `display-${display}`,
           'container',
           `padding-${padding}`,
           `padding-${applyPadding}`,
@@ -63,7 +66,8 @@ const Text = ({
         className={cx(
           'text',
           bold ? 'bold' : '',
-          size,
+          // size,
+          `font-size-${size}`,
           crossOut ? 'cross' : '',
           `align-items-${alignItems}`,
           alignItems != 'none' || gap !== 'none' || justifyContent !== 'none' ? 'flex' : '',
@@ -98,7 +102,7 @@ const AccentedText = ({
   justifyContent = 'start',
   className,
   bold,
-  size = 'default',
+  size = 'inherit',
 }: Readonly<TextProps>) => {
   if (typeof children !== 'string') {
     return (
@@ -116,7 +120,8 @@ const AccentedText = ({
           `gap-${gap}`,
           preserveWhiteSpace ? 'preserve-white-space' : '',
           'accented',
-          size,
+          // size,
+          `font-size-${size}`,
           bold ? 'bold' : '',
           className
         )}
@@ -140,7 +145,8 @@ const AccentedText = ({
         `gap-${gap}`,
         preserveWhiteSpace ? 'preserve-white-space' : '',
         'accented',
-        size,
+        // size,
+        `font-size-${size}`,
         bold ? 'bold' : '',
         className
       )}

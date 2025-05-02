@@ -30,9 +30,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  // z-index: 100;
   z-index: z(masked);
-
   max-width: 30%;
   display: inline-block;
 }

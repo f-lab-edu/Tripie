@@ -13,10 +13,6 @@
   width: fit-content;
 }
 
-// .headline {
-//   font-size: font-size(small);
-// }
-
 .default {
   font-size: font-size(default);
 }
@@ -50,4 +46,12 @@
   .preserve-white-space-#{$value} {
     @include break-text($value);
   }
+}
+
+.has-headline {
+  margin-top: 0;
+}
+
+.typography {
+  margin-bottom: 0.35em; // mui typography
 }

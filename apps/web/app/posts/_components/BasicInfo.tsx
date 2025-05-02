@@ -1,10 +1,15 @@
 'use client';
 import { Card } from '@tripie-pyotato/design-system';
-import { Container } from '@tripie-pyotato/design-system/@core';
+import { Container, Table } from '@tripie-pyotato/design-system/@core';
 import { AttractionArticle } from 'models/Attraction';
-import { useMemo } from 'react';
+import { ReactNode, useMemo } from 'react';
 import ArticleLink from './Elements/Link';
-import InfoItem, { InfoTagType } from './InfoTag';
+
+export type InfoTagType = {
+  주소: ReactNode | null;
+  전화: ReactNode | null;
+  홈페이지: ReactNode | null;
+};
 
 export type BasicInfoProps = Pick<
   AttractionArticle['source'],
@@ -29,9 +34,18 @@ const BasicInfo = ({ addresses, phoneNumber, officialSiteUrl, regionId, dataUrl 
 
   return (
     <Card.Content>
-      {Object.entries(INFO_TAG_CONTENT).map(([key, content]) =>
-        content ? <InfoItem key={key} item={key as keyof InfoTagType} content={content} /> : null
-      )}
+      <Table>
+        <Table.Body>
+          {Object.entries(INFO_TAG_CONTENT).map(([key, content]) =>
+            content ? (
+              <Table.Row key={key}>
+                <Table.Data applyMargin="right">{key}</Table.Data>
+                <Table.Data>{content}</Table.Data>
+              </Table.Row>
+            ) : null
+          )}
+        </Table.Body>
+      </Table>
     </Card.Content>
   );
 };

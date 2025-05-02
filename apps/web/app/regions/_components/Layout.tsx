@@ -6,7 +6,9 @@ import { ReactNode } from 'react';
 const RegionLayout = ({ children }: { children: ReactNode }) => {
   return (
     <Container margin="xl" applyMargin="top">
-      <Container>{children}</Container>
+      <Container applyPadding="left-right" padding="m" margin="none">
+        {children}
+      </Container>
     </Container>
   );
 };

@@ -1,16 +1,13 @@
 'use client';
 import { Card, Carousel, Divider } from '@tripie-pyotato/design-system';
 import { TripieImage } from '@tripie-pyotato/design-system/@core';
-import { classNames } from 'wrapper';
-import ArticleHeading from '../Header';
-import ArticleLink from '../Link';
-import ArticleNote from '../Note';
-import ArticleText from '../Text';
-import Style from './embedded.module.scss';
+
+import ArticleHeading from './Header';
+import ArticleLink from './Link';
+import ArticleNote from './Note';
+import ArticleText from './Text';
 
 import { BodyItemProps, EmbeddedProps, ImageProps } from 'models/Props';
-
-const cx = classNames.bind(Style);
 
 const ArticleCard = ({
   item,
@@ -22,7 +19,7 @@ const ArticleCard = ({
   dataUrl: string;
 }) => {
   return (
-    <Card.ClickableContent className={cx('embedded-card')}>
+    <Card.ClickableContent>
       {item.map((embeddedItem: BodyItemProps, index: number) => {
         const { type } = embeddedItem;
         switch (type) {
@@ -33,7 +30,6 @@ const ArticleCard = ({
 
             return (
               <Carousel
-                className={cx('card-images')}
                 key={JSON.stringify(images)}
                 items={images?.map(({ sizes, sourceUrl, blurData }, imgIndex) => (
                   <TripieImage.WithSourceUrl

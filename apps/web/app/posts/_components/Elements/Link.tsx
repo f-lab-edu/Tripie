@@ -1,15 +1,11 @@
 'use client';
-import { Link, TextUnderLineAnimation } from '@tripie-pyotato/design-system';
-import { Container } from '@tripie-pyotato/design-system/@core';
-import { classNames } from 'wrapper';
+import { TextUnderLineAnimation, Link as TripieLink } from '@tripie-pyotato/design-system';
+import { Stack } from '@tripie-pyotato/design-system/@core';
 
 import useFilterLink from 'hooks/useFilterLink';
 
 import { LinkProps } from 'models/Props';
 import { useMemo } from 'react';
-import Style from './link.module.scss';
-
-const cx = classNames.bind(Style);
 
 const ArticleLink = ({ item, regionId, dataUrl }: { item: LinkProps; regionId: string; dataUrl: string }) => {
   const { filteredLinks } = useFilterLink({ item, regionId, dataUrl });
@@ -23,15 +19,15 @@ const ArticleLink = ({ item, regionId, dataUrl }: { item: LinkProps; regionId: s
     return null;
   }
   return (
-    <Container margin="none" className={cx('link-wrap')}>
+    <Stack margin="none" alignItems="start" justifyContent="start" flexWrapOn="wrap-xl" gap="default">
       {links.map(({ label, href }) => (
-        <TextUnderLineAnimation key={href} className={cx('link')}>
-          <Link size="small" href={href}>
+        <TextUnderLineAnimation key={href}>
+          <TripieLink size="small" href={href}>
             {label}
-          </Link>
+          </TripieLink>
         </TextUnderLineAnimation>
       ))}
-    </Container>
+    </Stack>
   );
 };
 

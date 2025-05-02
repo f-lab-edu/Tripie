@@ -15,12 +15,10 @@ const RegionSection = ({
   selectedRegion: string;
 }) => {
   return (
-    <Container margin="xl" applyMargin="top">
-      <Container>
-        <RegionTitle />
-        <RegionSelect selected={currentRegionId} selectedRegion={selectedRegion} />
-        <RegionList data={dynamicBlurDataUrl} />
-      </Container>
+    <Container margin="xl" applyMargin="top" applyPadding="left-right-bottom" padding="m">
+      <RegionTitle />
+      <RegionSelect selected={currentRegionId} selectedRegion={selectedRegion} />
+      <RegionList data={dynamicBlurDataUrl} />
     </Container>
   );
 };

@@ -11,6 +11,7 @@
 .text {
   color: inherit;
   @include word-wrap;
+  margin-bottom: 0.35em; // mui typography
   font-size: font-size(text);
   &[aria-selected='false'] {
     color: color(default, 500);
@@ -20,48 +21,9 @@
   }
 }
 
-// .min {
-//   min-width: 9rem;
-// }
-
-// .dim {
-//   color: color(default, 500);
-// }
-
-// .primary {
-//   color: color(primary, 900);
-// }
-
-// .secondary {
-//   color: color(primary, 600);
-// }
-
-// .gray {
-//   color: color(default, 800);
-// }
-// .danger {
-//   color: color(danger, 600);
-// }
-// .warning {
-//   color: color(warning, 300);
-// }
-// .emphasize {
-//   color: color(primary, 700);
-// }
-// .box {
-//   & > span {
-//     position: relative;
-//     display: inline-block;
-//   }
-// }
-
 .accented {
   @include accented;
   font-size: inherit;
-}
-
-.small {
-  font-size: 0.8rem;
 }
 
 .bold {
@@ -75,7 +37,6 @@
 
 .flex {
   @include flex;
-  // width: 100%;
   width: fit-content;
 }
 
@@ -143,5 +104,29 @@ $text-align-values: (center, start, end, justify, left, right);
 @each $value in $break-point-values {
   .preserve-white-space-#{$value} {
     @include break-text($value);
+  }
+}
+
+@mixin display-text($display) {
+  display: $display;
+}
+
+$display-values: (inline, inline-block, block, contents);
+
+@each $value in $display-values {
+  .display-#{$value} {
+    @include display-text($value);
+  }
+}
+
+$font-size-map: (inherit, default, h0, h1, h2, h3, h4, small, tiny);
+
+@each $value in $font-size-map {
+  .font-size-#{$value} {
+    @if ($value==inherit) {
+      font-size: $value;
+    } @else {
+      font-size: font-size($value);
+    }
   }
 }

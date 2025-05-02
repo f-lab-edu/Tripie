@@ -5,7 +5,7 @@ import Title from './Title';
 const RegionTitle = ({ city, regionId }: { regionId?: string; city?: string | null }) => {
   return (
     <Title>
-      도시 별<Text.Accented> 여행 </Text.Accented>정보
+      도시 별 <Text.Accented>여행</Text.Accented> 정보
       {regionId == null ? (
         ''
       ) : (

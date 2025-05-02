@@ -5,7 +5,7 @@ import { usePathname, useRouter } from 'next/navigation';
 
 import Link from 'next/link';
 
-import { Headings, Text } from '@tripie-pyotato/design-system/@core';
+import { Text } from '@tripie-pyotato/design-system/@core';
 import AiTripButton from './AiTripButtons';
 import AuthButton from './AuthButton';
 
@@ -24,11 +24,11 @@ const Nav = () => {
       applyPadding={'top-left-right'}
     >
       <AnimatedText action={() => navigate.push(ROUTE.HOME.href)}>
-        <Headings.H4>
-          <Text.Accented gap="none" padding="none" margin="none">
-            Tripie
-          </Text.Accented>
-        </Headings.H4>
+        {/* <Headings.H4> */}
+        <Text.Accented bold={true} gap="none" padding="none" margin="none" size="h3">
+          Tripie
+        </Text.Accented>
+        {/* </Headings.H4> */}
       </AnimatedText>
       <Menu>
         <Menu.List>

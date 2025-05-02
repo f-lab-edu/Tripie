@@ -8,7 +8,7 @@ export const VARIANTS = {
     },
     hover: {
       opacity: 1,
-      y: '-3rem',
+      y: '-3.85rem',
       transition: {
         bounce: 0,
       },
