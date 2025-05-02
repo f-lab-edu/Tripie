@@ -1,6 +1,6 @@
 'use client';
 
-import { Carousel, Chip, Divider, Icon } from '@tripie-pyotato/design-system';
+import { Carousel, Chip, Divider, Icon } from '@tripie-pyotato/design-system/@components';
 import { Container } from '@tripie-pyotato/design-system/@core';
 
 import { Dispatch, SetStateAction, createRef, memo, useRef } from 'react';

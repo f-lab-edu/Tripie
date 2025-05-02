@@ -1,5 +1,5 @@
 'use client';
-import { Card } from '@tripie-pyotato/design-system';
+import { Card } from '@tripie-pyotato/design-system/@components';
 import { Container, Headings, Text } from '@tripie-pyotato/design-system/@core';
 import { classNames } from 'wrapper';
 

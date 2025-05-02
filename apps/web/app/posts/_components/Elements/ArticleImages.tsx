@@ -1,5 +1,5 @@
 'use client';
-import { Carousel } from '@tripie-pyotato/design-system';
+import { Carousel } from '@tripie-pyotato/design-system/@components';
 import { Container, TripieImage } from '@tripie-pyotato/design-system/@core';
 import { ImageProps } from 'models/Props';
 

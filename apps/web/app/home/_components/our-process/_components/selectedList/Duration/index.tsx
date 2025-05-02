@@ -1,6 +1,6 @@
 'use client';
 
-import { AnimatedText, Calendar, Icon } from '@tripie-pyotato/design-system';
+import { AnimatedText, Calendar, Icon } from '@tripie-pyotato/design-system/@components';
 import { Container } from '@tripie-pyotato/design-system/@core';
 import { useCalendar } from '@tripie-pyotato/design-system/@hooks';
 

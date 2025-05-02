@@ -1,6 +1,6 @@
 'use client';
 
-import { Card } from '@tripie-pyotato/design-system';
+import { Card } from '@tripie-pyotato/design-system/@components';
 import { Container } from '@tripie-pyotato/design-system/@core';
 import { DEFAULT_STYLE, MAP_ID, STYLE } from 'constants/maps';
 import useContinentl from 'hooks/query/useContinentl';

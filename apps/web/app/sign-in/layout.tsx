@@ -1,5 +1,5 @@
 'use client';
-import { Card, Divider, ParticleField } from '@tripie-pyotato/design-system';
+import { Card, Divider, ParticleField } from '@tripie-pyotato/design-system/@components';
 import { Container, Headings, Text } from '@tripie-pyotato/design-system/@core';
 import { ReactNode } from 'react';
 import { classNames } from 'wrapper';

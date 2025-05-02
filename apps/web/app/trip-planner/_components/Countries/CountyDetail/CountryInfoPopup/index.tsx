@@ -1,4 +1,4 @@
-import { Card, Chip } from '@tripie-pyotato/design-system';
+import { Card, Chip } from '@tripie-pyotato/design-system/@components';
 import { Container, List, Text } from '@tripie-pyotato/design-system/@core';
 import Description from 'app/home/_components/our-process/_components/Description';
 import { Continentl } from 'models/Continentl';

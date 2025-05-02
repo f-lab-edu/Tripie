@@ -1,4 +1,4 @@
-import { Divider, Icon, Link } from '@tripie-pyotato/design-system';
+import { Divider, Icon, Link } from '@tripie-pyotato/design-system/@components';
 import { Container, Headings, Text } from '@tripie-pyotato/design-system/@core';
 import { ReactNode } from 'react';
 

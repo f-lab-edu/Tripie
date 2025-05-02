@@ -1,5 +1,5 @@
 'use client';
-import { Icon } from '@tripie-pyotato/design-system';
+import { Icon } from '@tripie-pyotato/design-system/@components';
 import { Container, Headings } from '@tripie-pyotato/design-system/@core';
 import { classNames } from 'wrapper';
 

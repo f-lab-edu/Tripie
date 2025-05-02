@@ -1,5 +1,5 @@
 'use client';
-import { Card } from '@tripie-pyotato/design-system';
+import { Card } from '@tripie-pyotato/design-system/@components';
 import { Headings, Stack, Text } from '@tripie-pyotato/design-system/@core';
 import { NoteProps } from 'models/Props';
 

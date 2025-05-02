@@ -1,5 +1,5 @@
 'use client';
-import { Card, Chip, Switch } from '@tripie-pyotato/design-system';
+import { Card, Chip, Switch } from '@tripie-pyotato/design-system/@components';
 import { Container } from '@tripie-pyotato/design-system/@core';
 import { useCycle } from '@tripie-pyotato/design-system/@hooks';
 

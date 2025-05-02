@@ -1,7 +1,7 @@
 'use client';
 import { classNames } from 'wrapper';
 
-import { Card, Chip } from '@tripie-pyotato/design-system';
+import { Card, Chip } from '@tripie-pyotato/design-system/@components';
 import { Headings, List } from '@tripie-pyotato/design-system/@core';
 
 import { useContext } from 'react';

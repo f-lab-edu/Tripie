@@ -1,5 +1,5 @@
 'use client';
-import { Card, Divider } from '@tripie-pyotato/design-system';
+import { Card, Divider } from '@tripie-pyotato/design-system/@components';
 import { Container, TripieImage } from '@tripie-pyotato/design-system/@core';
 import { classNames } from 'wrapper';
 
