@@ -45,6 +45,36 @@
         "default": "./dist/@core/index.js"
       }
     },
+    "./@core/data-display": {
+      "require": {
+        "types": "./dist/@core/data-display/index.d.cts",
+        "default": "./dist/@core/data-display/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@core/data-display/index.d.ts",
+        "default": "./dist/@core/data-display/index.js"
+      }
+    },
+    "./@core/feedback": {
+      "require": {
+        "types": "./dist/@core/feedback/index.d.cts",
+        "default": "./dist/@core/feedback/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@core/feedback/index.d.ts",
+        "default": "./dist/@core/feedback/index.js"
+      }
+    },
+    "./@core/layout": {
+      "require": {
+        "types": "./dist/@core/layout/index.d.cts",
+        "default": "./dist/@core/layout/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@core/layout/index.d.ts",
+        "default": "./dist/@core/layout/index.js"
+      }
+    },
     "./@components": {
       "require": {
         "types": "./dist/@components/index.d.cts",
@@ -53,6 +83,66 @@
       "import": {
         "types": "./dist/@components/index.d.ts",
         "default": "./dist/@components/index.js"
+      }
+    },
+    "./@components/data-display": {
+      "require": {
+        "types": "./dist/@components/data-display/index.d.cts",
+        "default": "./dist/@components/data-display/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/data-display/index.d.ts",
+        "default": "./dist/@components/data-display/index.js"
+      }
+    },
+    "./@components/feedback": {
+      "require": {
+        "types": "./dist/@components/feedback/index.d.cts",
+        "default": "./dist/@components/feedback/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/feedback/index.d.ts",
+        "default": "./dist/@components/feedback/index.js"
+      }
+    },
+    "./@components/inputs": {
+      "require": {
+        "types": "./dist/@components/inputs/index.d.cts",
+        "default": "./dist/@components/inputs/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/inputs/index.d.ts",
+        "default": "./dist/@components/inputs/index.js"
+      }
+    },
+    "./@components/navigation": {
+      "require": {
+        "types": "./dist/@components/navigation/index.d.cts",
+        "default": "./dist/@components/navigation/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/navigation/index.d.ts",
+        "default": "./dist/@components/navigation/index.js"
+      }
+    },
+    "./@components/surfaces": {
+      "require": {
+        "types": "./dist/@components/surfaces/index.d.cts",
+        "default": "./dist/@components/surfaces/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/surfaces/index.d.ts",
+        "default": "./dist/@components/surfaces/index.js"
+      }
+    },
+    "./@components/x": {
+      "require": {
+        "types": "./dist/@components/x/index.d.cts",
+        "default": "./dist/@components/x/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/x/index.d.ts",
+        "default": "./dist/@components/x/index.js"
       }
     },
     "./@wrappers": {

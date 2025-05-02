@@ -3,3 +3,9 @@ export { default as List } from './List/List';
 export { default as ListItem } from './ListItem/ListItem';
 export { default as Text } from './Text/Text';
 export { default as TripieImage } from './TripieImage/TripieImage';
+
+export * from './Headings/Headings';
+export * from './List/List';
+export * from './ListItem/ListItem';
+export * from './Text/Text';
+export * from './TripieImage/TripieImage';
