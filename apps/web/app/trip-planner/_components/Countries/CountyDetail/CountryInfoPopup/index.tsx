@@ -1,6 +1,6 @@
 import { Card, Chip } from '@tripie-pyotato/design-system/@components';
 import { Container, List, Text } from '@tripie-pyotato/design-system/@core';
-import Description from 'app/home/_components/our-process/_components/Description';
+// import Description from 'app/home/_components/our-process/_components/Description';
 import { Continentl } from 'models/Continentl';
 import { Dispatch, SetStateAction, useEffect } from 'react';
 import { classNames, Popup, useMap } from 'wrapper';
@@ -76,7 +76,8 @@ const CountryInfoPopup = ({
       <Container margin="none" className={cx('wrap')}>
         {countryInfo.map(({ content, label }) => (
           <Card.Description key={label} className={cx('card-wrap', 'with-border')}>
-            <Description>{content}</Description>
+            {content}
+            {label}
           </Card.Description>
         ))}
       </Container>

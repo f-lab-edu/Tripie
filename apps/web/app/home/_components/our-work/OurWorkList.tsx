@@ -27,7 +27,7 @@ const ourWorkList = [
 
 export default function OurWorkList() {
   return (
-    <Container applyMargin="top">
+    <Container margin="none">
       {ourWorkList.map(({ year, tag, header, details }) => (
         <Accordion key={tag}>
           <Accordion.Header>

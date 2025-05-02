@@ -10,7 +10,7 @@ import Loading from 'shared/components/Loading';
 import dmsToDecimalLatLng from 'utils/coordinate';
 import { Map, Marker, classNames } from 'wrapper';
 import Style from './countries.module.scss';
-import CountryInfoPopup from './CountryInfoPopup';
+// import CountryInfoPopup from './CountryInfoPopup';
 import CountryName from './CountryName';
 const cx = classNames.bind(Style);
 
@@ -58,13 +58,13 @@ const CountryDetail = ({ selectedCountry }: { selectedCountry: string }) => {
             longitude: coordinates.lng,
           }}
         >
-          <CountryInfoPopup
+          {/* <CountryInfoPopup
             showPopup={showPopup}
             setShowPopup={setShowPopup}
             coordinates={coordinates}
             capital={countryDetail.capital}
             officialLanguage={countryDetail.official_language}
-          />
+          /> */}
           <Marker
             key={`${countryDetail.coordinates.join(',')}`}
             longitude={coordinates.lng}

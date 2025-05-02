@@ -1,5 +1,5 @@
 import { Divider, Icon, Link } from '@tripie-pyotato/design-system/@components';
-import { Container, Headings, Text } from '@tripie-pyotato/design-system/@core';
+import { Container, Text } from '@tripie-pyotato/design-system/@core';
 import { ReactNode } from 'react';
 
 const Contact = ({
@@ -10,18 +10,18 @@ const Contact = ({
   content: { link: string; child: ReactNode };
 }) => {
   return (
-    <>
+    <Container padding="sm" applyPadding="top-bottom" margin="none">
       <Text size="tiny">{sectionName}</Text>
       <Container applyMargin="bottom">
         <Container margin="none" justifyContent="flex-start" alignItems="start">
-          <Headings.H2>
+          <Text size="h2" isButtonText={true}>
             <Link href={link}>{child}</Link>
-          </Headings.H2>
+          </Text>
           <Icon sizes={'large'} />
         </Container>
       </Container>
       <Divider />
-    </>
+    </Container>
   );
 };
 export default Contact;

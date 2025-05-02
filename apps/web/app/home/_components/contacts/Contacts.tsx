@@ -9,7 +9,11 @@ import Contact from './Contact';
 
 const contacts = {
   Email: {
-    child: <>mail@tripie-pyotato.com</>,
+    child: (
+      <>
+        mail<Text.Accented>@</Text.Accented>tripie-pyotato.com
+      </>
+    ),
     link: 'mailto:mail@tripie-pyotato.com?subject=Hello&body=How%20can%20I%20help%20you?',
   },
   Github: {
@@ -27,19 +31,16 @@ export default function Contacts() {
     <Background variant={1} applyPadding="left-right" id={ROUTE.CONTACT.label} padding="m">
       <Container margin="l" applyMargin="top">
         <MotionSlideUp>
-          <Container applyMargin="top-bottom" margin="l">
+          <Container margin="sm" applyMargin="top">
             <Headings.H2>
               Get in <Text.Accented>touch</Text.Accented>
             </Headings.H2>
           </Container>
         </MotionSlideUp>
-        <Container margin="l" applyMargin="bottom">
-          {Object.keys(contacts).map(key => (
-            <Container key={key} applyMargin="bottom">
-              <Contact sectionName={key} content={contacts[key as keyof typeof contacts]} />
-            </Container>
-          ))}
-        </Container>
+
+        {Object.keys(contacts).map(key => (
+          <Contact key={key} sectionName={key} content={contacts[key as keyof typeof contacts]} />
+        ))}
       </Container>
     </Background>
   );

@@ -24,11 +24,9 @@ const Nav = () => {
       applyPadding={'top-left-right'}
     >
       <AnimatedText action={() => navigate.push(ROUTE.HOME.href)}>
-        {/* <Headings.H4> */}
-        <Text.Accented bold={true} gap="none" padding="none" margin="none" size="h3">
+        <Text.Accented bold={true} gap="none" padding="none" margin="none" size="h4">
           Tripie
         </Text.Accented>
-        {/* </Headings.H4> */}
       </AnimatedText>
       <Menu>
         <Menu.List>

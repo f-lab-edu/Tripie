@@ -22,18 +22,20 @@ export default function Footer() {
   return (
     <footer>
       <Container margin="m" applyMargin="left-right-bottom" applyPadding="bottom" padding="m">
-        <Container applyMargin="bottom" margin="sm" alignItems="start">
+        <Headings.H2>
           <TextUnderLineAnimation>
-            <Headings.H3>
-              mail <Text.Accented>@</Text.Accented>tripie.com
-            </Headings.H3>
+            <Text isButtonText={true}>
+              mail <Text.Accented isButtonText={true}>@</Text.Accented>tripie.com
+            </Text>
           </TextUnderLineAnimation>
-        </Container>
+        </Headings.H2>
         <Divider />
         <List view="column" gap="l">
           {footerItems.map(({ label, content }) => (
             <List.Item key={label}>
-              <Headings.H3>{content}</Headings.H3>
+              <Text size={'h4'} isButtonText={true}>
+                {content}
+              </Text>
             </List.Item>
           ))}
         </List>

@@ -63,7 +63,7 @@ export default function OurProcess() {
           </Headings.H2>
         </Container>
       </MotionSlideUp>
-      <Container margin="l" applyMargin="top-bottom">
+      <Container margin="none">
         {cards.map(({ label, content, description }, index) => (
           <OurProcessCard key={label} label={label} content={content} description={description} index={index} />
         ))}

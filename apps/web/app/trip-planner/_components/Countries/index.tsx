@@ -66,9 +66,9 @@ export default function CountryStep({ context, onNext, onPrev }: Readonly<Props>
               onPrev({ country: selectedCountry });
             }}
           />
-          <Container margin="none">
-            떠나고 싶은 <Text.Accented>나라</Text.Accented>는?
-          </Container>
+          <Text margin="none" isButtonText={true} gap={'sm'}>
+            떠나고 싶은 <Text.Accented isButtonText={true}>나라</Text.Accented>는?
+          </Text>
         </Headings.H2>
       </Container>
 

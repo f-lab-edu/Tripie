@@ -6,7 +6,7 @@ import PLANS from 'constants/plans';
 
 export default function PlanList() {
   return (
-    <Stack margin="l" applyMargin="top-bottom" flexWrapOn="wrap-lg" gap="l">
+    <Stack margin="l" applyMargin="bottom" flexWrapOn="wrap-lg" gap="l">
       {Object.keys(PLANS).map(key => (
         <Card key={PLANS[key].label}>
           <Container justifyContent="start" margin="none">
