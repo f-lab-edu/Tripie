@@ -20,7 +20,50 @@ const meta: Meta<typeof Stack> = {
       return <div className={`${mode}`}>{story()}</div>;
     },
   ],
+  args: {
+    gridRepeat: {
+      'wrap-xl': 6,
+      'wrap-md': 4,
+    },
+    gridWrapOn: {
+      'wrap-sm': 1,
+    },
+  },
   argTypes: {
+    gridWrapOn: {
+      control: { type: 'object' },
+      table: {
+        type: {
+          summary:
+            'wrap-${size}를 key와  1, 2, 4, 5, 6, 8, 10, 12 중 하나를 value로 한 객체를 제공하면 해당 breakpoint를 maxwidth로 grid column를 repeat합니다.',
+        },
+        defaultValue: {
+          summary: `{'wrap-sm': 1}`,
+        },
+      },
+    },
+    gridRepeat: {
+      control: { type: 'object' },
+      table: {
+        type: {
+          summary:
+            'wrap-${size}를 key와  1, 2, 4, 5, 6, 8, 10, 12 중 하나를 value로 한 객체를 제공하면 해당 breakpoint를 minwidth로 grid column를 repeat합니다.',
+        },
+        defaultValue: {
+          summary: `{'wrap-xl': 6, 'wrap-md': 4,}`,
+        },
+      },
+    },
+    display: {
+      control: { type: 'radio' },
+      options: ['grid', 'inline-flex'],
+      table: {
+        type: {
+          summary: "'inline-flex' | 'grid'",
+        },
+        defaultValue: { summary: 'inline-flex' },
+      },
+    },
     direction: {
       control: { type: 'radio' },
       options: ['column', 'row'],
@@ -47,6 +90,16 @@ const meta: Meta<typeof Stack> = {
       table: {
         type: {
           summary: "'xl'| 'l'| 'm'| 'left-right'| 'sm' | 'xsm'| 'none'",
+        },
+        defaultValue: { summary: 'none' },
+      },
+    },
+    gap: {
+      control: { type: 'radio' },
+      options: ['none', 'l', 'sm', 'default'],
+      table: {
+        type: {
+          summary: "'none' | 'l' | 'sm' | 'default'",
         },
         defaultValue: { summary: 'none' },
       },
@@ -141,10 +194,13 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   name: 'Default',
-  render: args => (
-    <Stack {...args}>
-      <div>item 1</div>
-      <div>item 2</div>
-    </Stack>
-  ),
+  render: args => {
+    const Items = () => Array.from({ length: 8 }, (_, i) => <div key={`item${i}`}>item {i + 1}</div>);
+
+    return (
+      <Stack {...args}>
+        <Items />
+      </Stack>
+    );
+  },
 };

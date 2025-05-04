@@ -1,6 +1,6 @@
 'use client';
 import { Chip, Icon } from '@tripie-pyotato/design-system/@components';
-import { Container } from '@tripie-pyotato/design-system/@core';
+import { Stack } from '@tripie-pyotato/design-system/@core';
 import { classNames } from 'wrapper';
 import Style from './shared/selected-list.module.scss';
 
@@ -13,27 +13,35 @@ const cx = classNames.bind(Style);
 
 const TravelStyleSelect = () => {
   return (
-    <Container margin="none">
-      <Container margin="none">
-        <Container className={cx('wrap')} applyMargin="bottom">
-          {Object.values(PREFERENCE_LIST).map((tagName, index) => (
-            <Chip
-              key={tagName.tag}
-              className={cx('button-chip')}
-              selected={new Set(SELECTED_PREFERENCE).has(
-                Object.keys(PREFERENCE_LIST)[index] as keyof typeof PREFERENCE_LIST
-              )}
-            >
-              {tagName.tag}
-            </Chip>
-          ))}
-        </Container>
-      </Container>
+    <>
+      <Stack
+        display="grid"
+        gap="l"
+        applyMargin="bottom"
+        margin="sm"
+        cols={2}
+        gridRepeat={{
+          'wrap-md': 4,
+          'wrap-xl': 6,
+        }}
+      >
+        {Object.values(PREFERENCE_LIST).map((tagName, index) => (
+          <Chip
+            key={tagName.tag}
+            className={cx('button-chip')}
+            selected={new Set(SELECTED_PREFERENCE).has(
+              Object.keys(PREFERENCE_LIST)[index] as keyof typeof PREFERENCE_LIST
+            )}
+          >
+            {tagName.tag}
+          </Chip>
+        ))}
+      </Stack>
 
       <NextButton>
         다음 <Icon />
       </NextButton>
-    </Container>
+    </>
   );
 };
 

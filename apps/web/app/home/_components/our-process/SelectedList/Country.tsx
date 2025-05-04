@@ -3,7 +3,7 @@ import { classNames } from 'wrapper';
 import Style from './shared/selected-list.module.scss';
 
 import { Chip, Icon } from '@tripie-pyotato/design-system/@components';
-import { Container } from '@tripie-pyotato/design-system/@core';
+import { Stack } from '@tripie-pyotato/design-system/@core';
 
 import useCountries from 'hooks/query/useCountries';
 import { Country } from 'models/Country';
@@ -34,8 +34,18 @@ const CountrySelect = () => {
   return isLoading || selected?.code == null ? (
     <></>
   ) : (
-    <Container margin="none">
-      <Container className={cx('wrap')} applyMargin="bottom">
+    <>
+      <Stack
+        display="grid"
+        gap="l"
+        applyMargin="bottom"
+        margin="sm"
+        cols={2}
+        gridRepeat={{
+          'wrap-md': 4,
+          'wrap-xl': 6,
+        }}
+      >
         {countries.map((country: Country) => (
           <Chip
             selected={SELECTED_COUNTRY === country.name}
@@ -45,12 +55,11 @@ const CountrySelect = () => {
             {country?.code != null && regionNameToLocal({ regionCode: country?.code })}
           </Chip>
         ))}
-      </Container>
-
+      </Stack>
       <NextButton>
         "{regionNameToLocal({ regionCode: selected.code })}"로 보기 <Icon />
       </NextButton>
-    </Container>
+    </>
   );
 };
 export default CountrySelect;

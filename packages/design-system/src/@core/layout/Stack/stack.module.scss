@@ -2,6 +2,7 @@
 @use '../../../mixins' as *;
 @use '../../../variables' as *;
 @use '../../../functions/' as *;
+@use '../../../base/' as *;
 
 $stack-display-map: (inline-flex, grid);
 
@@ -57,7 +58,7 @@ $flex-wrap-map: (
 
 // grid style
 
-$grid-template-map: (1, 2, 4, 5, 6);
+$grid-template-map: (1, 2, 4, 5, 6, 8, 10, 12);
 
 @mixin grid-col-template($count) {
   grid-template-columns: repeat($count, 1fr);
@@ -83,6 +84,7 @@ $grid-template-map: (1, 2, 4, 5, 6);
   }
 }
 
+// wrap grid on min-width
 $grid-wrap-map: (
   no-wrap: nowrap,
   wrap-xs: xs,
@@ -93,16 +95,29 @@ $grid-wrap-map: (
   wrap-xxl: xxl,
 );
 
-@mixin grid-wrap($wrap, $breakpoint: null) {
-  @if ($wrap != nowrap) {
-    @media (max-width: breakpoint($breakpoint)) {
-      grid-template-columns: repeat(1, 1fr);
+@mixin grid-break-max($breakpoint, $count) {
+  @media (max-width: breakpoint($breakpoint)) {
+    grid-template-columns: repeat($count, 1fr);
+  }
+}
+@each $size in $grid-template-map {
+  @each $break-key, $break-val in $grid-wrap-map {
+    .grid-break-max-#{$break-key}-#{$size} {
+      @include grid-break-max($break-val, $size);
     }
   }
 }
 
-@each $key, $value in $flex-wrap-map {
-  .grid-#{$key} {
-    @include grid-wrap($value, $value);
+@mixin grid-repeat($breakpoint, $count) {
+  @media (min-width: breakpoint($breakpoint)) {
+    grid-template-columns: repeat($count, 1fr);
+  }
+}
+
+@each $size in $grid-template-map {
+  @each $break-key, $break-val in $grid-wrap-map {
+    .grid-repeat-#{$break-key}-#{$size} {
+      @include grid-repeat($break-val, $size);
+    }
   }
 }

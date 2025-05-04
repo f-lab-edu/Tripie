@@ -20,7 +20,7 @@ export default function OurService() {
         margin="l"
         applyMargin="top-bottom"
         gap="default"
-        gridWrapOn="wrap-sm"
+        gridWrapOn={{ 'wrap-sm': 1 }}
         justifyContent="center"
       >
         <ServiceList />

@@ -66,8 +66,8 @@ const RegionSelect = ({ selected, selectedRegion }: { selected: string; selected
             display="grid"
             margin="m"
             className={cx('options')}
-            cols={4}
-            gridWrapOn="wrap-sm"
+            cols={2}
+            gridRepeat={{ 'wrap-sm': 4 }}
             gap="l"
             applyMargin="top"
           >

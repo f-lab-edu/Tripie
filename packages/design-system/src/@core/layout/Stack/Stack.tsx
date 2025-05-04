@@ -21,9 +21,13 @@ export type StackProps = {
   direction?: 'row' | 'column';
   display?: 'inline-flex' | 'grid';
   flexWrapOn?: FlexWrapOn;
-  gridWrapOn?: GridWrapOn;
   rows?: number;
   cols?: number;
+  gridWrapOn?: {
+    // GridWrapOn 중 하나의 key만
+    [K in GridWrapOn]: { [P in K]: number };
+  }[GridWrapOn];
+  gridRepeat?: Partial<Record<GridWrapOn, number>>;
 } & Partial<TripieContainerProps>;
 
 const cx = classNames.bind(Style);
@@ -46,12 +50,21 @@ const Stack = ({
   withBorder = false,
   textAlign = 'start',
   flexWrapOn = 'no-wrap',
-  gridWrapOn = 'no-wrap',
   rows = 1,
   cols = 2,
   zIndex = 'base',
+  gridRepeat,
+  gridWrapOn,
   ...props
 }: StackProps) => {
+  const gridRepeatArr =
+    display === 'grid' && gridRepeat != null
+      ? Object.entries(gridRepeat).map(([key, value]) => `grid-repeat-${key}-${value}`)
+      : [];
+
+  const gridWrapMax =
+    gridWrapOn != null ? Object.entries(gridWrapOn).map(([key, value]) => `grid-break-max-${key}-${value}`)[0] : '';
+
   return (
     <TripieContainer
       zIndex={zIndex}
@@ -71,9 +84,10 @@ const Stack = ({
         `flex-${flexWrapOn}`,
         `direction-${direction}`,
         display === 'grid' ? `grid` : '',
-        display === 'grid' || gridWrapOn != 'no-wrap' ? `grid-${gridWrapOn}` : '',
         display === 'grid' ? `grid-template-rows-${rows}` : '',
         display === 'grid' ? `grid-template-cols-${cols}` : '',
+        gridWrapMax,
+        ...gridRepeatArr,
         className
       )}
       {...props}
