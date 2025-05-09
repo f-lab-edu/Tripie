@@ -11,7 +11,7 @@ const ArticleEmbedded = ({ item, regionId, dataUrl }: { item: EmbeddedProps; reg
       <Carousel.Controlled>
         {item.value?.entries?.map((content, index) => (
           <ArticleCard
-            sizes={item.value?.entries?.length >= 3 ? 'card' : 'full'}
+            sizes={item.value?.entries?.length >= 4 ? 'card' : 'full'}
             item={content}
             key={index + JSON.stringify(content)}
             regionId={regionId}
