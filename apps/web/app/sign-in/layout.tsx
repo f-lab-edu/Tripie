@@ -1,11 +1,7 @@
 'use client';
-import { Card, ParticleBackground } from '@tripie-pyotato/design-system/@components';
-import { Container, Divider, Headings, Stack, Text } from '@tripie-pyotato/design-system/@core';
+import { ParticleBackground } from '@tripie-pyotato/design-system/@components';
+import { Container, Divider, Headings, Stack, Text, TripieCard } from '@tripie-pyotato/design-system/@core';
 import { ReactNode } from 'react';
-import { classNames } from 'wrapper';
-
-import Style from './sign-in.module.scss';
-const cx = classNames.bind(Style);
 
 export default function Layout({
   children,
@@ -22,7 +18,7 @@ export default function Layout({
         alignItems="center"
         zIndex="default"
       >
-        <Card className={cx('login-card')}>
+        <TripieCard sizes="large">
           <Stack direction="column" gap="default" margin="none">
             <Text.Accented>
               <Headings.H2>Welcome</Headings.H2>
@@ -33,7 +29,7 @@ export default function Layout({
             <Divider />
             {children}
           </Stack>
-        </Card>
+        </TripieCard>
       </Container>
     </ParticleBackground>
   );
