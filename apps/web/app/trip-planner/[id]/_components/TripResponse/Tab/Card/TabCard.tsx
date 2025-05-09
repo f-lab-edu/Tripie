@@ -1,9 +1,8 @@
 'use client';
-import { Card, Chip, Divider, TextUnderLineAnimation } from '@tripie-pyotato/design-system/@components';
-import { Container, Text } from '@tripie-pyotato/design-system/@core';
-import { openNewTab } from '@tripie-pyotato/utils/@window';
+import { AnimatedCard, Chip, TextUnderLineAnimation } from '@tripie-pyotato/design-system/@components';
+import { Stack, Text, TripieCard } from '@tripie-pyotato/design-system/@core';
+import { openNewTab } from '@tripie-pyotato/utils';
 import { classNames } from 'wrapper';
-
 import Style from './tab-card.module.scss';
 
 import { Activity, TripContent } from 'models/Aws';
@@ -48,33 +47,34 @@ const TabCard = ({
   }, [current]);
 
   return (
-    <Card.ClickableContent
+    <AnimatedCard
       key={activity}
-      className={cx('trip-activity', 'card-item', current === `${trip.day}-${index}` ? 'selected' : null)}
+      // className={cx('trip-activity', 'card-item', current === `${trip.day}-${index}` ? 'selected' : null)}
       selected={current === `${trip.day - 1}-${index}`}
       onClick={() => {
         cycle(`${trip.day - 1}-${index}`);
       }}
     >
-      <Container justifyContent="left" margin="sm" applyMargin="bottom" className={cx('title')}>
-        <div ref={current === `${trip.day - 1}-${index}` ? ref : null} />
-        <Chip className={cx('label', label)}>{index + 1}</Chip>
-        <Text.Accented>{activity}</Text.Accented>
-      </Container>
-      <Divider />
-      <Container margin="sm" applyMargin="top" padding="sm" applyPadding="top-bottom">
-        {comments}
-      </Container>
-      <Container justifyContent="left" margin="sm" applyMargin="top">
-        <TextUnderLineAnimation
-          // 새로운 탭에 구글 검색
-          onClick={() => openNewTab(`https://www.google.com/search?q=@${place}`)}
-        >
-          <Text.Accented size="small">@</Text.Accented>
-          {place}
-        </TextUnderLineAnimation>
-      </Container>
-    </Card.ClickableContent>
+      <TripieCard sizes={'full'} margin="none" ref={current === `${trip.day - 1}-${index}` ? ref : null}>
+        <TripieCard.Header>
+          <Stack alignItems={'center'} gap="default" margin="none">
+            <Chip className={cx('label', label)}>{index + 1}</Chip>
+            <Text.Accented isButtonText={true}>{activity}</Text.Accented>
+          </Stack>
+        </TripieCard.Header>
+        <TripieCard.Divider />
+        <TripieCard.Content>{comments}</TripieCard.Content>
+        <TripieCard.Content applyMargin="left-right-bottom">
+          <TextUnderLineAnimation
+            // 새로운 탭에 구글 검색
+            onClick={() => openNewTab(`https://www.google.com/search?q=@${place}`)}
+          >
+            <Text.Accented size="small">@</Text.Accented>
+            {place}
+          </TextUnderLineAnimation>
+        </TripieCard.Content>
+      </TripieCard>
+    </AnimatedCard>
   );
 };
 

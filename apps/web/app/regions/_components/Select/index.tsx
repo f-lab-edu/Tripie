@@ -1,7 +1,7 @@
 'use client';
 
-import { AnimatedButton, Card, Carousel, Divider } from '@tripie-pyotato/design-system/@components';
-import { Container, Stack } from '@tripie-pyotato/design-system/@core';
+import { AnimatedButton, Card, Carousel } from '@tripie-pyotato/design-system/@components';
+import { Container, Divider, Stack } from '@tripie-pyotato/design-system/@core';
 import { classNames } from 'wrapper';
 
 import { TRIPIE_REGION_BY_LOCATION, TRIPIE_REGION_IDS } from 'constants/tripie-country';

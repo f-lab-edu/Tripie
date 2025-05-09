@@ -1,31 +1,26 @@
 'use client';
-import { Card } from '@tripie-pyotato/design-system/@components';
-import { Container, TripieImage } from '@tripie-pyotato/design-system/@core';
-import POI_TYPE from 'constants/triple';
+import { AnimatedCard } from '@tripie-pyotato/design-system/@components';
+import { Stack, Text, TripieCard } from '@tripie-pyotato/design-system/@core';
 import { RefObject, useEffect } from 'react';
-import { classNames, useMap } from 'wrapper';
-import ArticleHeading from '../Header';
-import Style from './poi-card.module.scss';
+import { useMap } from 'wrapper';
 
 import useImgAlt from 'hooks/useImgAlt';
 
+import POI_TYPE from 'constants/triple';
 import { Poi } from 'models/Aws';
-import ArticleText from '../Text';
-
-const cx = classNames.bind(Style);
 
 const PoiCard = ({
   poi,
   selected,
   action,
   cardRef,
-  className,
+  length,
 }: {
   poi: Poi;
   selected: boolean;
   action: () => void;
   cardRef: RefObject<HTMLDivElement>;
-  className?: string;
+  length: number;
 }) => {
   const { alt } = useImgAlt({ imgUrl: poi.source.image?.sizes.full.url });
   const { tripieMap } = useMap();
@@ -46,31 +41,28 @@ const PoiCard = ({
   }, [selected, tripieMap, poi]);
 
   return (
-    <Card.ClickableContent ref={cardRef} className={cx('poi-card', className)} selected={selected} onClick={action}>
-      <TripieImage.WithSourceUrl
-        sourceUrl={poi.source.image.sourceUrl}
+    <AnimatedCard selected={selected} onClick={action} ref={cardRef}>
+      <TripieCard.WithImage
+        sizes={length > 2 ? 'card' : 'full'}
+        margin={'none'}
         src={poi.source.image?.sizes.full.url}
         alt={alt}
-        blurDataURL={poi.source.image.blurData?.data}
-        withBorder={true}
-        sizes="card"
-      />
-
-      <Container applyMargin="top-bottom" margin="sm" className={cx('heading')}>
-        <ArticleHeading item={{ type: 'heading4', value: { text: poi.source.names.ko } }} />
-        <ArticleText
-          item={{
-            type: 'text',
-            value: {
-              text: `${poi.region.source.names.ko}${poi.source.areas[0]?.name != null ? poi.source.areas[0]?.name : ''}`,
-            },
-          }}
-        />
-        <ArticleText item={{ type: 'text', value: { text: POI_TYPE[poi.type] } }} />
-      </Container>
-
-      <ArticleText item={{ type: 'text', value: { text: poi.source.comment } }} />
-    </Card.ClickableContent>
+        imgSize={'card'}
+      >
+        <TripieCard.Header applyMargin="left-right" size="tiny">
+          <Text.Accented isButtonText={true}>{poi.source.areas[0]?.name ?? poi.source.areas[0]?.name}</Text.Accented>
+        </TripieCard.Header>
+        <TripieCard.Header applyMargin="left-right" size={'h4'} bold={true}>
+          {poi.source.names.ko}
+        </TripieCard.Header>
+        <TripieCard.Content margin="m">
+          <Stack margin="none" gap="sm" alignItems="start" justifyContent="start">
+            {poi.region.source.names.ko} | {POI_TYPE[poi.type]}
+          </Stack>
+        </TripieCard.Content>
+        <TripieCard.Content margin="m">{poi.source.comment}</TripieCard.Content>
+      </TripieCard.WithImage>
+    </AnimatedCard>
   );
 };
 

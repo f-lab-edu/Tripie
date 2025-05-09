@@ -1,0 +1,120 @@
+@use '../../../variables' as *;
+@use '../../../mixins' as *;
+@use '../../../functions/' as *;
+
+$card-size-map: (
+  full: 100%,
+  large: 36rem,
+  medium: 18rem,
+  small: 6rem,
+  tiny: 4rem,
+  card: 24rem,
+);
+
+@mixin card-size($size) {
+  width: $size;
+}
+
+@each $key, $size in $card-size-map {
+  .card-size-#{$key} {
+    @include card-size($size);
+  }
+}
+
+@mixin noise-container {
+  position: absolute;
+  border-radius: inherit;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  @include background-static;
+  border: 0;
+  opacity: 0.2;
+  z-index: z(base);
+}
+
+.inner-wrap {
+  position: relative;
+  border-radius: 10px;
+}
+
+.outer-wrap {
+  position: relative;
+  border-radius: 10px;
+  height: 100%;
+  // min-width: fit-content;
+}
+
+.noise {
+  @include noise-container;
+}
+
+.img-wrap {
+  overflow: hidden;
+}
+
+// .chip {
+//   cursor: pointer;
+// }
+
+// .embedded-card {
+//   min-width: 21rem;
+//   width: 60%;
+//   max-width: 60%;
+//   display: inline-flex;
+//   flex-direction: column;
+//   justify-content: flex-start;
+//   @media (max-width: 450) {
+//     min-width: 17rem;
+//   }
+// }
+
+// .article-card {
+//   padding: 0;
+//   justify-content: flex-start;
+//   min-width: 12rem;
+//   flex-wrap: wrap;
+// }
+
+// .full-size {
+//   width: 100%;
+// }
+
+// .thumbnail {
+//   width: 100%;
+//   height: 16rem;
+//   position: relative;
+// }
+
+// // poi-card
+
+// .embedded-card-wrap {
+//   overflow-x: scroll;
+//   height: 100%;
+//   align-items: stretch;
+// }
+
+// .poi-card {
+//   min-height: 21rem;
+
+//   min-width: 16rem;
+
+//   & > div:first-child {
+//     height: 12rem;
+//     max-height: 8rem; /* Restrict image height */
+//     min-height: 8rem; /* Restrict image height */
+//   }
+
+//   & > div {
+//     margin: 0;
+//   }
+// }
+
+.content-wrap {
+  width: 100%;
+}
+
+.card {
+  overflow: hidden;
+}

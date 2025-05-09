@@ -34,6 +34,7 @@ const TripieImage = ({
   loading,
   // fill = true,
 }: ImageProps) => {
+  console.log(src);
   console.log(blurDataURL);
   return (
     <TripieContainer
@@ -47,6 +48,7 @@ const TripieImage = ({
         ref={refs}
         loading={loading}
         crossOrigin="anonymous"
+        referrerPolicy="no-referrer"
       />
       {/* {blurDataURL == null ? (
         <img

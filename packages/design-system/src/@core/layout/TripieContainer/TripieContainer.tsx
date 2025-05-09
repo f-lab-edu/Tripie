@@ -44,7 +44,7 @@ export type TripieContainerProps = {
     | 'right'
     | 'top'
     | 'bottom';
-  gap?: 'none' | 'sm' | 'default' | 'l';
+  gap?: 'none' | 'sm' | 'default' | 'l' | 'xl';
   withBorder?: boolean;
   textAlign?: 'center' | 'left' | 'right' | 'justify' | 'end' | 'start';
   zIndex?:

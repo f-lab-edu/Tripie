@@ -1,6 +1,6 @@
 'use client';
-import { Divider } from '@tripie-pyotato/design-system/@components';
-import { Container } from '@tripie-pyotato/design-system/@core';
+
+import { Container, Divider } from '@tripie-pyotato/design-system/@core';
 import { AttractionArticle } from 'models/Attraction';
 import { Geolocation } from 'models/Geo';
 import BasicInfo, { BasicInfoProps } from './BasicInfo';
@@ -48,9 +48,9 @@ const BasicInfoSection = ({
           dataUrl={dataUrl}
         />
       </Container>
+      <Divider.Article item={{ type: 'hr2' }} />
       <ArticleHeading item={{ type: 'heading3', value: { text: '가는방법' } }} />
       <ArticleText item={{ type: 'text', value: { text: directions } }} />
-      <Divider.Article item={{ type: 'hr2' }} />
     </>
   );
 };

@@ -9,7 +9,7 @@ export { default as AnimatedText } from './data-display/AnimatedText/AnimatedTex
 export { default as Carousel } from './data-display/Carousel/Carousel';
 export { default as Chip } from './data-display/Chip/Chip';
 export { default as ChipMarker } from './data-display/ChipMarker';
-export { default as Divider } from './data-display/Divider';
+
 export { default as TextFillAnimation } from './data-display/TextFill/TextFillAnimation.client';
 export { default as TextUnderLineAnimation } from './data-display/TextUnderlineAnimation';
 export { default as Icon } from './data-display/TripieIcon/Icon.client';
@@ -20,6 +20,7 @@ export { default as UnStyledButton } from './inputs/TripieButton/UnStyled';
 export { default as Link } from './navigation/Link/Link.client';
 export { default as Menu } from './navigation/Menu';
 export { default as Accordion } from './surfaces/Accordian/Accordian.client';
+export { default as AnimatedCard } from './surfaces/AnimatedCard/AnimatedCard.client';
 export { default as Card } from './surfaces/TripieCard/Card.client';
 export { default as Calendar } from './x/Calendar';
 export { default as Globe } from './x/Globe';

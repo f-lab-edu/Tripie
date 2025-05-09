@@ -10,8 +10,8 @@ import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useContext, useEffect } from 'react';
 import AwsMap from 'shared/components/AwsMap';
-import { SelectedDateContext, TabContext } from '..';
-import ChatTab from '../Tab';
+import { SelectedDateContext, TabContext } from '.';
+import ChatTab from './Tab';
 
 export type ChatResponseData = {
   plans: AiTripPlanResponse;
@@ -45,7 +45,7 @@ const MapTab = ({ data, coordinates }: { data: ChatResponseData['plans']; coordi
     <>
       <Container gap="sm" margin="l" applyMargin="top" justifyContent="left">
         {status === 'loading' ? (
-          <Container margin="none" gap="sm">
+          <Container margin="none" gap="sm" justifyContent="start">
             <Icon.Loading /> <AnimatedText.Jump>토큰 확인중...</AnimatedText.Jump>
           </Container>
         ) : (

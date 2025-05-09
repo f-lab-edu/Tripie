@@ -1,26 +1,25 @@
 import { Card } from '@tripie-pyotato/design-system/@components';
-import { Container, Headings, Text } from '@tripie-pyotato/design-system/@core';
+import { Headings, Stack, Text } from '@tripie-pyotato/design-system/@core';
+
 import { Process } from './OurProcess';
 
 export default function OurProcessCard({ content, description, label, index }: Readonly<Process>) {
   return (
-    <Container applyMargin="bottom">
-      <Card>
+    <Card>
+      <Stack direction="column" margin="none" gap="l" justifyContent="start" alignItems="start">
         <Card.Content>{content}</Card.Content>
         <Card.Description>
           {label != null ? (
-            <Container applyMargin="top-bottom" margin="sm">
-              <Headings.H3>
-                {index != null ? (
-                  <Text.Accented>{index.toString.length === 1 ? '0' + (index + 1) : index + 1}. </Text.Accented>
-                ) : null}
-                {label}
-              </Headings.H3>
-            </Container>
+            <Headings.H3>
+              {index != null ? (
+                <Text.Accented>{index.toString.length === 1 ? '0' + (index + 1) : index + 1}. </Text.Accented>
+              ) : null}
+              {label}
+            </Headings.H3>
           ) : null}
           <Text preserveWhiteSpace="xl">{description}</Text>
         </Card.Description>
-      </Card>
-    </Container>
+      </Stack>
+    </Card>
   );
 }

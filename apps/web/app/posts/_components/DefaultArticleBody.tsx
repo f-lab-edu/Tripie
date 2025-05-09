@@ -1,13 +1,13 @@
 'use client';
 
-import { Divider } from '@tripie-pyotato/design-system/@components';
+import { Divider } from '@tripie-pyotato/design-system/@core';
 import ArticleImages from 'app/posts/_components/Elements/ArticleImages';
 import ArticleEmbedded from 'app/posts/_components/Elements/Embedded';
 import ArticleHeading from 'app/posts/_components/Elements/Header';
 import ArticleItinerary from 'app/posts/_components/Elements/Itinerary';
 import ArticleLink from 'app/posts/_components/Elements/Link';
 import ArticleNote from 'app/posts/_components/Elements/Note';
-import ArticlePois from 'app/posts/_components/Elements/Pois';
+import PoiList from 'app/posts/_components/Elements/Pois/PoiList';
 import ArticleText from 'app/posts/_components/Elements/Text';
 import { BodyItemProps } from 'models/Props';
 
@@ -53,7 +53,7 @@ const DefaultArticleBody = ({
       case 'itinerary':
         return <ArticleItinerary item={item} key={index + JSON.stringify(item)} />;
       case 'pois':
-        return <ArticlePois item={item} key={index + JSON.stringify(item)} />;
+        return <PoiList item={item} key={index + JSON.stringify(item)} />;
       default:
         return null;
     }

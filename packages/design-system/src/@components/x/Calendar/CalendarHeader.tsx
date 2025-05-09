@@ -1,7 +1,7 @@
+import Divider from '@core/data-display/Divider/Divider';
 import { RefAttributes } from 'react';
 import 'react-calendar/dist/Calendar.css';
 import { CalendarProps, ReactCalendar } from '../../../wrappers';
-import Divider from '../../data-display/Divider/Divider';
 
 import TripieContainer from '@core/layout/TripieContainer';
 import './calendar-custom.scss';

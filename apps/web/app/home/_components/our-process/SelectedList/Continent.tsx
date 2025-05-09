@@ -25,7 +25,7 @@ const ContinentSelect = () => {
         margin="sm"
         gridRepeat={{
           'wrap-md': 4,
-          'wrap-xl': 6,
+          // 'wrap-xl': 6,
         }}
       >
         {Object.keys(CONTINENTS).map(continent => (

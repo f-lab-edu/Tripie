@@ -1,6 +1,6 @@
 'use client';
 import { TextUnderLineAnimation, Link as TripieLink } from '@tripie-pyotato/design-system/@components';
-import { Stack } from '@tripie-pyotato/design-system/@core';
+import { Stack, Text } from '@tripie-pyotato/design-system/@core';
 
 import useFilterLink from 'hooks/useFilterLink';
 
@@ -23,7 +23,7 @@ const ArticleLink = ({ item, regionId, dataUrl }: { item: LinkProps; regionId: s
       {links.map(({ label, href }) => (
         <TextUnderLineAnimation key={href}>
           <TripieLink size="small" href={href}>
-            {label}
+            <Text.Accented bold={true}>{label}</Text.Accented>
           </TripieLink>
         </TextUnderLineAnimation>
       ))}

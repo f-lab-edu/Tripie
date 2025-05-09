@@ -12,12 +12,11 @@
   @include background-static;
   border: 0;
   opacity: 0.2;
-  // z-index: 0;
+
   z-index: z(base);
 }
 
 @mixin noise-contents-contrast {
-  // z-index: 2;
   z-index: z-index(mask);
 }
 
@@ -41,7 +40,6 @@
   &:not(.with-description) {
     background-color: $theme-500;
   }
-  // z-index: 1;
   z-index: z(masked);
 }
 
@@ -57,9 +55,9 @@
   @media (max-width: 450) {
     min-width: 100%;
   }
-  & {
-    height: 100%;
-  }
+  // & {
+  height: 100%;
+  // }
 }
 
 .noise {

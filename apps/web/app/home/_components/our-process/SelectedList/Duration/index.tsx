@@ -1,7 +1,7 @@
 'use client';
 
 import { AnimatedText, Calendar, Icon } from '@tripie-pyotato/design-system/@components';
-import { Container } from '@tripie-pyotato/design-system/@core';
+import { Container, Stack } from '@tripie-pyotato/design-system/@core';
 import { useCalendar } from '@tripie-pyotato/design-system/@hooks';
 
 import useServerTime from 'hooks/useServerTime';
@@ -32,12 +32,10 @@ const DurationSelect = () => {
 
   if (today == null || selected == null) {
     return (
-      <Container className={cx('loading-wrap')} margin="none" alignItems="center" justifyContent="center">
-        <Container margin="none" gap={'sm'} alignItems="center" justifyContent="center" className={cx('text-wrap')}>
-          <Icon.Loading />
-          <AnimatedText.Jump>Loading...</AnimatedText.Jump>
-        </Container>
-      </Container>
+      <Stack className={cx('loading-wrap')} margin="none" alignItems="center" justifyContent="center">
+        <Icon.Loading />
+        <AnimatedText.Jump>Loading...</AnimatedText.Jump>
+      </Stack>
     );
   }
 

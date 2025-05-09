@@ -1,5 +1,5 @@
 import { MotionSlideUp } from '@tripie-pyotato/design-system/@components';
-import { Background, Container, Headings, Text } from '@tripie-pyotato/design-system/@core';
+import { Background, Container, Headings, Stack, Text } from '@tripie-pyotato/design-system/@core';
 
 import CitySelect from './SelectedList/City';
 import CompanionSelect from './SelectedList/Companion';
@@ -63,11 +63,16 @@ export default function OurProcess() {
           </Headings.H2>
         </Container>
       </MotionSlideUp>
-      <Container margin="none">
+      {/* <Container margin="none">
         {cards.map(({ label, content, description }, index) => (
           <OurProcessCard key={label} label={label} content={content} description={description} index={index} />
         ))}
-      </Container>
+      </Container> */}
+      <Stack margin="none" gap="l" display="grid" gridRepeat={{ 'wrap-lg': 2 }} cols={1} stretchGridLastChild={true}>
+        {cards.map(({ label, content, description }, index) => (
+          <OurProcessCard key={label} label={label} content={content} description={description} index={index} />
+        ))}
+      </Stack>
     </Background>
   );
 }

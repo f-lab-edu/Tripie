@@ -76,7 +76,7 @@ $grid-template-map: (1, 2, 4, 5, 6, 8, 10, 12);
     @include grid-row-template($key);
   }
   @if ($key%2==0) {
-    .grid {
+    .grid.stretch-grid-last-child {
       & > div:last-child {
         grid-column: 1 / -1;
       }

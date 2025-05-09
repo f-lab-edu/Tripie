@@ -22,7 +22,7 @@ const TravelStyleSelect = () => {
         cols={2}
         gridRepeat={{
           'wrap-md': 4,
-          'wrap-xl': 6,
+          // 'wrap-xl': 6,
         }}
       >
         {Object.values(PREFERENCE_LIST).map((tagName, index) => (

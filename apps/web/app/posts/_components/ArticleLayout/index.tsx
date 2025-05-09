@@ -25,8 +25,8 @@ const ArticleLayout = ({
         </Container>
         <Container margin="m" applyMargin="all" className={cx('img-container')}>
           {thumbnail}
-          {articleBody}
         </Container>
+        <Container>{articleBody}</Container>
       </Card.Content>
     </Container>
   );

@@ -19,9 +19,10 @@ export default function OurService() {
         display="grid"
         margin="l"
         applyMargin="top-bottom"
-        gap="default"
+        gap="l"
         gridWrapOn={{ 'wrap-sm': 1 }}
         justifyContent="center"
+        stretchGridLastChild={true}
       >
         <ServiceList />
       </Stack>

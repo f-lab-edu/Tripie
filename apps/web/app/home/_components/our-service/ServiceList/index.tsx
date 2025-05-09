@@ -1,7 +1,7 @@
 'use client';
 
 import { Card, Globe } from '@tripie-pyotato/design-system/@components';
-import { Container, Headings, Text } from '@tripie-pyotato/design-system/@core';
+import { Container, Stack, Text } from '@tripie-pyotato/design-system/@core';
 
 import { classNames } from 'wrapper';
 import RegionInfo from '../RegionInfo';
@@ -19,7 +19,7 @@ const serviceList = [
       </Card.Content>
     ),
     description:
-      'Basic 플랜으로 ai가 추천해주는 맛보기 일정을 이용해보세요!\n Pro 플랜으로 새 일정을 하루에 최대 X개 추천받아보실 수 있습니다.',
+      'Basic 플랜으로 ai가 추천해주는 맛보기 일정을 이용해보세요!\nPro 플랜으로 새 일정을 하루에 최대 X개 추천받아보실 수 있습니다.',
   },
   {
     label: 'AI 추천 맞춤 일정',
@@ -46,19 +46,21 @@ const serviceList = [
 export default function ServiceList() {
   return serviceList.map(({ label, content, description }) => (
     <Card key={label}>
-      {content}
-      <Card.Description>
-        {label != null ? (
-          <Container applyMargin="top-bottom" margin="sm">
-            <Headings.H3>{label}</Headings.H3>
-          </Container>
-        ) : null}
-        <Container margin="none" className={cx('description-wrap')}>
+      <Stack direction="column" gap="default" alignItems="start" margin="none" justifyContent="start">
+        <Card.Description>{content}</Card.Description>
+        <Card.Description>
+          {label != null ? (
+            <Text size="h3" bold={true}>
+              {label}
+            </Text>
+          ) : null}
+        </Card.Description>
+        <Card.Description>
           <Text margin="none" preserveWhiteSpace="m" alignItems={'start'}>
             {description}
           </Text>
-        </Container>
-      </Card.Description>
+        </Card.Description>
+      </Stack>
     </Card>
   ));
 }

@@ -1,5 +1,5 @@
-import { Divider, Icon, Link } from '@tripie-pyotato/design-system/@components';
-import { Container, Text } from '@tripie-pyotato/design-system/@core';
+import { Icon, Link } from '@tripie-pyotato/design-system/@components';
+import { Container, Divider, Text } from '@tripie-pyotato/design-system/@core';
 import { ReactNode } from 'react';
 
 const Contact = ({

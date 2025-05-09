@@ -1,7 +1,7 @@
 'use client';
 import { classNames } from 'wrapper';
 
-import { Headings, List, Text } from '@tripie-pyotato/design-system/@core';
+import { Headings, List, Stack, Text } from '@tripie-pyotato/design-system/@core';
 
 import Style from './tab-list.module.scss';
 
@@ -19,19 +19,21 @@ const TabList = ({ trip, scrollIntoView }: { trip: TripContent; scrollIntoView?:
         </Headings.H3>
       </List.Item>
       <List.Item>{trip.date}</List.Item>
-      <List.Item className={cx('trip-item')}>
-        {trip.activities.map(({ activity, comments, label, place }, index) => (
-          <TabCard
-            label={label}
-            trip={trip}
-            index={index}
-            activity={activity}
-            comments={comments}
-            key={label + index}
-            place={place}
-            scrollIntoView={scrollIntoView}
-          />
-        ))}
+      <List.Item>
+        <Stack direction="column" gap="l" margin="none">
+          {trip.activities.map(({ activity, comments, label, place }, index) => (
+            <TabCard
+              label={label}
+              trip={trip}
+              index={index}
+              activity={activity}
+              comments={comments}
+              key={label + index}
+              place={place}
+              scrollIntoView={scrollIntoView}
+            />
+          ))}
+        </Stack>
       </List.Item>
     </List>
   );

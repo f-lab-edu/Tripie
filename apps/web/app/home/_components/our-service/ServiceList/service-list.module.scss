@@ -2,7 +2,7 @@
 @use 'variables' as *;
 
 .content-wrap {
-  height: 13rem;
+  height: 12rem;
 }
 
 .info-wrap {
@@ -10,8 +10,4 @@
   & div {
     @include visible-scroll(false);
   }
-}
-
-.description-wrap {
-  height: 3rem;
 }

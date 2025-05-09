@@ -27,6 +27,7 @@ export type StackProps = {
     // GridWrapOn 중 하나의 key만
     [K in GridWrapOn]: { [P in K]: number };
   }[GridWrapOn];
+  stretchGridLastChild?: boolean;
   gridRepeat?: Partial<Record<GridWrapOn, number>>;
 } & Partial<TripieContainerProps>;
 
@@ -45,6 +46,7 @@ const Stack = ({
   applyPadding = 'all',
   preserveWhiteSpace = 'none',
   refs,
+  stretchGridLastChild = false,
   gap = 'none',
   justifyContent = 'none',
   withBorder = false,
@@ -84,6 +86,7 @@ const Stack = ({
         `flex-${flexWrapOn}`,
         `direction-${direction}`,
         display === 'grid' ? `grid` : '',
+        stretchGridLastChild ? 'stretch-grid-last-child' : '',
         display === 'grid' ? `grid-template-rows-${rows}` : '',
         display === 'grid' ? `grid-template-cols-${cols}` : '',
         gridWrapMax,

@@ -31,7 +31,9 @@ const ArticleBody = ({ source, dataUrl }: { source: AttractionArticle['source'];
         }}
         dataUrl={dataUrl}
       />
-      <BusinessHours readableBusinessHours={source?.readableBusinessHours} />
+      {source?.readableBusinessHours == null ? null : (
+        <BusinessHours readableBusinessHours={source?.readableBusinessHours} />
+      )}
       <FeeDescription feeComment={source?.feeComment} />
       <TipDescription tips={source?.tips} />
       {source.externalLinks.length === 0 ? null : <ExternalLinks externalLinks={source.externalLinks} />}

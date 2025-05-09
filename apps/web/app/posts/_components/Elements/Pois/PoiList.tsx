@@ -9,7 +9,7 @@ import { MapProvider } from 'react-map-gl/dist/esm/exports-maplibre';
 import AwsMap from '../TripieMap';
 import PoiCard from './PoiCard';
 
-const ArticlePois = ({ item }: { item: PoisProps }) => {
+const PoiList = ({ item }: { item: PoisProps }) => {
   const { pois } = item.value;
   const cardRefs = useRef<Array<React.RefObject<HTMLDivElement>>>(pois.map(() => createRef()));
   const { center, current, setCurrent, coordinates } = usePoi({ pois });
@@ -21,6 +21,7 @@ const ArticlePois = ({ item }: { item: PoisProps }) => {
           <Carousel.Controlled>
             {pois.map((poi, index) => (
               <PoiCard
+                length={pois.length}
                 action={() => setCurrent(`0-${index}`)}
                 poi={poi}
                 cardRef={cardRefs.current[index]}
@@ -38,4 +39,4 @@ const ArticlePois = ({ item }: { item: PoisProps }) => {
   );
 };
 
-export default ArticlePois;
+export default PoiList;

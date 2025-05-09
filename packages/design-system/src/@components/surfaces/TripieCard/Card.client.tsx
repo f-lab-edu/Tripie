@@ -1,8 +1,9 @@
+// https://mui.com/material-ui/react-card/
 import { MutableRefObject, ReactNode, RefObject } from 'react';
 import { SHINE_VARIANT } from '../../../shared/motion-variants';
 import { Motion, classNames } from '../../../wrappers';
 
-import Divider from '../../data-display/Divider';
+import Divider from '@core/data-display/Divider/Divider';
 import MotionSlideUp from '../../x/MotionSlideUp/MotionSlideUp.client';
 
 import { Text, TripieImage } from '@core';

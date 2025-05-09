@@ -3,8 +3,8 @@ import { classNames, Motion } from '../../../wrappers';
 
 import { createContext, ReactNode, useContext, useMemo } from 'react';
 
+import Divider from '@core/data-display/Divider/Divider';
 import { useCycle } from '../../../@hooks';
-import Divider from '../../data-display/Divider/Divider';
 
 import { TripieContainerProps } from '@core/layout/TripieContainer';
 import Icon, { IconProps } from '../../data-display/TripieIcon/Icon.client';

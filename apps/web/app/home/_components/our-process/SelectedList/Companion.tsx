@@ -19,7 +19,7 @@ const CompanionSelect = () => {
         cols={2}
         gridRepeat={{
           'wrap-md': 4,
-          'wrap-xl': 6,
+          // 'wrap-xl': 6,
         }}
         gap="l"
         applyMargin="bottom"
