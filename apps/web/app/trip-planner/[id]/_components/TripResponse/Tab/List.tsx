@@ -1,14 +1,9 @@
 'use client';
-import { classNames } from 'wrapper';
 
 import { Headings, List, Stack, Text } from '@tripie-pyotato/design-system/@core';
 
-import Style from './tab-list.module.scss';
-
 import { TripContent } from 'models/Aws';
-import TabCard from '../Card/TabCard';
-
-const cx = classNames.bind(Style);
+import TabCard from './Card/TabCard';
 
 const TabList = ({ trip, scrollIntoView }: { trip: TripContent; scrollIntoView?: boolean }) => {
   return (
