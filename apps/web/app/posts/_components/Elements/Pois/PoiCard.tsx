@@ -48,6 +48,7 @@ const PoiCard = ({
         src={poi.source.image?.sizes.full.url}
         alt={alt}
         imgSize={'card'}
+        aspectRatio={'photo'}
       >
         <TripieCard.Header applyMargin="left-right" size="tiny">
           <Text.Accented isButtonText={true}>{poi.source.areas[0]?.name ?? poi.source.areas[0]?.name}</Text.Accented>

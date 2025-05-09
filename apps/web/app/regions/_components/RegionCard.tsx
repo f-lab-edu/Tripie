@@ -19,6 +19,7 @@ const RegionCard = ({ article }: { article: RegionArticleInfo }) => {
         cover={true}
         sizes={'full'}
         imgSize={'full'}
+        aspectRatio={'square'}
         src={article.source.image.sizes.small_square.url}
         alt={alt}
       >

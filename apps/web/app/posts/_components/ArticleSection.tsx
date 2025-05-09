@@ -25,7 +25,15 @@ const ArticleSection = ({
   return (
     <ArticleLayout
       title={<ArticleTitle names={title} />}
-      thumbnail={<TripieImage src={imgSrc} alt={`${imgAlt}의 썸네일`} blurDataURL={blurredThumbnail} sizes="large" />}
+      thumbnail={
+        <TripieImage
+          aspectRatio={'cinematic'}
+          src={imgSrc}
+          alt={`${imgAlt}의 썸네일`}
+          blurDataURL={blurredThumbnail}
+          sizes="large"
+        />
+      }
       articleBody={<ArticleBody items={body} regionId={postId} dataUrl={id} />}
     />
   );

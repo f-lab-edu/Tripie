@@ -23,7 +23,15 @@ const AttractionLayout = ({
   return (
     <ArticleLayout
       title={<ArticleTitle names={title} />}
-      thumbnail={<TripieImage blurDataURL={blurredThumbnail} src={imgSrc} sizes="large" alt={`${imgAlt}의 썸네일`} />}
+      thumbnail={
+        <TripieImage
+          aspectRatio={'cinematic'}
+          blurDataURL={blurredThumbnail}
+          src={imgSrc}
+          sizes="large"
+          alt={`${imgAlt}의 썸네일`}
+        />
+      }
       articleBody={<ArticleBody source={body} dataUrl={id} />}
     />
   );

@@ -63,6 +63,7 @@ const CardWithImage = ({
   cover = false,
   sizes = 'card',
   imgSize = 'card',
+  aspectRatio,
   ...args
 }: CardWithImageProps) => {
   return (
@@ -70,10 +71,10 @@ const CardWithImage = ({
       <Stack zIndex="default" margin="none" direction="column" className={cx('inner-wrap', className)}>
         <TripieContainer margin="none" className={cx('img-wrap')}>
           {cover ? (
-            <TripieImage sizes={imgSize} src={src} alt={alt} withBorder={false} />
+            <TripieImage aspectRatio={aspectRatio} sizes={imgSize} src={src} alt={alt} withBorder={false} />
           ) : (
             <TripieContainer>
-              <TripieImage sizes={imgSize} src={src} alt={alt} withBorder={true} />
+              <TripieImage aspectRatio={aspectRatio} sizes={imgSize} src={src} alt={alt} withBorder={true} />
             </TripieContainer>
           )}
         </TripieContainer>
@@ -90,7 +91,7 @@ const CardWithImage = ({
 const Card = ({ children, className, withNoise = true, sizes = 'card', ...args }: CardProps) => {
   return (
     <TripieContainer withBorder={true} {...args} className={cx('outer-wrap', `card-size-${sizes}`, className)}>
-      <Stack zIndex="default" {...args} direction="column" className={cx('inner-wrap', className)}>
+      <Stack {...args} zIndex="default" direction="column" className={cx('inner-wrap', className)}>
         {children}
       </Stack>
       {withNoise ? (

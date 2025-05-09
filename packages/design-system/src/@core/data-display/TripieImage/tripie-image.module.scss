@@ -71,3 +71,25 @@
 .large {
   height: 24rem;
 }
+
+$image-ratio-map: (
+  square: 1/1,
+  // 	Avatars, thumbnails, product images
+  standard: 4/3,
+  // 	Blog thumbnails, classic photos
+  photo: 3/2,
+  // Print photography, gallery previews
+  landscape: 16/9,
+  // Videos, hero banners, featured cards
+  banner: 2/1,
+  // Wide hero images, header visuals
+  portrait: 9/16,
+  // 	Mobile stories, reels, TikTok/Shorts
+  cinematic: 21/9, // Cinematic or ultra-wide hero sections
+);
+
+@each $key, $value in $image-ratio-map {
+  .image-ratio-#{$key} {
+    aspect-ratio: $value;
+  }
+}

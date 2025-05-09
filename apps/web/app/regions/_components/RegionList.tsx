@@ -13,14 +13,14 @@ export default function RegionList({
   data: RegionArticleData['data'];
 }>) {
   return (
-    // <List.Grid>
-    //   {data == null ? (
-    //     <>지역 정보가 없습니다.</>
-    //   ) : (
-    //     data.map(article => <RegionCard article={article} key={article.id} />)
-    //   )}
-    // </List.Grid>
-    <Stack cols={4} gridWrapOn={{ 'wrap-sm': 2, 'wrap-md': 6 }} display="grid" gap="l" applyMargin="top-bottom">
+    <Stack
+      cols={6}
+      gridWrapOn={{ 'wrap-md': 2 }}
+      gridRepeat={{ 'wrap-sm': 4, 'wrap-xl': 6 }}
+      display="grid"
+      gap="l"
+      applyMargin="top-bottom"
+    >
       {data == null ? (
         <>지역 정보가 없습니다.</>
       ) : (
