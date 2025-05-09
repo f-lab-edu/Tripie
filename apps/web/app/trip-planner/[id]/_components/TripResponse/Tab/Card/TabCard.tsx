@@ -49,7 +49,6 @@ const TabCard = ({
   return (
     <AnimatedCard
       key={activity}
-      // className={cx('trip-activity', 'card-item', current === `${trip.day}-${index}` ? 'selected' : null)}
       selected={current === `${trip.day - 1}-${index}`}
       onClick={() => {
         cycle(`${trip.day - 1}-${index}`);
@@ -62,9 +61,9 @@ const TabCard = ({
             <Text.Accented isButtonText={true}>{activity}</Text.Accented>
           </Stack>
         </TripieCard.Header>
-        <TripieCard.Divider />
-        <TripieCard.Content>{comments}</TripieCard.Content>
-        <TripieCard.Content applyMargin="left-right-bottom">
+        <TripieCard.Divider margin="m" />
+        <TripieCard.Content margin="m">{comments}</TripieCard.Content>
+        <TripieCard.Content applyMargin="left-right-bottom" margin="m">
           <TextUnderLineAnimation
             // 새로운 탭에 구글 검색
             onClick={() => openNewTab(`https://www.google.com/search?q=@${place}`)}
