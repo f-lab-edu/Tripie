@@ -48,7 +48,11 @@ const BusinessHourInfo = ({
   }[];
 }) => {
   if (readableBusinessHours.length === 0) {
-    return <Text.Accented bold={isToday}>휴무일</Text.Accented>;
+    return (
+      <Text bold={isToday} crossOut={true}>
+        휴무일
+      </Text>
+    );
   }
   if (isToday) {
     return (
