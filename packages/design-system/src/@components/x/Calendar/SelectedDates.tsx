@@ -1,15 +1,12 @@
 'use client';
-import { classNames } from '../../../../wrappers';
-import AnimatedText from '../../../data-display/AnimatedText/AnimatedText';
+import AnimatedText from '../../data-display/AnimatedText/AnimatedText';
 
-import { Card } from '@components/surfaces';
-import { Headings } from '@core';
-import TripieContainer from '@core/layout/TripieContainer';
 import { useMemo } from 'react';
 import { LooseValue } from 'wrappers/react-calendar';
-import Style from './selected-dates.module.scss';
-
-const cx = classNames.bind(Style);
+import Text from '../../../@core/data-display/Text';
+import Stack from '../../../@core/layout/Stack';
+import TripieContainer from '../../../@core/layout/TripieContainer';
+import Card from '../../surfaces/Card';
 
 type SelectedDateProps = { duration: { start: string; end: string } };
 
@@ -36,14 +33,16 @@ const DateSection = ({ date, selected }: { date: keyof SelectedDateProps['durati
 
   return (
     <>
-      <Headings.H4>{date === 'start' ? '시작' : '끝'}</Headings.H4>
+      <Text size={'h4'} bold={true}>
+        {date === 'start' ? '시작' : '끝'}
+      </Text>
       <TripieContainer margin="sm" applyMargin="top">
         {duration[date] === '' ? (
-          <TripieContainer margin="none" className={cx('not-selected')}>
+          <Text.Accented>
             <AnimatedText.Jump>날짜를 선택해주세요!</AnimatedText.Jump>
-          </TripieContainer>
+          </Text.Accented>
         ) : (
-          duration[date]
+          <Text size="text">{duration[date]}</Text>
         )}
       </TripieContainer>
     </>
@@ -52,14 +51,14 @@ const DateSection = ({ date, selected }: { date: keyof SelectedDateProps['durati
 
 const SelectedDates = ({ selected }: { selected: LooseValue }) => {
   return (
-    <TripieContainer margin="none" className={cx('card-wrap')}>
-      <Card.Content>
+    <Stack margin="none" gap="default" alignItems="stretch">
+      <Card.Description padding="m">
         <DateSection date={'start'} selected={selected} />
-      </Card.Content>
-      <Card.Content>
+      </Card.Description>
+      <Card.Description padding="m">
         <DateSection date={'end'} selected={selected} />
-      </Card.Content>
-    </TripieContainer>
+      </Card.Description>
+    </Stack>
   );
 };
 
