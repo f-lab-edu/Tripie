@@ -26,6 +26,40 @@ const getArticleDetail = async <T extends 'article' | 'attraction' | 'retaurant'
       API.BASE_URL + API.BASE + API.BLUR_IMAGE + `?url=${data?.metadataContents?.image?.sizes?.full?.url}`
     ).then(v => v.json());
 
+    // const dynamicBlurDataUrl = await Promise.all(
+    //   data?.body.map(async v => {
+    //     if (v.type === 'images') {
+    //       return {
+    //         ...v,
+    //         value: {
+    //           images: await Promise.all(
+    //             v.value.images.map(async image => {
+    //               const imageUrl = image?.sizes?.full?.url;
+    //               if (imageUrl != null && !imageUrl?.startsWith('https://res.cloudinary.com/dbzzletpw/image/upload')) {
+    //   await api
+    //     .post(`cloudinary`, {
+    //       json: {
+    //         imageUrl,
+    //       },
+    //     })
+    //     .json();
+    // }
+
+    //               return {
+    //                 ...image,
+    //                 blurData: await fetch(
+    //                   `${API.BASE_URL}${API.BASE}${API.BLUR_IMAGE}?url=${image.sizes.small_square?.url}`
+    //                 ).then(res => res.json()),
+    //               };
+    //             })
+    //           ),
+    //         },
+    //       };
+    //     }
+    //     return v;
+    //   })
+    // );
+
     const dynamicBlurDataUrl = await Promise.all(
       data?.body.map(async v => {
         if (v.type === 'images') {
@@ -34,7 +68,17 @@ const getArticleDetail = async <T extends 'article' | 'attraction' | 'retaurant'
             value: {
               images: await Promise.all(
                 v.value.images.map(async image => {
-                  // await addImage(image?.sizes.full.url);
+                  const imageUrl = image?.sizes?.full?.url;
+                  // if (imageUrl != null && !imageUrl?.startsWith('https://res.cloudinary.com/dbzzletpw/image/upload')) {
+                  // await api
+                  //   .post(`cloudinary`, {
+                  //     json: {
+                  //       imageUrl,
+                  //     },
+                  //   })
+                  //   .json();
+                  // }
+
                   return {
                     ...image,
                     blurData: await fetch(
@@ -71,7 +115,16 @@ const getArticleDetail = async <T extends 'article' | 'attraction' | 'retaurant'
         ...data.source,
         recommendations: await Promise.all(
           data.source.recommendations.map(async recommendation => {
-            // await addImage(recommendation.image.sizes?.full.url);
+            const imageUrl = recommendation.image.sizes?.full.url;
+            // if (imageUrl != null && !imageUrl?.startsWith('https://res.cloudinary.com/dbzzletpw/image/upload')) {
+            //   await api
+            //     .post(`cloudinary`, {
+            //       json: {
+            //         imageUrl,
+            //       },
+            //     })
+            //     .json();
+            // }
             return {
               ...recommendation,
               image: {
@@ -85,7 +138,16 @@ const getArticleDetail = async <T extends 'article' | 'attraction' | 'retaurant'
         ),
         externalLinks: await Promise.all(
           data.source?.externalLinks.map(async externalLink => {
-            // await addImage(externalLink.imageUrl);
+            const imageUrl = externalLink?.imageUrl;
+            // if (imageUrl != null && !imageUrl?.startsWith('https://res.cloudinary.com/dbzzletpw/image/upload')) {
+            //   await api
+            //     .post(`cloudinary`, {
+            //       json: {
+            //         imageUrl,
+            //       },
+            //     })
+            //     .json();
+            // }
             return {
               ...externalLink,
               blurData: await fetch(API.BASE_URL + API.BASE + API.BLUR_IMAGE + `?url=${externalLink.imageUrl}`).then(

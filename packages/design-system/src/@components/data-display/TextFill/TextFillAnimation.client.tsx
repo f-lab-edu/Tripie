@@ -4,8 +4,7 @@ import { classNames, Motion, MotionProps } from '../../../wrappers';
 import { InView } from 'react-intersection-observer';
 import { COLORS } from '../../../shared/colors';
 
-import { CustomAnimationProps } from '../../surfaces/TripieCard';
-
+import { CustomAnimationProps } from '@components/surfaces/AnimatedCard';
 import TripieContainer from '@core/layout/TripieContainer';
 import Text, { TextProps } from '../../../@core/data-display/Text';
 import Style from './text-fill-animation.module.scss';

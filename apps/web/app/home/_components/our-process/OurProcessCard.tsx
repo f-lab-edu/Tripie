@@ -5,10 +5,12 @@ import { Process } from './OurProcess';
 
 export default function OurProcessCard({ content, description, label, index }: Readonly<Process>) {
   return (
-    <Card>
+    <Card sizes={'full'} margin="none">
       <Stack direction="column" margin="none" gap="l" justifyContent="start" alignItems="start">
-        <Card.Content>{content}</Card.Content>
-        <Card.Description>
+        <Card.Description margin="none" padding={'m'}>
+          {content}
+        </Card.Description>
+        <Card.Content padding="none">
           {label != null ? (
             <Headings.H3>
               {index != null ? (
@@ -18,7 +20,7 @@ export default function OurProcessCard({ content, description, label, index }: R
             </Headings.H3>
           ) : null}
           <Text preserveWhiteSpace="xl">{description}</Text>
-        </Card.Description>
+        </Card.Content>
       </Stack>
     </Card>
   );

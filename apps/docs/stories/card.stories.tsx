@@ -38,9 +38,9 @@ export const ClickableCardContent: Story = {
   render: () => <Card.ClickableContent>ClickableContent Card Content</Card.ClickableContent>,
 };
 
-export const CardDescription: Story = {
+export const Content: Story = {
   name: 'Card.Description',
-  render: () => <Card.Description>Card Description</Card.Description>,
+  render: () => <Card.Content>Card Description</Card.Content>,
 };
 
 export const CardWithCoverImage: Story = {

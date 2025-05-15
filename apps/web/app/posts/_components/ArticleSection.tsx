@@ -1,5 +1,7 @@
-import { TripieImage } from '@tripie-pyotato/design-system/@core';
+// import { TripieImage } from '@tripie-pyotato/design-system/@core';
 
+'use client';
+import { BlurImageOnLoad } from '@tripie-pyotato/design-system/@components';
 import ArticleLayout from 'app/posts/_components/ArticleLayout';
 import ArticleTitle from 'app/posts/_components/Elements/ArticleTitle';
 import { BodyItemProps } from 'models/Props';
@@ -8,7 +10,6 @@ import ArticleBody from './DefaultArticleBody';
 const ArticleSection = ({
   postId,
   id,
-  blurredThumbnail,
   title,
   imgSrc,
   imgAlt,
@@ -19,18 +20,17 @@ const ArticleSection = ({
   title: string;
   imgSrc?: string;
   imgAlt?: string;
-  blurredThumbnail?: string;
   body: Array<BodyItemProps>;
 }) => {
   return (
     <ArticleLayout
       title={<ArticleTitle names={title} />}
       thumbnail={
-        <TripieImage
+        <BlurImageOnLoad
           aspectRatio={'cinematic'}
           src={imgSrc}
           alt={`${imgAlt}의 썸네일`}
-          blurDataURL={blurredThumbnail}
+          withBorder={true}
           sizes="large"
         />
       }

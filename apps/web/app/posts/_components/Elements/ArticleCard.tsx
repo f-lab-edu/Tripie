@@ -1,6 +1,6 @@
 'use client';
-import { Carousel } from '@tripie-pyotato/design-system/@components';
-import { Divider, ImageSizes, TripieCard, TripieImage } from '@tripie-pyotato/design-system/@core';
+import { BlurImageOnLoad, Carousel } from '@tripie-pyotato/design-system/@components';
+import { Divider, ImageSizes, TripieCard } from '@tripie-pyotato/design-system/@core';
 
 import ArticleHeading from './Header';
 import ArticleLink from './Link';
@@ -29,12 +29,11 @@ const ArticleCard = ({
             const images = embeddedItem.value?.images
               ? embeddedItem.value.images
               : (embeddedItem.value as unknown as ImageProps['value']['images']);
-
             return (
               <Carousel
                 key={JSON.stringify(images)}
-                items={images?.map(({ sizes, sourceUrl, blurData }, imgIndex) => (
-                  <TripieImage.WithSourceUrl
+                items={images?.map(({ sizes, sourceUrl }, imgIndex) => (
+                  <BlurImageOnLoad.WithSourceUrl
                     aspectRatio={'photo'}
                     sourceUrl={sourceUrl}
                     src={sizes.full.url}
@@ -42,7 +41,6 @@ const ArticleCard = ({
                     key={`${index}-${sizes.full.url}-${imgIndex}`}
                     withBorder={true}
                     sizes={'card'}
-                    blurDataURL={blurData?.data}
                   />
                 ))}
               />

@@ -18,7 +18,7 @@ const RegionCard = ({ article }: { article: RegionArticleInfo }) => {
         sizes={'full'}
         imgSize={'full'}
         aspectRatio={'square'}
-        src={article.source.image.sizes.small_square.url}
+        src={article.source.image.sizes.full.url}
         alt={alt}
       >
         <Card.Header size={'large'} bold={true}>

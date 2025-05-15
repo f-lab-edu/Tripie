@@ -2,8 +2,7 @@
 import { classNames } from '../../../../wrappers';
 import AnimatedText from '../../../data-display/AnimatedText/AnimatedText';
 
-import Card from '../../../surfaces/TripieCard/Card.client';
-
+import { Card } from '@components/surfaces';
 import { Headings } from '@core';
 import TripieContainer from '@core/layout/TripieContainer';
 import { useMemo } from 'react';

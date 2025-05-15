@@ -10,9 +10,21 @@
   z-index: z(mask);
   color: $theme-50;
 }
+
+// .top {
+// padding-bottom: 0.2rem;
+// padding-bottom: 0.5rem;
+
+// @media (max-width: breakpoint('sm')) {
+//   padding-top: 0.8rem;
+// }
+// @media (min-width: breakpoint('md')) {
+//   padding-top: 0.5rem;
+// }
+// }
+
 .gap {
   display: inline-block;
-  padding-top: 0.5rem;
 }
 
 .button {

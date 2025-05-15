@@ -2,10 +2,13 @@
 @use 'mixins' as *;
 
 .list-wrap {
-  height: 70vh;
+  height: 50rem;
+  @include scroll;
+  @include visible-scroll(false);
 }
 
 .link-wrap {
   display: inline-flex;
   align-items: center;
+  overflow: hidden;
 }

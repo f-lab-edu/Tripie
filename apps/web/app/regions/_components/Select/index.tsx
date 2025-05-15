@@ -1,6 +1,6 @@
 'use client';
 
-import { AnimatedButton, Card, Carousel } from '@tripie-pyotato/design-system/@components';
+import { AnimatedButton, Carousel } from '@tripie-pyotato/design-system/@components';
 import { Container, Divider, Stack } from '@tripie-pyotato/design-system/@core';
 import { classNames } from 'wrapper';
 
@@ -42,48 +42,45 @@ const RegionSelect = ({ selected, selectedRegion }: { selected: string; selected
   };
 
   return (
-    <Container margin="none" className={cx('selected-wrap')}>
-      <Container applyMargin="top" margin="sm">
-        <Card.Content className={cx('card-wrap')}>
-          <Carousel.Controlled>
-            <Stack applyMargin="top-bottom" gap="l" justifyContent="start">
-              {Object.keys(TRIPIE_REGION_BY_LOCATION).map(place => (
-                <AnimatedButton
-                  selected={selected === place}
-                  withBorder={true}
-                  key={place}
-                  className={cx('place-chip')}
-                  withMinWidth={true}
-                  onClick={() => handleCategorySelect(place)}
-                >
-                  {place}
-                </AnimatedButton>
-              ))}
-            </Stack>
-          </Carousel.Controlled>
-          <Divider />
-          <Stack
-            display="grid"
-            margin="m"
-            className={cx('options')}
-            cols={2}
-            gridRepeat={{ 'wrap-sm': 4 }}
-            gap="l"
-            applyMargin="top"
-          >
-            {TRIPIE_REGION_BY_LOCATION[selected as keyof typeof TRIPIE_REGION_BY_LOCATION].map(place => (
-              <AnimatedButton
-                key={place}
-                selected={TRIPIE_REGION_IDS[selectedRegion as keyof typeof TRIPIE_REGION_IDS] === place}
-                withBorder={true}
-                isFullSize={true}
-                onClick={() => handleRegionSelect(place)}
-              >
-                {place}
-              </AnimatedButton>
-            ))}
-          </Stack>
-        </Card.Content>
+    <Container withBorder={true} padding={'m'} margin="sm" applyMargin="top-bottom">
+      <Carousel.Controlled>
+        <Stack applyMargin="top-bottom" gap="l" justifyContent="start">
+          {Object.keys(TRIPIE_REGION_BY_LOCATION).map(place => (
+            <AnimatedButton
+              selected={selected === place}
+              withBorder={true}
+              key={place}
+              withMinWidth={true}
+              onClick={() => handleCategorySelect(place)}
+            >
+              {place}
+            </AnimatedButton>
+          ))}
+        </Stack>
+      </Carousel.Controlled>
+      <Divider />
+      <Container margin="none" padding="none">
+        <Stack
+          display="grid"
+          margin="m"
+          className={cx('options')}
+          cols={2}
+          gridRepeat={{ 'wrap-sm': 4 }}
+          gap="l"
+          applyMargin="top"
+        >
+          {TRIPIE_REGION_BY_LOCATION[selected as keyof typeof TRIPIE_REGION_BY_LOCATION].map(place => (
+            <AnimatedButton
+              key={place}
+              selected={TRIPIE_REGION_IDS[selectedRegion as keyof typeof TRIPIE_REGION_IDS] === place}
+              withBorder={true}
+              isFullSize={true}
+              onClick={() => handleRegionSelect(place)}
+            >
+              {place}
+            </AnimatedButton>
+          ))}
+        </Stack>
       </Container>
     </Container>
   );

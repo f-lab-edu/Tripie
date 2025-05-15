@@ -1,0 +1,121 @@
+import { ImageProps, Text } from '@core';
+import TripieContainer from '@core/layout/TripieContainer';
+import { useState } from 'react';
+import { classNames, Motion } from '../../../wrappers';
+import Style from './image.module.scss';
+
+const cx = classNames.bind(Style);
+
+const BlurImageOnLoad = ({
+  src,
+  refs,
+  loading,
+  sizes,
+  withBorder,
+  aspectRatio,
+  className,
+  alt,
+  ...args
+}: ImageProps) => {
+  const [loaded, setLoaded] = useState(false);
+
+  return (
+    // <TripieContainer
+    //   margin="none"
+    //   className={cx('tripie-image', 'img-wrap', sizes, `image-ratio-${aspectRatio}`, className)}
+    //   {...args}
+    // >
+    //   <Motion.Div
+    //     ref={refs}
+    //     style={{
+    //       position: 'absolute',
+    //       inset: 0,
+    //       backgroundImage: `url(${src})`,
+    //       backgroundSize: 'cover',
+    //       opacity: 1,
+    //       zIndex: 1,
+    //     }}
+    //     transition={{ duration: 0.4, ease: 'easeOut' }}
+    //     className={cx('tripie-image', 'img-wrap', sizes, withBorder && 'with-border', className)}
+    //   />
+    <TripieContainer
+      margin="none"
+      className={cx('tripie-image', 'img-wrap', sizes, `image-ratio-${aspectRatio}`, className)}
+      {...args}
+    >
+      <Motion.Img
+        ref={refs}
+        alt=""
+        crossOrigin="anonymous"
+        referrerPolicy="no-referrer"
+        width={'100%'}
+        height={'auto'}
+        style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: `url(${src})`,
+          backgroundSize: 'cover',
+          opacity: 1,
+          zIndex: 1,
+        }}
+        transition={{ duration: 0.4, ease: 'easeOut' }}
+        className={cx('tripie-image', 'img-wrap', sizes, withBorder && 'with-border', className)}
+      />
+      {/* Sharp image */}
+      <Motion.Img
+        src={src?.replace('e_blur:2000,q_1,', 'q_auto,')}
+        loading="lazy"
+        alt={alt}
+        ref={refs}
+        width={'100%'}
+        height={'auto'}
+        crossOrigin="anonymous"
+        referrerPolicy="no-referrer"
+        onLoad={() => setLoaded(true)}
+        animate={{ opacity: loaded ? 1 : 0, zIndex: loaded ? 2 : 0 }}
+        transition={{ duration: 0.4, ease: 'easeIn' }}
+        className={cx('tripie-image', 'img-wrap', sizes, withBorder && 'with-border', className)}
+        style={{
+          display: 'block',
+          objectFit: 'cover',
+        }}
+      />
+    </TripieContainer>
+  );
+};
+
+export type ImageWithSourceUrlProps = ImageProps & {
+  sourceUrl: string;
+};
+
+const ImageWithSourceUrl = ({
+  alt,
+  src,
+  refs,
+  className,
+  sizes = 'medium',
+  sourceUrl,
+  withBorder = true,
+  loading,
+  aspectRatio = 'standard',
+  ...args
+}: ImageWithSourceUrlProps) => {
+  return (
+    <TripieContainer margin="none" {...args} className={cx('img-wrap', className)}>
+      <BlurImageOnLoad
+        withBorder={withBorder}
+        src={src}
+        alt={alt}
+        refs={refs}
+        sizes={sizes}
+        loading={loading}
+        aspectRatio={aspectRatio}
+      />
+      <Text className={cx('source-url', 'img-source')}>{`출처 ${sourceUrl}`}</Text>
+    </TripieContainer>
+  );
+};
+
+BlurImageOnLoad.WithSourceUrl = ImageWithSourceUrl;
+
+export default BlurImageOnLoad;

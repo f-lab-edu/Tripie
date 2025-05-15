@@ -1,5 +1,5 @@
 import { TripPlanner } from 'models/Aws';
-import { backendApi } from 'utils/ky';
+import api from 'utils/ky';
 
 export interface Response {
   message: string;
@@ -50,7 +50,8 @@ export async function getTripPlan(context: TripPlanner): Promise<ChatGptResponse
     preference,
   } = context;
   const selectedCities = selected.join('.') === all.join('.') ? 'anywhere' : selected.join(', ');
-  return await backendApi.post('openai', { json: { duration, country, companion, preference, selectedCities } }).json();
+  return await api.post('openai', { json: { duration, country, companion, preference, selectedCities } }).json();
+  // return await backendApi.post('openai', { json: { duration, country, companion, preference, selectedCities } }).json();
 }
 
 export default getTripPlan;

@@ -5,7 +5,7 @@ const useCountryArticle = () => {
   const res = useQuery({
     queryKey: useCountryArticle.queryKey(),
     queryFn: () =>
-      firestoreService.getList('region-articles').then(countryArticleList => {
+      firestoreService.getList('region-articles2').then(countryArticleList => {
         return countryArticleList;
       }),
     staleTime: Infinity,

@@ -1,6 +1,6 @@
 'use client';
-import { Carousel } from '@tripie-pyotato/design-system/@components';
-import { Container, TripieImage } from '@tripie-pyotato/design-system/@core';
+import { BlurImageOnLoad, Carousel } from '@tripie-pyotato/design-system/@components';
+import { Container } from '@tripie-pyotato/design-system/@core';
 import { ImageProps } from 'models/Props';
 
 const ArticleImages = ({ item }: { item: ImageProps }) => {
@@ -10,13 +10,13 @@ const ArticleImages = ({ item }: { item: ImageProps }) => {
     <Container applyMargin="top">
       <Carousel
         items={images.map((item, index) => (
-          <TripieImage.WithSourceUrl
+          <BlurImageOnLoad.WithSourceUrl
             sizes="large"
+            withBorder={true}
             key={item.sizes.full.url + index}
             alt={item.sizes.full.url}
             src={item.sizes.full.url}
             sourceUrl={item.sourceUrl}
-            blurDataURL={item.blurData?.data}
           />
         ))}
       />

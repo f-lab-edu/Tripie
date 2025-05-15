@@ -19,7 +19,7 @@ const ArticleLayout = ({
 }) => {
   return (
     <Container applyMargin="left-right-bottom" margin="xl" justifyContent="center" className={cx('article-container')}>
-      <Card.Content className={cx('fit-content')}>
+      <Card.Description padding="l" className={cx('fit-content')}>
         <Container margin="m" applyMargin="top-left-right">
           {title}
         </Container>
@@ -27,7 +27,7 @@ const ArticleLayout = ({
           {thumbnail}
         </Container>
         <Container>{articleBody}</Container>
-      </Card.Content>
+      </Card.Description>
     </Container>
   );
 };

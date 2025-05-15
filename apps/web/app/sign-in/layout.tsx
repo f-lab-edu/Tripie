@@ -1,6 +1,6 @@
 'use client';
-import { ParticleBackground } from '@tripie-pyotato/design-system/@components';
-import { Container, Divider, Headings, Stack, Text, TripieCard } from '@tripie-pyotato/design-system/@core';
+import { Card, ParticleBackground } from '@tripie-pyotato/design-system/@components';
+import { Container, Divider, Headings, Stack, Text } from '@tripie-pyotato/design-system/@core';
 import { ReactNode } from 'react';
 
 export default function Layout({
@@ -18,7 +18,7 @@ export default function Layout({
         alignItems="center"
         zIndex="default"
       >
-        <TripieCard sizes="large">
+        <Card sizes="large">
           <Stack direction="column" gap="default" margin="none">
             <Text.Accented>
               <Headings.H2>Welcome</Headings.H2>
@@ -29,7 +29,7 @@ export default function Layout({
             <Divider />
             {children}
           </Stack>
-        </TripieCard>
+        </Card>
       </Container>
     </ParticleBackground>
   );

@@ -18,7 +18,7 @@ const ChatTab = ({ data, scrollIntoView = true }: { data: AiTripPlanResponse; sc
   const { currentDate, dateCycle } = useContext(SelectedDateContext);
 
   return (
-    <Card.Content className={cx('text-left', 'card-wrap', 'trip-list-wrap')}>
+    <Card.Description padding={'m'} className={cx('text-left', 'card-wrap', 'trip-list-wrap')}>
       <Headings.H2> {data.name}</Headings.H2>
       <List className={cx('trip-days-chips-wrap')} view={'row'} gap="default">
         {data.trips.map(trip => (
@@ -40,7 +40,7 @@ const ChatTab = ({ data, scrollIntoView = true }: { data: AiTripPlanResponse; sc
         key={data.trips[currentDate].date + data.trips[currentDate].day}
         trip={data.trips[currentDate]}
       />
-    </Card.Content>
+    </Card.Description>
   );
 };
 

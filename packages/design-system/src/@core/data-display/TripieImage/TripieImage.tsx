@@ -1,7 +1,6 @@
 import { classNames } from '../../../wrappers';
 
-import { PLACEHOLDER } from '../../../shared/resource';
-
+import { BlurImageOnLoad } from '@components';
 import Text from '@core/data-display/Text';
 import { ImgHTMLAttributes } from 'react';
 import TripieContainer from '../../layout/TripieContainer/TripieContainer';
@@ -21,9 +20,9 @@ export type ImageProps = {
   blurDataURL?: string;
   withBorder?: boolean;
   loading?: ImgHTMLAttributes<HTMLImageElement>['loading']; // https://developer.chrome.com/docs/lighthouse/performance/offscreen-images/?utm_source=lighthouse&utm_medium=devtools
-  // fill?: boolean;
+
   aspectRatio?: AspectRatio;
-};
+} & Partial<ImgHTMLAttributes<HTMLImageElement>>;
 
 const TripieImage = ({
   alt,
@@ -32,59 +31,31 @@ const TripieImage = ({
   sizes = 'default',
   className,
   withBorder = true,
-  blurDataURL,
   loading,
   aspectRatio = 'standard',
-  // fill = true,
 }: ImageProps) => {
   console.log(src);
-  console.log(blurDataURL);
+
   return (
     <TripieContainer
       margin="none"
-      className={cx(
-        'tripie-image',
-        'img-wrap',
-        sizes,
-        withBorder && 'with-border',
-        `image-ratio-${aspectRatio}`,
-        className
-      )}
+      className={cx('tripie-image', 'img-wrap', sizes, `image-ratio-${aspectRatio}`, className)}
     >
-      <img
-        className={cx('tripie-image', 'img-wrap', sizes, withBorder && 'with-border')}
-        src={src ?? PLACEHOLDER}
-        alt={`${alt}의 이미지일 수 있음`}
-        ref={refs}
+      <BlurImageOnLoad
+        withBorder={withBorder}
+        src={src}
+        alt={alt}
+        refs={refs}
+        sizes={sizes}
         loading={loading}
-        crossOrigin="anonymous"
-        referrerPolicy="no-referrer"
+        aspectRatio={aspectRatio}
       />
-      {/* {blurDataURL == null ? (
-        <img
-          className={cx('tripie-image', 'img-wrap', sizes, withBorder && 'with-border')}
-          src={src ?? PLACEHOLDER}
-          alt={`${alt}의 이미지일 수 있음`}
-        />
-      ) : (
-        <Image
-          src={src ?? PLACEHOLDER}
-          className={cx('tripie-image', 'img-wrap', sizes, withBorder && 'with-border')}
-          alt={alt}
-          sizes={'(min-width:640px) 50vw, 100vw'}
-          placeholder="blur"
-          fill={fill}
-          blurDataURL={blurDataURL}
-          ref={refs}
-        />
-      )} */}
     </TripieContainer>
   );
 };
 
 export type ImageWithSourceUrlProps = ImageProps & {
-  blurDataURL?: string;
-  sourceUrl: string;
+  sourceUrl?: string;
 };
 
 const ImageWithSourceUrl = ({
@@ -95,19 +66,18 @@ const ImageWithSourceUrl = ({
   sizes = 'medium',
   sourceUrl,
   withBorder = true,
-  blurDataURL,
   loading,
   aspectRatio = 'standard',
 }: ImageWithSourceUrlProps) => {
   return (
-    <TripieContainer margin="none" className={cx('img-wrap', withBorder ?? 'with-border', className)}>
-      <TripieImage
+    <TripieContainer margin="none" className={cx('img-wrap', className)}>
+      <BlurImageOnLoad
+        withBorder={withBorder}
         src={src}
         alt={alt}
         refs={refs}
         sizes={sizes}
         loading={loading}
-        blurDataURL={blurDataURL}
         aspectRatio={aspectRatio}
       />
       <Text className={cx('source-url', 'img-source')}>{`출처 ${sourceUrl}`}</Text>

@@ -52,7 +52,8 @@ const CardHeader = ({
   );
 };
 
-export type CardWithImageProps = CardProps & ImageProps & { cover?: boolean; imgSize: ImageProps['sizes'] };
+export type CardWithImageProps = CardProps &
+  ImageProps & { cover?: boolean; imgSize: ImageProps['sizes']; sourceUrl?: string; withImageBorder?: boolean };
 
 const CardWithImage = ({
   children,
@@ -64,26 +65,41 @@ const CardWithImage = ({
   sizes = 'card',
   imgSize = 'card',
   aspectRatio,
+  sourceUrl,
+  withImageBorder,
+  withBorder = true,
   ...args
 }: CardWithImageProps) => {
+  const ImageComponent = sourceUrl == null ? TripieImage : TripieImage.WithSourceUrl;
   return (
-    <TripieContainer withBorder={true} {...args} className={cx('outer-wrap', `card-size-${sizes}`, className)}>
+    <TripieContainer withBorder={withBorder} className={cx('outer-wrap', `card-size-${sizes}`, className)} {...args}>
       <Stack zIndex="default" margin="none" direction="column" className={cx('inner-wrap', className)}>
-        <TripieContainer margin="none" className={cx('img-wrap')}>
-          {cover ? (
-            <TripieImage aspectRatio={aspectRatio} sizes={imgSize} src={src} alt={alt} withBorder={false} />
-          ) : (
-            <TripieContainer>
-              <TripieImage aspectRatio={aspectRatio} sizes={imgSize} src={src} alt={alt} withBorder={true} />
-            </TripieContainer>
-          )}
-        </TripieContainer>
+        {!cover ? (
+          <TripieContainer withBorder={false}>
+            <ImageComponent
+              sourceUrl={sourceUrl}
+              aspectRatio={aspectRatio}
+              sizes={imgSize}
+              src={src}
+              alt={alt}
+              withBorder={withImageBorder}
+            />
+          </TripieContainer>
+        ) : (
+          <ImageComponent
+            sourceUrl={sourceUrl}
+            aspectRatio={aspectRatio}
+            sizes={imgSize}
+            src={src}
+            alt={alt}
+            withBorder={withImageBorder}
+          />
+        )}
 
         {children}
       </Stack>
-      {withNoise ? (
-        <TripieContainer margin="none" padding="none" className={cx('noise')} zIndex="base"></TripieContainer>
-      ) : null}
+
+      {withNoise && <TripieContainer margin="none" padding="none" className="noise" zIndex="base" />}
     </TripieContainer>
   );
 };

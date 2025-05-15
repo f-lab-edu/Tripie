@@ -7,13 +7,13 @@ import useFunnel from 'hooks/useFunnel';
 
 import { Background } from '@tripie-pyotato/design-system/@core/layout';
 import firestoreService from 'app/api/firebase';
-import getTripPlan from 'app/api/openai/getTripPlan';
-import incrementedTokenId from 'app/api/openai/incrementedTokenId';
+import { SuccessResponse } from 'app/api/openai/getTripPlan';
 import ROUTE from 'constants/routes';
 import { TripPlanner } from 'models/Aws';
 import { ContinentKeys } from 'models/Continent';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import api from 'utils/ky';
 import CityStep from './_components/Cities';
 import CompanionStep from './_components/Companion';
 import ContinentStep from './_components/Continents';
@@ -32,11 +32,12 @@ const handleSubmit = async (chatItems: TripPlanner, id: string) => {
   }
 
   return await firestoreService.getListWithIds('continentl').then(async () => {
-    const res = await getTripPlan({ ...chatItems });
+    // const res = await getTripPlan({ ...chatItems });
+    const res: SuccessResponse = await api.post(`openai`, { json: { ...chatItems } }).json();
     if (res.data == null) {
       return null;
     }
-    return await incrementedTokenId(chatItems, id, res.data);
+    // return await incrementedTokenId(chatItems, id, res.data);
   });
 };
 

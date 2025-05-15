@@ -9,7 +9,8 @@ const meta: Meta<typeof Headings> = {
   parameters: {
     docs: {
       description: {
-        component: '`<h1/>`, `<h2/>`, `<h3/>`, `<h4/>` 컴포넌트',
+        component:
+          '`<h1/>`, `<h2/>`, `<h3/>`, `<h4/>` 컴포넌트. semantic element으로 활용하지 않을 경우 (단순히 크기만 적용) <Text/>의 size 프롭스으로 설정해주세요.',
       },
     },
   },

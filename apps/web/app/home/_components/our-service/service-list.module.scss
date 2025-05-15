@@ -1,0 +1,13 @@
+@use 'mixins' as *;
+@use 'variables' as *;
+
+.content-wrap {
+  height: 12.5rem;
+  overflow: hidden;
+}
+
+.info-wrap {
+  height: 30rem;
+  overflow: scroll;
+  @include visible-scroll(false);
+}

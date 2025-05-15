@@ -21,7 +21,7 @@ export { default as Link } from './navigation/Link/Link.client';
 export { default as Menu } from './navigation/Menu';
 export { default as Accordion } from './surfaces/Accordian/Accordian.client';
 export { default as AnimatedCard } from './surfaces/AnimatedCard/AnimatedCard.client';
-export { default as Card } from './surfaces/TripieCard/Card.client';
+export { default as Card } from './surfaces/Card/Card.client';
 export { default as Calendar } from './x/Calendar';
 export { default as Globe } from './x/Globe';
 export { default as MotionSlideUp } from './x/MotionSlideUp';

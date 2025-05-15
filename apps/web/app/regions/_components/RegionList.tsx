@@ -14,7 +14,6 @@ export default function RegionList({
 }>) {
   return (
     <Stack
-      cols={6}
       gridWrapOn={{ 'wrap-md': 2 }}
       gridRepeat={{ 'wrap-sm': 4, 'wrap-xl': 6 }}
       display="grid"

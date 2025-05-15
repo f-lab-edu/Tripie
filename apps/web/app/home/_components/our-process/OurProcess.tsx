@@ -63,11 +63,6 @@ export default function OurProcess() {
           </Headings.H2>
         </Container>
       </MotionSlideUp>
-      {/* <Container margin="none">
-        {cards.map(({ label, content, description }, index) => (
-          <OurProcessCard key={label} label={label} content={content} description={description} index={index} />
-        ))}
-      </Container> */}
       <Stack margin="none" gap="l" display="grid" gridRepeat={{ 'wrap-lg': 2 }} cols={1} stretchGridLastChild={true}>
         {cards.map(({ label, content, description }, index) => (
           <OurProcessCard key={label} label={label} content={content} description={description} index={index} />

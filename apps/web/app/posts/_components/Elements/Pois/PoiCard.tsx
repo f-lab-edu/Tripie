@@ -48,6 +48,8 @@ const PoiCard = ({
         src={poi.source.image?.sizes.full.url}
         alt={alt}
         imgSize={'card'}
+        sourceUrl={poi.source.image.sourceUrl}
+        withImageBorder={true}
         aspectRatio={'photo'}
       >
         <TripieCard.Header applyMargin="left-right" size="tiny">
