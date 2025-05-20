@@ -6,7 +6,7 @@ import { ParamProps } from 'models/Props';
 import { pageParamData } from '../../page-param-data';
 
 const Attractions = async ({ params }: ParamProps) => {
-  const { data, blurredThumbnail, title, images } = await pageParamData({ params });
+  const { data, title, images } = await pageParamData({ params });
 
   if (data == null) {
     return <>missing...</>;
@@ -16,7 +16,7 @@ const Attractions = async ({ params }: ParamProps) => {
     <AttractionLayout
       title={title}
       id={data.id}
-      blurredThumbnail={blurredThumbnail?.data}
+      // blurredThumbnail={blurredThumbnail?.data}
       imgAlt={images}
       imgSrc={images}
       body={(data as AttractionArticle).source}

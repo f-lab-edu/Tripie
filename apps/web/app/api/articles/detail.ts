@@ -126,6 +126,7 @@ const getArticleDetail = async <T extends 'article' | 'attraction' | 'retaurant'
             //     })
             //     .json();
             // }
+            console.log(imageUrl);
             return {
               ...recommendation,
               image: {
@@ -140,6 +141,7 @@ const getArticleDetail = async <T extends 'article' | 'attraction' | 'retaurant'
         externalLinks: await Promise.all(
           data.source?.externalLinks.map(async externalLink => {
             const imageUrl = externalLink?.imageUrl;
+            console.log(imageUrl);
             // if (imageUrl != null && !imageUrl?.startsWith('https://res.cloudinary.com/dbzzletpw/image/upload')) {
             //   await api
             //     .post(`cloudinary`, {

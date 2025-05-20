@@ -7,16 +7,12 @@ import { Continentl } from 'models/Continentl';
 import { Country } from 'models/Country';
 import { Dispatch, SetStateAction } from 'react';
 import { regionNameToLocal } from 'utils/lang';
-import { classNames } from 'wrapper';
-import Style from './countries.module.scss';
 
 interface Props {
   countries?: Country[];
   selectedCountry: string;
   setSelectedCountry: Dispatch<SetStateAction<string>>;
 }
-
-const cx = classNames.bind(Style);
 
 export function CountryList({ countries, selectedCountry, setSelectedCountry }: Readonly<Props>) {
   const queryClient = useQueryClient();

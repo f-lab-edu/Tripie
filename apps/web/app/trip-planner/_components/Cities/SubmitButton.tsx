@@ -2,15 +2,7 @@
 import { AnimatedButton, Icon } from '@tripie-pyotato/design-system/@components';
 import PREFERENCE_LIST from 'constants/preferences';
 
-import { ContinentKeys } from 'models/Continent';
-import { ReactNode, useCallback } from 'react';
-
-interface Props {
-  context: { continent: ContinentKeys; country: string; city: { all: string[]; selected: string[] } };
-  onNext: (cities: string[]) => void;
-  onPrev: () => void;
-  progress: ReactNode;
-}
+import { useCallback } from 'react';
 
 export type Preference = keyof typeof PREFERENCE_LIST;
 

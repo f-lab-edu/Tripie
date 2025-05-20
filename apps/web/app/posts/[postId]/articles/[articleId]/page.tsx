@@ -5,7 +5,7 @@ import { ParamProps } from 'models/Props';
 import { pageParamData } from '../../page-param-data';
 
 const Articles = async ({ params }: ParamProps) => {
-  const { postId, id, blurredThumbnail, metadataContents, body } = await pageParamData({ params });
+  const { postId, id, metadataContents, body } = await pageParamData({ params });
 
   if (metadataContents?.title == null || id == null) {
     return <>missing...</>;
@@ -18,7 +18,6 @@ const Articles = async ({ params }: ParamProps) => {
       title={metadataContents.title}
       imgAlt={metadataContents?.image?.sizes?.full?.url}
       imgSrc={metadataContents?.image?.sizes?.full?.url}
-      blurredThumbnail={blurredThumbnail?.data}
       body={body}
     />
   );

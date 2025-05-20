@@ -25,7 +25,7 @@ export default function PlaygroundButton() {
     // https://res.cloudinary.com/dbzzletpw/image/upload/v1745813635/arrow_x0nsyq.png
     const newData = data.map(item => ({
       ...item,
-      data: item.data.map(data =>
+      data: item.data.map((data: string) =>
         JSON.parse(
           JSON.stringify(data).replaceAll(
             'media.triple.guide/triple-cms/',
