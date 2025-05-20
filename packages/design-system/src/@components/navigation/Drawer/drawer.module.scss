@@ -1,0 +1,39 @@
+@use '../../../base/' as *;
+@use '../../../functions/' as *;
+@use '../../../generator/' as *;
+@use '../../../mixins/' as *;
+@use '../../../variables' as *;
+
+@use 'sass:map';
+
+.drawer-content {
+  z-index: z(default);
+}
+
+$drawer-position-map: (left, top, right, bottom);
+
+.drawer {
+  height: 100%;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  max-width: 100vw;
+  max-height: 100vh;
+  backdrop-filter: blur(10px);
+}
+
+.drawer-toggle-btn {
+  height: 3rem;
+  cursor: pointer;
+  width: 3rem;
+  color: inherit;
+  background-color: inherit;
+  backdrop-filter: blur(10px);
+}
+
+.full {
+  max-width: 100vw;
+  max-height: 100vh;
+  height: 100%;
+  width: 100%;
+}

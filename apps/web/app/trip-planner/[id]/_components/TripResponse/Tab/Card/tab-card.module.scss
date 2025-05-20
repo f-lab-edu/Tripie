@@ -1,20 +1,4 @@
-@use 'variables' as *;
 @use 'mixins' as *;
-
-.title {
-  display: inline-flex;
-  gap: 0.4rem;
-  align-items: center;
-}
-
-.card-item {
-  height: fit-content;
-}
-
-.trip-activity {
-  align-items: flex-start;
-  width: 100%;
-}
 
 // 여행 일정 지역에 따른 버튼 색깔
 .label {

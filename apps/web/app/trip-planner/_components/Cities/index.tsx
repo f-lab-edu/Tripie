@@ -1,80 +1,58 @@
 'use client';
-import { AnimatedButton, Icon } from '@tripie-pyotato/design-system/@components';
-import { Container, Headings, Text } from '@tripie-pyotato/design-system/@core';
+import { Icon } from '@tripie-pyotato/design-system/@components';
+import { Text } from '@tripie-pyotato/design-system/@core';
 import PREFERENCE_LIST from 'constants/preferences';
-import { classNames } from 'wrapper';
 
 import { ContinentKeys } from 'models/Continent';
-import { useCallback, useMemo, useState } from 'react';
+import { ReactNode, useMemo, useState } from 'react';
 
+import Layout from '../Layout/Layout';
 import CityList from './CityList';
-import Style from './companion.module.scss';
-
-const cx = classNames.bind(Style);
+import SubmitButton from './SubmitButton';
 
 interface Props {
   context: { continent: ContinentKeys; country: string; city: { all: string[]; selected: string[] } };
   onNext: (cities: string[]) => void;
   onPrev: () => void;
+  progress: ReactNode;
 }
 
 export type Preference = keyof typeof PREFERENCE_LIST;
 
-const CityStep = ({ context, onNext, onPrev }: Props) => {
+const CityStep = ({ context, onNext, onPrev, progress }: Props) => {
   // 전체 도시
   const cities = useMemo(() => {
     return context.city.all;
   }, [context]);
   const [selected, setSelected] = useState<Array<string>>(context.city.selected);
 
-  const handleSubmit = useCallback(() => {
-    onNext(selected);
-  }, [selected]);
-
   return (
-    <>
-      <Container applyMargin="top" margin="l" padding="l" applyPadding="top">
-        <Headings.H2>
-          <Container
-            margin="none"
-            alignItems="start"
-            justifyContent="start"
-            // preserveWhiteSpace={true}
-            gap="sm"
-          >
-            <Icon.Navigate
-              sizes="large"
-              onTapStart={() => {
-                onPrev();
-              }}
-            />
-            <span>
-              내가 여행하고 싶은 <Text.Accented>{'\n'}도시</Text.Accented>는?
-            </span>
-          </Container>
-        </Headings.H2>
-      </Container>
-      <Container className={cx('cloud-wrap')}>
-        {Array.from({ length: 30 }, (_, index) => (
-          <Icon.Cloud key={index} index={index} />
-        ))}
-        <Icon.Plane />
-      </Container>
-      <CityList cities={cities} selected={selected} setSelected={setSelected} />
-      <Container padding="m" applyPadding="bottom" margin="none">
-        <AnimatedButton withBorder={true} isFullSize={true} disabled={selected.length === 0} onClick={handleSubmit}>
-          <span className={cx('flex-text')}>
-            {selected.length === 0 ? (
-              '다중 선택이 가능해요.'
-            ) : (
-              <>
-                다음 <Icon />
-              </>
-            )}
-          </span>
-        </AnimatedButton>
-      </Container>
-    </>
+    <Layout
+      navigateIcon={
+        <Icon.Navigate
+          sizes="large"
+          onTapStart={() => {
+            onPrev();
+          }}
+        />
+      }
+      heading={
+        <>
+          내가 여행하고 싶은 <Text.Accented>{'\n'}도시</Text.Accented>는? {progress}
+        </>
+      }
+      decor={
+        <>
+          {Array.from({ length: 30 }, (_, index) => (
+            <Icon.Cloud key={index} index={index} />
+          ))}
+          <Icon.Plane />
+        </>
+      }
+      refreshIcon={<Icon.Refresh onTapStart={() => setSelected([])} />}
+      listItems={<CityList cities={cities} selected={selected} setSelected={setSelected} />}
+      submitButton={<SubmitButton selected={selected} onNext={onNext} />}
+    />
   );
 };
 

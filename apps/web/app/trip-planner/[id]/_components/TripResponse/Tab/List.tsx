@@ -1,21 +1,27 @@
 'use client';
 
-import { Headings, List, Stack, Text } from '@tripie-pyotato/design-system/@core';
+import { Container, Stack, Text } from '@tripie-pyotato/design-system/@core';
 
 import { TripContent } from 'models/Aws';
 import TabCard from './Card/TabCard';
 
+import Style from './tab-chat.module.scss';
+
+import { classNames } from 'wrapper';
+
+const cx = classNames.bind(Style);
+
 const TabList = ({ trip, scrollIntoView }: { trip: TripContent; scrollIntoView?: boolean }) => {
   return (
-    <List view={'column'} gap="l">
-      <List.Item>
-        <Headings.H3>
+    <Stack direction={'column'} gap="l" alignItems="start" margin="none">
+      <Stack direction={'column'} margin="m" gap="none" applyMargin="top">
+        {trip.date}
+        <Text size="h3" bold={true} isButtonText={true}>
           <Text.Accented>Day {trip.day}</Text.Accented>
-        </Headings.H3>
-      </List.Item>
-      <List.Item>{trip.date}</List.Item>
-      <List.Item>
-        <Stack direction="column" gap="l" margin="none">
+        </Text>
+      </Stack>
+      <Container className={cx('trip-list-wrap')} margin="none">
+        <Stack direction="column" gap="l" margin="m" applyMargin="bottom" padding="none" applyPadding="bottom">
           {trip.activities.map(({ activity, comments, label, place }, index) => (
             <TabCard
               label={label}
@@ -29,8 +35,8 @@ const TabList = ({ trip, scrollIntoView }: { trip: TripContent; scrollIntoView?:
             />
           ))}
         </Stack>
-      </List.Item>
-    </List>
+      </Container>
+    </Stack>
   );
 };
 

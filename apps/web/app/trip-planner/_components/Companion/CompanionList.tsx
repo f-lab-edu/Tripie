@@ -1,13 +1,13 @@
 'use client';
-import { Chip, Icon } from '@tripie-pyotato/design-system/@components';
-import { Container } from '@tripie-pyotato/design-system/@core';
+import { Chip } from '@tripie-pyotato/design-system/@components';
+import { Stack } from '@tripie-pyotato/design-system/@core';
 import { classNames } from 'wrapper';
 
 import COMPANION_LIST from 'constants/companions';
 import { ContinentKeys } from 'models/Continent';
 import { Dispatch, SetStateAction } from 'react';
 
-import { Companion } from '..';
+import { Companion } from '.';
 import Style from './companion-list.module.scss';
 
 const cx = classNames.bind(Style);
@@ -40,21 +40,18 @@ const CompanionList = ({ selected, setSelected }: Props) => {
   };
 
   return (
-    <Container margin="none">
-      <Icon.Refresh onTapStart={() => setSelected([])} />{' '}
-      <Container className={cx('chip-wrap')} applyMargin="top">
-        {Object.values(COMPANION_LIST).map((tagName, index) => (
-          <Chip
-            key={tagName.tag}
-            className={cx('chip')}
-            selected={new Set(selected).has(Object.keys(COMPANION_LIST)[index] as keyof typeof COMPANION_LIST)}
-            onClick={() => handleSelect(index)}
-          >
-            {tagName.tag}
-          </Chip>
-        ))}
-      </Container>
-    </Container>
+    <Stack display="grid" margin="none" cols={2} gap="l" gridWrapOn={{ 'wrap-sm': 1 }} gridRepeat={{ 'wrap-md': 4 }}>
+      {Object.values(COMPANION_LIST).map((tagName, index) => (
+        <Chip
+          key={tagName.tag}
+          className={cx('chip')}
+          selected={new Set(selected).has(Object.keys(COMPANION_LIST)[index] as keyof typeof COMPANION_LIST)}
+          onClick={() => handleSelect(index)}
+        >
+          {tagName.tag}
+        </Chip>
+      ))}
+    </Stack>
   );
 };
 

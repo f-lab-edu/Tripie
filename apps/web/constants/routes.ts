@@ -7,6 +7,7 @@ const ROUTE = {
   REGIONS: { label: '도시별 여행 정보', href: '/regions' },
   POSTS: { label: '도시별 여행 상세 정보', href: '/post' },
   SIGN_IN: { label: 'Sign in', href: '/sign-in' },
+  ERROR: { label: 'error', href: '/error' },
 };
 
 export const LANDING_SECTION = [

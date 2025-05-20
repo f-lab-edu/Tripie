@@ -32,9 +32,9 @@ const TableBody = ({ children, className }: TableProps) => {
   return <tbody className={cx(className)}>{children}</tbody>;
 };
 
-const TableData = ({ children, className, ...args }: TableProps) => {
+const TableData = ({ children, className, width, ...args }: TableProps & { width?: number }) => {
   return (
-    <td className={cx(className)}>
+    <td className={cx(width != null ? `cell-width-${Math.floor(width)}` : '', className)}>
       <Stack {...args}>{children}</Stack>
     </td>
   );

@@ -1,7 +1,5 @@
 'use client';
 
-import { Card } from '@tripie-pyotato/design-system/@components';
-import { Container } from '@tripie-pyotato/design-system/@core';
 import { DEFAULT_STYLE, MAP_ID, STYLE } from 'constants/maps';
 import useContinentl from 'hooks/query/useContinentl';
 import { useEffect, useMemo, useState } from 'react';
@@ -11,7 +9,6 @@ import dmsToDecimalLatLng from 'utils/coordinate';
 import { Map, Marker, classNames } from 'wrapper';
 import Style from './countries.module.scss';
 import CountryInfoPopup from './CountryInfoPopup';
-import CountryName from './CountryName';
 const cx = classNames.bind(Style);
 
 const CountryDetail = ({ selectedCountry }: { selectedCountry: string }) => {
@@ -38,44 +35,40 @@ const CountryDetail = ({ selectedCountry }: { selectedCountry: string }) => {
   }
 
   return (
-    <Card.Content className={cx('card-wrap')}>
-      <CountryName
-        name={countryDetail.name}
-        blurDataUrl={countryDetail?.blurDataURL}
-        code={countryDetail.code}
-        flagImage={countryDetail['flag-image']}
-      />
-      <Container margin="none" className={cx('map-wrap')} padding="sm" applyPadding="bottom">
-        <Map
-          id={MAP_ID}
-          interactive={true}
-          reuseMaps={true}
-          style={{ ...DEFAULT_STYLE, height: '40vh' }}
-          mapStyle={STYLE}
-          initialViewState={{
-            zoom: 4,
-            latitude: coordinates.lat,
-            longitude: coordinates.lng,
-          }}
-        >
-          <CountryInfoPopup
-            showPopup={showPopup}
-            setShowPopup={setShowPopup}
-            coordinates={coordinates}
-            capital={countryDetail.capital}
-            officialLanguage={countryDetail.official_language}
-          />
-          <Marker
-            key={`${countryDetail.coordinates.join(',')}`}
-            longitude={coordinates.lng}
-            latitude={coordinates.lat}
-            anchor="bottom"
-            onClick={() => setShowPopup(true)}
-            className={cx('marker')}
-          />
-        </Map>
-      </Container>
-    </Card.Content>
+    <>
+      <Map
+        id={MAP_ID}
+        interactive={true}
+        reuseMaps={true}
+        style={{
+          ...DEFAULT_STYLE,
+          height: '100%',
+          // height: '30vh',
+        }}
+        mapStyle={STYLE}
+        initialViewState={{
+          zoom: 2,
+          latitude: coordinates.lat,
+          longitude: coordinates.lng,
+        }}
+      >
+        <CountryInfoPopup
+          showPopup={showPopup}
+          setShowPopup={setShowPopup}
+          coordinates={coordinates}
+          capital={countryDetail.capital}
+          officialLanguage={countryDetail.official_language}
+        />
+        <Marker
+          key={`${countryDetail.coordinates.join(',')}`}
+          longitude={coordinates.lng}
+          latitude={coordinates.lat}
+          anchor="bottom"
+          onClick={() => setShowPopup(true)}
+          className={cx('marker')}
+        />
+      </Map>
+    </>
   );
 };
 export default CountryDetail;

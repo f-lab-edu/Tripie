@@ -9,7 +9,7 @@ import { TripContent } from 'models/Aws';
 import { Metadata } from 'next';
 import SeverError from 'shared/components/Error/Error';
 import TripResponse from './_components/TripResponse';
-import { ChatResponseData } from './_components/TripResponse/MapTab';
+import { ChatResponseData } from './_components/TripResponse/Tab';
 
 // https://nextjs.org/docs/app/building-your-application/optimizing/metadata
 type Props = {

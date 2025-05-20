@@ -5,9 +5,10 @@ import { useDebounce } from '@tripie-pyotato/hooks';
 import { DB_NAME } from 'constants/auth';
 import useFunnel from 'hooks/useFunnel';
 
+import { Text } from '@tripie-pyotato/design-system/@core';
 import { Background } from '@tripie-pyotato/design-system/@core/layout';
 import firestoreService from 'app/api/firebase';
-import { SuccessResponse } from 'app/api/openai/getTripPlan';
+import { Response } from 'app/api/openai/getTripPlan';
 import ROUTE from 'constants/routes';
 import { TripPlanner } from 'models/Aws';
 import { ContinentKeys } from 'models/Continent';
@@ -22,6 +23,8 @@ import DoneStep from './_components/Done';
 import DurationStep from './_components/Duration';
 import PreferenceStep from './_components/Preference';
 
+export type TripPlannerSuccessReponse = { data: { id: string } } & Response;
+
 const handleSubmit = async (chatItems: TripPlanner, id: string) => {
   if (id == null) {
     return null;
@@ -32,15 +35,25 @@ const handleSubmit = async (chatItems: TripPlanner, id: string) => {
   }
 
   return await firestoreService.getListWithIds('continentl').then(async () => {
-    // const res = await getTripPlan({ ...chatItems });
-    const res: SuccessResponse = await api.post(`openai`, { json: { ...chatItems } }).json();
-    if (res.data == null) {
+    const res: TripPlannerSuccessReponse = await api.post('openai', { json: { ...chatItems, id } }).json();
+
+    if (res?.data == null) {
       return null;
     }
-    // return await incrementedTokenId(chatItems, id, res.data);
+
+    return res?.data?.id;
   });
 };
 
+const Progress = ({ index }: { index: number }) => {
+  const funnelSteps = ['CONTINENT', 'COUNTRY', 'CITY', 'DURATION', 'COMPANION', 'PREFERENCE'] as const;
+  const stepCount = funnelSteps.length;
+  return (
+    <>
+      (<Text.Accented isButtonText={true}>{index + 1}</Text.Accented>/{stepCount})
+    </>
+  );
+};
 const TripPlan = () => {
   const navigate = useRouter();
 
@@ -122,14 +135,14 @@ const TripPlan = () => {
     if (id != null) {
       navigate.replace(`${ROUTE.TRIP_PLANNER.href}/${id}`);
     }
-    // 에러 발생!
   });
 
   return (
     <Background variant={0} applyPadding="left-right" padding="m" alignItems="center" justifyContent="space-between">
       <funnel.Render
-        CONTINENT={({ context, history }) => (
+        CONTINENT={({ context, history, index }) => (
           <ContinentStep
+            progress={<Progress index={index} />}
             context={context}
             continent={context?.continent ?? 'ALL'}
             onNext={(selected: { continent?: ContinentKeys }) => {
@@ -137,8 +150,9 @@ const TripPlan = () => {
             }}
           />
         )}
-        COUNTRY={({ context, history }) => (
+        COUNTRY={({ context, history, index }) => (
           <CountryStep
+            progress={<Progress index={index} />}
             onNext={(selected: {
               continent?: ContinentKeys;
               country?: string;
@@ -151,8 +165,9 @@ const TripPlan = () => {
             onPrev={history.back}
           />
         )}
-        CITY={({ context, history }) => (
+        CITY={({ context, history, index }) => (
           <CityStep
+            progress={<Progress index={index} />}
             onNext={(selected: string[]) => {
               history.push('DURATION', { ...context, city: { ...context.city, selected } });
             }}
@@ -160,22 +175,25 @@ const TripPlan = () => {
             context={context}
           />
         )}
-        DURATION={({ context, history }) => (
+        DURATION={({ context, history, index }) => (
           <DurationStep
+            progress={<Progress index={index} />}
             onPrev={history.back}
             context={context}
             onNext={duration => history.push('COMPANION', { ...context, duration })}
           />
         )}
-        COMPANION={({ context, history }) => (
+        COMPANION={({ context, history, index }) => (
           <CompanionStep
+            progress={<Progress index={index} />}
             onPrev={history.back}
             context={context}
             onNext={companion => history.push('PREFERENCE', { ...context, companion })}
           />
         )}
-        PREFERENCE={({ context, history }) => (
+        PREFERENCE={({ context, history, index }) => (
           <PreferenceStep
+            progress={<Progress index={index} />}
             onPrev={history.back}
             context={context}
             onNext={preference => {

@@ -4,11 +4,3 @@
 .chip {
   @include chip;
 }
-
-.chip-wrap {
-  @include grid-wrap;
-}
-
-.flex {
-  gap: 1rem;
-}

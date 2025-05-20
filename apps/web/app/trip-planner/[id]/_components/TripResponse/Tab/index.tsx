@@ -1,47 +1,41 @@
 'use client';
-import { classNames } from 'wrapper';
-
-import { Card, Chip } from '@tripie-pyotato/design-system/@components';
-import { Headings, List } from '@tripie-pyotato/design-system/@core';
-
-import { useContext } from 'react';
-
 import { AiTripPlanResponse } from 'app/api/openai/getTripPlan';
-import { SelectedDateContext } from '..';
-import TabList from './List';
-import Style from './tab-chat.module.scss';
+import { useContext, useEffect } from 'react';
 
-const cx = classNames.bind(Style);
+import { Drawer } from '@tripie-pyotato/design-system/@components';
+import { SelectedDateContext, TabContext } from '..';
+import TripTab from './TripTab';
 
-const ChatTab = ({ data, scrollIntoView = true }: { data: AiTripPlanResponse; scrollIntoView?: boolean }) => {
-  // 일정 중 선택한 여행 날짜 컨텍스트
-  const { currentDate, dateCycle } = useContext(SelectedDateContext);
+export type ChatResponseData = {
+  plans: AiTripPlanResponse;
+  placeSet: {
+    name: string;
+    selectedCities: string;
+  }[];
+  places: string[][];
+};
+
+const TripDetails = ({
+  data,
+  isOpen,
+  toggleOpen,
+}: {
+  data: ChatResponseData['plans'];
+  isOpen: boolean;
+  toggleOpen: (index?: number) => void;
+}) => {
+  const { currentDate } = useContext(SelectedDateContext);
+  const { cycle } = useContext(TabContext);
+
+  useEffect(() => {
+    cycle(`${currentDate}-0`);
+  }, [currentDate]);
 
   return (
-    <Card.Description padding={'m'} className={cx('text-left', 'card-wrap', 'trip-list-wrap')}>
-      <Headings.H2> {data.name}</Headings.H2>
-      <List className={cx('trip-days-chips-wrap')} view={'row'} gap="default">
-        {data.trips.map(trip => (
-          <List.Item key={trip.date + trip.day}>
-            <Chip
-              className={cx('chip')}
-              selected={currentDate === trip.day - 1}
-              onClick={() => {
-                dateCycle(trip.day - 1);
-              }}
-            >
-              {trip.day}일차
-            </Chip>
-          </List.Item>
-        ))}
-      </List>
-      <TabList
-        scrollIntoView={scrollIntoView}
-        key={data.trips[currentDate].date + data.trips[currentDate].day}
-        trip={data.trips[currentDate]}
-      />
-    </Card.Description>
+    <Drawer.Content isOpen={isOpen} toggleOpen={() => toggleOpen()} position="left" exposePercentage={30} margin="none">
+      <TripTab data={data} />
+    </Drawer.Content>
   );
 };
 
-export default ChatTab;
+export default TripDetails;

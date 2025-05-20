@@ -3,11 +3,3 @@
 .chip {
   @include chip;
 }
-
-.wrap {
-  @include grid-wrap;
-  @include visible-scroll(false);
-  @media (max-width: 500) {
-    @include scroll;
-  }
-}

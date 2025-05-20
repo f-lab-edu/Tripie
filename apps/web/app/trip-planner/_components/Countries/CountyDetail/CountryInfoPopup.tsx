@@ -1,0 +1,99 @@
+import { Card, Chip } from '@tripie-pyotato/design-system/@components';
+import { Stack, Table, Text } from '@tripie-pyotato/design-system/@core';
+import { Continentl } from 'models/Continentl';
+import { Dispatch, SetStateAction, useEffect, useMemo } from 'react';
+import { Popup, useMap } from 'wrapper';
+
+import { classNames } from 'wrapper';
+import Style from './countries.module.scss';
+
+const cx = classNames.bind(Style);
+
+const CountryInfoPopup = ({
+  coordinates,
+  capital,
+  officialLanguage,
+  showPopup,
+  setShowPopup,
+}: {
+  coordinates: { lng: number; lat: number };
+  capital: Continentl['capital'];
+  officialLanguage: Continentl['official_language'];
+  showPopup: boolean;
+  setShowPopup: Dispatch<SetStateAction<boolean>>;
+}) => {
+  const { current: map } = useMap();
+
+  // 선택한 국가로 좌표 이동
+  useEffect(() => {
+    if (map != null && coordinates != null) {
+      map.flyTo({ center: [coordinates.lng, coordinates.lat] });
+    }
+  }, [coordinates]);
+
+  const columns = useMemo(() => {
+    return [
+      {
+        label: 'capital name',
+        headerName: '수도',
+        field: <Text bold={true}>{capital}</Text>,
+        width: 30,
+      },
+      {
+        label: 'languages',
+        headerName: '공식 언어',
+        field:
+          officialLanguage != null ? (
+            <Stack
+              display="grid"
+              cols={officialLanguage.length >= 4 ? 4 : officialLanguage.length}
+              gap="default"
+              margin="none"
+            >
+              {officialLanguage.map((language: string) => (
+                <Chip key={language} className={cx('chip')}>
+                  {language}
+                </Chip>
+              ))}
+            </Stack>
+          ) : null,
+        width: 30,
+      },
+    ];
+  }, [capital, officialLanguage]);
+
+  return showPopup ? (
+    <Popup
+      longitude={coordinates.lng}
+      latitude={coordinates.lat}
+      anchor="bottom"
+      offset={10}
+      focusAfterOpen={true}
+      key={`popup-${coordinates.lng} + ${coordinates.lat}`}
+      closeOnClick={false}
+      onClose={() => setShowPopup(false)}
+    >
+      <Card.Description padding={'sm'}>
+        <Table applyMargin="top" margin="m" padding="none">
+          <Table.Body>
+            {columns.map(col => {
+              return (
+                <Table.Row key={col.headerName} applyPadding="bottom" padding="m">
+                  <Table.Data width={col.width} margin="none" padding="none">
+                    <Text.Accented bold={true} className={cx('header-name')}>
+                      {col.headerName}
+                    </Text.Accented>
+                  </Table.Data>
+                  <Table.Data width={100 - col.width} margin="none">
+                    {col.field}
+                  </Table.Data>
+                </Table.Row>
+              );
+            })}
+          </Table.Body>
+        </Table>
+      </Card.Description>
+    </Popup>
+  ) : null;
+};
+export default CountryInfoPopup;

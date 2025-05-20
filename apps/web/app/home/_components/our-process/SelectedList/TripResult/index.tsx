@@ -6,7 +6,7 @@ import Style from './trip-results.module.scss';
 
 import { AI_PLAN } from '../constants/selected';
 
-import ChatTab from 'app/trip-planner/[id]/_components/TripResponse/Tab';
+import ChatTab from 'app/trip-planner/[id]/_components/TripResponse/Tab/TripTab';
 import useAwsMap from 'hooks/awsMap/useAwsMap';
 import AwsMap from 'shared/components/AwsMap';
 

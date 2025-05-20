@@ -1,6 +1,10 @@
-@use 'variables' as *;
 @use 'mixins' as *;
 
-.flex-text {
-  @include flex-text;
+.list-wrap {
+  // height: 20%;
+  @include scroll;
+  @include visible-scroll(false);
+}
+.map-wrap {
+  height: 30vh;
 }

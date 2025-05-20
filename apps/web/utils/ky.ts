@@ -3,6 +3,7 @@ import ky from 'ky';
 
 const api = ky.extend({
   prefixUrl: API.BASE,
+  timeout: 60_000,
   hooks: {
     afterResponse: [
       (_, __, res) => {

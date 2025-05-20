@@ -25,7 +25,7 @@ const ContactAdmin = () => {
             className={cx('link-wrap')}
             href="mailto:pyotato.dev@gmail.com?subject=Hello&body=Can I have extra tokens?"
           >
-            <Text.Accented>@관리자</Text.Accented>에게 토큰 요청하기 <Icon />
+            <Text.Accented isButtonText={true}>@관리자</Text.Accented>에게 토큰 요청하기 <Icon />
           </Link>
         </TextUnderLineAnimation>
 

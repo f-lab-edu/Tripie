@@ -1,13 +1,14 @@
 'use client';
-import { Icon } from '@tripie-pyotato/design-system/@components';
-import { Container, Headings, Text } from '@tripie-pyotato/design-system/@core';
-import { classNames } from 'wrapper';
-import Calendar from './Calendar';
+import { Calendar, Icon } from '@tripie-pyotato/design-system/@components';
+import { Text } from '@tripie-pyotato/design-system/@core';
 
+import { useCalendar } from '@tripie-pyotato/design-system/@hooks';
+import useServerTime from 'hooks/useServerTime';
 import { ContinentKeys } from 'models/Continent';
-import Style from './duration.module.scss';
-
-const cx = classNames.bind(Style);
+import { ReactNode } from 'react';
+import { localeString2Date } from 'utils/date';
+import Layout from '../Layout/Layout';
+import SubmitButton from './SubmitButton';
 
 interface Props {
   context: {
@@ -20,26 +21,52 @@ interface Props {
   };
   onNext: (duration: string) => void;
   onPrev: () => void;
+  progress: ReactNode;
 }
 
-const DurationStep = ({ context, onNext, onPrev }: Props) => {
+const DurationStep = ({ context, onNext, onPrev, progress }: Props) => {
+  const { isValidTime, serverTime } = useServerTime(context?.duration?.split(' ~ ')[0]);
+  const { calendarFormatTime, setSelected, duration, calendar, selected } = useCalendar({
+    serverTime,
+    isValidTime,
+    selectedTime: () =>
+      context?.duration == null || isValidTime !== true
+        ? calendarFormatTime
+        : localeString2Date(context.duration.split(' ~ ')),
+  });
+
   return (
-    <>
-      <Container applyMargin="top" margin="l" padding="l" applyPadding="top">
-        <Headings.H2 className={cx('flex-text')}>
-          <Icon.Navigate
-            sizes="large"
-            onTapStart={() => {
-              onPrev();
-            }}
-          />
-          <Container margin="none">
-            여행 <Text.Accented>기간</Text.Accented>은?
-          </Container>
-        </Headings.H2>
-      </Container>
-      <Calendar onNext={onNext} context={context} />
-    </>
+    <Layout
+      navigateIcon={
+        <Icon.Navigate
+          sizes="large"
+          onTapStart={() => {
+            onPrev();
+          }}
+        />
+      }
+      heading={
+        <>
+          여행 <Text.Accented>기간</Text.Accented>은? {progress}
+        </>
+      }
+      listItems={
+        <Calendar
+          calendar={calendar}
+          // @ts-ignore
+          onChange={value => {
+            setSelected((Array.isArray(value) ? value : [value]) as Date[]);
+          }}
+          selected={selected}
+          onClickDay={setSelected}
+          selectRange={true}
+          allowPartialRange={false}
+          showNeighboringMonth={true}
+          showNavigation={false}
+        />
+      }
+      submitButton={<SubmitButton duration={duration} onNext={onNext} onPrev={onPrev} />}
+    />
   );
 };
 

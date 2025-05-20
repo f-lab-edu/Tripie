@@ -17,6 +17,7 @@ export { default as SplashScreen } from './feedback/SplashScreen/SplashScreen.cl
 export { default as Switch } from './inputs/Switch';
 export { default as AnimatedButton } from './inputs/TripieButton/Animated';
 export { default as UnStyledButton } from './inputs/TripieButton/UnStyled';
+export { default as Drawer } from './navigation/Drawer/Drawer.client';
 export { default as Link } from './navigation/Link/Link.client';
 export { default as Menu } from './navigation/Menu';
 export { default as Accordion } from './surfaces/Accordian/Accordian.client';
@@ -26,5 +27,3 @@ export { default as Calendar } from './x/Calendar';
 export { default as Globe } from './x/Globe';
 export { default as MotionSlideUp } from './x/MotionSlideUp';
 export { default as ParticleBackground } from './x/Particle/Background';
-export { default as ParticleField } from './x/Particle/Field';
-export { default as RotatingBlur } from './x/RotatingBlur';

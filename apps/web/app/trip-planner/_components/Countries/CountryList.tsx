@@ -1,15 +1,14 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { AnimatedButton, Chip } from '@tripie-pyotato/design-system/@components';
-import { Container, List } from '@tripie-pyotato/design-system/@core';
+import { Stack } from '@tripie-pyotato/design-system/@core';
 import firestoreService from 'app/api/firebase';
 import useContinentl from 'hooks/query/useContinentl';
 import { Continentl } from 'models/Continentl';
 import { Country } from 'models/Country';
 import { Dispatch, SetStateAction } from 'react';
-import { classNames } from 'wrapper';
-
 import { regionNameToLocal } from 'utils/lang';
-import Style from './country-list.module.scss';
+import { classNames } from 'wrapper';
+import Style from './countries.module.scss';
 
 interface Props {
   countries?: Country[];
@@ -44,24 +43,21 @@ export function CountryList({ countries, selectedCountry, setSelectedCountry }: 
   }
 
   return (
-    <Container margin="none" className={cx('list-wrap', 'scroll')}>
-      <List.Grid>
-        {countries.map((country: Country) => (
-          <Chip
-            onClick={() => {
-              setSelectedCountry(country.name);
-              prefetch(country.name);
-            }}
-            key={country.id}
-            className={cx('chip-wrap')}
-            selected={selectedCountry === country.name}
-          >
-            <AnimatedButton.Text className={cx('animated-text', 'chip')} withBorder={false} otherChild={country.name}>
-              {country?.code != null && regionNameToLocal({ regionCode: country?.code })}
-            </AnimatedButton.Text>
-          </Chip>
-        ))}
-      </List.Grid>
-    </Container>
+    <Stack display="grid" margin="none" cols={2} gap="l" gridWrapOn={{ 'wrap-sm': 1 }} gridRepeat={{ 'wrap-md': 4 }}>
+      {countries.map((country: Country) => (
+        <Chip
+          onClick={() => {
+            setSelectedCountry(country.name);
+            prefetch(country.name);
+          }}
+          key={country.id}
+          selected={selectedCountry === country.name}
+        >
+          <AnimatedButton.Text withBorder={false} otherChild={country.name}>
+            {country?.code != null && regionNameToLocal({ regionCode: country?.code })}
+          </AnimatedButton.Text>
+        </Chip>
+      ))}
+    </Stack>
   );
 }

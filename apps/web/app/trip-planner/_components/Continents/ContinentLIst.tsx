@@ -1,6 +1,6 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { Chip } from '@tripie-pyotato/design-system/@components';
-import { Container } from '@tripie-pyotato/design-system/@core';
+import { Stack } from '@tripie-pyotato/design-system/@core';
 import firestoreService from 'app/api/firebase';
 import { CONTINENTS } from 'constants/continents';
 import useCountries from 'hooks/query/useCountries';
@@ -38,7 +38,7 @@ export function ContinentList({ selectedContinent, action }: Readonly<Props>) {
   };
 
   return (
-    <Container className={cx('wrap')} applyMargin="bottom">
+    <Stack display="grid" margin="none" cols={2} gap="l" gridWrapOn={{ 'wrap-sm': 1 }} gridRepeat={{ 'wrap-md': 4 }}>
       {Object.keys(CONTINENTS).map((continent, index) => (
         <Chip
           key={JSON.stringify(continent)}
@@ -52,6 +52,6 @@ export function ContinentList({ selectedContinent, action }: Readonly<Props>) {
           {CONTINENTS[continent as ContinentKeys].name}
         </Chip>
       ))}
-    </Container>
+    </Stack>
   );
 }

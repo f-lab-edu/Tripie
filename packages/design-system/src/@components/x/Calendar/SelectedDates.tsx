@@ -51,7 +51,7 @@ const DateSection = ({ date, selected }: { date: keyof SelectedDateProps['durati
 
 const SelectedDates = ({ selected }: { selected: LooseValue }) => {
   return (
-    <Stack margin="none" gap="default" alignItems="stretch">
+    <Stack padding="m" applyPadding="bottom" margin="none" gap="default" alignItems="stretch">
       <Card.Description padding="m">
         <DateSection date={'start'} selected={selected} />
       </Card.Description>

@@ -17,7 +17,7 @@ type FunnelState<T> = {
 };
 
 type FunnelRenderProps<T> = {
-  [key in keyof T]: (props: { context: T[key]; history: FunnelState<T>['history'] }) => ReactNode;
+  [key in keyof T]: (props: { context: T[key]; history: FunnelState<T>['history']; index: number }) => ReactNode;
 };
 
 type StepState<T> = {
@@ -198,7 +198,7 @@ function useFunnel<T>({ id, initial }: { id: string; initial: StepState<T> }) {
       };
       return renderStepComponentWithProps({
         Component: StepComponent,
-        componentProps: { context: currentStep.context as T[keyof T], history },
+        componentProps: { context: currentStep.context as T[keyof T], history, index: currentStep.index },
       });
     },
   };

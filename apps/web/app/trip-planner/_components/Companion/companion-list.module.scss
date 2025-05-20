@@ -1,6 +1,6 @@
 @use 'variables' as *;
 @use 'mixins' as *;
 
-.flex-text {
-  @include flex-text;
+.chip {
+  @include chip;
 }

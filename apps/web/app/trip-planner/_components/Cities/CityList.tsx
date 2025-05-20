@@ -1,7 +1,7 @@
 'use client';
 
-import { Chip, Icon } from '@tripie-pyotato/design-system/@components';
-import { Container } from '@tripie-pyotato/design-system/@core';
+import { Chip } from '@tripie-pyotato/design-system/@components';
+import { Stack } from '@tripie-pyotato/design-system/@core';
 import { Dispatch, SetStateAction, useMemo } from 'react';
 import { classNames } from 'wrapper';
 import Style from './city-list.module.scss';
@@ -40,26 +40,21 @@ const CityList = ({ cities, selected, setSelected }: CityListProps) => {
   };
 
   return (
-    <Container margin="none">
-      <Icon.Refresh onTapStart={() => setSelected([])} />
-      <Container className={cx('scroll')} margin="none">
-        <Container className={cx('chip-wrap')} margin="none">
-          <Chip className={cx('chip')} selected={allSelected} onClick={() => handleSelect()}>
-            전체 선택
-          </Chip>
-          {cities.map(city => (
-            <Chip
-              key={city}
-              className={cx('chip')}
-              selected={new Set(selected).has(city)}
-              onClick={() => handleSelect(city)}
-            >
-              {city}
-            </Chip>
-          ))}
-        </Container>
-      </Container>
-    </Container>
+    <Stack display="grid" margin="none" cols={2} gap="l" gridWrapOn={{ 'wrap-sm': 1 }} gridRepeat={{ 'wrap-md': 4 }}>
+      <Chip className={cx('chip')} selected={allSelected} onClick={() => handleSelect()}>
+        전체 선택
+      </Chip>
+      {cities.map(city => (
+        <Chip
+          key={city}
+          className={cx('chip')}
+          selected={new Set(selected).has(city)}
+          onClick={() => handleSelect(city)}
+        >
+          {city}
+        </Chip>
+      ))}
+    </Stack>
   );
 };
 

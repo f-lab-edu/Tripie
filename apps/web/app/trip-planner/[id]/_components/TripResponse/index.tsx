@@ -1,13 +1,15 @@
 'use client';
 
-import { Background } from '@tripie-pyotato/design-system/@core/layout';
+import { Drawer } from '@tripie-pyotato/design-system/@components';
+import { useCycle } from '@tripie-pyotato/design-system/@hooks';
 import ROUTE from 'constants/routes';
 import { TripContent } from 'models/Aws';
 import { Coordinate } from 'models/Geo';
 import { useRouter } from 'next/navigation';
 import { Dispatch, SetStateAction, Suspense, createContext, useEffect, useMemo, useState } from 'react';
 import Loading from 'shared/components/Loading';
-import MapTab, { ChatResponseData } from './MapTab';
+import TripDetails, { ChatResponseData } from './Tab';
+import TripMap from './TripMap';
 
 /** props drilling 완화를 위해 컨텍스트로 state 관리. 전역으로 사용될 state는 아니기 때문에 간단히 내장 useContext 사용
  * 선택한 tab의 일정, `{일정 날짜}-{선택 일정 인덱스}`
@@ -27,6 +29,7 @@ export const SelectedDateContext = createContext<{ currentDate: number; dateCycl
 
 const TripResponse = ({ data }: { data: ChatResponseData }) => {
   const router = useRouter();
+  const [isOpen, toggleOpen] = useCycle(true, false);
 
   // 뒤로 가기 시 강제로 처음으로
   useEffect(() => {
@@ -65,26 +68,27 @@ const TripResponse = ({ data }: { data: ChatResponseData }) => {
     ) as unknown as Coordinate[][];
   }, [data]);
 
+  // 다른 날짜 혹은 일정 좌표를 클릭하면 탭 열기
+  useEffect(() => {
+    if (!isOpen) {
+      toggleOpen();
+    }
+  }, [selectedDateValues, selectedActivityValues]);
+
   if (coordinates == null) {
     return <Loading />;
   }
 
   return (
     <Suspense fallback={<Loading />}>
-      <Background
-        margin="none"
-        variant={0}
-        justifyContent="flex-end"
-        alignItems="center"
-        padding="m"
-        applyPadding="all"
-      >
-        <TabContext.Provider value={selectedActivityValues}>
-          <SelectedDateContext.Provider value={selectedDateValues}>
-            <MapTab data={data.plans} coordinates={coordinates} />
-          </SelectedDateContext.Provider>
-        </TabContext.Provider>
-      </Background>
+      <TabContext.Provider value={selectedActivityValues}>
+        <SelectedDateContext.Provider value={selectedDateValues}>
+          <Drawer margin="none">
+            <TripMap data={data.plans} coordinates={coordinates} />
+            <TripDetails data={data.plans} isOpen={isOpen} toggleOpen={toggleOpen} />
+          </Drawer>
+        </SelectedDateContext.Provider>
+      </TabContext.Provider>
     </Suspense>
   );
 };
