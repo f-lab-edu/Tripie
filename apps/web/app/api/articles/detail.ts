@@ -2,6 +2,7 @@ import API from 'constants/api-routes';
 import { ArticleData } from 'models/Article';
 import { AttractionArticle, ParsedAttractionResponse } from 'models/Attraction';
 import { RestaurantData } from 'models/Restaurant';
+import api from 'utils/ky';
 import addImage from '../cloudinary/addImage';
 import firestoreService from '../firebase';
 
@@ -69,15 +70,15 @@ const getArticleDetail = async <T extends 'article' | 'attraction' | 'retaurant'
               images: await Promise.all(
                 v.value.images.map(async image => {
                   const imageUrl = image?.sizes?.full?.url;
-                  // if (imageUrl != null && !imageUrl?.startsWith('https://res.cloudinary.com/dbzzletpw/image/upload')) {
-                  //   await api
-                  //     .post(`cloudinary`, {
-                  //       json: {
-                  //         imageUrl,
-                  //       },
-                  //     })
-                  //     .json();
-                  // }
+                  if (imageUrl != null && !imageUrl?.startsWith('https://res.cloudinary.com/dbzzletpw/image/upload')) {
+                    await api
+                      .post(`cloudinary`, {
+                        json: {
+                          imageUrl,
+                        },
+                      })
+                      .json();
+                  }
 
                   return {
                     ...image,
