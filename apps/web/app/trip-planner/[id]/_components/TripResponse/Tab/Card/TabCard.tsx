@@ -58,7 +58,9 @@ const TabCard = ({
         <TripieCard.Header>
           <Stack alignItems={'center'} gap="default" margin="none">
             <Chip className={cx('label', label)}>{index + 1}</Chip>
-            <Text.Accented isButtonText={true}>{activity}</Text.Accented>
+            <Text.Accented isButtonText={true} bold={true}>
+              {activity}
+            </Text.Accented>
           </Stack>
         </TripieCard.Header>
         <TripieCard.Divider margin="m" />

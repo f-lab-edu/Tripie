@@ -2,7 +2,6 @@
 import { AiTripPlanResponse } from 'app/api/openai/getTripPlan';
 import { useContext, useEffect } from 'react';
 
-import { Drawer } from '@tripie-pyotato/design-system/@components';
 import { SelectedDateContext, TabContext } from '..';
 import TripTab from './TripTab';
 
@@ -15,15 +14,7 @@ export type ChatResponseData = {
   places: string[][];
 };
 
-const TripDetails = ({
-  data,
-  isOpen,
-  toggleOpen,
-}: {
-  data: ChatResponseData['plans'];
-  isOpen: boolean;
-  toggleOpen: (index?: number) => void;
-}) => {
+const TripDetails = ({ data }: { data: ChatResponseData['plans'] }) => {
   const { currentDate } = useContext(SelectedDateContext);
   const { cycle } = useContext(TabContext);
 
@@ -31,11 +22,7 @@ const TripDetails = ({
     cycle(`${currentDate}-0`);
   }, [currentDate]);
 
-  return (
-    <Drawer.Content isOpen={isOpen} toggleOpen={() => toggleOpen()} position="left" exposePercentage={30} margin="none">
-      <TripTab data={data} />
-    </Drawer.Content>
-  );
+  return <TripTab data={data} />;
 };
 
 export default TripDetails;

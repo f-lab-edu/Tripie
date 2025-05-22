@@ -1,10 +1,10 @@
-@use 'variables' as *;
+// @use 'variables' as *;
 @use 'mixins' as *;
 
-.trip-list-wrap {
+.over-flow-wrap {
   @include scroll;
   @include visible-scroll(false);
-  height: 60vh;
+  height: 32rem;
 }
 
 .chip {
@@ -15,5 +15,11 @@
 .trip-tab-wrap {
   height: 100vh;
   height: 100%;
+  height: stretch;
+  height: -webkit-fill-available;
   margin: 1rem 0 !important;
+}
+
+.trip-tab-content-wrap {
+  width: min(24rem, 60vw);
 }

@@ -162,60 +162,6 @@ class FirestoreService {
       console.error('Error deleting document:', error);
     }
   }
-  // // 업데이트
-  // async update(collectionName: string, itemId: string, newItems: Record<'string', unknown[]>): Promise<void> {
-  //   const items = {};
-  //   try {
-  //     const docRef = doc(this.db, collectionName, itemId);
-
-  //     Object.keys(newItems).forEach(key => (items[key] = arrayUnion({ ...newItems[key] })));
-  //     console.log(items);
-  //     // await updateDoc(docRef, items);
-  //   } catch (error) {
-  //     console.error('Error deleting document:', error);
-  //   }
-  // }
-  // 업데이트
-  // async merge(collectionName: string, itemId: string, newItems: Record<'string', unknown[]>): Promise<void> {
-  //   try {
-  //     const docRef = doc(this.db, collectionName, itemId);
-  //     await setDoc(docRef, { body: newItems }, { merge: true });
-  //   } catch (error) {
-  //     console.error('Error deleting document:', error);
-  //   }
-  // }
-
-  // async addArticleBody(
-  //   collectionName: string,
-  //   itemId: string,
-  //   articleId: string,
-  //   newItems: Record<'string', unknown[]>
-  // ): Promise<void> {
-  //   try {
-  //     const bodyCollectionRef = collection(this.db, collectionName, itemId, 'article', articleId, 'body');
-  //     await addDoc(bodyCollectionRef, newItems);
-  //   } catch (error) {
-  //     console.error('Error deleting document:', error);
-  //   }
-  // }
-
-  // async addArticles(collectionName: string, itemId: string, newItems: Record<'string', unknown[]>): Promise<void> {
-  //   try {
-  //     const bodyCollectionRef = collection(this.db, collectionName, itemId, 'article');
-  //     await addDoc(bodyCollectionRef, newItems);
-  //   } catch (error) {
-  //     console.error('Error deleting document:', error);
-  //   }
-  // }
-
-  // async addArticles(collectionName: string, itemId: string, newItems: Record<'string', unknown[]>): Promise<void> {
-  //   try {
-  //     const bodyCollectionRef = collection(this.db, collectionName, itemId, 'article');
-  //     await addDoc(bodyCollectionRef, newItems);
-  //   } catch (error) {
-  //     console.error('Error deleting document:', error);
-  //   }
-  // }
 }
 
 export default FirestoreService;

@@ -83,10 +83,16 @@ const TripResponse = ({ data }: { data: ChatResponseData }) => {
     <Suspense fallback={<Loading />}>
       <TabContext.Provider value={selectedActivityValues}>
         <SelectedDateContext.Provider value={selectedDateValues}>
-          <Drawer margin="none">
-            <TripMap data={data.plans} coordinates={coordinates} />
-            <TripDetails data={data.plans} isOpen={isOpen} toggleOpen={toggleOpen} />
-          </Drawer>
+          <Drawer
+            isOpen={isOpen}
+            toggleOpen={() => toggleOpen()}
+            drawerContent={{
+              children: <TripDetails data={data.plans} />,
+            }}
+            drawerBody={{
+              children: <TripMap data={data.plans} coordinates={coordinates} />,
+            }}
+          />
         </SelectedDateContext.Provider>
       </TabContext.Provider>
     </Suspense>

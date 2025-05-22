@@ -1,10 +1,18 @@
 import { ImageProps, Text } from '@core';
 import TripieContainer from '@core/layout/TripieContainer';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { classNames, Motion } from '../../../wrappers';
 import Style from './image.module.scss';
 
 const cx = classNames.bind(Style);
+
+const preloadImage = (src: string) =>
+  new Promise<void>((resolve, reject) => {
+    const img = new Image();
+    img.src = src;
+    img.onload = () => resolve();
+    img.onerror = reject;
+  });
 
 const BlurImageOnLoad = ({
   src,
@@ -19,25 +27,24 @@ const BlurImageOnLoad = ({
 }: ImageProps) => {
   const [loaded, setLoaded] = useState(false);
 
+  useEffect(() => {
+    let isMounted = true;
+    if (src != null) {
+      preloadImage(src)
+        .then(() => {
+          if (isMounted) setLoaded(true);
+        })
+        .catch(err => {
+          console.error('Image preload failed:', err);
+        });
+    }
+
+    return () => {
+      isMounted = false;
+    };
+  }, [src]);
+
   return (
-    // <TripieContainer
-    //   margin="none"
-    //   className={cx('tripie-image', 'img-wrap', sizes, `image-ratio-${aspectRatio}`, className)}
-    //   {...args}
-    // >
-    //   <Motion.Div
-    //     ref={refs}
-    //     style={{
-    //       position: 'absolute',
-    //       inset: 0,
-    //       backgroundImage: `url(${src})`,
-    //       backgroundSize: 'cover',
-    //       opacity: 1,
-    //       zIndex: 1,
-    //     }}
-    //     transition={{ duration: 0.4, ease: 'easeOut' }}
-    //     className={cx('tripie-image', 'img-wrap', sizes, withBorder && 'with-border', className)}
-    //   />
     <TripieContainer
       margin="none"
       className={cx('tripie-image', 'img-wrap', sizes, `image-ratio-${aspectRatio}`, className)}
@@ -61,25 +68,26 @@ const BlurImageOnLoad = ({
         transition={{ duration: 0.4, ease: 'easeOut' }}
         className={cx('tripie-image', 'img-wrap', sizes, withBorder && 'with-border', className)}
       />
-      {/* Sharp image */}
-      <Motion.Img
-        src={src?.replace('e_blur:2000,q_1,', 'q_auto,')}
-        loading="lazy"
-        alt={alt}
-        ref={refs}
-        width={'100%'}
-        height={'auto'}
-        crossOrigin="anonymous"
-        referrerPolicy="no-referrer"
-        onLoad={() => setLoaded(true)}
-        animate={{ opacity: loaded ? 1 : 0, zIndex: loaded ? 2 : 0 }}
-        transition={{ duration: 0.4, ease: 'easeIn' }}
-        className={cx('tripie-image', 'img-wrap', sizes, withBorder && 'with-border', className)}
-        style={{
-          display: 'block',
-          objectFit: 'cover',
-        }}
-      />
+      {!loaded ? null : (
+        // {/* Sharp image */}
+        <Motion.Img
+          src={src?.replace('e_blur:2000,q_1,', 'q_auto,')}
+          loading="lazy"
+          alt={alt}
+          ref={refs}
+          width={'100%'}
+          height={'auto'}
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
+          animate={{ opacity: loaded ? 1 : 0, zIndex: loaded ? 2 : 0 }}
+          transition={{ duration: 0.4, ease: 'easeIn' }}
+          className={cx('tripie-image', 'img-wrap', sizes, withBorder && 'with-border', className)}
+          style={{
+            display: 'block',
+            objectFit: 'cover',
+          }}
+        />
+      )}
     </TripieContainer>
   );
 };

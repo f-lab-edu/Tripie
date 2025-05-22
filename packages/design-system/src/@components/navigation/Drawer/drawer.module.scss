@@ -3,6 +3,7 @@
 @use '../../../generator/' as *;
 @use '../../../mixins/' as *;
 @use '../../../variables' as *;
+@use '../../../mixins' as *;
 
 @use 'sass:map';
 
@@ -22,18 +23,44 @@ $drawer-position-map: (left, top, right, bottom);
   backdrop-filter: blur(10px);
 }
 
-.drawer-toggle-btn {
-  height: 3rem;
-  cursor: pointer;
-  width: 3rem;
-  color: inherit;
-  background-color: inherit;
-  backdrop-filter: blur(10px);
-}
-
 .full {
   max-width: 100vw;
   max-height: 100vh;
   height: 100%;
   width: 100%;
+  overflow: hidden;
+}
+
+.max {
+  height: -moz-available;
+  height: -webkit-fill-available;
+  height: stretch; // spec has changed
+}
+
+$percentage-map: ();
+
+@for $i from 1 through 100 {
+  $percentage-map: map-merge(
+    $percentage-map,
+    (
+      $i: $i + px,
+    )
+  );
+}
+
+.drawer-backdrop {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-tap-highlight-color: transparent;
+}
+
+@each $key, $percent in $percentage-map {
+  .backdrop-filter-#{$key} {
+    backdrop-filter: blur($percent);
+  }
 }

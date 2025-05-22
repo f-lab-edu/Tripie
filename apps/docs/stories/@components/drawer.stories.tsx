@@ -12,8 +12,7 @@ const drawerMeta: Meta<typeof Drawer> = {
   parameters: {
     docs: {
       description: {
-        component:
-          '네비게이션 토글 버튼이 열린 상태에서 보이는 메뉴 리스트의 아이템 컴포넌트. 호버 시 확대 애니메이션이 동작합니다.',
+        component: '',
       },
     },
   },
@@ -30,24 +29,25 @@ const drawerMeta: Meta<typeof Drawer> = {
   ],
   argTypes: {
     ...meta['argTypes'],
-    position: {
-      control: { type: 'radio' },
-      options: ['top', 'bottom', 'left', 'right'],
-      table: {
-        type: {
-          summary: "'top' | 'bottom' | 'left' | 'right'",
+    drawerContent: {
+      position: {
+        control: { type: 'radio' },
+        options: ['top', 'bottom', 'left', 'right'],
+        table: {
+          type: {
+            summary: "'top' | 'bottom' | 'left' | 'right'",
+          },
+          defaultValue: { summary: 'left' },
         },
-        defaultValue: { summary: 'left' },
       },
     },
-    withBorder: {
-      control: { type: 'boolean' },
-      options: ['true', 'false'],
+    backDropFilter: {
+      control: { type: 'number' },
       table: {
         type: {
-          summary: "'true' | 'false' ",
+          summary: "'number' value between 0 - 100. Applied opacity to content under the drawer component",
         },
-        defaultValue: { summary: 'false' },
+        defaultValue: { summary: 0 },
       },
     },
     exposePercentage: {
@@ -59,11 +59,39 @@ const drawerMeta: Meta<typeof Drawer> = {
         defaultValue: { summary: 100 },
       },
     },
+    closeOutFocusedDrawer: {
+      control: { type: 'boolean' },
+      table: {
+        type: {
+          summary: "setting 'closeOutFocusedDrawer' as `true`closes drawer content on focusing drawer body",
+        },
+        defaultValue: { summary: true },
+      },
+    },
   },
   args: {
-    position: 'left',
-    withBorder: false,
-    exposePercentage: 100,
+    drawerContent: {
+      zIndex: 'modal',
+      position: 'left',
+      children: <Container> contents</Container>,
+      margin: 'none',
+      sizes: 'full',
+      exposePercentage: 100,
+      customDrawer: false,
+      className: '',
+    },
+    drawerBody: {
+      filter: 0,
+      className: '',
+      children: (
+        <Container padding="none" margin="none" style={{ backgroundColor: 'grey', height: '-webkit-fill-available' }}>
+          body
+        </Container>
+      ),
+      zIndex: 'base',
+    },
+    initial: true,
+    closeOutFocusedDrawer: true,
   },
 };
 
@@ -74,13 +102,6 @@ export const Default: Story = {
   name: 'Default',
   render: (args: typeof Drawer) => {
     const [isOpen, toggleOpen] = useCycle(true, false);
-    return (
-      <Drawer>
-        <Container>body</Container>
-        <Drawer.Content {...args} isOpen={isOpen} toggleOpen={() => toggleOpen()}>
-          contents
-        </Drawer.Content>
-      </Drawer>
-    );
+    return <Drawer isOpen={isOpen} toggleOpen={() => toggleOpen()} {...args} />;
   },
 };

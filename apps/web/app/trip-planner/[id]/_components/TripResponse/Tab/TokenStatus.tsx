@@ -19,7 +19,7 @@ const TokenStatus = () => {
   };
 
   return (
-    <Container gap="l" justifyContent="left" margin="l" padding="l" applyPadding="top" applyMargin="top-bottom">
+    <Container gap="l" justifyContent="left" margin="l" padding="none" applyMargin="top">
       {status === 'loading' ? (
         <Container margin="none" gap="sm" justifyContent="start">
           <Icon.Loading /> <AnimatedText.Jump>토큰 확인중...</AnimatedText.Jump>
