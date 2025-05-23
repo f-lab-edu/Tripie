@@ -7,7 +7,8 @@ import { CHAT_CACHE_DB_NAME } from 'constants/auth';
 import ROUTE from 'constants/routes';
 import { TripContent } from 'models/Aws';
 import { Metadata } from 'next';
-import SeverError from 'shared/components/Error/Error';
+
+import Error from 'shared/components/Error';
 import TripResponse from './_components/TripResponse';
 import { ChatResponseData } from './_components/TripResponse/Tab';
 
@@ -48,7 +49,7 @@ const TripPlan = async ({ params }: { params: Promise<{ id: string }> }) => {
   const plan = await firestoreService.getItem(CHAT_CACHE_DB_NAME, decodeURIComponent(id));
 
   if (plan?.data == null) {
-    return <SeverError />;
+    return <Error message="trip plan does not exist" />;
   }
   return <TripResponse data={JSON.parse(plan.data) as ChatResponseData} />;
 };
