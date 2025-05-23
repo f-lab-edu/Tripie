@@ -11,9 +11,9 @@ import { usePathname } from 'next/navigation';
 // ai 일정짜기 버튼, 토큰이 없는 경우 /not-enough-tokens로 이동
 const AiTripButton = () => {
   const pathName = usePathname();
-  const { isEligible } = useChatToken();
+  const { isEligible, status } = useChatToken();
 
-  if (pathName.startsWith(ROUTE.TRIP_PLANNER.href)) {
+  if (pathName.startsWith(ROUTE.TRIP_PLANNER.href) || status != 'authenticated') {
     return null;
   }
 
