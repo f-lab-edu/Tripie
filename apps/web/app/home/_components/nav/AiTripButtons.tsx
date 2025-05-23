@@ -13,13 +13,15 @@ const AiTripButton = () => {
   const pathName = usePathname();
   const { isEligible, status } = useChatToken();
 
-  if (pathName.startsWith(ROUTE.TRIP_PLANNER.href) || status != 'authenticated') {
+  if (pathName.startsWith(ROUTE.TRIP_PLANNER.href)) {
     return null;
   }
 
   return (
     <Menu.Item>
-      <Link href={`${API.BASE_URL + ROUTE.TRIP_PLANNER.href}${isEligible ? '' : '/not-enough-tokens'}`}>
+      <Link
+        href={`${API.BASE_URL + status != 'authenticated' ? ROUTE.SIGN_IN.href : ROUTE.TRIP_PLANNER.href + isEligible ? '' : '/not-enough-tokens'}`}
+      >
         AI 추천 맞춤일정
       </Link>
       <Icon />
