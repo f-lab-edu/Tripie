@@ -1,0 +1,11 @@
+@use 'mixins' as *;
+
+.over-flow-wrap {
+  @include scroll;
+  @include visible-scroll(false);
+  max-height: 58vh;
+}
+
+.trip-list-wrap {
+  height: 100%;
+}

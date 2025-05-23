@@ -8,9 +8,9 @@ import { useContext } from 'react';
 
 import { AiTripPlanResponse } from 'app/api/openai/getTripPlan';
 import { SelectedDateContext } from '..';
-import TabList from './List';
-import Style from './tab-chat.module.scss';
-import TokenStatus from './TokenStatus';
+import TabList from '../TabList';
+import TokenStatus from '../TokenStatus';
+import Style from './trip-tab.module.scss';
 
 const cx = classNames.bind(Style);
 
@@ -34,7 +34,6 @@ const TripTab = ({ data, scrollIntoView = true }: { data: AiTripPlanResponse; sc
       <Carousel.Controlled>
         {data.trips.map(trip => (
           <Chip
-            className={cx('chip')}
             selected={currentDate === trip.day - 1}
             onClick={() => {
               dateCycle(trip.day - 1);

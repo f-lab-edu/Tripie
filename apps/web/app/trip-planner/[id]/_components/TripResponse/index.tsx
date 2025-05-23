@@ -8,7 +8,7 @@ import { Coordinate } from 'models/Geo';
 import { useRouter } from 'next/navigation';
 import { Dispatch, SetStateAction, Suspense, createContext, useEffect, useMemo, useState } from 'react';
 import Loading from 'shared/components/Loading';
-import TripDetails, { ChatResponseData } from './Tab';
+import TripDetails, { ChatResponseData } from './TripDetails';
 import TripMap from './TripMap';
 
 /** props drilling 완화를 위해 컨텍스트로 state 관리. 전역으로 사용될 state는 아니기 때문에 간단히 내장 useContext 사용

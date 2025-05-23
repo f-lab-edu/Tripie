@@ -3,9 +3,9 @@
 import { Container, Stack, Text } from '@tripie-pyotato/design-system/@core';
 
 import { TripContent } from 'models/Aws';
-import TabCard from './TabCard';
+import TabCard from '../TabCard';
 
-import Style from './tab-chat.module.scss';
+import Style from './tab-list.module.scss';
 
 import { classNames } from 'wrapper';
 

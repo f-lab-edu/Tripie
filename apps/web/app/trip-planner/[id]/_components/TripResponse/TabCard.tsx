@@ -6,7 +6,7 @@ import { openNewTab } from '@tripie-pyotato/utils';
 import { Activity, TripContent } from 'models/Aws';
 import { useContext, useEffect, useRef } from 'react';
 
-import { TabContext } from '..';
+import { TabContext } from '.';
 
 const TabCard = ({
   label,

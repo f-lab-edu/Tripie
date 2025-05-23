@@ -2,7 +2,7 @@
 import { AiTripPlanResponse } from 'app/api/openai/getTripPlan';
 import { useContext, useEffect } from 'react';
 
-import { SelectedDateContext, TabContext } from '..';
+import { SelectedDateContext, TabContext } from '.';
 import TripTab from './TripTab';
 
 export type ChatResponseData = {

@@ -10,7 +10,7 @@ import { Metadata } from 'next';
 
 import Error from 'shared/components/Error';
 import TripResponse from './_components/TripResponse';
-import { ChatResponseData } from './_components/TripResponse/Tab';
+import { ChatResponseData } from './_components/TripResponse/TripDetails';
 
 // https://nextjs.org/docs/app/building-your-application/optimizing/metadata
 type Props = {
