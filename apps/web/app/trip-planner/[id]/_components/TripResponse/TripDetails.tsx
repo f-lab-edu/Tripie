@@ -14,7 +14,7 @@ export type ChatResponseData = {
   places: string[][];
 };
 
-const TripDetails = ({ data }: { data: ChatResponseData['plans'] }) => {
+const TripDetails = ({ data, country }: { data: ChatResponseData['plans']; country: string }) => {
   const { currentDate } = useContext(SelectedDateContext);
   const { cycle } = useContext(TabContext);
 
@@ -22,7 +22,7 @@ const TripDetails = ({ data }: { data: ChatResponseData['plans'] }) => {
     cycle(`${currentDate}-0`);
   }, [currentDate]);
 
-  return <TripTab data={data} />;
+  return <TripTab data={data} country={country} />;
 };
 
 export default TripDetails;

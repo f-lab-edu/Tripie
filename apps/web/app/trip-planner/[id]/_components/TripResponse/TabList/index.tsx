@@ -11,7 +11,15 @@ import { classNames } from 'wrapper';
 
 const cx = classNames.bind(Style);
 
-const TabList = ({ trip, scrollIntoView }: { trip: TripContent; scrollIntoView?: boolean }) => {
+const TabList = ({
+  trip,
+  scrollIntoView,
+  country,
+}: {
+  country: string;
+  trip: TripContent;
+  scrollIntoView?: boolean;
+}) => {
   return (
     <Stack direction={'column'} gap="l" alignItems="start" margin="none">
       <Stack direction={'column'} margin="m" gap="none" applyMargin="top">
@@ -40,6 +48,7 @@ const TabList = ({ trip, scrollIntoView }: { trip: TripContent; scrollIntoView?:
               key={label + index}
               place={place}
               scrollIntoView={scrollIntoView}
+              country={country}
             />
           ))}
         </Stack>

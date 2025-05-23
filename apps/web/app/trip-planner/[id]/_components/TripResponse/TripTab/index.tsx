@@ -14,7 +14,15 @@ import Style from './trip-tab.module.scss';
 
 const cx = classNames.bind(Style);
 
-const TripTab = ({ data, scrollIntoView = true }: { data: AiTripPlanResponse; scrollIntoView?: boolean }) => {
+const TripTab = ({
+  data,
+  country,
+  scrollIntoView = true,
+}: {
+  data: AiTripPlanResponse;
+  country: string;
+  scrollIntoView?: boolean;
+}) => {
   // 일정 중 선택한 여행 날짜 컨텍스트
   const { currentDate, dateCycle } = useContext(SelectedDateContext);
 
@@ -45,6 +53,7 @@ const TripTab = ({ data, scrollIntoView = true }: { data: AiTripPlanResponse; sc
         ))}
       </Carousel.Controlled>
       <TabList
+        country={country}
         scrollIntoView={scrollIntoView}
         key={data.trips[currentDate].date + data.trips[currentDate].day}
         trip={data.trips[currentDate]}

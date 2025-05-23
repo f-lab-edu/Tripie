@@ -51,7 +51,7 @@ const TripPlan = async ({ params }: { params: Promise<{ id: string }> }) => {
   if (plan?.data == null) {
     return <Error message="trip plan does not exist" />;
   }
-  return <TripResponse data={JSON.parse(plan.data) as ChatResponseData} />;
+  return <TripResponse country={plan.country} data={JSON.parse(plan.data) as ChatResponseData} />;
 };
 
 export default TripPlan;

@@ -16,6 +16,7 @@ const TabCard = ({
   comments,
   place,
   scrollIntoView,
+  country,
 }: {
   label: Activity['label'];
   trip: TripContent;
@@ -24,6 +25,7 @@ const TabCard = ({
   comments: string;
   place?: string;
   scrollIntoView?: boolean;
+  country: string;
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
@@ -64,7 +66,7 @@ const TabCard = ({
         <TripieCard.Content applyMargin="left-right-bottom" margin="m">
           <TextUnderLineAnimation
             // 새로운 탭에 구글 검색
-            onClick={() => openNewTab(`https://www.google.com/search?q=@${place}`)}
+            onClick={() => openNewTab(`https://www.google.com/search?q=@${place}, ${country}`)}
           >
             <Text.Accented size="small">@</Text.Accented>
             {place}

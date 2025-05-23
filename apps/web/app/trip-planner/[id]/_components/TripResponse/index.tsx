@@ -27,7 +27,7 @@ export const SelectedDateContext = createContext<{ currentDate: number; dateCycl
   dateCycle: () => null,
 });
 
-const TripResponse = ({ data }: { data: ChatResponseData }) => {
+const TripResponse = ({ data, country }: { data: ChatResponseData; country: string }) => {
   const router = useRouter();
   const [isOpen, toggleOpen] = useCycle(true, false);
 
@@ -87,7 +87,7 @@ const TripResponse = ({ data }: { data: ChatResponseData }) => {
             isOpen={isOpen}
             toggleOpen={() => toggleOpen()}
             drawerContent={{
-              children: <TripDetails data={data.plans} />,
+              children: <TripDetails data={data.plans} country={country} />,
             }}
             drawerBody={{
               children: <TripMap data={data.plans} coordinates={coordinates} />,
