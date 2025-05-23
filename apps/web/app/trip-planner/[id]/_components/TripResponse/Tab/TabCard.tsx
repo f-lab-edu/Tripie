@@ -2,15 +2,11 @@
 import { AnimatedCard, Chip, TextUnderLineAnimation } from '@tripie-pyotato/design-system/@components';
 import { Stack, Text, TripieCard } from '@tripie-pyotato/design-system/@core';
 import { openNewTab } from '@tripie-pyotato/utils';
-import { classNames } from 'wrapper';
-import Style from './tab-card.module.scss';
 
 import { Activity, TripContent } from 'models/Aws';
 import { useContext, useEffect, useRef } from 'react';
 
-import { TabContext } from '../..';
-
-const cx = classNames.bind(Style);
+import { TabContext } from '..';
 
 const TabCard = ({
   label,
@@ -57,7 +53,7 @@ const TabCard = ({
       <TripieCard sizes={'full'} margin="none" ref={current === `${trip.day - 1}-${index}` ? ref : null}>
         <TripieCard.Header>
           <Stack alignItems={'center'} gap="default" margin="none">
-            <Chip className={cx('label', label)}>{index + 1}</Chip>
+            <Chip.Marker variant={label}>{index + 1}</Chip.Marker>
             <Text.Accented isButtonText={true} bold={true}>
               {activity}
             </Text.Accented>
