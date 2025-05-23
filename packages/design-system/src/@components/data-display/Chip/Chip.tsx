@@ -34,6 +34,29 @@ const Chip = ({ children, className, onClick, selected, disabled = false }: Read
   );
 };
 
+const MarkerChip = ({
+  children,
+  className,
+  onClick,
+  selected,
+  disabled = false,
+  variant = 'attraction',
+}: Readonly<ChipProps> & { variant?: 'restaurant' | 'hotel' | 'attraction' }) => {
+  return (
+    <Motion.Button
+      whileHover={'shine'}
+      whileTap={'shine'}
+      disabled={disabled}
+      animate={selected ? 'selected' : 'rest'}
+      variants={SHINE_VARIANT}
+      onClick={onClick}
+      className={cx('chip', 'with-border', `variant-${variant}`, className)}
+    >
+      {children}
+    </Motion.Button>
+  );
+};
+
 const AccentedChip = ({ children, current, className, onClick, type = 'button' }: Readonly<ChipProps>) => {
   return (
     <Motion.Button
@@ -60,5 +83,6 @@ const AccentedChip = ({ children, current, className, onClick, type = 'button' }
 };
 
 Chip.Accented = AccentedChip;
+Chip.Marker = MarkerChip;
 
 export default Chip;

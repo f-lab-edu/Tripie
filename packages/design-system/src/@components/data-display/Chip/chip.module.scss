@@ -1,6 +1,7 @@
 @use '../../../variables' as *;
 @use '../../../mixins' as *;
 @use '../../../functions/' as *;
+
 .with-border {
   @include with-border;
   padding: 0.2rem 0.6rem;
@@ -23,7 +24,6 @@
 .accented {
   display: inline-block;
   position: relative;
-  // z-index: 2;
   z-index: z(default);
   margin: 0.4px;
   padding: 0.2rem 0.6rem;
@@ -60,16 +60,18 @@
   background-color: $theme-100;
 }
 
-.restaurant {
-  @include map-marker('restaurant');
-}
+$marker-variant: (
+  restaurant: 'restaurant',
+  hotel: 'hotel',
+  attraction: 'attraction',
+);
 
-.hotel {
-  @include map-marker('hotel');
-}
-
-.attraction {
-  @include map-marker('attraction');
+@each $key, $variant in $marker-variant {
+  .variant-#{$key} {
+    width: 1.5rem;
+    height: 1.5rem;
+    @include map-marker($variant);
+  }
 }
 
 .marker {

@@ -4,7 +4,7 @@
 .over-flow-wrap {
   @include scroll;
   @include visible-scroll(false);
-  height: 32rem;
+  max-height: 58vh;
 }
 
 .chip {
@@ -22,4 +22,8 @@
 
 .trip-tab-content-wrap {
   width: min(24rem, 60vw);
+}
+
+.trip-list-wrap {
+  height: 100%;
 }

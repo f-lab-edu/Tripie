@@ -1,6 +1,6 @@
 'use client';
 
-import { ChipMarker } from '@tripie-pyotato/design-system/@components';
+import { Chip } from '@tripie-pyotato/design-system/@components';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { LocationMarker } from 'models/Geo';
 import { classNames, Marker } from 'wrapper';
@@ -26,9 +26,9 @@ const TripieMarker = ({
       anchor="bottom"
       onClick={action}
     >
-      <ChipMarker className={cx(marker.label)} selected={current === marker.index}>
-        {marker.index}
-      </ChipMarker>
+      <Chip.Marker variant={marker.label} selected={current === marker.index}>
+        {+marker.index.split('-')[1] + 1}
+      </Chip.Marker>
     </Marker>
   );
 };

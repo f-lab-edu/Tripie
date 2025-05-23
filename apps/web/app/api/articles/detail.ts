@@ -37,7 +37,6 @@ const getArticleDetail = async <T extends 'article' | 'attraction' | 'retaurant'
                 v.value.images.map(async image => {
                   const imageUrl = image?.sizes?.full?.url;
                   let articleCloudinaryImageUrl = defaultBlurSize;
-
                   const postRes: CloudinaryPostResponse = await backendApi
                     .post('cloudinary', { json: { imageUrl } })
                     .json();
