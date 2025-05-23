@@ -14,7 +14,13 @@ const ExternalLinkCard = ({ link, index }: { link: ExternalLink; index: number }
     <AnimatedCard key={link.url + index} onClick={() => navigate.push(link.url)}>
       <TripieCard sizes="full" margin="none">
         <Stack gap="l" alignItems="start" display="grid" gridWrapOn={{ 'wrap-md': 1 }} cols={2}>
-          <BlurImageOnLoad aspectRatio={'square'} sizes="card" src={link.imageUrl} alt={link.imageUrl} />
+          <BlurImageOnLoad
+            withBorder={true}
+            aspectRatio={'square'}
+            sizes="card"
+            src={link.imageUrl}
+            alt={link.imageUrl}
+          />
           <TripieCard.Content margin="none">
             <ArticleHeading item={{ type: 'heading3', value: { text: link.title } }} />
             <ArticleText item={{ type: 'text', value: { text: link.publisher } }} />

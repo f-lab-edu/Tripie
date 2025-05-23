@@ -15,7 +15,7 @@ const AttractionLayout = ({
   id: string;
   title: string;
   imgSrc?: string;
-  imgAlt?: string;
+  imgAlt?: string | null;
   body: AttractionArticle['source'];
 }) => {
   return (
@@ -27,7 +27,7 @@ const AttractionLayout = ({
           aspectRatio={'cinematic'}
           src={imgSrc}
           sizes="large"
-          alt={`${imgAlt}의 썸네일`}
+          alt={`${imgAlt != null ? imgAlt : imgSrc}의 썸네일`}
         />
       }
       articleBody={<ArticleBody source={body} dataUrl={id} />}

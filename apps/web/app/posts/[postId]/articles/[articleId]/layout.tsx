@@ -9,14 +9,13 @@ import { ReactNode } from 'react';
 import { pageParamData } from '../../page-param-data';
 
 export async function generateMetadata({ params }: ParamProps): Promise<Metadata> {
-  const { postId, articleId, metadataContents, description, path, title } = await pageParamData({ params });
-
+  const { postId, articleId, description, images, path, title } = await pageParamData({ params });
   return {
     title,
     description,
     openGraph: {
       ...sharedMetaData,
-      images: [metadataContents?.image.sizes?.full?.url ?? ''],
+      images: [images ?? ''],
       url: `${API.BASE_URL}${ROUTE.POSTS.href}/${postId}/${path}/${articleId}`,
       title,
       description,

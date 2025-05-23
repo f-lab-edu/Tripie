@@ -34,8 +34,6 @@ const TripieImage = ({
   loading,
   aspectRatio = 'standard',
 }: ImageProps) => {
-  console.log(src);
-
   return (
     <TripieContainer
       margin="none"

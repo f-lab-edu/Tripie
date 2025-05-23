@@ -1,11 +1,13 @@
 'use server';
-import getArticleDetail from 'app/api/articles/detail';
+import getArticleDetail, { CloudinaryPostResponse, defaultBlurSize } from 'app/api/articles/detail';
 import { sharedMetaData } from 'app/shared-metadata';
 import { ArticleData } from 'models/Article';
 import { AttractionArticle } from 'models/Attraction';
 import { ParamProps } from 'models/Props';
 import { headers } from 'next/headers';
+import { backendApi } from 'utils/ky';
 import getPreferredTitle from 'utils/string/getPreferredTitle';
+import { CLOUDINARY_URL } from './../../../../../packages/design-system/src/shared/resource';
 
 const PAGE = {
   attractions: 'attraction',
@@ -23,13 +25,23 @@ export async function pageParamData({ params }: ParamProps) {
   const postId = (await params).postId;
   const articleId = (await params).articleId;
 
-  const { data, blurredThumbnail } = await getArticleDetail(PAGE[key], postId, articleId);
+  const { data } = await getArticleDetail(PAGE[key], postId, articleId);
+
+  let recommendationImageUrl = defaultBlurSize;
 
   if (key === 'articles') {
     const description = (data as ArticleData)?.metadataContents?.description ?? sharedMetaData?.description;
     const metadataContents = (data as ArticleData)?.metadataContents;
     const body = (data as ArticleData)?.body;
     const id = (data as ArticleData)?.id;
+    const images = (data as ArticleData).metadataContents.image.sizes?.full?.url;
+
+    if (images != null && !images?.startsWith(CLOUDINARY_URL)) {
+      const postRes: CloudinaryPostResponse = await backendApi
+        .post('cloudinary', { json: { imageUrl: images } })
+        .json();
+      recommendationImageUrl += postRes.message;
+    }
 
     return {
       title: metadataContents.title,
@@ -38,9 +50,9 @@ export async function pageParamData({ params }: ParamProps) {
       postId,
       articleId,
       metadataContents,
-      blurredThumbnail,
       description,
       body,
+      images: recommendationImageUrl,
     };
   }
 
@@ -48,5 +60,11 @@ export async function pageParamData({ params }: ParamProps) {
   const description = (data as AttractionArticle)?.source?.comment ?? '';
 
   const images = (data as AttractionArticle)?.source.image.sizes.full.url;
-  return { title, description, postId, path: key, articleId, data, images, blurredThumbnail };
+
+  if (images != null && !images?.startsWith(CLOUDINARY_URL)) {
+    const postRes: CloudinaryPostResponse = await backendApi.post('cloudinary', { json: { imageUrl: images } }).json();
+    recommendationImageUrl += postRes.message;
+  }
+
+  return { title, description, postId, path: key, articleId, data, images: recommendationImageUrl };
 }
