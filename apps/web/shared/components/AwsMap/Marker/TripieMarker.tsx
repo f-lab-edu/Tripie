@@ -3,11 +3,9 @@
 import { Chip } from '@tripie-pyotato/design-system/@components';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { LocationMarker } from 'models/Geo';
-import { classNames, Marker } from 'wrapper';
-import Style from './marker.module.scss';
-import './marker.scss';
+import { Marker } from 'wrapper';
 
-const cx = classNames.bind(Style);
+import './marker.scss';
 
 const TripieMarker = ({
   marker,

@@ -3,7 +3,7 @@
 import { DEFAULT_STYLE, MAP_ID, STYLE } from 'constants/maps';
 import useContinentl from 'hooks/query/useContinentl';
 import { useEffect, useMemo, useState } from 'react';
-import 'shared/components/AwsMap/Marker/marker.module.scss';
+import 'shared/components/AwsMap/Marker/marker.scss';
 import Loading from 'shared/components/Loading';
 import dmsToDecimalLatLng from 'utils/coordinate';
 import { Map, Marker, classNames } from 'wrapper';
@@ -43,7 +43,6 @@ const CountryDetail = ({ selectedCountry }: { selectedCountry: string }) => {
         style={{
           ...DEFAULT_STYLE,
           height: '100%',
-          // height: '30vh',
         }}
         mapStyle={STYLE}
         initialViewState={{
