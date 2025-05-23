@@ -1,11 +1,11 @@
 'use client';
-import { Container } from '@tripie-pyotato/design-system/@core';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { classNames } from 'wrapper';
 import Style from './trip-results.module.scss';
 
 import { AI_PLAN } from '../constants/selected';
 
+import { Stack } from '@tripie-pyotato/design-system/@core';
 import ChatTab from 'app/trip-planner/[id]/_components/TripResponse/TripTab';
 import useAwsMap from 'hooks/awsMap/useAwsMap';
 import AwsMap from 'shared/components/AwsMap';
@@ -21,8 +21,8 @@ const TripResultExample = () => {
   });
 
   return (
-    <Container margin="none" className={cx('map-wrap')}>
-      <ChatTab data={AI_PLAN.plans} scrollIntoView={false} />
+    <Stack margin="none" className={cx('tab-wrap')}>
+      <ChatTab data={AI_PLAN.plans} scrollIntoView={false} country={'South Korea'} />
       <AwsMap
         center={center[currentDate]}
         interactive={false}
@@ -34,7 +34,7 @@ const TripResultExample = () => {
         locationMarker={locationMarker[currentDate]}
         focusAfterOpen={false}
       />
-    </Container>
+    </Stack>
   );
 };
 export default TripResultExample;

@@ -2,7 +2,7 @@
 
 .map-wrap {
   display: inline-flex;
-  width: 100%;
+
   gap: 1rem;
 
   @media (max-width: 800px) {
@@ -11,4 +11,9 @@
       width: 100%;
     }
   }
+}
+
+.tab-wrap {
+  overflow: hidden;
+  height: 85vh;
 }
