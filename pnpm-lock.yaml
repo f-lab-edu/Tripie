@@ -125,8 +125,8 @@ importers:
   apps/docs:
     dependencies:
       '@tripie-pyotato/design-system':
-        specifier: workspace:*
-        version: link:../../packages/design-system
+        specifier: ^0.2.0
+        version: 0.2.0(@types/react@18.3.18)(next@15.1.7(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.85.0))(react@18.3.1)(rollup@4.34.8)(sass-embedded@1.86.0)
       '@tripie-pyotato/hooks':
         specifier: ^0.0.2
         version: 0.0.2(react@18.3.1)
@@ -291,8 +291,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/database
       '@tripie-pyotato/design-system':
-        specifier: workspace:*
-        version: link:../../packages/design-system
+        specifier: ^0.2.0
+        version: 0.2.0(@types/react@18.3.18)(next@15.1.7(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6))(react@18.3.1)(rollup@4.34.8)(sass-embedded@1.86.0)
       '@tripie-pyotato/hooks':
         specifier: ^0.0.3
         version: 0.0.3(react@18.3.1)
@@ -401,7 +401,7 @@ importers:
         version: 18.3.18
       '@vitejs/plugin-react':
         specifier: ^4.3.4
-        version: 4.3.4(vite@6.1.1(@types/node@20.17.19)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.77.6)(terser@5.39.0)(yaml@2.7.0))
+        version: 4.3.4(vite@5.4.16(@types/node@20.17.19)(sass-embedded@1.86.0)(sass@1.77.6)(terser@5.39.0))
       '@vitest/coverage-istanbul':
         specifier: ^3.0.7
         version: 3.1.1(vitest@3.0.6(@types/debug@4.1.12)(@types/node@20.17.19)(jsdom@26.0.0)(msw@2.7.1(@types/node@20.17.19)(typescript@5.8.2))(sass-embedded@1.86.0)(sass@1.77.6)(terser@5.39.0))
@@ -511,7 +511,7 @@ importers:
         version: 0.0.2
       '@vitejs/plugin-react':
         specifier: ^4.3.4
-        version: 4.3.4(vite@5.4.16(@types/node@22.13.13)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0))
+        version: 4.3.4(vite@6.1.1(@types/node@22.13.13)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.0))
       '@vitest/coverage-istanbul':
         specifier: ^3.0.7
         version: 3.1.1(vitest@3.1.1(@types/debug@4.1.12)(@types/node@22.13.13)(@vitest/ui@3.0.7)(jsdom@26.0.0)(msw@2.7.1(@types/node@22.13.13)(typescript@5.8.2))(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0))
@@ -529,7 +529,7 @@ importers:
         version: 17.1.0
       vite-tsconfig-paths:
         specifier: ^5.1.4
-        version: 5.1.4(typescript@5.8.2)(vite@5.4.16(@types/node@22.13.13)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0))
+        version: 5.1.4(typescript@5.8.2)(vite@6.1.1(@types/node@22.13.13)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.0))
       vitest:
         specifier: ^3.1.1
         version: 3.1.1(@types/debug@4.1.12)(@types/node@22.13.13)(@vitest/ui@3.0.7)(jsdom@26.0.0)(msw@2.7.1(@types/node@22.13.13)(typescript@5.8.2))(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)
@@ -633,7 +633,7 @@ importers:
         version: 18.3.18
       '@vitejs/plugin-react':
         specifier: ^4.3.4
-        version: 4.3.4(vite@5.4.16(@types/node@20.17.19)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0))
+        version: 4.3.4(vite@6.1.1(@types/node@20.17.19)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.0))
       autoprefixer:
         specifier: ^10.4.0
         version: 10.4.20(postcss@8.5.3)
@@ -4033,6 +4033,12 @@ packages:
 
   '@tootallnate/quickjs-emscripten@0.23.0':
     resolution: {integrity: sha512-C5Mc6rdnsaJDjO3UpGW/CQTHtCKaYlScZTly4JIu97Jxo/odCiH0ITnDXSJPTOrEKk/ycSZ0AOgTmkDtkOsvIA==}
+
+  '@tripie-pyotato/design-system@0.2.0':
+    resolution: {integrity: sha512-UvGCWPcnmqnMfeuissgcUssh/Atj2m9cmXgIRRWiVNRbJ5ljE0UuNRnWLUWLpVLVZGKiXmVxNObFE3JuFX/+bA==}
+    peerDependencies:
+      next: '*'
+      react: '*'
 
   '@tripie-pyotato/eslint-config@0.0.1':
     resolution: {integrity: sha512-opm4nsOsz2aK/LymBMxcoZx/GfFJfpvvmu0Zg0JX+Ve42wYHZeUgM34VjJrwDprk3hxpM3kTAaqjcq6ERGiWjw==}
@@ -15564,6 +15570,58 @@ snapshots:
 
   '@tootallnate/quickjs-emscripten@0.23.0': {}
 
+  '@tripie-pyotato/design-system@0.2.0(@types/react@18.3.18)(next@15.1.7(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6))(react@18.3.1)(rollup@4.34.8)(sass-embedded@1.86.0)':
+    dependencies:
+      '@tripie-pyotato/hooks': 0.0.3(react@18.3.1)
+      '@tripie-pyotato/utils': 0.0.3(react@18.3.1)
+      classnames: 2.5.1
+      date-fns: 4.1.0
+      esbuild: 0.25.2
+      esbuild-sass-plugin: 3.3.1(esbuild@0.25.2)(sass-embedded@1.86.0)
+      fast-glob: 3.3.3
+      framer: 2.4.1(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      framer-motion: 11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      next: 15.1.7(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6)
+      postcss-copy-assets: 0.3.1
+      react: 18.3.1
+      react-calendar: 5.1.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-dom: 18.3.1(react@18.3.1)
+      react-globe.gl: 2.32.0(react@18.3.1)
+      react-intersection-observer: 9.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      rollup-preserve-directives: 1.1.3(rollup@4.34.8)
+      usehooks-ts: 3.1.1(react@18.3.1)
+    transitivePeerDependencies:
+      - '@emotion/is-prop-valid'
+      - '@types/react'
+      - rollup
+      - sass-embedded
+
+  '@tripie-pyotato/design-system@0.2.0(@types/react@18.3.18)(next@15.1.7(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.85.0))(react@18.3.1)(rollup@4.34.8)(sass-embedded@1.86.0)':
+    dependencies:
+      '@tripie-pyotato/hooks': 0.0.3(react@18.3.1)
+      '@tripie-pyotato/utils': 0.0.3(react@18.3.1)
+      classnames: 2.5.1
+      date-fns: 4.1.0
+      esbuild: 0.25.2
+      esbuild-sass-plugin: 3.3.1(esbuild@0.25.2)(sass-embedded@1.86.0)
+      fast-glob: 3.3.3
+      framer: 2.4.1(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      framer-motion: 11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      next: 15.1.7(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.85.0)
+      postcss-copy-assets: 0.3.1
+      react: 18.3.1
+      react-calendar: 5.1.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-dom: 18.3.1(react@18.3.1)
+      react-globe.gl: 2.32.0(react@18.3.1)
+      react-intersection-observer: 9.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      rollup-preserve-directives: 1.1.3(rollup@4.34.8)
+      usehooks-ts: 3.1.1(react@18.3.1)
+    transitivePeerDependencies:
+      - '@emotion/is-prop-valid'
+      - '@types/react'
+      - rollup
+      - sass-embedded
+
   '@tripie-pyotato/eslint-config@0.0.1': {}
 
   '@tripie-pyotato/hooks@0.0.2(react@18.3.1)':
@@ -16391,6 +16449,17 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
+  '@vitejs/plugin-react@4.3.4(vite@5.4.16(@types/node@20.17.19)(sass-embedded@1.86.0)(sass@1.77.6)(terser@5.39.0))':
+    dependencies:
+      '@babel/core': 7.26.9
+      '@babel/plugin-transform-react-jsx-self': 7.25.9(@babel/core@7.26.9)
+      '@babel/plugin-transform-react-jsx-source': 7.25.9(@babel/core@7.26.9)
+      '@types/babel__core': 7.20.5
+      react-refresh: 0.14.2
+      vite: 5.4.16(@types/node@20.17.19)(sass-embedded@1.86.0)(sass@1.77.6)(terser@5.39.0)
+    transitivePeerDependencies:
+      - supports-color
+
   '@vitejs/plugin-react@4.3.4(vite@5.4.16(@types/node@20.17.19)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0))':
     dependencies:
       '@babel/core': 7.26.9
@@ -16402,28 +16471,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@vitejs/plugin-react@4.3.4(vite@5.4.16(@types/node@22.13.13)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0))':
-    dependencies:
-      '@babel/core': 7.26.9
-      '@babel/plugin-transform-react-jsx-self': 7.25.9(@babel/core@7.26.9)
-      '@babel/plugin-transform-react-jsx-source': 7.25.9(@babel/core@7.26.9)
-      '@types/babel__core': 7.20.5
-      react-refresh: 0.14.2
-      vite: 5.4.16(@types/node@22.13.13)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)
-    transitivePeerDependencies:
-      - supports-color
-
-  '@vitejs/plugin-react@4.3.4(vite@6.1.1(@types/node@20.17.19)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.77.6)(terser@5.39.0)(yaml@2.7.0))':
-    dependencies:
-      '@babel/core': 7.26.9
-      '@babel/plugin-transform-react-jsx-self': 7.25.9(@babel/core@7.26.9)
-      '@babel/plugin-transform-react-jsx-source': 7.25.9(@babel/core@7.26.9)
-      '@types/babel__core': 7.20.5
-      react-refresh: 0.14.2
-      vite: 6.1.1(@types/node@20.17.19)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.77.6)(terser@5.39.0)(yaml@2.7.0)
-    transitivePeerDependencies:
-      - supports-color
-
   '@vitejs/plugin-react@4.3.4(vite@6.1.1(@types/node@20.17.19)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.0))':
     dependencies:
       '@babel/core': 7.26.9
@@ -16432,6 +16479,17 @@ snapshots:
       '@types/babel__core': 7.20.5
       react-refresh: 0.14.2
       vite: 6.1.1(@types/node@20.17.19)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.0)
+    transitivePeerDependencies:
+      - supports-color
+
+  '@vitejs/plugin-react@4.3.4(vite@6.1.1(@types/node@22.13.13)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.0))':
+    dependencies:
+      '@babel/core': 7.26.9
+      '@babel/plugin-transform-react-jsx-self': 7.25.9(@babel/core@7.26.9)
+      '@babel/plugin-transform-react-jsx-source': 7.25.9(@babel/core@7.26.9)
+      '@types/babel__core': 7.20.5
+      react-refresh: 0.14.2
+      vite: 6.1.1(@types/node@22.13.13)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -24548,13 +24606,13 @@ snapshots:
       - supports-color
       - terser
 
-  vite-tsconfig-paths@5.1.4(typescript@5.8.2)(vite@5.4.16(@types/node@22.13.13)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)):
+  vite-tsconfig-paths@5.1.4(typescript@5.8.2)(vite@6.1.1(@types/node@22.13.13)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.0)):
     dependencies:
       debug: 4.4.0
       globrex: 0.1.2
       tsconfck: 3.1.5(typescript@5.8.2)
     optionalDependencies:
-      vite: 5.4.16(@types/node@22.13.13)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)
+      vite: 6.1.1(@types/node@22.13.13)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.0)
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -24595,7 +24653,7 @@ snapshots:
       sass-embedded: 1.86.0
       terser: 5.39.0
 
-  vite@6.1.1(@types/node@20.17.19)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.77.6)(terser@5.39.0)(yaml@2.7.0):
+  vite@6.1.1(@types/node@20.17.19)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.0):
     dependencies:
       esbuild: 0.24.2
       postcss: 8.5.3
@@ -24604,18 +24662,18 @@ snapshots:
       '@types/node': 20.17.19
       fsevents: 2.3.3
       jiti: 1.21.7
-      sass: 1.77.6
+      sass: 1.85.0
       sass-embedded: 1.86.0
       terser: 5.39.0
       yaml: 2.7.0
 
-  vite@6.1.1(@types/node@20.17.19)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.0):
+  vite@6.1.1(@types/node@22.13.13)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.0):
     dependencies:
       esbuild: 0.24.2
       postcss: 8.5.3
       rollup: 4.34.8
     optionalDependencies:
-      '@types/node': 20.17.19
+      '@types/node': 22.13.13
       fsevents: 2.3.3
       jiti: 1.21.7
       sass: 1.85.0
