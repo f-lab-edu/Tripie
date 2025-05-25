@@ -2,7 +2,7 @@ export const PLACEHOLDER = 'https://placehold.co/600x600?text=NO IMAGE';
 export const LOADING_IMG = 'https://placehold.co/600x600?text=LOADING';
 
 const CLOUDINARY_BUCKET_NAME = 'dbzzletpw';
-export const CLOUDINARY_URL = `https://res.cloudinary.com/${CLOUDINARY_BUCKET_NAME}/image/upload/f_auto/`;
+export const CLOUDINARY_URL = `https://res.cloudinary.com/${CLOUDINARY_BUCKET_NAME}/image/upload/`;
 
 export const RESOURCE = {
   ARROW: 'v1745813635/arrow_x0nsyq.png',
