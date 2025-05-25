@@ -5,8 +5,9 @@ import Style from './trip-results.module.scss';
 
 import { AI_PLAN } from '../constants/selected';
 
-import { Stack } from '@tripie-pyotato/design-system/@core';
-import ChatTab from 'app/trip-planner/[id]/_components/TripResponse/TripTab';
+import { Carousel, Chip } from '@tripie-pyotato/design-system/@components';
+import { Container, Stack, Text } from '@tripie-pyotato/design-system/@core';
+import TabList from 'app/trip-planner/[id]/_components/TripResponse/TabList';
 import useAwsMap from 'hooks/awsMap/useAwsMap';
 import AwsMap from 'shared/components/AwsMap';
 
@@ -21,8 +22,27 @@ const TripResultExample = () => {
   });
 
   return (
-    <Stack margin="none" className={cx('tab-wrap')}>
-      <ChatTab data={AI_PLAN.plans} scrollIntoView={false} country={'South Korea'} />
+    <Stack margin="none" className={cx('tab-wrap')} gap="l">
+      <Container margin="none" padding="none" withBorder={true} className={cx('chat-tab-wrap')}>
+        <Stack direction="column" gap="l" margin="none" alignItems="start" padding="m">
+          <Text size={'h2'} bold={true}>
+            {AI_PLAN.plans.name}
+          </Text>
+          <Carousel.Controlled>
+            {AI_PLAN.plans.trips.map(trip => (
+              <Chip selected={currentDate === trip.day - 1} key={trip.date + trip.day}>
+                {trip.day}일차
+              </Chip>
+            ))}
+          </Carousel.Controlled>
+          <TabList
+            country={'South Korea'}
+            scrollIntoView={false}
+            key={AI_PLAN.plans.trips[currentDate].date + AI_PLAN.plans.trips[currentDate].day}
+            trip={AI_PLAN.plans.trips[currentDate]}
+          />
+        </Stack>
+      </Container>
       <AwsMap
         center={center[currentDate]}
         interactive={false}

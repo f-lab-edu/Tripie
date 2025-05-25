@@ -1,10 +1,7 @@
 @use './base/' as *;
-@use './functions/' as *;
+@use './functions/color' as *;
 @use './generator/' as *;
-@use './mixins/' as *;
 @use './mixins/visible-scroll' as *;
-
-@use 'sass:map';
 
 @include generate-styles;
 
