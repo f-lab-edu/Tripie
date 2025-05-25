@@ -18,11 +18,11 @@ const RegionTitle = ({
   withNavigation?: boolean;
 }) => {
   return (
-    <Container margin="none" alignItems="start" justifyContent="center">
-      <Text size="h2" bold={true} isButtonText={true} alignItems="center">
+    <Container margin="none" alignItems="center" justifyContent="start" className={cx('title-wrap')}>
+      <Text size="h2" bold={true} isButtonText={true}>
         {withNavigation ? <Icon.Navigate /> : null}
       </Text>
-      <Text size="h2" bold={true} isButtonText={true} className={cx('title-wrap')} alignItems="center">
+      <Text size="h2" bold={true} isButtonText={true}>
         <span>
           도시 별 <Text.Accented isButtonText={true}>여행</Text.Accented> 정보
           {regionId == null ? (
