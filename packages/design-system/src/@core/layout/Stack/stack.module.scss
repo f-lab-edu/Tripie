@@ -1,3 +1,5 @@
+@use '../../../functions/breakpoint' as *;
+
 $stack-display-map: (inline-flex, grid);
 
 @mixin display-stack($display) {
@@ -80,13 +82,13 @@ $grid-template-map: (1, 2, 3, 4, 5, 6, 8, 10, 12);
 
 // wrap grid on min-width
 $grid-wrap-map: (
-  no-wrap: nowrap,
-  wrap-xs: xs,
-  wrap-sm: sm,
-  wrap-md: md,
-  wrap-lg: lg,
-  wrap-xl: xl,
-  wrap-xxl: xxl,
+  no-wrap: 'nowrap',
+  wrap-xs: 'xs',
+  wrap-sm: 'sm',
+  wrap-md: 'md',
+  wrap-lg: 'lg',
+  wrap-xl: 'xl',
+  wrap-xxl: 'xxl',
 );
 
 @mixin grid-break-max($breakpoint, $count) {
