@@ -33,7 +33,7 @@ const TripTab = ({
       margin="m"
       alignItems="start"
       applyMargin="all"
-      padding="xl"
+      padding="sm"
       applyPadding="top"
       className={cx('trip-tab-content-wrap')}
     >
