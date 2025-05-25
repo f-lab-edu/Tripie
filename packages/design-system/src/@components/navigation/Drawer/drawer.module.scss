@@ -3,7 +3,6 @@
 @use '../../../generator/' as *;
 @use '../../../mixins/' as *;
 @use '../../../variables' as *;
-@use '../../../mixins' as *;
 
 @use 'sass:map';
 
@@ -54,7 +53,6 @@ $percentage-map: ();
   bottom: 0;
   left: 0;
   right: 0;
-
   background-color: rgba(0, 0, 0, 0.5);
   -webkit-tap-highlight-color: transparent;
 }

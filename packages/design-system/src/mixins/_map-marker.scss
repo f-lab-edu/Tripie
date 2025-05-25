@@ -1,0 +1,21 @@
+@use 'sass:math';
+@use 'sass:map';
+
+$colors: (
+  'restaurant': red,
+  'hotel': rgb(59, 74, 211),
+  'attraction': orange,
+  'selected': inherit,
+);
+
+@mixin map-marker($variant) {
+  display: inline-flex;
+  border-radius: 100%;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0.5rem;
+
+  // background-color: map-get($colors, $variant, orange); // DART부터는 map.get 사용
+  background-color: map.get($colors, $variant) or orange;
+}

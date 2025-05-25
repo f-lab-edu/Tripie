@@ -1,0 +1,5 @@
+@use '../variables' as *;
+
+@mixin accented {
+  color: $theme-50;
+}

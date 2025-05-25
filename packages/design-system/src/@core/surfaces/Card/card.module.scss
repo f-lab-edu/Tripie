@@ -1,15 +1,7 @@
 @use '../../../variables' as *;
-@use '../../../mixins' as *;
+@use '../../../mixins/background-static' as *;
 @use '../../../functions/' as *;
-
-$card-size-map: (
-  full: 100%,
-  large: 36rem,
-  medium: 18rem,
-  small: 6rem,
-  tiny: 4rem,
-  card: 24rem,
-);
+@use '../../../mixins/noise-container' as *;
 
 @mixin card-size($size) {
   width: $size;
@@ -19,19 +11,6 @@ $card-size-map: (
   .card-size-#{$key} {
     @include card-size($size);
   }
-}
-
-@mixin noise-container {
-  position: absolute;
-  border-radius: inherit;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  @include background-static;
-  border: 0;
-  opacity: 0.2;
-  z-index: z(base);
 }
 
 .inner-wrap {

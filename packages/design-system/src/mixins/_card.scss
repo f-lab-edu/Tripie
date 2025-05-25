@@ -1,0 +1,26 @@
+@use '../variables' as *;
+
+@mixin card {
+  border: 1px solid $theme-400;
+  align-content: flex-start;
+  align-items: flex-start;
+  align-self: stretch;
+  border-radius: 10px;
+  display: inline-flex;
+  flex: 1 0 0px;
+  flex-direction: column;
+  gap: 50px;
+  height: auto;
+  justify-content: center;
+  overflow: hidden;
+  padding: 40px;
+  position: relative;
+  width: 1px;
+
+  @media (max-width: 809px) {
+    align-self: unset;
+    flex: none;
+    height: min-content;
+    padding: 35px;
+  }
+}

@@ -29,7 +29,7 @@ export type TripieContainerProps = {
     | 'right'
     | 'top'
     | 'bottom';
-  align?: 'left' | 'center' | 'right';
+
   alignItems?: 'none' | 'normal' | 'center' | 'start' | 'stretch' | 'end' | 'flex-start' | 'flex-end';
   children?: ReactNode;
   refs?: RefObject<HTMLDivElement>;
@@ -71,7 +71,6 @@ const cx = classNames.bind(Style);
 const TripieContainer = ({
   children,
   className,
-  align = 'left',
   alignItems = 'none',
   padding = 'none',
   margin = 'm',
@@ -91,16 +90,13 @@ const TripieContainer = ({
       ref={refs}
       className={cx(
         'layout-fill-available',
-        `align-${align}`,
         `align-items-${alignItems}`,
+        withBorder ? 'with-border' : '',
         alignItems != 'none' || gap !== 'none' || justifyContent !== 'none' ? 'flex' : '',
         'container',
-        `padding-${padding}`,
-        `padding-${applyPadding}`,
+        `paddings_${padding}_to_${applyPadding}`,
+        `margins_${margin}_to_${applyMargin}`,
         `text-align-${textAlign}`,
-        applyMargin,
-        margin,
-        withBorder ? 'with-border' : '',
         `justify-content-${justifyContent}`,
         `gap-${gap}`,
         preserveWhiteSpace ? 'preserve-white-space' : '',

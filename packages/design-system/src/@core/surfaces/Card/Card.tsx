@@ -74,7 +74,16 @@ const CardWithImage = ({
   return (
     <TripieContainer withBorder={withBorder} className={cx('outer-wrap', `card-size-${sizes}`, className)} {...args}>
       <Stack zIndex="default" margin="none" direction="column" className={cx('inner-wrap', className)}>
-        {!cover ? (
+        {cover ? (
+          <ImageComponent
+            sourceUrl={sourceUrl}
+            aspectRatio={aspectRatio}
+            sizes={imgSize}
+            src={src}
+            alt={alt}
+            withBorder={withImageBorder}
+          />
+        ) : (
           <TripieContainer withBorder={false}>
             <ImageComponent
               sourceUrl={sourceUrl}
@@ -85,15 +94,6 @@ const CardWithImage = ({
               withBorder={withImageBorder}
             />
           </TripieContainer>
-        ) : (
-          <ImageComponent
-            sourceUrl={sourceUrl}
-            aspectRatio={aspectRatio}
-            sizes={imgSize}
-            src={src}
-            alt={alt}
-            withBorder={withImageBorder}
-          />
         )}
 
         {children}

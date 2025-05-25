@@ -1,6 +1,5 @@
 // react-calendar는 module로 스타일 커스텀 불가하므로 scss로
 @use '../../../variables' as *;
-@use '../../../mixins' as *;
 
 .react-calendar {
   width: 100% !important;
@@ -86,13 +85,10 @@
 }
 
 .in-range {
-  // background-color: $theme-100000 !important;
   background-color: $theme-300 !important;
   color: inherit !important;
   width: 100%;
   & > abbr {
-    // background-color: $theme-300 !important;
-    // width: 100%;
     width: 2.4rem;
     height: 2.4rem;
     display: inline-flex;

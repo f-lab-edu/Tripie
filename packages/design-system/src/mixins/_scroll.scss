@@ -1,0 +1,6 @@
+@mixin scroll {
+  // 스크롤 바 스타일
+  overflow-y: scroll;
+  position: relative;
+  height: 100%;
+}

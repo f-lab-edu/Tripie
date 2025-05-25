@@ -1,6 +1,9 @@
 @use '../../../variables' as *;
-@use '../../../mixins' as *;
 @use '../../../functions/' as *;
+@use '../../../mixins/visible-scroll' as *;
+@use '../../../mixins/flex-items' as *;
+@use '../../../mixins/with-border' as *;
+
 .carousel {
   position: relative;
   width: 100%;

@@ -1,5 +1,14 @@
 @use 'sass:map';
-@use '../../../mixins' as *;
+
+@use '../../../mixins/flex' as *;
+@use '../../../mixins/margins' as *;
+@use '../../../mixins/paddings' as *;
+@use '../../../mixins/with-border' as *;
+@use '../../../mixins/justify-content' as *;
+@use '../../../mixins/align-items' as *;
+@use '../../../mixins/align-text' as *;
+@use '../../../mixins/with-border' as *;
+@use '../../../mixins/gap' as *;
 @use '../../../variables' as *;
 @use '../../../functions/' as *;
 
@@ -21,44 +30,14 @@
   width: stretch; // spec has changed
 }
 
-.align-center {
-  display: inline-flex;
-  align-content: stretch;
-  flex-wrap: nowrap;
-}
-.align-right {
-  display: inline-flex;
-  align-content: stretch;
-  flex-wrap: nowrap;
-}
-
-@each $key, $value in $space-map {
-  .container.all.#{$key} {
-    @include margins('all', $value);
-  }
-  .container.top-bottom.#{$key} {
-    @include margins('top-bottom', $value);
-  }
-  .container.left-right.#{$key} {
-    @include margins('left-right', $value);
-  }
-  .container.left.#{$key} {
-    @include margins('left', $value);
-  }
-  .container.right.#{$key} {
-    @include margins('right', $value);
-  }
-  .container.top.#{$key} {
-    @include margins('top', $value);
-  }
-  .container.bottom.#{$key} {
-    @include margins('bottom', $value);
-  }
-  .container.top-left-right.#{$key} {
-    @include margins('top-left-right', $value);
-  }
-  .container.left-right-bottom.#{$key} {
-    @include margins('left-right-bottom', $value);
+@each $direction-key, $direction in $direction-map {
+  @each $key, $value in $space-map {
+    .margins_#{$key}_to_#{$direction-key} {
+      @include margins($direction, $value);
+    }
+    .paddings_#{$key}_to_#{$direction-key} {
+      @include paddings($direction, $value);
+    }
   }
 }
 

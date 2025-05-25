@@ -63,7 +63,7 @@ export const AnimatedText = ({
       onTap={action}
     >
       <FlickText2>{children}</FlickText2>
-      <TripieContainer applyMargin="top"> </TripieContainer>
+      <TripieContainer className={cx('empty')}> </TripieContainer>
       <FlickText2 className={cx('hovered')}>{otherChild}</FlickText2>
     </Motion.Div>
   );

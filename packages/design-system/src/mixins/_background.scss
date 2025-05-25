@@ -1,0 +1,27 @@
+@use 'sass:math';
+@use 'sass:map';
+@use '../variables' as *;
+@use '../functions' as *;
+
+@mixin background($variant) {
+  align-content: flex-start;
+  align-items: flex-start;
+  display: inline-flex;
+  flex: none;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: min-content;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  width: -moz-available; /* WebKit-based browsers will ignore this. */
+  width: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
+  padding: 100px 0 50px;
+
+  background: map.get($background-gradients, $variant); // ✅ FIXED
+
+  @if $variant == '2' {
+    padding: 100px 0;
+  }
+}

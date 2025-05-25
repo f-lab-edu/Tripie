@@ -86,10 +86,11 @@ const NavigateIcon = ({
       transition={transition}
       initial={'closed'}
       animate={animate}
+      style={{ width: ICON_SIZES[sizes], height: ICON_SIZES[sizes] }}
     >
       <img
-        src={ICON_RESOURCE_ICON('ARROW', ICON_SIZES[sizes])}
-        alt={src + '버튼'}
+        src={src ?? ICON_RESOURCE_ICON('ARROW', ICON_SIZES[sizes])}
+        alt={`${direction == 'back' ? '뒤로' : '앞으로 '}가기 버튼`}
         className={cx('icon-image')}
         crossOrigin="anonymous"
       />

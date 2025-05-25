@@ -1,6 +1,7 @@
 @use '../../../variables' as *;
-@use '../../../mixins' as *;
 @use '../../../functions/' as *;
+@use '../../../mixins/with-border' as *;
+@use '../../../mixins/map-marker' as *;
 
 .with-border {
   @include with-border;

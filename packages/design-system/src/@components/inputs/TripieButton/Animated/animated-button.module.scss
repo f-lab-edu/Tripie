@@ -1,6 +1,9 @@
 @use '../../../../variables' as *;
-@use '../../../../mixins' as *;
 @use '../../../../functions/' as *;
+@use '../../../../mixins/margins' as *;
+@use '../../../../mixins/with-border' as *;
+@use '../../../../mixins/submit-button' as *;
+
 .selected {
   background-color: $theme-100 !important;
 }
@@ -10,18 +13,6 @@
   z-index: z(mask);
   color: $theme-50;
 }
-
-// .top {
-// padding-bottom: 0.2rem;
-// padding-bottom: 0.5rem;
-
-// @media (max-width: breakpoint('sm')) {
-//   padding-top: 0.8rem;
-// }
-// @media (min-width: breakpoint('md')) {
-//   padding-top: 0.5rem;
-// }
-// }
 
 .gap {
   display: inline-block;
@@ -74,64 +65,4 @@
 
 .is-full-size {
   @include submit-button;
-}
-
-@each $key, $value in $padding-space-map {
-  .padding-all.#{$key} {
-    @include padding('all', $value);
-  }
-  .padding-top-bottom.#{$key} {
-    @include padding('top-bottom', $value);
-  }
-  .padding-left-right.#{$key} {
-    @include padding('left-right', $value);
-  }
-  .padding-left.#{$key} {
-    @include padding('left', $value);
-  }
-  .padding-right.#{$key} {
-    @include padding('right', $value);
-  }
-  .top.#{$key} {
-    @include padding('top', $value);
-  }
-  .padding-bottom.#{$key} {
-    @include padding('bottom', $value);
-  }
-  .padding-top-left-right.#{$key} {
-    @include padding('top-left-right', $value);
-  }
-  .padding-left-right-bottom.#{$key} {
-    @include padding('left-right-bottom', $value);
-  }
-}
-
-@each $key, $value in $space-map {
-  .all.#{$key} {
-    @include margins('all', $value);
-  }
-  .top-bottom.#{$key} {
-    @include margins('top-bottom', $value);
-  }
-  .left-right.#{$key} {
-    @include margins('left-right', $value);
-  }
-  .left.#{$key} {
-    @include margins('left', $value);
-  }
-  .right.#{$key} {
-    @include margins('right', $value);
-  }
-  .top.#{$key} {
-    @include margins('top', $value);
-  }
-  .bottom.#{$key} {
-    @include margins('bottom', $value);
-  }
-  .top-left-right.#{$key} {
-    @include margins('top-left-right', $value);
-  }
-  .left-right-bottom.#{$key} {
-    @include margins('left-right-bottom', $value);
-  }
 }

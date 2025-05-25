@@ -1,0 +1,29 @@
+@mixin margins($direction, $size) {
+  @if ($direction == 'top-bottom') {
+    margin: $size 0;
+  } @else if ($direction == 'left-right') {
+    margin: 0 $size;
+  } @else if ($direction == 'top-left-right') {
+    margin: $size;
+    margin-bottom: 0;
+  } @else if($direction == 'left-right-bottom') {
+    margin: $size;
+    margin-top: 0;
+  } @else if ($direction == 'left') {
+    margin: 0;
+    margin-left: $size;
+  } @else if ($direction == 'right') {
+    margin: 0;
+    margin-right: $size;
+  } @else if ($direction == 'top') {
+    margin: 0;
+    margin-top: $size;
+  } @else if ($direction == 'bottom') {
+    margin: 0;
+    margin-bottom: $size;
+  } @else if ($direction == 'all') {
+    margin: $size;
+  } @else {
+    margin: 0;
+  }
+}

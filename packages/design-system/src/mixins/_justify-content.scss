@@ -1,0 +1,6 @@
+@mixin justify-content($orientation) {
+  @if ($orientation!= 'none') {
+    gap: 0.5rem;
+    justify-content: $orientation;
+  }
+}

@@ -23,10 +23,8 @@ const ListItem = ({
         `align-items-${alignItems}`,
         alignItems != 'none' || gap !== 'none' || justifyContent !== 'none' ? 'flex' : '',
         'list-item',
-        `padding-${padding}`,
-        `padding-${applyPadding}`,
-        applyMargin,
-        margin,
+        `paddings_${padding}_to_${applyPadding}`,
+        `margins_${margin}_to_${applyMargin}`,
         `justify-content-${justifyContent}`,
         `gap-${gap}`,
         className

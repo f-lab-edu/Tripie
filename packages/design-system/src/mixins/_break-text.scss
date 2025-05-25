@@ -1,0 +1,9 @@
+@use '../functions/' as *;
+
+@mixin break-text($size) {
+  @if ($size!= none) {
+    @media (max-width: break-space($size)) {
+      white-space: pre-wrap;
+    }
+  }
+}

@@ -1,6 +1,7 @@
-@use '../../../mixins' as *;
 @use '../../../variables' as *;
 @use '../../../functions/' as *;
+@use '../../../mixins/with-border' as *;
+
 .img-wrap {
   padding: 0;
   overflow: hidden;

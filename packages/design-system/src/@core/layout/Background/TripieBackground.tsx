@@ -12,7 +12,6 @@ const TripieBackground = ({
   variant = 0,
   children,
   className,
-  align,
   alignItems,
   justifyContent,
   gap,
@@ -26,12 +25,10 @@ const TripieBackground = ({
     <section
       className={cx(
         `background-${variant}`,
-        `align-${align}`,
         `align-items-${alignItems}`,
         alignItems != 'none' || gap !== 'none' || justifyContent !== 'none' ? 'flex' : '',
         'container',
-        `padding-${padding}`,
-        `padding-${applyPadding}`,
+        `paddings_${padding}_to_${applyPadding}`,
         `text-align-${textAlign}`,
         `justify-content-${justifyContent}`,
         `gap-${gap}`,

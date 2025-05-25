@@ -1,0 +1,7 @@
+@mixin submit-button-long-text {
+  @media (max-width: 400px) {
+    & > span {
+      transform: translateY(1.5rem);
+    }
+  }
+}

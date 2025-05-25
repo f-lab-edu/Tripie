@@ -2,6 +2,7 @@ import { RegionArticleData } from 'app/regions/_components/RegionCard';
 import { RegionArticleInfo } from 'models/Article';
 
 // import addImage from '../cloudinary/addImage';
+import api from 'utils/ky';
 import firestoreService from '../firebase';
 
 const getRegionArticles = async (selectedRegion: string) => {
@@ -13,7 +14,18 @@ const getRegionArticles = async (selectedRegion: string) => {
     regionData?.map(async (data: RegionArticleInfo) => {
       try {
         const fullImageUrl = data?.source?.image?.sizes?.full?.url;
-        console.log('imageUrl', fullImageUrl);
+
+        if (!fullImageUrl.startsWith('https://res.cloudinary.com/dbzzletpw/image/upload') && fullImageUrl != null) {
+          // await addImage(fullImageUrl);
+          await api
+            .post(`cloudinary`, {
+              json: {
+                imageUrl: fullImageUrl,
+              },
+            })
+            .json();
+        }
+
         // if (!imageUrl.startsWith('https://res.cloudinary.com/dbzzletpw/image/upload') && imageUrl != null) {
         // await addImage(imageUrl);
         // await api

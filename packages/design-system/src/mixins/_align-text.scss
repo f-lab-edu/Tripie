@@ -1,0 +1,5 @@
+@mixin align-text($orientation) {
+  @if ($orientation!= none) {
+    text-align: $orientation;
+  }
+}

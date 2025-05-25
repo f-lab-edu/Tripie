@@ -1,5 +1,7 @@
 @use '../../../variables' as *;
-@use '../../../mixins' as *;
+@use '../../../mixins/flex' as *;
+@use '../../../mixins/justify-content' as *;
+@use '../../../mixins/align-items' as *;
 
 .accordion-header {
   flex-direction: column;

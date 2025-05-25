@@ -38,7 +38,7 @@ const Stack = ({
   className,
   display = 'inline-flex',
   direction = 'row',
-  align = 'left',
+
   alignItems = 'none',
   padding = 'none',
   margin = 'm',

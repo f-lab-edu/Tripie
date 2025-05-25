@@ -3,7 +3,7 @@
 @use '../../../functions/' as *;
 @use '../../../generator/' as *;
 @use '../../../mixins/index.scss' as *;
-@use '../../../mixins.scss' as *;
+@use '../../../mixins/flex' as *;
 
 @use 'sass:map';
 
@@ -60,4 +60,8 @@
 .cross {
   text-decoration: line-through;
   color: $theme-40;
+}
+
+.empty {
+  font-size: inherit;
 }

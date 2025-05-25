@@ -1,0 +1,29 @@
+@mixin paddings($direction, $size) {
+  @if ($direction == 'top-bottom') {
+    padding: $size 0;
+  } @else if ($direction == 'left-right') {
+    padding: 0 $size;
+  } @else if ($direction == 'top-left-right') {
+    padding: $size;
+    padding-bottom: 0;
+  } @else if($direction == 'left-right-bottom') {
+    padding: $size;
+    padding-top: 0;
+  } @else if ($direction == 'left') {
+    padding: 0;
+    padding-left: $size;
+  } @else if ($direction == 'right') {
+    padding: 0;
+    padding-right: $size;
+  } @else if ($direction == 'top') {
+    padding: 0;
+    padding-top: $size;
+  } @else if ($direction == 'bottom') {
+    padding: 0;
+    padding-bottom: $size;
+  } @else if ($direction == 'all') {
+    padding: $size;
+  } @else {
+    padding: 0;
+  }
+}

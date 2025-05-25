@@ -1,0 +1,10 @@
+@use 'sass:math';
+@use 'sass:map';
+@use '../variables' as *;
+
+@mixin with-border {
+  // font-size: 0.8rem;
+  border: 1px solid $border-accent;
+  border-radius: 8px;
+  opacity: 1;
+}

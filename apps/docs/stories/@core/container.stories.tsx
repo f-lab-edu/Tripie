@@ -41,16 +41,7 @@ const meta: Meta<typeof Container> = {
         defaultValue: { summary: 'none' },
       },
     },
-    align: {
-      control: { type: 'radio' },
-      options: ['left', 'center', 'right'],
-      table: {
-        type: {
-          summary: "'left' | 'center' | 'right'",
-        },
-        defaultValue: { summary: 'left' },
-      },
-    },
+
     alignItems: {
       options: ['normal', 'center', 'start', 'stretch', 'end'],
       control: { type: 'radio' },

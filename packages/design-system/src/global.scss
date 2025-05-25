@@ -2,7 +2,7 @@
 @use './functions/' as *;
 @use './generator/' as *;
 @use './mixins/' as *;
-@use './mixins' as *;
+@use './mixins/visible-scroll' as *;
 
 @use 'sass:map';
 

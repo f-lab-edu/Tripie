@@ -1,8 +1,8 @@
 @use '../../../base/' as *;
 @use '../../../functions/' as *;
 @use '../../../generator/' as *;
-@use '../../../mixins/index.scss' as *;
-@use '../../../mixins/' as *;
+@use '../../../mixins/break-text' as *;
+@use '../../../mixins/text' as *;
 @use '../../../variables/' as *;
 @use 'sass:map';
 
@@ -13,33 +13,21 @@
   width: fit-content;
 }
 
-.default {
-  font-size: font-size(default);
-}
+$font-size-map: (
+  h0: font-size(h0),
+  h1: font-size(h1),
+  h2: font-size(h2),
+  h3: font-size(h3),
+  h4: font-size(h4),
+  small: font-size(small),
+  tiny: font-size(tiny),
+  default: font-size(default),
+);
 
-.h0 {
-  font-size: font-size(h0);
-}
-
-.h1 {
-  font-size: font-size(h1);
-}
-
-.h2 {
-  font-size: font-size(h2);
-}
-.h3 {
-  font-size: font-size(h3);
-}
-.h4 {
-  font-size: font-size(h4);
-}
-
-.small {
-  font-size: font-size(small);
-}
-.tiny {
-  font-size: font-size(tiny);
+@each $key, $value in $font-size-map {
+  .#{$key} {
+    font-size: $value;
+  }
 }
 
 @each $value in $break-point-values {

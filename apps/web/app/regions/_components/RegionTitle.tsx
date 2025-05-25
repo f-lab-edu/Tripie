@@ -1,27 +1,48 @@
 'use client';
-import { Text } from '@tripie-pyotato/design-system/@core';
-import Title from './Title';
+import { Container, Text } from '@tripie-pyotato/design-system/@core';
 
-const RegionTitle = ({ city, regionId }: { regionId?: string; city?: string | null }) => {
+import { classNames } from 'wrapper';
+
+import { Icon } from '@tripie-pyotato/design-system/@components';
+import Style from './title.module.scss';
+
+const cx = classNames.bind(Style);
+
+const RegionTitle = ({
+  city,
+  regionId,
+  withNavigation = true,
+}: {
+  regionId?: string;
+  city?: string | null;
+  withNavigation?: boolean;
+}) => {
   return (
-    <Title>
-      도시 별 <Text.Accented>여행</Text.Accented> 정보
-      {regionId == null ? (
-        ''
-      ) : (
-        <>
-          {`\n > `} <Text.Accented>{regionId}</Text.Accented>
-        </>
-      )}
-      {city == null ? (
-        ''
-      ) : (
-        <>
-          {` > `}
-          <Text.Accented>{city}</Text.Accented>
-        </>
-      )}
-    </Title>
+    <Container margin="none" alignItems="start" justifyContent="center">
+      <Text size="h2" bold={true} isButtonText={true} alignItems="center">
+        {withNavigation ? <Icon.Navigate /> : null}
+      </Text>
+      <Text size="h2" bold={true} isButtonText={true} className={cx('title-wrap')} alignItems="center">
+        <span>
+          도시 별 <Text.Accented isButtonText={true}>여행</Text.Accented> 정보
+          {regionId == null ? (
+            ''
+          ) : (
+            <>
+              {`\n >`} <Text.Accented isButtonText={true}>{regionId}</Text.Accented>
+            </>
+          )}
+          {city == null ? (
+            ''
+          ) : (
+            <>
+              {` > `}
+              <Text.Accented isButtonText={true}>{city}</Text.Accented>
+            </>
+          )}
+        </span>
+      </Text>
+    </Container>
   );
 };
 

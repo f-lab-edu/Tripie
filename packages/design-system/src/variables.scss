@@ -68,6 +68,7 @@ $space-map: (
   m: space(1rem),
   sm: space(0.6rem),
   xsm: space(0.2rem),
+  none: 0,
 );
 
 $padding-space-map: (
@@ -77,6 +78,18 @@ $padding-space-map: (
   padding-sm: space(0.6rem),
   padding-xsm: space(0.2rem),
   padding-none: 0,
+);
+
+$direction-map: (
+  all: 'all',
+  top-bottom: 'top-bottom',
+  left-right: 'left-right',
+  left: 'left',
+  right: 'right',
+  top: 'top',
+  bottom: 'bottom',
+  top-left-right: 'top-left-right',
+  left-right-bottom: 'left-right-bottom',
 );
 
 $gap-space-map: (
@@ -106,4 +119,13 @@ $z-index-map: (
   notification,
   tooltip,
   above-all
+);
+
+$card-size-map: (
+  full: 100%,
+  large: 36rem,
+  medium: 18rem,
+  small: 6rem,
+  tiny: 4rem,
+  card: 24rem,
 );

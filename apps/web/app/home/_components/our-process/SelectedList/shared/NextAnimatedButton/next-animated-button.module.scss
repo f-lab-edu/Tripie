@@ -2,13 +2,12 @@
 @use 'mixins' as *;
 
 .text {
-  // z-index: 30;
   min-width: 9rem;
   height: 3rem;
 }
 .hovered {
   position: relative;
-  // z-index: 30;
+
   color: $theme-50;
 }
 .no-style-button {
@@ -25,7 +24,6 @@
   display: inline-flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  // gap: 1rem;
   gap: gap(default);
   justify-content: center;
   position: relative;
@@ -33,7 +31,6 @@
   cursor: pointer;
   width: fit-content;
   background: none;
-  // z-index: 30;
   border: none;
 }
 .with-border {

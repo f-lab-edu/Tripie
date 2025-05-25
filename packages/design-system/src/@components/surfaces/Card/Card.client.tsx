@@ -21,7 +21,7 @@ const CardContent = ({
   className,
   ref,
   margin = 'none',
-  padding = 'm',
+  padding = 'none',
   justifyContent,
   applyPadding,
   alignItems,
@@ -108,7 +108,7 @@ const CardDescription = ({
 };
 
 export type CardWithImageProps = CardProps &
-  ImageProps & { cover?: boolean; imgSize: ImageProps['sizes']; sourceUrl?: string };
+  ImageProps & { cover?: boolean; imgSize: ImageProps['sizes']; sourceUrl?: string; withImageBorder?: boolean };
 
 const CardWithImage = ({
   children,
@@ -120,11 +120,18 @@ const CardWithImage = ({
   sizes = 'card',
   imgSize = 'card',
   aspectRatio,
+  withImageBorder,
   sourceUrl,
+  padding = 'none',
   ...args
 }: CardWithImageProps) => {
   return (
-    <TripieContainer withBorder={true} {...args} className={cx('outer-wrap', `card-size-${sizes}`, className)}>
+    <TripieContainer
+      withBorder={true}
+      padding={padding}
+      {...args}
+      className={cx('outer-wrap', `card-size-${sizes}`, className)}
+    >
       <Stack zIndex="default" margin="none" direction="column" className={cx('inner-wrap', className)}>
         <TripieContainer margin="none" className={cx('img-wrap')}>
           <TripieContainer margin={cover ? 'none' : 'm'} padding={cover ? 'none' : 'm'}>
@@ -142,7 +149,6 @@ const CardWithImage = ({
             )}
           </TripieContainer>
         </TripieContainer>
-
         {children}
       </Stack>
       {withNoise ? (

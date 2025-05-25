@@ -1,0 +1,10 @@
+@mixin flex-items {
+  display: inline-flex;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  width: 100%;
+  list-style: none;
+  padding: 0;
+}

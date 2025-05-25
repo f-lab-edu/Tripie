@@ -33,10 +33,8 @@ const UnStyledButton = ({
       className={cx(
         'clear-btn',
         `align-items-${alignItems}`,
-        `padding-${padding}`,
-        `padding-${applyPadding}`,
-        applyMargin,
-        margin,
+        `paddings_${padding}_to_${applyPadding}`,
+        `margins_${margin}_to_${applyMargin}`,
         `justify-content-${justifyContent}`,
         `gap-${gap}`,
         className

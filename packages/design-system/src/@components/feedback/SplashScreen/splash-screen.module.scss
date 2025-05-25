@@ -1,5 +1,6 @@
 @use '../../../variables' as *;
-@use '../../../mixins' as *;
+@use '../../../mixins/z-index' as *;
+@use '../../../mixins/background' as *;
 @use '../../../functions/' as *;
 
 .splash-full-screen {

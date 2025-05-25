@@ -22,6 +22,7 @@ export const VARIANTS = {
     hover: {
       opacity: 1,
       y: '-2rem',
+
       transition: {
         bounce: 0,
       },

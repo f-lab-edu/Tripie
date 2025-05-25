@@ -1,0 +1,32 @@
+@use '../variables' as *;
+// 스크롤 바 스타일
+@mixin visible-scroll($visible-scroll: true) {
+  @if $visible-scroll == true {
+    /* Firefox */
+    scrollbar-color: $theme-50 $theme-100000;
+    scrollbar-width: thin;
+    /* WebKit (Chrome, Safari, Edge) */
+    ::-webkit-scrollbar {
+      width: 2px;
+      height: 2px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: $theme-50;
+      border-radius: 2px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: $theme-50;
+    }
+  } @else {
+    scrollbar-width: none; /* Firefox */
+    /* Hide scrollbar for Edge and IE */
+    -ms-overflow-style: none;
+    ::-webkit-scrollbar {
+      /* Chrome, Safari */
+      display: none;
+    }
+  }
+}

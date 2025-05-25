@@ -1,5 +1,12 @@
 @use 'sass:map';
-@use '../../../mixins' as *;
+
+@use '../../../mixins/flex' as *;
+@use '../../../mixins/justify-content' as *;
+@use '../../../mixins/align-items' as *;
+@use '../../../mixins/align-text' as *;
+@use '../../../mixins/gap' as *;
+@use '../../../mixins/background' as *;
+@use '../../../mixins/paddings' as *;
 @use '../../../variables' as *;
 
 .flex {
@@ -51,5 +58,13 @@ $variant-space-map: (
 @each $key, $value in $variant-space-map {
   .background-#{$key} {
     @include background($value);
+  }
+}
+
+@each $direction-key, $direction in $direction-map {
+  @each $key, $value in $space-map {
+    .paddings_#{$key}_to_#{$direction-key} {
+      @include paddings($direction, $value);
+    }
   }
 }

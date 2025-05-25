@@ -1,7 +1,6 @@
 @use 'mixins' as *;
 
 .list-wrap {
-  // height: 20%;
   @include scroll;
   @include visible-scroll(false);
 }
