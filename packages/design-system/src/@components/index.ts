@@ -8,8 +8,6 @@ export * from './x';
 export { default as AnimatedText } from './data-display/AnimatedText/AnimatedText';
 export { default as Carousel } from './data-display/Carousel/Carousel';
 export { default as Chip } from './data-display/Chip/Chip';
-export { default as ChipMarker } from './data-display/ChipMarker';
-
 export { default as TextFillAnimation } from './data-display/TextFill/TextFillAnimation.client';
 export { default as TextUnderLineAnimation } from './data-display/TextUnderlineAnimation';
 export { default as Icon } from './data-display/TripieIcon/Icon.client';

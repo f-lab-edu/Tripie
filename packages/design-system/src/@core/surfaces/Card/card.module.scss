@@ -1,6 +1,5 @@
 @use '../../../variables' as *;
 @use '../../../mixins/background-static' as *;
-@use '../../../functions/' as *;
 @use '../../../mixins/noise-container' as *;
 
 @mixin card-size($size) {

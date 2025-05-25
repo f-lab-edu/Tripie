@@ -1,9 +1,6 @@
-@use '../../../base/' as *;
 @use '../../../variables' as *;
-@use '../../../functions/' as *;
-@use '../../../mixins/' as *;
-@use '../../../generator/' as *;
-@use '../../../mixins/index.scss' as *;
+@use '../../../functions/typography' as *;
+@use '../../../functions/color' as *;
 @use '../../../mixins/flex' as *;
 @use '../../../mixins/accented' as *;
 @use '../../../mixins/margins' as *;
@@ -11,6 +8,8 @@
 @use '../../../mixins/justify-content' as *;
 @use '../../../mixins/align-items' as *;
 @use '../../../mixins/gap' as *;
+@use '../../../mixins/text' as *;
+@use '../../../mixins/break-text' as *;
 
 @use 'sass:map';
 

@@ -1,5 +1,3 @@
-@use 'sass:map';
-
 @use '../../../mixins/flex' as *;
 @use '../../../mixins/margins' as *;
 @use '../../../mixins/paddings' as *;
@@ -10,7 +8,7 @@
 @use '../../../mixins/with-border' as *;
 @use '../../../mixins/gap' as *;
 @use '../../../variables' as *;
-@use '../../../functions/' as *;
+@use '../../../functions/z-index' as *;
 
 .container {
   display: inline-block;

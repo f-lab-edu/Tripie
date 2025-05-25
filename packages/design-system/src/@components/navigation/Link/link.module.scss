@@ -1,9 +1,5 @@
-@use '../../../base/' as *;
-@use '../../../functions/' as *;
-@use '../../../generator/' as *;
-@use '../../../mixins/' as *;
-
-@use 'sass:map';
+@use '../../../functions/color' as *;
+@use '../../../functions/typography' as *;
 
 .link {
   text-decoration: none;

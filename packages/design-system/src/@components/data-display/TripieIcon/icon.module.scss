@@ -1,4 +1,4 @@
-@use '../../../functions/' as *;
+@use '../../../functions/z-index' as *;
 
 @mixin sizes($size: 'default') {
   background-color: inherit;
@@ -24,15 +24,9 @@
   @include sizes('default');
   position: absolute;
   top: 50%;
-  z-index: z(loadder);
-  // z-index: 600;
+  z-index: z(loader);
 }
 
 .large {
   @include sizes('large');
 }
-
-// .icon-image {
-//   min-width: 1rem;
-//   min-height: 1rem;
-// }

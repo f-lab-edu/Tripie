@@ -1,5 +1,5 @@
 @use '../../../variables' as *;
-@use '../../../functions/' as *;
+@use '../../../functions/z-index' as *;
 @use '../../../mixins/visible-scroll' as *;
 @use '../../../mixins/flex-items' as *;
 @use '../../../mixins/with-border' as *;
@@ -48,7 +48,6 @@
 
 .scroll-icon {
   position: absolute;
-  // z-index: 100;
   z-index: z(mask);
 
   border: 1px solid $theme-50;

@@ -1,9 +1,3 @@
-@use 'sass:map';
-
-@use '../../../variables' as *;
-@use '../../../functions/' as *;
-@use '../../../base/' as *;
-
 $stack-display-map: (inline-flex, grid);
 
 @mixin display-stack($display) {

@@ -1,9 +1,10 @@
 @use '../../../base/' as *;
 @use '../../../variables' as *;
-@use '../../../functions/' as *;
+@use '../../../functions/color' as *;
+@use '../../../functions/typography' as *;
 @use '../../../generator/' as *;
-@use '../../../mixins/index.scss' as *;
 @use '../../../mixins/flex' as *;
+@use '../../../mixins/text' as *;
 
 @use 'sass:map';
 

@@ -1,9 +1,4 @@
-@use '../../../base/' as *;
-@use '../../../functions/' as *;
-@use '../../../generator/' as *;
-@use '../../../mixins/' as *;
-@use '../../../variables' as *;
-
+@use '../../../functions/z-index' as *;
 @use 'sass:map';
 
 .drawer-content {
