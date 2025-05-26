@@ -3,7 +3,7 @@
 import { Carousel, Chip, Icon } from '@tripie-pyotato/design-system/@components';
 import { Container, Divider, Stack } from '@tripie-pyotato/design-system/@core';
 
-import { Dispatch, SetStateAction, createRef, useRef } from 'react';
+import { Dispatch, SetStateAction, createRef, useMemo, useRef } from 'react';
 import { classNames } from 'wrapper';
 
 import { Transport } from 'models/Itinery';
@@ -34,6 +34,9 @@ const MapWithCarousel = ({
 }) => {
   const { pois, transportation, schedule } = item.value;
   const cardRefs = useRef<Array<React.RefObject<HTMLDivElement>>>(pois.map(() => createRef()));
+  const transportationFixedLength = useMemo(() => {
+    return transportation.map((item, index) => (index != transportation.length - 1 ? item : []));
+  }, []);
 
   return (
     <Container applyMargin={'bottom'}>
@@ -41,7 +44,7 @@ const MapWithCarousel = ({
       <Carousel.Controlled>
         {pois.map((poi, index) => (
           <Stack direction="column" key={JSON.stringify(poi)} margin="none" gap="xl">
-            {transportation[index].map(({ value }) => (
+            {transportationFixedLength[index].map(({ value }) => (
               <Stack
                 zIndex="base"
                 margin="none"
@@ -68,7 +71,11 @@ const MapWithCarousel = ({
                       )}
                       {value.duration}
                     </Container>
-                  ) : null}
+                  ) : (
+                    <Container margin="none" justifyContent={'flex-end'}>
+                      <Icon.Transport active={false} type={'FLAG'} />
+                    </Container>
+                  )}
                 </Stack>
               </Stack>
             ))}
