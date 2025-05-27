@@ -1,4 +1,4 @@
-import Divider from '@components/data-display/Divider/Divider';
+import Divider from '@components/data-display/Divider/Divider.client';
 import { RefAttributes } from 'react';
 import 'react-calendar/dist/Calendar.css';
 import { CalendarProps, ReactCalendar } from '../../../wrappers';

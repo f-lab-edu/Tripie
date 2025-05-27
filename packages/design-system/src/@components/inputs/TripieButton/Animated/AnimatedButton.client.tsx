@@ -2,7 +2,7 @@
 
 import { ReactNode } from 'react';
 import { classNames, Motion } from '../../../../wrappers';
-import AnimatedText from '../../../data-display/AnimatedText/AnimatedText';
+import AnimatedText from '../../../data-display/AnimatedText/AnimatedText.client';
 
 import TripieContainer from '@core/layout/TripieContainer';
 import Style from './animated-button.module.scss';

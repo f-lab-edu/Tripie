@@ -1,4 +1,4 @@
-export { default } from './Calendar';
-export * from './CalendarBody';
-export * from './CalendarHeader';
-export * from './SelectedDates';
+export { default } from './Calendar.client';
+export * from './CalendarBody.client';
+export * from './CalendarHeader.client';
+export * from './SelectedDates.client';

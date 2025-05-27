@@ -1,2 +1,2 @@
-export * from './Divider';
-export { default } from './Divider';
+export * from './Divider.client';
+export { default } from './Divider.client';

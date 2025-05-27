@@ -1,5 +1,5 @@
 'use client';
-import AnimatedText from '../../data-display/AnimatedText/AnimatedText';
+import AnimatedText from '../../data-display/AnimatedText/AnimatedText.client';
 
 import { useMemo } from 'react';
 import { LooseValue } from 'wrappers/react-calendar';

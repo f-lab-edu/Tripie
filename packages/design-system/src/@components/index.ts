@@ -5,9 +5,9 @@ export * from './navigation';
 export * from './surfaces';
 export * from './x';
 
-export { default as AnimatedText } from './data-display/AnimatedText/AnimatedText';
-export { default as Carousel } from './data-display/Carousel/Carousel';
-export { default as Chip } from './data-display/Chip/Chip';
+export { default as AnimatedText } from './data-display/AnimatedText/AnimatedText.client';
+export { default as Carousel } from './data-display/Carousel/Carousel.client';
+export { default as Chip } from './data-display/Chip/Chip.client';
 export { default as TextFillAnimation } from './data-display/TextFill/TextFillAnimation.client';
 export { default as TextUnderLineAnimation } from './data-display/TextUnderlineAnimation';
 export { default as Icon } from './data-display/TripieIcon/Icon.client';

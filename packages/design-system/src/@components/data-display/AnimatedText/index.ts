@@ -1,2 +1,2 @@
-export * from './AnimatedText';
-export { default } from './AnimatedText';
+export * from './AnimatedText.client';
+export { default } from './AnimatedText.client';

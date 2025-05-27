@@ -1,9 +1,9 @@
 export * from './AnimatedText';
-export { default as AnimatedText } from './AnimatedText/AnimatedText';
+export { default as AnimatedText } from './AnimatedText/AnimatedText.client';
 export * from './Carousel';
-export { default as Carousel } from './Carousel/Carousel';
+export { default as Carousel } from './Carousel/Carousel.client';
 export * from './Chip';
-export { default as Chip } from './Chip/Chip';
+export { default as Chip } from './Chip/Chip.client';
 export * from './Divider';
 export { default as Divider } from './Divider';
 export * from './Image';

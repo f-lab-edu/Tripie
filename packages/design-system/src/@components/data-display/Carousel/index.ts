@@ -1,2 +1,2 @@
-export * from './Carousel';
-export { default } from './Carousel';
+export * from './Carousel.client';
+export { default } from './Carousel.client';
