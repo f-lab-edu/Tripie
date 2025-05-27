@@ -1,14 +1,10 @@
 export * from './data-display';
-export { default as Divider } from './data-display/Divider/Divider';
 export { default as Headings } from './data-display/Headings/Headings';
 export { default as List } from './data-display/List/List';
 export { default as ListItem } from './data-display/ListItem/ListItem';
 export { default as Text } from './data-display/Text/Text';
-export { default as TripieImage } from './data-display/TripieImage/TripieImage';
 export * from './feedback';
 export { default as Skeleton } from './feedback/TripieSkeleton';
 export * from './layout';
 export { default as Background } from './layout/Background/TripieBackground';
 export { default as Container } from './layout/TripieContainer/TripieContainer';
-export * from './surfaces';
-export { default as TripieCard } from './surfaces/Card/Card';

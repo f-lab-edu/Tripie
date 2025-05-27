@@ -1,7 +1,16 @@
+export * from './AnimatedText';
 export { default as AnimatedText } from './AnimatedText/AnimatedText';
+export * from './Carousel';
 export { default as Carousel } from './Carousel/Carousel';
+export * from './Chip';
 export { default as Chip } from './Chip/Chip';
+export * from './Divider';
+export { default as Divider } from './Divider';
+export * from './Image';
 export { default as BlurImageOnLoad } from './Image';
+export * from './TextFill/TextFillAnimation.client';
 export { default as TextFillAnimation } from './TextFill/TextFillAnimation.client';
+export * from './TextUnderlineAnimation';
 export { default as TextUnderLineAnimation } from './TextUnderlineAnimation';
+export * from './TripieIcon';
 export { default as Icon } from './TripieIcon';

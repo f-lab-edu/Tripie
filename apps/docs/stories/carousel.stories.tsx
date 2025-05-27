@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Carousel } from '@tripie-pyotato/design-system/@components';
-import { TripieImage } from '@tripie-pyotato/design-system/@core';
+import { BlurImageOnLoad, Carousel } from '@tripie-pyotato/design-system/@components';
+
 import images from '../tests/images';
 
 const meta: Meta<typeof Carousel> = {
@@ -27,7 +27,7 @@ export const Default: Story = {
     return (
       <Carousel
         items={images.slice(0, 2).map((item, index) => (
-          <TripieImage.WithSourceUrl
+          <BlurImageOnLoad.WithSourceUrl
             sizes="large"
             key={item.src + index}
             alt={item.alt}
@@ -47,7 +47,7 @@ export const CarouselImageOf3: Story = {
     return (
       <Carousel
         items={images.slice(0, 3).map((item, index) => (
-          <TripieImage.WithSourceUrl
+          <BlurImageOnLoad.WithSourceUrl
             sizes="large"
             key={item.src + index}
             alt={item.alt}
@@ -67,7 +67,7 @@ export const CarouselImageOf4: Story = {
     return (
       <Carousel
         items={images.slice(0, 4).map((item, index) => (
-          <TripieImage.WithSourceUrl
+          <BlurImageOnLoad.WithSourceUrl
             sizes="large"
             key={item.src + index}
             alt={item.alt}
@@ -87,7 +87,7 @@ export const CarouselImageOf5: Story = {
     return (
       <Carousel
         items={images.map((item, index) => (
-          <TripieImage.WithSourceUrl
+          <BlurImageOnLoad.WithSourceUrl
             sizes="large"
             key={item.src + index}
             alt={item.alt}

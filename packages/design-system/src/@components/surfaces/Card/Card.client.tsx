@@ -4,8 +4,8 @@
 import { Stack } from '@core/layout';
 import { classNames } from '../../../wrappers';
 
-import { BlurImageOnLoad } from '@components/data-display';
-import { Divider, DividerProps, ImageProps, ImageSizes, Text, TextProps } from '@core';
+import { Text, TextProps } from '@core';
+import { BlurImageOnLoad, Divider, DividerProps, ImageProps, ImageSizes } from '../../data-display/';
 
 import TripieContainer, { TripieContainerProps } from '@core/layout/TripieContainer';
 import { MutableRefObject } from 'react';
@@ -134,7 +134,7 @@ const CardWithImage = ({
     >
       <Stack zIndex="default" margin="none" direction="column" className={cx('inner-wrap', className)}>
         <TripieContainer margin="none" className={cx('img-wrap')}>
-          <TripieContainer margin={cover ? 'none' : 'm'} padding={cover ? 'none' : 'm'}>
+          <TripieContainer margin={cover ? 'none' : 'm'} padding={cover ? 'none' : padding}>
             {sourceUrl == null ? (
               <BlurImageOnLoad aspectRatio={aspectRatio} sizes={imgSize} src={src} alt={alt} withBorder={!cover} />
             ) : (
@@ -170,52 +170,6 @@ const Card = ({ children, className, withNoise = true, sizes = 'card', ...args }
     </TripieContainer>
   );
 };
-
-// const Card = ({
-//   duration,
-//   replays,
-//   delay = 0.3,
-//   children,
-//   className,
-//   applyPadding,
-//   margin = 'none',
-//   padding,
-//   justifyContent,
-//   alignItems,
-//   refs,
-//   preserveWhiteSpace,
-//   applyMargin,
-//   withSlideAnimation=false
-// }: Partial<CustomAnimationProps>&{withSlideAnimation:boolean}) => {
-//   if(withSlideAnimation){
-//     return (
-//       <MotionSlideUp
-//         delay={delay}
-//         duration={duration}
-//         replays={replays}
-//         className={cx('with-border', 'outer-wrap', className)}
-//       >
-//         <TripieContainer
-//           padding={padding}
-//           margin={margin}
-//           justifyContent={justifyContent}
-//           alignItems={alignItems}
-//           refs={refs}
-//           preserveWhiteSpace={preserveWhiteSpace}
-//           className={cx('noise-contents-contrast')}
-//           applyMargin={applyMargin}
-//           zIndex="default"
-//           applyPadding={applyPadding}
-//         >
-//           {children}
-//         </TripieContainer>
-//         <TripieContainer margin="none" padding="none" className={cx('noise')} zIndex="base"></TripieContainer>
-//       </MotionSlideUp>
-//     );
-//   }
-//   return
-
-// };
 
 Card.Content = CardContent;
 Card.WithImage = CardWithImage;

@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 import { classNames, Motion, MotionProps } from '../../../wrappers';
 
-import Divider from '@core/data-display/Divider';
+import Divider from '@components/data-display/Divider';
 import Style from './text-underline.module.scss';
 import { TEXT_UNDERLINE_VARIANTS } from './variants';
 

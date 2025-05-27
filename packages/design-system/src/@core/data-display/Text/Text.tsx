@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 import { classNames } from '../../../wrappers';
 
-import { TripieContainerProps } from '@core/layout/TripieContainer';
+import { TripieContainerProps } from '../../layout/TripieContainer';
 import Style from './text.module.scss';
 
 const cx = classNames.bind(Style);

@@ -1,9 +1,11 @@
-import { CLOUDINARY_URL } from '@tripie-pyotato/design-system/shared';
+// import { CLOUDINARY_URL } from '@tripie-pyotato/design-system/shared';
 import { ArticleData } from 'models/Article';
 import { AttractionArticle, ParsedAttractionResponse } from 'models/Attraction';
 import { RestaurantData } from 'models/Restaurant';
 import { backendApi } from 'utils/ky';
 import firestoreService from '../firebase';
+
+const CLOUDINARY_URL = 'https://res.cloudinary.com/dbzzletpw/image/upload/';
 
 export const defaultBlurSize = CLOUDINARY_URL + 'f_auto,e_blur:2000,q_1,c_limit,f_auto,h_2048,w_2048/';
 

@@ -1,5 +1,5 @@
-// https://mui.com/material-ui/react-drawer/
 'use client';
+// https://mui.com/material-ui/react-drawer/
 
 import { ReactNode, useMemo } from 'react';
 import { classNames } from '../../../wrappers';

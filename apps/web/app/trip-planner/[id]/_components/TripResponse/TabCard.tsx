@@ -1,6 +1,6 @@
 'use client';
-import { AnimatedCard, Chip, TextUnderLineAnimation } from '@tripie-pyotato/design-system/@components';
-import { Stack, Text, TripieCard } from '@tripie-pyotato/design-system/@core';
+import { AnimatedCard, Card, Chip, TextUnderLineAnimation } from '@tripie-pyotato/design-system/@components';
+import { Stack, Text } from '@tripie-pyotato/design-system/@core';
 import { openNewTab } from '@tripie-pyotato/utils';
 
 import { Activity, TripContent } from 'models/Aws';
@@ -52,18 +52,18 @@ const TabCard = ({
         cycle(`${trip.day - 1}-${index}`);
       }}
     >
-      <TripieCard sizes={'full'} margin="none" ref={current === `${trip.day - 1}-${index}` ? ref : null}>
-        <TripieCard.Header>
+      <Card sizes={'full'} margin="none" ref={current === `${trip.day - 1}-${index}` ? ref : null}>
+        <Card.Header>
           <Stack alignItems={'center'} gap="default" margin="none">
             <Chip.Marker variant={label}>{index + 1}</Chip.Marker>
             <Text.Accented isButtonText={true} bold={true}>
               {activity}
             </Text.Accented>
           </Stack>
-        </TripieCard.Header>
-        <TripieCard.Divider margin="m" />
-        <TripieCard.Content margin="m">{comments}</TripieCard.Content>
-        <TripieCard.Content applyMargin="left-right-bottom" margin="m">
+        </Card.Header>
+        <Card.Divider margin="m" />
+        <Card.Content margin="m">{comments}</Card.Content>
+        <Card.Content applyMargin="left-right-bottom" margin="m">
           <TextUnderLineAnimation
             // 새로운 탭에 구글 검색
             onClick={() => openNewTab(`https://www.google.com/search?q=@${place}, ${country}`)}
@@ -71,8 +71,8 @@ const TabCard = ({
             <Text.Accented size="small">@</Text.Accented>
             {place}
           </TextUnderLineAnimation>
-        </TripieCard.Content>
-      </TripieCard>
+        </Card.Content>
+      </Card>
     </AnimatedCard>
   );
 };

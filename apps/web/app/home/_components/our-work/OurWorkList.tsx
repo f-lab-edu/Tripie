@@ -1,6 +1,6 @@
 'use client';
 import { Accordion } from '@tripie-pyotato/design-system/@components';
-import { Container, Headings, Text } from '@tripie-pyotato/design-system/@core';
+import { Container, Text } from '@tripie-pyotato/design-system/@core';
 const ourWorkList = [
   {
     year: 2023,
@@ -33,8 +33,10 @@ export default function OurWorkList() {
           <Accordion.Header>
             <Text.Accented size="tiny">{year}</Text.Accented>
             <Container margin="sm" alignItems="center" applyMargin="bottom" justifyContent="start" gap="default">
-              <Headings.H3>{header}</Headings.H3>
-              <Accordion.Icon />
+              <Text size="h3" isButtonText={true} bold={true}>
+                {header}
+              </Text>
+              <Accordion.Icon sizes="large" />
             </Container>
           </Accordion.Header>
           <Accordion.Divider />

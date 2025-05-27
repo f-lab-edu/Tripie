@@ -1,6 +1,7 @@
 'use server';
 
-import AttractionLayout from 'app/posts/_components/AttractionLayout';
+import ArticleLayout from 'app/posts/_components/ArticleLayout';
+import ArticleBody from 'app/posts/_components/AttractionLayout/ArticleBody';
 import { AttractionArticle } from 'models/Attraction';
 import { pageParamData } from '../../page-param-data';
 
@@ -12,12 +13,10 @@ const Articles = async ({ params }: { params: Promise<{ postId: string; articleI
   }
 
   return (
-    <AttractionLayout
+    <ArticleLayout
       title={title}
-      id={data.id}
-      imgAlt={images}
-      imgSrc={images}
-      body={(data as AttractionArticle).source}
+      thumbNailSrc={images}
+      articleBody={<ArticleBody source={(data as AttractionArticle).source} dataUrl={data.id} />}
     />
   );
 };

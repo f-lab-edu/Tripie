@@ -23,5 +23,6 @@ export { default as AnimatedCard } from './surfaces/AnimatedCard/AnimatedCard.cl
 export { default as Card } from './surfaces/Card/Card.client';
 export { default as Calendar } from './x/Calendar';
 export { default as Globe } from './x/Globe';
+export { default as AwsMap } from './x/Map/Map.client';
 export { default as MotionSlideUp } from './x/MotionSlideUp';
 export { default as ParticleBackground } from './x/Particle/Background';

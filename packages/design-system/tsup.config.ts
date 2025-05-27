@@ -51,7 +51,7 @@ export const esbuildUseClient = ({ filter = /\/.client\.tsx?$/ }: ESBuildUseClie
 const defaultConfig: Partial<Options> = {
   minify: true,
   splitting: true,
-  external: ['react', 'next'],
+  external: ['react', 'next', 'react-globe.gl', 'maplibre-gl'],
   format: ['cjs', 'esm'],
   clean: true,
   dts: true,
@@ -102,6 +102,8 @@ export default defineConfig(options => [
         './src/@core/data-display/index.ts',
         './src/@core/feedback/index.ts',
         './src/@core/layout/index.ts',
+        './src/@core/layout/TripieContainer/index.ts',
+        // './src/@core/surfaces/index.ts',
         './src/@core/index.ts',
       ],
     },

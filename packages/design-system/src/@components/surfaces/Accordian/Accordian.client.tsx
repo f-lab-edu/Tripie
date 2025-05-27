@@ -3,7 +3,7 @@ import { classNames, Motion } from '../../../wrappers';
 
 import { createContext, ReactNode, useContext, useMemo } from 'react';
 
-import Divider from '@core/data-display/Divider/Divider';
+import Divider from '@components/data-display/Divider/Divider';
 import { useCycle } from '../../../@hooks';
 
 import { TripieContainerProps } from '@core/layout/TripieContainer';

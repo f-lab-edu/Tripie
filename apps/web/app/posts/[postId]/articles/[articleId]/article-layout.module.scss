@@ -1,0 +1,15 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.article-container {
+  @media (max-width: 500px) {
+    margin: 1rem !important;
+  }
+}
+
+.fit-content {
+  height: fit-content;
+  @media (min-width: 998px) {
+    width: 70vw;
+  }
+}

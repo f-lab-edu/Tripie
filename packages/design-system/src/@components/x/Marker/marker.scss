@@ -1,0 +1,18 @@
+@use '../../../variables' as *;
+
+.maplibregl-popup-content {
+  font-family: 'MaruBuri', sans-serif;
+  background-color: $theme-700;
+  padding: 2rem;
+  width: fit-content;
+}
+.maplibregl-popup-tip {
+  border-top-color: $theme-700;
+}
+
+.maplibregl-popup-close-button {
+  color: $theme-50;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
+}

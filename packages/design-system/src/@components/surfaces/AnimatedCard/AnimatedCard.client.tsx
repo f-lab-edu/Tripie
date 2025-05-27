@@ -1,8 +1,9 @@
 // https://mui.com/material-ui/react-card/
-import { CardProps } from '@core/surfaces/Card';
+
 import { ReactNode, RefObject } from 'react';
 import { SHINE_VARIANT } from '../../../shared/motion-variants';
 import { Motion, classNames } from '../../../wrappers';
+import { CardProps } from '../Card';
 import Style from './animated-card.module.scss';
 
 const cx = classNames.bind(Style);

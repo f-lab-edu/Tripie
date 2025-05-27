@@ -8,17 +8,49 @@ import Motion, {
   MotionVariants,
 } from './motion-wrapper';
 import { ReactCalendar, type CalendarProps, type LooseValue } from './react-calendar';
+
+import {
+  Layer,
+  Map,
+  MapProvider,
+  Marker,
+  Popup,
+  Source,
+  useMap,
+  type LayerProps,
+  type LngLatBoundsLike,
+  // type MapCollection,
+  // type MaplibreMap,
+  type MapRef,
+  type PaddingOptions,
+  type PointLike,
+  type ViewState,
+} from './react-map-gl';
+
 // Type error: Re-exporting a type when 'isolatedModules' is enabled requires using 'export type'.
 export {
   classNames,
+  Layer,
+  Map,
+  MapProvider,
+  Marker,
   Motion,
+  Popup,
   ReactCalendar,
+  Source,
+  useMap,
   type CalendarProps,
+  type LayerProps,
+  type LngLatBoundsLike,
   type LooseValue,
+  type MapRef,
   type MotionAnimationProps,
   type MotionProps,
   type MotionStyleProps,
   type MotionSVGProps,
   type MotionVariant,
   type MotionVariants,
+  type PaddingOptions,
+  type PointLike,
+  type ViewState,
 };

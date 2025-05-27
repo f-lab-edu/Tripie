@@ -6,10 +6,11 @@ import Style from './trip-results.module.scss';
 import { AI_PLAN } from '../constants/selected';
 
 import { Carousel, Chip } from '@tripie-pyotato/design-system/@components';
+import { AwsMap } from '@tripie-pyotato/design-system/@components/x';
 import { Container, Stack, Text } from '@tripie-pyotato/design-system/@core';
 import TabList from 'app/trip-planner/[id]/_components/TripResponse/TabList';
+import { API_KEY } from 'constants/maps';
 import useAwsMap from 'hooks/awsMap/useAwsMap';
-import AwsMap from 'shared/components/AwsMap';
 
 const cx = classNames.bind(Style);
 
@@ -44,6 +45,7 @@ const TripResultExample = () => {
         </Stack>
       </Container>
       <AwsMap
+        apiKey={API_KEY}
         center={center[currentDate]}
         interactive={false}
         style={{ height: '85vh' }}
@@ -53,6 +55,8 @@ const TripResultExample = () => {
         }}
         locationMarker={locationMarker[currentDate]}
         focusAfterOpen={false}
+        currentMarker={'0-0'}
+        setCurrentMarker={() => null}
       />
     </Stack>
   );

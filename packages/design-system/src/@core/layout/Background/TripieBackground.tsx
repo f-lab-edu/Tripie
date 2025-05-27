@@ -32,8 +32,6 @@ const TripieBackground = ({
         `text-align-${textAlign}`,
         `justify-content-${justifyContent}`,
         `gap-${gap}`,
-        // preserveWhiteSpace ? 'preserve-white-space' : '',
-
         className
       )}
       {...args}

@@ -1,8 +1,24 @@
-import { ImageProps, Text } from '@core';
+import { Text } from '@core';
 import TripieContainer from '@core/layout/TripieContainer';
-import { useEffect, useState } from 'react';
+
+import { ImgHTMLAttributes, useEffect, useState } from 'react';
 import { classNames, Motion } from '../../../wrappers';
 import Style from './image.module.scss';
+
+export type ImageSizes = 'default' | 'full' | 'large' | 'medium' | 'small' | 'tiny' | 'icon' | 'card';
+export type AspectRatio = 'square' | 'standard' | 'photo' | 'landscape' | 'banner' | 'portrait' | 'cinematic';
+
+export type ImageProps = {
+  alt: string;
+  src?: string;
+  refs?: (node?: Element | null | undefined) => void;
+  className?: string;
+  sizes?: ImageSizes;
+  blurDataURL?: string;
+  withBorder?: boolean;
+  loading?: ImgHTMLAttributes<HTMLImageElement>['loading']; // https://developer.chrome.com/docs/lighthouse/performance/offscreen-images/?utm_source=lighthouse&utm_medium=devtools
+  aspectRatio?: AspectRatio;
+} & Partial<ImgHTMLAttributes<HTMLImageElement>>;
 
 const cx = classNames.bind(Style);
 

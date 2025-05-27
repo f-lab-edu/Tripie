@@ -1,6 +1,3 @@
-import 'maplibre-gl/dist/maplibre-gl.css';
-import 'shared/components/AwsMap/Marker/marker.scss';
-
 import { useQueryClient } from '@tanstack/react-query';
 import { AnimatedButton, Icon } from '@tripie-pyotato/design-system/@components';
 import { Container, Text } from '@tripie-pyotato/design-system/@core';

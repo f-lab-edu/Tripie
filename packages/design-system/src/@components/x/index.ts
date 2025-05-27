@@ -1,5 +1,8 @@
 export { default as Calendar } from './Calendar';
 export { default as Globe } from './Globe';
+export { default as Lines } from './Lines';
+export { default as AwsMap } from './Map';
+export { default as Markers } from './Marker';
 export { default as MotionSlideUp } from './MotionSlideUp';
 export { default as ParticleBackground } from './Particle/Background';
 export { default as ParticleField } from './Particle/Field';

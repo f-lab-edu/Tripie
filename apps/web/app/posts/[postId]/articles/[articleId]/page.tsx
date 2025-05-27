@@ -1,8 +1,10 @@
 'use server';
 
-import ArticleSection from 'app/posts/_components/ArticleSection';
 import { ParamProps } from 'models/Props';
 import { pageParamData } from '../../page-param-data';
+
+import ArticleLayout from 'app/posts/_components/ArticleLayout';
+import DefaultArticleBody from 'app/posts/_components/ArticleLayout/DefaultArticleBody';
 
 const Articles = async ({ params }: ParamProps) => {
   const { postId, id, metadataContents, images, body } = await pageParamData({ params });
@@ -12,13 +14,10 @@ const Articles = async ({ params }: ParamProps) => {
   }
 
   return (
-    <ArticleSection
-      postId={postId}
-      id={id}
+    <ArticleLayout
       title={metadataContents.title}
-      imgAlt={images}
-      imgSrc={images}
-      body={body}
+      thumbNailSrc={images}
+      articleBody={<DefaultArticleBody items={body} regionId={postId} dataUrl={id} />}
     />
   );
 };
