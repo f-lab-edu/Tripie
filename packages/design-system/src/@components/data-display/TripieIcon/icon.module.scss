@@ -6,7 +6,6 @@
   padding: 0;
   display: inline-flex;
   align-items: center;
-  cursor: pointer;
 
   @if ($size == 'default') {
     width: 1rem;
@@ -20,13 +19,11 @@
 .icon {
   @include sizes('default');
 }
-.plane {
-  @include sizes('default');
-  position: absolute;
-  top: 50%;
-  z-index: z(loader);
-}
 
 .large {
   @include sizes('large');
+}
+
+.btn-icon {
+  cursor: pointer;
 }

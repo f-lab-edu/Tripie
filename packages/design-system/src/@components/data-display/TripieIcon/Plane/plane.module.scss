@@ -1,0 +1,7 @@
+@use '../../../../functions/z-index' as *;
+
+.plane {
+  position: absolute;
+  top: 50%;
+  z-index: z(loader);
+}
