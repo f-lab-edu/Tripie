@@ -1,0 +1,30 @@
+@use '../variables' as *;
+@use 'sass:map';
+
+$theme-color-map: (
+  'theme-40': $theme-40,
+  'theme-50': $theme-50,
+  'theme-100': $theme-100,
+  'theme-200': $theme-200,
+  'theme-300': $theme-300,
+  'theme-400': $theme-400,
+  'theme-500': $theme-500,
+  'theme-600': $theme-600,
+  'theme-700': $theme-700,
+  'theme-800': $theme-800,
+  'theme-100000': $theme-100000,
+  'border-accent': $border-accent,
+  'bottom-shade': $bottom-shade,
+  'shadow-tint': $shadow-tint,
+  'inherit': inherit,
+);
+
+@mixin theme-color($apply, $variant: 'inherit') {
+  @if $apply == 'background' {
+    background-color: map.get($theme-color-map, $variant);
+  } @else if $apply == 'border' {
+    border-color: map.get($theme-color-map, $variant);
+  } @else if $apply == 'font' {
+    color: map.get($theme-color-map, $variant);
+  }
+}

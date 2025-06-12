@@ -2,9 +2,29 @@
 @use 'sass:map';
 @use '../variables' as *;
 
-@mixin with-border {
-  // font-size: 0.8rem;
-  border: 1px solid $border-accent;
-  border-radius: 8px;
-  opacity: 1;
+// $theme-color: (
+//   $theme-40,
+//   $theme-50,
+//   $theme-100,
+//   $theme-200,
+//   $theme-300,
+//   $theme-400,
+//   $theme-500,
+//   $theme-600,
+//   $theme-700,
+//   $theme-800,
+//   $theme-100000,
+//   $border-accent,
+//   $bottom-shade,
+//   $shadow-tint
+// );
+
+@mixin with-border($has-border: 'true', $border-color: $border-accent) {
+  @if ($has-border== 'false') {
+    border: none;
+  } @else {
+    border: 1px solid $border-color;
+    border-radius: 8px;
+    opacity: 1;
+  }
 }
