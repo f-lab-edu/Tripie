@@ -1,10 +1,9 @@
 'use client';
 
+import TripieContainer from '@core/layout/TripieContainer';
 import { ReactNode } from 'react';
 import { classNames, Motion } from '../../../../wrappers';
 import AnimatedText from '../../../data-display/AnimatedText/AnimatedText.client';
-
-import TripieContainer from '@core/layout/TripieContainer';
 import Style from './animated-button.module.scss';
 
 const cx = classNames.bind(Style);
@@ -41,7 +40,7 @@ const AnimatedButton = ({
       type={type}
       className={cx(
         'button',
-        withBorder && 'with-border',
+        `with${withBorder ? '' : '-no'}-border`,
         withMinWidth && 'min',
         className,
         selected ? 'selected' : '',
@@ -83,7 +82,7 @@ const AnimatedButtonText = ({
     <Motion.Div
       className={cx(
         'button',
-        withBorder && 'with-border',
+        `with${withBorder ? '' : '-no'}-border`,
         withMinWidth && 'min',
         isFullSize ? 'is-full-size' : '',
         className
@@ -94,7 +93,7 @@ const AnimatedButtonText = ({
       animate={animate}
     >
       <AnimatedText.Flick>{children}</AnimatedText.Flick>
-      <TripieContainer applyMargin="top"> </TripieContainer>
+      <TripieContainer margin="none" padding="none"></TripieContainer>
       <AnimatedText.Flick className={cx('hovered')}>{otherChild}</AnimatedText.Flick>
     </Motion.Div>
   );

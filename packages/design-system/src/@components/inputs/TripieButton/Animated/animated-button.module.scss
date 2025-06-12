@@ -42,6 +42,12 @@
   min-width: 9rem;
   @include with-border;
 }
+
+.with-no-border {
+  min-width: 9rem;
+  @include with-border('false');
+}
+
 .button:disabled {
   cursor: not-allowed;
   color: $theme-300;

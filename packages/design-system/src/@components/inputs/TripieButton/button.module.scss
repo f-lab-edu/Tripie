@@ -1,0 +1,75 @@
+@use '../../../variables' as *;
+@use '../../../functions/z-index' as *;
+@use '../../../mixins/with-border' as *;
+@use '../../../mixins/map-marker' as *;
+@use '../../../mixins/theme-color' as *;
+@use '../../../functions/typography' as *;
+
+.with-border {
+  @include with-border;
+  border-radius: 10px;
+  color: inherit;
+}
+
+.button {
+  cursor: pointer;
+}
+
+.disabled:disabled {
+  cursor: not-allowed;
+}
+
+$btn-size-map: (
+  default: 2.25rem,
+  full: 100%,
+  large: 2.75rem,
+  medium: 2.25rem,
+  small: 2rem,
+  tiny: 1.75em,
+);
+
+$btn-padding-map: (
+  full: 0.5rem 1.5rem,
+  large: 0.5rem 1.5rem,
+  medium: 0.6rem 1.68rem,
+  small: 0.25rem 0.75rem,
+  tiny: 0.25rem 0.5rem,
+);
+
+@each $key, $size in $btn-size-map {
+  @each $padding-key, $padding in $btn-padding-map {
+    .btn-size-#{$key} {
+      @if ($key==full) {
+        width: 100%;
+        width: -moz-available;
+        width: -webkit-fill-available;
+        width: stretch;
+      }
+      height: $size;
+      font-size: font-size($key);
+      padding: $padding;
+    }
+  }
+}
+
+$theme-color: (default);
+
+@each $theme-color in $theme-color {
+  .btn-color-variant-#{$theme-color} {
+    @if ($theme-color==default) {
+      @include theme-color('background', inherit);
+      @include theme-color('border', $border-accent);
+      @include theme-color('font', inherit);
+    }
+  }
+}
+
+.selected {
+  background-color: $theme-100;
+}
+
+.stretched {
+  // width: 100%;
+  min-width: fit-content;
+  width: -webkit-fill-available;
+}

@@ -1,0 +1,49 @@
+@use '../../../../variables' as *;
+@use '../../../../functions/z-index' as *;
+@use '../../../../functions/typography' as *;
+@use '../../../../mixins/margins' as *;
+@use '../../../../mixins/submit-button' as *;
+
+.hovered {
+  position: relative;
+  z-index: z(mask);
+  color: $theme-50;
+}
+
+.gap {
+  display: inline-block;
+  font-size: inherit;
+}
+
+.button {
+  overflow-y: hidden;
+  color: inherit;
+  align-content: center;
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  position: relative;
+  text-decoration: none;
+  min-width: fit-content;
+  cursor: pointer;
+}
+
+$btn-font-size-map: (
+  default: 2.25rem,
+  full: 1rem,
+  large: 2.75rem,
+  medium: 2.25rem,
+  small: 2rem,
+  tiny: 1.75em,
+);
+
+@each $key, $val in $btn-font-size-map {
+  $gap: ($val / 2);
+  // + ($val * 0.125);
+
+  .button-gap-#{$key} {
+    gap: $gap;
+  }
+}
