@@ -15,27 +15,27 @@ export default function OurWork() {
             Our <Text.Accented>work</Text.Accented>
           </Headings.H2>
         </Container>
-        {/* <Container margin="none"> */}
-        {ourWorkList.map(({ year, tag, header, details }) => (
-          <Accordion key={tag}>
-            <Accordion.Header>
-              <Text.Accented size="tiny" noGapUnderText={true}>
-                {year}
-              </Text.Accented>
-              <Container margin="sm" alignItems="center" applyMargin="bottom" justifyContent="start" gap="default">
-                <Text size="h3" noGapUnderText={true} bold={true}>
-                  {header}
-                </Text>
-                <Accordion.Icon sizes="large" />
+        <Container margin="none">
+          {ourWorkList.map(({ year, tag, header, details }) => (
+            <Accordion key={tag}>
+              <Accordion.Header>
+                <Text.Accented size="tiny" noGapUnderText={true}>
+                  {year}
+                </Text.Accented>
+                <Container margin="sm" alignItems="center" applyMargin="bottom" justifyContent="start" gap="default">
+                  <Text size="h3" noGapUnderText={true} bold={true}>
+                    {header}
+                  </Text>
+                  <Accordion.Icon sizes="large" />
+                </Container>
+              </Accordion.Header>
+              <Accordion.Divider />
+              <Container padding="m" applyMargin="bottom" applyPadding="top-bottom">
+                <Accordion.Body>{details}</Accordion.Body>
               </Container>
-            </Accordion.Header>
-            <Accordion.Divider />
-            <Container padding="m" applyMargin="bottom" applyPadding="top-bottom">
-              <Accordion.Body>{details}</Accordion.Body>
-            </Container>
-          </Accordion>
-        ))}
-        {/* </Container> */}
+            </Accordion>
+          ))}
+        </Container>
       </MotionSlideUp>
     </Background>
   );
