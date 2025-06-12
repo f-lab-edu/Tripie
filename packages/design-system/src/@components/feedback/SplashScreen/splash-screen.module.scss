@@ -1,13 +1,28 @@
 @use '../../../mixins/z-index' as *;
 @use '../../../mixins/background' as *;
 @use '../../../functions/z-index' as *;
+@use '../../../mixins/backdrop' as *;
+
+.variant-default {
+  @include background('8');
+}
+.variant-backdrop {
+  @include backdrop;
+}
 
 .splash-full-screen {
-  @include background('8');
-  height: 100vh;
-  width: 100vw;
   position: fixed;
   z-index: z(above-all);
   transform: none;
+  min-height: 100vh;
+  min-width: 100vw;
+  height: -webkit-fill-available;
   transform-origin: 50% 50% 0px;
+  overflow: hidden;
+}
+
+.center {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }

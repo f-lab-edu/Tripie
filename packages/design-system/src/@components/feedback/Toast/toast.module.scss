@@ -1,0 +1,29 @@
+@use '../../../mixins/backdrop' as *;
+@use '../../../mixins/with-border' as *;
+@use '../../../mixins/z-index' as *;
+@use '../../../variables' as *;
+
+.background {
+  @include backdrop;
+  width: 100vw;
+  height: 100vh;
+}
+.with-border {
+  @include with-border;
+}
+.with-no-border {
+  @include with-border('false');
+}
+.toast-wrap {
+  width: 100%;
+  width: -moz-available;
+  width: -webkit-fill-available;
+  height: 100%;
+  height: -moz-available;
+  height: -webkit-fill-available;
+}
+
+.toast-body {
+  @include z-index(notification);
+  color: $theme-600;
+}
