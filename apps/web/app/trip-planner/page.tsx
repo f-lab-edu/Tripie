@@ -14,6 +14,7 @@ import { TripPlanner } from 'models/Aws';
 import { ContinentKeys } from 'models/Continent';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import { ReactNode } from 'react';
 import api from 'utils/ky';
 import CityStep from './_components/Cities';
 import CompanionStep from './_components/Companion';
@@ -24,6 +25,70 @@ import DurationStep from './_components/Duration';
 import PreferenceStep from './_components/Preference';
 
 export type TripPlannerSuccessReponse = { data: { id: string } } & Response;
+
+export type FunnelSteps = {
+  CONTINENT: {
+    continent?: ContinentKeys;
+    country?: string;
+    city?: { all: string[]; selected: string[] };
+    duration?: string;
+    companion?: string;
+    preference?: string;
+  };
+  COUNTRY: {
+    continent: ContinentKeys;
+    country?: string;
+    city?: { all: string[]; selected: string[] };
+    duration?: string;
+    companion?: string;
+    preference?: string;
+  };
+  CITY: {
+    continent: ContinentKeys;
+    country: string;
+    city: { all: string[]; selected: string[] };
+    duration?: string;
+    companion?: string;
+    preference?: string;
+  };
+  DURATION: {
+    continent: ContinentKeys;
+    country: string;
+    city: { all: string[]; selected: string[] };
+    duration?: string;
+    companion?: string;
+    preference?: string;
+  };
+  COMPANION: {
+    continent: ContinentKeys;
+    country: string;
+    city: { all: string[]; selected: string[] };
+    duration: string;
+    companion?: string;
+    preference?: string;
+  };
+  PREFERENCE: {
+    continent: ContinentKeys;
+    country: string;
+    city: { all: string[]; selected: string[] };
+    duration: string;
+    companion: string;
+    preference?: string;
+  };
+  DONE: {
+    continent: ContinentKeys;
+    country: string;
+    city: { all: string[]; selected: string[] };
+    duration: string;
+    companion: string;
+    preference: string;
+  };
+};
+
+export type FunnelProps = {
+  onPrev: () => void;
+  progress: ReactNode;
+};
 
 const handleSubmit = async (chatItems: TripPlanner, id: string) => {
   if (id == null) {
@@ -50,7 +115,7 @@ const Progress = ({ index }: { index: number }) => {
   const stepCount = funnelSteps.length;
   return (
     <>
-      (<Text.Accented isButtonText={true}>{index + 1}</Text.Accented>/{stepCount})
+      &nbsp;(<Text.Accented noGapUnderText={true}>&nbsp;{index + 1}&nbsp;</Text.Accented>/ {stepCount}&nbsp;)
     </>
   );
 };
@@ -59,64 +124,7 @@ const TripPlan = () => {
 
   const { data: userData } = useSession();
 
-  const funnel = useFunnel<{
-    CONTINENT: {
-      continent?: ContinentKeys;
-      country?: string;
-      city?: { all: string[]; selected: string[] };
-      duration?: string;
-      companion?: string;
-      preference?: string;
-    };
-    COUNTRY: {
-      continent: ContinentKeys;
-      country?: string;
-      city?: { all: string[]; selected: string[] };
-      duration?: string;
-      companion?: string;
-      preference?: string;
-    };
-    CITY: {
-      continent: ContinentKeys;
-      country: string;
-      city: { all: string[]; selected: string[] };
-      duration?: string;
-      companion?: string;
-      preference?: string;
-    };
-    DURATION: {
-      continent: ContinentKeys;
-      country: string;
-      city: { all: string[]; selected: string[] };
-      duration?: string;
-      companion?: string;
-      preference?: string;
-    };
-    COMPANION: {
-      continent: ContinentKeys;
-      country: string;
-      city: { all: string[]; selected: string[] };
-      duration: string;
-      companion?: string;
-      preference?: string;
-    };
-    PREFERENCE: {
-      continent: ContinentKeys;
-      country: string;
-      city: { all: string[]; selected: string[] };
-      duration: string;
-      companion: string;
-      preference?: string;
-    };
-    DONE: {
-      continent: ContinentKeys;
-      country: string;
-      city: { all: string[]; selected: string[] };
-      duration: string;
-      companion: string;
-      preference: string;
-    };
-  }>({
+  const funnel = useFunnel<FunnelSteps>({
     id: 'trip-plan',
     initial: {
       step: 'CONTINENT',

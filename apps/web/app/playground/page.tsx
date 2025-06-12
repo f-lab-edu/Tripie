@@ -1,12 +1,53 @@
-// import Loading from 'shared/components/Loading';
+import firestoreService from 'app/api/firebase';
+import PlaygroundContents from './_components/PlaygroundContents';
 
-import PlaygroundButton from './_components/Button';
+// import Container from '@tripie-pyotato/design-system/@core/Container';
+// import TextTyping from './_components/TextTyping';
 
-// import PlaygroundButton from './_components/Button';
-
-// import getRegionArticles from 'app/api/articles/region';
-// import PlaygroundButton from './_components/Button';
 export default async function Playground() {
+  // const context = {
+  //   continent: 'North America',
+  //   country: 'Canada',
+  //   city: {
+  //     all: [
+  //       'Alberta',
+  //       'British Columbia',
+  //       'Manitoba',
+  //       'New Brunswick',
+  //       'Newfoundland and Labrador',
+  //       'Northwest Territories',
+  //       'Nova Scotia',
+  //       'Nunavut',
+  //       'Ontario',
+  //       'Prince Edward Island',
+  //       'Quebec',
+  //       'Saskatchewan',
+  //       'Yukon Territory',
+  //     ],
+  //     selected: ['Northwest Territories'],
+  //   },
+  //   duration: '5/28/2025 12:00:00 AM ~ 5/29/2025 11:59:59 PM',
+  //   companion: 'PARENTS',
+  //   preference: '관광보다 먹방',
+  // };
+
+  // const {
+  //   preference,
+  //   continent,
+  //   city: { selected },
+  //   country,
+  //   companion,
+  //   duration,
+  // } = context;
+  // const selectedOptions = [
+  //   ...preference.split(','),
+  //   continent,
+  //   selected,
+  //   country,
+  //   ...companion.split(','),
+  //   duration,
+  // ].flat();
+
   // return <Loading.SemiTransparent />;
   // return <PlaygroundButton />;
   // export default async function Playground() {
@@ -34,7 +75,27 @@ export default async function Playground() {
   //   },
   // });
 
-  // const articles = await firestoreService.getList('article-details');
+  const articles = await firestoreService.getList('article-details');
+  // console.log(
+  //   articles.filter(item => item.id === '71476976-cf9a-4ae8-a60f-76e6fb26900d')
+  //   // ?.filter(item => item.placeId === 'd32a913c-40c3-4127-af48-a592b779ec8c' )
+  // );
+
+  // const { id, metadata, seoMetadata, source } =
+  //   ARTICLE.props.pageProps.__APOLLO_CACHE__['Article:d32a913c-40c3-4127-af48-a592b779ec8c'];
+
+  // const { body } = source;
+
+  // console.log(JSON.stringify(body));
+  // console.log('metadata', metadata);
+  // console.log('metadataContents', source['metadata']);
+  // console.log('placeId', id);
+  // console.log('seoMetadata', seoMetadata);
+  // console.log('id', ARTICLE.props.pageProps.regionId);
+  // console.log('header', null);
+
+  // console.log('body', body, args);
+  // console.log('body', source['metadata'], metadata, seoMetadata, id, JSON.stringify(body));
   // const article = await firestoreService.getList('article');
 
   // const blurredThumbnail = await fetch(
@@ -297,8 +358,32 @@ export default async function Playground() {
   // );
 
   return (
-    <div>
-      <PlaygroundButton />
-    </div>
+    // <div>
+    // <PlaygroundButton />
+    <PlaygroundContents />
+    // <Container margin="xl">
+    //   <TextTyping />
+    // </Container>
+    // </div>
+    // <Background variant={0} gap="default" padding="m" className={cx('background')}>
+    //   <Container className={cx('cloud-wrap')}>
+    //     {Array.from({ length: 17 }, (_, index) => (
+    //       <Icon.Cloud key={index} index={index} />
+    //     ))}
+    //     <Icon.Plane />
+    //   </Container>
+    //   <Container margin="none">
+    //     {selectedOptions.map(text => (
+    //       <AnimatedText.Slide animate="fly" duration={randomIntBtw()} key={text}>
+    //         <div className={cx('text-color')}>{text}</div>
+    //       </AnimatedText.Slide>
+    //     ))}
+    //   </Container>
+    //   <Container className={cx('cloud-wrap')}>
+    //     {Array.from({ length: 13 }, (_, index) => (
+    //       <Icon.Cloud key={index} index={index} />
+    //     ))}
+    //   </Container>
+    // </Background>
   );
 }

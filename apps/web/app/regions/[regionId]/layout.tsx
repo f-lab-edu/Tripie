@@ -1,5 +1,6 @@
 'use server';
 
+import Container from '@tripie-pyotato/design-system/@core/Container';
 import '@tripie-pyotato/design-system/global';
 
 import getRegionArticles from 'app/api/articles/region';
@@ -8,7 +9,6 @@ import { TRIPIE_REGION_BY_LOCATION, TRIPIE_REGION_IDS } from 'constants/tripie-c
 import { RegionParamProps } from 'models/Props';
 
 import { ReactNode } from 'react';
-import RegionLayout from '../_components/Layout';
 
 export async function pageParamData({ params }: RegionParamProps) {
   const { regionId } = await parseParams(params);
@@ -32,10 +32,12 @@ export default async function Layout({
   list: ReactNode;
 }>) {
   return (
-    <RegionLayout>
-      {children}
-      {select}
-      {list}
-    </RegionLayout>
+    <Container margin="xl" applyMargin="top">
+      <Container applyPadding="left-right" padding="m" margin="none">
+        {children}
+        {select}
+        {list}
+      </Container>
+    </Container>
   );
 }

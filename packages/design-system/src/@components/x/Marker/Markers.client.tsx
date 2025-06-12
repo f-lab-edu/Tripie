@@ -2,10 +2,11 @@
 
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { Context, Dispatch, SetStateAction, useContext, useEffect } from 'react';
+import './marker.scss';
 
-import { Popup } from 'wrappers';
 import usePopUp from '../../../@hooks/usePopUp.client';
 import { LocationMarker } from '../Map/Map.client';
+import MapPopup from '../MapPopup';
 import TripieMarker from './TripieMarker.client';
 
 const Markers = ({
@@ -36,19 +37,17 @@ const Markers = ({
 
   return (
     <>
-      {popup === current &&
-        popupMarkers.map((markers, index) => (
-          <Popup
-            longitude={markers.lng}
-            latitude={markers.lat}
-            anchor="bottom"
-            offset={24}
-            focusAfterOpen={focusAfterOpen}
-            key={`popup-${markers.lng} + ${markers.lat}+${index}`}
-          >
-            {JSON.stringify(markers.info)}
-          </Popup>
-        ))}
+      {popupMarkers.map((markers, index) => (
+        <MapPopup
+          anchor="bottom"
+          offset={24}
+          showPopup={popup === current}
+          focusAfterOpen={focusAfterOpen}
+          coordinates={{ lng: markers.lng, lat: markers.lng }}
+          key={`popup-${markers.lng} + ${markers.lat}+${index}`}
+          content={JSON.stringify(markers.info)}
+        />
+      ))}
       {locationMarker.map(marker => (
         <TripieMarker
           current={current}

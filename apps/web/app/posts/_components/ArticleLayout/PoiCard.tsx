@@ -54,7 +54,7 @@ const PoiCard = ({
         aspectRatio={'photo'}
       >
         <Card.Header applyMargin="left-right" size="tiny">
-          <Text.Accented isButtonText={true}>{poi.source.areas[0]?.name ?? poi.source.areas[0]?.name}</Text.Accented>
+          <Text.Accented noGapUnderText={true}>{poi.source.areas[0]?.name ?? poi.source.areas[0]?.name}</Text.Accented>
         </Card.Header>
         <Card.Header applyMargin="left-right" size={'h4'} bold={true}>
           {poi.source.names.ko}

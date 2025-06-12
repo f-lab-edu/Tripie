@@ -53,23 +53,27 @@ const TabCard = ({
       }}
     >
       <Card sizes={'full'} margin="none" ref={current === `${trip.day - 1}-${index}` ? ref : null}>
-        <Card.Header>
+        <Card.Header margin="sm">
           <Stack alignItems={'center'} gap="default" margin="none">
             <Chip.Marker variant={label}>{index + 1}</Chip.Marker>
-            <Text.Accented isButtonText={true} bold={true}>
+            <Text.Accented noGapUnderText={true} bold={true}>
               {activity}
             </Text.Accented>
           </Stack>
         </Card.Header>
         <Card.Divider margin="m" />
-        <Card.Content margin="m">{comments}</Card.Content>
-        <Card.Content applyMargin="left-right-bottom" margin="m">
+        <Card.Content margin="sm">
+          <Text size="small">{comments}</Text>
+        </Card.Content>
+        <Card.Content applyMargin="left-right-bottom" margin="sm">
           <TextUnderLineAnimation
             // 새로운 탭에 구글 검색
             onClick={() => openNewTab(`https://www.google.com/search?q=@${place}, ${country}`)}
           >
-            <Text.Accented size="small">@</Text.Accented>
-            {place}
+            <Stack gap="default" alignItems="start" justifyContent="start" margin="none" padding="none">
+              <Text.Accented size="tiny">@</Text.Accented>
+              <Text size="tiny">{place}</Text>
+            </Stack>
           </TextUnderLineAnimation>
         </Card.Content>
       </Card>

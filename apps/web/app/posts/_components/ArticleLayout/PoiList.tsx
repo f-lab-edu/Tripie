@@ -35,6 +35,7 @@ const PoiList = ({ item }: { item: PoisProps }) => {
         </Container>
         {coordinates.length === 0 ? null : (
           <AwsMap
+            focusAfterOpen={false}
             style={{ height: '30vh' }}
             apiKey={API_KEY}
             locationMarker={coordinates}

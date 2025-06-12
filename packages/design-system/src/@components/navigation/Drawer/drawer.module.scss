@@ -1,4 +1,6 @@
 @use '../../../functions/z-index' as *;
+@use '../../../mixins/backdrop' as *;
+
 @use 'sass:map';
 
 .drawer-content {
@@ -43,13 +45,7 @@ $percentage-map: ();
 }
 
 .drawer-backdrop {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  -webkit-tap-highlight-color: transparent;
+  @include backdrop;
 }
 
 @each $key, $percent in $percentage-map {

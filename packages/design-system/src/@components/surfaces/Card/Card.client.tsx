@@ -27,6 +27,7 @@ const CardContent = ({
   alignItems,
   preserveWhiteSpace,
   applyMargin,
+  withBorder = false,
 }: Readonly<Partial<Omit<CustomAnimationProps, 'refs'> & { ref?: MutableRefObject<HTMLDivElement | null> }>>) => {
   return (
     <TripieContainer
@@ -38,7 +39,12 @@ const CardContent = ({
       applyMargin={applyMargin}
       applyPadding={applyPadding}
       ref={ref}
-      className={cx('with-border', 'inner-wrap', className)}
+      withBorder={withBorder}
+      className={cx(
+        // 'with-border',
+        'inner-wrap',
+        className
+      )}
     >
       {children}
     </TripieContainer>
@@ -55,7 +61,7 @@ const CardDivider = ({ className, applyMargin = 'left-right', ...args }: CardDiv
   );
 };
 
-export type CardHeaderProps = Omit<TextProps, 'isButtonText'> & Partial<TripieContainerProps>;
+export type CardHeaderProps = Omit<TextProps, 'noGapUnderText'> & Partial<TripieContainerProps>;
 
 const CardHeader = ({
   children,
@@ -68,10 +74,10 @@ const CardHeader = ({
   size,
   gap = 'sm',
   ...args
-}: Omit<TextProps, 'isButtonText'>) => {
+}: Omit<TextProps, 'noGapUnderText'>) => {
   return (
     <TripieContainer padding={padding} applyPadding={applyPadding} applyMargin={applyMargin} margin={margin}>
-      <Text className={cx(className)} {...args} size={size} isButtonText={true}>
+      <Text className={cx(className)} {...args} size={size} noGapUnderText={true}>
         {children}
       </Text>
     </TripieContainer>

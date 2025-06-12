@@ -1,13 +1,13 @@
 'use client';
 import AboutUs from 'app/home/_components/AboutUs';
-import Contacts from 'app/home/_components/contacts/Contacts';
-import Faq from 'app/home/_components/faq/Faq';
+import Contacts from 'app/home/_components/contacts';
+import Faq from 'app/home/_components/Faq';
 import Footer from 'app/home/_components/Footer';
 import Header from 'app/home/_components/Header';
-import OurProcess from 'app/home/_components/our-process/OurProcess';
-import OurService from 'app/home/_components/our-service/OurService';
-import OurWork from 'app/home/_components/our-work/OurWork';
-import Plan from 'app/home/_components/plan/Plan';
+import OurProcess from 'app/home/_components/OurProcess';
+import OurService from 'app/home/_components/OurService';
+import OurWork from 'app/home/_components/OurWork';
+import Plan from 'app/home/_components/Plan';
 import Loading from 'shared/components/Loading';
 
 export default function Home() {

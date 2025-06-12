@@ -1,36 +1,34 @@
 'use client';
-import { Icon } from '@tripie-pyotato/design-system/@components';
+import { Icon, NavigationButton } from '@tripie-pyotato/design-system/@components';
 import { Text } from '@tripie-pyotato/design-system/@core';
 import PREFERENCE_LIST from 'constants/preferences';
 
-import { ContinentKeys } from 'models/Continent';
-import { ReactNode, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 
+import { FunnelProps, FunnelSteps } from 'app/trip-planner/page';
+import Clouds from '../Done/Clouds';
 import Layout from '../Layout/Layout';
 import CityList from './CityList';
-import SubmitButton from './SubmitButton';
-
-interface Props {
-  context: { continent: ContinentKeys; country: string; city: { all: string[]; selected: string[] } };
-  onNext: (cities: string[]) => void;
-  onPrev: () => void;
-  progress: ReactNode;
-}
 
 export type Preference = keyof typeof PREFERENCE_LIST;
 
-const CityStep = ({ context, onNext, onPrev, progress }: Props) => {
+const CityStep = ({
+  context,
+  onNext,
+  onPrev,
+  progress,
+}: FunnelProps & { context: FunnelSteps['CITY']; onNext: (cities: string[]) => void }) => {
+  const [selected, setSelected] = useState<Array<string>>(context.city.selected);
   // 전체 도시
   const cities = useMemo(() => {
     return context.city.all;
   }, [context]);
-  const [selected, setSelected] = useState<Array<string>>(context.city.selected);
 
   return (
     <Layout
       navigateIcon={
-        <Icon.Navigate
-          sizes="large"
+        <NavigationButton
+          sizes={'large'}
           onTapStart={() => {
             onPrev();
           }}
@@ -41,17 +39,22 @@ const CityStep = ({ context, onNext, onPrev, progress }: Props) => {
           내가 여행하고 싶은 <Text.Accented>{'\n'}도시</Text.Accented>는? {progress}
         </>
       }
-      decor={
-        <>
-          {Array.from({ length: 30 }, (_, index) => (
-            <Icon.Cloud key={index} index={index} />
-          ))}
-          <Icon.Plane />
-        </>
-      }
+      decor={<Clouds rows={3} length={6} />}
       refreshIcon={<Icon.Refresh onTapStart={() => setSelected([])} />}
       listItems={<CityList cities={cities} selected={selected} setSelected={setSelected} />}
-      submitButton={<SubmitButton selected={selected} onNext={onNext} />}
+      disabled={selected.length == 0}
+      submitButtonChildren={
+        <>
+          {selected.length === 0 ? (
+            '다중 선택이 가능해요.'
+          ) : (
+            <>
+              다음 <Icon />
+            </>
+          )}
+        </>
+      }
+      clickAction={() => onNext(selected)}
     />
   );
 };

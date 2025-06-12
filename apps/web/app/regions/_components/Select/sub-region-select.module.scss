@@ -1,0 +1,7 @@
+@use 'mixins' as *;
+
+.options {
+  max-height: 20vh;
+  overflow-y: scroll;
+  @include visible-scroll(false);
+}

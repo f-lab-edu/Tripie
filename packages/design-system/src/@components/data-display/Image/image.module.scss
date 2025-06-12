@@ -32,6 +32,10 @@ $opacity-map: (0, 100);
   @include with-border;
 }
 
+.with-no-border {
+  @include with-border('false');
+}
+
 .img-source {
   position: absolute;
   bottom: 1rem;
@@ -63,6 +67,11 @@ $opacity-map: (0, 100);
 .icon {
   height: 1rem;
   width: 1rem;
+}
+.avatar {
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 100%;
 }
 
 .tripie-image {

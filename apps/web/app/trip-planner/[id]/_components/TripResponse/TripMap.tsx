@@ -26,6 +26,20 @@ const TripMap = ({ data, coordinates }: { data: ChatResponseData['plans']; coord
   }, [currentDate]);
 
   return (
+    // <>
+    //   <Toast interactable={true} withCloseButton={false} toastColor={COLORS['100000']}>
+    //     <TokenStatus />
+    //   </Toast>
+    //   <AwsMap.WithContext
+    //     apiKey={API_KEY}
+    //     style={{ height: '100vh', border: 'none' }}
+    //     interactive={true}
+    //     center={center[currentDate]}
+    //     TabContext={TabContext}
+    //     locationMarker={locationMarker[currentDate]}
+    //   />
+    // </>
+
     <AwsMap.WithContext
       apiKey={API_KEY}
       style={{ height: '100vh', border: 'none' }}

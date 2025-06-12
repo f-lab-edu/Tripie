@@ -3,7 +3,7 @@ import { classNames, Motion } from '../../../wrappers';
 import { ReactNode } from 'react';
 import Style from './chip.module.scss';
 
-import { GLOW_VARIANT, SHINE_VARIANT } from '../../../shared/motion-variants';
+import { SHINE_VARIANT } from '../../../shared/motion-variants';
 
 const cx = classNames.bind(Style);
 
@@ -57,32 +57,6 @@ const MarkerChip = ({
   );
 };
 
-const AccentedChip = ({ children, current, className, onClick, type = 'button' }: Readonly<ChipProps>) => {
-  return (
-    <Motion.Button
-      initial={'rest'}
-      className={cx('wrap', 'with-border', current === 'on' ? 'selected' : 'chip', className)}
-      variants={GLOW_VARIANT}
-      whileHover={'glow'}
-      onClick={onClick}
-      type={type}
-    >
-      <span className={cx('accented', current === 'on' ? 'selected' : 'chip')}>{children}</span>
-      <Motion.Span
-        className={cx('glow')}
-        animate={{ rotate: 360 }}
-        transition={{
-          type: 'tween',
-          duration: 2,
-          ease: 'linear',
-          repeat: Infinity,
-        }}
-      />
-    </Motion.Button>
-  );
-};
-
-Chip.Accented = AccentedChip;
 Chip.Marker = MarkerChip;
 
 export default Chip;

@@ -1,13 +1,11 @@
-// import { CLOUDINARY_URL } from '@tripie-pyotato/design-system/shared';
+import { CLOUDINARY_URL } from '@tripie-pyotato/design-system/shared';
 import { ArticleData } from 'models/Article';
 import { AttractionArticle, ParsedAttractionResponse } from 'models/Attraction';
 import { RestaurantData } from 'models/Restaurant';
 import { backendApi } from 'utils/ky';
 import firestoreService from '../firebase';
 
-const CLOUDINARY_URL = 'https://res.cloudinary.com/dbzzletpw/image/upload/';
-
-export const defaultBlurSize = CLOUDINARY_URL + 'f_auto,e_blur:2000,q_1,c_limit,f_auto,h_2048,w_2048/';
+export const defaultBlurSize = CLOUDINARY_URL() + 'f_auto,e_blur:2000,q_1,c_limit,f_auto,h_2048,w_2048/';
 
 type DetailResponse<T> = {
   data: T | null;
@@ -154,10 +152,12 @@ const getArticleDetail = async <T extends 'article' | 'attraction' | 'retaurant'
           data.source.recommendations.map(async recommendation => {
             const imageUrl = recommendation.image.sizes?.full.url;
             let recommendationImageUrl = defaultBlurSize;
-            // if (imageUrl != null && !imageUrl.startsWith(CLOUDINARY_URL)) {
-            const postRes: CloudinaryPostResponse = await backendApi.post('cloudinary', { json: { imageUrl } }).json();
-            recommendationImageUrl += postRes.message;
-            // }
+            if (imageUrl != null && !imageUrl.startsWith(CLOUDINARY_URL())) {
+              const postRes: CloudinaryPostResponse = await backendApi
+                .post('cloudinary', { json: { imageUrl } })
+                .json();
+              recommendationImageUrl += postRes.message;
+            }
             return {
               ...recommendation,
               image: {
@@ -174,10 +174,12 @@ const getArticleDetail = async <T extends 'article' | 'attraction' | 'retaurant'
           data.source?.externalLinks.map(async externalLink => {
             const imageUrl = externalLink?.imageUrl;
             let externalLinkImageUrl = defaultBlurSize;
-            // if (imageUrl != null && !imageUrl.startsWith(CLOUDINARY_URL)) {
-            const postRes: CloudinaryPostResponse = await backendApi.post('cloudinary', { json: { imageUrl } }).json();
-            externalLinkImageUrl += postRes.message;
-            // }
+            if (imageUrl != null && !imageUrl.startsWith(CLOUDINARY_URL())) {
+              const postRes: CloudinaryPostResponse = await backendApi
+                .post('cloudinary', { json: { imageUrl } })
+                .json();
+              externalLinkImageUrl += postRes.message;
+            }
             return { ...externalLink, imageUrl: externalLinkImageUrl };
           })
         ),

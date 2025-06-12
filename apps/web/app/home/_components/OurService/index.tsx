@@ -1,0 +1,35 @@
+'use client';
+
+import { MotionSlideUp } from '@tripie-pyotato/design-system/@components/x';
+import { Background, Container, Headings, Stack, Text } from '@tripie-pyotato/design-system/@core';
+import ServiceCard from './ServiceCard';
+import serviceList from './ServiceList';
+
+export default function OurService() {
+  return (
+    <Background variant={4} id="Services" padding="m" applyPadding="top-left-right">
+      <MotionSlideUp>
+        <Container applyMargin="top" margin="l">
+          <Headings.H2>
+            Our <Text.Accented>services</Text.Accented>
+          </Headings.H2>
+        </Container>
+      </MotionSlideUp>
+      <Stack
+        display="grid"
+        margin="l"
+        applyMargin="top-bottom"
+        gap="l"
+        gridWrapOn={{ 'wrap-sm': 1 }}
+        justifyContent="center"
+        stretchGridLastChild={true}
+      >
+        <Stack margin="none" gap="l" display="grid" gridRepeat={{ 'wrap-sm': 2 }} cols={1} stretchGridLastChild={true}>
+          {serviceList.map(({ label, content, description }) => (
+            <ServiceCard key={label} label={label} content={content} description={description} />
+          ))}
+        </Stack>
+      </Stack>
+    </Background>
+  );
+}

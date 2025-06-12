@@ -15,6 +15,9 @@ import {
   ViewState,
 } from 'react-map-gl/maplibre';
 
+import { Popup as PopupType } from 'maplibre-gl';
+import { PopupEvent } from 'react-map-gl/dist/esm/types';
+
 export {
   Layer,
   Map,
@@ -25,10 +28,10 @@ export {
   useMap,
   type LayerProps,
   type LngLatBoundsLike,
-  // type MapCollection,
-  // type MaplibreMap,
   type MapRef,
   type PaddingOptions,
   type PointLike,
+  type PopupEvent,
+  type PopupType,
   type ViewState,
 };

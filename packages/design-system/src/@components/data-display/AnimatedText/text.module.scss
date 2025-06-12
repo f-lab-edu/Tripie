@@ -22,8 +22,7 @@
 
 .flick {
   z-index: z(mask);
-  width: fit-content;
-  height: 3rem;
+  font-size: inherit;
   color: inherit;
   @include flex;
 }
@@ -65,4 +64,8 @@
 
 .empty {
   font-size: inherit;
+}
+.typing-text-wrap {
+  display: inline-block;
+  white-space: nowrap;
 }

@@ -12,5 +12,7 @@ export * from './TextFill/TextFillAnimation.client';
 export { default as TextFillAnimation } from './TextFill/TextFillAnimation.client';
 export * from './TextUnderlineAnimation';
 export { default as TextUnderLineAnimation } from './TextUnderlineAnimation';
+export * from './Tooltip';
+export { default as Tooltip } from './Tooltip';
 export * from './TripieIcon';
 export { default as Icon } from './TripieIcon';

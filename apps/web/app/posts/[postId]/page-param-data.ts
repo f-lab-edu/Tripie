@@ -1,4 +1,5 @@
 'use server';
+import { CLOUDINARY_URL } from '@tripie-pyotato/design-system/shared';
 import getArticleDetail, { CloudinaryPostResponse, defaultBlurSize } from 'app/api/articles/detail';
 import { sharedMetaData } from 'app/shared-metadata';
 import { ArticleData } from 'models/Article';
@@ -7,7 +8,6 @@ import { ParamProps } from 'models/Props';
 import { headers } from 'next/headers';
 import { backendApi } from 'utils/ky';
 import getPreferredTitle from 'utils/string/getPreferredTitle';
-import { CLOUDINARY_URL } from './../../../../../packages/design-system/src/shared/resource';
 
 const PAGE = {
   attractions: 'attraction',
@@ -34,9 +34,9 @@ export async function pageParamData({ params }: ParamProps) {
     const metadataContents = (data as ArticleData)?.metadataContents;
     const body = (data as ArticleData)?.body;
     const id = (data as ArticleData)?.id;
-    const images = (data as ArticleData).metadataContents.image.sizes?.full?.url;
+    const images = (data as ArticleData).metadataContents?.image?.sizes?.full?.url;
 
-    if (images != null && !images?.startsWith(CLOUDINARY_URL)) {
+    if (images != null && !images?.startsWith(CLOUDINARY_URL())) {
       const postRes: CloudinaryPostResponse = await backendApi
         .post('cloudinary', { json: { imageUrl: images } })
         .json();
@@ -61,7 +61,7 @@ export async function pageParamData({ params }: ParamProps) {
 
   const images = (data as AttractionArticle)?.source.image.sizes.full.url;
 
-  if (images != null && !images?.startsWith(CLOUDINARY_URL)) {
+  if (images != null && !images?.startsWith(CLOUDINARY_URL())) {
     const postRes: CloudinaryPostResponse = await backendApi.post('cloudinary', { json: { imageUrl: images } }).json();
     recommendationImageUrl += postRes.message;
   }

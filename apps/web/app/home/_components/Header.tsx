@@ -1,6 +1,8 @@
 'use client';
 
-import { AnimatedButton, Icon, ParticleBackground, RotatingBlur } from '@tripie-pyotato/design-system/@components';
+import { Icon, ParticleBackground, RotatingBlur } from '@tripie-pyotato/design-system/@components';
+import FlickTextButton from '@tripie-pyotato/design-system/@components/FlickTextButton';
+
 import { Container, Headings, Stack, Text } from '@tripie-pyotato/design-system/@core';
 import ROUTE from 'constants/routes';
 
@@ -32,11 +34,17 @@ const ShortCutButtons = () => {
   ];
 
   return (
-    <Container alignItems="center" margin="none" justifyContent="center" gap="default">
+    <Container gap="default" alignItems="center" margin="none" justifyContent="center">
       {SHORT_CUT_LINKS.map(({ tag, link, contents }) => (
-        <AnimatedButton withBorder={true} key={tag} withMinWidth={true} onClick={() => navigation.push(link)}>
+        <FlickTextButton
+          withBorder={true}
+          key={tag}
+          sizes={'large'}
+          stretched={false}
+          onClick={() => navigation.push(link)}
+        >
           {contents}
-        </AnimatedButton>
+        </FlickTextButton>
       ))}
     </Container>
   );

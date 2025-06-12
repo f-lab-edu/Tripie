@@ -48,7 +48,7 @@ const RotatingGlobe = ({
           width={width}
           ref={globeRef}
           backgroundColor={COLORS['100000']}
-          globeImageUrl={`${CLOUDINARY_URL}${RESOURCE.EARTH}`}
+          globeImageUrl={`${CLOUDINARY_URL()}${RESOURCE.EARTH}`}
           hexPolygonsData={Countries.features}
           hexPolygonColor={() => COLORS[50]}
           atmosphereColor={COLORS[50]}

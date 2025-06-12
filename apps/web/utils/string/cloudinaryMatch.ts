@@ -4,7 +4,7 @@ import { CLOUDINARY_URL } from '@tripie-pyotato/design-system/shared';
 const cloudinaryMatch = (url: string) => {
   const match = url.match(/\/([^\/]+)\.[^/.]+$/);
   const fileName = match?.[1];
-  return fileName != null ? CLOUDINARY_URL + fileName : null;
+  return fileName != null ? CLOUDINARY_URL() + fileName : null;
 };
 
 export default cloudinaryMatch;

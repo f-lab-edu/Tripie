@@ -56,8 +56,3 @@ export const RestaurantChip: Story = {
     className: 'restaurant',
   },
 };
-
-export const AccentedChip: Story = {
-  name: 'Chip.Accented',
-  render: () => <Chip.Accented>accented Chip</Chip.Accented>,
-};

@@ -24,8 +24,8 @@ export default function Footer() {
       <Container margin="m" applyMargin="left-right-bottom" applyPadding="bottom" padding="m">
         <Headings.H2>
           <TextUnderLineAnimation>
-            <Text isButtonText={true}>
-              mail <Text.Accented isButtonText={true}>@</Text.Accented>tripie.com
+            <Text noGapUnderText={true}>
+              mail <Text.Accented noGapUnderText={true}>@</Text.Accented>tripie.com
             </Text>
           </TextUnderLineAnimation>
         </Headings.H2>
@@ -33,7 +33,7 @@ export default function Footer() {
         <List view="column" gap="l">
           {footerItems.map(({ label, content }) => (
             <List.Item key={label}>
-              <Text size={'h4'} isButtonText={true}>
+              <Text size={'h4'} noGapUnderText={true}>
                 {content}
               </Text>
             </List.Item>

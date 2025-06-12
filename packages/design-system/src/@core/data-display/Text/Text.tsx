@@ -13,7 +13,7 @@ export type TextProps = {
   children: ReactNode;
   className?: string;
   crossOut?: boolean;
-  isButtonText?: boolean;
+  noGapUnderText?: boolean;
   display?: 'inline-block' | 'block' | 'inline' | 'contents';
 } & Partial<Omit<TripieContainerProps, 'withBorder'>>;
 
@@ -32,14 +32,14 @@ const Text = ({
   bold = false,
   textAlign = 'start',
   crossOut = false,
-  isButtonText = false,
+  noGapUnderText = false,
   display = 'inline-block',
 }: Readonly<TextProps>) => {
   if (typeof children !== 'string') {
     return (
       <span
         className={cx(
-          `${!isButtonText ? 'not-btn-' : ''}text`,
+          `${!noGapUnderText ? 'not-btn-' : ''}text`,
           bold ? 'bold' : '',
           // size,
           `font-size-${size}`,
@@ -63,7 +63,7 @@ const Text = ({
     return (
       <span
         className={cx(
-          `${!isButtonText ? 'not-btn-' : ''}text`,
+          `${!noGapUnderText ? 'not-btn-' : ''}text`,
           bold ? 'bold' : '',
           // size,
           `font-size-${size}`,
@@ -97,7 +97,7 @@ const AccentedText = ({
   gap,
   justifyContent = 'start',
   className,
-  isButtonText,
+  noGapUnderText,
   bold,
   size = 'inherit',
 }: Readonly<TextProps>) => {
@@ -105,7 +105,7 @@ const AccentedText = ({
     return (
       <span
         className={cx(
-          `${!isButtonText ? 'not-btn-' : ''}text`,
+          `${!noGapUnderText ? 'not-btn-' : ''}text`,
           `align-items-${alignItems}`,
           alignItems != 'none' || gap !== 'none' || justifyContent !== 'none' ? 'flex' : '',
           `paddings_${padding}_to_${applyPadding}`,
@@ -127,7 +127,7 @@ const AccentedText = ({
   return (
     <span
       className={cx(
-        `${!isButtonText ? 'not-btn-' : ''}text`,
+        `${!noGapUnderText ? 'not-btn-' : ''}text`,
         `align-items-${alignItems}`,
         alignItems != 'none' || gap !== 'none' || justifyContent !== 'none' ? 'flex' : '',
         'container',

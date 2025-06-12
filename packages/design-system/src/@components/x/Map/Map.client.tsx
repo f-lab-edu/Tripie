@@ -1,7 +1,7 @@
 'use client';
 
 import 'maplibre-gl/dist/maplibre-gl.css';
-import { CSSProperties, Dispatch, SetStateAction } from 'react';
+import { CSSProperties, Dispatch, ReactNode, SetStateAction } from 'react';
 import { LngLatBoundsLike, Map, PaddingOptions, PointLike, ViewState } from '../../../wrappers';
 import Lines from '../Lines/Lines.client';
 import TripieMarker from '../Marker/TripieMarker.client';
@@ -55,6 +55,7 @@ function AwsMap({
   reuseMaps = false,
   colorScheme = COLOR_SCHEME,
   currentMarker,
+  children,
   setCurrentMarker,
 }: Readonly<{
   apiKey: string;
@@ -68,6 +69,7 @@ function AwsMap({
   colorScheme?: typeof COLOR_SCHEME;
   style?: CSSProperties;
   interactive?: boolean;
+  children?: ReactNode;
   initialViewState?: Partial<ViewState> & {
     bounds?: LngLatBoundsLike;
     fitBoundsOptions?: {
@@ -100,7 +102,9 @@ function AwsMap({
         style={{ ...FULL_MAP_STYLE, ...style }}
         mapStyle={mapStyle}
         reuseMaps={reuseMaps}
-      />
+      >
+        {children != null ? children : null}
+      </Map>
     );
   }
 

@@ -24,7 +24,7 @@ const TabList = ({
     <Stack direction={'column'} gap="l" alignItems="start" margin="none">
       <Stack direction={'column'} margin="m" gap="none" applyMargin="top">
         {trip.date}
-        <Text size="h3" bold={true} isButtonText={true}>
+        <Text size="h3" bold={true} noGapUnderText={true}>
           <Text.Accented>Day {trip.day}</Text.Accented>
         </Text>
       </Stack>

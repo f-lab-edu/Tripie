@@ -9,3 +9,4 @@ export type Continents = CreateMutable<typeof CONTINENTS>;
 
 export type ContinentKeys = keyof Continents;
 export type ContinentIds = Continents[ContinentKeys]['id'];
+export type ContinentNames = Continents[ContinentKeys]['name'];

@@ -1,0 +1,42 @@
+import Accordion from '@tripie-pyotato/design-system/@components/Accordion';
+import MotionSlideUp from '@tripie-pyotato/design-system/@components/MotionSlideUp';
+import Background from '@tripie-pyotato/design-system/@core/Background';
+import Container from '@tripie-pyotato/design-system/@core/Container';
+import Headings from '@tripie-pyotato/design-system/@core/Headings';
+import Text from '@tripie-pyotato/design-system/@core/Text';
+import ourWorkList from './constants';
+
+export default function OurWork() {
+  return (
+    <Background applyPadding="top-left-right" padding="m" variant={5} id="Work">
+      <MotionSlideUp>
+        <Container applyMargin="top" margin="l">
+          <Headings.H2>
+            Our <Text.Accented>work</Text.Accented>
+          </Headings.H2>
+        </Container>
+        {/* <Container margin="none"> */}
+        {ourWorkList.map(({ year, tag, header, details }) => (
+          <Accordion key={tag}>
+            <Accordion.Header>
+              <Text.Accented size="tiny" noGapUnderText={true}>
+                {year}
+              </Text.Accented>
+              <Container margin="sm" alignItems="center" applyMargin="bottom" justifyContent="start" gap="default">
+                <Text size="h3" noGapUnderText={true} bold={true}>
+                  {header}
+                </Text>
+                <Accordion.Icon sizes="large" />
+              </Container>
+            </Accordion.Header>
+            <Accordion.Divider />
+            <Container padding="m" applyMargin="bottom" applyPadding="top-bottom">
+              <Accordion.Body>{details}</Accordion.Body>
+            </Container>
+          </Accordion>
+        ))}
+        {/* </Container> */}
+      </MotionSlideUp>
+    </Background>
+  );
+}

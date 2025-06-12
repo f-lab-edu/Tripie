@@ -1,0 +1,15 @@
+@use 'mixins' as *;
+
+.cloud-wrap {
+  position: absolute;
+}
+
+.card-wrap {
+  max-height: 75vh;
+  @include scroll;
+  @include visible-scroll(false);
+}
+
+.wrap {
+  width: 100%;
+}

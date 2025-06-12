@@ -66,6 +66,9 @@
 .with-border {
   @include with-border;
 }
+.with-no-border {
+  @include with-border('false');
+}
 
 @each $key in $z-index-map {
   .z-index-#{$key} {

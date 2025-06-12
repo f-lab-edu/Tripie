@@ -3,6 +3,7 @@ import { classNames } from 'wrapper';
 
 import { ReactNode } from 'react';
 
+import { FlickTextButton } from '@tripie-pyotato/design-system/@components';
 import Style from './preference.module.scss';
 
 const cx = classNames.bind(Style);
@@ -12,28 +13,32 @@ const Layout = ({
   heading,
   decor = null,
   listItems,
-  submitButton,
+  disabled = false,
+  submitButtonChildren,
+  clickAction,
   refreshIcon = null,
   children = null,
 }: {
   refreshIcon?: ReactNode;
   navigateIcon?: ReactNode;
   decor?: ReactNode;
+  disabled?: boolean;
   heading: ReactNode;
+  submitButtonChildren: ReactNode;
   listItems?: ReactNode;
-  submitButton: ReactNode;
+  clickAction: () => void;
   children?: ReactNode;
 }) => {
   return (
     <Stack className={cx('total-wrap')} direction={'column'} margin="none">
       <Stack applyMargin="top" margin="l" padding="l" applyPadding="top">
-        {navigateIcon != null ? navigateIcon : null}
+        {navigateIcon ?? null}
         <Headings.H2>{heading}</Headings.H2>
       </Stack>
       {decor != null ? <Container className={cx('decor-wrap')}>{decor}</Container> : null}
       {refreshIcon != null ? <Container applyMargin="top-bottom">{refreshIcon}</Container> : null}
       <Stack direction="column" alignItems="end" padding="l" applyPadding="bottom" margin="none">
-        {children != null ? children : null}
+        {children ?? null}
       </Stack>
       {listItems != null ? (
         <Container margin="none" className={cx('list', `list-wrap${decor == null ? '' : '-with-decor'}`)}>
@@ -41,7 +46,21 @@ const Layout = ({
         </Container>
       ) : null}
       <Container alignItems="end" padding="l" applyPadding="bottom" margin="none" className={cx('btn-wrap')}>
-        {submitButton}
+        <Container applyMargin={'top'}>
+          <FlickTextButton
+            disabled={disabled}
+            withBorder={true}
+            sizes="large"
+            onClick={() => {
+              if (disabled) {
+                return;
+              }
+              clickAction();
+            }}
+          >
+            {submitButtonChildren}
+          </FlickTextButton>
+        </Container>
       </Container>
     </Stack>
   );

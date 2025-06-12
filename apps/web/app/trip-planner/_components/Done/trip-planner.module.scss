@@ -1,38 +1,19 @@
-@use 'variables' as *;
 @use 'mixins' as *;
 
-.background {
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-  // padding: 2rem 1rem;
-  min-height: 100%;
-  width: inherit;
-  // gap: 1rem;
-  position: relative;
-  // height: 100vh;
-  overflow: hidden;
-}
-
-.title-wrap {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .cloud-wrap {
-  display: inline-block;
-  position: relative;
-  overflow: hidden;
-
-  @media (min-width: 400px) {
-    height: 20vh;
-  }
+  position: absolute;
 }
 
-.text-color {
-  color: $theme-50;
-  width: fit-content;
-  display: block;
+.card-wrap {
+  max-height: 75vh;
+  @include scroll;
+  @include visible-scroll(false);
+}
+
+.wrap {
+  width: 100%;
+}
+
+.plane-wrap {
+  width: 100%;
 }

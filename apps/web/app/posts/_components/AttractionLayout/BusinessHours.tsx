@@ -29,7 +29,7 @@ const MultipleHours = ({ readableBusinessHours }: { readableBusinessHours: Reada
   return (
     <>
       {readableBusinessHours.map((item, index) => (
-        <Text key={JSON.stringify(item)} alignItems={'center'} isButtonText={true} gap={'l'}>
+        <Text key={JSON.stringify(item)} alignItems={'center'} noGapUnderText={true} gap={'l'}>
           <Hours item={item} />
           <Text> {index != readableBusinessHours.length - 1 ? ' | ' : null}</Text>
         </Text>

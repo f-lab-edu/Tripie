@@ -1,6 +1,6 @@
 import { classNames, Motion, MotionProps } from '../../../wrappers';
 
-import { ACCORDIAN_VARIANTS } from '../../../shared/motion-variants';
+import { ACCORDION_VARIANTS } from '../../../shared/motion-variants';
 
 import TripieContainer, { TripieContainerProps } from '@core/layout/TripieContainer';
 import HR_MARGINS from './constants';
@@ -12,7 +12,7 @@ export type DividerProps = Partial<{ current: string; variants: MotionProps['var
 
 export type ArticleDividerProps = { type: 'hr1' | 'hr2' | 'hr3' | 'hr4' | 'hr5' };
 
-const Divider = ({ className, current, variants = ACCORDIAN_VARIANTS.DIVIDER }: DividerProps) => {
+const Divider = ({ className, current, variants = ACCORDION_VARIANTS.DIVIDER }: DividerProps) => {
   return <Motion.Div variants={variants} animate={current} className={cx('divider', className)} />;
 };
 

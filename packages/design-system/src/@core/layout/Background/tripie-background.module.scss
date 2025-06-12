@@ -15,6 +15,9 @@
   width: -moz-available;
   width: -webkit-fill-available;
   width: stretch; // spec has changed
+  height: -moz-available;
+  height: -webkit-fill-available;
+  height: stretch; // spec has changed
 }
 
 @each $value in $justify-content-values {
@@ -65,4 +68,9 @@ $variant-space-map: (
       @include paddings($direction, $value);
     }
   }
+}
+
+.full-screen {
+  width: 100vw;
+  height: 100vh;
 }

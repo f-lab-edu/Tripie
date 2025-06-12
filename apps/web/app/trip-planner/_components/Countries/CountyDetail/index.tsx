@@ -1,15 +1,13 @@
 'use client';
 
-import { DEFAULT_STYLE, MAP_ID, STYLE } from 'constants/maps';
+import Map from '@tripie-pyotato/design-system/@components/Map';
+import Marker from '@tripie-pyotato/design-system/@components/MapMarker';
+import { API_KEY } from 'constants/maps';
 import useContinentl from 'hooks/query/useContinentl';
 import { useEffect, useMemo, useState } from 'react';
 import Loading from 'shared/components/Loading';
 import dmsToDecimalLatLng from 'utils/coordinate';
-import { Map, Marker, classNames } from 'wrapper';
-import Style from './countries.module.scss';
 import CountryInfoPopup from './CountryInfoPopup';
-
-const cx = classNames.bind(Style);
 
 const CountryDetail = ({ selectedCountry }: { selectedCountry: string }) => {
   const { data, isLoading } = useContinentl(selectedCountry);
@@ -35,39 +33,28 @@ const CountryDetail = ({ selectedCountry }: { selectedCountry: string }) => {
   }
 
   return (
-    <>
-      <Map
-        id={MAP_ID}
-        interactive={true}
-        reuseMaps={true}
-        style={{
-          ...DEFAULT_STYLE,
-          height: '100%',
-        }}
-        mapStyle={STYLE}
-        initialViewState={{
-          zoom: 2,
-          latitude: coordinates.lat,
-          longitude: coordinates.lng,
-        }}
-      >
-        <CountryInfoPopup
-          showPopup={showPopup}
-          setShowPopup={setShowPopup}
-          coordinates={coordinates}
-          capital={countryDetail.capital}
-          officialLanguage={countryDetail.official_language}
-        />
-        <Marker
-          key={`${countryDetail.coordinates.join(',')}`}
-          longitude={coordinates.lng}
-          latitude={coordinates.lat}
-          anchor="bottom"
-          onClick={() => setShowPopup(true)}
-          className={cx('marker')}
-        />
-      </Map>
-    </>
+    <Map
+      apiKey={API_KEY}
+      style={{
+        height: '40vh',
+      }}
+      initialViewState={{
+        zoom: 2,
+        latitude: coordinates.lat,
+        longitude: coordinates.lng,
+      }}
+    >
+      <CountryInfoPopup
+        name={countryDetail.name}
+        code={countryDetail.code}
+        showPopup={showPopup}
+        setShowPopup={setShowPopup}
+        coordinates={coordinates}
+        capital={countryDetail.capital}
+        officialLanguage={countryDetail.official_language}
+      />
+      <Marker coordinates={coordinates} onClick={() => setShowPopup(true)} />
+    </Map>
   );
 };
 export default CountryDetail;

@@ -91,7 +91,7 @@ const TripieContainer = ({
       className={cx(
         'layout-fill-available',
         `align-items-${alignItems}`,
-        withBorder ? 'with-border' : '',
+        `with${withBorder ? '' : '-no'}-border`,
         alignItems != 'none' || gap !== 'none' || justifyContent !== 'none' ? 'flex' : '',
         'container',
         `paddings_${padding}_to_${applyPadding}`,

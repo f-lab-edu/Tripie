@@ -14,20 +14,24 @@ export const VARIANTS = {
       },
     },
   },
-  TEXT: {
+  TEXT: (fontSize = 1) => ({
     rest: {
       opacity: 1,
-      y: '2rem',
+      y: `${fontSize + 0.125}rem`,
+      // y: '150%',
+      // y: `${fontSize / 2 + fontSize * 0.125}rem`,
+      // y: `${fontSize / 2}rem`,
     },
     hover: {
       opacity: 1,
-      y: '-2rem',
-
+      y: `-${fontSize + 0.125}rem`,
+      // y: '-150%',
+      // y: `-${fontSize / 2}rem`,
       transition: {
         bounce: 0,
       },
     },
-  },
+  }),
 
   TITLE: (restY: number, hoverY: number) => ({
     rest: { opacity: 1, y: restY, duration: 0.5 },

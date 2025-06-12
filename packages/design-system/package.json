@@ -1,10 +1,84 @@
 {
   "name": "@tripie-pyotato/design-system",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "트리피에 사용되는 디자인 시스템",
   "main": "index.js",
   "type": "module",
   "sideEffects": false,
+  "scripts": {
+    "build": "NODE_OPTIONS='--max-old-space-size=8192' tsup",
+    "metafile": "tsup --format cjs,esm",
+    "build:pkg": "tsc",
+    "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
+    "lint:fix": "pnpm run lint --fix",
+    "generate:component": "turbo gen react-component",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "clean": "rm -rf ./node_modules && rm -rf ./.turbo && rm -rf ./dist && rm -rf ./.next"
+  },
+  "devDependencies": {
+    "@storybook/react": "^8.2.6",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.0.1",
+    "@testing-library/user-event": "^14.4.3",
+    "@tripie-pyotato/eslint-config": "^0.0.1",
+    "@tripie-pyotato/typescript-config": "^0.0.2",
+    "@turbo/gen": "^2.0.11",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.24",
+    "@types/react": "^18.3.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.0",
+    "babel-jest": "^29.7.0",
+    "bundle-scss": "^1.5.4",
+    "css-loader": "^7.1.2",
+    "csstype": "^3.1.3",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^29.7.0",
+    "lit-element": "^4.1.1",
+    "next": "^15.0.3",
+    "postcss": "^8.5.3",
+    "postcss-cli": "^11.0.1",
+    "postcss-modules": "^6.0.1",
+    "postcss-utilities": "^0.8.4",
+    "react": "^18.3.1",
+    "sass": "^1.85.0",
+    "ts-jest": "^29.2.4",
+    "tsup": "^8.4.0",
+    "vitest": "^3.0.6",
+    "esbuild": "^0.25.2",
+    "esbuild-sass-plugin": "^3.3.1",
+    "fast-glob": "^3.3.3",
+    "postcss-copy-assets": "^0.3.1",
+    "rollup-preserve-directives": "^1.1.3"
+  },
+  "dependencies": {
+    "@tripie-pyotato/hooks": "^0.0.3",
+    "@tripie-pyotato/utils": "^0.0.3",
+    "classnames": "^2.5.1",
+    "date-fns": "^4.1.0"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "src/*",
+        "src/*/index"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "next": "*",
+    "react": "*",
+    "react-dom": "^18.3.1",
+    "framer": "^2.4.1",
+    "framer-motion": "^11.11.17",
+    "maplibre-gl": "^4.7.1",
+    "react-map-gl": "^7.1.7",
+    "react-globe.gl": "^2.27.2",
+    "react-calendar": "^5.0.0",
+    "react-intersection-observer": "9.13.1",
+    "usehooks-ts": "^3.1.0"
+  },
   "exports": {
     ".": {
       "require": {
@@ -25,6 +99,21 @@
         "types": "./dist/shared/index.d.ts",
         "default": "./dist/shared/index.js"
       }
+    },
+    "./global": {
+      "import": "./dist/global.css",
+      "require": "./dist/global.css",
+      "default": "./dist/global.css"
+    },
+    "./variables": {
+      "import": "./dist/variables.css",
+      "require": "./dist/variables.css",
+      "default": "./dist/variables.css"
+    },
+    "./styles": {
+      "import": "./dist/index.css",
+      "require": "./dist/index.css",
+      "default": "./dist/index.css"
     },
     "./@hooks": {
       "require": {
@@ -74,16 +163,6 @@
       "import": {
         "types": "./dist/@core/layout/index.d.ts",
         "default": "./dist/@core/layout/index.js"
-      }
-    },
-    "./@core/layout/Container": {
-      "require": {
-        "types": "./dist/@core/layout/TripieContainer/index.d.cts",
-        "default": "./dist/@core/layout/TripieContainer/index.cjs"
-      },
-      "import": {
-        "types": "./dist/@core/layout/TripieContainerindex.d.ts",
-        "default": "./dist/@core/layout/TripieContainer/index.js"
       }
     },
     "./@components": {
@@ -166,94 +245,455 @@
         "default": "./dist/wrappers/index.js"
       }
     },
-    "./global": {
-      "import": "./dist/global.css",
-      "require": "./dist/global.css",
-      "default": "./dist/global.css"
+    "./@components/AnimatedText": {
+      "require": {
+        "types": "./dist/@components/data-display/AnimatedText/index.d.cts",
+        "default": "./dist/@components/data-display/AnimatedText/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/data-display/AnimatedText/index.d.ts",
+        "default": "./dist/@components/data-display/AnimatedText/index.js"
+      }
     },
-    "./variables": {
-      "import": "./dist/variables.css",
-      "require": "./dist/variables.css",
-      "default": "./dist/variables.css"
+    "./@components/Tooltip": {
+      "require": {
+        "types": "./dist/@components/data-display/Tooltip/index.d.cts",
+        "default": "./dist/@components/data-display/Tooltip/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/data-display/Tooltip/index.d.ts",
+        "default": "./dist/@components/data-display/Tooltip/index.js"
+      }
     },
-    "./styles": {
-      "import": "./dist/index.css",
-      "require": "./dist/index.css",
-      "default": "./dist/index.css"
+    "./@components/Carousel": {
+      "require": {
+        "types": "./dist/@components/data-display/Carousel/index.d.cts",
+        "default": "./dist/@components/data-display/Carousel/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/data-display/Carousel/index.d.ts",
+        "default": "./dist/@components/data-display/Carousel/index.js"
+      }
+    },
+    "./@components/Chip": {
+      "require": {
+        "types": "./dist/@components/data-display/Chip/index.d.cts",
+        "default": "./dist/@components/data-display/Chip/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/data-display/Chip/index.d.ts",
+        "default": "./dist/@components/data-display/Chip/index.js"
+      }
+    },
+    "./@components/Divider": {
+      "require": {
+        "types": "./dist/@components/data-display/Divider/index.d.cts",
+        "default": "./dist/@components/data-display/Divider/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/data-display/Divider/index.d.ts",
+        "default": "./dist/@components/data-display/Divider/index.js"
+      }
+    },
+    "./@components/Image": {
+      "require": {
+        "types": "./dist/@components/data-display/Image/index.d.cts",
+        "default": "./dist/@components/data-display/Image/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/data-display/Image/index.d.ts",
+        "default": "./dist/@components/data-display/Image/index.js"
+      }
+    },
+    "./@components/TextFill": {
+      "require": {
+        "types": "./dist/@components/data-display/TextFill/index.d.cts",
+        "default": "./dist/@components/data-display/TextFill/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/data-display/TextFill/index.d.ts",
+        "default": "./dist/@components/data-display/TextFill/index.js"
+      }
+    },
+    "./@components/TextUnderlineAnimation": {
+      "require": {
+        "types": "./dist/@components/data-display/TextUnderlineAnimation/index.d.cts",
+        "default": "./dist/@components/data-display/TextUnderlineAnimation/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/data-display/TextUnderlineAnimation/index.d.ts",
+        "default": "./dist/@components/data-display/TextUnderlineAnimation/index.js"
+      }
+    },
+    "./@components/TripieIcon": {
+      "require": {
+        "types": "./dist/@components/data-display/TripieIcon/index.d.cts",
+        "default": "./dist/@components/data-display/TripieIcon/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/data-display/TripieIcon/index.d.ts",
+        "default": "./dist/@components/data-display/TripieIcon/index.js"
+      }
+    },
+    "./@components/SplashScreen": {
+      "require": {
+        "types": "./dist/@components/feedback/SplashScreen/index.d.cts",
+        "default": "./dist/@components/feedback/SplashScreen/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/feedback/SplashScreen/index.d.ts",
+        "default": "./dist/@components/feedback/SplashScreen/index.js"
+      }
+    },
+    "./@components/Switch": {
+      "require": {
+        "types": "./dist/@components/inputs/Switch/index.d.cts",
+        "default": "./dist/@components/inputs/Switch/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/inputs/Switch/index.d.ts",
+        "default": "./dist/@components/inputs/Switch/index.js"
+      }
+    },
+    "./@components/Button": {
+      "require": {
+        "types": "./dist/@components/inputs/TripieButton/index.d.cts",
+        "default": "./dist/@components/inputs/TripieButton/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/inputs/TripieButton/index.d.ts",
+        "default": "./dist/@components/inputs/TripieButton/index.js"
+      }
+    },
+    "./@components/FlickTextButton": {
+      "require": {
+        "types": "./dist/@components/inputs/TripieButton/Flick/index.d.cts",
+        "default": "./dist/@components/inputs/TripieButton/Flick/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/inputs/TripieButton/Flick/index.d.ts",
+        "default": "./dist/@components/inputs/TripieButton/Flick/index.js"
+      }
+    },
+    "./@components/AccentedButton": {
+      "require": {
+        "types": "./dist/@components/inputs/TripieButton/Accented/index.d.cts",
+        "default": "./dist/@components/inputs/TripieButton/Accented/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/inputs/TripieButton/Accented/index.d.ts",
+        "default": "./dist/@components/inputs/TripieButton/Accented/index.js"
+      }
+    },
+    "./@components/AnimatedButton": {
+      "require": {
+        "types": "./dist/@components/inputs/TripieButton/Animated/index.d.cts",
+        "default": "./dist/@components/inputs/TripieButton/Animated/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/inputs/TripieButton/Animated/index.d.ts",
+        "default": "./dist/@components/inputs/TripieButton/Animated/index.js"
+      }
+    },
+    "./@components/UnStyledButton": {
+      "require": {
+        "types": "./dist/@components/inputs/TripieButton/UnStyled/index.d.cts",
+        "default": "./dist/@components/inputs/TripieButton/UnStyled/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/inputs/TripieButton/UnStyled/index.d.ts",
+        "default": "./dist/@components/inputs/TripieButton/UnStyled/index.js"
+      }
+    },
+    "./@components/NavigationButton": {
+      "require": {
+        "types": "./dist/@components/navigation/Button/index.d.cts",
+        "default": "./dist/@components/navigation/Button/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/navigation/Button/index.d.ts",
+        "default": "./dist/@components/navigation/Button/index.js"
+      }
+    },
+    "./@components/Drawer": {
+      "require": {
+        "types": "./dist/@components/navigation/Drawer/index.d.cts",
+        "default": "./dist/@components/navigation/Drawer/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/navigation/Drawer/index.d.ts",
+        "default": "./dist/@components/navigation/Drawer/index.js"
+      }
+    },
+    "./@components/Link": {
+      "require": {
+        "types": "./dist/@components/navigation/Link/index.d.cts",
+        "default": "./dist/@components/navigation/Link/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/navigation/Link/index.d.ts",
+        "default": "./dist/@components/navigation/Link/index.js"
+      }
+    },
+    "./@components/Menu": {
+      "require": {
+        "types": "./dist/@components/navigation/Menu/index.d.cts",
+        "default": "./dist/@components/navigation/Menu/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/navigation/Menu/index.d.ts",
+        "default": "./dist/@components/navigation/Menu/index.js"
+      }
+    },
+    "./@components/AnimatedCard": {
+      "require": {
+        "types": "./dist/@components/surfaces/AnimatedCard/index.d.cts",
+        "default": "./dist/@components/surfaces/AnimatedCard/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/surfaces/AnimatedCard/index.d.ts",
+        "default": "./dist/@components/surfaces/AnimatedCard/index.js"
+      }
+    },
+    "./@components/AnimatedContainer": {
+      "require": {
+        "types": "./dist/@components/surfaces/AnimatedContainer/index.d.cts",
+        "default": "./dist/@components/surfaces/AnimatedContainer/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/surfaces/AnimatedContainer/index.d.ts",
+        "default": "./dist/@components/surfaces/AnimatedContainer/index.js"
+      }
+    },
+    "./@components/AppBar": {
+      "require": {
+        "types": "./dist/@components/surfaces/AppBar/index.d.cts",
+        "default": "./dist/@components/surfaces/AppBar/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/surfaces/AppBar/index.d.ts",
+        "default": "./dist/@components/surfaces/AppBar/index.js"
+      }
+    },
+    "./@components/Card": {
+      "require": {
+        "types": "./dist/@components/surfaces/Card/index.d.cts",
+        "default": "./dist/@components/surfaces/Card/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/surfaces/Card/index.d.ts",
+        "default": "./dist/@components/surfaces/Card/index.js"
+      }
+    },
+    "./@components/Accordion": {
+      "require": {
+        "types": "./dist/@components/surfaces/Accordion/index.d.cts",
+        "default": "./dist/@components/surfaces/Accordion/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/surfaces/Accordion/index.d.ts",
+        "default": "./dist/@components/surfaces/Accordion/index.js"
+      }
+    },
+    "./@components/Calendar": {
+      "require": {
+        "types": "./dist/@components/x/Calendar/index.d.cts",
+        "default": "./dist/@components/x/Calendar/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/x/Calendar/index.d.ts",
+        "default": "./dist/@components/x/Calendar/index.js"
+      }
+    },
+    "./@components/Toast": {
+      "require": {
+        "types": "./dist/@components/feedback/Toast/index.d.cts",
+        "default": "./dist/@components/feedback/Toast/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/feedback/Toast/index.d.ts",
+        "default": "./dist/@components/feedback/Toast/index.js"
+      }
+    },
+    "./@components/Globe": {
+      "require": {
+        "types": "./dist/@components/x/Globe/index.d.cts",
+        "default": "./dist/@components/x/Globe/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/x/Globe/index.d.ts",
+        "default": "./dist/@components/x/Globe/index.js"
+      }
+    },
+    "./@components/MapLines": {
+      "require": {
+        "types": "./dist/@components/x/Lines/index.d.cts",
+        "default": "./dist/@components/x/Lines/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/x/Lines/index.d.ts",
+        "default": "./dist/@components/x/Lines/index.js"
+      }
+    },
+    "./@components/Map": {
+      "require": {
+        "types": "./dist/@components/x/Map/index.d.cts",
+        "default": "./dist/@components/x/Map/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/x/Map/index.d.ts",
+        "default": "./dist/@components/x/Map/index.js"
+      }
+    },
+    "./@components/MapMarker": {
+      "require": {
+        "types": "./dist/@components/x/Marker/index.d.cts",
+        "default": "./dist/@components/x/Marker/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/x/Marker/index.d.ts",
+        "default": "./dist/@components/x/Marker/index.js"
+      }
+    },
+    "./@components/MapPopup": {
+      "require": {
+        "types": "./dist/@components/x/MapPopup/index.d.cts",
+        "default": "./dist/@components/x/MapPopup/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/x/MapPopup/index.d.ts",
+        "default": "./dist/@components/x/MapPopup/index.js"
+      }
+    },
+    "./@components/MotionSlideUp": {
+      "require": {
+        "types": "./dist/@components/x/MotionSlideUp/index.d.cts",
+        "default": "./dist/@components/x/MotionSlideUp/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/x/MotionSlideUp/index.d.ts",
+        "default": "./dist/@components/x/MotionSlideUp/index.js"
+      }
+    },
+    "./@components/ParticleBackground": {
+      "require": {
+        "types": "./dist/@components/x/Particle/Background/index.d.cts",
+        "default": "./dist/@components/x/Particle/Background/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/x/Particle/Background/index.d.ts",
+        "default": "./dist/@components/x/Particle/Background/index.js"
+      }
+    },
+    "./@components/ParticleField": {
+      "require": {
+        "types": "./dist/@components/x/Particle/Field/index.d.cts",
+        "default": "./dist/@components/x/Particle/Field/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/x/Particle/Field/index.d.ts",
+        "default": "./dist/@components/x/Particle/Field/index.js"
+      }
+    },
+    "./@components/RotatingBlur": {
+      "require": {
+        "types": "./dist/@components/x/RotatingBlur/index.d.cts",
+        "default": "./dist/@components/x/RotatingBlur/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/x/RotatingBlur/index.d.ts",
+        "default": "./dist/@components/x/RotatingBlur/index.js"
+      }
+    },
+    "./@core/Headings": {
+      "require": {
+        "types": "./dist/@cor/data-display/Headings/index.d.cts",
+        "default": "./dist/@core/data-display/Headings/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@core/data-display/Headings/index.d.ts",
+        "default": "./dist/@core/data-display/Headings/index.js"
+      }
+    },
+    "./@core/List": {
+      "require": {
+        "types": "./dist/@cor/data-display/List/index.d.cts",
+        "default": "./dist/@core/data-display/List/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@core/data-display/List/index.d.ts",
+        "default": "./dist/@core/data-display/List/index.js"
+      }
+    },
+    "./@core/ListItem": {
+      "require": {
+        "types": "./dist/@cor/data-display/ListItem/index.d.cts",
+        "default": "./dist/@core/data-display/ListItem/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@core/data-display/ListItem/index.d.ts",
+        "default": "./dist/@core/data-display/ListItem/index.js"
+      }
+    },
+    "./@core/Text": {
+      "require": {
+        "types": "./dist/@cor/data-display/Text/index.d.cts",
+        "default": "./dist/@core/data-display/Text/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@core/data-display/Text/index.d.ts",
+        "default": "./dist/@core/data-display/Text/index.js"
+      }
+    },
+    "./@core/Skeleton": {
+      "require": {
+        "types": "./dist/@cor/feedback/TripieSkeleton/index.d.cts",
+        "default": "./dist/@core/feedback/TripieSkeleton/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@core/feedback/TripieSkeleton/index.d.ts",
+        "default": "./dist/@core/feedback/TripieSkeleton/index.js"
+      }
+    },
+    "./@core/Background": {
+      "require": {
+        "types": "./dist/@cor/layout/Background/index.d.cts",
+        "default": "./dist/@core/layout/Background/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@core/layout/Background/index.d.ts",
+        "default": "./dist/@core/layout/Background/index.js"
+      }
+    },
+    "./@core/Stack": {
+      "require": {
+        "types": "./dist/@cor/layout/Stack/index.d.cts",
+        "default": "./dist/@core/layout/Stack/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@core/layout/Stack/index.d.ts",
+        "default": "./dist/@core/layout/Stack/index.js"
+      }
+    },
+    "./@core/Table": {
+      "require": {
+        "types": "./dist/@cor/layout/Table/index.d.cts",
+        "default": "./dist/@core/layout/Table/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@core/layout/Table/index.d.ts",
+        "default": "./dist/@core/layout/Table/index.js"
+      }
+    },
+    "./@core/Container": {
+      "require": {
+        "types": "./dist/@core/layout/TripieContainer/index.d.cts",
+        "default": "./dist/@core/layout/TripieContainer/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@core/layout/TripieContainer/index.d.ts",
+        "default": "./dist/@core/layout/TripieContainer/index.js"
+      }
     }
-  },
-  "scripts": {
-    "build": "tsup",
-    "metafile": "tsup --format cjs,esm",
-    "build:pkg": "tsc",
-    "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
-    "lint:fix": "pnpm run lint --fix",
-    "generate:component": "turbo gen react-component",
-    "test": "vitest",
-    "test:watch": "vitest --watch",
-    "clean": "rm -rf ./node_modules && rm -rf ./.turbo && rm -rf ./dist && rm -rf ./.next"
-  },
-  "devDependencies": {
-    "@storybook/react": "^8.2.6",
-    "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^16.0.1",
-    "@testing-library/user-event": "^14.4.3",
-    "@tripie-pyotato/eslint-config": "^0.0.1",
-    "@tripie-pyotato/typescript-config": "^0.0.2",
-    "@turbo/gen": "^2.0.11",
-    "@types/jest": "^29.5.12",
-    "@types/node": "^20.11.24",
-    "@types/react": "^18.3.3",
-    "@vitejs/plugin-react": "^4.3.4",
-    "autoprefixer": "^10.4.0",
-    "babel-jest": "^29.7.0",
-    "bundle-scss": "^1.5.4",
-    "css-loader": "^7.1.2",
-    "csstype": "^3.1.3",
-    "identity-obj-proxy": "^3.0.0",
-    "jest": "^29.7.0",
-    "lit-element": "^4.1.1",
-    "next": "^15.0.3",
-    "postcss": "^8.5.3",
-    "postcss-cli": "^11.0.1",
-    "postcss-modules": "^6.0.1",
-    "postcss-utilities": "^0.8.4",
-    "react": "^18.3.1",
-    "sass": "^1.85.0",
-    "ts-jest": "^29.2.4",
-    "tsup": "^8.4.0",
-    "vitest": "^3.0.6"
-  },
-  "dependencies": {
-    "@tripie-pyotato/hooks": "^0.0.3",
-    "@tripie-pyotato/utils": "^0.0.3",
-    "classnames": "^2.5.1",
-    "date-fns": "^4.1.0",
-    "esbuild": "^0.25.2",
-    "esbuild-sass-plugin": "^3.3.1",
-    "fast-glob": "^3.3.3",
-    "framer": "^2.4.1",
-    "framer-motion": "^11.11.17",
-    "postcss-copy-assets": "^0.3.1",
-    "react-calendar": "^5.0.0",
-    "react-dom": "^18.3.1",
-    "react-globe.gl": "^2.27.2",
-    "react-intersection-observer": "9.13.1",
-    "rollup-preserve-directives": "^1.1.3",
-    "usehooks-ts": "^3.1.0",
-    "maplibre-gl": "^4.7.1",
-    "react-map-gl": "^7.1.7"
-  },
-  "typesVersions": {
-    "*": {
-      "*": [
-        "src/*",
-        "src/*/index"
-      ]
-    }
-  },
-  "peerDependencies": {
-    "next": "*",
-    "react": "*"
   }
 }

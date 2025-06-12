@@ -1,12 +1,7 @@
 'use client';
-import { Container, Text } from '@tripie-pyotato/design-system/@core';
-
-import { classNames } from 'wrapper';
-
-import { Icon } from '@tripie-pyotato/design-system/@components';
-import Style from './title.module.scss';
-
-const cx = classNames.bind(Style);
+import NavigationButton from '@tripie-pyotato/design-system/@components/NavigationButton';
+import { Container, Stack } from '@tripie-pyotato/design-system/@core';
+import Text from '@tripie-pyotato/design-system/@core/Text';
 
 const RegionTitle = ({
   city,
@@ -18,31 +13,47 @@ const RegionTitle = ({
   withNavigation?: boolean;
 }) => {
   return (
-    <Container margin="none" alignItems="center" justifyContent="start" className={cx('title-wrap')}>
-      <Text size="h2" bold={true} isButtonText={true}>
-        {withNavigation ? <Icon.Navigate /> : null}
-      </Text>
-      <Text size="h2" bold={true} isButtonText={true}>
-        <span>
-          도시 별 <Text.Accented isButtonText={true}>여행</Text.Accented> 정보
-          {regionId == null ? (
-            ''
-          ) : (
-            <>
-              {`\n >`} <Text.Accented isButtonText={true}>{regionId}</Text.Accented>
-            </>
-          )}
-          {city == null ? (
-            ''
-          ) : (
-            <>
-              {` > `}
-              <Text.Accented isButtonText={true}>{city}</Text.Accented>
-            </>
-          )}
-        </span>
-      </Text>
-    </Container>
+    <Stack margin="none" direction="column">
+      <Container margin="none" alignItems="end" justifyContent="start">
+        {withNavigation ? <NavigationButton sizes="large" /> : null}
+        <Text size="h2" bold={true} noGapUnderText={true}>
+          도시 별&nbsp;
+        </Text>
+        <Text.Accented size="h2" bold={true} noGapUnderText={true}>
+          여행&nbsp;
+        </Text.Accented>
+        <Text size="h2" bold={true} noGapUnderText={true}>
+          정보
+        </Text>
+        {regionId != null || city != null ? (
+          <Text size="h2" bold={true} noGapUnderText={true} alignItems="start">
+            &nbsp;{`>`}&nbsp;
+          </Text>
+        ) : (
+          ''
+        )}
+        {regionId != null && city != null ? (
+          <Text size="h2" bold={true} noGapUnderText={true} alignItems="start">
+            <Stack direction="column" alignItems="start" margin="none">
+              <Text size="h2" bold={true} noGapUnderText={true}>
+                <Text size="tiny" noGapUnderText={true} padding="none">
+                  {regionId}
+                </Text>
+              </Text>
+              <Text.Accented size="h2" bold={true} noGapUnderText={true}>
+                {city}
+              </Text.Accented>
+            </Stack>
+          </Text>
+        ) : (
+          <Text size="h2" bold={true} noGapUnderText={true}>
+            <Text.Accented size="h2" bold={true} noGapUnderText={true}>
+              {regionId}
+            </Text.Accented>
+          </Text>
+        )}
+      </Container>
+    </Stack>
   );
 };
 

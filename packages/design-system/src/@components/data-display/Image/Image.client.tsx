@@ -2,10 +2,11 @@ import { Text } from '@core';
 import TripieContainer from '@core/layout/TripieContainer';
 
 import { ImgHTMLAttributes, useEffect, useState } from 'react';
+// import { CLOUDINARY_URL } from 'shared';
 import { classNames, Motion } from '../../../wrappers';
 import Style from './image.module.scss';
 
-export type ImageSizes = 'default' | 'full' | 'large' | 'medium' | 'small' | 'tiny' | 'icon' | 'card';
+export type ImageSizes = 'default' | 'full' | 'large' | 'medium' | 'small' | 'tiny' | 'icon' | 'card' | 'avatar';
 export type AspectRatio = 'square' | 'standard' | 'photo' | 'landscape' | 'banner' | 'portrait' | 'cinematic';
 
 export type ImageProps = {
@@ -16,6 +17,7 @@ export type ImageProps = {
   sizes?: ImageSizes;
   blurDataURL?: string;
   withBorder?: boolean;
+  cloudinaryUrl?: string;
   loading?: ImgHTMLAttributes<HTMLImageElement>['loading']; // https://developer.chrome.com/docs/lighthouse/performance/offscreen-images/?utm_source=lighthouse&utm_medium=devtools
   aspectRatio?: AspectRatio;
 } & Partial<ImgHTMLAttributes<HTMLImageElement>>;
@@ -45,7 +47,9 @@ const BlurImageOnLoad = ({
 
   useEffect(() => {
     let isMounted = true;
-    if (src != null) {
+    // if (src != null && src.startsWith(CLOUDINARY_URL())) {
+
+    if (src != null && src.startsWith('https://res.cloudinary.com/')) {
       preloadImage(src)
         .then(() => {
           if (isMounted) setLoaded(true);
@@ -82,10 +86,9 @@ const BlurImageOnLoad = ({
           zIndex: 1,
         }}
         transition={{ duration: 0.4, ease: 'easeOut' }}
-        className={cx('tripie-image', 'img-wrap', sizes, withBorder && 'with-border', className)}
+        className={cx('tripie-image', 'img-wrap', sizes, `with${withBorder ? '' : '-no'}-border`, className)}
       />
       {!loaded ? null : (
-        // {/* Sharp image */}
         <Motion.Img
           src={src?.replace('e_blur:2000,q_1,', 'q_auto,')}
           loading="lazy"

@@ -9,7 +9,7 @@ import { useContext } from 'react';
 import { AiTripPlanResponse } from 'app/api/openai/getTripPlan';
 import { SelectedDateContext } from '..';
 import TabList from '../TabList';
-import TokenStatus from '../TokenStatus';
+
 import Style from './trip-tab.module.scss';
 
 const cx = classNames.bind(Style);
@@ -37,7 +37,7 @@ const TripTab = ({
       applyPadding="top"
       className={cx('trip-tab-content-wrap')}
     >
-      <TokenStatus />
+      {/* <TokenStatus /> */}
       <Headings.H2> {data.name}</Headings.H2>
       <Carousel.Controlled>
         {data.trips.map(trip => (

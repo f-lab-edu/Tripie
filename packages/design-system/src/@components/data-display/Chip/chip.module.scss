@@ -9,6 +9,11 @@
   border-radius: 10px;
   color: inherit;
 }
+
+.with-no-border {
+  @include with-border('false');
+}
+
 .chip {
   border-color: $theme-400;
   background-color: $theme-200;

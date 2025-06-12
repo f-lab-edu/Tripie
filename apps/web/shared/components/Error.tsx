@@ -1,5 +1,6 @@
 'use client';
-import { Chip, ParticleBackground } from '@tripie-pyotato/design-system/@components';
+import { ParticleBackground } from '@tripie-pyotato/design-system/@components';
+import AccentedButton from '@tripie-pyotato/design-system/@components/AccentedButton';
 import { Headings, Stack, Text } from '@tripie-pyotato/design-system/@core';
 import ROUTE from 'constants/routes';
 import { useRouter } from 'next/navigation';
@@ -30,7 +31,7 @@ const Error = ({
         </Headings.H1>
 
         <Text>{message}</Text>
-        <Chip.Accented onClick={handleRedirect}>{redirectBtnText}</Chip.Accented>
+        <AccentedButton onClick={handleRedirect}>{redirectBtnText}</AccentedButton>
       </Stack>
     </ParticleBackground>
   );

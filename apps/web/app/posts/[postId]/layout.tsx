@@ -1,4 +1,4 @@
-import Container from '@tripie-pyotato/design-system/@core/layout/Container';
+import Container from '@tripie-pyotato/design-system/@core/Container';
 import { ReactNode } from 'react';
 export default function Layout({
   children,

@@ -22,7 +22,7 @@ const SHINE_VARIANT = {
   shine: { backgroundColor: COLORS[100], borderColor: COLORS[300] } as Variant,
 };
 
-const ACCORDIAN_VARIANTS = {
+const ACCORDION_VARIANTS = {
   DETAILS: {
     closed: () => ({
       height: '0%',
@@ -64,4 +64,4 @@ const ACCORDIAN_VARIANTS = {
   } as MotionProps['variants'],
 };
 
-export { ACCORDIAN_VARIANTS, GLOW_VARIANT, SHINE_VARIANT };
+export { ACCORDION_VARIANTS, GLOW_VARIANT, SHINE_VARIANT };

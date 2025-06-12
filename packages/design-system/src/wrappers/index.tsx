@@ -24,6 +24,8 @@ import {
   type MapRef,
   type PaddingOptions,
   type PointLike,
+  type PopupEvent,
+  type PopupType,
   type ViewState,
 } from './react-map-gl';
 
@@ -32,8 +34,8 @@ export {
   classNames,
   Layer,
   Map,
+  Marker as MapLibreMarker,
   MapProvider,
-  Marker,
   Motion,
   Popup,
   ReactCalendar,
@@ -52,5 +54,7 @@ export {
   type MotionVariants,
   type PaddingOptions,
   type PointLike,
+  type PopupEvent,
+  type PopupType,
   type ViewState,
 };

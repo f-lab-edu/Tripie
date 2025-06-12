@@ -4,7 +4,7 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import { Context, CSSProperties, Dispatch, SetStateAction } from 'react';
 import { LngLatBoundsLike, Map, PaddingOptions, PointLike, ViewState } from '../../../wrappers';
 import Lines from '../Lines/Lines.client';
-import Markers from '../Marker/Markers.client';
+import { Marker } from '../Marker';
 import { COLOR_SCHEME, FULL_MAP_STYLE, MAP_ID, REGION, STYLE_TYPE } from './constants';
 import { LocationMarker } from './Map.client';
 
@@ -89,7 +89,11 @@ function MapWithContext({
       reuseMaps={reuseMaps}
     >
       {TabContext != null ? (
-        <Markers MapContext={TabContext} locationMarker={locationMarker} focusAfterOpen={focusAfterOpen} />
+        <Marker.WithTabContext
+          MapContext={TabContext}
+          locationMarker={locationMarker}
+          focusAfterOpen={focusAfterOpen}
+        />
       ) : null}
       <Lines locationMarker={locationMarker} />
     </Map>

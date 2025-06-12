@@ -1,16 +1,31 @@
 'use client';
 import { AnimatedCard, Card } from '@tripie-pyotato/design-system/@components';
+import { Text } from '@tripie-pyotato/design-system/@core';
 import useImgAlt from 'hooks/useImgAlt';
 import { RegionArticleInfo } from 'models/Article';
 import { useRouter } from 'next/navigation';
+import { Dispatch, SetStateAction } from 'react';
 
 export type RegionArticleData = { regionId: string; data: RegionArticleInfo[] };
 
-const RegionCard = ({ article }: { article: RegionArticleInfo }) => {
+const RegionCard = ({
+  article,
+  setSplash,
+}: {
+  setSplash?: Dispatch<SetStateAction<boolean>>;
+  article: RegionArticleInfo;
+}) => {
   const navigate = useRouter();
   const { alt } = useImgAlt({ imgUrl: article.source.image.sizes.full.url });
   return (
-    <AnimatedCard onClick={() => navigate.push(`/posts/${article.source.regionId}/articles/${article.id}`)}>
+    <AnimatedCard
+      onClick={() => {
+        navigate.push(`/posts/${article.source.regionId}/articles/${article.id}`);
+        if (setSplash != null) {
+          setSplash(true);
+        }
+      }}
+    >
       <Card.WithImage
         margin="none"
         alignItems="stretch"
@@ -22,10 +37,12 @@ const RegionCard = ({ article }: { article: RegionArticleInfo }) => {
         alt={alt}
       >
         <Card.Header size={'large'} bold={true}>
-          {article?.source?.title}
+          <Text size="small">{article?.source?.title}</Text>
         </Card.Header>
         <Card.Divider />
-        <Card.Content padding="m">{article?.source?.summary}</Card.Content>
+        <Card.Content padding="m">
+          <Text size="small">{article?.source?.summary}</Text>
+        </Card.Content>
       </Card.WithImage>
     </AnimatedCard>
   );

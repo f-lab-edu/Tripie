@@ -15,7 +15,7 @@ const Contact = ({
       <Text size="tiny">{sectionName}</Text>
       <Container applyMargin="bottom">
         <Container margin="none" justifyContent="flex-start" alignItems="start">
-          <Text size="h2" isButtonText={true}>
+          <Text size="h2" noGapUnderText={true}>
             <Link href={link}>{child}</Link>
           </Text>
           <Icon sizes={'large'} />

@@ -1,36 +1,39 @@
 import { useQueryClient } from '@tanstack/react-query';
-import { AnimatedButton, Icon } from '@tripie-pyotato/design-system/@components';
+import { Icon, NavigationButton } from '@tripie-pyotato/design-system/@components';
 import { Container, Text } from '@tripie-pyotato/design-system/@core';
 import firestoreService from 'app/api/firebase';
 
+import { FunnelProps, FunnelSteps } from 'app/trip-planner/page';
 import useContinentl from 'hooks/query/useContinentl';
 import useCountries from 'hooks/query/useCountries';
 import { ContinentKeys } from 'models/Continent';
 import { Continentl } from 'models/Continentl';
 import { Country } from 'models/Country';
-import { ReactNode, useMemo, useState } from 'react';
+import { useState } from 'react';
 import Loading from 'shared/components/Loading';
 import { classNames } from 'wrapper';
 import Layout from '../Layout/Layout';
 import Style from './countries.module.scss';
 import { CountryList } from './CountryList';
-import CountryName from './CountryName';
 import CountryDetail from './CountyDetail';
 
 const cx = classNames.bind(Style);
-interface Props {
-  context: { continent: ContinentKeys; country?: string; city?: { all: string[]; selected: string[] } };
+
+export default function CountryStep({
+  context,
+  onNext,
+  onPrev,
+  progress,
+}: FunnelProps & {
+  context: FunnelSteps['COUNTRY'];
   onNext: (country: {
     continent?: ContinentKeys;
     country?: string;
     city?: { all: string[]; selected: string[] };
     duration?: string;
   }) => void;
-  progress: ReactNode;
   onPrev: (country: { country: string }) => void;
-}
-
-export default function CountryStep({ context, onNext, onPrev, progress }: Readonly<Props>) {
+}) {
   const { data, isLoading } = useCountries(context.continent ?? 'all');
   const [selectedCountry, setSelectedCountry] = useState(() =>
     context?.country == null || data == null || data.filter(country => country.name === context.country).length == 0
@@ -51,11 +54,12 @@ export default function CountryStep({ context, onNext, onPrev, progress }: Reado
     });
   };
 
-  const { data: selectedCountryData, isLoading: isLoadingSelectedCountry } = useContinentl(selectedCountry);
-  const countryDetail = useMemo(
-    () => (selectedCountryData != null ? selectedCountryData[0] : null),
-    [selectedCountry, selectedCountryData]
-  );
+  const onNextAction = async () => {
+    const states = await getCitys(selectedCountry);
+    if (states != null) {
+      onNext({ country: selectedCountry, city: { all: states?.[0]?.states, selected: [] } });
+    }
+  };
 
   if (isLoading || data == null) {
     return <Loading />;
@@ -64,8 +68,8 @@ export default function CountryStep({ context, onNext, onPrev, progress }: Reado
   return (
     <Layout
       navigateIcon={
-        <Icon.Navigate
-          sizes="large"
+        <NavigationButton
+          sizes={'large'}
           onTapStart={() => {
             onPrev({ country: selectedCountry });
           }}
@@ -73,41 +77,26 @@ export default function CountryStep({ context, onNext, onPrev, progress }: Reado
       }
       heading={
         <>
-          떠나고 싶은 <Text.Accented isButtonText={true}>나라</Text.Accented>는? {progress}
+          떠나고 싶은 <Text.Accented noGapUnderText={true}>나라</Text.Accented>는? {progress}
         </>
       }
       listItems={
         <CountryList countries={data} setSelectedCountry={setSelectedCountry} selectedCountry={selectedCountry} />
       }
-      submitButton={
-        <Container applyMargin="top">
-          <AnimatedButton
-            isFullSize={true}
-            withBorder={true}
-            onClick={async () => {
-              const states = await getCitys(selectedCountry);
-              if (states != null) {
-                onNext({ country: selectedCountry, city: { all: states?.[0]?.states, selected: [] } });
-              }
-            }}
-            disabled={selectedCountry === ''}
-          >
-            {selectedCountry === '' ? (
-              <>여행할 나라를 선택해주세요.</>
-            ) : (
-              <>
-                "{selectedCountry}"로 보기 <Icon />
-              </>
-            )}
-          </AnimatedButton>
-        </Container>
+      disabled={selectedCountry === ''}
+      submitButtonChildren={
+        <>
+          {selectedCountry === '' ? (
+            <>여행할 나라를 선택해주세요.</>
+          ) : (
+            <>
+              "{selectedCountry}"로 보기 <Icon />
+            </>
+          )}
+        </>
       }
+      clickAction={onNextAction}
     >
-      {isLoadingSelectedCountry ? (
-        <>loading...</>
-      ) : (
-        <CountryName name={countryDetail.name} code={countryDetail.code} flagImage={countryDetail['flag-image']} />
-      )}
       <Container margin="none" className={cx('map-wrap')}>
         <CountryDetail
           selectedCountry={

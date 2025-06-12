@@ -1,21 +1,24 @@
-import { AnimatedButton, Globe, Icon } from '@tripie-pyotato/design-system/@components';
-import { Container, Text } from '@tripie-pyotato/design-system/@core';
+import { Globe, Icon } from '@tripie-pyotato/design-system/@components';
+import { Text } from '@tripie-pyotato/design-system/@core';
 import { CONTINENTS } from 'constants/continents';
 
 import { ContinentKeys } from 'models/Continent';
-import { ReactNode, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 
+import { FunnelProps, FunnelSteps } from 'app/trip-planner/page';
 import Layout from '../Layout/Layout';
 import { ContinentList } from './ContinentLIst';
 
-interface Props {
-  context: { continent?: ContinentKeys; country?: string; city?: { all: string[]; selected: string[] } };
+export default function ContinentStep({
+  context,
+  onNext,
+  progress,
+}: Readonly<{
+  context: FunnelSteps['CONTINENT'];
   continent: ContinentKeys;
-  progress: ReactNode;
   onNext: (country: { continent?: ContinentKeys }) => void;
-}
-
-export default function ContinentStep({ context, onNext, progress }: Readonly<Props>) {
+}> &
+  Omit<FunnelProps, 'onPrev'>) {
   const [selectedContinent, setSelectedContinent] = useState<ContinentKeys | 'ALL'>(() =>
     context?.continent == null
       ? 'ALL'
@@ -34,23 +37,16 @@ export default function ContinentStep({ context, onNext, progress }: Readonly<Pr
     <Layout
       heading={
         <>
-          떠나고 싶은 <Text.Accented isButtonText>지역</Text.Accented>은? {progress}
+          떠나고 싶은 <Text.Accented noGapUnderText>지역</Text.Accented>은? {progress}
         </>
       }
       listItems={<ContinentList selectedContinent={selectedContinent} action={setSelectedContinent} />}
-      submitButton={
-        <Container applyMargin={'top'}>
-          <AnimatedButton
-            isFullSize={true}
-            withBorder={true}
-            onClick={() => onNext({ continent: CONTINENTS[selectedContinent]['id'] as ContinentKeys })}
-          >
-            <Text isButtonText={true}>
-              "{selectedContinentName?.name}"{selectedContinentName?.name === '유럽' ? '으' : null}로 보기 <Icon />
-            </Text>
-          </AnimatedButton>
-        </Container>
+      submitButtonChildren={
+        <>
+          "{selectedContinentName?.name}"{selectedContinentName?.name === '유럽' ? '으' : null}로 보기 <Icon />
+        </>
       }
+      clickAction={() => onNext({ continent: CONTINENTS[selectedContinent]['id'] as ContinentKeys })}
     >
       <Globe width={300} height={300} />
     </Layout>
