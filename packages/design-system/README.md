@@ -4,10 +4,36 @@
 
 ## Heads up
 
-- ~~All the components are marked `'use client';`~~
 - `@components` : for client components (marked with `'use client;'`)`
 - `@components@core` : base components available as server components
 - `@shared` : shared variables
+
+Under the hood, tripie's design system have peer dependencies as stated below.
+
+```json
+{
+  "next": "*",
+  "react": "*",
+  "react-dom": "^18.3.1",
+  "framer": "^2.4.1",
+  "framer-motion": "^11.11.17",
+  "maplibre-gl": "^4.7.1",
+  "react-map-gl": "^7.1.7",
+  "react-globe.gl": "^2.27.2",
+  "react-calendar": "^5.0.0",
+  "react-intersection-observer": "9.13.1",
+  "usehooks-ts": "^3.1.0"
+}
+```
+
+To use those features, install peer dependencies.
+
+## Installation
+
+```bash
+ $pnpm i framer framer-motion maplibre-gl react-globe.gl react-calendar react-intersection-observer usehooks-ts
+ $pnpm i @tripie-pyotato/design-system
+```
 
 |        Name        |    Category    | Description                                               | Usage                                                                                                                                        |
 | :----------------: | :------------: | :-------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -1,4 +1,4 @@
-import firestoreService from 'app/api/firebase';
+// import firestoreService from 'app/api/firebase';
 import PlaygroundContents from './_components/PlaygroundContents';
 
 // import Container from '@tripie-pyotato/design-system/@core/Container';
@@ -75,7 +75,7 @@ export default async function Playground() {
   //   },
   // });
 
-  const articles = await firestoreService.getList('article-details');
+  // const articles = await firestoreService.getList('article-details');
   // console.log(
   //   articles.filter(item => item.id === '71476976-cf9a-4ae8-a60f-76e6fb26900d')
   //   // ?.filter(item => item.placeId === 'd32a913c-40c3-4127-af48-a592b779ec8c' )

@@ -1,10 +1,10 @@
 'use client';
 import { AnimatedText, Icon, SplashScreen, TextFillAnimation } from '@tripie-pyotato/design-system/@components';
 import { Stack } from '@tripie-pyotato/design-system/@core';
-import { classNames } from 'wrapper';
-import Style from './loader.module.scss';
+// import { classNames } from 'wrapper';
+// import Style from './loader.module.scss';
 
-const cx = classNames.bind(Style);
+// const cx = classNames.bind(Style);
 
 const Loading = () => {
   return (

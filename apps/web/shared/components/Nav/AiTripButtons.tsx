@@ -6,12 +6,12 @@ import Link from 'next/link';
 
 import { Icon, Menu } from '@tripie-pyotato/design-system/@components';
 // import TokenStatus from 'app/trip-planner/[id]/_components/TripResponse/TokenStatus';
-import { usePathname } from 'next/navigation';
+// import { usePathname } from 'next/navigation';
 import { useMemo } from 'react';
 
 // ai 일정짜기 버튼, 토큰이 없는 경우 /not-enough-tokens로 이동
 const AiTripButton = () => {
-  const pathName = usePathname();
+  // const pathName = usePathname();
   const { isEligible, status } = useChatToken();
 
   const url = useMemo(() => {
