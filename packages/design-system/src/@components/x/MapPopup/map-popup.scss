@@ -1,0 +1,11 @@
+@use '../../../variables' as *;
+
+.maplibregl-popup-content {
+  background-color: $theme-700 !important;
+}
+
+.maplibregl-popup-anchor-bottom .maplibregl-popup-tip {
+  align-self: center;
+  border-bottom: none;
+  border-top-color: $theme-700 !important;
+}
