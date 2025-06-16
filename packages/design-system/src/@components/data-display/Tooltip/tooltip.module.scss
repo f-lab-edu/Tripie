@@ -1,0 +1,115 @@
+@use '../../../variables' as *;
+
+@use '../../../mixins/with-border' as *;
+@use '../../../mixins/z-index' as *;
+
+.tool-tip-trigger {
+  font: inherit;
+  color: inherit;
+  border: none;
+  background-color: inherit;
+  padding: 0;
+}
+
+.tooltip-wrap {
+  position: relative;
+}
+
+.tooltip-body {
+  cursor: pointer;
+  width: fit-content;
+}
+
+.with-border {
+  @include with-border;
+  cursor: pointer;
+}
+
+.with-no-border {
+  @include with-border('false');
+}
+
+$color-theme: (
+  40: $theme-40,
+  50: $theme-50,
+  100: $theme-100,
+  200: $theme-200,
+  300: $theme-300,
+  400: $theme-400,
+  500: $theme-500,
+  600: $theme-600,
+  700: $theme-700,
+  800: $theme-800,
+  100000: $theme-100000,
+);
+
+@each $key, $color in $color-theme {
+  .tool-tip-color-#{$key} {
+    fill: $color;
+    background-color: $color;
+    @if ($key==50) {
+      color: $theme-400;
+    }
+  }
+}
+
+.arrow-border {
+  fill: $theme-400;
+}
+
+.popup {
+  box-sizing: border-box;
+  min-width: max-content;
+  min-height: max-content;
+  border-radius: 0.5rem;
+  transform-origin: var(--transform-origin);
+  transition:
+    transform 150ms,
+    opacity 150ms;
+
+  &[data-starting-style],
+  &[data-ending-style] {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  @media (prefers-color-scheme: light) {
+    outline: 1px solid $theme-400;
+    box-shadow:
+      0 10px 15px -3px $theme-400,
+      0 4px 6px -4px $theme-400;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    outline: 1px solid $theme-400;
+    outline-offset: -1px;
+  }
+}
+
+.positioner {
+  @include z-index(tooltip);
+}
+
+.arrow {
+  display: flex;
+
+  &[data-side='top'] {
+    bottom: -8px;
+    rotate: 180deg;
+  }
+
+  &[data-side='bottom'] {
+    top: -8px;
+    rotate: 0deg;
+  }
+
+  &[data-side='left'] {
+    right: -13px;
+    rotate: 90deg;
+  }
+
+  &[data-side='right'] {
+    left: -13px;
+    rotate: -90deg;
+  }
+}
