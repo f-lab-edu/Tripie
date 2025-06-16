@@ -1,0 +1,66 @@
+@use '../../../mixins/z-index' as *;
+@use '../../../mixins/background' as *;
+@use '../../../functions/z-index' as *;
+@use '../../../mixins/backdrop' as *;
+@use '../../../variables' as *;
+
+.notification {
+  display: inline-block;
+  position: absolute;
+  shape-rendering: geometricprecision;
+}
+
+$size-map: (
+  large: 6px,
+  medium: 3px,
+  small: 1.5px,
+);
+
+.svg {
+  position: absolute;
+}
+
+@each $key, $size in $size-map {
+  .size-#{$key} {
+    width: $size;
+    height: $size;
+  }
+}
+
+$position-map: (
+  bottom: -4px,
+  top: -4px,
+);
+$orientation-map: (
+  right: -4px,
+  left: -4px,
+);
+
+.position-top-right {
+  top: -4px;
+  right: -4px;
+}
+
+.position-top-left {
+  top: -4px;
+  left: -4px;
+}
+
+.position-bottom-right {
+  bottom: -4px;
+  right: -4px;
+}
+
+.position-bottom-left {
+  bottom: -4px;
+  left: -4px;
+}
+.wrap {
+  position: relative;
+}
+
+@each $val in $z-index-map {
+  .z-index-#{$val} {
+    @include z-index($val);
+  }
+}
