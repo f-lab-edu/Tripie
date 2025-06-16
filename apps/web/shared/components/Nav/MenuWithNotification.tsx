@@ -14,7 +14,8 @@ import AuthButton from './AuthButton';
 function withNotification<P extends {}>(Component: ComponentType<P>): ComponentType<P> {
   return function WrappedWithNotification(props: P) {
     const { isEligible } = useChatToken();
-    if (isEligible) {
+
+    if (isEligible === true) {
       return (
         <Notification>
           <Component {...props} />

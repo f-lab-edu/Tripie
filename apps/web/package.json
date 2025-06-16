@@ -22,6 +22,7 @@
     "@aws-sdk/client-lambda": "^3.682.0",
     "@aws-sdk/client-location": "^3.682.0",
     "@aws/amazon-location-utilities-auth-helper": "^1.0.7",
+    "@base-ui-components/react": "1.0.0-beta.0",
     "@firebase/app": "^0.10.16",
     "@firebase/firestore": "^4.7.8",
     "@googlemaps/markerclusterer": "^2.5.3",
@@ -31,7 +32,7 @@
     "@tanstack/react-query": "^5.64.2",
     "@tanstack/react-query-devtools": "^5.55.4",
     "@tripie-pyotato/db": "workspace:*",
-    "@tripie-pyotato/design-system": "workspace:*",
+    "@tripie-pyotato/design-system": "^0.2.2",
     "@tripie-pyotato/hooks": "^0.0.3",
     "@tripie-pyotato/utils": "^0.0.3",
     "@types/mdx": "^2.0.13",
@@ -80,8 +81,8 @@
     "msw": "^2.2.10",
     "prisma": "^6.2.1",
     "sass": "1.77.6",
-    "vitest": "^3.0.6",
-    "ts-jest": "^29.2.4"
+    "ts-jest": "^29.2.4",
+    "vitest": "^3.0.6"
   },
   "publishConfig": {
     "access": "public"
