@@ -47,5 +47,6 @@ export const Motion = {
   Img: motion.img,
   Path: motion.path,
   Nav: motion.nav,
+  Svg: motion.svg,
 };
 export default Motion;

@@ -1,21 +1,17 @@
 'use client';
 
-import { AnimatedButton, Icon } from '@tripie-pyotato/design-system/@components';
-import { Text } from '@tripie-pyotato/design-system/@core';
-
-import { classNames } from 'wrapper';
-import Style from './o-auth-button.module.scss';
-
-const cx = classNames.bind(Style);
+import { Icon } from '@tripie-pyotato/design-system/@components';
+import FlickTextButton from '@tripie-pyotato/design-system/@components/FlickTextButton';
+import Text from '@tripie-pyotato/design-system/@core/Text';
 
 const OAuthButton = ({ provider, name }: { provider: { name: string }; name: string }) => {
   return (
-    <AnimatedButton isFullSize={true} type="submit" withBorder={true} withMinWidth={false}>
-      <Text noGapUnderText={true} className={cx('text')} gap={'sm'}>
-        Sign in with {provider.name}
+    <FlickTextButton type="submit" withBorder={true} sizes="large">
+      <Text noGapUnderText={true} gap={'sm'}>
+        Sign in with {provider.name} &nbsp;
       </Text>
       <Icon.Auth src={name} />
-    </AnimatedButton>
+    </FlickTextButton>
   );
 };
 

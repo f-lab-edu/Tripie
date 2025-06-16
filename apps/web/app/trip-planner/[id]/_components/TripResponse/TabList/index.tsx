@@ -1,6 +1,6 @@
 'use client';
 
-import { Container, Stack, Text } from '@tripie-pyotato/design-system/@core';
+import { Container, Stack } from '@tripie-pyotato/design-system/@core';
 
 import { TripContent } from 'models/Aws';
 import TabCard from '../TabCard';
@@ -21,39 +21,31 @@ const TabList = ({
   scrollIntoView?: boolean;
 }) => {
   return (
-    <Stack direction={'column'} gap="l" alignItems="start" margin="none">
-      <Stack direction={'column'} margin="m" gap="none" applyMargin="top">
-        {trip.date}
-        <Text size="h3" bold={true} noGapUnderText={true}>
-          <Text.Accented>Day {trip.day}</Text.Accented>
-        </Text>
+    <Container margin="none" className={cx('over-flow-wrap')}>
+      <Stack
+        className={cx('trip-list-wrap')}
+        direction="column"
+        gap="l"
+        margin="m"
+        applyMargin="bottom"
+        padding="none"
+        applyPadding="bottom"
+      >
+        {trip.activities.map(({ activity, comments, label, place }, index) => (
+          <TabCard
+            label={label}
+            trip={trip}
+            index={index}
+            activity={activity}
+            comments={comments}
+            key={label + index}
+            place={place}
+            scrollIntoView={scrollIntoView}
+            country={country}
+          />
+        ))}
       </Stack>
-      <Container margin="none" className={cx('over-flow-wrap')}>
-        <Stack
-          className={cx('trip-list-wrap')}
-          direction="column"
-          gap="l"
-          margin="m"
-          applyMargin="bottom"
-          padding="none"
-          applyPadding="bottom"
-        >
-          {trip.activities.map(({ activity, comments, label, place }, index) => (
-            <TabCard
-              label={label}
-              trip={trip}
-              index={index}
-              activity={activity}
-              comments={comments}
-              key={label + index}
-              place={place}
-              scrollIntoView={scrollIntoView}
-              country={country}
-            />
-          ))}
-        </Stack>
-      </Container>
-    </Stack>
+    </Container>
   );
 };
 

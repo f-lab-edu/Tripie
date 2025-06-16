@@ -1,5 +1,5 @@
 import { useQueryClient } from '@tanstack/react-query';
-import { AnimatedButton, Chip } from '@tripie-pyotato/design-system/@components';
+import { FlickTextButton } from '@tripie-pyotato/design-system/@components';
 import { Stack } from '@tripie-pyotato/design-system/@core';
 import firestoreService from 'app/api/firebase';
 import useContinentl from 'hooks/query/useContinentl';
@@ -41,7 +41,9 @@ export function CountryList({ countries, selectedCountry, setSelectedCountry }: 
   return (
     <Stack display="grid" margin="none" cols={2} gap="l" gridWrapOn={{ 'wrap-sm': 1 }} gridRepeat={{ 'wrap-md': 4 }}>
       {countries.map((country: Country) => (
-        <Chip
+        <FlickTextButton
+          withBorder={true}
+          sizes="large"
           onClick={() => {
             setSelectedCountry(country.name);
             prefetch(country.name);
@@ -49,10 +51,8 @@ export function CountryList({ countries, selectedCountry, setSelectedCountry }: 
           key={country.id}
           selected={selectedCountry === country.name}
         >
-          <AnimatedButton.Text withBorder={false} otherChild={country.name}>
-            {country?.code != null && regionNameToLocal({ regionCode: country?.code })}
-          </AnimatedButton.Text>
-        </Chip>
+          {country?.code != null && regionNameToLocal({ regionCode: country?.code })}
+        </FlickTextButton>
       ))}
     </Stack>
   );

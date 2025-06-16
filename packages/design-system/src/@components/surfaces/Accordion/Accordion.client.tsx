@@ -37,7 +37,7 @@ const Accordion = ({ children, className }: Partial<AccordionProps>) => {
 
 export const AccordionDivider = ({ className }: AccordionProps) => {
   const { current } = useContext(AccordionContext);
-  return <Divider current={current} className={cx(className)} />;
+  return <Divider current={current} className={cx('divider', className)} />;
 };
 
 export const AccordionHeader = ({

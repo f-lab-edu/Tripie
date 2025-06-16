@@ -2,17 +2,16 @@
 
 import ROUTE from 'constants/routes';
 import useChatToken from 'hooks/useChatToken';
-import Link from 'next/link';
 
-import { Icon, Menu } from '@tripie-pyotato/design-system/@components';
-// import TokenStatus from 'app/trip-planner/[id]/_components/TripResponse/TokenStatus';
-// import { usePathname } from 'next/navigation';
+import { Icon, Link, Menu, Tooltip } from '@tripie-pyotato/design-system/@components';
+import { usePathname } from 'next/navigation';
 import { useMemo } from 'react';
+import TokenStatus from 'shared/components/Nav/TokenStatus';
 
 // ai 일정짜기 버튼, 토큰이 없는 경우 /not-enough-tokens로 이동
-const AiTripButton = () => {
-  // const pathName = usePathname();
+const AiTripButton = ({ isOpen }: { isOpen: boolean }) => {
   const { isEligible, status } = useChatToken();
+  const pathName = usePathname();
 
   const url = useMemo(() => {
     if (status === 'authenticated' && isEligible) {
@@ -25,15 +24,20 @@ const AiTripButton = () => {
   }, [isEligible, status]);
 
   return (
-    <Menu.Item>
-      <Link
-        href={url}
-        // href={`${API.BASE_URL + status != 'authenticated' ? ROUTE.SIGN_IN.href : ROUTE.TRIP_PLANNER.href + isEligible ? '' : '/not-enough-tokens'}`}
-      >
-        AI 추천 맞춤일정
-      </Link>
-      <Icon />
-    </Menu.Item>
+    <Tooltip
+      open={isOpen}
+      tooltipPosition={'right'}
+      tooltipColor={pathName.startsWith(ROUTE.TRIP_PLANNER.href) ? 50 : 400}
+      triggerChildren={
+        <Menu.Item>
+          <Link href={url}>
+            AI 추천 맞춤일정
+            <Icon />
+          </Link>
+        </Menu.Item>
+      }
+      renderDescription={() => <TokenStatus />}
+    />
   );
 };
 export default AiTripButton;

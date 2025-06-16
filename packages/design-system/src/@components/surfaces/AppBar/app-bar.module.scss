@@ -1,5 +1,5 @@
 @use '../../../variables' as *;
-@use '../../../functions/z-index' as *;
+@use '../../../mixins/z-index' as *;
 
 $position-map: (top, bottom);
 

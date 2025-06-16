@@ -8,9 +8,11 @@
 }
 .divider {
   height: 1.5px;
+  width: 100%;
 }
 .accordion-body {
   color: $theme-40;
+  width: 100%;
   &.preserve-white-space {
     @media (max-width: 470px) {
       white-space: pre-wrap;

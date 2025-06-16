@@ -96,6 +96,7 @@ export default defineConfig(options => [
         './src/@components/feedback/index.ts',
         './src/@components/feedback/SplashScreen/index.ts',
         './src/@components/feedback/Toast/index.ts',
+        './src/@components/feedback/Notification/index.ts',
         './src/@components/inputs/index.ts',
         './src/@components/inputs/Switch/index.ts',
         './src/@components/inputs/TripieButton/index.ts',

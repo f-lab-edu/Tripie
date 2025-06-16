@@ -45,7 +45,8 @@ const DurationSelect = () => {
         <Calendar calendar={calendar.slice(0, 1)} selected={selected} />
       </Container>
       <NextButton>
-        {`${selected[0].toLocaleString()}`} ~ {`${selected[1].toLocaleString()}`} <Icon />
+        다음&nbsp;
+        <Icon />
       </NextButton>
     </>
   );

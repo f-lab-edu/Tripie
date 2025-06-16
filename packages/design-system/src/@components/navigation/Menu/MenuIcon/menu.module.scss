@@ -1,4 +1,5 @@
 @use '../../../../variables' as *;
+@use '../../../../mixins/z-index' as *;
 
 .menu-toggle {
   display: inline-flex;
@@ -18,6 +19,7 @@
   height: 40px;
   align-items: center;
   justify-content: center;
+  @include z-index(default);
 }
 
 .svg {

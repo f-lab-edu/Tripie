@@ -11,6 +11,7 @@ export { default as Chip } from './data-display/Chip/Chip.client';
 export { default as TextFillAnimation } from './data-display/TextFill/TextFillAnimation.client';
 export { default as TextUnderLineAnimation } from './data-display/TextUnderlineAnimation';
 export { default as Icon } from './data-display/TripieIcon/Icon.client';
+export { default as Notification } from './feedback/Notification';
 export { default as SplashScreen } from './feedback/SplashScreen/SplashScreen.client';
 export { default as Toast } from './feedback/Toast/Toast.client';
 export { default as Switch } from './inputs/Switch';

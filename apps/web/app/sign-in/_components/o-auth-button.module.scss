@@ -1,8 +1,0 @@
-@use 'mixins' as *;
-@use 'variables' as *;
-
-.text {
-  @media (max-width: 300px) {
-    display: none;
-  }
-}

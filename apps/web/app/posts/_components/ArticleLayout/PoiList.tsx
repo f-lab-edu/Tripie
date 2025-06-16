@@ -4,7 +4,7 @@ import { Container } from '@tripie-pyotato/design-system/@core';
 import { API_KEY } from 'constants/maps';
 import usePoi from 'hooks/usePoi';
 import { PoisProps } from 'models/Props';
-import { createRef, useRef } from 'react';
+import { createRef, useEffect, useRef } from 'react';
 import { MapProvider } from 'wrapper';
 import PoiCard from './PoiCard';
 
@@ -13,13 +13,19 @@ const PoiList = ({ item }: { item: PoisProps }) => {
   const cardRefs = useRef<Array<React.RefObject<HTMLDivElement>>>(pois.map(() => createRef()));
   const { center, current, setCurrent, coordinates } = usePoi({ pois });
 
+  useEffect(() => {
+    const scrollY = window.scrollY;
+    return () => {
+      window.scrollTo(0, scrollY); // Restore original position
+    };
+  }, []);
+
   return (
     <Container applyMargin="top-bottom">
       <MapProvider>
         <Container applyMargin="bottom" margin="m">
           <Carousel.Controlled>
             {pois.map((poi, index) => {
-              console.log('key', index + poi.id + poi.source.areas?.[0]?.id);
               return (
                 <PoiCard
                   length={pois.length}
@@ -35,7 +41,6 @@ const PoiList = ({ item }: { item: PoisProps }) => {
         </Container>
         {coordinates.length === 0 ? null : (
           <AwsMap
-            focusAfterOpen={false}
             style={{ height: '30vh' }}
             apiKey={API_KEY}
             locationMarker={coordinates}

@@ -24,7 +24,6 @@ export default function Faq() {
                     </Container>
                   </Accordion.Header>
                   <Accordion.Divider />
-
                   <Accordion.Body padding={'default'} applyPadding="top-bottom">
                     <Container margin="l" applyMargin="top">
                       <Text preserveWhiteSpace={'xl'}>{details}</Text>

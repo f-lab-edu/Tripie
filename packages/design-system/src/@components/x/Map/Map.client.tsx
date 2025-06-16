@@ -64,7 +64,6 @@ function AwsMap({
   center?: { longitude: number; latitude: number };
   zoom?: number;
   locationMarker?: LocationMarker[];
-  focusAfterOpen?: boolean;
   styleType?: typeof STYLE_TYPE;
   colorScheme?: typeof COLOR_SCHEME;
   style?: CSSProperties;

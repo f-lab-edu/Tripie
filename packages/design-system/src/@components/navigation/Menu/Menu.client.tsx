@@ -21,16 +21,30 @@ const Menu = ({
   className,
   children = '',
   initial = false,
+  onToggleBefore,
+  onToggleAfter,
 }: {
   children?: ReactNode;
   initial?: boolean;
   className?: string;
+  onToggleAfter?: () => void;
+  onToggleBefore?: () => void;
 }) => {
   const [isOpen, toggleOpen] = useCycle(initial, true);
   return (
     <Motion.Nav className={cx('nav', className)} initial={initial} animate={isOpen ? 'open' : 'closed'}>
       <TripieContainer margin="none">{children}</TripieContainer>
-      <MenuIcon toggle={toggleOpen} />
+      <MenuIcon
+        toggle={() => {
+          if (onToggleBefore != null) {
+            onToggleBefore();
+          }
+          toggleOpen();
+          if (onToggleAfter != null) {
+            onToggleAfter();
+          }
+        }}
+      />
     </Motion.Nav>
   );
 };

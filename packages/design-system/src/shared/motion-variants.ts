@@ -53,6 +53,7 @@ const ACCORDION_VARIANTS = {
   DIVIDER: {
     closed: () => ({
       backgroundColor: COLORS[400],
+      width: '100%',
     }),
     open: () => ({
       backgroundColor: COLORS[50],

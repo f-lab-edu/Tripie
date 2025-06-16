@@ -9,34 +9,36 @@ import ourWorkList from './constants';
 export default function OurWork() {
   return (
     <Background applyPadding="top-left-right" padding="m" variant={5} id="Work">
-      <MotionSlideUp>
-        <Container applyMargin="top" margin="l">
+      <Container margin="none">
+        <MotionSlideUp>
           <Headings.H2>
             Our <Text.Accented>work</Text.Accented>
           </Headings.H2>
-        </Container>
-        <Container margin="none">
-          {ourWorkList.map(({ year, tag, header, details }) => (
-            <Accordion key={tag}>
-              <Accordion.Header>
-                <Text.Accented size="tiny" noGapUnderText={true}>
-                  {year}
-                </Text.Accented>
-                <Container margin="sm" alignItems="center" applyMargin="bottom" justifyContent="start" gap="default">
-                  <Text size="h3" noGapUnderText={true} bold={true}>
-                    {header}
-                  </Text>
-                  <Accordion.Icon sizes="large" />
+          <Container applyMargin="bottom">
+            {ourWorkList.map(({ year, tag, header, details }) => (
+              <Accordion key={tag}>
+                <Accordion.Header>
+                  <Text.Accented size="tiny" noGapUnderText={true}>
+                    {year}
+                  </Text.Accented>
+                  <Container margin="sm" alignItems="center" applyMargin="bottom" justifyContent="start" gap="default">
+                    <Text size="h3" noGapUnderText={true} bold={true}>
+                      {header}
+                    </Text>
+                    <Accordion.Icon sizes="large" />
+                  </Container>
+                </Accordion.Header>
+                <Accordion.Divider />
+                <Container padding="m" applyMargin="bottom" applyPadding="top-bottom">
+                  <Accordion.Body>
+                    <Container applyMargin="bottom">{details}</Container>
+                  </Accordion.Body>
                 </Container>
-              </Accordion.Header>
-              <Accordion.Divider />
-              <Container padding="m" applyMargin="bottom" applyPadding="top-bottom">
-                <Accordion.Body>{details}</Accordion.Body>
-              </Container>
-            </Accordion>
-          ))}
-        </Container>
-      </MotionSlideUp>
+              </Accordion>
+            ))}
+          </Container>
+        </MotionSlideUp>
+      </Container>
     </Background>
   );
 }

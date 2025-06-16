@@ -1,8 +1,8 @@
 'use client';
 import { classNames } from 'wrapper';
 
-import { Carousel, Chip } from '@tripie-pyotato/design-system/@components';
-import { Headings, Stack } from '@tripie-pyotato/design-system/@core';
+import { Button, Carousel } from '@tripie-pyotato/design-system/@components';
+import { Headings, Stack, Text } from '@tripie-pyotato/design-system/@core';
 
 import { useContext } from 'react';
 
@@ -37,21 +37,25 @@ const TripTab = ({
       applyPadding="top"
       className={cx('trip-tab-content-wrap')}
     >
-      {/* <TokenStatus /> */}
-      <Headings.H2> {data.name}</Headings.H2>
+      <Headings.H2>{data.name}</Headings.H2>
       <Carousel.Controlled>
         {data.trips.map(trip => (
-          <Chip
-            selected={currentDate === trip.day - 1}
+          <Button
+            className={cx('trip-tab-day-button')}
             onClick={() => {
               dateCycle(trip.day - 1);
             }}
             key={trip.date + trip.day}
+            selected={currentDate === trip.day - 1}
           >
             {trip.day}일차
-          </Chip>
+          </Button>
         ))}
       </Carousel.Controlled>
+      {data.trips[currentDate].date}
+      <Text size="h3" bold={true} noGapUnderText={true}>
+        <Text.Accented>Day {data.trips[currentDate].day}</Text.Accented>
+      </Text>
       <TabList
         country={country}
         scrollIntoView={scrollIntoView}

@@ -7,9 +7,9 @@ import RegionCard, { RegionArticleData } from 'app/regions/_components/RegionCar
 import useCountryArticle from 'hooks/query/useCountryArticles';
 import { Suspense, useMemo } from 'react';
 import Loading from 'shared/components/Loading';
-// import RegionCard, { RegionArticleData } from './RegionCard';
 
 const RegionList = () => {
+  // const [splash, setSplash] = useState(false);
   const currentRegionId = useMemo(() => {
     const randomIndex = Math.floor(Math.random() * 10);
     return Object.keys(TRIPIE_REGION_BY_LOCATION).filter((_, index) => {
@@ -40,6 +40,7 @@ const RegionList = () => {
   }
   return (
     <Suspense fallback={<Loading />}>
+      {/* {splash ? <Loading.SemiTransparent loading={splash} /> : null} */}
       <Stack
         cols={2}
         gridWrapOn={{ 'wrap-xs': 1 }}
@@ -56,7 +57,13 @@ const RegionList = () => {
         ) : (
           data
             .filter(item => item.regionId === selectedRegionId)?.[0]
-            ?.data.map(article => <RegionCard article={article} key={article.id} />)
+            ?.data.map(article => (
+              <RegionCard
+                // setSplash={setSplash}
+                article={article}
+                key={article.id}
+              />
+            ))
         )}
       </Stack>
     </Suspense>

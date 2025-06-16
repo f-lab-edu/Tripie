@@ -54,7 +54,6 @@ const TripResultExample = () => {
           ...center[currentDate],
         }}
         locationMarker={locationMarker[currentDate]}
-        focusAfterOpen={false}
         currentMarker={'0-0'}
         setCurrentMarker={() => null}
       />

@@ -25,18 +25,14 @@ const AppBar = ({
   prominence = 'fixed',
   className,
   children,
+  zIndex = 'fixed',
   ...props
 }: Readonly<AppBarProps>) => {
   return (
     <TripieContainer
       {...props}
-      className={cx(
-        'app-bar',
-        `z-index-${!fixed ? 'sticky' : prominence}`,
-        fixed ? `fixed-${position}` : `static-${position}`,
-        position,
-        className
-      )}
+      zIndex={zIndex}
+      className={cx('app-bar', fixed ? `fixed-${position}` : `static-${position}`, position, className)}
       alignItems={'start'}
     >
       {children}
@@ -49,9 +45,16 @@ export type AppBarWithMenuProps = {
   menuPosition?: 'left' | 'right';
 } & Partial<AppBarProps>;
 
-const AppWithMenu = ({ position, className, children, Menu, ...props }: Readonly<AppBarWithMenuProps>) => {
+const AppWithMenu = ({
+  position,
+  className,
+  zIndex = 'fixed',
+  children,
+  Menu,
+  ...props
+}: Readonly<AppBarWithMenuProps>) => {
   return (
-    <TripieContainer {...props} className={cx('app-bar', `menu-position-${position}`, className)}>
+    <TripieContainer zIndex={zIndex} {...props} className={cx(`menu-position-${position}`, className)}>
       {Menu}
       {children}
     </TripieContainer>
@@ -63,9 +66,16 @@ export type AppBarWithLogoProps = {
   logoPosition?: 'left' | 'right';
 } & Partial<AppBarProps>;
 
-const AppBarWithLogo = ({ position, className, children, Logo, ...props }: Readonly<AppBarWithLogoProps>) => {
+const AppBarWithLogo = ({
+  position,
+  className,
+  children,
+  Logo,
+  zIndex = 'fixed',
+  ...props
+}: Readonly<AppBarWithLogoProps>) => {
   return (
-    <TripieContainer {...props} className={cx('app-bar', `menu-position-${position}`, className)}>
+    <TripieContainer zIndex={zIndex} {...props} className={cx(`menu-position-${position}`, className)}>
       {Logo}
       {children}
     </TripieContainer>

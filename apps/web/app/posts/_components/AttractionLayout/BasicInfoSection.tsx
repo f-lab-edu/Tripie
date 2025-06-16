@@ -26,7 +26,6 @@ const BasicInfoSection = ({
       <ArticleHeading item={{ type: 'heading2', value: { text: '기본정보' } }} />
       <AwsMap
         apiKey={API_KEY}
-        focusAfterOpen={false}
         locationMarker={[
           {
             lat: coordinates[1],

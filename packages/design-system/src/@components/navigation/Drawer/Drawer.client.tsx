@@ -64,7 +64,7 @@ const Drawer = ({
   }, [drawerBody]);
 
   return (
-    <Container margin="none" {...props} className={cx('full', 'max')}>
+    <Container margin="none" {...props} className={cx('full')}>
       <DrawerBody
         onFocus={() => {
           if ((filter > 0 || closeOutFocusedDrawer) && isOpen) {

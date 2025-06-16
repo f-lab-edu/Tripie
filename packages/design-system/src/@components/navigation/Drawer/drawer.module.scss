@@ -5,12 +5,14 @@
 
 .drawer-content {
   z-index: z(default);
+  height: -moz-available;
+  height: -webkit-fill-available;
+  height: stretch; // spec has changed
 }
 
 $drawer-position-map: (left, top, right, bottom);
 
 .drawer {
-  height: 100%;
   position: relative;
   width: 100%;
   overflow: hidden;
@@ -22,7 +24,9 @@ $drawer-position-map: (left, top, right, bottom);
 .full {
   max-width: 100vw;
   max-height: 100vh;
-  height: 100%;
+  height: -moz-available;
+  height: -webkit-fill-available;
+  height: stretch; // spec has changed
   width: 100%;
   overflow: hidden;
 }
