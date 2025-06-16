@@ -1,4 +1,5 @@
-import Container from '@tripie-pyotato/design-system/@core/Container';
+// import Container from '@tripie-pyotato/design-system/@core/Container';
+import { Container } from '@tripie-pyotato/design-system/@core';
 import { ReactNode } from 'react';
 
 import { classNames } from 'wrapper';
