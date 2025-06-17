@@ -1,6 +1,8 @@
-@use '../../../variables' as *;
+@use '../../../variables/tripie-theme' as *;
 @use '../../../mixins/flex' as *;
 @use '../../../mixins/justify-content' as *;
+@use '../../../variables/justify-content-values' as *;
+@use '../../../variables/align-items-values' as *;
 @use '../../../mixins/align-items' as *;
 
 .accordion-header {

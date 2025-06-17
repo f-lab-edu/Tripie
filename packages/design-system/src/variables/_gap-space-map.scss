@@ -1,0 +1,9 @@
+@use '../functions/space' as *;
+
+$gap-space-map: (
+  sm: space(0.2rem),
+  default: space(0.5rem),
+  l: space(1rem),
+  xl: space(2rem),
+  none: 0,
+);

@@ -1,0 +1,10 @@
+@use '../functions/space' as *;
+
+$space-map: (
+  xl: space(4rem),
+  l: space(2rem),
+  m: space(1rem),
+  sm: space(0.6rem),
+  xsm: space(0.2rem),
+  none: 0,
+);

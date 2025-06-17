@@ -1,7 +1,7 @@
 @use '../../../functions/typography' as *;
 @use '../../../mixins/break-text' as *;
 @use '../../../mixins/text' as *;
-@use '../../../variables/' as *;
+@use '../../../variables/break-point-values' as *;
 @use 'sass:map';
 
 .headings {

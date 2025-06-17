@@ -1,6 +1,6 @@
 'use client';
 import { BlurImageOnLoad, Carousel } from '@tripie-pyotato/design-system/@components';
-import { Container } from '@tripie-pyotato/design-system/@core';
+import Container from '@tripie-pyotato/design-system/@core/Container';
 import { ImageProps } from 'models/Props';
 
 const ArticleImages = ({ item }: { item: ImageProps }) => {

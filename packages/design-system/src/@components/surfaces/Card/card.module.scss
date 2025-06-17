@@ -1,5 +1,5 @@
-@use '../../../variables' as *;
-
+@use '../../../variables/tripie-theme' as *;
+@use '../../../variables/card-size-map' as *;
 @use '../../../functions/z-index' as *;
 @use '../../../mixins/background-static' as *;
 @use '../../../mixins/noise-container' as *;

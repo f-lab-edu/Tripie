@@ -4,7 +4,11 @@
 @use '../../../../mixins/justify-content' as *;
 @use '../../../../mixins/align-items' as *;
 @use '../../../../mixins/gap' as *;
-@use '../../../../variables' as *;
+@use '../../../../variables/direction-map' as *;
+@use '../../../../variables/gap-space-map' as *;
+@use '../../../../variables/space-map' as *;
+@use '../../../../variables/justify-content-values' as *;
+@use '../../../../variables/align-items-values' as *;
 
 .clear-btn {
   font: inherit;

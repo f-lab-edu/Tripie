@@ -7,8 +7,14 @@
 @use '../../../mixins/align-text' as *;
 @use '../../../mixins/with-border' as *;
 @use '../../../mixins/gap' as *;
-@use '../../../variables' as *;
-@use '../../../functions/z-index' as *;
+@use '../../../mixins/z-index' as *;
+@use '../../../variables/z-index-map' as *;
+@use '../../../variables/direction-map' as *;
+@use '../../../variables/justify-content-values' as *;
+@use '../../../variables/align-items-values' as *;
+@use '../../../variables/align-text-values' as *;
+@use '../../../variables/gap-space-map' as *;
+@use '../../../variables/space-map' as *;
 
 .container {
   display: inline-block;
@@ -72,6 +78,6 @@
 
 @each $key in $z-index-map {
   .z-index-#{$key} {
-    z-index: z($key);
+    @include z-index($key);
   }
 }

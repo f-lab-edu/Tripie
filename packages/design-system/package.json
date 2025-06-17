@@ -1,6 +1,6 @@
 {
   "name": "@tripie-pyotato/design-system",
-  "version": "0.2.6",
+  "version": "0.2.8",
   "description": "트리피에 사용되는 디자인 시스템",
   "main": "index.js",
   "type": "module",
@@ -107,9 +107,9 @@
       "default": "./dist/global.css"
     },
     "./variables": {
-      "import": "./dist/variables.css",
-      "require": "./dist/variables.css",
-      "default": "./dist/variables.css"
+      "import": "./dist/variables/index.css",
+      "require": "./dist/variables/index.css",
+      "default": "./dist/variables/index.css"
     },
     "./styles": {
       "import": "./dist/index.css",

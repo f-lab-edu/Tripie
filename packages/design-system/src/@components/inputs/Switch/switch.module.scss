@@ -1,5 +1,5 @@
-@use '../../../variables' as *;
-@use '../../../functions/z-index' as *;
+@use '../../../variables/tripie-theme' as *;
+@use '../../../mixins/z-index' as *;
 @use '../../../mixins/with-border' as *;
 
 $switch-background1: #181c17;
@@ -40,5 +40,5 @@ $switch-background2: #0f0f0f;
   position: absolute;
   top: 25%;
   left: 14%;
-  z-index: z(1);
+  @include z-index(1);
 }

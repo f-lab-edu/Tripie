@@ -1,7 +1,7 @@
 @use '../../../mixins/backdrop' as *;
 @use '../../../mixins/with-border' as *;
 @use '../../../mixins/z-index' as *;
-@use '../../../variables' as *;
+@use '../../../variables/tripie-theme' as *;
 
 .background {
   @include backdrop;

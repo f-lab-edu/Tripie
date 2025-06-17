@@ -1,5 +1,4 @@
-@use '../../../variables' as *;
-
+@use '../../../variables/tripie-theme' as *;
 @use '../../../mixins/with-border' as *;
 @use '../../../mixins/z-index' as *;
 
@@ -18,15 +17,6 @@
 .tooltip-body {
   cursor: pointer;
   width: fit-content;
-}
-
-.with-border {
-  @include with-border;
-  cursor: pointer;
-}
-
-.with-no-border {
-  @include with-border('false');
 }
 
 $color-theme: (

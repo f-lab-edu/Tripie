@@ -40,7 +40,6 @@ const ToolTip = ({
   title,
   sideOffset = 8,
   description,
-  withBorder = false,
   defaultOpen = false,
   open,
   tooltipPosition = 'bottom',
@@ -82,7 +81,6 @@ const ToolTip = ({
   description?: ReactNode;
   children: ReactElement;
   tooltipPosition?: ToolTipPosition;
-  withBorder?: boolean;
   renderDescription?: ReactElement;
   renderClose?: ReactElement;
   withBackDrop?: boolean;
@@ -155,10 +153,7 @@ const ToolTip = ({
       actionsRef={actionsRef}
       onOpenChangeComplete={onOpenChangeComplete}
     >
-      <Popover.Trigger
-        render={renderTrigger}
-        className={cx('tool-tip-trigger', `with${!withBorder ? '-no' : ''}-border`, className)}
-      >
+      <Popover.Trigger render={renderTrigger} className={cx('tool-tip-trigger', className)}>
         {triggerChildren}
       </Popover.Trigger>
       <Popover.Portal keepMounted={keepMounted}>

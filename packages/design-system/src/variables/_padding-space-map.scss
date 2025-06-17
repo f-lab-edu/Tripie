@@ -1,0 +1,10 @@
+@use '../functions/space' as *;
+
+$padding-space-map: (
+  padding-xl: space(4rem),
+  padding-l: space(2rem),
+  padding-m: space(1rem),
+  padding-sm: space(0.6rem),
+  padding-xsm: space(0.2rem),
+  padding-none: 0,
+);

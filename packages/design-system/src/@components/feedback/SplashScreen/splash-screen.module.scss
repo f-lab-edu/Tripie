@@ -1,6 +1,6 @@
 @use '../../../mixins/z-index' as *;
 @use '../../../mixins/background' as *;
-@use '../../../functions/z-index' as *;
+@use '../../../mixins/z-index' as *;
 @use '../../../mixins/backdrop' as *;
 
 .variant-default {
@@ -12,7 +12,7 @@
 
 .splash-full-screen {
   position: fixed;
-  z-index: z(above-all);
+  @include z-index(above-all);
   transform: none;
   min-height: 100vh;
   min-width: 100vw;

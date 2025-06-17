@@ -5,7 +5,12 @@
 @use '../../../mixins/gap' as *;
 @use '../../../mixins/background' as *;
 @use '../../../mixins/paddings' as *;
-@use '../../../variables' as *;
+@use '../../../variables/justify-content-values' as *;
+@use '../../../variables/align-items-values' as *;
+@use '../../../variables/align-text-values' as *;
+@use '../../../variables/gap-space-map' as *;
+@use '../../../variables/space-map' as *;
+@use '../../../variables/direction-map' as *;
 
 .flex {
   @include flex;

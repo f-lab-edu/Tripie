@@ -1,5 +1,5 @@
-@use '../../../../variables' as *;
-@use '../../../../functions/z-index' as *;
+@use '../../../../variables/tripie-theme' as *;
+@use '../../../../mixins/z-index' as *;
 @use '../../../../mixins/margins' as *;
 @use '../../../../mixins/with-border' as *;
 @use '../../../../mixins/submit-button' as *;
@@ -10,7 +10,7 @@
 
 .hovered {
   position: relative;
-  z-index: z(mask);
+  @include z-index(mask);
   color: $theme-50;
 }
 

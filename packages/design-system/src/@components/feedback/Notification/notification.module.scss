@@ -1,8 +1,7 @@
 @use '../../../mixins/z-index' as *;
 @use '../../../mixins/background' as *;
-@use '../../../functions/z-index' as *;
+@use '../../../variables/z-index-map' as *;
 @use '../../../mixins/backdrop' as *;
-@use '../../../variables' as *;
 
 .notification {
   display: inline-block;

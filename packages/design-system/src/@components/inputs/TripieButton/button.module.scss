@@ -1,4 +1,4 @@
-@use '../../../variables' as *;
+@use '../../../variables/tripie-theme' as *;
 @use '../../../functions/z-index' as *;
 @use '../../../mixins/with-border' as *;
 @use '../../../mixins/map-marker' as *;
@@ -69,7 +69,6 @@ $theme-color: (default);
 }
 
 .stretched {
-  // width: 100%;
   min-width: fit-content;
   width: -webkit-fill-available;
 }

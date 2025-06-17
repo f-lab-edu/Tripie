@@ -1,10 +1,10 @@
-@use '../../../functions/z-index' as *;
+@use '../../../mixins/z-index' as *;
 @use '../../../mixins/backdrop' as *;
 
 @use 'sass:map';
 
 .drawer-content {
-  z-index: z(default);
+  @include z-index(default);
   height: -moz-available;
   height: -webkit-fill-available;
   height: stretch; // spec has changed

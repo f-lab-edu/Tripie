@@ -1,6 +1,6 @@
 @use 'sass:math';
 @use 'sass:map';
-@use '../variables' as *;
+@use '../variables/background-gradients' as *;
 @use '../functions' as *;
 
 @mixin background($variant) {

@@ -1,5 +1,5 @@
-@use '../../../../variables' as *;
-@use '../../../../functions/z-index' as *;
+@use '../../../../variables/tripie-theme' as *;
+@use '../../../../mixins/z-index' as *;
 
 .particle {
   background-color: $theme-50;
@@ -9,12 +9,12 @@
   left: 50%;
   height: 3px;
   width: 3px;
-  z-index: z(base);
+  @include z-index(base);
 }
 
 .particle-field {
   position: absolute;
   width: 100%;
   height: 100vh;
-  z-index: z(base);
+  @include z-index(base);
 }

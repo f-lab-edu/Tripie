@@ -1,4 +1,5 @@
-@use '../../../../functions/z-index' as *;
+@use '../../../../mixins/z-index' as *;
+
 .background {
   align-items: center;
   display: inline-flex;
@@ -16,6 +17,6 @@
   inset: 0;
   overflow: hidden;
   position: absolute;
-  z-index: z(base);
+  @include z-index(base);
   height: inherit;
 }

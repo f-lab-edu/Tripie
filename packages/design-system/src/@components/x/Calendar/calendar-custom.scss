@@ -1,5 +1,5 @@
 // react-calendar는 module로 스타일 커스텀 불가하므로 scss로
-@use '../../../variables' as *;
+@use '../../../variables/tripie-theme' as *;
 
 .react-calendar {
   width: 100% !important;
@@ -71,10 +71,6 @@
   }
 }
 
-// .react-calendar__tile.react-calendar__tile--now.react-calendar__tile--active.react-calendar__tile--range.react-calendar__month-view__days__day.in-range {
-//   flex: none !important;
-// }
-
 .react-calendar__tile.react-calendar__month-view__days__day.react-calendar__month-view__days__day--neighboringMonth:disabled,
 .react-calendar__tile.react-calendar__month-view__days__day:disabled {
   cursor: not-allowed;
@@ -119,10 +115,8 @@
 
 .start-date,
 .end-date {
-  // background-color: $theme-100000 !important;
   background-color: $theme-300 !important;
   position: relative;
-  // display: inline-flex;
   width: 100%;
   color: inherit !important;
   &.react-calendar__tile--active {

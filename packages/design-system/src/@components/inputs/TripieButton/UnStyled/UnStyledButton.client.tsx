@@ -1,7 +1,6 @@
 import { TripieContainerProps } from '@core/layout/TripieContainer';
-import { classNames } from '../../../../wrappers';
-
 import { ButtonHTMLAttributes, DetailedHTMLProps } from 'react';
+import { classNames } from '../../../../wrappers';
 import Style from './unstyled-button.module.scss';
 
 const cx = classNames.bind(Style);
