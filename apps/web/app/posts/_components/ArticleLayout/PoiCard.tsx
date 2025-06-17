@@ -47,6 +47,7 @@ const PoiCard = ({
         margin={'none'}
         src={poi.source.image?.sizes.full.url.replace('https://res.cloudinary.com', 'https://media.tripie-api.shop')}
         alt={alt}
+        cloudinaryUrl="https://media.tripie-api.shop"
         padding={'none'}
         imgSize={'card'}
         sourceUrl={poi.source.image.sourceUrl}
