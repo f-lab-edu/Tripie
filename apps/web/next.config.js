@@ -9,23 +9,16 @@ import { fileURLToPath } from 'url';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
-const securityHeaders = [
-  {
-    key: 'Content-Security-Policy',
-    value: "script-src 'self' https://www.googletagmanager.com; object-src 'none'; base-uri 'none';",
-  },
-];
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  headers: async () => {
-    return [
-      {
-        source: '/(.*)',
-        headers: securityHeaders,
-      },
-    ];
-  },
+  // headers: async () => {
+  //   return [
+  //     {
+  //       source: '/(.*)',
+  //       headers: securityHeaders,
+  //     },
+  //   ];
+  // },
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles'), path.join(__dirname, '../../packages/design-system/src')],
     silenceDeprecations: ['legacy-js-api'],
