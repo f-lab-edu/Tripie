@@ -52,7 +52,7 @@ export async function pageParamData({ params }: ParamProps) {
       metadataContents,
       description,
       body,
-      images: recommendationImageUrl,
+      images: recommendationImageUrl.replace('https://res.cloudinary.com', 'https://media.tripie-api.shop'),
     };
   }
 
