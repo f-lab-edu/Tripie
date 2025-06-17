@@ -1,11 +1,11 @@
+import { CLOUDINARY_URL } from '@tripie-pyotato/design-system/shared';
+
 export async function GET(req: Request) {
   const url = new URL(req.url);
 
-  // Remove "/api/proxy-cloudinary" from the path
   const cloudinaryPath = url.pathname.replace(/^\/api\/proxy-cloudinary/, '');
 
-  const cloudName = 'dbzzletpw';
-  const targetUrl = `https://res.cloudinary.com/${cloudName}${cloudinaryPath}`;
+  const targetUrl = CLOUDINARY_URL() + cloudinaryPath;
 
   const cloudRes = await fetch(targetUrl);
 

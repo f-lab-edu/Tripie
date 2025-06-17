@@ -20,7 +20,7 @@ const ExternalLinkCard = ({ link, index }: { link: ExternalLink; index: number }
             sizes="card"
             src={link.imageUrl.replace('https://res.cloudinary.com', 'https://media.tripie-api.shop')}
             alt={link.imageUrl}
-            cloudinaryUrl={'https://www.tripie-api.shop'}
+            cloudinaryUrl={'https://media.tripie-api.shop'}
           />
           <Card.Content margin="none">
             <ArticleHeading item={{ type: 'heading3', value: { text: link.title } }} />
