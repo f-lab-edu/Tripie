@@ -9,8 +9,23 @@ import { fileURLToPath } from 'url';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
+const securityHeaders = [
+  {
+    key: 'Content-Security-Policy',
+    value: "default-src 'self'; script-src 'self'; object-src 'none';",
+  },
+];
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  headers: async () => {
+    return [
+      {
+        source: '/(.*)',
+        headers: securityHeaders,
+      },
+    ];
+  },
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles'), path.join(__dirname, '../../packages/design-system/src')],
 
