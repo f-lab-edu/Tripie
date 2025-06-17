@@ -12,7 +12,7 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const securityHeaders = [
   {
     key: 'Content-Security-Policy',
-    value: "default-src 'self'; script-src 'self'; object-src 'none';",
+    value: "script-src 'self' https://www.googletagmanager.com; object-src 'none'; base-uri 'none';",
   },
 ];
 
@@ -28,7 +28,6 @@ const nextConfig = {
   },
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles'), path.join(__dirname, '../../packages/design-system/src')],
-
     silenceDeprecations: ['legacy-js-api'],
   },
 
