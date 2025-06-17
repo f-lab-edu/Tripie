@@ -30,8 +30,9 @@ const ArticleLayout = ({
           <BlurImageOnLoad
             withBorder={true}
             aspectRatio={'cinematic'}
-            src={thumbNailSrc}
+            src={thumbNailSrc?.replace('https://res.cloudinary.com', 'https://media.tripie-api.shop')}
             sizes="large"
+            cloudinaryUrl="https://media.tripie-api.shop"
             alt={thumbNailAlt ?? `${thumbNailSrc}`}
           />
         </Container>

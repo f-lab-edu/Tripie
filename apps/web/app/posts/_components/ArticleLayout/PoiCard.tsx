@@ -45,7 +45,7 @@ const PoiCard = ({
       <Card.WithImage
         sizes={length > 2 ? 'card' : 'full'}
         margin={'none'}
-        src={poi.source.image?.sizes.full.url}
+        src={poi.source.image?.sizes.full.url.replace('https://res.cloudinary.com', 'https://media.tripie-api.shop')}
         alt={alt}
         padding={'none'}
         imgSize={'card'}

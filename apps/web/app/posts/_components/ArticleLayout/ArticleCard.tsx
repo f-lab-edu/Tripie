@@ -35,7 +35,8 @@ const ArticleCard = ({
                   <BlurImageOnLoad.WithSourceUrl
                     aspectRatio={'photo'}
                     sourceUrl={sourceUrl}
-                    src={sizes.full.url}
+                    cloudinaryUrl={'https://media.tripie-api.shop'}
+                    src={sizes.full.url.replace('https://res.cloudinary.com', 'https://media.tripie-api.shop')}
                     alt={sizes.full.url}
                     key={`${index}-${sizes.full.url}-${imgIndex}`}
                     withBorder={true}

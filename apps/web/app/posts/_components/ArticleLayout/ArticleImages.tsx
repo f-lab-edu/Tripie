@@ -9,16 +9,19 @@ const ArticleImages = ({ item }: { item: ImageProps }) => {
   return (
     <Container applyMargin="top">
       <Carousel
-        items={images.map((item, index) => (
-          <BlurImageOnLoad.WithSourceUrl
-            sizes="large"
-            withBorder={true}
-            key={item.sizes.full.url + index}
-            alt={item.sizes.full.url}
-            src={item.sizes.full.url}
-            sourceUrl={item.sourceUrl}
-          />
-        ))}
+        items={images.map((item, index) => {
+          return (
+            <BlurImageOnLoad.WithSourceUrl
+              sizes="large"
+              cloudinaryUrl="https://media.tripie-api.shop"
+              withBorder={true}
+              key={item.sizes.full.url + index}
+              alt={item.sizes.full.url}
+              src={item.sizes.full.url.replace('https://res.cloudinary.com', 'https://media.tripie-api.shop')}
+              sourceUrl={item.sourceUrl}
+            />
+          );
+        })}
       />
     </Container>
   );

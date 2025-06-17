@@ -9,6 +9,7 @@ import { BlurImageOnLoad, Divider, DividerProps, ImageProps, ImageSizes } from '
 
 import TripieContainer, { TripieContainerProps } from '@core/layout/TripieContainer';
 import { MutableRefObject } from 'react';
+import { CLOUDINARY_URL } from 'shared';
 import { CustomAnimationProps } from '../AnimatedCard';
 import Style from './card.module.scss';
 
@@ -40,11 +41,7 @@ const CardContent = ({
       applyPadding={applyPadding}
       ref={ref}
       withBorder={withBorder}
-      className={cx(
-        // 'with-border',
-        'inner-wrap',
-        className
-      )}
+      className={cx('inner-wrap', className)}
     >
       {children}
     </TripieContainer>
@@ -129,6 +126,7 @@ const CardWithImage = ({
   withImageBorder,
   sourceUrl,
   padding = 'none',
+  cloudinaryUrl = CLOUDINARY_URL(),
   ...args
 }: CardWithImageProps) => {
   return (
@@ -142,10 +140,18 @@ const CardWithImage = ({
         <TripieContainer margin="none" className={cx('img-wrap')}>
           <TripieContainer margin={cover ? 'none' : 'm'} padding={cover ? 'none' : padding}>
             {sourceUrl == null ? (
-              <BlurImageOnLoad aspectRatio={aspectRatio} sizes={imgSize} src={src} alt={alt} withBorder={!cover} />
+              <BlurImageOnLoad
+                cloudinaryUrl={cloudinaryUrl}
+                aspectRatio={aspectRatio}
+                sizes={imgSize}
+                src={src}
+                alt={alt}
+                withBorder={!cover}
+              />
             ) : (
               <BlurImageOnLoad.WithSourceUrl
                 sourceUrl={sourceUrl}
+                cloudinaryUrl={cloudinaryUrl}
                 aspectRatio={aspectRatio}
                 sizes={imgSize}
                 src={src}

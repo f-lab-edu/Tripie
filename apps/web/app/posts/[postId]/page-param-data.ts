@@ -36,7 +36,11 @@ export async function pageParamData({ params }: ParamProps) {
     const id = (data as ArticleData)?.id;
     const images = (data as ArticleData).metadataContents?.image?.sizes?.full?.url;
 
-    if (images != null && !images?.startsWith(CLOUDINARY_URL())) {
+    if (
+      images != null &&
+      !images?.startsWith(CLOUDINARY_URL()) &&
+      !images?.startsWith('https://media.tripie-api.shop')
+    ) {
       const postRes: CloudinaryPostResponse = await backendApi
         .post('cloudinary', { json: { imageUrl: images } })
         .json();
@@ -52,8 +56,7 @@ export async function pageParamData({ params }: ParamProps) {
       metadataContents,
       description,
       body,
-      // images: recommendationImageUrl,
-      images: recommendationImageUrl.replace('https://res.cloudinary.com', 'https://media.tripie-api.shop'),
+      images: recommendationImageUrl?.replace('https://res.cloudinary.com', 'https://media.tripie-api.shop'),
     };
   }
 
@@ -62,10 +65,18 @@ export async function pageParamData({ params }: ParamProps) {
 
   const images = (data as AttractionArticle)?.source.image.sizes.full.url;
 
-  if (images != null && !images?.startsWith(CLOUDINARY_URL())) {
+  if (images != null && !images?.startsWith(CLOUDINARY_URL()) && !images?.startsWith('https://media.tripie-api.shop')) {
     const postRes: CloudinaryPostResponse = await backendApi.post('cloudinary', { json: { imageUrl: images } }).json();
     recommendationImageUrl += postRes.message;
   }
 
-  return { title, description, postId, path: key, articleId, data, images: recommendationImageUrl };
+  return {
+    title,
+    description,
+    postId,
+    path: key,
+    articleId,
+    data,
+    images: recommendationImageUrl?.replace('https://res.cloudinary.com', 'https://media.tripie-api.shop'),
+  };
 }

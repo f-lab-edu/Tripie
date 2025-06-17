@@ -2,7 +2,7 @@ import { Text } from '@core';
 import TripieContainer from '@core/layout/TripieContainer';
 
 import { ImgHTMLAttributes, useEffect, useState } from 'react';
-// import { CLOUDINARY_URL } from 'shared';
+import { CLOUDINARY_URL } from 'shared';
 import { classNames, Motion } from '../../../wrappers';
 import Style from './image.module.scss';
 
@@ -41,15 +41,15 @@ const BlurImageOnLoad = ({
   aspectRatio,
   className,
   alt,
+  cloudinaryUrl = CLOUDINARY_URL(),
   ...args
 }: ImageProps) => {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
-    // if (src != null && src.startsWith(CLOUDINARY_URL())) {
 
-    if (src != null && src.startsWith('https://res.cloudinary.com/')) {
+    if (src != null && src.startsWith(cloudinaryUrl)) {
       preloadImage(src)
         .then(() => {
           if (isMounted) setLoaded(true);
@@ -125,6 +125,7 @@ const ImageWithSourceUrl = ({
   withBorder = true,
   loading,
   aspectRatio = 'standard',
+  cloudinaryUrl = CLOUDINARY_URL(),
   ...args
 }: ImageWithSourceUrlProps) => {
   return (
@@ -136,6 +137,7 @@ const ImageWithSourceUrl = ({
         refs={refs}
         sizes={sizes}
         loading={loading}
+        cloudinaryUrl={cloudinaryUrl}
         aspectRatio={aspectRatio}
       />
       <Text className={cx('source-url', 'img-source')}>{`출처 ${sourceUrl}`}</Text>
