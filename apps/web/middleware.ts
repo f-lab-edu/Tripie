@@ -55,6 +55,12 @@ export default auth(async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL('/api/auth/signin', request.url));
   }
 
+  const hostname = request.headers.get('host') || '';
+
+  if (hostname.startsWith('media.')) {
+    console.log('hostname.startsWith media.');
+  }
+
   return NextResponse.next({
     request: {
       headers: requestHeaders,
