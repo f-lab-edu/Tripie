@@ -8,7 +8,7 @@ import Motion, {
   MotionVariants,
 } from './motion-wrapper';
 import { ReactCalendar, type CalendarProps, type LooseValue } from './react-calendar';
-
+import { InView, useInView } from './react-intersection-observer';
 import {
   Layer,
   Map,
@@ -32,6 +32,7 @@ import {
 // Type error: Re-exporting a type when 'isolatedModules' is enabled requires using 'export type'.
 export {
   classNames,
+  InView,
   Layer,
   Map,
   Marker as MapLibreMarker,
@@ -40,6 +41,7 @@ export {
   Popup,
   ReactCalendar,
   Source,
+  useInView,
   useMap,
   type CalendarProps,
   type LayerProps,

@@ -1,11 +1,13 @@
 'use client';
 
-import { Card, Globe } from '@tripie-pyotato/design-system/@components';
-import { classNames } from 'wrapper';
+import Card from '@tripie-pyotato/design-system/@components/Card';
+import Globe from '@tripie-pyotato/design-system/@components/Globe';
+import { classNames } from '@tripie-pyotato/design-system/@wrappers';
 
 import RegionList from './RegionList';
-import Style from './service-list.module.scss';
 import Subscription from './Subscription';
+
+import Style from './service-list.module.scss';
 
 const cx = classNames.bind(Style);
 

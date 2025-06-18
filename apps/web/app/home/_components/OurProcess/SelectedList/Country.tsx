@@ -1,18 +1,17 @@
 'use client';
-import { classNames } from 'wrapper';
-import Style from './shared/selected-list.module.scss';
+import { Button } from '@tripie-pyotato/design-system/@components/Button';
+import Icon from '@tripie-pyotato/design-system/@components/Icon';
+import Stack from '@tripie-pyotato/design-system/@core/Stack';
+import { classNames } from '@tripie-pyotato/design-system/@wrappers';
 
-import { Button, Icon } from '@tripie-pyotato/design-system/@components';
-import { Stack } from '@tripie-pyotato/design-system/@core';
-
+import NextButton from 'app/home/_components/OurProcess/SelectedList/shared/NextAnimatedButton';
 import useCountries from 'hooks/query/useCountries';
 import { Country } from 'models/Country';
 import { useMemo, useState } from 'react';
-
-import NextButton from 'app/home/_components/OurProcess/SelectedList/shared/NextAnimatedButton';
-
 import { regionNameToLocal } from 'utils/lang';
 import { SELECTED_CONTINENT_NAME, SELECTED_COUNTRY } from './constants/selected';
+
+import Style from './shared/selected-list.module.scss';
 
 const cx = classNames.bind(Style);
 

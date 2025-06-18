@@ -1,3 +1,5 @@
+'use client';
+
 import Accordion from '@tripie-pyotato/design-system/@components/Accordion';
 import MotionSlideUp from '@tripie-pyotato/design-system/@components/MotionSlideUp';
 import Background from '@tripie-pyotato/design-system/@core/Background';

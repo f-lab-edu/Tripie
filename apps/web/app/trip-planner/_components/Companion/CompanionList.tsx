@@ -1,7 +1,7 @@
 'use client';
 import { Chip } from '@tripie-pyotato/design-system/@components';
 import { Stack } from '@tripie-pyotato/design-system/@core';
-import { classNames } from 'wrapper';
+import { classNames } from '@tripie-pyotato/design-system/@wrappers';
 
 import COMPANION_LIST from 'constants/companions';
 import { ContinentKeys } from 'models/Continent';

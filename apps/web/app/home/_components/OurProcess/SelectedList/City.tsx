@@ -1,11 +1,13 @@
 'use client';
-import { Button, Icon } from '@tripie-pyotato/design-system/@components';
-import { Stack } from '@tripie-pyotato/design-system/@core';
-import { classNames } from 'wrapper';
-import Style from './shared/selected-list.module.scss';
+import { Button } from '@tripie-pyotato/design-system/@components/Button';
+import Icon from '@tripie-pyotato/design-system/@components/Icon';
+import Stack from '@tripie-pyotato/design-system/@core/Stack';
+import { classNames } from '@tripie-pyotato/design-system/@wrappers';
 
 import NextButton from 'app/home/_components/OurProcess/SelectedList/shared/NextAnimatedButton';
 import { KOR_CITIES, SELECTED_CITY } from './constants/selected';
+
+import Style from './shared/selected-list.module.scss';
 
 const cx = classNames.bind(Style);
 

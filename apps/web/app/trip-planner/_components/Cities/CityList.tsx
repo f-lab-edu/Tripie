@@ -2,8 +2,10 @@
 
 import { Chip } from '@tripie-pyotato/design-system/@components';
 import { Stack } from '@tripie-pyotato/design-system/@core';
+import { classNames } from '@tripie-pyotato/design-system/@wrappers';
+
 import { Dispatch, SetStateAction, useMemo } from 'react';
-import { classNames } from 'wrapper';
+
 import Style from './city-list.module.scss';
 
 const cx = classNames.bind(Style);

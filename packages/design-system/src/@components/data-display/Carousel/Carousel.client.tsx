@@ -1,15 +1,13 @@
 'use client';
-import { classNames } from '../../../wrappers';
+import { classNames, useInView } from '../../../wrappers';
 
 import { ReactElement, ReactNode, RefObject, useCallback, useEffect, useRef, useState } from 'react';
-import { useInView } from 'react-intersection-observer';
 
 import UnStyledButton from '../../inputs/TripieButton/UnStyled/UnStyledButton.client';
 
 import TripieContainer from '@core/layout/TripieContainer';
 import Icon from '../TripieIcon/Icon.client';
 import Style from './carousel.module.scss';
-
 const cx = classNames.bind(Style);
 
 const Carousel = ({ items, className }: { items: ReactElement[]; className?: string }) => {

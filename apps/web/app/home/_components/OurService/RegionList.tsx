@@ -2,7 +2,7 @@
 
 import { TRIPIE_REGION_BY_LOCATION, TRIPIE_REGION_IDS } from 'constants/tripie-country';
 
-import { Stack } from '@tripie-pyotato/design-system/@core';
+import Stack from '@tripie-pyotato/design-system/@core/Stack';
 import RegionCard, { RegionArticleData } from 'app/regions/_components/RegionCard';
 import useCountryArticle from 'hooks/query/useCountryArticles';
 import { Suspense, useMemo } from 'react';

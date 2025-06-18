@@ -7,13 +7,12 @@ import {
   Icon,
   MotionSlideUp,
 } from '@tripie-pyotato/design-system/@components';
-
 import { Background, Container, Stack, Text } from '@tripie-pyotato/design-system/@core';
+import { classNames } from '@tripie-pyotato/design-system/@wrappers';
 
 import { CONTINENTS } from 'constants/continents';
 import { TripPlanner } from 'models/Aws';
 import { useSession } from 'next-auth/react';
-import { classNames } from 'wrapper';
 import Clouds from './Clouds';
 import Style from './trip-planner.module.scss';
 

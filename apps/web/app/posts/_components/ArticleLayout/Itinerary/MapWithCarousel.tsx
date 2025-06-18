@@ -1,10 +1,10 @@
 'use client';
 
 import { Carousel, Chip, Divider, Icon } from '@tripie-pyotato/design-system/@components';
-import { Container, Stack } from '@tripie-pyotato/design-system/@core';
+import { Container, Stack } from '@tripie-pyotato/design-system/@core/layout';
+import { classNames } from '@tripie-pyotato/design-system/@wrappers';
 
 import { Dispatch, SetStateAction, createRef, useMemo, useRef } from 'react';
-import { classNames } from 'wrapper';
 
 import { Transport } from 'models/Itinery';
 import { MapWithCarouselProps } from 'models/Props';

@@ -1,8 +1,10 @@
 import { Card, Chip, MapPopup } from '@tripie-pyotato/design-system/@components';
 import { Stack, Table, Text } from '@tripie-pyotato/design-system/@core';
+import { classNames, useMap } from '@tripie-pyotato/design-system/@wrappers';
+
 import { Continentl } from 'models/Continentl';
+
 import { Dispatch, SetStateAction, useEffect, useMemo } from 'react';
-import { classNames, useMap } from 'wrapper';
 
 import Style from './countries.module.scss';
 

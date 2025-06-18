@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
-import Motion, { MotionProps } from '../../../wrappers/motion-wrapper';
+import { InView, Motion, MotionProps } from '../../../wrappers';
 
-import { InView } from 'react-intersection-observer';
 export type MotionSlideUpProps = Partial<MotionProps['animationProps']> & { children?: ReactNode; className?: string };
 
 const cardMotion = {

@@ -1,9 +1,10 @@
+import { classNames } from '@tripie-pyotato/design-system/@wrappers';
+
 import { AuthError } from 'next-auth';
 import { redirect } from 'next/navigation';
 import { providerMap, signIn } from '../../auth';
 import OAuthButton from './_components/OAuthButton';
 
-import { classNames } from 'wrapper';
 import Style from './sign-in.module.scss';
 
 const cx = classNames.bind(Style);

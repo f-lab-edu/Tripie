@@ -1,12 +1,13 @@
 'use client';
 
 import { AwsMap } from '@tripie-pyotato/design-system/@components/x';
+import { MapProvider } from '@tripie-pyotato/design-system/@wrappers';
+
 import { API_KEY } from 'constants/maps';
 import useItinerary from 'hooks/useItinerary';
 import { ItineraryProps } from 'models/Props';
 import { useMemo } from 'react';
 
-import { MapProvider } from 'wrapper';
 import MapWithCarousel from './MapWithCarousel';
 
 const ArticleItinerary = ({ item }: { item: ItineraryProps }) => {

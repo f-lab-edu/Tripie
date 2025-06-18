@@ -1,7 +1,8 @@
 'use client';
 
-import { Card } from '@tripie-pyotato/design-system/@components/surfaces';
-import { Stack, Text } from '@tripie-pyotato/design-system/@core';
+import Card from '@tripie-pyotato/design-system/@components/Card';
+import Stack from '@tripie-pyotato/design-system/@core/Stack';
+import Text from '@tripie-pyotato/design-system/@core/Text';
 import { ReactNode } from 'react';
 
 export default function ServiceCard({

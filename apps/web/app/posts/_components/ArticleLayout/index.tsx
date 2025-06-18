@@ -1,7 +1,7 @@
 'use client';
 import { BlurImageOnLoad, Card } from '@tripie-pyotato/design-system/@components';
 import { Container } from '@tripie-pyotato/design-system/@core';
-import { classNames } from 'wrapper';
+import { classNames } from '@tripie-pyotato/design-system/@wrappers';
 
 import { ReactNode } from 'react';
 import ArticleTitle from './ArticleTitle';

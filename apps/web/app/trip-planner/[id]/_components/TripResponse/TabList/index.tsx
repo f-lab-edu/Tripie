@@ -1,13 +1,12 @@
 'use client';
 
 import { Container, Stack } from '@tripie-pyotato/design-system/@core';
+import { classNames } from '@tripie-pyotato/design-system/@wrappers';
 
 import { TripContent } from 'models/Aws';
 import TabCard from '../TabCard';
 
 import Style from './tab-list.module.scss';
-
-import { classNames } from 'wrapper';
 
 const cx = classNames.bind(Style);
 

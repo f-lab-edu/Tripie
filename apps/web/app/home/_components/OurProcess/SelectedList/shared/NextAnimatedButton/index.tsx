@@ -1,9 +1,9 @@
 'use client';
-import { FlickTextButton, Icon } from '@tripie-pyotato/design-system/@components';
-import { Container } from '@tripie-pyotato/design-system/@core';
+import FlickTextButton from '@tripie-pyotato/design-system/@components/FlickTextButton';
+import Icon from '@tripie-pyotato/design-system/@components/Icon';
+import Container from '@tripie-pyotato/design-system/@core/Container';
+import { classNames, InView } from '@tripie-pyotato/design-system/@wrappers';
 import { ReactNode } from 'react';
-import { InView } from 'react-intersection-observer';
-import { classNames } from 'wrapper';
 import Style from './next-animated-button.module.scss';
 
 const cx = classNames.bind(Style);

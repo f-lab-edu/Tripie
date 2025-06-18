@@ -1,10 +1,9 @@
 'use client';
-import { Button, Icon } from '@tripie-pyotato/design-system/@components';
-import { Stack } from '@tripie-pyotato/design-system/@core';
-
-import { CONTINENTS } from 'constants/continents';
-
+import { Button } from '@tripie-pyotato/design-system/@components/Button';
+import Icon from '@tripie-pyotato/design-system/@components/Icon';
+import Stack from '@tripie-pyotato/design-system/@core/Stack';
 import NextButton from 'app/home/_components/OurProcess/SelectedList/shared/NextAnimatedButton';
+import { CONTINENTS } from 'constants/continents';
 import { ContinentKeys } from 'models/Continent';
 import { SELECTED_CONTINENT, SELECTED_CONTINENT_NAME } from './constants/selected';
 

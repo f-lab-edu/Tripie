@@ -1,7 +1,10 @@
 'use client';
 
-import { MotionSlideUp } from '@tripie-pyotato/design-system/@components';
-import { Background, Container, Headings, Text } from '@tripie-pyotato/design-system/@core';
+import MotionSlideUp from '@tripie-pyotato/design-system/@components/MotionSlideUp';
+import Background from '@tripie-pyotato/design-system/@core/Background';
+import Container from '@tripie-pyotato/design-system/@core/Container';
+import Headings from '@tripie-pyotato/design-system/@core/Headings';
+import Text from '@tripie-pyotato/design-system/@core/Text';
 
 import ROUTE from 'constants/routes';
 
@@ -36,11 +39,10 @@ export default function Contacts() {
               Get in <Text.Accented>touch</Text.Accented>
             </Headings.H2>
           </Container>
+          {Object.keys(contacts).map(key => (
+            <Contact key={key} sectionName={key} content={contacts[key as keyof typeof contacts]} />
+          ))}
         </MotionSlideUp>
-
-        {Object.keys(contacts).map(key => (
-          <Contact key={key} sectionName={key} content={contacts[key as keyof typeof contacts]} />
-        ))}
       </Container>
     </Background>
   );

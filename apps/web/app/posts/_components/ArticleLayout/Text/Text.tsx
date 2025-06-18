@@ -1,11 +1,16 @@
 'use client';
 
 import { Stack, Text } from '@tripie-pyotato/design-system/@core';
+import { classNames } from '@tripie-pyotato/design-system/@wrappers';
+
 import { ArticleTextProps } from 'models/Props';
 import decodeUnicodes from 'utils/string/decodeUnicodes';
-import { classNames, Markdown } from 'wrapper';
+import { Markdown } from 'wrapper/markdown-to-jsx';
+
 import Style from './text.module.scss';
+
 const cx = classNames.bind(Style);
+
 const ArticleText = ({ item }: { item: ArticleTextProps }) => {
   if (item.value.text == null) {
     return null;

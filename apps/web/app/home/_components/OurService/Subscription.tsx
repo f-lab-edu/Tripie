@@ -1,12 +1,15 @@
 'use client';
-import { Card, Chip, Switch } from '@tripie-pyotato/design-system/@components';
 import AccentedButton from '@tripie-pyotato/design-system/@components/AccentedButton';
-import { Container, Text } from '@tripie-pyotato/design-system/@core';
+import Card from '@tripie-pyotato/design-system/@components/Card';
+import Chip from '@tripie-pyotato/design-system/@components/Chip';
+import Switch from '@tripie-pyotato/design-system/@components/Switch';
+import Container from '@tripie-pyotato/design-system/@core/Container';
+import Text from '@tripie-pyotato/design-system/@core/Text';
+
 import { useCycle } from '@tripie-pyotato/design-system/@hooks';
 
 export default function Subscription() {
   const [current, cycle] = useCycle('off', 'on');
-
   return (
     <Card.Content>
       <Container margin="m" withBorder={true} applyMargin="bottom" gap="l" alignItems="center" padding="sm">

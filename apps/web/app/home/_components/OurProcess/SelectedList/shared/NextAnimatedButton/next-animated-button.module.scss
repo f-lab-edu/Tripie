@@ -1,5 +1,5 @@
-@use 'variables' as *;
 @use 'mixins' as *;
+@use 'variables/tripie-theme' as *;
 
 .text {
   min-width: 9rem;
@@ -33,17 +33,6 @@
   background: none;
   border: none;
 }
-// .with-border {
-//   width: 9rem;
-//   min-width: 9rem;
-//   @include with-border;
-// }
-
-// .with-no-border {
-//   width: 9rem;
-//   min-width: 9rem;
-//   @include with-border('false');
-// }
 
 .button:disabled {
   cursor: not-allowed;

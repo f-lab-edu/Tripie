@@ -1,11 +1,12 @@
 'use client';
 import { AwsMap, Carousel } from '@tripie-pyotato/design-system/@components';
 import { Container } from '@tripie-pyotato/design-system/@core';
+import { MapProvider } from '@tripie-pyotato/design-system/@wrappers';
+
 import { API_KEY } from 'constants/maps';
 import usePoi from 'hooks/usePoi';
 import { PoisProps } from 'models/Props';
 import { createRef, useEffect, useRef } from 'react';
-import { MapProvider } from 'wrapper';
 import PoiCard from './PoiCard';
 
 const PoiList = ({ item }: { item: PoisProps }) => {

@@ -1,8 +1,11 @@
 import { Chip } from '@tripie-pyotato/design-system/@components';
 import { Stack } from '@tripie-pyotato/design-system/@core';
+import { classNames } from '@tripie-pyotato/design-system/@wrappers';
+
 import PREFERENCE_LIST from 'constants/preferences';
+
 import { Dispatch, SetStateAction } from 'react';
-import { classNames } from 'wrapper';
+
 import { Preference } from '.';
 import Style from './preference-list.module.scss';
 

@@ -2,7 +2,7 @@
 
 import { FlickTextButton } from '@tripie-pyotato/design-system/@components';
 import { Stack } from '@tripie-pyotato/design-system/@core';
-import { classNames } from 'wrapper';
+import { classNames } from '@tripie-pyotato/design-system/@wrappers';
 
 import { TRIPIE_REGION_BY_LOCATION, TRIPIE_REGION_IDS } from 'constants/tripie-country';
 import { useRouter } from 'next/navigation';

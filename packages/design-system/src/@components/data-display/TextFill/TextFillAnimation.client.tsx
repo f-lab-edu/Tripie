@@ -1,7 +1,6 @@
 'use client';
-import { classNames, Motion, MotionProps } from '../../../wrappers';
+import { classNames, InView, Motion, MotionProps } from '../../../wrappers';
 
-import { InView } from 'react-intersection-observer';
 import { COLORS } from '../../../shared/colors';
 
 import { CustomAnimationProps } from '@components/surfaces/AnimatedCard';

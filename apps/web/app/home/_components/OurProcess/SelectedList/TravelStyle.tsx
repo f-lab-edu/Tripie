@@ -1,10 +1,10 @@
 'use client';
-import { Button, Icon } from '@tripie-pyotato/design-system/@components';
-import { Stack } from '@tripie-pyotato/design-system/@core';
 
-import PREFERENCE_LIST from 'constants/preferences';
-
+import { Button } from '@tripie-pyotato/design-system/@components/Button';
+import Icon from '@tripie-pyotato/design-system/@components/Icon';
+import Stack from '@tripie-pyotato/design-system/@core/Stack';
 import NextButton from 'app/home/_components/OurProcess/SelectedList/shared/NextAnimatedButton';
+import PREFERENCE_LIST from 'constants/preferences';
 import { SELECTED_PREFERENCE } from './constants/selected';
 
 const TravelStyleSelect = () => {

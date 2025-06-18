@@ -33,8 +33,12 @@ const RegionCard = ({
         sizes={'full'}
         imgSize={'full'}
         aspectRatio={'square'}
-        src={article.source.image.sizes.small_square.url}
+        src={article.source.image.sizes.small_square.url.replace(
+          'https://res.cloudinary.com',
+          'https://media.tripie-api.shop'
+        )}
         alt={alt}
+        cloudinaryUrl="https://media.tripie-api.shop"
       >
         <Card.Header size={'large'} bold={true}>
           <Text size="small">{article?.source?.title}</Text>

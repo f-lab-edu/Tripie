@@ -1,8 +1,16 @@
 'use client';
 
-import { Card, FlickTextButton, Icon } from '@tripie-pyotato/design-system/@components';
+import Card from '@tripie-pyotato/design-system/@components/Card';
+import FlickTextButton from '@tripie-pyotato/design-system/@components/FlickTextButton';
+import Icon from '@tripie-pyotato/design-system/@components/Icon';
 import MotionSlideUp from '@tripie-pyotato/design-system/@components/MotionSlideUp';
-import { Background, Container, Headings, List, Stack, Text } from '@tripie-pyotato/design-system/@core';
+import Background from '@tripie-pyotato/design-system/@core/Background';
+import Container from '@tripie-pyotato/design-system/@core/Container';
+import Headings from '@tripie-pyotato/design-system/@core/Headings';
+import List from '@tripie-pyotato/design-system/@core/List';
+import Stack from '@tripie-pyotato/design-system/@core/Stack';
+import Text from '@tripie-pyotato/design-system/@core/Text';
+
 import PLANS from 'app/home/_components/Plan/constants';
 
 export default function Plan() {

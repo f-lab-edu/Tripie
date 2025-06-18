@@ -1,6 +1,6 @@
 {
   "name": "@tripie-pyotato/design-system",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "description": "트리피에 사용되는 디자인 시스템",
   "main": "index.js",
   "type": "module",
@@ -105,11 +105,6 @@
       "import": "./dist/global.css",
       "require": "./dist/global.css",
       "default": "./dist/global.css"
-    },
-    "./variables": {
-      "import": "./dist/variables/index.css",
-      "require": "./dist/variables/index.css",
-      "default": "./dist/variables/index.css"
     },
     "./styles": {
       "import": "./dist/index.css",
@@ -256,16 +251,6 @@
         "default": "./dist/@components/data-display/AnimatedText/index.js"
       }
     },
-    "./@components/Tooltip": {
-      "require": {
-        "types": "./dist/@components/data-display/Tooltip/index.d.cts",
-        "default": "./dist/@components/data-display/Tooltip/index.cjs"
-      },
-      "import": {
-        "types": "./dist/@components/data-display/Tooltip/index.d.ts",
-        "default": "./dist/@components/data-display/Tooltip/index.js"
-      }
-    },
     "./@components/Carousel": {
       "require": {
         "types": "./dist/@components/data-display/Carousel/index.d.cts",
@@ -326,7 +311,17 @@
         "default": "./dist/@components/data-display/TextUnderlineAnimation/index.js"
       }
     },
-    "./@components/TripieIcon": {
+    "./@components/Tooltip": {
+      "require": {
+        "types": "./dist/@components/data-display/Tooltip/index.d.cts",
+        "default": "./dist/@components/data-display/Tooltip/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/data-display/Tooltip/index.d.ts",
+        "default": "./dist/@components/data-display/Tooltip/index.js"
+      }
+    },
+    "./@components/Icon": {
       "require": {
         "types": "./dist/@components/data-display/TripieIcon/index.d.cts",
         "default": "./dist/@components/data-display/TripieIcon/index.cjs"
@@ -334,6 +329,16 @@
       "import": {
         "types": "./dist/@components/data-display/TripieIcon/index.d.ts",
         "default": "./dist/@components/data-display/TripieIcon/index.js"
+      }
+    },
+    "./@components/Notification": {
+      "require": {
+        "types": "./dist/@components/feedback/Notification/index.d.cts",
+        "default": "./dist/@components/feedback/Notification/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/feedback/Notification/index.d.ts",
+        "default": "./dist/@components/feedback/Notification/index.js"
       }
     },
     "./@components/SplashScreen": {
@@ -346,14 +351,14 @@
         "default": "./dist/@components/feedback/SplashScreen/index.js"
       }
     },
-    "./@components/Notification": {
+    "./@components/Toast": {
       "require": {
-        "types": "./dist/@components/feedback/Notification/index.d.cts",
-        "default": "./dist/@components/feedback/Notification/index.cjs"
+        "types": "./dist/@components/feedback/Toast/index.d.cts",
+        "default": "./dist/@components/feedback/Toast/index.cjs"
       },
       "import": {
-        "types": "./dist/@components/feedback/Notification/index.d.ts",
-        "default": "./dist/@components/feedback/Notification/index.js"
+        "types": "./dist/@components/feedback/Toast/index.d.ts",
+        "default": "./dist/@components/feedback/Toast/index.js"
       }
     },
     "./@components/Switch": {
@@ -456,6 +461,16 @@
         "default": "./dist/@components/navigation/Menu/index.js"
       }
     },
+    "./@components/Accordion": {
+      "require": {
+        "types": "./dist/@components/surfaces/Accordion/index.d.cts",
+        "default": "./dist/@components/surfaces/Accordion/index.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/surfaces/Accordion/index.d.ts",
+        "default": "./dist/@components/surfaces/Accordion/index.js"
+      }
+    },
     "./@components/AnimatedCard": {
       "require": {
         "types": "./dist/@components/surfaces/AnimatedCard/index.d.cts",
@@ -496,16 +511,6 @@
         "default": "./dist/@components/surfaces/Card/index.js"
       }
     },
-    "./@components/Accordion": {
-      "require": {
-        "types": "./dist/@components/surfaces/Accordion/index.d.cts",
-        "default": "./dist/@components/surfaces/Accordion/index.cjs"
-      },
-      "import": {
-        "types": "./dist/@components/surfaces/Accordion/index.d.ts",
-        "default": "./dist/@components/surfaces/Accordion/index.js"
-      }
-    },
     "./@components/Calendar": {
       "require": {
         "types": "./dist/@components/x/Calendar/index.d.cts",
@@ -514,16 +519,6 @@
       "import": {
         "types": "./dist/@components/x/Calendar/index.d.ts",
         "default": "./dist/@components/x/Calendar/index.js"
-      }
-    },
-    "./@components/Toast": {
-      "require": {
-        "types": "./dist/@components/feedback/Toast/index.d.cts",
-        "default": "./dist/@components/feedback/Toast/index.cjs"
-      },
-      "import": {
-        "types": "./dist/@components/feedback/Toast/index.d.ts",
-        "default": "./dist/@components/feedback/Toast/index.js"
       }
     },
     "./@components/Globe": {

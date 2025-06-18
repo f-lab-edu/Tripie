@@ -1,8 +1,9 @@
 'use client';
 import { AnimatedCard, Card } from '@tripie-pyotato/design-system/@components';
 import { Stack, Text } from '@tripie-pyotato/design-system/@core';
+import { useMap } from '@tripie-pyotato/design-system/@wrappers';
+
 import { RefObject, useEffect } from 'react';
-import { useMap } from 'wrapper';
 
 import useImgAlt from 'hooks/useImgAlt';
 

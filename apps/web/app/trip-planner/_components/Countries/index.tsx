@@ -1,6 +1,8 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { Icon, NavigationButton } from '@tripie-pyotato/design-system/@components';
 import { Container, Text } from '@tripie-pyotato/design-system/@core';
+import { classNames } from '@tripie-pyotato/design-system/@wrappers';
+
 import firestoreService from 'app/api/firebase';
 
 import { FunnelProps, FunnelSteps } from 'app/trip-planner/page';
@@ -11,7 +13,6 @@ import { Continentl } from 'models/Continentl';
 import { Country } from 'models/Country';
 import { useState } from 'react';
 import Loading from 'shared/components/Loading';
-import { classNames } from 'wrapper';
 import Layout from '../Layout/Layout';
 import Style from './countries.module.scss';
 import { CountryList } from './CountryList';

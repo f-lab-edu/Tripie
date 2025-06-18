@@ -1,11 +1,12 @@
 'use client';
 import { AnimatedButton, Icon, TextUnderLineAnimation } from '@tripie-pyotato/design-system/@components';
 import { Background, Container, Headings, Stack, Text } from '@tripie-pyotato/design-system/@core';
+import { classNames } from '@tripie-pyotato/design-system/@wrappers';
+
 import RegionSelect from 'app/home/_components/OurService/RegionList';
 import ROUTE from 'constants/routes';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { classNames } from 'wrapper';
 import Style from './contact-admin.module.scss';
 
 const cx = classNames.bind(Style);

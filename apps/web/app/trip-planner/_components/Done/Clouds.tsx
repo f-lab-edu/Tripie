@@ -1,8 +1,10 @@
 'use client';
 import { Icon } from '@tripie-pyotato/design-system/@components';
 import { Container } from '@tripie-pyotato/design-system/@core';
+import { classNames } from '@tripie-pyotato/design-system/@wrappers';
+
 import { ReactNode } from 'react';
-import { classNames } from 'wrapper';
+
 import Style from './trip-planner.module.scss';
 
 const cx = classNames.bind(Style);

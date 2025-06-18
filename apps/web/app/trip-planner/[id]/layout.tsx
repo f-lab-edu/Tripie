@@ -1,8 +1,8 @@
-// import Container from '@tripie-pyotato/design-system/@core/Container';
-import { Container } from '@tripie-pyotato/design-system/@core';
+import Container from '@tripie-pyotato/design-system/@core/Container';
+import { classNames } from '@tripie-pyotato/design-system/@wrappers';
+
 import { ReactNode } from 'react';
 
-import { classNames } from 'wrapper';
 import Style from './sign-in.module.scss';
 
 const cx = classNames.bind(Style);

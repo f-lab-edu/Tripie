@@ -1,16 +1,17 @@
 'use client';
-import 'maplibre-gl/dist/maplibre-gl.css';
-import { classNames } from 'wrapper';
-import Style from './trip-results.module.scss';
-
-import { AI_PLAN } from '../constants/selected';
-
-import { Carousel, Chip } from '@tripie-pyotato/design-system/@components';
+import Carousel from '@tripie-pyotato/design-system/@components/Carousel';
+import Chip from '@tripie-pyotato/design-system/@components/Chip';
 import { AwsMap } from '@tripie-pyotato/design-system/@components/x';
-import { Container, Stack, Text } from '@tripie-pyotato/design-system/@core';
+import Container from '@tripie-pyotato/design-system/@core/Container';
+import Stack from '@tripie-pyotato/design-system/@core/Stack';
+import Text from '@tripie-pyotato/design-system/@core/Text';
+import { classNames } from '@tripie-pyotato/design-system/@wrappers';
+
 import TabList from 'app/trip-planner/[id]/_components/TripResponse/TabList';
 import { API_KEY } from 'constants/maps';
 import useAwsMap from 'hooks/awsMap/useAwsMap';
+import { AI_PLAN } from '../constants/selected';
+import Style from './trip-results.module.scss';
 
 const cx = classNames.bind(Style);
 

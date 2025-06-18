@@ -1,6 +1,7 @@
-import { Card } from '@tripie-pyotato/design-system/@components';
-import { Headings, Stack, Text } from '@tripie-pyotato/design-system/@core';
-
+import Card from '@tripie-pyotato/design-system/@components/Card';
+import Headings from '@tripie-pyotato/design-system/@core/Headings';
+import Stack from '@tripie-pyotato/design-system/@core/Stack';
+import Text from '@tripie-pyotato/design-system/@core/Text';
 import { Process } from '.';
 
 export default function OurProcessCard({ content, description, label, index }: Readonly<Process>) {

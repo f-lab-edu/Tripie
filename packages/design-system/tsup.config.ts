@@ -100,6 +100,7 @@ export default defineConfig(options => [
         './src/@components/inputs/index.ts',
         './src/@components/inputs/Switch/index.ts',
         './src/@components/inputs/TripieButton/index.ts',
+        './src/@components/inputs/TripieButton/Button.client.tsx',
         './src/@components/inputs/TripieButton/Accented/index.ts',
         './src/@components/inputs/TripieButton/Animated/index.ts',
         './src/@components/inputs/TripieButton/Flick/index.ts',
