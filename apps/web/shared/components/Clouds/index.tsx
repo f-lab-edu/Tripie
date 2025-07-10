@@ -1,17 +1,15 @@
 'use client';
 import { Icon } from '@tripie-pyotato/design-system/@components';
 import { Container } from '@tripie-pyotato/design-system/@core';
-import { classNames } from '@tripie-pyotato/design-system/@wrappers';
-
+import classNames from 'classnames/bind';
 import { ReactNode } from 'react';
-
-import Style from './trip-planner.module.scss';
+import Style from './cloud.module.scss';
 
 const cx = classNames.bind(Style);
 
 const Clouds = ({ rows = 1, length = 13, children }: { rows?: number; length?: number; children?: ReactNode }) => {
   return (
-    <Container className={cx('cloud-wrap')}>
+    <Container margin="none" padding="none" className={cx('cloud-wrap')}>
       {children}
       {Array.from({ length: rows }, (_, rowIndex) => (
         <Container key={rowIndex + 'cloud-row'} margin="none" padding="none" zIndex="hide">

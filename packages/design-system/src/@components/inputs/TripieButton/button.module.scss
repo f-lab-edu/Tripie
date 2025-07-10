@@ -52,13 +52,18 @@ $btn-padding-map: (
   }
 }
 
-$theme-color: (default);
+$theme-color-list: (default, chip);
 
-@each $theme-color in $theme-color {
-  .btn-color-variant-#{$theme-color} {
-    @if ($theme-color==default) {
+@each $color in $theme-color-list {
+  .btn-color-variant-#{$color} {
+    @if $color == default {
       @include theme-color('background', inherit);
       @include theme-color('border', $border-accent);
+      @include theme-color('font', inherit);
+    }
+    @if $color == chip {
+      @include theme-color('background', $theme-200);
+      @include theme-color('border', $theme-400);
       @include theme-color('font', inherit);
     }
   }

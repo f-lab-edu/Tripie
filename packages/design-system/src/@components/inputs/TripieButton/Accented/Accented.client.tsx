@@ -16,15 +16,18 @@ const AccentedButton = ({
   type = 'button',
   sizes = 'medium',
   disabled,
-  colorVariant = 'default',
-  ...args
+  colorVariant = 'chip',
 }: AccentedButtonProps) => {
-  console.log(args);
   return (
-    <Motion.Div variants={GLOW_VARIANT} whileHover={'glow'} className={cx('wrap')}>
+    <Motion.Div
+      variants={GLOW_VARIANT}
+      whileHover={'glow'}
+      animate={current === 'on' ? 'glow' : 'rest'}
+      className={cx('wrap')}
+    >
       <Button
         initial={'rest'}
-        className={cx('btn-wrap', current === 'on' ? 'selected' : 'chip', className)}
+        className={cx('btn-wrap', 'chip', className)}
         variants={GLOW_VARIANT}
         whileHover={'glow'}
         onClick={onClick}
@@ -33,6 +36,7 @@ const AccentedButton = ({
         colorVariant={colorVariant}
         disabled={disabled}
         sizes={sizes}
+        selected={current === 'on'}
       >
         {children}
       </Button>

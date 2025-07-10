@@ -6,7 +6,7 @@ import COMPANION_LIST from 'constants/companions';
 
 import { FunnelProps, FunnelSteps } from 'app/trip-planner/page';
 import { useCallback, useState } from 'react';
-import Clouds from '../Done/Clouds';
+import Clouds from '../../../../shared/components/Clouds';
 import Layout from '../Layout/Layout';
 import CompanionList from './CompanionList';
 

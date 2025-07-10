@@ -1,16 +1,13 @@
 @use '../../../../variables/tripie-theme' as *;
 @use '../../../../mixins/z-index' as *;
+@use '../../../../mixins/shape' as *;
 
 .menu-toggle {
   display: inline-flex;
-  border-bottom-width: 1px;
-  border-color: $theme-400;
-  border-left-width: 1px;
-  border-right-width: 1px;
+  border: 1px solid $theme-400;
   border-style: solid;
-  border-top-width: 1px;
   backdrop-filter: blur(10px);
-  border-radius: 50%;
+  @include shape(circle, true);
   transform: none;
   transform-origin: 50% 50% 100px;
   will-change: auto;

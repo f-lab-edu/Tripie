@@ -1,15 +1,11 @@
-import { Chip } from '@tripie-pyotato/design-system/@components';
+import { Button } from '@tripie-pyotato/design-system/@components';
 import { Stack } from '@tripie-pyotato/design-system/@core';
-import { classNames } from '@tripie-pyotato/design-system/@wrappers';
 
 import PREFERENCE_LIST from 'constants/preferences';
 
 import { Dispatch, SetStateAction } from 'react';
 
 import { Preference } from '.';
-import Style from './preference-list.module.scss';
-
-const cx = classNames.bind(Style);
 
 interface Props {
   selected: Array<Preference> | [];
@@ -34,14 +30,15 @@ const PreferenceList = ({ selected, setSelected }: Props) => {
   return (
     <Stack display="grid" margin="none" cols={2} gap="l" gridWrapOn={{ 'wrap-sm': 1 }} gridRepeat={{ 'wrap-md': 4 }}>
       {Object.values(PREFERENCE_LIST).map((tagName, index) => (
-        <Chip
+        <Button
+          sizes={'large'}
+          colorVariant={'chip'}
           key={tagName.tag}
-          className={cx('chip')}
           selected={new Set(selected).has(Object.keys(PREFERENCE_LIST)[index] as keyof typeof PREFERENCE_LIST)}
           onClick={() => handleSelect(index)}
         >
           {tagName.tag}
-        </Chip>
+        </Button>
       ))}
     </Stack>
   );

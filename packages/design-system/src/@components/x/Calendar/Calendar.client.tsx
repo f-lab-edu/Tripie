@@ -1,10 +1,11 @@
 'use client';
-
+import 'react-calendar/dist/Calendar.css';
 import { LooseValue } from 'wrappers/react-calendar';
 
 import TripieContainer from '@core/layout/TripieContainer';
 import { yearlyCalendar } from '@tripie-pyotato/utils/@date';
 import { useMemo } from 'react';
+
 import { classNames } from 'shared';
 import Style from './calendar.module.scss';
 import CalendarBody, { CustomCalendarProps } from './CalendarBody.client';

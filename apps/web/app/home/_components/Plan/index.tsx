@@ -26,7 +26,7 @@ export default function Plan() {
           {Object.keys(PLANS).map(key => (
             <Card key={PLANS[key].label} margin="none" sizes="full" padding="m">
               <Card.Header margin="none">
-                <Stack direction="column" margin="none">
+                <Stack direction="column" margin="none" alignItems="start">
                   <Text size="tiny" noGapUnderText={true}>
                     {PLANS[key].label}
                   </Text>
@@ -42,9 +42,9 @@ export default function Plan() {
               <Card.Content>
                 <List view={'column'} gap={'default'}>
                   {PLANS[key].items.map(({ label, description, icon }) => (
-                    <List.Item gap={'default'} justifyContent={'flex-start'} alignItems={'center'} key={label}>
+                    <List.Item justifyContent={'flex-start'} alignItems={'center'} key={label}>
                       {icon === 'X' ? <Icon.X /> : <Icon.Check />}
-                      <Text crossOut={icon === 'X'}>{description}</Text>
+                      <Text crossOut={icon === 'X'}> {description}</Text>
                     </List.Item>
                   ))}
                 </List>

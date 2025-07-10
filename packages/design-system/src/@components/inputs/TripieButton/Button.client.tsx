@@ -1,4 +1,6 @@
-import { ReactNode } from 'react';
+'use client';
+import { ReactNode, useMemo } from 'react';
+import { COLORS, SHINE_VARIANT } from 'shared';
 import { classNames, Motion, MotionProps } from 'wrappers';
 import { HTMLMotionPropsWithoutMotion } from 'wrappers/motion-wrapper';
 import Style from './button.module.scss';
@@ -18,7 +20,7 @@ export type TripieButtonProps = {
   initial?: boolean | MotionProps['VariantLabels'];
   variants?: MotionProps['variants'];
   withBorder?: boolean;
-  colorVariant?: 'default';
+  colorVariant?: 'default' | 'chip';
   stretched?: boolean;
   animate?:
     | boolean
@@ -29,11 +31,18 @@ export type TripieButtonProps = {
   whileHover?: MotionProps['TargetAndTransition'] | MotionProps['VariantLabels'];
 } & Partial<HTMLMotionPropsWithoutMotion<'button'>>;
 
+const btnColor = {
+  chip: COLORS[200],
+  default: 'inherit',
+  disabled: COLORS[800],
+  active: COLORS[300],
+  selected: COLORS[100],
+};
+
 const Button = ({
-  variants,
+  variants = SHINE_VARIANT,
   initial,
   className,
-  whileHover,
   onClick,
   type,
   sizes = 'medium',
@@ -42,17 +51,27 @@ const Button = ({
   selected = false,
   disabled,
   withBorder = true,
-  whileTap,
+  whileHover = 'shine',
+  whileTap = 'shine',
   stretched = true,
-  animate,
+  animate = selected ? 'selected' : 'rest',
   onTap,
   ...args
 }: TripieButtonProps) => {
+  const buttonBackground = useMemo(() => {
+    if (disabled) {
+      return 'disabled';
+    }
+    if (selected) {
+      return 'selected';
+    }
+    return colorVariant;
+  }, [disabled, colorVariant, selected]);
+
   return (
     <Motion.Button
       onTap={onTap}
       animate={animate}
-      whileTap={whileTap}
       initial={initial}
       className={cx(
         'button',
@@ -64,8 +83,10 @@ const Button = ({
         stretched ? 'stretched' : '',
         className
       )}
+      style={{ backgroundColor: btnColor[buttonBackground] }}
       disabled={disabled}
       variants={variants}
+      whileTap={whileTap}
       whileHover={whileHover}
       onClick={onClick}
       type={type}

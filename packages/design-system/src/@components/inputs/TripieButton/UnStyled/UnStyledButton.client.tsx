@@ -18,6 +18,7 @@ const UnStyledButton = ({
   margin = 'none',
   justifyContent = 'center',
   gap,
+  withBorder = false,
   ...args
 }: Partial<TripieContainerProps> & {
   onclick?: () => void | Promise<unknown>;
@@ -36,6 +37,7 @@ const UnStyledButton = ({
         `margins_${margin}_to_${applyMargin}`,
         `justify-content-${justifyContent}`,
         `gap-${gap}`,
+        `with-${!withBorder ? '-no' : ''}border`,
         className
       )}
       {...args}

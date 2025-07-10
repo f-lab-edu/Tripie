@@ -49,18 +49,24 @@ const MapWithCarousel = ({
                 zIndex="base"
                 margin="none"
                 direction="row"
+                display="inline-flex"
                 justifyContent="right"
                 key={value.duration + value.transportation + index}
               >
-                <Stack justifyContent="space-between" margin="none">
+                <Stack justifyContent="space-between" margin="none" display="inline-flex">
                   {index === 0 ? <Icon.Transport active={false} type={'FLAG'} /> : null}
-                  <Container margin="none" justifyContent="flex-end">
+                  <Container margin="none" justifyContent="flex-end" display="inline-flex">
                     <Chip selected={current === `0-${index}`} className={cx('chip')}>
                       {schedule[index] != '' ? schedule[index] : index + 1}
                     </Chip>
                   </Container>
                   {index <= pois.length - 1 ? (
-                    <Container margin="none" justifyContent="flex-end" className={cx('transport')}>
+                    <Container
+                      margin="none"
+                      justifyContent="flex-end"
+                      className={cx('transport')}
+                      display="inline-flex"
+                    >
                       {value.transportation != null ? (
                         <Icon.Transport
                           active={current === `0-${index}`}
@@ -72,7 +78,7 @@ const MapWithCarousel = ({
                       {value.duration}
                     </Container>
                   ) : (
-                    <Container margin="none" justifyContent={'flex-end'}>
+                    <Container margin="none" justifyContent={'flex-end'} display="inline-flex">
                       <Icon.Transport active={false} type={'FLAG'} />
                     </Container>
                   )}
@@ -81,13 +87,13 @@ const MapWithCarousel = ({
             ))}
 
             {index >= pois.length - 1 ? (
-              <Container margin="none" alignItems={'center'}>
-                <Container margin="none" justifyContent="flex-end">
+              <Container margin="none" alignItems={'center'} display="inline-flex">
+                <Container margin="none" justifyContent="flex-end" display="inline-flex">
                   <Chip selected={current === `0-${index}`} className={cx('chip')}>
                     {schedule[index] != '' ? schedule[index] : index + 1}
                   </Chip>
                 </Container>
-                <Container margin="none" justifyContent={'flex-end'}>
+                <Container margin="none" justifyContent={'flex-end'} display="inline-flex">
                   <Icon.Transport active={false} type={'FLAG'} />
                 </Container>
               </Container>

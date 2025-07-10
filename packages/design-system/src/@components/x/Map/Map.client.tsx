@@ -1,6 +1,7 @@
 'use client';
 
 import 'maplibre-gl/dist/maplibre-gl.css';
+
 import { CSSProperties, Dispatch, ReactNode, SetStateAction } from 'react';
 import { LngLatBoundsLike, Map, PaddingOptions, PointLike, ViewState } from '../../../wrappers';
 import Lines from '../Lines/Lines.client';
@@ -13,7 +14,7 @@ export type Activity = {
   activity: string;
   comments: string;
   place: string;
-  label: 'attraction' | 'hotel' | 'restaurant';
+  label: 'attraction' | 'hotel' | 'restaurant' | 'other';
   coordinates?: number[];
 };
 

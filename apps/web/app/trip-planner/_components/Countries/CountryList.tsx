@@ -26,9 +26,7 @@ export function CountryList({ countries, selectedCountry, setSelectedCountry }: 
           if (country === 'all') {
             return countries;
           } else {
-            const filtered = countries?.filter((place: Continentl) => place.id === country);
-
-            return filtered;
+            return countries?.filter((place: Continentl) => place.id === country);
           }
         }),
     });

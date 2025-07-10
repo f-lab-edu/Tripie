@@ -10,7 +10,7 @@ const ArticleNote = ({ item }: { item: NoteProps }) => {
     <Container key={item.value.body} withBorder={true} padding="m" applyMargin="top-bottom">
       <Headings.H3>{item.value.title}</Headings.H3>
       <Stack applyMargin="top-bottom" alignItems="start" direction="column" gap="sm">
-        <Text display="block">{decodedStr}</Text>
+        <Text display="inline-block">{decodedStr}</Text>
       </Stack>
     </Container>
   );

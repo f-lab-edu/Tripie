@@ -1,5 +1,5 @@
-import { Card, Chip, MapPopup } from '@tripie-pyotato/design-system/@components';
-import { Stack, Table, Text } from '@tripie-pyotato/design-system/@core';
+import { Card, MapPopup } from '@tripie-pyotato/design-system/@components';
+import { Container, Stack, Table, Text } from '@tripie-pyotato/design-system/@core';
 import { classNames, useMap } from '@tripie-pyotato/design-system/@wrappers';
 
 import { Continentl } from 'models/Continentl';
@@ -66,13 +66,13 @@ const CountryInfoPopup = ({
               margin="none"
             >
               {officialLanguage.map((language: string) => (
-                <Chip key={language} className={cx('chip')}>
+                <Container key={language} padding="xsm" margin="none" withBorder={true} alignItems="center">
                   {language}
-                </Chip>
+                </Container>
               ))}
             </Stack>
           ) : null,
-        width: 30,
+        width: 40,
       },
     ];
   }, [capital, officialLanguage]);
@@ -83,13 +83,13 @@ const CountryInfoPopup = ({
       coordinates={coordinates}
       onClose={() => setShowPopup(false)}
       content={
-        <Card.Description padding={'sm'}>
+        <Card.Description padding={'sm'} className={cx('map-popup-content')}>
           <Table applyMargin="top" margin="m" padding="none">
             <Table.Body>
               {columns.map(col => {
                 return (
                   <Table.Row key={col.headerName} applyPadding="bottom" padding="m">
-                    <Table.Data width={col.width} margin="none" padding="none">
+                    <Table.Data width={col.width} margin="none" padding="sm" applyPadding="right">
                       <Text.Accented bold={true} className={cx('header-name')}>
                         {col.headerName}
                       </Text.Accented>

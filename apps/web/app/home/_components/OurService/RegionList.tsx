@@ -3,10 +3,11 @@
 import { TRIPIE_REGION_BY_LOCATION, TRIPIE_REGION_IDS } from 'constants/tripie-country';
 
 import Stack from '@tripie-pyotato/design-system/@core/Stack';
+
 import RegionCard, { RegionArticleData } from 'app/regions/_components/RegionCard';
 import useCountryArticle from 'hooks/query/useCountryArticles';
 import { Suspense, useMemo } from 'react';
-import Loading from 'shared/components/Loading';
+// import Loading from 'shared/components/Loading';
 
 const RegionList = () => {
   // const [splash, setSplash] = useState(false);
@@ -31,15 +32,18 @@ const RegionList = () => {
 
   const { data } = useCountryArticle() as unknown as { data: RegionArticleData[] };
 
+  // if (data == null) {
+  //   return <Loading />;
+  // }
   if (data == null) {
-    return <Loading />;
+    return <>...</>;
   }
 
   if (data.length === 0) {
     return <>no items...</>;
   }
   return (
-    <Suspense fallback={<Loading />}>
+    <Suspense fallback={<>loading...</>}>
       {/* {splash ? <Loading.SemiTransparent loading={splash} /> : null} */}
       <Stack
         cols={2}

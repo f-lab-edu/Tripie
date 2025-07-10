@@ -1,7 +1,5 @@
 'use server';
 
-import Container from '@tripie-pyotato/design-system/@core/Container';
-
 import '@tripie-pyotato/design-system/global';
 
 import getRegionArticles from 'app/api/articles/region';
@@ -33,12 +31,10 @@ export default async function Layout({
   list: ReactNode;
 }>) {
   return (
-    <Container margin="xl" applyMargin="top">
-      <Container applyPadding="left-right" padding="m" margin="none">
-        {children}
-        {select}
-        {list}
-      </Container>
-    </Container>
+    <>
+      {children}
+      {select}
+      {list}
+    </>
   );
 }

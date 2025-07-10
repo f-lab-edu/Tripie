@@ -23,7 +23,7 @@ const ExternalLinkCard = ({ link, index }: { link: ExternalLink; index: number }
             cloudinaryUrl={'https://media.tripie-api.shop'}
           />
           <Card.Content margin="none">
-            <ArticleHeading item={{ type: 'heading3', value: { text: link.title } }} />
+            <ArticleHeading item={{ type: 'heading4', value: { text: link.title } }} />
             <ArticleText item={{ type: 'text', value: { text: link.publisher } }} />
           </Card.Content>
         </Stack>

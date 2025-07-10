@@ -2,7 +2,8 @@
 import { Button } from '@tripie-pyotato/design-system/@components/Button';
 import Icon from '@tripie-pyotato/design-system/@components/Icon';
 import Stack from '@tripie-pyotato/design-system/@core/Stack';
-import { classNames } from '@tripie-pyotato/design-system/@wrappers';
+// import { classNames } from '@tripie-pyotato/design-system/@wrappers';
+import { classNames } from '../../../../../wrapper/classNames';
 
 import NextButton from 'app/home/_components/OurProcess/SelectedList/shared/NextAnimatedButton';
 import useCountries from 'hooks/query/useCountries';

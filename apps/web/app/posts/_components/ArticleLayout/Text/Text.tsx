@@ -22,10 +22,12 @@ const ArticleText = ({ item }: { item: ArticleTextProps }) => {
       className={cx('text-break-line')}
       applyMargin="top-bottom"
       key={decodedStr}
+      alignItems="start"
       direction={'column'}
       margin="none"
     >
-      <Text display={'block'}>
+      {/* <Text display={'block'}> */}
+      <Text display={'inline-block'}>
         {item.value.markdownText != null ? (
           <Markdown>{item.value.markdownText.replaceAll('트리플', 'Tripie')}</Markdown>
         ) : (

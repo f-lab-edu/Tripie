@@ -21,7 +21,14 @@ export default function OurWork() {
                   <Text.Accented size="tiny" noGapUnderText={true}>
                     {year}
                   </Text.Accented>
-                  <Container margin="sm" alignItems="center" applyMargin="bottom" justifyContent="start" gap="default">
+                  <Container
+                    display="inline-flex"
+                    margin="sm"
+                    alignItems="center"
+                    applyMargin="bottom"
+                    justifyContent="start"
+                    gap="sm"
+                  >
                     <Text size="h3" noGapUnderText={true} bold={true}>
                       {header}
                     </Text>

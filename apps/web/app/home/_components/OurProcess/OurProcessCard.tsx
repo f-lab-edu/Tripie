@@ -1,6 +1,7 @@
 import Card from '@tripie-pyotato/design-system/@components/Card';
 import Headings from '@tripie-pyotato/design-system/@core/Headings';
 import Stack from '@tripie-pyotato/design-system/@core/Stack';
+
 import Text from '@tripie-pyotato/design-system/@core/Text';
 import { Process } from '.';
 
@@ -15,7 +16,7 @@ export default function OurProcessCard({ content, description, label, index }: R
           {label != null ? (
             <Headings.H3>
               {index != null ? (
-                <Text.Accented>{index.toString.length === 1 ? '0' + (index + 1) : index + 1}. </Text.Accented>
+                <Text.Accented>{index.toString.length === 1 ? '0' + (index + 1) : index + 1}.&nbsp;</Text.Accented>
               ) : null}
               {label}
             </Headings.H3>

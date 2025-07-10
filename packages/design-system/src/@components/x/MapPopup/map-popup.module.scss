@@ -1,0 +1,19 @@
+@use '../../../variables/tripie-theme' as *;
+
+:global(.maplibregl-popup-content) {
+  background-color: $theme-700 !important;
+  min-width: max-content;
+}
+
+:global(.maplibregl-popup-anchor-bottom .maplibregl-popup-tip) {
+  align-self: center;
+  border-bottom: none;
+  border-top-color: $theme-700 !important;
+}
+
+:global(.maplibregl-popup-close-button) {
+  color: $theme-50 !important;
+}
+.tripie-popup {
+  font-family: inherit;
+}

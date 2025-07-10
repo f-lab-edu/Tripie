@@ -1,4 +1,5 @@
 @use '../../../../mixins/z-index' as *;
+@use '../../../../mixins/background' as *;
 
 .background {
   align-items: center;
@@ -15,8 +16,9 @@
 
 .gradient-bottom {
   inset: 0;
+  @include z-index(base);
+  @include background('7');
   overflow: hidden;
   position: absolute;
-  @include z-index(base);
   height: inherit;
 }

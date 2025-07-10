@@ -8,12 +8,12 @@ import {
   MotionSlideUp,
 } from '@tripie-pyotato/design-system/@components';
 import { Background, Container, Stack, Text } from '@tripie-pyotato/design-system/@core';
-import { classNames } from '@tripie-pyotato/design-system/@wrappers';
+import { classNames } from '../../.../../../../wrapper/classNames';
 
 import { CONTINENTS } from 'constants/continents';
 import { TripPlanner } from 'models/Aws';
 import { useSession } from 'next-auth/react';
-import Clouds from './Clouds';
+import Clouds from '../../../../shared/components/Clouds';
 import Style from './trip-planner.module.scss';
 
 const cx = classNames.bind(Style);
@@ -61,10 +61,18 @@ export default function LoadingContents({ context }: Readonly<{ context: TripPla
   const delays = Array.from({ length: selectedOptions.length }, (_, i) => i * 0.01 + 0.05);
 
   return (
-    <Background variant={0} gap="default" padding="m">
-      <Clouds.WithPlane />
-      <Stack gap="l" direction="column" margin="none">
-        <Card.Description margin="xl" applyMargin="left-right" padding="l" className={cx('card-wrap')}>
+    <Background variant={0} gap="default" padding="m" margin="none">
+      <Stack gap="l" direction="column" margin="xl" applyMargin="top">
+        <Card.Description margin="none" padding="m" className={cx('card-wrap')}>
+          <Container className={cx('cloud-wrap', 'top15')} margin="none">
+            <Clouds />
+          </Container>
+          <Container className={cx('cloud-wrap', 'top60')} margin="none">
+            <Clouds.WithPlane />
+          </Container>
+          <Container className={cx('cloud-wrap', 'top90')} margin="none">
+            <Clouds />
+          </Container>
           <AnimatedContainer scrollY={'-50%'}>
             {selectedOptions.map((text, index) => (
               <Stack key={text.prompt} zIndex="mask" direction="column" margin="none">
@@ -108,7 +116,7 @@ export default function LoadingContents({ context }: Readonly<{ context: TripPla
             ))}
           </AnimatedContainer>
         </Card.Description>
-        <Card.Description margin="xl" padding="m" applyMargin={'left-right'} justifyContent={'center'}>
+        <Card.Description margin="none" padding="m" justifyContent={'center'}>
           <Text bold={true}>
             <Icon.Loading sizes="large" />
             <AnimatedText.Jump>여행&nbsp;일정&nbsp;생성&nbsp;중...</AnimatedText.Jump>

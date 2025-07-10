@@ -12,11 +12,24 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  turbopack: {},
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles'), path.join(__dirname, '../../packages/design-system/src')],
     silenceDeprecations: ['legacy-js-api'],
   },
 
+  // webpack(config) {
+  //   config.module.rules.push({
+  //     test: /\.css$/,
+  //     include: [path.resolve(__dirname, 'node_modules/@tripie-pyotato/design-system')],
+  //     use: [
+  //       'style-loader', // injects CSS into the DOM
+  //       'css-loader', // resolves @import and url()
+  //     ],
+  //   });
+
+  //   return config;
+  // },
   transpilePackages: ['@tripie-pyotato/design-system'],
 
   outputFileTracingIncludes: {
@@ -32,68 +45,68 @@ const nextConfig = {
     ];
   },
 
-  images: {
-    dangerouslyAllowSVG: true,
-    contentDispositionType: 'attachment',
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'placehold.co',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'eu.ui-avatars.com',
-        pathname: '/api/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'media.triple.guide',
-        pathname: '/triple-cms/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'blogthumb.pstatic.net',
-        pathname: '/**',
-      },
-      {
-        protocol: 'http',
-        hostname: 'blogthumb.pstatic.net',
-        pathname: '/**',
-      },
-      {
-        protocol: 'http',
-        hostname: 'blogthumb2.naver.net',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'blogthumb2.naver.net',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'continentl.com',
-        pathname: '/storage/country_flag_image/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'upload.wikimedia.org',
-        pathname: '/wikipedia/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'res.cloudinary.com',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'media.tripie-api.shop',
-        pathname: '/image/**',
-      },
-    ],
-  },
+  // images: {
+  //   dangerouslyAllowSVG: true,
+  //   contentDispositionType: 'attachment',
+  //   contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+  //   remotePatterns: [
+  //     {
+  //       protocol: 'https',
+  //       hostname: 'placehold.co',
+  //       pathname: '/**',
+  //     },
+  //     {
+  //       protocol: 'https',
+  //       hostname: 'eu.ui-avatars.com',
+  //       pathname: '/api/**',
+  //     },
+  //     {
+  //       protocol: 'https',
+  //       hostname: 'media.triple.guide',
+  //       pathname: '/triple-cms/**',
+  //     },
+  //     {
+  //       protocol: 'https',
+  //       hostname: 'blogthumb.pstatic.net',
+  //       pathname: '/**',
+  //     },
+  //     {
+  //       protocol: 'http',
+  //       hostname: 'blogthumb.pstatic.net',
+  //       pathname: '/**',
+  //     },
+  //     {
+  //       protocol: 'http',
+  //       hostname: 'blogthumb2.naver.net',
+  //       pathname: '/**',
+  //     },
+  //     {
+  //       protocol: 'https',
+  //       hostname: 'blogthumb2.naver.net',
+  //       pathname: '/**',
+  //     },
+  //     {
+  //       protocol: 'https',
+  //       hostname: 'continentl.com',
+  //       pathname: '/storage/country_flag_image/**',
+  //     },
+  //     {
+  //       protocol: 'https',
+  //       hostname: 'upload.wikimedia.org',
+  //       pathname: '/wikipedia/**',
+  //     },
+  //     {
+  //       protocol: 'https',
+  //       hostname: 'res.cloudinary.com',
+  //       pathname: '/**',
+  //     },
+  //     {
+  //       protocol: 'https',
+  //       hostname: 'media.tripie-api.shop',
+  //       pathname: '/image/**',
+  //     },
+  //   ],
+  // },
 };
 
 export default nextConfig;

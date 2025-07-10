@@ -1,7 +1,8 @@
 import { Container, Headings, Stack } from '@tripie-pyotato/design-system/@core';
-import { classNames } from '@tripie-pyotato/design-system/@wrappers';
+// import { classNames } from '@tripie-pyotato/design-system/@wrappers';
 
 import { ReactNode } from 'react';
+import { classNames } from '../../.../../../../wrapper/classNames';
 
 import { FlickTextButton } from '@tripie-pyotato/design-system/@components';
 import Style from './preference.module.scss';
@@ -49,6 +50,7 @@ const Layout = ({
         <Container applyMargin={'top'}>
           <FlickTextButton
             disabled={disabled}
+            colorVariant={disabled ? 'disabled' : 'active'}
             withBorder={true}
             sizes="large"
             onClick={() => {

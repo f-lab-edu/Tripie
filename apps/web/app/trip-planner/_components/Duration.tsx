@@ -5,7 +5,6 @@ import { Text } from '@tripie-pyotato/design-system/@core';
 import { useCalendar } from '@tripie-pyotato/design-system/@hooks';
 import useServerTime from 'hooks/useServerTime';
 import { useCallback } from 'react';
-import { localeString2Date } from 'utils/date';
 import { FunnelProps, FunnelSteps } from '../page';
 import Layout from './Layout/Layout';
 
@@ -15,23 +14,28 @@ const DurationStep = ({
   onPrev,
   progress,
 }: { context: FunnelSteps['DURATION']; onNext: (duration: string) => void } & FunnelProps) => {
-  const { isValidTime, serverTime } = useServerTime(context?.duration?.split(' ~ ')[0]);
-  const { calendarFormatTime, setSelected, duration, calendar, selected } = useCalendar({
+  const { serverTime } = useServerTime(context?.duration?.split(' ~ ')[0]);
+  const { setSelected, duration, calendar, selected } = useCalendar({
     serverTime,
-    isValidTime,
-    selectedTime: () =>
-      context?.duration == null || isValidTime !== true
-        ? calendarFormatTime
-        : localeString2Date(context.duration.split(' ~ ')),
+    isValidTime: context?.duration != null,
+    // selectedTime: context?.duration == null ? null : localeString2Date(context?.duration.split(' ~ ')),
   });
 
   const handleSubmit = useCallback(() => {
+    if (Array.isArray(selected)) {
+      const [start, end] = selected.map(item => item?.toLocaleString().replace(', ', ' '));
+      console.log(start, end, duration);
+      if (duration.start != start && duration.end != end) {
+        onNext(`${start} ~ ${end}`);
+        return;
+      }
+    }
     if (duration.end === '' || duration.start === '') {
       return;
     } else {
       onNext(`${duration.start} ~ ${duration.end}`);
     }
-  }, [duration]);
+  }, [duration, selected]);
 
   return (
     <Layout
@@ -54,6 +58,7 @@ const DurationStep = ({
           // @ts-ignore
           onChange={value => {
             setSelected((Array.isArray(value) ? value : [value]) as Date[]);
+            console.log('onChange', value);
           }}
           selected={selected}
           onClickDay={setSelected}

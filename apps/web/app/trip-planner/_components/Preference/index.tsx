@@ -5,7 +5,7 @@ import PREFERENCE_LIST from 'constants/preferences';
 import { Text } from '@tripie-pyotato/design-system/@core';
 import { FunnelProps, FunnelSteps } from 'app/trip-planner/page';
 import { useCallback, useState } from 'react';
-import Clouds from '../Done/Clouds';
+import Clouds from '../../../../shared/components/Clouds';
 import Layout from '../Layout/Layout';
 import PreferenceList from './PreferenceList';
 

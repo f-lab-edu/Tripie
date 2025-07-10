@@ -18,6 +18,7 @@ export type ImageProps = {
   blurDataURL?: string;
   withBorder?: boolean;
   cloudinaryUrl?: string;
+  preload?: boolean;
   loading?: ImgHTMLAttributes<HTMLImageElement>['loading']; // https://developer.chrome.com/docs/lighthouse/performance/offscreen-images/?utm_source=lighthouse&utm_medium=devtools
   aspectRatio?: AspectRatio;
 } & Partial<ImgHTMLAttributes<HTMLImageElement>>;
@@ -37,6 +38,7 @@ const BlurImageOnLoad = ({
   refs,
   loading,
   sizes,
+  preload = true,
   withBorder,
   aspectRatio,
   className,
@@ -48,6 +50,10 @@ const BlurImageOnLoad = ({
 
   useEffect(() => {
     let isMounted = true;
+    if (!preload) {
+      setLoaded(true);
+      return;
+    }
 
     if (src != null && src.startsWith(cloudinaryUrl)) {
       preloadImage(src)
@@ -126,6 +132,7 @@ const ImageWithSourceUrl = ({
   loading,
   aspectRatio = 'standard',
   cloudinaryUrl = CLOUDINARY_URL(),
+  preload = true,
   ...args
 }: ImageWithSourceUrlProps) => {
   return (
@@ -134,6 +141,7 @@ const ImageWithSourceUrl = ({
         withBorder={withBorder}
         src={src}
         alt={alt}
+        preload={preload}
         refs={refs}
         sizes={sizes}
         loading={loading}

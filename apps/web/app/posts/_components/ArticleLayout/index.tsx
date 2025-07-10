@@ -1,6 +1,6 @@
 'use client';
 import { BlurImageOnLoad, Card } from '@tripie-pyotato/design-system/@components';
-import { Container } from '@tripie-pyotato/design-system/@core';
+import Container from '@tripie-pyotato/design-system/@core/Container';
 import { classNames } from '@tripie-pyotato/design-system/@wrappers';
 
 import { ReactNode } from 'react';
@@ -21,7 +21,15 @@ const ArticleLayout = ({
   articleBody: ReactNode;
 }) => {
   return (
-    <Container applyMargin="left-right-bottom" margin="xl" justifyContent="center" className={cx('article-container')}>
+    <Container
+      display="inline-flex"
+      padding="xl"
+      applyPadding="top"
+      applyMargin="left-right-bottom"
+      margin="xl"
+      justifyContent="center"
+      className={cx('article-container')}
+    >
       <Card.Description padding="l" className={cx('fit-content')}>
         <Container margin="m" applyMargin="top-left-right">
           <ArticleTitle names={title} />

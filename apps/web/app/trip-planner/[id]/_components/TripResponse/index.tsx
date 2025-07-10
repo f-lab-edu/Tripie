@@ -1,6 +1,7 @@
 'use client';
 
 import { Drawer } from '@tripie-pyotato/design-system/@components';
+import { Container } from '@tripie-pyotato/design-system/@core';
 import { useCycle } from '@tripie-pyotato/design-system/@hooks';
 import ROUTE from 'constants/routes';
 import { TripContent } from 'models/Aws';
@@ -81,20 +82,22 @@ const TripResponse = ({ data, country }: { data: ChatResponseData; country: stri
 
   return (
     <Suspense fallback={<Loading />}>
-      <TabContext.Provider value={selectedActivityValues}>
-        <SelectedDateContext.Provider value={selectedDateValues}>
-          <Drawer
-            isOpen={isOpen}
-            toggleOpen={() => toggleOpen()}
-            drawerContent={{
-              children: <TripDetails data={data.plans} country={country} />,
-            }}
-            drawerBody={{
-              children: <TripMap data={data.plans} coordinates={coordinates} />,
-            }}
-          />
-        </SelectedDateContext.Provider>
-      </TabContext.Provider>
+      <Container margin="none" padding="none">
+        <TabContext.Provider value={selectedActivityValues}>
+          <SelectedDateContext.Provider value={selectedDateValues}>
+            <Drawer
+              isOpen={isOpen}
+              toggleOpen={() => toggleOpen()}
+              drawerContent={{
+                children: <TripDetails data={data.plans} country={country} />,
+              }}
+              drawerBody={{
+                children: <TripMap data={data.plans} coordinates={coordinates} />,
+              }}
+            />
+          </SelectedDateContext.Provider>
+        </TabContext.Provider>
+      </Container>
     </Suspense>
   );
 };

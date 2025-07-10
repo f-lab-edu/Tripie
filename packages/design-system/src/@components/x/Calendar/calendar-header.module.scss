@@ -1,0 +1,13 @@
+@use '../../../variables/tripie-theme' as *;
+
+.calendar-header-wrap
+  :global(.react-calendar.react-calendar--selectRange > div > div > div > div > div.react-calendar__month-view__days) {
+  display: none !important;
+}
+
+.calendar-header-wrap {
+  background-color: $theme-100000 !important;
+}
+.calendar-header-wrap :global(.react-calendar__month-view__weekdays > div > abbr) {
+  text-decoration: none !important;
+}

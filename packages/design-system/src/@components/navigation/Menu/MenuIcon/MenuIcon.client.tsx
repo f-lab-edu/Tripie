@@ -17,6 +17,7 @@ const MenuIcon = ({ toggle }: { toggle: () => void }) => (
     onclick={() => toggle()}
     className={cx('menu-toggle')}
     padding="sm"
+    withBorder={true}
     name="burger icon"
     aria-label="burger icon"
   >

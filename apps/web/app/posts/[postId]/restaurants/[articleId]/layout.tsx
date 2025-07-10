@@ -4,13 +4,12 @@ import { sharedMetaData } from 'app/shared-metadata';
 import API from 'constants/api-routes';
 import ROUTE from 'constants/routes';
 import { ParamProps } from 'models/Props';
-import { Metadata, ResolvingMetadata } from 'next';
+import { Metadata } from 'next';
 import { ReactNode } from 'react';
 import { pageParamData } from '../../page-param-data';
 
-export async function generateMetadata({ params }: ParamProps, parent: ResolvingMetadata): Promise<Metadata> {
-  const previousImages = (await parent).openGraph?.images || [];
-  const { title, description, postId, articleId, images, path } = await pageParamData({ params });
+export async function generateMetadata({ params }: ParamProps): Promise<Metadata> {
+  const { postId, articleId, images, title, description, path } = await pageParamData({ params });
 
   return {
     title,
@@ -19,7 +18,7 @@ export async function generateMetadata({ params }: ParamProps, parent: Resolving
       ...sharedMetaData,
       title,
       description,
-      images: [images ?? '', ...previousImages],
+      images: [images ?? ''],
       url: `${API.BASE_URL}${ROUTE.POSTS.href}/${postId}/${path}/${articleId}`,
     },
   };

@@ -8,6 +8,7 @@ import Motion, {
   MotionVariants,
 } from './motion-wrapper';
 import { ReactCalendar, type CalendarProps, type LooseValue } from './react-calendar';
+import { type GlobeMethods, type GlobeProps } from './react-globe';
 import { InView, useInView } from './react-intersection-observer';
 import {
   Layer,
@@ -44,6 +45,8 @@ export {
   useInView,
   useMap,
   type CalendarProps,
+  type GlobeMethods,
+  type GlobeProps,
   type LayerProps,
   type LngLatBoundsLike,
   type LooseValue,

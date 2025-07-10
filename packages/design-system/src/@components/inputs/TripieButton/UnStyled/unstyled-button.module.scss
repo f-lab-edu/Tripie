@@ -4,6 +4,7 @@
 @use '../../../../mixins/justify-content' as *;
 @use '../../../../mixins/align-items' as *;
 @use '../../../../mixins/gap' as *;
+@use '../../../../mixins/with-border' as *;
 @use '../../../../variables/direction-map' as *;
 @use '../../../../variables/gap-space-map' as *;
 @use '../../../../variables/space-map' as *;
@@ -13,11 +14,18 @@
 .clear-btn {
   font: inherit;
   color: inherit;
-  background: none;
   border: 0;
   outline: inherit;
   cursor: pointer;
   background-color: inherit;
+}
+
+.with-border {
+  @include with-border();
+}
+
+.with-no-border {
+  @include with-border('false');
 }
 
 @each $direction-key, $direction in $direction-map {

@@ -15,6 +15,7 @@ const RotatingBlur = ({ className }: { className?: string }) => {
         repeat: Infinity,
         ease: 'linear',
       }}
+      style={{ x: '-50%' }}
     >
       <Motion.Div className={cx('segment', 'segment-1')}></Motion.Div>
       <Motion.Div className={cx('segment', 'segment-2')}></Motion.Div>

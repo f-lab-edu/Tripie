@@ -56,21 +56,30 @@ const defaultConfig: Partial<Options> = {
   format: ['cjs', 'esm'],
   clean: true,
   dts: true,
-  onSuccess: 'echo Build completed!',
   esbuildPlugins: [
     sassPlugin({
       filter: /\.module\.scss$/,
-      transform: postcssModules({ basedir: './dist' }),
+      type: 'style',
+      // type: 'css',
+      transform: postcssModules({
+        generateScopedName: '[local]__[hash:base64:5]',
+        basedir: './dist',
+      }),
     }),
-
     sassPlugin({
       filter: /\.scss$/,
+      // type: 'style',
+      type: 'css',
     }),
     esbuildUseClient(),
   ],
+
   esbuildOptions(options) {
     options.jsx = 'automatic'; // https://github.com/egoist/tsup/issues/792
     options.inject = [path.resolve(__dirname, './react-import.ts')]; // !!THIS IS A WORKAROUND !! solution https://github.com/egoist/tsup/issues/792 is not working!!
+  },
+  loader: {
+    '.scss': 'file', // OR 'css' depending on structure
   },
 };
 

@@ -71,6 +71,7 @@ $marker-variant: (
   restaurant: 'restaurant',
   hotel: 'hotel',
   attraction: 'attraction',
+  other: 'other',
 );
 
 @each $key, $variant in $marker-variant {

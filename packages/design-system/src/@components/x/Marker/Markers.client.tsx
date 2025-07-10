@@ -2,12 +2,15 @@
 
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { Context, Dispatch, SetStateAction, useContext, useEffect } from 'react';
-import './marker.scss';
+import Style from './marker.module.scss';
 
+import { classNames } from 'wrappers';
 import usePopUp from '../../../@hooks/usePopUp.client';
 import { LocationMarker } from '../Map/Map.client';
 import MapPopup from '../MapPopup';
 import TripieMarker from './TripieMarker.client';
+
+const cx = classNames.bind(Style);
 
 const Markers = ({
   locationMarker,
@@ -46,6 +49,7 @@ const Markers = ({
           coordinates={{ lng: markers.lng, lat: markers.lng }}
           key={`popup-${markers.lng} + ${markers.lat}+${index}`}
           content={JSON.stringify(markers.info)}
+          className={cx('anchored-pop-up')}
         />
       ))}
       {locationMarker.map(marker => (

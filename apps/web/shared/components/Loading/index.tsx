@@ -12,7 +12,7 @@ const Loading = () => {
 
 const ControlledLoader = () => {
   return (
-    <SplashScreen.Controlled>
+    <SplashScreen.Controlled display={'inline-flex'}>
       <TextFillAnimation isTitle={true}>Tripie.</TextFillAnimation>
     </SplashScreen.Controlled>
   );
@@ -21,7 +21,7 @@ const ControlledLoader = () => {
 const SemiTransparentLoader = ({ loading }: { loading: boolean }) => {
   return (
     <SplashScreen variant="backdrop" loading={loading} duration={1}>
-      <Stack gap="sm">
+      <Stack gap="sm" justifyContent="center" display="inline-flex" alignItems="center">
         <Icon.Loading />
         <AnimatedText.Jump>loading...</AnimatedText.Jump>
       </Stack>

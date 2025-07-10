@@ -1,8 +1,13 @@
+'use client';
+
 import 'maplibre-gl/dist/maplibre-gl.css';
+
 import { ReactNode } from 'react';
 import TripieContainer from '../../../@core/layout/TripieContainer';
-import { Popup, PopupEvent, PopupType } from '../../../wrappers';
-import './map-popup.scss';
+import { Popup, PopupEvent, PopupType, classNames } from '../../../wrappers';
+import Style from './map-popup.module.scss';
+
+const cx = classNames.bind(Style);
 
 const MapPopup = ({
   coordinates,
@@ -13,6 +18,7 @@ const MapPopup = ({
   anchor = 'bottom',
   focusAfterOpen = true,
   closeOnClick = false,
+  className,
 }: {
   offset?: number;
   coordinates: { lng: number; lat: number };
@@ -31,6 +37,7 @@ const MapPopup = ({
     | 'bottom-right'
     | undefined;
   showPopup: boolean;
+  className?: string;
   onClose?: (e: PopupEvent<PopupType>) => void;
 }) => {
   return showPopup ? (
@@ -43,7 +50,7 @@ const MapPopup = ({
       key={`popup-${coordinates.lng} + ${coordinates.lat}`}
       closeOnClick={closeOnClick}
       onClose={onClose}
-      className={'tripie-popup'}
+      className={cx('tripie-popup', className)}
     >
       <TripieContainer padding={'sm'} margin={'sm'}>
         {content}

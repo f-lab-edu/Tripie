@@ -1,14 +1,9 @@
 'use client';
 
-import { Chip } from '@tripie-pyotato/design-system/@components';
+import { Button } from '@tripie-pyotato/design-system/@components';
 import { Stack } from '@tripie-pyotato/design-system/@core';
-import { classNames } from '@tripie-pyotato/design-system/@wrappers';
 
 import { Dispatch, SetStateAction, useMemo } from 'react';
-
-import Style from './city-list.module.scss';
-
-const cx = classNames.bind(Style);
 
 interface CityListProps {
   cities: string[];
@@ -43,18 +38,19 @@ const CityList = ({ cities, selected, setSelected }: CityListProps) => {
 
   return (
     <Stack display="grid" margin="none" cols={2} gap="l" gridWrapOn={{ 'wrap-sm': 1 }} gridRepeat={{ 'wrap-md': 4 }}>
-      <Chip className={cx('chip')} selected={allSelected} onClick={() => handleSelect()}>
+      <Button sizes={'large'} colorVariant={'chip'} selected={allSelected} onClick={() => handleSelect()}>
         전체 선택
-      </Chip>
+      </Button>
       {cities.map(city => (
-        <Chip
+        <Button
+          colorVariant={'chip'}
           key={city}
-          className={cx('chip')}
+          sizes={'large'}
           selected={new Set(selected).has(city)}
           onClick={() => handleSelect(city)}
         >
           {city}
-        </Chip>
+        </Button>
       ))}
     </Stack>
   );

@@ -1,6 +1,8 @@
 'use client';
 import { AnimatedCard, Card, Chip, TextUnderLineAnimation } from '@tripie-pyotato/design-system/@components';
 import { Stack, Text } from '@tripie-pyotato/design-system/@core';
+// import Stack from '@tripie-pyotato/design-system/@core/Stack';
+// import Text from '@tripie-pyotato/design-system/@core/Text';
 import { openNewTab } from '@tripie-pyotato/utils';
 
 import { Activity, TripContent } from 'models/Aws';

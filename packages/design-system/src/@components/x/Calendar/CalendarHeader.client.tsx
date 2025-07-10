@@ -1,21 +1,24 @@
-import Divider from '@components/data-display/Divider/Divider.client';
-import { RefAttributes } from 'react';
 import 'react-calendar/dist/Calendar.css';
+import Divider from '@components/data-display/Divider/Divider.client';
+import TripieContainer from '@core/layout/TripieContainer';
+import { RefAttributes } from 'react';
+
 import { CalendarProps, ReactCalendar } from '../../../wrappers';
 
-import TripieContainer from '@core/layout/TripieContainer';
-import './calendar-custom.scss';
+import { classNames } from 'shared';
+import Style from './calendar-header.module.scss';
+
+const cx = classNames.bind(Style);
 
 type CustomCalendarProps = CalendarProps & RefAttributes<unknown>;
 
 const CalendarHeader = ({ selectRange, allowPartialRange }: CustomCalendarProps) => {
   return (
-    <TripieContainer applyMargin="top-bottom">
+    <TripieContainer applyMargin="top-bottom" className={cx(`calendar-header-wrap`)}>
       <ReactCalendar
         selectRange={selectRange}
         showNeighboringMonth={false}
         allowPartialRange={allowPartialRange}
-        className={`calendar-header`}
         showNavigation={false}
       />
       <Divider />

@@ -1,4 +1,4 @@
-'use server';
+// 'use server';
 
 import { TRIPIE_REGION_BY_LOCATION, TRIPIE_REGION_IDS } from 'constants/tripie-country';
 

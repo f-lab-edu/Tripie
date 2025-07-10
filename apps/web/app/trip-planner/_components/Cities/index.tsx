@@ -6,7 +6,7 @@ import PREFERENCE_LIST from 'constants/preferences';
 import { useMemo, useState } from 'react';
 
 import { FunnelProps, FunnelSteps } from 'app/trip-planner/page';
-import Clouds from '../Done/Clouds';
+import Clouds from '../../../../shared/components/Clouds';
 import Layout from '../Layout/Layout';
 import CityList from './CityList';
 
@@ -36,7 +36,8 @@ const CityStep = ({
       }
       heading={
         <>
-          내가 여행하고 싶은 <Text.Accented>{'\n'}도시</Text.Accented>는? {progress}
+          내가 여행하고 싶은 <Text.Accented>{'\n'}도시</Text.Accented>는?&nbsp;
+          {progress}
         </>
       }
       decor={<Clouds rows={3} length={6} />}

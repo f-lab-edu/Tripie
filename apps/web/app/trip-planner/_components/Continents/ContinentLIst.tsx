@@ -1,7 +1,6 @@
 import { useQueryClient } from '@tanstack/react-query';
-import { Chip } from '@tripie-pyotato/design-system/@components';
-import { Stack } from '@tripie-pyotato/design-system/@core';
-import { classNames } from '@tripie-pyotato/design-system/@wrappers';
+import { Button } from '@tripie-pyotato/design-system/@components/Button';
+import Stack from '@tripie-pyotato/design-system/@core/Stack';
 
 import firestoreService from 'app/api/firebase';
 import { CONTINENTS } from 'constants/continents';
@@ -9,10 +8,6 @@ import useCountries from 'hooks/query/useCountries';
 import { ContinentIds, ContinentKeys } from 'models/Continent';
 import { Country } from 'models/Country';
 import { Dispatch, SetStateAction } from 'react';
-
-import Style from './continent-list.module.scss';
-
-const cx = classNames.bind(Style);
 
 interface Props {
   selectedContinent: ContinentKeys;
@@ -41,17 +36,17 @@ export function ContinentList({ selectedContinent, action }: Readonly<Props>) {
   return (
     <Stack display="grid" margin="none" cols={2} gap="l" gridWrapOn={{ 'wrap-sm': 1 }} gridRepeat={{ 'wrap-md': 4 }}>
       {Object.keys(CONTINENTS).map((continent, index) => (
-        <Chip
+        <Button
+          sizes={'large'}
           key={JSON.stringify(continent)}
           selected={selectedContinent === continent}
-          className={cx('chip')}
           onClick={() => {
             action(Object.keys(CONTINENTS)[index] as ContinentKeys);
             prefetch(CONTINENTS[continent as ContinentKeys].id);
           }}
         >
           {CONTINENTS[continent as ContinentKeys].name}
-        </Chip>
+        </Button>
       ))}
     </Stack>
   );

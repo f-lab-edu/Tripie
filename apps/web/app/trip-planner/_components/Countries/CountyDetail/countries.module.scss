@@ -1,11 +1,8 @@
 @use 'mixins' as *;
 
-.chip {
-  @include chip;
-  width: max-content;
-  padding: 0.6rem;
-}
-
 .header-name {
   width: 4rem;
+}
+.map-popup-content {
+  min-width: max-content;
 }

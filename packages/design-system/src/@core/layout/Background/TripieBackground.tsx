@@ -17,8 +17,8 @@ const TripieBackground = ({
   isFullScreen = false,
   justifyContent,
   gap,
-  padding,
-  applyPadding,
+  padding = 'none',
+  applyPadding = 'all',
   textAlign,
   ...args
   // preserveWhiteSpace,

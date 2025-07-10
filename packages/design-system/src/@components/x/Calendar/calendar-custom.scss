@@ -1,207 +1,207 @@
-// react-calendar는 module로 스타일 커스텀 불가하므로 scss로
-@use '../../../variables/tripie-theme' as *;
+// // react-calendar는 module로 스타일 커스텀 불가하므로 scss로
+// @use '../../../variables/tripie-theme' as *;
 
-.react-calendar {
-  width: 100% !important;
-  background-color: inherit;
-  color: inherit;
-  font: inherit !important;
-  border: none !important;
-}
-.react-calendar__tile {
-  width: 2.4rem;
-  height: 3rem;
-  padding: 0.3rem 0 !important;
+// .react-calendar {
+//   width: 100% !important;
+//   background-color: inherit;
+//   color: inherit;
+//   font: inherit !important;
+//   border: none !important;
+// }
+// .react-calendar__tile {
+//   width: 2.4rem;
+//   height: 3rem;
+//   padding: 0.3rem 0 !important;
 
-  & > abbr {
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-  }
-}
-.calendar-body {
-  background-color: $theme-100000 !important;
-}
+//   & > abbr {
+//     display: inline-flex !important;
+//     align-items: center;
+//     justify-content: center;
+//   }
+// }
+// .calendar-body {
+//   background-color: $theme-100000 !important;
+// }
 
-.react-calendar__tile--range {
-  background-color: $theme-300 !important;
-}
+// .react-calendar__tile--range {
+//   background-color: $theme-300 !important;
+// }
 
-.react-calendar__tile--active:enabled:hover:focus {
-  background-color: inherit !important;
+// .react-calendar__tile--active:enabled:hover:focus {
+//   background-color: inherit !important;
 
-  & > abbr {
-    color: $theme-50 !important;
-    border: 1px solid $theme-50;
-    background-color: $theme-100 !important;
-    border-radius: 100%;
-    width: 2.4rem;
-    height: 2.4rem;
-    padding: 0.3rem 0 !important;
-  }
-}
+//   & > abbr {
+//     color: $theme-50 !important;
+//     border: 1px solid $theme-50;
+//     background-color: $theme-100 !important;
+//     border-radius: 100%;
+//     width: 2.4rem;
+//     height: 2.4rem;
+//     padding: 0.3rem 0 !important;
+//   }
+// }
 
-.react-calendar__tile:enabled:hover {
-  background-color: inherit !important;
+// .react-calendar__tile:enabled:hover {
+//   background-color: inherit !important;
 
-  & > abbr {
-    color: $theme-500 !important;
-    border: 1px solid $theme-500;
-    background-color: $theme-50 !important;
-    border-radius: 100%;
-    width: 2.4rem;
-    height: 2.4rem;
-    padding: 0.55rem !important;
-  }
-}
+//   & > abbr {
+//     color: $theme-500 !important;
+//     border: 1px solid $theme-500;
+//     background-color: $theme-50 !important;
+//     border-radius: 100%;
+//     width: 2.4rem;
+//     height: 2.4rem;
+//     padding: 0.55rem !important;
+//   }
+// }
 
-.react-calendar__month-view__days__day--weekend {
-  color: $theme-400 !important;
-}
+// .react-calendar__month-view__days__day--weekend {
+//   color: $theme-400 !important;
+// }
 
-.react-calendar__tile--now {
-  background-color: $theme-100000 !important;
-  & > abbr {
-    color: $theme-50 !important;
-    border: 1px solid $theme-50;
-    border-radius: 100%;
-    width: 2.4rem;
-    height: 2.4rem;
-    padding: 0.3rem 0.55rem !important;
-  }
-}
+// .react-calendar__tile--now {
+//   background-color: $theme-100000 !important;
+//   & > abbr {
+//     color: $theme-50 !important;
+//     border: 1px solid $theme-50;
+//     border-radius: 100%;
+//     width: 2.4rem;
+//     height: 2.4rem;
+//     padding: 0.3rem 0.55rem !important;
+//   }
+// }
 
-.react-calendar__tile.react-calendar__month-view__days__day.react-calendar__month-view__days__day--neighboringMonth:disabled,
-.react-calendar__tile.react-calendar__month-view__days__day:disabled {
-  cursor: not-allowed;
-  background-color: $theme-100000;
-  & > abbr {
-    color: $theme-300;
-  }
-}
+// .react-calendar__tile.react-calendar__month-view__days__day.react-calendar__month-view__days__day--neighboringMonth:disabled,
+// .react-calendar__tile.react-calendar__month-view__days__day:disabled {
+//   cursor: not-allowed;
+//   background-color: $theme-100000;
+//   & > abbr {
+//     color: $theme-300;
+//   }
+// }
 
-.in-range {
-  background-color: $theme-300 !important;
-  color: inherit !important;
-  width: 100%;
-  & > abbr {
-    width: 2.4rem;
-    height: 2.4rem;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
+// .in-range {
+//   background-color: $theme-300 !important;
+//   color: inherit !important;
+//   width: 100%;
+//   & > abbr {
+//     width: 2.4rem;
+//     height: 2.4rem;
+//     display: inline-flex;
+//     align-items: center;
+//     justify-content: center;
+//   }
+// }
 
-.end-date {
-  border-top-right-radius: 30px !important;
-  border-bottom-right-radius: 30px !important;
-  &.react-calendar__tile--active {
-    & > abbr {
-      right: 30px;
-    }
-  }
-}
+// .end-date {
+//   border-top-right-radius: 30px !important;
+//   border-bottom-right-radius: 30px !important;
+//   &.react-calendar__tile--active {
+//     & > abbr {
+//       right: 30px;
+//     }
+//   }
+// }
 
-.start-date {
-  border-top-left-radius: 30px !important;
-  border-bottom-left-radius: 30px !important;
-  &.react-calendar__tile--active {
-    & > abbr {
-      left: 30px;
-    }
-  }
-}
+// .start-date {
+//   border-top-left-radius: 30px !important;
+//   border-bottom-left-radius: 30px !important;
+//   &.react-calendar__tile--active {
+//     & > abbr {
+//       left: 30px;
+//     }
+//   }
+// }
 
-.start-date,
-.end-date {
-  background-color: $theme-300 !important;
-  position: relative;
-  width: 100%;
-  color: inherit !important;
-  &.react-calendar__tile--active {
-    & > abbr {
-      border: 1px solid $theme-50;
+// .start-date,
+// .end-date {
+//   background-color: $theme-300 !important;
+//   position: relative;
+//   width: 100%;
+//   color: inherit !important;
+//   &.react-calendar__tile--active {
+//     & > abbr {
+//       border: 1px solid $theme-50;
 
-      background-color: $theme-100 !important;
-      border-radius: 100%;
-      width: 2.4rem;
-      height: 2.4rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }
+//       background-color: $theme-100 !important;
+//       border-radius: 100%;
+//       width: 2.4rem;
+//       height: 2.4rem;
+//       display: inline-flex;
+//       align-items: center;
+//       justify-content: center;
+//     }
+//   }
 
-  & > abbr {
-    border: 1px solid $theme-100;
-    background-color: $theme-100 !important;
-    border-radius: 100%;
-    width: 2.4rem;
-    height: 2.4rem;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
+//   & > abbr {
+//     border: 1px solid $theme-100;
+//     background-color: $theme-100 !important;
+//     border-radius: 100%;
+//     width: 2.4rem;
+//     height: 2.4rem;
+//     display: inline-flex;
+//     align-items: center;
+//     justify-content: center;
+//   }
+// }
 
-button.react-calendar__tile.react-calendar__tile--hasActive.react-calendar__tile--range.react-calendar__tile--rangeEnd.react-calendar__month-view__days__day.end-date {
-  border-top-right-radius: 30px !important;
-  border-bottom-right-radius: 30px !important;
-  display: inline-block !important;
-  &.react-calendar__tile--active {
-    & > abbr {
-      left: 30px;
-    }
-  }
-}
+// button.react-calendar__tile.react-calendar__tile--hasActive.react-calendar__tile--range.react-calendar__tile--rangeEnd.react-calendar__month-view__days__day.end-date {
+//   border-top-right-radius: 30px !important;
+//   border-bottom-right-radius: 30px !important;
+//   display: inline-block !important;
+//   &.react-calendar__tile--active {
+//     & > abbr {
+//       left: 30px;
+//     }
+//   }
+// }
 
-.react-calendar__tile.react-calendar__tile--active.react-calendar__tile--range.react-calendar__tile--rangeStart.react-calendar__tile--rangeEnd.react-calendar__tile--rangeBothEnds.react-calendar__month-view__days__day.start-date {
-  border-top-left-radius: 30px !important;
-  border-bottom-left-radius: 30px !important;
-  display: inline-block !important;
-  background-color: $theme-300 !important;
-  &.react-calendar__tile--active {
-    & > abbr {
-      left: 30px;
-    }
-  }
-}
+// .react-calendar__tile.react-calendar__tile--active.react-calendar__tile--range.react-calendar__tile--rangeStart.react-calendar__tile--rangeEnd.react-calendar__tile--rangeBothEnds.react-calendar__month-view__days__day.start-date {
+//   border-top-left-radius: 30px !important;
+//   border-bottom-left-radius: 30px !important;
+//   display: inline-block !important;
+//   background-color: $theme-300 !important;
+//   &.react-calendar__tile--active {
+//     & > abbr {
+//       left: 30px;
+//     }
+//   }
+// }
 
-.react-calendar__tile.react-calendar__month-view__days__day:not(.react-calendar__month-view__days__day--weekend):not(
-    .react-calendar__tile--hover
-  ) {
-  color: inherit !important;
-}
+// .react-calendar__tile.react-calendar__month-view__days__day:not(.react-calendar__month-view__days__day--weekend):not(
+//     .react-calendar__tile--hover
+//   ) {
+//   color: inherit !important;
+// }
 
-.react-calendar.calendar-body {
-  & .react-calendar__month-view__weekdays {
-    display: none !important;
-  }
-}
+// .react-calendar.calendar-body {
+//   & .react-calendar__month-view__weekdays {
+//     display: none !important;
+//   }
+// }
 
-.react-calendar__tile.react-calendar__month-view__days__day.react-calendar__month-view__days__day--weekend {
-  color: $theme-50 !important;
-}
+// .react-calendar__tile.react-calendar__month-view__days__day.react-calendar__month-view__days__day--weekend {
+//   color: $theme-50 !important;
+// }
 
-.react-calendar__tile--hover {
-  background-color: $theme-100 !important;
-  color: inherit !important;
-}
-.react-calendar__tile.react-calendar__tile--active.react-calendar__tile--range.react-calendar__tile--rangeStart.react-calendar__tile--rangeEnd.react-calendar__tile--rangeBothEnds.react-calendar__month-view__days__day {
-  background-color: $theme-100000 !important;
-}
+// .react-calendar__tile--hover {
+//   background-color: $theme-100 !important;
+//   color: inherit !important;
+// }
+// .react-calendar__tile.react-calendar__tile--active.react-calendar__tile--range.react-calendar__tile--rangeStart.react-calendar__tile--rangeEnd.react-calendar__tile--rangeBothEnds.react-calendar__month-view__days__day {
+//   background-color: $theme-100000 !important;
+// }
 
-// 월화수목금 표기는 첫달만 해줍니다.
+// // 월화수목금 표기는 첫달만 해줍니다.
 
-.react-calendar.react-calendar--selectRange.calendar-header {
-  background-color: $theme-100000 !important;
-  & .react-calendar__month-view__days {
-    display: none !important;
-  }
-}
-.react-calendar__month-view__weekdays__weekday {
-  & > abbr {
-    text-decoration: none;
-  }
-}
+// .react-calendar.react-calendar--selectRange.calendar-header {
+//   background-color: $theme-100000 !important;
+//   & .react-calendar__month-view__days {
+//     display: none !important;
+//   }
+// }
+// .react-calendar__month-view__weekdays__weekday {
+//   & > abbr {
+//     text-decoration: none;
+//   }
+// }

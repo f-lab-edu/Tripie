@@ -18,6 +18,8 @@ type ChipProps = {
   type?: 'submit' | 'reset' | 'button';
 };
 
+export const activitySet = new Set(['attraction', 'restaurant', 'hotel']);
+
 const Chip = ({ children, className, onClick, selected, disabled = false }: Readonly<ChipProps>) => {
   return (
     <Motion.Button
@@ -41,7 +43,7 @@ const MarkerChip = ({
   selected,
   disabled = false,
   variant = 'attraction',
-}: Readonly<ChipProps> & { variant?: 'restaurant' | 'hotel' | 'attraction' }) => {
+}: Readonly<ChipProps> & { variant?: 'restaurant' | 'hotel' | 'attraction' | 'other' }) => {
   return (
     <Motion.Button
       whileHover={'shine'}
@@ -50,7 +52,7 @@ const MarkerChip = ({
       animate={selected ? 'selected' : 'rest'}
       variants={SHINE_VARIANT}
       onClick={onClick}
-      className={cx('chip', 'with-border', `variant-${variant}`, className)}
+      className={cx('chip', 'with-border', `variant-${activitySet.has(variant) ? variant : 'other'}`, className)}
     >
       {children}
     </Motion.Button>

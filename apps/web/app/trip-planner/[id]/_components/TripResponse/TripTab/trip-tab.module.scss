@@ -2,5 +2,11 @@
   width: min(24rem, 60vw);
 }
 .trip-tab-day-button {
-  width: fit-content;
+  min-width: max-content;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100%;
 }

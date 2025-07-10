@@ -1,5 +1,5 @@
 'use client';
-import { Button, Carousel } from '@tripie-pyotato/design-system/@components';
+import { Button, Carousel, Divider } from '@tripie-pyotato/design-system/@components';
 import { Headings, Stack, Text } from '@tripie-pyotato/design-system/@core';
 import { classNames } from '@tripie-pyotato/design-system/@wrappers';
 
@@ -36,25 +36,38 @@ const TripTab = ({
       applyPadding="top"
       className={cx('trip-tab-content-wrap')}
     >
-      <Headings.H2>{data.name}</Headings.H2>
-      <Carousel.Controlled>
-        {data.trips.map(trip => (
-          <Button
-            className={cx('trip-tab-day-button')}
-            onClick={() => {
-              dateCycle(trip.day - 1);
-            }}
-            key={trip.date + trip.day}
-            selected={currentDate === trip.day - 1}
-          >
-            {trip.day}일차
-          </Button>
-        ))}
-      </Carousel.Controlled>
-      {data.trips[currentDate].date}
-      <Text size="h3" bold={true} noGapUnderText={true}>
-        <Text.Accented>Day {data.trips[currentDate].day}</Text.Accented>
-      </Text>
+      <Stack
+        className={cx('sticky')}
+        direction="column"
+        gap="l"
+        margin="none"
+        padding="m"
+        alignItems="start"
+        applyPadding="top"
+      >
+        <Headings.H2>{data.name}</Headings.H2>
+        <Carousel.Controlled>
+          {data.trips.map(trip => (
+            <Button
+              className={cx('trip-tab-day-button')}
+              onClick={() => {
+                dateCycle(trip.day - 1);
+              }}
+              key={trip.date + trip.day}
+              selected={currentDate === trip.day - 1}
+            >
+              {trip.day}일차
+            </Button>
+          ))}
+        </Carousel.Controlled>
+
+        <Text size="h3" bold={true} noGapUnderText={true}>
+          <Text.Accented>Day {data.trips[currentDate].day}</Text.Accented>
+          <Text size="small">&nbsp;| {data.trips[currentDate].date}</Text>
+        </Text>
+        <Divider />
+      </Stack>
+
       <TabList
         country={country}
         scrollIntoView={scrollIntoView}

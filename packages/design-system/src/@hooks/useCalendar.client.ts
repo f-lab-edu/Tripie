@@ -10,13 +10,13 @@ const useCalendar = ({
 }: {
   serverTime: string;
   isValidTime: boolean | 'loading';
-  selectedTime?: Date[] | Date | (() => Date | Date[]);
+  selectedTime?: Date[] | Date | (() => Date | Date[]) | null;
 }) => {
   const [calendar, setCalendar] = useState(yearlyCalendar(serverTime));
 
   // 만약 달력이 선택 가능한 기간이 아니라면 변경
   useEffect(() => {
-    if (isValidTime !== true && serverTime != null) {
+    if (isValidTime !== true && isValidTime != 'loading' && serverTime != null) {
       setCalendar(() => yearlyCalendar(serverTime));
     }
   }, [isValidTime, serverTime]);
@@ -29,9 +29,7 @@ const useCalendar = ({
     return new Date(serverTime);
   }, [serverTime]);
 
-  const [selected, setSelected] = useState<Date[] | Date>(
-    selectedTime == null || isValidTime !== true ? calendarFormatTime : selectedTime
-  );
+  const [selected, setSelected] = useState<Date[] | Date>(selectedTime == null ? calendarFormatTime : selectedTime);
 
   /**
    *  여행 시작과 끝 날짜를 memoize한 값
@@ -48,7 +46,7 @@ const useCalendar = ({
     } else {
       return { start: '', end: '' };
     }
-  }, [selected, selected, serverTime]);
+  }, [selected, serverTime]);
 
   return { calendar, setCalendar, duration, selected, setSelected, isValidTime, calendarFormatTime };
 };

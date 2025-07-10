@@ -1,27 +1,26 @@
 'use server';
 
-import { sharedMetaData } from 'app/shared-metadata';
-import API from 'constants/api-routes';
-import ROUTE from 'constants/routes';
 import { ParamProps } from 'models/Props';
 import { Metadata } from 'next';
-import { ReactNode } from 'react';
+import { cache, ReactNode } from 'react';
 import { pageParamData } from '../../page-param-data';
 
-export async function generateMetadata({ params }: ParamProps): Promise<Metadata> {
-  const { postId, articleId, description, images, path, title } = await pageParamData({ params });
+export const generateMetadata = async ({ params }: ParamProps): Promise<Metadata> => {
+  const { postId, articleId, title, description, images, path } = await pageParamData({ params });
+
   return {
     title,
     description,
     openGraph: {
-      ...sharedMetaData,
-      images: [images ?? ''],
-      url: `${API.BASE_URL}${ROUTE.POSTS.href}/${postId}/${path}/${articleId}`,
       title,
       description,
+      images,
+      url: `https://tripie.store/posts/${postId}/${path}/${articleId}`,
     },
   };
-}
+};
+
+export const getParamData = cache(pageParamData);
 
 export default async function Layout({
   children,

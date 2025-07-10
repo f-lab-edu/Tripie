@@ -21,14 +21,18 @@ const ArticleHeading = ({ item }: { item: HeadingProps }) => {
       case 'heading4':
         return <Headings.H4 hasHeadline={headline != null}>{decodedStr}</Headings.H4>;
       case 'heading5':
-        return <Container margin={'none'}>{decodedStr}</Container>;
+        return (
+          <Container margin={'none'} alignItems="start" display="inline-block" textAlign="start">
+            {decodedStr}
+          </Container>
+        );
       default:
         return null;
     }
   };
 
   return (
-    <Stack direction="column" margin="none">
+    <Stack direction="column" margin="none" alignItems="start" display="inline-block">
       {headline !== '' && headline != null ? (
         <Text.Accented margin="none">{headline.replaceAll('트리플', 'Tripie')}</Text.Accented>
       ) : null}

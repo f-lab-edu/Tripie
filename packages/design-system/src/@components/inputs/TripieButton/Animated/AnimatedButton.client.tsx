@@ -52,8 +52,7 @@ const AnimatedButton = ({
       animate={animate}
     >
       <AnimatedText.Flick>{children}</AnimatedText.Flick>
-      <span className={cx('gap')}> </span>
-
+      <span className={cx('gap')}>{'\n'}</span>
       <AnimatedText.Flick className={cx('hovered')}>{otherChild}</AnimatedText.Flick>
     </Motion.Button>
   );

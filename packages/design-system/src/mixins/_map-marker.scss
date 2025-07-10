@@ -6,6 +6,7 @@ $colors: (
   'hotel': rgb(59, 74, 211),
   'attraction': orange,
   'selected': inherit,
+  'other': #e867df,
 );
 
 @mixin map-marker($variant) {

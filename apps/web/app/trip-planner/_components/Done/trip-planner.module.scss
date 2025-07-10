@@ -1,9 +1,5 @@
 @use 'mixins' as *;
 
-.cloud-wrap {
-  position: absolute;
-}
-
 .card-wrap {
   max-height: 75vh;
   @include scroll;
@@ -16,4 +12,18 @@
 
 .plane-wrap {
   width: 100%;
+}
+.cloud-wrap {
+  position: absolute;
+}
+
+.top30 {
+  top: 30%;
+}
+.top60 {
+  top: 60%;
+}
+
+.top15 {
+  top: 15%;
 }

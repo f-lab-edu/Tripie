@@ -5,11 +5,11 @@ import { AwsMap } from '@tripie-pyotato/design-system/@components/x';
 import Container from '@tripie-pyotato/design-system/@core/Container';
 import Stack from '@tripie-pyotato/design-system/@core/Stack';
 import Text from '@tripie-pyotato/design-system/@core/Text';
-import { classNames } from '@tripie-pyotato/design-system/@wrappers';
-
+// import { classNames } from '@tripie-pyotato/design-system/@wrappers'
 import TabList from 'app/trip-planner/[id]/_components/TripResponse/TabList';
 import { API_KEY } from 'constants/maps';
 import useAwsMap from 'hooks/awsMap/useAwsMap';
+import { classNames } from '../../../../../../wrapper/classNames';
 import { AI_PLAN } from '../constants/selected';
 import Style from './trip-results.module.scss';
 
@@ -24,7 +24,7 @@ const TripResultExample = () => {
   });
 
   return (
-    <Stack margin="none" className={cx('tab-wrap')} gap="l">
+    <Stack margin="none" className={cx('tab-wrap')} gap="l" flexWrapOn={'wrap-md'}>
       <Container margin="none" padding="none" withBorder={true} className={cx('chat-tab-wrap')}>
         <Stack direction="column" gap="l" margin="none" alignItems="start" padding="m">
           <Text size={'h2'} bold={true}>
@@ -49,7 +49,7 @@ const TripResultExample = () => {
         apiKey={API_KEY}
         center={center[currentDate]}
         interactive={false}
-        style={{ height: '85vh' }}
+        style={{ height: '48vh' }}
         initialViewState={{
           zoom: 9,
           ...center[currentDate],

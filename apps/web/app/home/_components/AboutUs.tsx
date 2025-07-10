@@ -1,5 +1,5 @@
 import { TextFillAnimation } from '@tripie-pyotato/design-system/@components/data-display';
-import Background from '@tripie-pyotato/design-system/@core/Background';
+import { Background } from '@tripie-pyotato/design-system/@core';
 import Container from '@tripie-pyotato/design-system/@core/Container';
 import { COLORS } from '@tripie-pyotato/design-system/shared';
 

@@ -1,7 +1,8 @@
 'use client';
-import { AnimatedButton, Icon, TextUnderLineAnimation } from '@tripie-pyotato/design-system/@components';
+import { FlickTextButton, Icon, TextUnderLineAnimation } from '@tripie-pyotato/design-system/@components';
 import { Background, Container, Headings, Stack, Text } from '@tripie-pyotato/design-system/@core';
-import { classNames } from '@tripie-pyotato/design-system/@wrappers';
+
+import { classNames } from '../../../../../wrapper/classNames';
 
 import RegionSelect from 'app/home/_components/OurService/RegionList';
 import ROUTE from 'constants/routes';
@@ -17,7 +18,7 @@ const ContactAdmin = () => {
     <Background variant={0} justifyContent="center" gap={'l'} applyPadding="all" padding="m">
       <Stack margin="l" applyMargin="top" direction="column" gap="default" alignItems="start">
         <Headings.H2>
-          이런! <Text.Accented>토큰을 </Text.Accented>
+          이런! <Text.Accented> 토큰을 </Text.Accented>
           <Text.Accented>다 사용했네요!</Text.Accented>
         </Headings.H2>
 
@@ -37,10 +38,9 @@ const ContactAdmin = () => {
         <Container margin="none" className={cx('list-wrap')}>
           <RegionSelect />
         </Container>
-
-        <AnimatedButton isFullSize={true} withBorder={true} onClick={() => navigate.replace(ROUTE.HOME.href)}>
+        <FlickTextButton sizes={'large'} withBorder={true} onClick={() => navigate.replace(ROUTE.HOME.href)}>
           홈으로 돌아가기
-        </AnimatedButton>
+        </FlickTextButton>
       </Stack>
     </Background>
   );

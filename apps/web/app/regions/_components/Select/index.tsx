@@ -12,9 +12,8 @@ const RegionSelect = ({ selected, selectedRegion }: { selected: string; selected
   const [splash, setSplash] = useState(false);
 
   return (
-    <Container withBorder={true} padding={'m'} margin="sm" applyMargin="top-bottom">
+    <Container withBorder={true} padding={'m'} margin="m" applyMargin="all">
       {splash ? <Loading.SemiTransparent loading={splash} /> : null}
-
       <Regions setSplash={setSplash} selected={selected} />
       <Divider />
       <Container margin="none" padding="none">

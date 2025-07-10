@@ -1,9 +1,10 @@
 import MotionSlideUp from '@tripie-pyotato/design-system/@components/MotionSlideUp';
-import Background from '@tripie-pyotato/design-system/@core/Background';
-import Container from '@tripie-pyotato/design-system/@core/Container';
-import Headings from '@tripie-pyotato/design-system/@core/Headings';
-import Stack from '@tripie-pyotato/design-system/@core/Stack';
-import Text from '@tripie-pyotato/design-system/@core/Text';
+// import Background from '@tripie-pyotato/design-system/@core/Background';
+// import Container from '@tripie-pyotato/design-system/@core/Container';
+// import Headings from '@tripie-pyotato/design-system/@core/Headings';
+// import Stack from '@tripie-pyotato/design-system/@core/Stack';
+// import Text from '@tripie-pyotato/design-system/@core/Text';
+import { Background, Container, Headings, Stack, Text } from '@tripie-pyotato/design-system/@core';
 import CitySelect from './SelectedList/City';
 import CompanionSelect from './SelectedList/Companion';
 import ContinentSelect from './SelectedList/Continent';
@@ -45,7 +46,7 @@ const cards = [
     label: '내가 선호하는 여행 스타일은?',
     content: <TravelStyleSelect />,
     description:
-      '자연 속을 거닐거나 힐링을 만끽하고 싶으신가요?\n 아니면 인생샷을 남길 곳을 찾거나 맛집투어를 하고 싶으신가요?\n 선호하는 여행 테마를 골라주시면 취향에 딱 맞는 일정을 짜드립니다!',
+      '자연 속을 거닐거나 힐링을 만끽하고 싶으신가요?\n아니면 인생샷을 남길 곳을 찾거나 맛집투어를 하고 싶으신가요?\n선호하는 여행 테마를 골라주시면 취향에 딱 맞는 일정을 짜드립니다!',
   },
   {
     label: '당장 떠나고 싶은 내 여행 일정 보기',
@@ -65,12 +66,12 @@ export default function OurProcess() {
             Our <Text.Accented>process</Text.Accented>
           </Headings.H2>
         </Container>
+        <Stack margin="none" gap="l" display="grid" gridRepeat={{ 'wrap-lg': 2 }} cols={1} stretchGridLastChild={true}>
+          {cards.map(({ label, content, description }, index) => (
+            <OurProcessCard key={label} label={label} content={content} description={description} index={index} />
+          ))}
+        </Stack>
       </MotionSlideUp>
-      <Stack margin="none" gap="l" display="grid" gridRepeat={{ 'wrap-lg': 2 }} cols={1} stretchGridLastChild={true}>
-        {cards.map(({ label, content, description }, index) => (
-          <OurProcessCard key={label} label={label} content={content} description={description} index={index} />
-        ))}
-      </Stack>
     </Background>
   );
 }

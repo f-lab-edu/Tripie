@@ -7,6 +7,6 @@
 .fit-content {
   height: fit-content;
   @media (min-width: 998px) {
-    width: 70vw;
+    width: 70vw !important;
   }
 }

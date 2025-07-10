@@ -11,14 +11,18 @@ const TokenStatus = () => {
 
   if (status === 'loading') {
     return (
-      <Text size="tiny" applyMargin="all">
+      <Text size="tiny" applyMargin="all" margin="sm">
         <Icon.Loading /> <AnimatedText.Jump>토큰 확인중...</AnimatedText.Jump>
       </Text>
     );
   }
 
   if (status === 'unauthenticated') {
-    return <Text size="tiny">로그인</Text>;
+    return (
+      <Text size="tiny" margin="sm" applyMargin="all">
+        로그인 후 추천받기
+      </Text>
+    );
   }
   if (isAdmin && usedGptToken != null) {
     return (

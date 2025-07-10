@@ -25,7 +25,7 @@ const useServerTime = (baseTime?: string) => {
     if (baseTime == null || serverTime == null) {
       return 'loading';
     } else {
-      return baseTime >= serverTime;
+      return Date.parse(baseTime) - Date.parse(serverTime) >= 0;
     }
   }, [baseTime, serverTime]);
 

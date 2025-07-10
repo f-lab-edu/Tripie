@@ -1,9 +1,8 @@
 'use client';
 
+import { ParticleBackground, RotatingBlur } from '@tripie-pyotato/design-system/@components';
 import FlickTextButton from '@tripie-pyotato/design-system/@components/FlickTextButton';
 import Icon from '@tripie-pyotato/design-system/@components/Icon';
-import ParticleBackground from '@tripie-pyotato/design-system/@components/ParticleBackground';
-import RotatingBlur from '@tripie-pyotato/design-system/@components/RotatingBlur';
 import Container from '@tripie-pyotato/design-system/@core/Container';
 import Headings from '@tripie-pyotato/design-system/@core/Headings';
 import Stack from '@tripie-pyotato/design-system/@core/Stack';
@@ -15,7 +14,7 @@ import { useRouter } from 'next/navigation';
 
 const PageTitle = () => {
   return (
-    <Container margin="none" alignItems="center" justifyContent="center">
+    <Container display={'inline-flex'} margin="none" alignItems="center" justifyContent="center">
       <Headings.H1>
         <Text.Accented>AI</Text.Accented> enhanced{'\n'}trip planner.
       </Headings.H1>
@@ -39,7 +38,7 @@ const ShortCutButtons = () => {
   ];
 
   return (
-    <Container gap="default" alignItems="center" margin="none" justifyContent="center">
+    <Container display={'inline-flex'} gap="default" alignItems="center" margin="none" justifyContent="center">
       {SHORT_CUT_LINKS.map(({ tag, link, contents }) => (
         <FlickTextButton
           withBorder={true}

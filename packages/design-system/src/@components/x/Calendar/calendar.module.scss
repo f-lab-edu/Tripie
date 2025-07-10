@@ -1,4 +1,134 @@
+@use '../../../variables/tripie-theme' as *;
+
 .calendar-wrap {
   height: 100%;
   overflow-y: scroll;
+  color: inherit;
+}
+
+/** 주말 글자 색 */
+:global(.react-calendar__tile.react-calendar__month-view__days__day.react-calendar__month-view__days__day--weekend) {
+  color: $theme-50 !important;
+}
+
+/** 기본 inherit */
+:global(.react-calendar) {
+  width: 100% !important;
+  background-color: inherit;
+  color: inherit;
+  font: inherit !important;
+  border: none !important;
+}
+
+/** 지난 날은 선택 불가 */
+:global(
+  .react-calendar__tile.react-calendar__month-view__days__day.react-calendar__month-view__days__day--neighboringMonth:disabled
+),
+:global(.react-calendar__tile.react-calendar__month-view__days__day:disabled) {
+  cursor: not-allowed !important;
+  background-color: $theme-100000 !important;
+  & > abbr {
+    color: $theme-300 !important;
+    border: none !important;
+    background-color: $theme-100000 !important;
+  }
+}
+
+/** 일반 타일들 */
+:global(.react-calendar__tile) {
+  width: 2.4rem;
+  height: 3rem;
+  padding: 0.3rem 0 !important;
+  color: white;
+  & > abbr {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/** 지금 */
+:global(.react-calendar__tile--now) {
+  background-color: $theme-100000 !important;
+  & > abbr {
+    color: $theme-50;
+    border: 1px solid $theme-50;
+    border-radius: 100%;
+    width: 2.4rem;
+    height: 2.4rem;
+    padding: 0.3rem 0.55rem !important;
+  }
+  &:hover,
+  &:active {
+    background-color: $theme-100000;
+    & > abbr {
+      color: $theme-50;
+      background-color: $theme-100;
+      border: 1px solid $theme-50;
+      border-radius: 100%;
+      width: 2.4rem;
+      height: 2.4rem;
+      padding: 0.3rem 0.55rem !important;
+    }
+  }
+}
+
+/** 시작 선택 */
+:global(.selected-start),
+:global(.selected-end) {
+  & > abbr {
+    color: white !important;
+    border: 1px solid $theme-100;
+    background-color: $theme-100;
+    border-radius: 100%;
+    width: 2.4rem;
+    height: 2.4rem;
+    padding: 0.3rem 0.55rem !important;
+  }
+  &:global(.react-calendar__tile--now) {
+    & > abbr {
+      color: $theme-50 !important;
+      border: 1px solid $theme-50;
+      background-color: $theme-100 !important;
+      border-radius: 100%;
+      width: 2.4rem;
+      height: 2.4rem;
+      padding: 0.3rem 0.55rem !important;
+    }
+  }
+}
+
+:global(.react-calendar__tile:enabled:hover),
+:global(.react-calendar__tile:enabled:focus),
+:global(.react-calendar__tile--hover) {
+  background-color: $theme-100000 !important;
+  & > abbr {
+    color: $theme-100 !important;
+    border: 1px solid $theme-50;
+    background-color: $theme-50 !important;
+    border-radius: 100%;
+    width: 2.4rem;
+    height: 2.4rem;
+    padding: 0.3rem 0.55rem !important;
+  }
+}
+
+:global(.react-calendar__tile--active) {
+  background-color: $theme-100000 !important;
+  & > abbr {
+    color: $theme-100;
+    border: 1px solid $theme-100;
+    background-color: $theme-50;
+    border-radius: 100%;
+    width: 2.4rem;
+    height: 2.4rem;
+    padding: 0.3rem 0.55rem !important;
+  }
+}
+
+:global(.react-calendar__tile--hasActive) {
+  background-color: $theme-100000 !important;
+  & > abbr {
+    border: 1px solid white;
+  }
 }

@@ -1,0 +1,127 @@
+@use '../../../variables/tripie-theme' as *;
+
+/** 월~일 header 표기 x */
+.calendar-body-wrap :global(.react-calendar__month-view__weekdays) {
+  display: none !important;
+}
+
+:global(.in-selected-range) {
+  background: $theme-100000 !important;
+  & > abbr {
+    color: white !important;
+    border: 1px solid $theme-100;
+    background-color: $theme-100 !important;
+    border-radius: 100%;
+    width: 2.4rem;
+    height: 2.4rem;
+    padding: 0.3rem 0.55rem !important;
+  }
+}
+
+// .calendar-body-wrap :global(.react-calendar__tile--rangeStart) {
+//   display: inline-block !important;
+//   background-color: $theme-300 !important;
+//   border-top-left-radius: 30px;
+//   border-bottom-left-radius: 30px;
+//   & > abbr {
+//     background-color: $theme-600 !important;
+//     border: 1px solid $theme-100;
+//     color: $theme-50 !important;
+//     border-radius: 100%;
+//     width: 2.4rem;
+//     height: 2.4rem;
+//     padding: 0.3rem 0.55rem !important;
+//   }
+// }
+
+// .calendar-body-wrap :global(.react-calendar__tile--rangeEnd) {
+//   display: inline-block !important;
+//   background-color: $theme-300 !important;
+//   border-top-right-radius: 30px;
+//   border-bottom-right-radius: 30px;
+//   & > abbr {
+//     background-color: $theme-600 !important;
+//     border: 1px solid $theme-100;
+//     color: $theme-50 !important;
+//     border-radius: 100%;
+//     width: 2.4rem;
+//     height: 2.4rem;
+//     padding: 0.3rem 0.55rem !important;
+//   }
+// }
+
+// .calendar-body-wrap :global(.react-calendar__tile--rangeStart:hover) {
+//   display: inline-block !important;
+//   border-top-left-radius: 30px;
+//   border-bottom-left-radius: 30px;
+//   & > abbr {
+//     color: $theme-50 !important;
+//     border: none !important;
+//   }
+// }
+
+// .calendar-body-wrap :global(.react-calendar__tile--rangeEnd:hover) {
+//   display: inline-block !important;
+//   border-top-right-radius: 30px;
+//   border-bottom-right-radius: 30px;
+//   & > abbr {
+//     color: $theme-50 !important;
+//     border: none !important;
+//   }
+// }
+
+// .calendar-body-wrap
+//   :global(
+//     .react-calendar__tile
+//       .react-calendar__tile--now
+//       .react-calendar__tile--active
+//       .react-calendar__tile--range
+//       .react-calendar__tile--rangeStart
+//       .react-calendar__month-view__days__day
+//       .more-than-one-day-trip
+//   ) {
+//   display: inline-block !important;
+//   background-color: $theme-300 !important;
+//   border-top-right-radius: 30px;
+//   border-bottom-right-radius: 30px;
+//   & > abbr {
+//     color: $theme-50 !important;
+//     border: 1px solid $theme-50;
+//     border-radius: 100%;
+//     width: 2.4rem;
+//     height: 2.4rem;
+//     padding: 0.3rem 0.55rem !important;
+//   }
+// }
+
+// .calendar-body-wrap:global(.react-calendar__tile:enabled:hover) {
+//   background-color: transparent !important;
+//   & > abbr {
+//     color: $theme-50 !important;
+//     border: 1px solid $theme-50;
+//     background-color: $theme-500 !important;
+//     border-radius: 100%;
+//     width: 2.4rem;
+//     height: 2.4rem;
+//     padding: 0.3rem 0.55rem !important;
+//   }
+// }
+
+// .calendar-body-wrap:global(
+//     .react-calendar__tile .react-calendar__tile--active .react-calendar__tile--range .in-selected-range:hover
+//   ) {
+//   & > abbr {
+//     color: $theme-50 !important;
+//     border: 1px solid $theme-100000;
+//     background-color: $theme-100000 !important;
+//     border-radius: 100%;
+//     width: 2.4rem;
+//     height: 2.4rem;
+//     padding: 0.3rem 0.55rem !important;
+//   }
+// }
+
+// .calendar-body-wrap:global(.react-calendar__tile--now):enabled:hover,
+// .calendar-body-wrap:global(.react-calendar__tile--now):enabled:focus {
+//   background-color: red !important;
+// }

@@ -1,12 +1,14 @@
 'use client';
-import { AnimatedButton, AppBar, Card, Toast } from '@tripie-pyotato/design-system/@components';
-import AnimatedText from '@tripie-pyotato/design-system/@components/AnimatedText';
-import ROUTE from 'constants/routes';
+import { AnimatedText, AppBar, Card, Toast } from '@tripie-pyotato/design-system/@components';
+
+import FlickTextButton from '@tripie-pyotato/design-system/@components/FlickTextButton';
 import { useRouter, useSearchParams } from 'next/navigation';
 
-import { Stack, Text } from '@tripie-pyotato/design-system/@core';
+import { Stack } from '@tripie-pyotato/design-system/@core';
+import Text from '@tripie-pyotato/design-system/@core/Text';
 
 import { COLORS } from '@tripie-pyotato/design-system/shared';
+import ROUTE from 'constants/routes';
 import { ComponentType, Dispatch, SetStateAction, useEffect, useState } from 'react';
 import MenuWithNotification from './MenuWithNotification';
 
@@ -49,10 +51,19 @@ const NavBar = ({
           navigate.push(ROUTE.HOME.href);
         }}
       >
-        <Text.Accented zIndex="fixed" bold={true} gap="none" padding="none" margin="none" size="h4">
+        <Text.Accented
+          noGapUnderText={true}
+          zIndex="fixed"
+          bold={true}
+          gap="none"
+          padding="none"
+          margin="none"
+          size="h4"
+        >
           Tripie
         </Text.Accented>
       </AnimatedText>
+
       <MenuWithNotification />
     </AppBar>
   );
@@ -91,19 +102,20 @@ function withToast<P>(
               <Stack direction="column" margin="none" alignItems="center">
                 <Text bold={true}>선택 사항이 초기화 됩니다!</Text>
                 <Stack gap="l">
-                  <AnimatedButton withBorder isFullSize onClick={() => setIsOpen(false)}>
+                  <FlickTextButton withBorder sizes={'large'} onClick={() => setIsOpen(false)}>
                     <Text bold>이어서</Text>
-                  </AnimatedButton>
-                  <AnimatedButton
+                  </FlickTextButton>
+
+                  <FlickTextButton
                     withBorder
-                    isFullSize
+                    sizes={'large'}
                     onClick={() => {
                       setIsOpen(false);
                       navigate.push(navigateUrl);
                     }}
                   >
                     <Text bold>다음에</Text>
-                  </AnimatedButton>
+                  </FlickTextButton>
                 </Stack>
               </Stack>
             </Card>

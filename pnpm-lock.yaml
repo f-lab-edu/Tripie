@@ -44,7 +44,7 @@ importers:
         version: 6.0.1
       tsup:
         specifier: ^8.1.2
-        version: 8.3.6(@swc/core@1.11.13(@swc/helpers@0.5.15))(jiti@1.21.7)(postcss@8.5.3)(typescript@5.8.2)(yaml@2.7.0)
+        version: 8.3.6(@swc/core@1.11.13(@swc/helpers@0.5.15))(jiti@1.21.7)(postcss@8.5.3)(tsx@4.20.3)(typescript@5.8.2)(yaml@2.7.0)
 
   apps/api:
     dependencies:
@@ -117,7 +117,7 @@ importers:
         version: 7.1.0
       tsup:
         specifier: ^8.4.0
-        version: 8.4.0(@swc/core@1.11.13(@swc/helpers@0.5.15))(jiti@1.21.7)(postcss@8.5.3)(typescript@5.8.2)(yaml@2.7.0)
+        version: 8.4.0(@swc/core@1.11.13(@swc/helpers@0.5.15))(jiti@1.21.7)(postcss@8.5.3)(tsx@4.20.3)(typescript@5.8.2)(yaml@2.7.0)
       typescript:
         specifier: 5.8.2
         version: 5.8.2
@@ -125,8 +125,8 @@ importers:
   apps/docs:
     dependencies:
       '@tripie-pyotato/design-system':
-        specifier: ^0.2.3
-        version: 0.2.3(@base-ui-components/react@1.0.0-beta.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer-motion@12.17.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer@2.4.1(framer-motion@12.17.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(maplibre-gl@4.7.1)(next@15.1.7(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.85.0))(react-calendar@6.0.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-globe.gl@2.33.2(react@18.3.1))(react-intersection-observer@9.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-map-gl@7.1.9(maplibre-gl@4.7.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(usehooks-ts@3.1.1(react@18.3.1))
+        specifier: workspace:*
+        version: link:../../packages/design-system
       '@tripie-pyotato/hooks':
         specifier: ^0.0.2
         version: 0.0.2(react@18.3.1)
@@ -294,8 +294,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/database
       '@tripie-pyotato/design-system':
-        specifier: ^0.2.9
-        version: 0.2.9(@base-ui-components/react@1.0.0-beta.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer@2.4.1(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(maplibre-gl@4.7.1)(next@15.1.7(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6))(react-calendar@5.1.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-globe.gl@2.33.2(react@18.3.1))(react-intersection-observer@9.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-map-gl@7.1.9(maplibre-gl@4.7.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(usehooks-ts@3.1.1(react@18.3.1))
+        specifier: ^0.2.12
+        version: 0.2.12(@base-ui-components/react@1.0.0-beta.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer@2.4.1(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(maplibre-gl@4.7.1)(next@15.1.7(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6))(react-calendar@5.1.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-globe.gl@2.33.2(react@18.3.1))(react-intersection-observer@9.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-map-gl@7.1.9(maplibre-gl@4.7.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(usehooks-ts@3.1.1(react@18.3.1))
       '@tripie-pyotato/hooks':
         specifier: ^0.0.3
         version: 0.0.3(react@18.3.1)
@@ -526,7 +526,7 @@ importers:
         version: 0.0.2
       '@vitejs/plugin-react':
         specifier: ^4.3.4
-        version: 4.3.4(vite@6.1.1(@types/node@22.13.13)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.0))
+        version: 4.3.4(vite@6.1.1(@types/node@22.13.13)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(tsx@4.20.3)(yaml@2.7.0))
       '@vitest/coverage-istanbul':
         specifier: ^3.0.7
         version: 3.1.1(vitest@3.1.1(@types/debug@4.1.12)(@types/node@22.13.13)(@vitest/ui@3.0.7)(jsdom@26.0.0)(msw@2.7.1(@types/node@22.13.13)(typescript@5.8.2))(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0))
@@ -544,7 +544,7 @@ importers:
         version: 17.1.0
       vite-tsconfig-paths:
         specifier: ^5.1.4
-        version: 5.1.4(typescript@5.8.2)(vite@6.1.1(@types/node@22.13.13)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.0))
+        version: 5.1.4(typescript@5.8.2)(vite@6.1.1(@types/node@22.13.13)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(tsx@4.20.3)(yaml@2.7.0))
       vitest:
         specifier: ^3.1.1
         version: 3.1.1(@types/debug@4.1.12)(@types/node@22.13.13)(@vitest/ui@3.0.7)(jsdom@26.0.0)(msw@2.7.1(@types/node@22.13.13)(typescript@5.8.2))(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)
@@ -631,6 +631,9 @@ importers:
       '@turbo/gen':
         specifier: ^2.0.11
         version: 2.4.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@20.17.19)(typescript@5.8.2)
+      '@types/fs-extra':
+        specifier: ^11.0.4
+        version: 11.0.4
       '@types/jest':
         specifier: ^29.5.12
         version: 29.5.14
@@ -642,7 +645,7 @@ importers:
         version: 18.3.18
       '@vitejs/plugin-react':
         specifier: ^4.3.4
-        version: 4.3.4(vite@6.1.1(@types/node@20.17.19)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.0))
+        version: 4.3.4(vite@6.1.1(@types/node@20.17.19)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(tsx@4.20.3)(yaml@2.7.0))
       autoprefixer:
         specifier: ^10.4.0
         version: 10.4.20(postcss@8.5.3)
@@ -667,6 +670,9 @@ importers:
       fast-glob:
         specifier: ^3.3.3
         version: 3.3.3
+      fs-extra:
+        specifier: ^11.3.0
+        version: 11.3.0
       identity-obj-proxy:
         specifier: ^3.0.0
         version: 3.0.0
@@ -684,7 +690,7 @@ importers:
         version: 8.5.3
       postcss-cli:
         specifier: ^11.0.1
-        version: 11.0.1(jiti@1.21.7)(postcss@8.5.3)
+        version: 11.0.1(jiti@1.21.7)(postcss@8.5.3)(tsx@4.20.3)
       postcss-copy-assets:
         specifier: ^0.3.1
         version: 0.3.1
@@ -708,7 +714,10 @@ importers:
         version: 29.2.6(@babel/core@7.26.9)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.26.9))(esbuild@0.25.2)(jest@29.7.0(@types/node@20.17.19)(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@20.17.19)(typescript@5.8.2)))(typescript@5.8.2)
       tsup:
         specifier: ^8.4.0
-        version: 8.4.0(@swc/core@1.11.13(@swc/helpers@0.5.15))(jiti@1.21.7)(postcss@8.5.3)(typescript@5.8.2)(yaml@2.7.0)
+        version: 8.4.0(@swc/core@1.11.13(@swc/helpers@0.5.15))(jiti@1.21.7)(postcss@8.5.3)(tsx@4.20.3)(typescript@5.8.2)(yaml@2.7.0)
+      tsx:
+        specifier: ^4.20.3
+        version: 4.20.3
       vitest:
         specifier: ^3.0.6
         version: 3.0.6(@types/debug@4.1.12)(@types/node@20.17.19)(jsdom@26.0.0)(msw@2.7.1(@types/node@20.17.19)(typescript@5.8.2))(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)
@@ -745,7 +754,7 @@ importers:
         version: 18.3.1
       tsup:
         specifier: ^8.1.2
-        version: 8.3.6(@swc/core@1.11.13(@swc/helpers@0.5.15))(jiti@1.21.7)(postcss@8.5.3)(typescript@5.7.3)(yaml@2.7.0)
+        version: 8.3.6(@swc/core@1.11.13(@swc/helpers@0.5.15))(jiti@1.21.7)(postcss@8.5.3)(tsx@4.20.3)(typescript@5.7.3)(yaml@2.7.0)
       typescript:
         specifier: ^5
         version: 5.7.3
@@ -831,7 +840,7 @@ importers:
         version: 18.3.5(@types/react@18.3.18)
       '@vitejs/plugin-react':
         specifier: ^4.2.1
-        version: 4.3.4(vite@6.1.1(@types/node@20.17.19)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.0))
+        version: 4.3.4(vite@6.1.1(@types/node@20.17.19)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(tsx@4.20.3)(yaml@2.7.0))
       '@vitest/coverage-istanbul':
         specifier: ^3.0.7
         version: 3.1.1(vitest@3.1.1(@types/debug@4.1.12)(@types/node@20.17.19)(jsdom@26.0.0)(msw@2.7.1(@types/node@20.17.19)(typescript@5.8.2))(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0))
@@ -840,7 +849,7 @@ importers:
         version: 18.3.1
       tsup:
         specifier: ^8.1.2
-        version: 8.4.0(@swc/core@1.11.13(@swc/helpers@0.5.15))(jiti@1.21.7)(postcss@8.5.3)(typescript@5.8.2)(yaml@2.7.0)
+        version: 8.4.0(@swc/core@1.11.13(@swc/helpers@0.5.15))(jiti@1.21.7)(postcss@8.5.3)(tsx@4.20.3)(typescript@5.8.2)(yaml@2.7.0)
       typescript:
         specifier: ^5
         version: 5.8.2
@@ -4085,24 +4094,8 @@ packages:
   '@tootallnate/quickjs-emscripten@0.23.0':
     resolution: {integrity: sha512-C5Mc6rdnsaJDjO3UpGW/CQTHtCKaYlScZTly4JIu97Jxo/odCiH0ITnDXSJPTOrEKk/ycSZ0AOgTmkDtkOsvIA==}
 
-  '@tripie-pyotato/design-system@0.2.3':
-    resolution: {integrity: sha512-CSSvTkaJkgPoefVdQ8am/20leHZXkQQuZe1tbjt1xkEP+JtlpwwaWen7bzvqGtHRbyQumj4JAAKZp/G58lO6XQ==}
-    peerDependencies:
-      '@base-ui-components/react': 1.0.0-beta.0
-      framer: ^2.4.1
-      framer-motion: ^11.11.17
-      maplibre-gl: ^4.7.1
-      next: '*'
-      react: '*'
-      react-calendar: ^5.0.0
-      react-dom: ^18.3.1
-      react-globe.gl: ^2.27.2
-      react-intersection-observer: 9.13.1
-      react-map-gl: ^7.1.7
-      usehooks-ts: ^3.1.0
-
-  '@tripie-pyotato/design-system@0.2.9':
-    resolution: {integrity: sha512-d6rA6Lmbnv7gUNJ7AlUMsjmLBplA+ijdcqWPcpcqFzjMADwKiZgoqBcvOMQDguuLqVGPDINzDVwVSYHZR4OEtA==}
+  '@tripie-pyotato/design-system@0.2.12':
+    resolution: {integrity: sha512-zIef6SNwpO3/Xv810C2IOVSx+AQCf3BFHXkExd1hL0Q0RiYtgGzLJYIf9TB4N85v+9D163mBkDqJDmbhxrEQJA==}
     peerDependencies:
       '@base-ui-components/react': 1.0.0-beta.0
       framer: ^2.4.1
@@ -4250,6 +4243,9 @@ packages:
   '@types/express@4.17.17':
     resolution: {integrity: sha512-Q4FmmuLGBG58btUnfS1c1r/NQdlp3DMfGDGig8WhfpA2YRUtEkxAjkZb0yvplJGYdF1fsQ81iMDcH24sSCNC/Q==}
 
+  '@types/fs-extra@11.0.4':
+    resolution: {integrity: sha512-yTbItCNreRooED33qjunPthRcSjERP1r4MqCZc7wv0u2sUkzTFp45tgUfS5+r7FrZPdmCCNflLhVSP/o+SemsQ==}
+
   '@types/geojson-vt@3.2.5':
     resolution: {integrity: sha512-qDO7wqtprzlpe8FfQ//ClPV9xiuoh2nkIgiouIptON9w5jvD/fA4szvP9GBlDVdJ5dldAl0kX/sy3URbWwLx0g==}
 
@@ -4300,6 +4296,9 @@ packages:
 
   '@types/json5@0.0.29':
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
+
+  '@types/jsonfile@6.1.4':
+    resolution: {integrity: sha512-D5qGUYwjvnNNextdU59/+fI+spnwtTFmyQP0h+PfIOSkNfpU6AOICUOkm4i0OnSk+NyjdPJrxCDro0sJsWlRpQ==}
 
   '@types/make-dir@2.1.0':
     resolution: {integrity: sha512-KNpeVn6tjPq5BtHdcAUNthrolKEH2wwaJzYfAXiuh7eecR2IX/VO5UDdiTn3QAULfaIR92gOalzm8S7XVwKjww==}
@@ -4879,9 +4878,6 @@ packages:
 
   '@wojtekmaj/date-utils@1.5.1':
     resolution: {integrity: sha512-+i7+JmNiE/3c9FKxzWFi2IjRJ+KzZl1QPu6QNrsgaa2MuBgXvUy4gA1TVzf/JMdIIloB76xSKikTWuyYAIVLww==}
-
-  '@wojtekmaj/date-utils@2.0.2':
-    resolution: {integrity: sha512-Do66mSlSNifFFuo3l9gNKfRMSFi26CRuQMsDJuuKO/ekrDWuTTtE4ZQxoFCUOG+NgxnpSeBq/k5TY8ZseEzLpA==}
 
   '@xtuc/ieee754@1.2.0':
     resolution: {integrity: sha512-DX8nKgqcGwsc0eJSqYt5lwP4DH5FlHnmuWWBRy7X0NcaGR0ZtuyeESgMwTYVEtxmsNGY+qit4QYT/MIYTOTPeA==}
@@ -6936,20 +6932,6 @@ packages:
       react-dom:
         optional: true
 
-  framer-motion@12.17.0:
-    resolution: {integrity: sha512-2hISKgDk49yCLStwG1wf4Kdy/D6eBw9/eRNaWFIYoI9vMQ/Mqd1Fz+gzVlEtxJmtQ9y4IWnXm19/+UXD3dAYAA==}
-    peerDependencies:
-      '@emotion/is-prop-valid': '*'
-      react: ^18.0.0 || ^19.0.0
-      react-dom: ^18.0.0 || ^19.0.0
-    peerDependenciesMeta:
-      '@emotion/is-prop-valid':
-        optional: true
-      react:
-        optional: true
-      react-dom:
-        optional: true
-
   framer@2.4.1:
     resolution: {integrity: sha512-kInsb+tmtNEvOeRa8wT2oRAl8Xe1L8ev4ahinB875Xh0zPBLt5Di6fuvBUILnDUU6mqmM+6QPiNxg62Va66V4Q==}
     peerDependencies:
@@ -7060,9 +7042,6 @@ packages:
 
   get-user-locale@2.3.2:
     resolution: {integrity: sha512-O2GWvQkhnbDoWFUJfaBlDIKUEdND8ATpBXD6KXcbhxlfktyD/d8w6mkzM/IlQEqGZAMz/PW6j6Hv53BiigKLUQ==}
-
-  get-user-locale@3.0.0:
-    resolution: {integrity: sha512-iJfHSmdYV39UUBw7Jq6GJzeJxUr4U+S03qdhVuDsR9gCEnfbqLy9gYDJFBJQL1riqolFUKQvx36mEkp2iGgJ3g==}
 
   get-value@2.0.6:
     resolution: {integrity: sha512-Ln0UQDlxH1BapMu3GPtf7CuYNwRZf2gwCuPqbyG6pB8WfmFpzqcy4xtAaAMUhnNqjMKTiCPZG2oMT3YSx8U2NA==}
@@ -8317,10 +8296,6 @@ packages:
     resolution: {integrity: sha512-UERzLsxzllchadvbPs5aolHh65ISpKpM+ccLbOJ8/vvpBKmAWf+la7dXFy7Mr0ySHbdHrFv5kGFCUHHe6GFEmw==}
     engines: {node: '>= 4.0.0'}
 
-  memoize@10.1.0:
-    resolution: {integrity: sha512-MMbFhJzh4Jlg/poq1si90XRlTZRDHVqdlz2mPyGJ6kqMpyHUyVpDd5gpFAvVehW64+RA1eKE9Yt8aSLY7w2Kgg==}
-    engines: {node: '>=18'}
-
   memoizerific@1.11.3:
     resolution: {integrity: sha512-/EuHYwAPdLtXwAwSZkh/Gutery6pD2KYd44oQLhAvQp/50mpyduZh8Q7PYHXTCJ+wuXxt7oij2LXyIJOOYFPog==}
 
@@ -8468,10 +8443,6 @@ packages:
     resolution: {integrity: sha512-Ysbi9uYW9hFyfrThdDEQuykN4Ey6BuwPD2kpI5ES/nFTDn/98yxYNLZJcgUAKPT/mcrLLKaGzJR9YVxJrIdASQ==}
     engines: {node: '>=8'}
 
-  mimic-function@5.0.1:
-    resolution: {integrity: sha512-VP79XUPxV2CigYP3jWwAUFSku2aKqBH7uTAapFWCBqutsbmDo96KY5o8uh6U+/YSIn5OxJnXp73beVkpqMIGhA==}
-    engines: {node: '>=18'}
-
   min-indent@1.0.1:
     resolution: {integrity: sha512-I9jwMn07Sy/IwOj3zVkVik2JTvgpaykDZEigL6Rx6N9LbMywwUSMtxET+7lVoDLLd3O3IXwJwvuuns8UB/HeAg==}
     engines: {node: '>=4'}
@@ -8522,14 +8493,8 @@ packages:
   motion-dom@11.18.1:
     resolution: {integrity: sha512-g76KvA001z+atjfxczdRtw/RXOM3OMSdd1f4DL77qCTF/+avrRJiawSG4yDibEQ215sr9kpinSlX2pCTJ9zbhw==}
 
-  motion-dom@12.17.0:
-    resolution: {integrity: sha512-FA6/c70R9NKs3g41XDVONzmUUrEmyaifLVGCWtAmHP0usDnX9W+RN/tmbC4EUl0w6yLGvMTOwnWCFVgA5luhRg==}
-
   motion-utils@11.18.1:
     resolution: {integrity: sha512-49Kt+HKjtbJKLtgO/LKj9Ld+6vw9BjH5d9sc40R/kVyH8GLAXgT42M2NnuPcJNuA3s9ZfZBUcwIgpmZWGEE+hA==}
-
-  motion-utils@12.12.1:
-    resolution: {integrity: sha512-f9qiqUHm7hWSLlNW8gS9pisnsN7CRFRD58vNjptKdsqFLpkVnX00TNeD6Q0d27V9KzT7ySFyK1TZ/DShfVOv6w==}
 
   mri@1.2.0:
     resolution: {integrity: sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==}
@@ -9413,16 +9378,6 @@ packages:
 
   react-calendar@5.1.0:
     resolution: {integrity: sha512-09o/rQHPZGEi658IXAJtWfra1N69D1eFnuJ3FQm9qUVzlzNnos1+GWgGiUeSs22QOpNm32aoVFOimq0p3Ug9Eg==}
-    peerDependencies:
-      '@types/react': ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
-
-  react-calendar@6.0.0:
-    resolution: {integrity: sha512-6wqaki3Us0DNDjZDr0DYIzhSFprNoy4FdPT9Pjy5aD2hJJVjtJwmdMT9VmrTUo949nlk35BOxehThxX62RkuRQ==}
     peerDependencies:
       '@types/react': ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -10780,6 +10735,11 @@ packages:
     engines: {node: '>= 6'}
     peerDependencies:
       typescript: '>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta'
+
+  tsx@4.20.3:
+    resolution: {integrity: sha512-qjbnuR9Tr+FJOMBqJCW5ehvIo/buZq7vH7qD7JziU98h6l3qGy0a/yPFjwO+y0/T7GFpNgNAvEcPPVfyT8rrPQ==}
+    engines: {node: '>=18.0.0'}
+    hasBin: true
 
   tty-browserify@0.0.1:
     resolution: {integrity: sha512-C3TaO7K81YvjCgQH9Q1S3R3P3BtN3RIM8n+OvX4il1K1zgE8ZhI0op7kClgkxtutIE8hQrcrHBXvIheqKUUCxw==}
@@ -15734,26 +15694,7 @@ snapshots:
 
   '@tootallnate/quickjs-emscripten@0.23.0': {}
 
-  '@tripie-pyotato/design-system@0.2.3(@base-ui-components/react@1.0.0-beta.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer-motion@12.17.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer@2.4.1(framer-motion@12.17.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(maplibre-gl@4.7.1)(next@15.1.7(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.85.0))(react-calendar@6.0.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-globe.gl@2.33.2(react@18.3.1))(react-intersection-observer@9.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-map-gl@7.1.9(maplibre-gl@4.7.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(usehooks-ts@3.1.1(react@18.3.1))':
-    dependencies:
-      '@base-ui-components/react': 1.0.0-beta.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@tripie-pyotato/hooks': 0.0.3(react@18.3.1)
-      '@tripie-pyotato/utils': 0.0.3(react@18.3.1)
-      classnames: 2.5.1
-      date-fns: 4.1.0
-      framer: 2.4.1(framer-motion@12.17.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      framer-motion: 12.17.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      maplibre-gl: 4.7.1
-      next: 15.1.7(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.85.0)
-      react: 18.3.1
-      react-calendar: 6.0.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-dom: 18.3.1(react@18.3.1)
-      react-globe.gl: 2.33.2(react@18.3.1)
-      react-intersection-observer: 9.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-map-gl: 7.1.9(maplibre-gl@4.7.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      usehooks-ts: 3.1.1(react@18.3.1)
-
-  '@tripie-pyotato/design-system@0.2.9(@base-ui-components/react@1.0.0-beta.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer@2.4.1(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(maplibre-gl@4.7.1)(next@15.1.7(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6))(react-calendar@5.1.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-globe.gl@2.33.2(react@18.3.1))(react-intersection-observer@9.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-map-gl@7.1.9(maplibre-gl@4.7.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(usehooks-ts@3.1.1(react@18.3.1))':
+  '@tripie-pyotato/design-system@0.2.12(@base-ui-components/react@1.0.0-beta.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer@2.4.1(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(maplibre-gl@4.7.1)(next@15.1.7(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6))(react-calendar@5.1.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-globe.gl@2.33.2(react@18.3.1))(react-intersection-observer@9.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-map-gl@7.1.9(maplibre-gl@4.7.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(usehooks-ts@3.1.1(react@18.3.1))':
     dependencies:
       '@base-ui-components/react': 1.0.0-beta.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tripie-pyotato/hooks': 0.0.3(react@18.3.1)
@@ -15963,6 +15904,11 @@ snapshots:
       '@types/qs': 6.9.18
       '@types/serve-static': 1.15.7
 
+  '@types/fs-extra@11.0.4':
+    dependencies:
+      '@types/jsonfile': 6.1.4
+      '@types/node': 20.17.19
+
   '@types/geojson-vt@3.2.5':
     dependencies:
       '@types/geojson': 7946.0.16
@@ -16019,6 +15965,10 @@ snapshots:
   '@types/json-schema@7.0.15': {}
 
   '@types/json5@0.0.29': {}
+
+  '@types/jsonfile@6.1.4':
+    dependencies:
+      '@types/node': 20.17.19
 
   '@types/make-dir@2.1.0':
     dependencies:
@@ -16621,25 +16571,25 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@vitejs/plugin-react@4.3.4(vite@6.1.1(@types/node@20.17.19)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.0))':
+  '@vitejs/plugin-react@4.3.4(vite@6.1.1(@types/node@20.17.19)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(tsx@4.20.3)(yaml@2.7.0))':
     dependencies:
       '@babel/core': 7.26.9
       '@babel/plugin-transform-react-jsx-self': 7.25.9(@babel/core@7.26.9)
       '@babel/plugin-transform-react-jsx-source': 7.25.9(@babel/core@7.26.9)
       '@types/babel__core': 7.20.5
       react-refresh: 0.14.2
-      vite: 6.1.1(@types/node@20.17.19)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.0)
+      vite: 6.1.1(@types/node@20.17.19)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(tsx@4.20.3)(yaml@2.7.0)
     transitivePeerDependencies:
       - supports-color
 
-  '@vitejs/plugin-react@4.3.4(vite@6.1.1(@types/node@22.13.13)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.0))':
+  '@vitejs/plugin-react@4.3.4(vite@6.1.1(@types/node@22.13.13)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(tsx@4.20.3)(yaml@2.7.0))':
     dependencies:
       '@babel/core': 7.26.9
       '@babel/plugin-transform-react-jsx-self': 7.25.9(@babel/core@7.26.9)
       '@babel/plugin-transform-react-jsx-source': 7.25.9(@babel/core@7.26.9)
       '@types/babel__core': 7.20.5
       react-refresh: 0.14.2
-      vite: 6.1.1(@types/node@22.13.13)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.0)
+      vite: 6.1.1(@types/node@22.13.13)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(tsx@4.20.3)(yaml@2.7.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -16977,8 +16927,6 @@ snapshots:
   '@webcomponents/shadycss@1.11.2': {}
 
   '@wojtekmaj/date-utils@1.5.1': {}
-
-  '@wojtekmaj/date-utils@2.0.2': {}
 
   '@xtuc/ieee754@1.2.0': {}
 
@@ -19517,32 +19465,12 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  framer-motion@12.17.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
-    dependencies:
-      motion-dom: 12.17.0
-      motion-utils: 12.12.1
-      tslib: 2.8.1
-    optionalDependencies:
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-
   framer@2.4.1(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@juggle/resize-observer': 3.4.0
       eventemitter3: 3.1.2
       fontfaceobserver: 2.3.0
       framer-motion: 11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      hoist-non-react-statics: 3.3.2
-      hsluv: 0.0.3
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-
-  framer@2.4.1(framer-motion@12.17.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
-    dependencies:
-      '@juggle/resize-observer': 3.4.0
-      eventemitter3: 3.1.2
-      fontfaceobserver: 2.3.0
-      framer-motion: 12.17.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       hoist-non-react-statics: 3.3.2
       hsluv: 0.0.3
       react: 18.3.1
@@ -19662,10 +19590,6 @@ snapshots:
   get-user-locale@2.3.2:
     dependencies:
       mem: 8.1.1
-
-  get-user-locale@3.0.0:
-    dependencies:
-      memoize: 10.1.0
 
   get-value@2.0.6: {}
 
@@ -21419,10 +21343,6 @@ snapshots:
     dependencies:
       fs-monkey: 1.0.6
 
-  memoize@10.1.0:
-    dependencies:
-      mimic-function: 5.0.1
-
   memoizerific@1.11.3:
     dependencies:
       map-or-similar: 1.5.0
@@ -21675,8 +21595,6 @@ snapshots:
 
   mimic-fn@3.1.0: {}
 
-  mimic-function@5.0.1: {}
-
   min-indent@1.0.1: {}
 
   minimalistic-assert@1.0.1: {}
@@ -21729,13 +21647,7 @@ snapshots:
     dependencies:
       motion-utils: 11.18.1
 
-  motion-dom@12.17.0:
-    dependencies:
-      motion-utils: 12.12.1
-
   motion-utils@11.18.1: {}
-
-  motion-utils@12.12.1: {}
 
   mri@1.2.0: {}
 
@@ -22439,14 +22351,14 @@ snapshots:
 
   possible-typed-array-names@1.1.0: {}
 
-  postcss-cli@11.0.1(jiti@1.21.7)(postcss@8.5.3):
+  postcss-cli@11.0.1(jiti@1.21.7)(postcss@8.5.3)(tsx@4.20.3):
     dependencies:
       chokidar: 3.6.0
       dependency-graph: 1.0.0
       fs-extra: 11.3.0
       picocolors: 1.1.1
       postcss: 8.5.3
-      postcss-load-config: 5.1.0(jiti@1.21.7)(postcss@8.5.3)
+      postcss-load-config: 5.1.0(jiti@1.21.7)(postcss@8.5.3)(tsx@4.20.3)
       postcss-reporter: 7.1.0(postcss@8.5.3)
       pretty-hrtime: 1.0.3
       read-cache: 1.0.0
@@ -22462,20 +22374,22 @@ snapshots:
       mkdirp: 0.5.6
       postcss: 5.2.18
 
-  postcss-load-config@5.1.0(jiti@1.21.7)(postcss@8.5.3):
+  postcss-load-config@5.1.0(jiti@1.21.7)(postcss@8.5.3)(tsx@4.20.3):
     dependencies:
       lilconfig: 3.1.3
       yaml: 2.7.0
     optionalDependencies:
       jiti: 1.21.7
       postcss: 8.5.3
+      tsx: 4.20.3
 
-  postcss-load-config@6.0.1(jiti@1.21.7)(postcss@8.5.3)(yaml@2.7.0):
+  postcss-load-config@6.0.1(jiti@1.21.7)(postcss@8.5.3)(tsx@4.20.3)(yaml@2.7.0):
     dependencies:
       lilconfig: 3.1.3
     optionalDependencies:
       jiti: 1.21.7
       postcss: 8.5.3
+      tsx: 4.20.3
       yaml: 2.7.0
 
   postcss-loader@8.1.1(postcss@8.5.3)(typescript@5.8.2)(webpack@5.98.0(@swc/core@1.11.13(@swc/helpers@0.5.15))(esbuild@0.25.2)):
@@ -22779,17 +22693,6 @@ snapshots:
       '@wojtekmaj/date-utils': 1.5.1
       clsx: 2.1.1
       get-user-locale: 2.3.2
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-      warning: 4.0.3
-    optionalDependencies:
-      '@types/react': 18.3.18
-
-  react-calendar@6.0.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
-    dependencies:
-      '@wojtekmaj/date-utils': 2.0.2
-      clsx: 2.1.1
-      get-user-locale: 3.0.0
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       warning: 4.0.3
@@ -24319,7 +24222,7 @@ snapshots:
 
   tslib@2.8.1: {}
 
-  tsup@8.3.6(@swc/core@1.11.13(@swc/helpers@0.5.15))(jiti@1.21.7)(postcss@8.5.3)(typescript@5.7.3)(yaml@2.7.0):
+  tsup@8.3.6(@swc/core@1.11.13(@swc/helpers@0.5.15))(jiti@1.21.7)(postcss@8.5.3)(tsx@4.20.3)(typescript@5.7.3)(yaml@2.7.0):
     dependencies:
       bundle-require: 5.1.0(esbuild@0.24.2)
       cac: 6.7.14
@@ -24329,7 +24232,7 @@ snapshots:
       esbuild: 0.24.2
       joycon: 3.1.1
       picocolors: 1.1.1
-      postcss-load-config: 6.0.1(jiti@1.21.7)(postcss@8.5.3)(yaml@2.7.0)
+      postcss-load-config: 6.0.1(jiti@1.21.7)(postcss@8.5.3)(tsx@4.20.3)(yaml@2.7.0)
       resolve-from: 5.0.0
       rollup: 4.34.8
       source-map: 0.8.0-beta.0
@@ -24347,7 +24250,7 @@ snapshots:
       - tsx
       - yaml
 
-  tsup@8.3.6(@swc/core@1.11.13(@swc/helpers@0.5.15))(jiti@1.21.7)(postcss@8.5.3)(typescript@5.8.2)(yaml@2.7.0):
+  tsup@8.3.6(@swc/core@1.11.13(@swc/helpers@0.5.15))(jiti@1.21.7)(postcss@8.5.3)(tsx@4.20.3)(typescript@5.8.2)(yaml@2.7.0):
     dependencies:
       bundle-require: 5.1.0(esbuild@0.24.2)
       cac: 6.7.14
@@ -24357,7 +24260,7 @@ snapshots:
       esbuild: 0.24.2
       joycon: 3.1.1
       picocolors: 1.1.1
-      postcss-load-config: 6.0.1(jiti@1.21.7)(postcss@8.5.3)(yaml@2.7.0)
+      postcss-load-config: 6.0.1(jiti@1.21.7)(postcss@8.5.3)(tsx@4.20.3)(yaml@2.7.0)
       resolve-from: 5.0.0
       rollup: 4.34.8
       source-map: 0.8.0-beta.0
@@ -24375,7 +24278,7 @@ snapshots:
       - tsx
       - yaml
 
-  tsup@8.4.0(@swc/core@1.11.13(@swc/helpers@0.5.15))(jiti@1.21.7)(postcss@8.5.3)(typescript@5.8.2)(yaml@2.7.0):
+  tsup@8.4.0(@swc/core@1.11.13(@swc/helpers@0.5.15))(jiti@1.21.7)(postcss@8.5.3)(tsx@4.20.3)(typescript@5.8.2)(yaml@2.7.0):
     dependencies:
       bundle-require: 5.1.0(esbuild@0.25.2)
       cac: 6.7.14
@@ -24385,7 +24288,7 @@ snapshots:
       esbuild: 0.25.2
       joycon: 3.1.1
       picocolors: 1.1.1
-      postcss-load-config: 6.0.1(jiti@1.21.7)(postcss@8.5.3)(yaml@2.7.0)
+      postcss-load-config: 6.0.1(jiti@1.21.7)(postcss@8.5.3)(tsx@4.20.3)(yaml@2.7.0)
       resolve-from: 5.0.0
       rollup: 4.34.8
       source-map: 0.8.0-beta.0
@@ -24407,6 +24310,13 @@ snapshots:
     dependencies:
       tslib: 1.14.1
       typescript: 5.8.2
+
+  tsx@4.20.3:
+    dependencies:
+      esbuild: 0.25.2
+      get-tsconfig: 4.10.0
+    optionalDependencies:
+      fsevents: 2.3.3
 
   tty-browserify@0.0.1: {}
 
@@ -24842,13 +24752,13 @@ snapshots:
       - supports-color
       - terser
 
-  vite-tsconfig-paths@5.1.4(typescript@5.8.2)(vite@6.1.1(@types/node@22.13.13)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.0)):
+  vite-tsconfig-paths@5.1.4(typescript@5.8.2)(vite@6.1.1(@types/node@22.13.13)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(tsx@4.20.3)(yaml@2.7.0)):
     dependencies:
       debug: 4.4.0
       globrex: 0.1.2
       tsconfck: 3.1.5(typescript@5.8.2)
     optionalDependencies:
-      vite: 6.1.1(@types/node@22.13.13)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.0)
+      vite: 6.1.1(@types/node@22.13.13)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(tsx@4.20.3)(yaml@2.7.0)
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -24889,7 +24799,7 @@ snapshots:
       sass-embedded: 1.86.0
       terser: 5.39.0
 
-  vite@6.1.1(@types/node@20.17.19)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.0):
+  vite@6.1.1(@types/node@20.17.19)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(tsx@4.20.3)(yaml@2.7.0):
     dependencies:
       esbuild: 0.24.2
       postcss: 8.5.3
@@ -24901,9 +24811,10 @@ snapshots:
       sass: 1.85.0
       sass-embedded: 1.86.0
       terser: 5.39.0
+      tsx: 4.20.3
       yaml: 2.7.0
 
-  vite@6.1.1(@types/node@22.13.13)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.0):
+  vite@6.1.1(@types/node@22.13.13)(jiti@1.21.7)(sass-embedded@1.86.0)(sass@1.85.0)(terser@5.39.0)(tsx@4.20.3)(yaml@2.7.0):
     dependencies:
       esbuild: 0.24.2
       postcss: 8.5.3
@@ -24915,6 +24826,7 @@ snapshots:
       sass: 1.85.0
       sass-embedded: 1.86.0
       terser: 5.39.0
+      tsx: 4.20.3
       yaml: 2.7.0
 
   vitest@3.0.6(@types/debug@4.1.12)(@types/node@20.17.19)(jsdom@26.0.0)(msw@2.7.1(@types/node@20.17.19)(typescript@5.8.2))(sass-embedded@1.86.0)(sass@1.77.6)(terser@5.39.0):

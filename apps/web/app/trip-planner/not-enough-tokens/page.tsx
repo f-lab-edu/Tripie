@@ -1,6 +1,6 @@
-'use client';
+'use server';
 
-import ContactAdmin from '../_components/ContactAdmin';
+import ContactAdmin from './_components/ContactAdmin';
 
 const NotEnoughTokens = () => {
   return <ContactAdmin />;

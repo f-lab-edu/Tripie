@@ -1,11 +1,15 @@
 'use client';
 
+import 'maplibre-gl/dist/maplibre-gl.css';
+
 import { Key, ReactNode } from 'react';
 import { COLORS } from 'shared';
-import { MapLibreMarker } from '../../../wrappers';
+import { MapLibreMarker, classNames } from '../../../wrappers';
 import { LocationMarker } from '../Map';
-import './marker.scss';
+import Style from './marker.module.scss';
 import Markers from './Markers.client';
+
+const cx = classNames.bind(Style);
 
 export type MarkerAnchor =
   | 'center'
@@ -42,6 +46,7 @@ const Marker = ({
       latitude={coordinates.lat}
       anchor={anchor}
       onClick={onClick}
+      className={cx('marker')}
     >
       {children ?? null}
     </MapLibreMarker>
