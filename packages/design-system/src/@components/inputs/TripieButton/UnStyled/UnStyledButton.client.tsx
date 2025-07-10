@@ -1,3 +1,5 @@
+'use client';
+
 import { TripieContainerProps } from '@core/layout/TripieContainer';
 import { ButtonHTMLAttributes, DetailedHTMLProps } from 'react';
 import { classNames } from '../../../../wrappers';

@@ -1,17 +1,5 @@
 @use '../../../functions/breakpoint' as *;
 
-$stack-display-map: (inline-flex, grid);
-
-@mixin display-stack($display) {
-  display: $display;
-}
-
-@each $key in $stack-display-map {
-  .stack-#{$key} {
-    @include display-stack($key);
-  }
-}
-
 $gap-direction-map: (column, row);
 
 @mixin flex-direction($direction) {
@@ -72,7 +60,7 @@ $grid-template-map: (1, 2, 3, 4, 5, 6, 8, 10, 12);
     @include grid-row-template($key);
   }
   @if ($key%2==0) {
-    .grid.stretch-grid-last-child {
+    .stretch-grid-last-child {
       & > div:last-child {
         grid-column: 1 / -1;
       }

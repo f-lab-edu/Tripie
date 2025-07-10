@@ -29,7 +29,6 @@ const TripieBackground = ({
         `background-${variant}`,
         `align-items-${alignItems}`,
         alignItems != 'none' || gap !== 'none' || justifyContent !== 'none' ? 'flex' : '',
-        'container',
         `paddings_${padding}_to_${applyPadding}`,
         `text-align-${textAlign}`,
         `justify-content-${justifyContent}`,

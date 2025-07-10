@@ -1,3 +1,5 @@
+'use client';
+
 import { classNames, Motion } from '../../../wrappers';
 import Style from './rotating-blur.module.scss';
 

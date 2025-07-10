@@ -1,5 +1,6 @@
 @use '../../../variables/tripie-theme' as *;
 @use '../../../mixins/with-border' as *;
+@use '../../../mixins/theme-color' as *;
 @use '../../../mixins/z-index' as *;
 
 .tool-tip-trigger {
@@ -19,21 +20,7 @@
   width: fit-content;
 }
 
-$color-theme: (
-  40: $theme-40,
-  50: $theme-50,
-  100: $theme-100,
-  200: $theme-200,
-  300: $theme-300,
-  400: $theme-400,
-  500: $theme-500,
-  600: $theme-600,
-  700: $theme-700,
-  800: $theme-800,
-  100000: $theme-100000,
-);
-
-@each $key, $color in $color-theme {
+@each $key, $color in $theme-color-key {
   .tool-tip-color-#{$key} {
     fill: $color;
     background-color: $color;
@@ -41,10 +28,6 @@ $color-theme: (
       color: $theme-400;
     }
   }
-}
-
-.arrow-border {
-  fill: $theme-400;
 }
 
 .popup {

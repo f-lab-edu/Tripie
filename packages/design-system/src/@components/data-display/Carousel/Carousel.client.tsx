@@ -5,12 +5,18 @@ import { ReactElement, ReactNode, RefObject, useCallback, useEffect, useRef, use
 
 import UnStyledButton from '../../inputs/TripieButton/UnStyled/UnStyledButton.client';
 
-import TripieContainer from '@core/layout/TripieContainer';
+import TripieContainer, { TripieContainerProps } from '@core/layout/TripieContainer';
 import Icon from '../TripieIcon/Icon.client';
 import Style from './carousel.module.scss';
 const cx = classNames.bind(Style);
 
-const Carousel = ({ items, className }: { items: ReactElement[]; className?: string }) => {
+const Carousel = ({
+  items,
+  className,
+  gap = 'default',
+  justifyContent = 'start',
+  alignItems = 'stretch',
+}: { items: ReactElement[]; className?: string } & Partial<TripieContainerProps>) => {
   const [focusedIndex, setFocusedIndex] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -45,7 +51,15 @@ const Carousel = ({ items, className }: { items: ReactElement[]; className?: str
         </UnStyledButton>
       ) : null}
       <TripieContainer margin="none" className={cx('flex-items', 'carousel-inner')}>
-        <TripieContainer margin="none" className={cx('insta-like-carousel-container', className)} refs={ref}>
+        <TripieContainer
+          margin="none"
+          gap={gap}
+          display="inline-flex"
+          alignItems={alignItems}
+          justifyContent={justifyContent}
+          className={cx('insta-like-carousel-container', className)}
+          refs={ref}
+        >
           {items.map((item, index) => (
             <CarouselItem
               key={`carousel-item-${item?.key}`}
@@ -113,11 +127,24 @@ const CarouselItem = ({
 };
 
 // 좌표를 클릭하는 등 외부의 조작으로 carousel 포커싱이 결정되어 스타일만 carousel 형태
-const ControlledCarousel = ({ children, className }: { children: ReactNode; className?: string }) => {
+const ControlledCarousel = ({
+  children,
+  gap = 'default',
+  className,
+  justifyContent = 'start',
+  alignItems = 'stretch',
+}: { children: ReactNode; className?: string } & Partial<TripieContainerProps>) => {
   return (
     <TripieContainer margin="none" className={cx('carousel')}>
-      <TripieContainer margin="none" className={cx('flex-items', 'carousel-inner')}>
-        <TripieContainer margin="none" className={cx('insta-like-carousel-container', className)}>
+      <TripieContainer margin="none" className={cx('flex-items', 'carousel-inner')} display="inline-flex">
+        <TripieContainer
+          gap={gap}
+          margin="none"
+          display="inline-flex"
+          alignItems={alignItems}
+          justifyContent={justifyContent}
+          className={cx('insta-like-carousel-container', className)}
+        >
           {children}
         </TripieContainer>
       </TripieContainer>

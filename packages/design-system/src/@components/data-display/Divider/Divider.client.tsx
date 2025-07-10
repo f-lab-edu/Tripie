@@ -1,3 +1,5 @@
+'use client';
+
 import { classNames, Motion, MotionProps } from '../../../wrappers';
 
 import { ACCORDION_VARIANTS } from '../../../shared/motion-variants';

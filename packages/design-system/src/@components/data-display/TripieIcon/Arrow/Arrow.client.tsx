@@ -1,10 +1,10 @@
 'use client';
 // https://base-ui.com/react/components/popover
-import { classNames } from '../../../wrappers';
+import { classNames } from '../../../../wrappers';
 
 import { ComponentProps } from 'react';
 import { COLORS } from 'shared';
-import Style from './tooltip.module.scss';
+import Style from './arrow.module.scss';
 
 const cx = classNames.bind(Style);
 

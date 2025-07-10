@@ -1,3 +1,5 @@
+'use client';
+
 import { classNames } from '../../../../wrappers';
 
 import { ReactNode } from 'react';

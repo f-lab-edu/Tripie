@@ -14,3 +14,5 @@ export const COLORS = {
   800: '#333333',
   100000: '#08080700',
 };
+
+export default COLORS;

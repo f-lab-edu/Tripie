@@ -1,4 +1,5 @@
 'use client';
+
 import { ReactNode, useMemo } from 'react';
 import { COLORS, SHINE_VARIANT } from 'shared';
 import { classNames, Motion, MotionProps } from 'wrappers';

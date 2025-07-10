@@ -6,8 +6,8 @@
 .drawer-content {
   @include z-index(default);
   height: -moz-available;
-  height: -webkit-fill-available;
   height: stretch; // spec has changed
+  height: -webkit-fill-available;
 }
 
 $drawer-position-map: (left, top, right, bottom);
@@ -24,17 +24,17 @@ $drawer-position-map: (left, top, right, bottom);
 .full {
   max-width: 100vw;
   max-height: 100vh;
+  height: stretch; // spec has changed
   height: -moz-available;
   height: -webkit-fill-available;
-  height: stretch; // spec has changed
   width: 100%;
   overflow: hidden;
 }
 
 .max {
+  height: stretch; // spec has changed
   height: -moz-available;
   height: -webkit-fill-available;
-  height: stretch; // spec has changed
 }
 
 $percentage-map: ();

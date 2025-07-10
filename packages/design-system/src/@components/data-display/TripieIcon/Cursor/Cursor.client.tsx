@@ -1,3 +1,5 @@
+'use client';
+
 import { ICON_RESOURCE_ICON, ICON_SIZES } from 'shared';
 import Icon, { IconProps } from '../Icon.client';
 

@@ -1,3 +1,5 @@
+'use client';
+
 import Particle from '../Particles/Particles';
 
 import { classNames } from '../../../../wrappers';

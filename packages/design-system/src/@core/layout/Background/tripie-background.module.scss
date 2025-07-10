@@ -17,12 +17,12 @@
 }
 
 .layout-fill-available {
+  width: stretch; // spec has changed
   width: -moz-available;
   width: -webkit-fill-available;
-  width: stretch; // spec has changed
+  height: stretch; // spec has changed
   height: -moz-available;
   height: -webkit-fill-available;
-  height: stretch; // spec has changed
 }
 
 @each $value in $justify-content-values {

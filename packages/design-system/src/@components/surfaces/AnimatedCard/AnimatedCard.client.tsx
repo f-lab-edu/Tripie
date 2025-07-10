@@ -1,4 +1,5 @@
 // https://mui.com/material-ui/react-card/
+'use client';
 
 import { ReactNode, RefObject } from 'react';
 import { SHINE_VARIANT } from '../../../shared/motion-variants';

@@ -1,3 +1,5 @@
+'use client';
+
 import { Text } from '@core';
 import TripieContainer from '@core/layout/TripieContainer';
 

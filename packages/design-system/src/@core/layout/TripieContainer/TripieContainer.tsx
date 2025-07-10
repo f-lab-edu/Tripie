@@ -44,6 +44,7 @@ export type TripieContainerProps = {
     | 'right'
     | 'top'
     | 'bottom';
+  display?: 'inline-flex' | 'grid' | 'inline-block';
   gap?: 'none' | 'sm' | 'default' | 'l' | 'xl';
   withBorder?: boolean;
   textAlign?: 'center' | 'left' | 'right' | 'justify' | 'end' | 'start';
@@ -83,17 +84,18 @@ const TripieContainer = ({
   withBorder = false,
   textAlign = 'start',
   zIndex = 'base',
+  display = 'inline-block',
   ...props
 }: TripieContainerProps) => {
   return (
     <div
       ref={refs}
       className={cx(
+        `container-display-${display}`,
         'layout-fill-available',
         `align-items-${alignItems}`,
         `with${withBorder ? '' : '-no'}-border`,
         alignItems != 'none' || gap !== 'none' || justifyContent !== 'none' ? 'flex' : '',
-        'container',
         `paddings_${padding}_to_${applyPadding}`,
         `margins_${margin}_to_${applyMargin}`,
         `text-align-${textAlign}`,

@@ -4,3 +4,5 @@ export const BTN_FONT_SIZE = {
   small: 0.8,
   tiny: 0.4,
 };
+
+export default BTN_FONT_SIZE;

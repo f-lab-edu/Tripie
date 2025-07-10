@@ -19,7 +19,6 @@ export type FlexWrapOn =
 
 export type StackProps = {
   direction?: 'row' | 'column';
-  display?: 'inline-flex' | 'grid';
   flexWrapOn?: FlexWrapOn;
   rows?: number;
   cols?: number;
@@ -38,7 +37,6 @@ const Stack = ({
   className,
   display = 'inline-flex',
   direction = 'row',
-
   alignItems = 'none',
   padding = 'none',
   margin = 'm',
@@ -81,11 +79,11 @@ const Stack = ({
       justifyContent={justifyContent}
       gap={gap}
       preserveWhiteSpace={preserveWhiteSpace}
+      display={display}
       className={cx(
-        `stack-${display}`,
         `flex-${flexWrapOn}`,
         `direction-${direction}`,
-        display === 'grid' ? `grid` : '',
+        // display === 'grid' ? `grid` : '',
         stretchGridLastChild ? 'stretch-grid-last-child' : '',
         display === 'grid' ? `grid-template-rows-${rows}` : '',
         display === 'grid' ? `grid-template-cols-${cols}` : '',

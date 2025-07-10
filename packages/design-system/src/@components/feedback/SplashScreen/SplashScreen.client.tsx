@@ -3,8 +3,9 @@
 import { ReactNode, useEffect, useState } from 'react';
 import { classNames, Motion } from '../../../wrappers';
 
-import TripieContainer from '@core/layout/TripieContainer';
+import TripieContainer, { TripieContainerProps } from '@core/layout/TripieContainer';
 import Style from './splash-screen.module.scss';
+
 const cx = classNames.bind(Style);
 
 export type SplashScreenProps = Readonly<{
@@ -53,13 +54,14 @@ const ControlledSplashScreen = ({
   children,
   className,
   centerItems = true,
-}: SplashScreenProps) => {
+  display = 'inline-flex',
+}: SplashScreenProps & Pick<TripieContainerProps, 'display'>) => {
   return (
     <Motion.Div
       className={cx(`variant-${variant}`, 'splash-full-screen', centerItems ? `center` : '', className)}
       initial={{ opacity: 1, y: 0 }}
     >
-      <TripieContainer alignItems="center" justifyContent="center">
+      <TripieContainer alignItems="center" justifyContent="center" display={display}>
         {children}
       </TripieContainer>
     </Motion.Div>

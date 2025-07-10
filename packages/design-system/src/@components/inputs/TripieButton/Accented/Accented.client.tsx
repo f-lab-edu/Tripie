@@ -1,3 +1,5 @@
+'use client';
+
 import { classNames, Motion } from 'wrappers';
 import Button, { TripieButtonProps } from '../Button.client';
 import Style from './accented.module.scss';

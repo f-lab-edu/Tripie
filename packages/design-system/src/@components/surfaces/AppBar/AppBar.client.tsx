@@ -1,4 +1,6 @@
+'use client';
 // https://mui.com/material-ui/react-app-bar/
+
 import TripieContainer, { TripieContainerProps } from '@core/layout/TripieContainer';
 import { classNames } from '../../../wrappers';
 
@@ -24,6 +26,7 @@ const AppBar = ({
   isResponsive = false,
   prominence = 'fixed',
   className,
+  display = 'inline-flex',
   children,
   zIndex = 'fixed',
   ...props
@@ -31,6 +34,7 @@ const AppBar = ({
   return (
     <TripieContainer
       {...props}
+      display={display}
       zIndex={zIndex}
       className={cx('app-bar', fixed ? `fixed-${position}` : `static-${position}`, position, className)}
       alignItems={'start'}
@@ -48,13 +52,19 @@ export type AppBarWithMenuProps = {
 const AppWithMenu = ({
   position,
   className,
+  display = 'inline-flex',
   zIndex = 'fixed',
   children,
   Menu,
   ...props
 }: Readonly<AppBarWithMenuProps>) => {
   return (
-    <TripieContainer zIndex={zIndex} {...props} className={cx(`menu-position-${position}`, className)}>
+    <TripieContainer
+      display={display}
+      zIndex={zIndex}
+      {...props}
+      className={cx(`menu-position-${position}`, className)}
+    >
       {Menu}
       {children}
     </TripieContainer>
@@ -71,11 +81,17 @@ const AppBarWithLogo = ({
   className,
   children,
   Logo,
+  display = 'inline-flex',
   zIndex = 'fixed',
   ...props
 }: Readonly<AppBarWithLogoProps>) => {
   return (
-    <TripieContainer zIndex={zIndex} {...props} className={cx(`menu-position-${position}`, className)}>
+    <TripieContainer
+      display={display}
+      zIndex={zIndex}
+      {...props}
+      className={cx(`menu-position-${position}`, className)}
+    >
       {Logo}
       {children}
     </TripieContainer>

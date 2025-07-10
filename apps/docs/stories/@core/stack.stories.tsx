@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Stack } from '@tripie-pyotato/design-system/@core';
+// import { Stack } from '@tripie-pyotato/design-system/@core';
+import Stack from '@tripie-pyotato/design-system/@core/Stack';
 import { useAppTheme } from '@tripie-pyotato/design-system/@hooks';
 
 const meta: Meta<typeof Stack> = {

@@ -1,4 +1,4 @@
-@use '../../../mixins/flex' as *;
+// @use '../../../mixins/flex' as *;
 @use '../../../mixins/margins' as *;
 @use '../../../mixins/paddings' as *;
 @use '../../../mixins/justify-content' as *;
@@ -14,9 +14,9 @@
   display: inline-block;
 }
 
-.flex {
-  @include flex;
-}
+// .flex {
+//   @include flex;
+// }
 
 @each $direction-key, $direction in $direction-map {
   @each $key, $value in $space-map {

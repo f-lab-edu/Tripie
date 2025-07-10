@@ -5,7 +5,7 @@ import { classNames, Motion, MotionProps } from '../../../wrappers';
 
 import { COLORS } from 'shared';
 import TripieContainer from '../../../@core/layout/TripieContainer';
-import Style from './text.module.scss';
+import Style from './animated-text.module.scss';
 import { VARIANTS } from './variants';
 
 const cx = classNames.bind(Style);

@@ -1,4 +1,4 @@
-@use '../variables' as *;
+@use '../variables/tripie-theme' as *;
 @use 'sass:map';
 
 $theme-color-map: (
@@ -17,6 +17,20 @@ $theme-color-map: (
   'bottom-shade': $bottom-shade,
   'shadow-tint': $shadow-tint,
   'inherit': inherit,
+);
+
+$theme-color-key: (
+  40: $theme-40,
+  50: $theme-50,
+  100: $theme-100,
+  200: $theme-200,
+  300: $theme-300,
+  400: $theme-400,
+  500: $theme-500,
+  600: $theme-600,
+  700: $theme-700,
+  800: $theme-800,
+  100000: $theme-100000,
 );
 
 @mixin theme-color($apply, $variant: 'inherit') {

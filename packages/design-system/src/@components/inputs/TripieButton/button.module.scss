@@ -40,10 +40,10 @@ $btn-padding-map: (
   @each $padding-key, $padding in $btn-padding-map {
     .btn-size-#{$key} {
       @if ($key==full) {
+        width: stretch;
         width: 100%;
         width: -moz-available;
         width: -webkit-fill-available;
-        width: stretch;
       }
       height: $size;
       font-size: font-size($key);

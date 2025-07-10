@@ -5,7 +5,8 @@ import { classNames } from '../../../wrappers';
 
 import { ComponentProps, ReactElement, ReactNode, useMemo } from 'react';
 import { COLORS } from 'shared';
-import ArrowSvg from './Arrow.client';
+
+import ArrowSvg from '../TripieIcon/Arrow/Arrow.client';
 import Style from './tooltip.module.scss';
 
 const cx = classNames.bind(Style);

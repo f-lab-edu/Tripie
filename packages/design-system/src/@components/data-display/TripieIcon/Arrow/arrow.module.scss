@@ -1,0 +1,16 @@
+@use '../../../../mixins/theme-color' as *;
+@use '../../../../variables/tripie-theme' as *;
+
+.arrow-border {
+  fill: $theme-400;
+}
+
+@each $key, $color in $theme-color-key {
+  .tool-tip-color-#{$key} {
+    fill: $color;
+    background-color: $color;
+    @if ($key==50) {
+      color: $theme-400;
+    }
+  }
+}

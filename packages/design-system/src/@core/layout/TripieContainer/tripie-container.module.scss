@@ -1,4 +1,4 @@
-@use '../../../mixins/flex' as *;
+// @use '../../../mixins/flex' as *;
 @use '../../../mixins/margins' as *;
 @use '../../../mixins/paddings' as *;
 @use '../../../mixins/with-border' as *;
@@ -16,22 +16,32 @@
 @use '../../../variables/gap-space-map' as *;
 @use '../../../variables/space-map' as *;
 
-.container {
-  display: inline-block;
+$container-display-map: (inline-flex, grid, inline-block);
+
+@each $key in $container-display-map {
+  .container-display-#{$key} {
+    display: $key;
+    @if ($key==inline-flex) {
+      justify-content: center;
+      flex-wrap: nowrap;
+      align-items: center;
+    }
+  }
 }
+
 .preserve-white-space {
   @media (max-width: 470px) {
     white-space: pre-wrap;
   }
 }
-.flex {
-  @include flex;
-}
+// .flex {
+//   @include flex;
+// }
 
 .layout-fill-available {
+  width: stretch; // spec has changed
   width: -moz-available;
   width: -webkit-fill-available;
-  width: stretch; // spec has changed
 }
 
 @each $direction-key, $direction in $direction-map {

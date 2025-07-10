@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import { ReactNode, useEffect, useRef } from 'react';
-import TripieContainer from '../../../@core/layout/TripieContainer';
+import TripieContainer, { TripieContainerProps } from '../../../@core/layout/TripieContainer';
 import { CLOUDINARY_URL, COLORS, RESOURCE } from '../../../shared';
 import { GlobeMethods, GlobeProps } from '../../../wrappers/react-globe';
 
@@ -17,12 +17,13 @@ const Globe = dynamic(() => import('react-globe.gl').then(mod => mod.default), {
 const RotatingGlobe = ({
   height = 500,
   width = 500,
+  display = 'inline-flex',
   fallback = <LoadingIcon />,
   backgroundColor = COLORS['100000'],
   hexPolygonColor = () => COLORS[50],
   globeImageUrl = CLOUDINARY_URL() + RESOURCE.EARTH,
   ...args
-}: GlobeProps & { fallback?: ReactNode }) => {
+}: GlobeProps & { fallback?: ReactNode } & Pick<TripieContainerProps, 'display'>) => {
   const globeRef = useRef<GlobeMethods>();
 
   // Globe 가 충분히 로드될때까지 초기화 대기
@@ -46,7 +47,12 @@ const RotatingGlobe = ({
   }, []);
 
   return (
-    <TripieContainer style={{ minHeight: height, minWidth: width }} alignItems="center" justifyContent="center">
+    <TripieContainer
+      display={display}
+      style={{ minHeight: height, minWidth: width }}
+      alignItems="center"
+      justifyContent="center"
+    >
       <Globe
         height={height}
         width={width}

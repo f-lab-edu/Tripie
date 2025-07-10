@@ -250,81 +250,81 @@
     "./@components/AnimatedText": {
       "require": {
         "types": "./dist/@components/data-display/AnimatedText/index.d.cts",
-        "default": "./dist/@components/data-display/AnimatedText/index.cjs"
+        "default": "./dist/@components/data-display/AnimatedText/AnimatedText.client.cjs"
       },
       "import": {
         "types": "./dist/@components/data-display/AnimatedText/index.d.ts",
-        "default": "./dist/@components/data-display/AnimatedText/index.js"
+        "default": "./dist/@components/data-display/AnimatedText/AnimatedText.client.js"
       }
     },
     "./@components/Carousel": {
       "require": {
         "types": "./dist/@components/data-display/Carousel/index.d.cts",
-        "default": "./dist/@components/data-display/Carousel/index.cjs"
+        "default": "./dist/@components/data-display/Carousel/Carousel.client.cjs"
       },
       "import": {
         "types": "./dist/@components/data-display/Carousel/index.d.ts",
-        "default": "./dist/@components/data-display/Carousel/index.js"
+        "default": "./dist/@components/data-display/Carousel/Carousel.client.js"
       }
     },
     "./@components/Chip": {
       "require": {
         "types": "./dist/@components/data-display/Chip/index.d.cts",
-        "default": "./dist/@components/data-display/Chip/index.cjs"
+        "default": "./dist/@components/data-display/Chip/Chip.client.cjs"
       },
       "import": {
         "types": "./dist/@components/data-display/Chip/index.d.ts",
-        "default": "./dist/@components/data-display/Chip/index.js"
+        "default": "./dist/@components/data-display/Chip/Chip.client.js"
       }
     },
     "./@components/Divider": {
       "require": {
         "types": "./dist/@components/data-display/Divider/index.d.cts",
-        "default": "./dist/@components/data-display/Divider/index.cjs"
+        "default": "./dist/@components/data-display/Divider/Divider.client.cjs"
       },
       "import": {
         "types": "./dist/@components/data-display/Divider/index.d.ts",
-        "default": "./dist/@components/data-display/Divider/index.js"
+        "default": "./dist/@components/data-display/Divider/Divider.client.js"
       }
     },
     "./@components/Image": {
       "require": {
         "types": "./dist/@components/data-display/Image/index.d.cts",
-        "default": "./dist/@components/data-display/Image/index.cjs"
+        "default": "./dist/@components/data-display/Image/Image.client.cjs"
       },
       "import": {
         "types": "./dist/@components/data-display/Image/index.d.ts",
-        "default": "./dist/@components/data-display/Image/index.js"
+        "default": "./dist/@components/data-display/Image/Image.client.js"
       }
     },
     "./@components/TextFill": {
       "require": {
         "types": "./dist/@components/data-display/TextFill/index.d.cts",
-        "default": "./dist/@components/data-display/TextFill/index.cjs"
+        "default": "./dist/@components/data-display/TextFill/TextFillAnimation.client.cjs"
       },
       "import": {
         "types": "./dist/@components/data-display/TextFill/index.d.ts",
-        "default": "./dist/@components/data-display/TextFill/index.js"
+        "default": "./dist/@components/data-display/TextFill/TextFillAnimation.client.js"
       }
     },
     "./@components/TextUnderlineAnimation": {
       "require": {
         "types": "./dist/@components/data-display/TextUnderlineAnimation/index.d.cts",
-        "default": "./dist/@components/data-display/TextUnderlineAnimation/index.cjs"
+        "default": "./dist/@components/data-display/TextUnderlineAnimation/TextUnderlineAnimation.client.cjs"
       },
       "import": {
         "types": "./dist/@components/data-display/TextUnderlineAnimation/index.d.ts",
-        "default": "./dist/@components/data-display/TextUnderlineAnimation/index.js"
+        "default": "./dist/@components/data-display/TextUnderlineAnimation/TextUnderlineAnimation.client.js"
       }
     },
     "./@components/Tooltip": {
       "require": {
         "types": "./dist/@components/data-display/Tooltip/index.d.cts",
-        "default": "./dist/@components/data-display/Tooltip/index.cjs"
+        "default": "./dist/@components/data-display/Tooltip/Tooltip.client.cjs"
       },
       "import": {
         "types": "./dist/@components/data-display/Tooltip/index.d.ts",
-        "default": "./dist/@components/data-display/Tooltip/index.js"
+        "default": "./dist/@components/data-display/Tooltip/Tooltip.client.js"
       }
     },
     "./@components/Icon": {
@@ -340,41 +340,41 @@
     "./@components/Notification": {
       "require": {
         "types": "./dist/@components/feedback/Notification/index.d.cts",
-        "default": "./dist/@components/feedback/Notification/index.cjs"
+        "default": "./dist/@components/feedback/Notification/Notification.client.cjs"
       },
       "import": {
         "types": "./dist/@components/feedback/Notification/index.d.ts",
-        "default": "./dist/@components/feedback/Notification/index.js"
+        "default": "./dist/@components/feedback/Notification/Notification.client.js"
       }
     },
     "./@components/SplashScreen": {
       "require": {
         "types": "./dist/@components/feedback/SplashScreen/index.d.cts",
-        "default": "./dist/@components/feedback/SplashScreen/index.cjs"
+        "default": "./dist/@components/feedback/SplashScreen/SplashScreen.client.cjs"
       },
       "import": {
         "types": "./dist/@components/feedback/SplashScreen/index.d.ts",
-        "default": "./dist/@components/feedback/SplashScreen/index.js"
+        "default": "./dist/@components/feedback/SplashScreen/SplashScreen.client.js"
       }
     },
     "./@components/Toast": {
       "require": {
         "types": "./dist/@components/feedback/Toast/index.d.cts",
-        "default": "./dist/@components/feedback/Toast/index.cjs"
+        "default": "./dist/@components/feedback/Toast/Toast.cjs"
       },
       "import": {
         "types": "./dist/@components/feedback/Toast/index.d.ts",
-        "default": "./dist/@components/feedback/Toast/index.js"
+        "default": "./dist/@components/feedback/Toast/Toast.js"
       }
     },
     "./@components/Switch": {
       "require": {
         "types": "./dist/@components/inputs/Switch/index.d.cts",
-        "default": "./dist/@components/inputs/Switch/index.cjs"
+        "default": "./dist/@components/inputs/Switch/Switch.client.cjs"
       },
       "import": {
         "types": "./dist/@components/inputs/Switch/index.d.ts",
-        "default": "./dist/@components/inputs/Switch/index.js"
+        "default": "./dist/@components/inputs/Switch/Switch.client.js"
       }
     },
     "./@components/Button": {
@@ -390,171 +390,171 @@
     "./@components/FlickTextButton": {
       "require": {
         "types": "./dist/@components/inputs/TripieButton/Flick/index.d.cts",
-        "default": "./dist/@components/inputs/TripieButton/Flick/index.cjs"
+        "default": "./dist/@components/inputs/TripieButton/Flick/Flick.client.cjs"
       },
       "import": {
         "types": "./dist/@components/inputs/TripieButton/Flick/index.d.ts",
-        "default": "./dist/@components/inputs/TripieButton/Flick/index.js"
+        "default": "./dist/@components/inputs/TripieButton/Flick/Flick.client.js"
       }
     },
     "./@components/AccentedButton": {
       "require": {
         "types": "./dist/@components/inputs/TripieButton/Accented/index.d.cts",
-        "default": "./dist/@components/inputs/TripieButton/Accented/index.cjs"
+        "default": "./dist/@components/inputs/TripieButton/Accented/Accented.client.cjs"
       },
       "import": {
         "types": "./dist/@components/inputs/TripieButton/Accented/index.d.ts",
-        "default": "./dist/@components/inputs/TripieButton/Accented/index.js"
+        "default": "./dist/@components/inputs/TripieButton/Accented/Accented.client.js"
       }
     },
     "./@components/AnimatedButton": {
       "require": {
         "types": "./dist/@components/inputs/TripieButton/Animated/index.d.cts",
-        "default": "./dist/@components/inputs/TripieButton/Animated/index.cjs"
+        "default": "./dist/@components/inputs/TripieButton/Animated/AnimatedButton.client.cjs"
       },
       "import": {
         "types": "./dist/@components/inputs/TripieButton/Animated/index.d.ts",
-        "default": "./dist/@components/inputs/TripieButton/Animated/index.js"
+        "default": "./dist/@components/inputs/TripieButton/Animated/AnimatedButton.client.js"
       }
     },
     "./@components/UnStyledButton": {
       "require": {
         "types": "./dist/@components/inputs/TripieButton/UnStyled/index.d.cts",
-        "default": "./dist/@components/inputs/TripieButton/UnStyled/index.cjs"
+        "default": "./dist/@components/inputs/TripieButton/UnStyled/UnStyledButton.client.cjs"
       },
       "import": {
         "types": "./dist/@components/inputs/TripieButton/UnStyled/index.d.ts",
-        "default": "./dist/@components/inputs/TripieButton/UnStyled/index.js"
+        "default": "./dist/@components/inputs/TripieButton/UnStyled/UnStyledButton.client.js"
       }
     },
     "./@components/NavigationButton": {
       "require": {
         "types": "./dist/@components/navigation/Button/index.d.cts",
-        "default": "./dist/@components/navigation/Button/index.cjs"
+        "default": "./dist/@components/navigation/Button/NavigationButton.client.cjs"
       },
       "import": {
         "types": "./dist/@components/navigation/Button/index.d.ts",
-        "default": "./dist/@components/navigation/Button/index.js"
+        "default": "./dist/@components/navigation/Button/NavigationButton.client.js"
       }
     },
     "./@components/Drawer": {
       "require": {
         "types": "./dist/@components/navigation/Drawer/index.d.cts",
-        "default": "./dist/@components/navigation/Drawer/index.cjs"
+        "default": "./dist/@components/navigation/Drawer/Drawer.client.cjs"
       },
       "import": {
         "types": "./dist/@components/navigation/Drawer/index.d.ts",
-        "default": "./dist/@components/navigation/Drawer/index.js"
+        "default": "./dist/@components/navigation/Drawer/Drawer.client.js"
       }
     },
     "./@components/Link": {
       "require": {
         "types": "./dist/@components/navigation/Link/index.d.cts",
-        "default": "./dist/@components/navigation/Link/index.cjs"
+        "default": "./dist/@components/navigation/Link/Link.client.cjs"
       },
       "import": {
         "types": "./dist/@components/navigation/Link/index.d.ts",
-        "default": "./dist/@components/navigation/Link/index.js"
+        "default": "./dist/@components/navigation/Link/Link.client.js"
       }
     },
     "./@components/Menu": {
       "require": {
         "types": "./dist/@components/navigation/Menu/index.d.cts",
-        "default": "./dist/@components/navigation/Menu/index.cjs"
+        "default": "./dist/@components/navigation/Menu/Menu.client.cjs"
       },
       "import": {
         "types": "./dist/@components/navigation/Menu/index.d.ts",
-        "default": "./dist/@components/navigation/Menu/index.js"
+        "default": "./dist/@components/navigation/Menu/Menu.client.js"
       }
     },
     "./@components/Accordion": {
       "require": {
         "types": "./dist/@components/surfaces/Accordion/index.d.cts",
-        "default": "./dist/@components/surfaces/Accordion/index.cjs"
+        "default": "./dist/@components/surfaces/Accordion/Accordion.client.cjs"
       },
       "import": {
         "types": "./dist/@components/surfaces/Accordion/index.d.ts",
-        "default": "./dist/@components/surfaces/Accordion/index.js"
+        "default": "./dist/@components/surfaces/Accordion/Accordion.client.js"
       }
     },
     "./@components/AnimatedCard": {
       "require": {
         "types": "./dist/@components/surfaces/AnimatedCard/index.d.cts",
-        "default": "./dist/@components/surfaces/AnimatedCard/index.cjs"
+        "default": "./dist/@components/surfaces/AnimatedCard/AnimatedCard.client.cjs"
       },
       "import": {
         "types": "./dist/@components/surfaces/AnimatedCard/index.d.ts",
-        "default": "./dist/@components/surfaces/AnimatedCard/index.js"
+        "default": "./dist/@components/surfaces/AnimatedCard/AnimatedCard.client.js"
       }
     },
     "./@components/AnimatedContainer": {
       "require": {
         "types": "./dist/@components/surfaces/AnimatedContainer/index.d.cts",
-        "default": "./dist/@components/surfaces/AnimatedContainer/index.cjs"
+        "default": "./dist/@components/surfaces/AnimatedContainer/AnimatedContainer.client.cjs"
       },
       "import": {
         "types": "./dist/@components/surfaces/AnimatedContainer/index.d.ts",
-        "default": "./dist/@components/surfaces/AnimatedContainer/index.js"
+        "default": "./dist/@components/surfaces/AnimatedContainer/AnimatedContainer.client.js"
       }
     },
     "./@components/AppBar": {
       "require": {
         "types": "./dist/@components/surfaces/AppBar/index.d.cts",
-        "default": "./dist/@components/surfaces/AppBar/index.cjs"
+        "default": "./dist/@components/surfaces/AppBar/AppBar.client.cjs"
       },
       "import": {
         "types": "./dist/@components/surfaces/AppBar/index.d.ts",
-        "default": "./dist/@components/surfaces/AppBar/index.js"
+        "default": "./dist/@components/surfaces/AppBar/AppBar.client.js"
       }
     },
     "./@components/Card": {
       "require": {
         "types": "./dist/@components/surfaces/Card/index.d.cts",
-        "default": "./dist/@components/surfaces/Card/index.cjs"
+        "default": "./dist/@components/surfaces/Card/Card.client.cjs"
       },
       "import": {
         "types": "./dist/@components/surfaces/Card/index.d.ts",
-        "default": "./dist/@components/surfaces/Card/index.js"
+        "default": "./dist/@components/surfaces/Card/Card.client.js"
       }
     },
     "./@components/Calendar": {
       "require": {
         "types": "./dist/@components/x/Calendar/index.d.cts",
-        "default": "./dist/@components/x/Calendar/index.cjs"
+        "default": "./dist/@components/x/Calendar/Calendar.client.cjs"
       },
       "import": {
         "types": "./dist/@components/x/Calendar/index.d.ts",
-        "default": "./dist/@components/x/Calendar/index.js"
+        "default": "./dist/@components/x/Calendar/Calendar.client.js"
       }
     },
     "./@components/Globe": {
       "require": {
         "types": "./dist/@components/x/Globe/index.d.cts",
-        "default": "./dist/@components/x/Globe/index.cjs"
+        "default": "./dist/@components/x/Globe/RotatingGlobe.client.cjs"
       },
       "import": {
         "types": "./dist/@components/x/Globe/index.d.ts",
-        "default": "./dist/@components/x/Globe/index.js"
+        "default": "./dist/@components/x/Globe/RotatingGlobe.client.js"
       }
     },
     "./@components/MapLines": {
       "require": {
         "types": "./dist/@components/x/Lines/index.d.cts",
-        "default": "./dist/@components/x/Lines/index.cjs"
+        "default": "./dist/@components/x/Lines/Lines.client.cjs"
       },
       "import": {
         "types": "./dist/@components/x/Lines/index.d.ts",
-        "default": "./dist/@components/x/Lines/index.js"
+        "default": "./dist/@components/x/Lines/Lines.client.js"
       }
     },
     "./@components/Map": {
       "require": {
         "types": "./dist/@components/x/Map/index.d.cts",
-        "default": "./dist/@components/x/Map/index.cjs"
+        "default": "./dist/@components/x/Map/Map.client.cjs"
       },
       "import": {
         "types": "./dist/@components/x/Map/index.d.ts",
-        "default": "./dist/@components/x/Map/index.js"
+        "default": "./dist/@components/x/Map/Map.client.js"
       }
     },
     "./@components/MapMarker": {
@@ -570,81 +570,81 @@
     "./@components/MapPopup": {
       "require": {
         "types": "./dist/@components/x/MapPopup/index.d.cts",
-        "default": "./dist/@components/x/MapPopup/index.cjs"
+        "default": "./dist/@components/x/MapPopup/Popup.client.cjs"
       },
       "import": {
         "types": "./dist/@components/x/MapPopup/index.d.ts",
-        "default": "./dist/@components/x/MapPopup/index.js"
+        "default": "./dist/@components/x/MapPopup/Popup.client.js"
       }
     },
     "./@components/MotionSlideUp": {
       "require": {
         "types": "./dist/@components/x/MotionSlideUp/index.d.cts",
-        "default": "./dist/@components/x/MotionSlideUp/index.cjs"
+        "default": "./dist/@components/x/MotionSlideUp/MotionSlideUp.client.cjs"
       },
       "import": {
         "types": "./dist/@components/x/MotionSlideUp/index.d.ts",
-        "default": "./dist/@components/x/MotionSlideUp/index.js"
+        "default": "./dist/@components/x/MotionSlideUp/MotionSlideUp.client.js"
       }
     },
     "./@components/ParticleBackground": {
       "require": {
         "types": "./dist/@components/x/Particle/Background/index.d.cts",
-        "default": "./dist/@components/x/Particle/Background/index.cjs"
+        "default": "./dist/@components/x/Particle/Background/ParticleBackground.client.cjs"
       },
       "import": {
         "types": "./dist/@components/x/Particle/Background/index.d.ts",
-        "default": "./dist/@components/x/Particle/Background/index.js"
+        "default": "./dist/@components/x/Particle/Background/ParticleBackground.client.js"
       }
     },
     "./@components/ParticleField": {
       "require": {
         "types": "./dist/@components/x/Particle/Field/index.d.cts",
-        "default": "./dist/@components/x/Particle/Field/index.cjs"
+        "default": "./dist/@components/x/Particle/Field/ParticleField.client.cjs"
       },
       "import": {
         "types": "./dist/@components/x/Particle/Field/index.d.ts",
-        "default": "./dist/@components/x/Particle/Field/index.js"
+        "default": "./dist/@components/x/Particle/Field/ParticleField.client.js"
       }
     },
     "./@components/RotatingBlur": {
       "require": {
         "types": "./dist/@components/x/RotatingBlur/index.d.cts",
-        "default": "./dist/@components/x/RotatingBlur/index.cjs"
+        "default": "./dist/@components/x/RotatingBlur/RotatingBlur.client.cjs"
       },
       "import": {
         "types": "./dist/@components/x/RotatingBlur/index.d.ts",
-        "default": "./dist/@components/x/RotatingBlur/index.js"
+        "default": "./dist/@components/x/RotatingBlur/RotatingBlur.client.js"
       }
     },
     "./@core/Headings": {
       "require": {
         "types": "./dist/@cor/data-display/Headings/index.d.cts",
-        "default": "./dist/@core/data-display/Headings/index.cjs"
+        "default": "./dist/@core/data-display/Headings/Headings.cjs"
       },
       "import": {
         "types": "./dist/@core/data-display/Headings/index.d.ts",
-        "default": "./dist/@core/data-display/Headings/index.js"
+        "default": "./dist/@core/data-display/Headings/Headings.js"
       }
     },
     "./@core/List": {
       "require": {
         "types": "./dist/@cor/data-display/List/index.d.cts",
-        "default": "./dist/@core/data-display/List/index.cjs"
+        "default": "./dist/@core/data-display/List/List.cjs"
       },
       "import": {
         "types": "./dist/@core/data-display/List/index.d.ts",
-        "default": "./dist/@core/data-display/List/index.js"
+        "default": "./dist/@core/data-display/List/List.js"
       }
     },
     "./@core/ListItem": {
       "require": {
         "types": "./dist/@cor/data-display/ListItem/index.d.cts",
-        "default": "./dist/@core/data-display/ListItem/index.cjs"
+        "default": "./dist/@core/data-display/ListItem/ListItem.cjs"
       },
       "import": {
         "types": "./dist/@core/data-display/ListItem/index.d.ts",
-        "default": "./dist/@core/data-display/ListItem/index.js"
+        "default": "./dist/@core/data-display/ListItem/ListItem.js"
       }
     },
     "./@core/Text": {
@@ -660,51 +660,51 @@
     "./@core/Skeleton": {
       "require": {
         "types": "./dist/@cor/feedback/TripieSkeleton/index.d.cts",
-        "default": "./dist/@core/feedback/TripieSkeleton/index.cjs"
+        "default": "./dist/@core/feedback/TripieSkeleton/Skeleton.cjs"
       },
       "import": {
         "types": "./dist/@core/feedback/TripieSkeleton/index.d.ts",
-        "default": "./dist/@core/feedback/TripieSkeleton/index.js"
+        "default": "./dist/@core/feedback/TripieSkeleton/Skeleton.js"
       }
     },
     "./@core/Background": {
       "require": {
         "types": "./dist/@cor/layout/Background/index.d.cts",
-        "default": "./dist/@core/layout/Background/index.cjs"
+        "default": "./dist/@core/layout/Background/TripieBackground.cjs"
       },
       "import": {
         "types": "./dist/@core/layout/Background/index.d.ts",
-        "default": "./dist/@core/layout/Background/index.js"
+        "default": "./dist/@core/layout/Background/TripieBackground.js"
       }
     },
     "./@core/Stack": {
       "require": {
         "types": "./dist/@cor/layout/Stack/index.d.cts",
-        "default": "./dist/@core/layout/Stack/index.cjs"
+        "default": "./dist/@core/layout/Stack/Stack.cjs"
       },
       "import": {
         "types": "./dist/@core/layout/Stack/index.d.ts",
-        "default": "./dist/@core/layout/Stack/index.js"
+        "default": "./dist/@core/layout/Stack/Stack.js"
       }
     },
     "./@core/Table": {
       "require": {
         "types": "./dist/@cor/layout/Table/index.d.cts",
-        "default": "./dist/@core/layout/Table/index.cjs"
+        "default": "./dist/@core/layout/Table/Table.cjs"
       },
       "import": {
         "types": "./dist/@core/layout/Table/index.d.ts",
-        "default": "./dist/@core/layout/Table/index.js"
+        "default": "./dist/@core/layout/Table/Table.js"
       }
     },
     "./@core/Container": {
       "require": {
         "types": "./dist/@core/layout/TripieContainer/index.d.cts",
-        "default": "./dist/@core/layout/TripieContainer/index.cjs"
+        "default": "./dist/@core/layout/TripieContainer/TripieContainer.cjs"
       },
       "import": {
         "types": "./dist/@core/layout/TripieContainer/index.d.ts",
-        "default": "./dist/@core/layout/TripieContainer/index.js"
+        "default": "./dist/@core/layout/TripieContainer/TripieContainer.js"
       }
     }
   }
