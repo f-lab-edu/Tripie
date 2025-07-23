@@ -2,7 +2,7 @@
 import { Button } from '@tripie-pyotato/design-system/@components/Button';
 import Icon from '@tripie-pyotato/design-system/@components/Icon';
 import Stack from '@tripie-pyotato/design-system/@core/Stack';
-// import { classNames } from '@tripie-pyotato/design-system/@wrappers';
+
 import { classNames } from '../../../../../wrapper/classNames';
 
 import NextButton from 'app/home/_components/OurProcess/SelectedList/shared/NextAnimatedButton';
@@ -23,8 +23,9 @@ const CountrySelect = () => {
     if (isLoading) {
       return [];
     }
+
     if (data != null) {
-      const selected = data.filter((item: Country) => item.name === SELECTED_COUNTRY)[0];
+      const selected = data?.filter((item: Country) => item.name === SELECTED_COUNTRY)[0];
       setSelected(selected);
       return [...data.slice(17, 19), selected, ...data.slice(10, 14)].filter(v => v != null);
     }
@@ -32,7 +33,7 @@ const CountrySelect = () => {
   }, [data, isLoading]);
 
   return isLoading || selected?.code == null ? (
-    <></>
+    <>?</>
   ) : (
     <>
       <Stack

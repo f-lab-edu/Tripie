@@ -22,7 +22,7 @@ export default function Plan() {
             <Text.Accented>Plans</Text.Accented> to suit your needs
           </Headings.H2>
         </Container>
-        <Stack margin="l" applyMargin="bottom" flexWrapOn="wrap-lg" gap="l">
+        <Stack margin="l" applyMargin="bottom" flexWrapOn="wrap-md" gap="l">
           {Object.keys(PLANS).map(key => (
             <Card key={PLANS[key].label} margin="none" sizes="full" padding="m">
               <Card.Header margin="none">

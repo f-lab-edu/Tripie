@@ -46,8 +46,6 @@ const ToastWithControl = ({
     }
   };
 
-  console.log('toastColor', toastColor);
-
   return (
     <>
       {isOpen ? (

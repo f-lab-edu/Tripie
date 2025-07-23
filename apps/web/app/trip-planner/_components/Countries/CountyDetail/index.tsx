@@ -5,7 +5,6 @@ import Marker from '@tripie-pyotato/design-system/@components/MapMarker';
 import { API_KEY } from 'constants/maps';
 import useContinentl from 'hooks/query/useContinentl';
 import { useEffect, useMemo, useState } from 'react';
-import Loading from 'shared/components/Loading';
 import dmsToDecimalLatLng from 'utils/coordinate';
 import CountryInfoPopup from './CountryInfoPopup';
 
@@ -22,14 +21,22 @@ const CountryDetail = ({ selectedCountry }: { selectedCountry: string }) => {
       return { lat, lng };
     }
     return null;
-  }, [data]);
+  }, [data, selectedCountry]);
 
   useEffect(() => {
     setShowPopup(true);
   }, [selectedCountry]);
 
   if (countryDetail == null || isLoading || coordinates == null) {
-    return <Loading />;
+    return (
+      <Map
+        apiKey={API_KEY}
+        style={{
+          height: '40vh',
+        }}
+        reuseMaps={true}
+      />
+    );
   }
 
   return (
@@ -38,6 +45,7 @@ const CountryDetail = ({ selectedCountry }: { selectedCountry: string }) => {
       style={{
         height: '40vh',
       }}
+      reuseMaps={true}
       initialViewState={{
         zoom: 2,
         latitude: coordinates.lat,

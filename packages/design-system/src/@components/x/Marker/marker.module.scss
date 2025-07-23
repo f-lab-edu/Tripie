@@ -6,6 +6,7 @@
 :global(.maplibregl-popup-content) {
   background-color: $theme-700;
   width: fit-content;
+  font-family: 'MaruBuri', sans-serif;
 }
 :global(.maplibregl-popup-tip) {
   border-top-color: $theme-700;

@@ -14,6 +14,7 @@ const Carousel = ({
   items,
   className,
   gap = 'default',
+  display = 'inline-flex',
   justifyContent = 'start',
   alignItems = 'stretch',
 }: { items: ReactElement[]; className?: string } & Partial<TripieContainerProps>) => {
@@ -54,7 +55,7 @@ const Carousel = ({
         <TripieContainer
           margin="none"
           gap={gap}
-          display="inline-flex"
+          display={display}
           alignItems={alignItems}
           justifyContent={justifyContent}
           className={cx('insta-like-carousel-container', className)}
@@ -131,6 +132,7 @@ const ControlledCarousel = ({
   children,
   gap = 'default',
   className,
+  display = 'inline-flex',
   justifyContent = 'start',
   alignItems = 'stretch',
 }: { children: ReactNode; className?: string } & Partial<TripieContainerProps>) => {
@@ -140,7 +142,7 @@ const ControlledCarousel = ({
         <TripieContainer
           gap={gap}
           margin="none"
-          display="inline-flex"
+          display={display}
           alignItems={alignItems}
           justifyContent={justifyContent}
           className={cx('insta-like-carousel-container', className)}

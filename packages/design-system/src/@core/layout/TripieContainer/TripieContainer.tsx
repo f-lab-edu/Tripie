@@ -65,6 +65,8 @@ export type TripieContainerProps = {
     | 'notification'
     | 'tooltip'
     | 'above-all';
+  // wrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
+  fillAvailable?: boolean;
 } & Omit<ComponentProps<'div'>, 'children'>;
 
 const cx = classNames.bind(Style);
@@ -85,14 +87,17 @@ const TripieContainer = ({
   textAlign = 'start',
   zIndex = 'base',
   display = 'inline-block',
+  fillAvailable = true,
+  // wrap = 'nowrap',
   ...props
 }: TripieContainerProps) => {
   return (
     <div
       ref={refs}
       className={cx(
+        fillAvailable ? 'layout-fill-available' : '',
         `container-display-${display}`,
-        'layout-fill-available',
+        // `container-wrap-${wrap}`,
         `align-items-${alignItems}`,
         `with${withBorder ? '' : '-no'}-border`,
         alignItems != 'none' || gap !== 'none' || justifyContent !== 'none' ? 'flex' : '',

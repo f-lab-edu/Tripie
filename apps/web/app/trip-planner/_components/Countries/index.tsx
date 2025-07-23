@@ -1,18 +1,15 @@
 import { useQueryClient } from '@tanstack/react-query';
-import { Icon, NavigationButton } from '@tripie-pyotato/design-system/@components';
-import { Container, Text } from '@tripie-pyotato/design-system/@core';
 import { classNames } from '@tripie-pyotato/design-system/@wrappers';
 
-import firestoreService from 'app/api/firebase';
-
+import { AnimatedText, Icon, NavigationButton } from '@tripie-pyotato/design-system/@components';
+import { Container, Text } from '@tripie-pyotato/design-system/@core';
 import { FunnelProps, FunnelSteps } from 'app/trip-planner/page';
+import API from 'constants/api-routes';
 import useContinentl from 'hooks/query/useContinentl';
 import useCountries from 'hooks/query/useCountries';
 import { ContinentKeys } from 'models/Continent';
-import { Continentl } from 'models/Continentl';
 import { Country } from 'models/Country';
 import { useState } from 'react';
-import Loading from 'shared/components/Loading';
 import Layout from '../Layout/Layout';
 import Style from './countries.module.scss';
 import { CountryList } from './CountryList';
@@ -36,22 +33,18 @@ export default function CountryStep({
   onPrev: (country: { country: string }) => void;
 }) {
   const { data, isLoading } = useCountries(context.continent ?? 'all');
-  const [selectedCountry, setSelectedCountry] = useState(() =>
-    context?.country == null || data == null || data.filter(country => country.name === context.country).length == 0
-      ? ''
-      : context.country
-  );
-
   const queryClient = useQueryClient();
+  const [selectedCountry, setSelectedCountry] = useState(() => context?.country ?? '');
 
   // 국가 내의 도시/시 정보 가져오기
   const getCitys = (country: string) => {
     return queryClient.ensureQueryData({
       queryKey: useContinentl.queryKey(country),
-      queryFn: () =>
-        firestoreService.getListWithIds('continentl').then(countries => {
-          return country === 'all' ? countries : countries?.filter((place: Continentl) => place.id === country);
-        }),
+      queryFn: async () => {
+        const data = await fetch(`${API.BASE_URL}/api/continentl?country=${country}`).then(res => res.json());
+        console.log('data', data);
+        return data;
+      },
     });
   };
 
@@ -62,8 +55,8 @@ export default function CountryStep({
     }
   };
 
-  if (isLoading || data == null) {
-    return <Loading />;
+  if (!isLoading && data == null) {
+    return <>data is null..</>;
   }
 
   return (
@@ -82,7 +75,11 @@ export default function CountryStep({
         </>
       }
       listItems={
-        <CountryList countries={data} setSelectedCountry={setSelectedCountry} selectedCountry={selectedCountry} />
+        isLoading ? (
+          <AnimatedText.Jump>로딩 중...</AnimatedText.Jump>
+        ) : (
+          <CountryList countries={data} setSelectedCountry={setSelectedCountry} selectedCountry={selectedCountry} />
+        )
       }
       disabled={selectedCountry === ''}
       submitButtonChildren={
@@ -99,14 +96,17 @@ export default function CountryStep({
       clickAction={onNextAction}
     >
       <Container margin="none" className={cx('map-wrap')}>
-        <CountryDetail
-          selectedCountry={
-            // 선택한 나라가 없을 경우
-            selectedCountry === '' || !data.some((country: Country) => country.name === selectedCountry)
-              ? data[0].name
-              : selectedCountry
-          }
-        />
+        {isLoading ? (
+          <AnimatedText.Jump>로딩 중...</AnimatedText.Jump>
+        ) : (
+          <CountryDetail
+            selectedCountry={
+              selectedCountry === '' || !data.some((country: Country) => country.name === selectedCountry)
+                ? data[0]?.name // 선택한 나라가 없을 경우
+                : selectedCountry
+            }
+          />
+        )}
       </Container>
     </Layout>
   );

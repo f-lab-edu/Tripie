@@ -1,7 +1,7 @@
 'use client';
 
 import { Text } from '@core';
-import TripieContainer from '@core/layout/TripieContainer';
+import TripieContainer, { TripieContainerProps } from '@core/layout/TripieContainer';
 
 import { ImgHTMLAttributes, useEffect, useState } from 'react';
 import { CLOUDINARY_URL } from 'shared';
@@ -23,7 +23,8 @@ export type ImageProps = {
   preload?: boolean;
   loading?: ImgHTMLAttributes<HTMLImageElement>['loading']; // https://developer.chrome.com/docs/lighthouse/performance/offscreen-images/?utm_source=lighthouse&utm_medium=devtools
   aspectRatio?: AspectRatio;
-} & Partial<ImgHTMLAttributes<HTMLImageElement>>;
+} & Partial<ImgHTMLAttributes<HTMLImageElement>> &
+  TripieContainerProps;
 
 const cx = classNames.bind(Style);
 

@@ -43,7 +43,7 @@ export type EmbeddedProps = { type: 'embedded'; value: { entries: Array<Array<Bo
 // ------------------------------------------------------------------------------------------------------------------------------------
 // ParamProps
 export type ParamProps = {
-  params: Promise<{ postId: string; articleId: string }>;
+  params: Promise<{ postId: string; articleId: string; category: string }>;
 };
 
 export type RegionParamProps = {

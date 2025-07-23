@@ -13,7 +13,7 @@
 }
 .divider {
   height: 1.5px;
-  width: 100%;
+  width: 100% !important;
   border-radius: 10px;
   background-color: $theme-400;
 }

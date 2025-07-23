@@ -20,6 +20,7 @@ export type CardProps = { withNoise?: boolean; sizes?: ImageSizes } & Partial<Tr
 const CardContent = ({
   children,
   className,
+  fillAvailable = false,
   ref,
   margin = 'none',
   padding = 'none',
@@ -34,6 +35,7 @@ const CardContent = ({
     <TripieContainer
       padding={padding}
       margin={margin}
+      fillAvailable={fillAvailable}
       justifyContent={justifyContent}
       alignItems={alignItems}
       preserveWhiteSpace={preserveWhiteSpace}

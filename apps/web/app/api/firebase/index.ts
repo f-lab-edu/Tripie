@@ -1,6 +1,5 @@
-import db from '../../../firebase/store';
 import FirestoreService from './firestoreServiceClass';
 
-const firestoreService = new FirestoreService(db);
+const firestoreService = new FirestoreService();
 
 export default firestoreService;

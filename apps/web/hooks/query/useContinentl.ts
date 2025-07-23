@@ -1,24 +1,23 @@
 import { useQuery } from '@tanstack/react-query';
-import firestoreService from 'app/api/firebase';
+import API from 'constants/api-routes';
 import { Continentl } from 'models/Continentl';
 
 const useContinentl = (country: string) => {
   const res = useQuery({
     queryKey: useContinentl.queryKey(country),
-    queryFn: () =>
-      // firestoreService.getListWithIds('continentl')
-      firestoreService.getListWithIds('continentl').then(countries => {
-        if (country === '') {
-          return countries;
-        } else if (countries != null) {
-          const selectedCountry = countries.find((place: Continentl) => place.name == country);
-          if (!Array.isArray(selectedCountry)) {
-            return [selectedCountry];
-          } else {
-            return selectedCountry;
-          }
+    queryFn: async () => {
+      const data = await fetch(`${API.BASE_URL}/api/continentl?country=${country}`).then(res => res.json());
+      if (country === '') {
+        return data;
+      } else if (data != null) {
+        const selectedCountry = data.find((place: Continentl) => place.name == country);
+        if (!Array.isArray(selectedCountry)) {
+          return [selectedCountry];
+        } else {
+          return selectedCountry;
         }
-      }),
+      }
+    },
     staleTime: Infinity,
     notifyOnChangeProps: ['data'],
   });

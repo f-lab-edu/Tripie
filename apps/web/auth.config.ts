@@ -1,6 +1,6 @@
-import firestoreService from 'app/api/firebase';
-
-import { DB_NAME, GITHUB_ID, GITHUB_SECRET, KAKAO_ID, KAKAO_SECRET, NEXT_AUTH_SECRET } from 'constants/auth';
+import API from 'constants/api-routes';
+import { GITHUB_ID, GITHUB_SECRET, KAKAO_ID, KAKAO_SECRET, NEXT_AUTH_SECRET } from 'constants/auth';
+// import { GITHUB_ID, GITHUB_SECRET, KAKAO_ID, KAKAO_SECRET, NEXT_AUTH_SECRET } from 'constants/auth';
 import { User } from 'models/User';
 import type { NextAuthConfig } from 'next-auth';
 import GitHub from 'next-auth/providers/github';
@@ -24,18 +24,8 @@ export default {
       session.token = others;
       session.user = { id: sub, name, email, picture };
 
-      await firestoreService.getList(DB_NAME).then(async userToken => {
-        // 토큰이 db가 생성 x 일 경우 추가
-        if (userToken?.length == 0) {
-          await firestoreService.addItem(DB_NAME, { id: sub, usedTokens: 0, isAdmin: false });
-        } else {
-          // user 가 있는 지 set으로 확인
-          const userIdSet = new Set(userToken?.map(user => user.id));
-          if (!userIdSet.has(sub)) {
-            await firestoreService.addItem(DB_NAME, { id: sub, usedTokens: 0 });
-          }
-        }
-      });
+      await fetch(`${API.BASE_URL}/api/token?sub=${sub}`).then(res => res.json());
+
       return session;
     },
   },

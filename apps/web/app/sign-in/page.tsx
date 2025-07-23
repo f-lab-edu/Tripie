@@ -1,5 +1,3 @@
-'use server';
-
 import { AuthError } from 'next-auth';
 import { redirect } from 'next/navigation';
 import { providerMap, signIn } from '../../auth';
@@ -13,7 +11,8 @@ const cx = classNames.bind(Style);
 // https://authjs.dev/guides/pages/signin
 // https://nextjs.org/docs/messages/sync-dynamic-apis
 export default async function SignIn(props: Readonly<{ searchParams: { callbackUrl?: string } }>) {
-  const { callbackUrl } = await props.searchParams;
+  const { searchParams } = await props;
+
   return Object.values(providerMap).map(provider => (
     <form
       className={cx('form-wrap')}
@@ -22,7 +21,7 @@ export default async function SignIn(props: Readonly<{ searchParams: { callbackU
         'use server';
         try {
           await signIn(provider.id, {
-            redirectTo: callbackUrl ?? '',
+            redirectTo: searchParams?.callbackUrl ?? '',
           });
         } catch (error) {
           // Signin can fail for a number of reasons, such as the user

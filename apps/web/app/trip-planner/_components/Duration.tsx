@@ -5,6 +5,7 @@ import { Text } from '@tripie-pyotato/design-system/@core';
 import { useCalendar } from '@tripie-pyotato/design-system/@hooks';
 import useServerTime from 'hooks/useServerTime';
 import { useCallback } from 'react';
+import { localeString2Date } from 'utils/date';
 import { FunnelProps, FunnelSteps } from '../page';
 import Layout from './Layout/Layout';
 
@@ -18,7 +19,7 @@ const DurationStep = ({
   const { setSelected, duration, calendar, selected } = useCalendar({
     serverTime,
     isValidTime: context?.duration != null,
-    // selectedTime: context?.duration == null ? null : localeString2Date(context?.duration.split(' ~ ')),
+    selectedTime: context?.duration == null ? null : localeString2Date(context?.duration.split(' ~ ')),
   });
 
   const handleSubmit = useCallback(() => {
@@ -58,7 +59,7 @@ const DurationStep = ({
           // @ts-ignore
           onChange={value => {
             setSelected((Array.isArray(value) ? value : [value]) as Date[]);
-            console.log('onChange', value);
+            // console.log('onChange', value);
           }}
           selected={selected}
           onClickDay={setSelected}

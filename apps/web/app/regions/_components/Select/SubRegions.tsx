@@ -47,7 +47,9 @@ const SubRegions = ({
         <FlickTextButton
           key={place}
           sizes="large"
-          selected={TRIPIE_REGION_IDS[selectedRegion as keyof typeof TRIPIE_REGION_IDS] === place}
+          selected={
+            TRIPIE_REGION_IDS[selectedRegion as keyof typeof TRIPIE_REGION_IDS] === place || selectedRegion === place
+          }
           withBorder={true}
           stretched={true}
           onClick={() => handleRegionSelect(place)}

@@ -4,13 +4,12 @@ import { TRIPIE_REGION_BY_LOCATION, TRIPIE_REGION_IDS } from 'constants/tripie-c
 
 import Stack from '@tripie-pyotato/design-system/@core/Stack';
 
-import RegionCard, { RegionArticleData } from 'app/regions/_components/RegionCard';
+import RegionCard from 'app/regions/_components/RegionCard';
 import useCountryArticle from 'hooks/query/useCountryArticles';
-import { Suspense, useMemo } from 'react';
-// import Loading from 'shared/components/Loading';
+import { RegionArticleInfo } from 'models/Article';
+import { useMemo } from 'react';
 
 const RegionList = () => {
-  // const [splash, setSplash] = useState(false);
   const currentRegionId = useMemo(() => {
     const randomIndex = Math.floor(Math.random() * 10);
     return Object.keys(TRIPIE_REGION_BY_LOCATION).filter((_, index) => {
@@ -30,47 +29,37 @@ const RegionList = () => {
     )?.[0];
   }, [currentRegionId]);
 
-  const { data } = useCountryArticle() as unknown as { data: RegionArticleData[] };
+  const { data: regionList } = useCountryArticle(selectedRegionId);
 
-  // if (data == null) {
-  //   return <Loading />;
-  // }
-  if (data == null) {
+  if (regionList == null) {
     return <>...</>;
   }
 
-  if (data.length === 0) {
+  if (regionList.length === 0) {
     return <>no items...</>;
   }
+
   return (
-    <Suspense fallback={<>loading...</>}>
-      {/* {splash ? <Loading.SemiTransparent loading={splash} /> : null} */}
-      <Stack
-        cols={2}
-        gridWrapOn={{ 'wrap-xs': 1 }}
-        gridRepeat={{
-          'wrap-md': 4,
-          'wrap-xl': 6,
-        }}
-        display="grid"
-        gap="l"
-        applyMargin="top-bottom"
-      >
-        {data == null ? (
-          <>지역 정보가 없습니다.</>
-        ) : (
-          data
-            .filter(item => item.regionId === selectedRegionId)?.[0]
-            ?.data.map(article => (
-              <RegionCard
-                // setSplash={setSplash}
-                article={article}
-                key={article.id}
-              />
-            ))
-        )}
-      </Stack>
-    </Suspense>
+    // <Suspense fallback={<>loading...</>}>
+
+    <Stack
+      cols={2}
+      gridWrapOn={{ 'wrap-xs': 1 }}
+      gridRepeat={{
+        'wrap-md': 4,
+        'wrap-xl': 6,
+      }}
+      display="grid"
+      gap="l"
+      applyMargin="top-bottom"
+    >
+      {regionList == null ? (
+        <>지역 정보가 없습니다.</>
+      ) : (
+        regionList?.data.map((article: RegionArticleInfo) => <RegionCard article={article} key={article.id} />)
+      )}
+    </Stack>
+    // </Suspense>
   );
 };
 export default RegionList;

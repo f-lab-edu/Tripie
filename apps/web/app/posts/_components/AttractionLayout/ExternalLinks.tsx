@@ -18,7 +18,7 @@ const ExternalLinkCard = ({ link, index }: { link: ExternalLink; index: number }
             withBorder={true}
             aspectRatio={'square'}
             sizes="card"
-            src={link.imageUrl.replace('https://res.cloudinary.com', 'https://media.tripie-api.shop')}
+            src={link?.imageUrl.replace('https://res.cloudinary.com', 'https://media.tripie-api.shop')}
             alt={link.imageUrl}
             cloudinaryUrl={'https://media.tripie-api.shop'}
           />

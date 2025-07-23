@@ -7,7 +7,6 @@ import { CHAT_CACHE_DB_NAME } from 'constants/auth';
 import ROUTE from 'constants/routes';
 import { TripContent } from 'models/Aws';
 import { Metadata } from 'next';
-
 import Error from 'shared/components/Error';
 import TripResponse from './_components/TripResponse';
 import { ChatResponseData } from './_components/TripResponse/TripDetails';
@@ -46,6 +45,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const TripPlan = async ({ params }: { params: Promise<{ id: string }> }) => {
   const id = (await params).id;
+
   const plan = await firestoreService.getItem(CHAT_CACHE_DB_NAME, decodeURIComponent(id));
 
   if (plan?.data == null) {

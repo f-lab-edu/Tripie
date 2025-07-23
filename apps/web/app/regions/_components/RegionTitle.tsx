@@ -1,6 +1,6 @@
 'use client';
 import NavigationButton from '@tripie-pyotato/design-system/@components/NavigationButton';
-import { Container, Stack } from '@tripie-pyotato/design-system/@core';
+import { Stack } from '@tripie-pyotato/design-system/@core';
 import Text from '@tripie-pyotato/design-system/@core/Text';
 import { classNames } from '../../../wrapper/classNames';
 
@@ -24,14 +24,18 @@ const RegionTitle = ({
       direction="column"
       padding="sm"
       applyMargin={regionId == null ? 'top' : 'all'}
-      applyPadding="left-right-bottom"
+      applyPadding="all"
     >
-      <Container
+      <Stack
+        direction="row"
         display="inline-flex"
         margin="none"
-        alignItems="end"
+        className={cx('heading-wrap')}
+        padding="none"
+        flexWrapOn={'wrap-sm'}
+        applyPadding="top"
+        alignItems="center"
         justifyContent="start"
-        className={cx('page-heading')}
       >
         {withNavigation ? <NavigationButton sizes="large" /> : null}
         <Text size="h2" bold={true} noGapUnderText={true}>
@@ -51,7 +55,13 @@ const RegionTitle = ({
           ''
         )}
         {regionId != null && city != null ? (
-          <Text size="h2" bold={true} noGapUnderText={true} alignItems="start" className={cx('page-heading-wrap')}>
+          <Text
+            size="h2"
+            bold={true}
+            noGapUnderText={true}
+            alignItems="start"
+            className={cx('page-heading-wrap', 'region-id')}
+          >
             <Stack direction="column" alignItems="start" margin="none">
               <Text size="h2" bold={true} noGapUnderText={true} className={cx('text-heading', 'sub-region-title')}>
                 <Text size="tiny" noGapUnderText={true} padding="none">
@@ -70,7 +80,7 @@ const RegionTitle = ({
             </Text.Accented>
           </Text>
         )}
-      </Container>
+      </Stack>
     </Stack>
   );
 };

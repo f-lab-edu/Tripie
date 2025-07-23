@@ -16,7 +16,7 @@ const Contact = ({
     <Container padding="sm" applyPadding="top-bottom" margin="none">
       <Text size="tiny">{sectionName}</Text>
       <Container applyMargin="bottom">
-        <Container margin="none" justifyContent="flex-start" alignItems="start">
+        <Container display="inline-flex" margin="none" justifyContent="flex-start" alignItems="center">
           <Text size="h2" noGapUnderText={true}>
             <Link href={link}>{child}</Link>
           </Text>

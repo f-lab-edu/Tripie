@@ -27,11 +27,21 @@ $flex-wrap-map: (
 @mixin flex-wrap($wrap, $breakpoint: null) {
   @if ($wrap == nowrap or $wrap == wrap or $wrap == wrap-reverse) {
     flex-wrap: $wrap;
-  } @else {
-    @media (max-width: breakpoint($breakpoint)) {
-      flex-wrap: wrap;
-    }
   }
+  // @else {
+  @media (max-width: breakpoint($breakpoint)) {
+    flex-wrap: wrap;
+  }
+  // }
+
+  // @if ($wrap == nowrap or $wrap == wrap or $wrap == wrap-reverse) {
+  //   flex-wrap: $wrap;
+  // }
+  //  @else {
+  // @media (max-width: breakpoint($breakpoint)) {
+  //   flex-wrap: wrap;
+  // }
+  // }
 }
 
 @each $key, $value in $flex-wrap-map {

@@ -1,6 +1,6 @@
 'use client';
 
-import { Container, Stack } from '@tripie-pyotato/design-system/@core/layout';
+import { Stack } from '@tripie-pyotato/design-system/@core/layout';
 import { RegionArticleInfo } from 'models/Article';
 
 import { useState } from 'react';
@@ -16,7 +16,7 @@ export default function RegionList({
 }>) {
   const [splash, setSplash] = useState(false);
   return (
-    <Container applyMargin="bottom">
+    <>
       {splash ? <Loading.SemiTransparent loading={splash} /> : null}
       <Stack
         gridWrapOn={{ 'wrap-md': 2 }}
@@ -31,6 +31,6 @@ export default function RegionList({
           data.map(article => <RegionCard setSplash={setSplash} article={article} key={article.id} />)
         )}
       </Stack>
-    </Container>
+    </>
   );
 }

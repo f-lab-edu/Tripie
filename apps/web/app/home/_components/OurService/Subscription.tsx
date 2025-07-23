@@ -11,7 +11,7 @@ import { useCycle } from '@tripie-pyotato/design-system/@hooks';
 export default function Subscription() {
   const [current, cycle] = useCycle('off', 'on');
   return (
-    <Card.Content>
+    <Card.Content fillAvailable={true}>
       <Container
         display="inline-flex"
         margin="m"
@@ -20,13 +20,22 @@ export default function Subscription() {
         gap="l"
         alignItems="center"
         padding="sm"
+        justifyContent="center"
       >
         <Switch current={current} cycle={cycle} text={current} />
         <Text bold={true} noGapUnderText={true}>
           Subscription
         </Text>
       </Container>
-      <Container display="inline-flex" margin="none" withBorder={true} gap="l" padding="m" alignItems="center">
+      <Container
+        justifyContent="center"
+        display="inline-flex"
+        margin="none"
+        withBorder={true}
+        gap="l"
+        padding="m"
+        alignItems="center"
+      >
         <Chip>Basic</Chip>
         <AccentedButton current={current} cycle={cycle}>
           Pro

@@ -9,3 +9,10 @@
   top: -2rem;
   min-width: max-content;
 }
+
+// 화면 크기가 작아지면 지역 > 상세 지역 글자 겹침 방지
+.region-id {
+  @media (max-width: 359px) {
+    transform: translateY(1rem);
+  }
+}

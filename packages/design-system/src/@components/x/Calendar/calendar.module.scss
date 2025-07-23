@@ -14,7 +14,7 @@
 /** 기본 inherit */
 :global(.react-calendar) {
   width: 100% !important;
-  background-color: inherit;
+  background-color: inherit !important;
   color: inherit;
   font: inherit !important;
   border: none !important;

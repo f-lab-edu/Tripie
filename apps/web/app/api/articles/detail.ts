@@ -1,6 +1,7 @@
 'use server';
 
 import { ArticleData } from 'models/Article';
+
 import { AttractionArticle, ParsedAttractionResponse } from 'models/Attraction';
 import { RestaurantData } from 'models/Restaurant';
 import { CLOUDINARY_URL, defaultBlurSize } from 'shared/image';

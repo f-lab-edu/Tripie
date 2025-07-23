@@ -44,7 +44,9 @@ const ArticleLayout = ({
             alt={thumbNailAlt ?? `${thumbNailSrc}`}
           />
         </Container>
-        <Container>{articleBody}</Container>
+        <Container margin="l" applyMargin="top">
+          {articleBody}
+        </Container>
       </Card.Description>
     </Container>
   );

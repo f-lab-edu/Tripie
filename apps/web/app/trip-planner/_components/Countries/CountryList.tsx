@@ -1,9 +1,10 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { FlickTextButton } from '@tripie-pyotato/design-system/@components';
 import { Stack } from '@tripie-pyotato/design-system/@core';
-import firestoreService from 'app/api/firebase';
+import API from 'constants/api-routes';
+// import firestoreService from 'app/api/firebase';
 import useContinentl from 'hooks/query/useContinentl';
-import { Continentl } from 'models/Continentl';
+// import { Continentl } from 'models/Continentl';
 import { Country } from 'models/Country';
 import { Dispatch, SetStateAction } from 'react';
 import { regionNameToLocal } from 'utils/lang';
@@ -21,14 +22,9 @@ export function CountryList({ countries, selectedCountry, setSelectedCountry }: 
   const prefetch = (country: string) => {
     queryClient.prefetchQuery({
       queryKey: useContinentl.queryKey(country),
-      queryFn: () =>
-        firestoreService.getListWithIds('continentl').then(countries => {
-          if (country === 'all') {
-            return countries;
-          } else {
-            return countries?.filter((place: Continentl) => place.id === country);
-          }
-        }),
+      queryFn: async () => {
+        return await fetch(`${API.BASE_URL}/api/continentl?country=${country}`).then(v => v.json());
+      },
     });
   };
 

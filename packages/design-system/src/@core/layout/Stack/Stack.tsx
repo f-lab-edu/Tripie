@@ -55,6 +55,7 @@ const Stack = ({
   zIndex = 'base',
   gridRepeat,
   gridWrapOn,
+  fillAvailable = true,
   ...props
 }: StackProps) => {
   const gridRepeatArr =
@@ -68,6 +69,7 @@ const Stack = ({
   return (
     <TripieContainer
       zIndex={zIndex}
+      fillAvailable={fillAvailable}
       ref={refs}
       padding={padding}
       applyPadding={applyPadding}
@@ -83,7 +85,6 @@ const Stack = ({
       className={cx(
         `flex-${flexWrapOn}`,
         `direction-${direction}`,
-        // display === 'grid' ? `grid` : '',
         stretchGridLastChild ? 'stretch-grid-last-child' : '',
         display === 'grid' ? `grid-template-rows-${rows}` : '',
         display === 'grid' ? `grid-template-cols-${cols}` : '',

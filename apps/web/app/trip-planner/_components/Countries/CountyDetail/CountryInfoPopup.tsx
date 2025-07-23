@@ -61,12 +61,22 @@ const CountryInfoPopup = ({
           officialLanguage != null ? (
             <Stack
               display="grid"
+              gridWrapOn={{ 'wrap-sm': 2 }}
               cols={officialLanguage.length >= 4 ? 4 : officialLanguage.length}
               gap="default"
               margin="none"
             >
               {officialLanguage.map((language: string) => (
-                <Container key={language} padding="xsm" margin="none" withBorder={true} alignItems="center">
+                <Container
+                  fillAvailable={false}
+                  key={language}
+                  display="inline-flex"
+                  padding="xsm"
+                  margin="none"
+                  withBorder={true}
+                  alignItems="center"
+                  justifyContent="center"
+                >
                   {language}
                 </Container>
               ))}

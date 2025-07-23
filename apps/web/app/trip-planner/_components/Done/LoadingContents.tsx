@@ -78,8 +78,15 @@ export default function LoadingContents({ context }: Readonly<{ context: TripPla
               <Stack key={text.prompt} zIndex="mask" direction="column" margin="none">
                 <MotionSlideUp>
                   <Stack direction="row" applyMargin="bottom">
-                    <Container margin="none" justifyContent="start" alignItems="start">
+                    <Container
+                      fillAvailable={false}
+                      display="inline-flex"
+                      margin="none"
+                      justifyContent="start"
+                      alignItems="start"
+                    >
                       <BlurImageOnLoad
+                        fillAvailable={false}
                         src={
                           'https://res.cloudinary.com/dbzzletpw/image/upload/f_auto,q_auto:good,w_32,h_32,dpr_auto/v1744014743/tripie-image_anglvk'
                         }
@@ -92,13 +99,21 @@ export default function LoadingContents({ context }: Readonly<{ context: TripPla
                       </Card>
                     </Container>
                   </Stack>
-                  <Container applyMargin="bottom" justifyContent="end" alignItems="end">
+                  <Container display="inline-flex" applyMargin="bottom" justifyContent="end" alignItems="end">
                     <Stack direction="row">
-                      <Container margin="none" justifyContent="end" className={cx('wrap')} alignItems="start">
+                      <Container
+                        display="inline-flex"
+                        margin="none"
+                        justifyContent="end"
+                        className={cx('wrap')}
+                        fillAvailable={false}
+                        alignItems="start"
+                      >
                         <Card applyMargin={'right'}>
                           <AnimatedText.Type delay={delays[index]}>{text.answer}</AnimatedText.Type>
                         </Card>
                         <BlurImageOnLoad
+                          fillAvailable={false}
                           src={
                             status === 'loading'
                               ? 'https://res.cloudinary.com/dbzzletpw/image/upload/f_auto,q_auto:good,w_32,h_32,dpr_auto/v1744014743/tripie-image_anglvk'
@@ -116,11 +131,13 @@ export default function LoadingContents({ context }: Readonly<{ context: TripPla
             ))}
           </AnimatedContainer>
         </Card.Description>
-        <Card.Description margin="none" padding="m" justifyContent={'center'}>
-          <Text bold={true}>
+        <Card.Description margin="none" padding="m" justifyContent={'center'} display="inline-flex">
+          <Container justifyContent={'center'} display="inline-flex" alignItems="center" gap="default">
             <Icon.Loading sizes="large" />
-            <AnimatedText.Jump>여행&nbsp;일정&nbsp;생성&nbsp;중...</AnimatedText.Jump>
-          </Text>
+            <Text bold={true}>
+              <AnimatedText.Jump>여행&nbsp;일정&nbsp;생성&nbsp;중...</AnimatedText.Jump>
+            </Text>
+          </Container>
         </Card.Description>
       </Stack>
     </Background>

@@ -1,20 +1,19 @@
 import { useQuery } from '@tanstack/react-query';
-import firestoreService from 'app/api/firebase';
 
-const useCountryArticle = () => {
+const useCountryArticle = (selectedRegionId: string) => {
   const res = useQuery({
-    queryKey: useCountryArticle.queryKey(),
-    queryFn: () =>
-      firestoreService.getList('region-articles2').then(countryArticleList => {
-        return countryArticleList;
-      }),
+    queryKey: useCountryArticle.queryKey(selectedRegionId),
+    queryFn: async () => {
+      const result = await fetch(`/api/region-articles?regionId=${selectedRegionId}`).then(data => data.json());
+      return result;
+    },
     staleTime: Infinity,
   });
   return res;
 };
 
-useCountryArticle.queryKey = () => {
-  return ['country', 'region-articles'];
+useCountryArticle.queryKey = (selectedRegionId: string) => {
+  return ['region-articles', selectedRegionId];
 };
 
 export default useCountryArticle;

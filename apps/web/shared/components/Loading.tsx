@@ -20,8 +20,8 @@ const ControlledLoader = () => {
 
 const SemiTransparentLoader = ({ loading }: { loading: boolean }) => {
   return (
-    <SplashScreen variant="backdrop" loading={loading} duration={1}>
-      <Stack gap="sm" justifyContent="center" display="inline-flex" alignItems="center">
+    <SplashScreen variant="backdrop" loading={loading} duration={1} centerItems={true}>
+      <Stack justifyContent="center" display={'inline-flex'} alignItems="center" fillAvailable={false} gap="sm">
         <Icon.Loading />
         <AnimatedText.Jump>loading...</AnimatedText.Jump>
       </Stack>

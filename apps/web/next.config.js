@@ -12,25 +12,27 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  turbopack: {},
+  // turbopack: {},
   sassOptions: {
-    includePaths: [path.join(__dirname, 'styles'), path.join(__dirname, '../../packages/design-system/src')],
+    includePaths: [
+      path.join(__dirname, 'styles'),
+      path.join(
+        __dirname,
+        // '../../packages/design-system/src'
+        './node_modules/@tripie-pyotato/design-system/src'
+      ),
+    ],
     silenceDeprecations: ['legacy-js-api'],
   },
 
-  // webpack(config) {
-  //   config.module.rules.push({
-  //     test: /\.css$/,
-  //     include: [path.resolve(__dirname, 'node_modules/@tripie-pyotato/design-system')],
-  //     use: [
-  //       'style-loader', // injects CSS into the DOM
-  //       'css-loader', // resolves @import and url()
-  //     ],
-  //   });
+  // transpilePackages: ['@tripie-pyotato/design-system'],
 
-  //   return config;
+  // experimental: {
+  //   // serverActions: true,
+  //   serverComponentsExternalPackages: [],
+  //   // reactRoot: true,
+  //   // disableReactRoot: true // disables streaming
   // },
-  transpilePackages: ['@tripie-pyotato/design-system'],
 
   outputFileTracingIncludes: {
     '/api/gpt': ['node_modules/.prisma/client/**', 'node_modules/@prisma/engines/**'],

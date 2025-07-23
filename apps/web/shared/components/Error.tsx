@@ -2,9 +2,7 @@
 import { ParticleBackground } from '@tripie-pyotato/design-system/@components';
 import AccentedButton from '@tripie-pyotato/design-system/@components/AccentedButton';
 import { Headings, Stack, Text } from '@tripie-pyotato/design-system/@core';
-// import { Text } from '@tripie-pyotato/design-system/@core';
-// import Stack from '@tripie-pyotato/design-system/@core/Stack';
-// import Headings from '@tripie-pyotato/design-system/@core/Headings';
+
 import ROUTE from 'constants/routes';
 import { useRouter } from 'next/navigation';
 

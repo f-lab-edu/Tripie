@@ -1,12 +1,12 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { Button } from '@tripie-pyotato/design-system/@components/Button';
 import Stack from '@tripie-pyotato/design-system/@core/Stack';
+import API from 'constants/api-routes';
 
-import firestoreService from 'app/api/firebase';
 import { CONTINENTS } from 'constants/continents';
 import useCountries from 'hooks/query/useCountries';
 import { ContinentIds, ContinentKeys } from 'models/Continent';
-import { Country } from 'models/Country';
+
 import { Dispatch, SetStateAction } from 'react';
 
 interface Props {
@@ -20,16 +20,10 @@ export function ContinentList({ selectedContinent, action }: Readonly<Props>) {
   const prefetch = (continent: ContinentIds) => {
     queryClient.prefetchQuery({
       queryKey: useCountries.queryKey(continent),
-      queryFn: () =>
-        firestoreService.getList('countries').then(countryList => {
-          if (continent === 'ALL') {
-            return countryList;
-          } else {
-            return countryList?.filter((country: Country) =>
-              country?.continent.includes(CONTINENTS[continent as ContinentKeys].id)
-            );
-          }
-        }),
+      queryFn: async () => {
+        const data = await fetch(`${API.BASE_URL}/api/countries?continent=${continent}`).then(res => res.json());
+        return data;
+      },
     });
   };
 

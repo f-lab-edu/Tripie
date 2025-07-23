@@ -1,10 +1,17 @@
 'use server';
+
+import getRegionArticles from 'app/api/articles/region';
+
+import { sharedMetaData } from 'app/shared-metadata';
 import API from 'constants/api-routes';
 import ROUTE from 'constants/routes';
 import { TRIPIE_REGION_BY_LOCATION } from 'constants/tripie-country';
 import { Metadata } from 'next';
-import { ReactNode } from 'react';
-import { sharedMetaData } from '../shared-metadata';
+
+import { cache, ReactNode } from 'react';
+import Nav from 'shared/components/Nav';
+
+export const getRegionArticleList = cache(getRegionArticles);
 
 export async function generateMetadata(): Promise<Metadata> {
   const regions = Object.keys(TRIPIE_REGION_BY_LOCATION);
@@ -34,5 +41,10 @@ export default async function Layout({
 }: Readonly<{
   children: ReactNode;
 }>) {
-  return <>{children}</>;
+  return (
+    <>
+      <Nav />
+      {children}
+    </>
+  );
 }

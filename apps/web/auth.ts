@@ -22,5 +22,16 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
   pages: {
     signIn: '/sign-in',
   },
+  // logger: {
+  //   error(code, ...message) {
+  //     console.error(code, message);
+  //   },
+  //   warn(code, ...message) {
+  //     console.warn(code, message);
+  //   },
+  //   debug(code, ...message) {
+  //     console.debug(code, message);
+  //   },
+  // },
   ...authConfig,
 });

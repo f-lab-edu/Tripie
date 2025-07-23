@@ -1,4 +1,3 @@
-// @use '../../../mixins/flex' as *;
 @use '../../../mixins/margins' as *;
 @use '../../../mixins/paddings' as *;
 @use '../../../mixins/with-border' as *;
@@ -21,11 +20,6 @@ $container-display-map: (inline-flex, grid, inline-block);
 @each $key in $container-display-map {
   .container-display-#{$key} {
     display: $key;
-    @if ($key==inline-flex) {
-      justify-content: center;
-      flex-wrap: nowrap;
-      align-items: center;
-    }
   }
 }
 
@@ -34,9 +28,6 @@ $container-display-map: (inline-flex, grid, inline-block);
     white-space: pre-wrap;
   }
 }
-// .flex {
-//   @include flex;
-// }
 
 .layout-fill-available {
   width: stretch; // spec has changed

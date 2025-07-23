@@ -2,12 +2,11 @@
 
 import { useDebounce } from '@tripie-pyotato/hooks';
 
-import { DB_NAME } from 'constants/auth';
 import useFunnel from 'hooks/useFunnel';
 
 import { Text } from '@tripie-pyotato/design-system/@core';
 import { Background } from '@tripie-pyotato/design-system/@core/layout';
-import firestoreService from 'app/api/firebase';
+
 import { Response } from 'app/api/openai/getTripPlan';
 import ROUTE from 'constants/routes';
 import { TripPlanner } from 'models/Aws';
@@ -94,20 +93,10 @@ const handleSubmit = async (chatItems: TripPlanner, id: string) => {
   if (id == null) {
     return null;
   }
-  const user = await firestoreService.getItem(DB_NAME, id);
-  if (user == null) {
-    return null;
-  }
 
-  return await firestoreService.getListWithIds('continentl').then(async () => {
-    const res: TripPlannerSuccessReponse = await api.post('openai', { json: { ...chatItems, id } }).json();
+  const res: TripPlannerSuccessReponse = await api.post('openai', { json: { ...chatItems, id } }).json();
 
-    if (res?.data == null) {
-      return null;
-    }
-
-    return res?.data?.id;
-  });
+  return res?.data?.id;
 };
 
 const Progress = ({ index }: { index: number }) => {
@@ -134,7 +123,7 @@ const TripPlan = () => {
   });
 
   const onHandleSubmit = useDebounce(async () => {
-    if (userData.user.id == null) {
+    if (userData?.user.id == null) {
       return;
     }
     const id = await handleSubmit(funnel.context as TripPlanner, userData?.user?.id);

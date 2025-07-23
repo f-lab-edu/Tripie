@@ -21,7 +21,6 @@
 }
 
 .insta-like-carousel-container {
-  display: inline-flex;
   overflow-x: auto;
   overflow-y: hidden;
   scroll-snap-type: x mandatory; /* Enables snapping on the x-axis */

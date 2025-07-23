@@ -19,21 +19,6 @@ export default function OurService() {
           </Headings.H2>
         </Container>
       </MotionSlideUp>
-      {/* <Stack
-        display="grid"
-        margin="l"
-        applyMargin="top-bottom"
-        gap="l"
-        gridWrapOn={{ 'wrap-sm': 1 }}
-        justifyContent="center"
-        stretchGridLastChild={true}
-      >
-        <Stack margin="none" gap="l" display="grid" gridRepeat={{ 'wrap-sm': 2 }} cols={1} stretchGridLastChild={true}>
-          {serviceList.map(({ label, content, description }) => (
-            <ServiceCard key={label} label={label} content={content} description={description} />
-          ))}
-        </Stack>
-      </Stack> */}
       <Stack
         margin="none"
         gap="l"

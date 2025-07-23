@@ -34,10 +34,27 @@ const DurationSelect = () => {
 
   if (today == null || selected == null) {
     return (
-      <Stack className={cx('loading-wrap')} margin="none" alignItems="center" justifyContent="center">
-        <Icon.Loading />
-        <AnimatedText.Jump>Loading...</AnimatedText.Jump>
-      </Stack>
+      <Container
+        display="inline-flex"
+        className={cx('loading-wrap')}
+        margin="none"
+        alignItems="center"
+        gap="sm"
+        justifyContent="center"
+        fillAvailable={false}
+      >
+        <Stack
+          display="inline-flex"
+          margin="none"
+          alignItems="center"
+          gap="sm"
+          justifyContent="center"
+          fillAvailable={false}
+        >
+          <Icon.Loading />
+          <AnimatedText.Jump>Loading...</AnimatedText.Jump>
+        </Stack>
+      </Container>
     );
   }
 

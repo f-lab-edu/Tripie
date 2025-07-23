@@ -1,9 +1,9 @@
 'use client';
 
-import firestoreService from 'app/api/firebase';
-
-import { DB_NAME } from 'constants/auth';
+import API from 'constants/api-routes';
 import { MAX_TOKEN } from 'constants/chat';
+// import firestoreService from 'app/api/firebase';
+
 import ROUTE from 'constants/routes';
 import { User } from 'models/User';
 import { useSession } from 'next-auth/react';
@@ -37,14 +37,14 @@ const useChatToken = () => {
     const checkEligibility = async () => {
       const id = data?.user?.id as User['session']['user']['id'];
       if (id != null) {
-        const user = await firestoreService.getItem(DB_NAME, id);
+        const userStatus = await fetch(`${API.BASE_URL}/api/user-status?id=${id}`).then(res => res.json());
 
-        if (user?.isAdmin) {
+        if (userStatus?.user?.isAdmin) {
           setIsAdmin(true);
         }
-        if (user?.usedTokens != null) {
-          setUsedGptToken(user.usedTokens);
-          const tokens = MAX_TOKEN - user.usedTokens;
+        if (userStatus?.user?.usedTokens != null) {
+          setUsedGptToken(userStatus?.user.usedTokens);
+          const tokens = MAX_TOKEN - userStatus?.user.usedTokens;
           setRemainingToken(tokens >= 0 ? tokens : 0);
         }
       }
