@@ -5,9 +5,9 @@ import { Stack } from '@tripie-pyotato/design-system/@core';
 import { classNames } from '@tripie-pyotato/design-system/@wrappers';
 
 import { TRIPIE_REGION_BY_LOCATION, TRIPIE_REGION_IDS } from 'constants/tripie-country';
-import { useRouter } from 'next/navigation';
 
-import { Dispatch, SetStateAction } from 'react';
+import { useRouter } from 'next/navigation';
+import { Dispatch, SetStateAction, startTransition } from 'react';
 import Style from './sub-region-select.module.scss';
 
 const cx = classNames.bind(Style);
@@ -28,8 +28,9 @@ const SubRegions = ({
     const selectedLocation = Object.keys(TRIPIE_REGION_IDS).filter(
       key => TRIPIE_REGION_IDS[key as keyof typeof TRIPIE_REGION_IDS] === place
     )?.[0];
-
-    navigate.push(`/regions/${selected}/location/${selectedLocation}`);
+    startTransition(() => {
+      navigate.push(`/regions/${selected}/location/${selectedLocation}`);
+    });
     setSplash(true);
   };
 

@@ -7,12 +7,12 @@ import { TRIPIE_REGION_BY_LOCATION } from 'constants/tripie-country';
 import { useRouter } from 'next/navigation';
 import { Dispatch, SetStateAction } from 'react';
 
-const Regions = ({ selected, setSplash }: { selected: string; setSplash: Dispatch<SetStateAction<boolean>> }) => {
+const Regions = ({ selected, setSplash }: { selected: string; setSplash?: Dispatch<SetStateAction<boolean>> }) => {
   const navigate = useRouter();
 
   // 상위 항목 선택 -> 해당 지역의 route로 이동
   const handleCategorySelect = (place: string) => {
-    if (selected == place) {
+    if (selected == place || setSplash == null) {
       return;
     }
     navigate.push(`/regions/${place}`);

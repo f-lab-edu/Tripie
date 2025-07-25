@@ -1,6 +1,5 @@
 'use client';
 import { ReactNode } from 'react';
-import Nav from 'shared/components/Nav';
 
 export default function Layout({
   children,
@@ -9,7 +8,7 @@ export default function Layout({
 }>) {
   return (
     <>
-      <Nav />
+      {/* <Nav /> */}
       {children}
     </>
   );

@@ -1,13 +1,10 @@
-import { ReactNode } from 'react';
-
-import { classNames } from 'wrapper/classNames';
-
 import { Container } from '@tripie-pyotato/design-system/@core';
 import API from 'constants/api-routes';
 import ROUTE from 'constants/routes';
 import { ParamProps } from 'models/Props';
 import { Metadata } from 'next';
-import Nav from 'shared/components/Nav';
+import { ReactNode } from 'react';
+import { classNames } from 'wrapper/classNames';
 import Style from './article-layout.module.scss';
 import getParamData from './cachedParamData';
 
@@ -38,7 +35,7 @@ export default async function Layout({
 }>) {
   return (
     <>
-      <Nav />
+      {/* <Nav /> */}
       <Container fillAvailable={true} display="inline-flex" justifyContent="center">
         <Container
           withBorder={true}

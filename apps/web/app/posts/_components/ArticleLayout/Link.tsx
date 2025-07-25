@@ -19,7 +19,15 @@ const ArticleLink = ({ item, regionId, dataUrl }: { item: LinkProps; regionId: s
     return null;
   }
   return (
-    <Stack margin="none" alignItems="start" justifyContent="start" flexWrapOn="wrap-xl" gap="default">
+    <Stack
+      display="inline-flex"
+      margin="none"
+      direction="column"
+      alignItems="start"
+      justifyContent="start"
+      flexWrapOn="wrap-xxl"
+      gap="default"
+    >
       {links.map(({ label, href }) => (
         <TextUnderLineAnimation key={href}>
           <TripieLink size="small" href={href}>

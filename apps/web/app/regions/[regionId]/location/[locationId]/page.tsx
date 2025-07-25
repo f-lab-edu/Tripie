@@ -1,9 +1,7 @@
-'use server';
-
 import { Container } from '@tripie-pyotato/design-system/@core';
 import { Params } from 'app/parse-params';
-import RegionList from 'app/regions/_components/RegionList';
 
+import RegionList from 'app/regions/_components/RegionList';
 import RegionTitle from 'app/regions/_components/RegionTitle';
 import RegionSelect from 'app/regions/_components/Select';
 import regionPageParamData from 'app/regions/regions-page-param.data';

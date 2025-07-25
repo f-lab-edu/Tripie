@@ -1,9 +1,9 @@
-'use server';
-
 import { RegionParamProps } from 'models/Props';
 import { ReactNode } from 'react';
 
+import firestoreService from 'app/api/firebase';
 import { parseParams } from 'app/parse-params';
+import { RegionArticleData } from 'app/regions/_components/RegionCard';
 import regionPageParamData from 'app/regions/regions-page-param.data';
 import { sharedMetaData } from 'app/shared-metadata';
 import API from 'constants/api-routes';
@@ -15,6 +15,16 @@ import { Metadata } from 'next';
 export async function pageParamData({ params }: RegionParamProps) {
   const { regionId, locationId } = await parseParams(params);
   return { locationId, regionId };
+}
+
+export async function generateStaticParams() {
+  const posts = (await firestoreService.getList('region-articles2')).flatMap((res: RegionArticleData) =>
+    res.data.map(data => data.id)
+  );
+
+  return posts.map(id => ({
+    id: String(id),
+  }));
 }
 
 export async function generateMetadata({ params }: RegionParamProps): Promise<Metadata> {
@@ -47,14 +57,13 @@ export async function generateMetadata({ params }: RegionParamProps): Promise<Me
 
 export default async function Layout({
   children,
-  // params,
-  // searchParams,
 }: Readonly<{
   children: ReactNode;
-  // params: Promise<RegionParamProps>;
-  // searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }>) {
-  // console.log('params', await params);
+  // const posts = (await firestoreService.getList('region-articles2')).flatMap((res: RegionArticleData) =>
+  //   res.data.map(data => data.id)
+  // );
 
+  // console.log(posts);
   return <>{children}</>;
 }

@@ -24,22 +24,6 @@ const PoiList = ({ item }: { item: PoisProps }) => {
   return (
     <Container applyMargin="top-bottom">
       <MapProvider>
-        {/* <Container applyMargin="bottom" margin="m" display="inline-flex" justifyContent="start">
-          <Carousel.Controlled alignItems={'stretch'} justifyContent={'start'}>
-            {pois.map((poi, index) => {
-              return (
-                <PoiCard
-                  length={pois.length}
-                  action={() => setCurrent(`0-${index}`)}
-                  poi={poi}
-                  cardRef={cardRefs.current[index]}
-                  key={index + poi.id + poi.source.areas?.[0]?.id}
-                  selected={current === `0-${index}`}
-                />
-              );
-            })}
-          </Carousel.Controlled>
-        </Container> */}
         <Container applyMargin="bottom" margin="m">
           <Carousel.Controlled>
             {pois.map((poi, index) => {

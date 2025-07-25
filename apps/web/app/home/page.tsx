@@ -10,12 +10,12 @@ import OurWork from 'app/home/_components/OurWork';
 import Plan from 'app/home/_components/Plan';
 // import TanstackQuery from 'provider/TanstackQueryProvider';
 import Loading from 'shared/components/Loading';
-import Nav from 'shared/components/Nav';
+// import Nav from 'shared/components/Nav';
 export default function Home() {
   return (
     // <TanstackQuery>
     <>
-      <Nav />
+      {/* <Nav /> */}
       <Loading />
       <Header />
       <AboutUs />

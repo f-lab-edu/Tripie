@@ -26,7 +26,6 @@ const ArticleText = ({ item }: { item: ArticleTextProps }) => {
       direction={'column'}
       margin="none"
     >
-      {/* <Text display={'block'}> */}
       <Text display={'inline-block'}>
         {item.value.markdownText != null ? (
           <Markdown>{item.value.markdownText.replaceAll('트리플', 'Tripie')}</Markdown>
