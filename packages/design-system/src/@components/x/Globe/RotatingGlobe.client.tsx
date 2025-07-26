@@ -21,7 +21,7 @@ const RotatingGlobe = ({
   fallback = <LoadingIcon />,
   backgroundColor = COLORS['100000'],
   hexPolygonColor = () => COLORS[50],
-  globeImageUrl = CLOUDINARY_URL() + RESOURCE.EARTH,
+  globeImageUrl = CLOUDINARY_URL() + 'f_auto,q_auto:good/' + RESOURCE.EARTH,
   ...args
 }: GlobeProps & { fallback?: ReactNode } & Pick<TripieContainerProps, 'display'>) => {
   const globeRef = useRef<GlobeMethods>();
