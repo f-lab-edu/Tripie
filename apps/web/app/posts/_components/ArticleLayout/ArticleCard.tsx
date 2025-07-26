@@ -36,7 +36,9 @@ const ArticleCard = ({
                     aspectRatio={'photo'}
                     sourceUrl={sourceUrl}
                     cloudinaryUrl={'https://media.tripie-api.shop'}
-                    src={sizes.full.url.replace('https://res.cloudinary.com', 'https://media.tripie-api.shop')}
+                    src={sizes.full.url
+                      .replace('https://res.cloudinary.com', 'https://media.tripie-api.shop')
+                      .replace('.jpeg', '')}
                     alt={sizes.full.url}
                     key={`${index}-${sizes.full.url}-${imgIndex}`}
                     withBorder={true}

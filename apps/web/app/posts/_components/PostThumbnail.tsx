@@ -9,7 +9,7 @@ const PostThumbnail = ({ images }: { images: string }) => {
       <BlurImageOnLoad
         withBorder={true}
         aspectRatio={'cinematic'}
-        src={images?.replace('https://res.cloudinary.com', 'https://media.tripie-api.shop')}
+        src={images?.replace('https://res.cloudinary.com', 'https://media.tripie-api.shop').replace('.jpeg', '')}
         sizes="large"
         cloudinaryUrl="https://media.tripie-api.shop"
         alt={images ?? `${images}`}

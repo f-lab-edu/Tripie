@@ -17,7 +17,9 @@ const ArticleImages = ({ item }: { item: ImageProps }) => {
               withBorder={true}
               key={item.sizes.full.url + index}
               alt={item.sizes.full.url}
-              src={item.sizes.full.url.replace('https://res.cloudinary.com', 'https://media.tripie-api.shop')}
+              src={item.sizes.full.url
+                .replace('https://res.cloudinary.com', 'https://media.tripie-api.shop')
+                .replace('.jpeg', '')}
               sourceUrl={item.sourceUrl}
             />
           );
