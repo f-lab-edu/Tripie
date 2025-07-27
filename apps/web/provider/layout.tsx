@@ -14,8 +14,6 @@ export default function Provider({
     <AuthProvider>
       <ThemeProvider>
         <TanstackQuery>{children}</TanstackQuery>
-        {/* <WebVitals /> */}
-        {/* <TanstackQuery>{children}</TanstackQuery> */}
       </ThemeProvider>
     </AuthProvider>
   );

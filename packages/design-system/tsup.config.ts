@@ -26,40 +26,40 @@ interface ESBuildUseClientOptions {
   filter?: RegExp;
 }
 
-export function autoImportScssModulePlugin(): Plugin {
-  return {
-    name: 'auto-import-scss-module',
-    async setup(build) {
-      build.onLoad({ filter: /\.tsx$/ }, async args => {
-        const source = await fs.readFile(args.path, 'utf8');
-        const dir = path.dirname(args.path);
+// export function autoImportScssModulePlugin(): Plugin {
+//   return {
+//     name: 'auto-import-scss-module',
+//     async setup(build) {
+//       build.onLoad({ filter: /\.tsx$/ }, async args => {
+//         const source = await fs.readFile(args.path, 'utf8');
+//         const dir = path.dirname(args.path);
 
-        // Find .module.scss files in the same folder
-        const files = await fs.readdir(dir);
-        const scssModuleFile = files.find(f => f.endsWith('.module.scss'));
+//         // Find .module.scss files in the same folder
+//         const files = await fs.readdir(dir);
+//         const scssModuleFile = files.find(f => f.endsWith('.module.scss'));
 
-        if (!scssModuleFile) {
-          return { contents: source, loader: 'tsx' };
-        }
+//         if (!scssModuleFile) {
+//           return { contents: source, loader: 'tsx' };
+//         }
 
-        // Check if the source already imports it (to avoid duplicates)
-        if (source.includes(`from './${scssModuleFile}'`)) {
-          return { contents: source, loader: 'tsx' };
-        }
+//         // Check if the source already imports it (to avoid duplicates)
+//         if (source.includes(`from './${scssModuleFile}'`)) {
+//           return { contents: source, loader: 'tsx' };
+//         }
 
-        // Prepend import statement
-        // const newSource = `import styles from './${scssModuleFile}';\n${source}`;
+//         // Prepend import statement
+//         // const newSource = `import styles from './${scssModuleFile}';\n${source}`;
 
-        const newSource = `import Style from './${scssModuleFile}';\n${source}`;
+//         const newSource = `import Style from './${scssModuleFile}';\n${source}`;
 
-        return {
-          contents: newSource,
-          loader: 'tsx',
-        };
-      });
-    },
-  };
-}
+//         return {
+//           contents: newSource,
+//           loader: 'tsx',
+//         };
+//       });
+//     },
+//   };
+// }
 
 // https://github.com/evanw/esbuild/issues/3196
 // export const esbuildUseClient = ({ filter = /\.(ts|tsx|js|jsx)$/ }: ESBuildUseClientOptions = {}): Plugin => ({
@@ -93,6 +93,7 @@ const defaultConfig: Partial<Options> = {
   clean: true,
   dts: true,
   onSuccess: 'node ./scripts/inject-css.js && node ./scripts/inject-use-client.js',
+  // onSuccess: 'node ./scripts/inject-use-client.js',
   esbuildPlugins: [
     sassPlugin({
       filter: /\.module\.scss$/,
