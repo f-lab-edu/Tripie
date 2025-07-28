@@ -5,7 +5,7 @@ import TripieContainer, { TripieContainerProps } from '@core/layout/TripieContai
 
 import { ImgHTMLAttributes, useEffect, useState } from 'react';
 import { CLOUDINARY_URL } from 'shared';
-import { classNames, Motion } from '../../../wrappers';
+import { classNames, Motion, useInView } from '../../../wrappers';
 import Style from './image.module.scss';
 
 export type ImageSizes = 'default' | 'full' | 'large' | 'medium' | 'small' | 'tiny' | 'icon' | 'card' | 'avatar';
@@ -39,7 +39,7 @@ const preloadImage = (src: string) =>
 const BlurImageOnLoad = ({
   src,
   refs,
-  loading,
+  loading = 'lazy',
   sizes,
   preload = true,
   withBorder,
@@ -50,6 +50,7 @@ const BlurImageOnLoad = ({
   ...args
 }: ImageProps) => {
   const [loaded, setLoaded] = useState(false);
+  const { ref, inView } = useInView();
 
   useEffect(() => {
     let isMounted = true;
@@ -58,7 +59,7 @@ const BlurImageOnLoad = ({
       return;
     }
 
-    if (src != null && src.startsWith(cloudinaryUrl)) {
+    if (src != null && src.startsWith(cloudinaryUrl) && inView && !loaded) {
       preloadImage(src)
         .then(() => {
           if (isMounted) setLoaded(true);
@@ -71,11 +72,12 @@ const BlurImageOnLoad = ({
     return () => {
       isMounted = false;
     };
-  }, [src]);
+  }, [src, inView]);
 
   return (
     <TripieContainer
       margin="none"
+      ref={ref}
       className={cx('tripie-image', 'img-wrap', sizes, `image-ratio-${aspectRatio}`, className)}
       {...args}
     >
@@ -100,7 +102,7 @@ const BlurImageOnLoad = ({
       {!loaded ? null : (
         <Motion.Img
           src={src?.replace('e_blur:2000,q_1,', 'q_auto,')}
-          loading="lazy"
+          loading={loading}
           alt={alt}
           ref={refs}
           width={'100%'}
