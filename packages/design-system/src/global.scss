@@ -6,6 +6,23 @@
 @include generate-styles;
 
 @font-face {
+  font-family: maruburi-fallback;
+  src: local('Arial');
+  size-adjust: 97.1598545%;
+  ascent-override: 99.3862276%;
+  descent-override: 39.1085846%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: maruburi-fallback-android;
+  src: local('Roboto');
+  size-adjust: 88.6281582%;
+  ascent-override: 108.9078465%;
+  descent-override: 42.8789005%;
+  line-gap-override: 0%;
+}
+@font-face {
   font-family: 'MaruBuri';
   src:
     local('MaruBuri'),
@@ -14,9 +31,7 @@
     url('../static/fonts/MaruBuri-Regular.otf') format('otf'),
     url('../static/fonts/MaruBuri-Regular.eot') format('eot');
   /** https://developer.chrome.com/blog/font-fallbacks?utm_source=lighthouse&utm_medium=devtools */
-  ascent-override: 96.5%; /* = 965/1000 */
-  descent-override: 38.9%; /* = 389/1000 */
-  line-gap-override: 0%; /* = 0/1000 */
+  font-display: swap;
 }
 
 html,
@@ -27,9 +42,8 @@ body,
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'MaruBuri', sans-serif;
+  font-family: 'MaruBuri', maruburi-fallback, maruburi-fallback-android, sans-serif;
   scroll-behavior: smooth;
-  font-display: 'swap';
   @include visible-scroll(true);
 }
 

@@ -1,10 +1,10 @@
-@use "sass:map";
+@use 'sass:map';
 
 $settings: () !default;
 $settings: map.deep-merge(
   (
     // The prefix to use for all CSS variables.
-    "prefix": null,
+    'prefix': null,
     // The paths to use for the images, icons and fonts.
     // "paths":
     //   (
@@ -12,22 +12,17 @@ $settings: map.deep-merge(
     //     "icons": "./static/icons",
     //     "fonts": "./static/fonts",
     //   )
-    "paths":
-      (
-        "images": "/static/images",
-        "icons": "/static/icons",
-        "fonts": "/static/fonts",
+    'paths': (
+        // "images": "/static/images",
+        // "icons": "/static/icons",
+        'fonts': '/static/fonts'
       )
   ),
   $settings
 );
 
 // We use this value to prefix our CSS variables. The only difference to the default prefix value that we add the '-' suffix.
-$internal-prefix: if(
-  map.get($settings, prefix),
-  map.get($settings, prefix) + "-",
-  ""
-);
+$internal-prefix: if(map.get($settings, prefix), map.get($settings, prefix) + '-', '');
 
 // This is the list of all generated keyframes to avoid duplicates.
 $included-animations: (move-background);
