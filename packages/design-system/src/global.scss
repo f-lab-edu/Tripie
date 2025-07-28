@@ -13,6 +13,10 @@
     url('../static/fonts/MaruBuri-Regular.woff') format('woff'),
     url('../static/fonts/MaruBuri-Regular.otf') format('otf'),
     url('../static/fonts/MaruBuri-Regular.eot') format('eot');
+  /** https://developer.chrome.com/blog/font-fallbacks?utm_source=lighthouse&utm_medium=devtools */
+  ascent-override: 96.5%; /* = 965/1000 */
+  descent-override: 38.9%; /* = 389/1000 */
+  line-gap-override: 0%; /* = 0/1000 */
 }
 
 html,
