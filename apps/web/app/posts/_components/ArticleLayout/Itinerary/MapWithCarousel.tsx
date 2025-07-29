@@ -1,6 +1,6 @@
 'use client';
 
-import { Carousel, Chip, Divider, Icon } from '@tripie-pyotato/design-system/@components';
+import { Carousel, Chip, Divider } from '@tripie-pyotato/design-system/@components';
 import { Container, Stack } from '@tripie-pyotato/design-system/@core/layout';
 import { classNames } from '@tripie-pyotato/design-system/@wrappers';
 
@@ -8,6 +8,7 @@ import { Dispatch, SetStateAction, createRef, useMemo, useRef } from 'react';
 
 import { Transport } from 'models/Itinery';
 import { MapWithCarouselProps } from 'models/Props';
+import TripieIcon from 'shared/components/TripieIcon/TripieIcon';
 import PoiCard from '../PoiCard';
 import Style from './map-with-carousel.module.scss';
 
@@ -54,7 +55,7 @@ const MapWithCarousel = ({
                 key={value.duration + value.transportation + index}
               >
                 <Stack justifyContent="space-between" margin="none" display="inline-flex">
-                  {index === 0 ? <Icon.Transport active={false} type={'FLAG'} /> : null}
+                  {index === 0 ? <TripieIcon variant="transport" active={false} type={'FLAG'} /> : null}
                   <Container margin="none" justifyContent="flex-end" display="inline-flex">
                     <Chip selected={current === `0-${index}`} className={cx('chip')}>
                       {schedule[index] != '' ? schedule[index] : index + 1}
@@ -68,7 +69,8 @@ const MapWithCarousel = ({
                       display="inline-flex"
                     >
                       {value.transportation != null ? (
-                        <Icon.Transport
+                        <TripieIcon
+                          variant="transport"
                           active={current === `0-${index}`}
                           type={TRANSPORT?.[value?.transportation as keyof typeof TRANSPORT] as Transport}
                         />
@@ -79,7 +81,7 @@ const MapWithCarousel = ({
                     </Container>
                   ) : (
                     <Container margin="none" justifyContent={'flex-end'} display="inline-flex">
-                      <Icon.Transport active={false} type={'FLAG'} />
+                      <TripieIcon variant="transport" active={false} type={'FLAG'} />
                     </Container>
                   )}
                 </Stack>
@@ -94,7 +96,7 @@ const MapWithCarousel = ({
                   </Chip>
                 </Container>
                 <Container margin="none" justifyContent={'flex-end'} display="inline-flex">
-                  <Icon.Transport active={false} type={'FLAG'} />
+                  <TripieIcon variant="transport" active={false} type={'FLAG'} />
                 </Container>
               </Container>
             ) : null}

@@ -1,10 +1,11 @@
-import { Icon, NavigationButton } from '@tripie-pyotato/design-system/@components';
+import { NavigationButton } from '@tripie-pyotato/design-system/@components';
 
 import PREFERENCE_LIST from 'constants/preferences';
 
 import { Text } from '@tripie-pyotato/design-system/@core';
 import { FunnelProps, FunnelSteps } from 'app/trip-planner/page';
 import { useCallback, useState } from 'react';
+import TripieIcon from 'shared/components/TripieIcon/TripieIcon';
 import Clouds from '../../../../shared/components/Clouds';
 import Layout from '../Layout/Layout';
 import PreferenceList from './PreferenceList';
@@ -42,7 +43,7 @@ const PreferenceStep = ({ context, onNext, onPrev, progress }: Props & FunnelPro
         </>
       }
       decor={<Clouds.WithPlane />}
-      refreshIcon={<Icon.Refresh onTapStart={() => setSelected([])} />}
+      refreshIcon={<TripieIcon variant="refresh" onTapStart={() => setSelected([])} />}
       listItems={<PreferenceList selected={selected} setSelected={setSelected} />}
       clickAction={handleSubmit}
       disabled={selected.length === 0}
@@ -52,7 +53,7 @@ const PreferenceStep = ({ context, onNext, onPrev, progress }: Props & FunnelPro
             '다중 선택이 가능해요.'
           ) : (
             <>
-              다음 <Icon />
+              다음 <TripieIcon />
             </>
           )}
         </>

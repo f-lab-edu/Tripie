@@ -1,5 +1,5 @@
 'use client';
-import { Icon, Menu } from '@tripie-pyotato/design-system/@components';
+import { Menu } from '@tripie-pyotato/design-system/@components';
 import Notification from '@tripie-pyotato/design-system/@components/Notification';
 import ROUTE, { LANDING_SECTION } from 'constants/routes';
 import { usePathname } from 'next/navigation';
@@ -8,6 +8,7 @@ import Link from 'next/link';
 
 import useChatToken from 'hooks/useChatToken';
 import { ComponentType, useState } from 'react';
+import TripieIcon from '../TripieIcon/TripieIcon';
 import AiTripButton from './AiTripButtons';
 import AuthButton from './AuthButton';
 
@@ -36,12 +37,12 @@ const MenuBar = () => {
         {LANDING_SECTION.map(({ label, href }, index) => (
           <Menu.Item key={href + index}>
             <Link href={href}>{label}</Link>
-            {label === 'Contact' ? <Icon /> : null}
+            {label === 'Contact' ? <TripieIcon /> : null}
           </Menu.Item>
         ))}
         <Menu.Item>
           <Link href={ROUTE.REGIONS.href}>{ROUTE.REGIONS.label}</Link>
-          <Icon />
+          <TripieIcon />
         </Menu.Item>
 
         {/** 로그인 페이지에 있을 경우 버튼 표시 X */}

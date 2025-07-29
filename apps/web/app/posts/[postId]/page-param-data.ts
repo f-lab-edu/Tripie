@@ -50,7 +50,7 @@ export async function pageParamData({ params }: ParamProps) {
       metadataContents,
       description,
       body,
-      images: recommendationImageUrl,
+      images: recommendationImageUrl.replace('e_blur:2000,q_1,', ',q_auto'),
     };
   }
 

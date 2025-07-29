@@ -1,11 +1,12 @@
 'use client';
-import { Icon, NavigationButton } from '@tripie-pyotato/design-system/@components';
+import { NavigationButton } from '@tripie-pyotato/design-system/@components';
 import { Text } from '@tripie-pyotato/design-system/@core';
 import PREFERENCE_LIST from 'constants/preferences';
 
 import { useMemo, useState } from 'react';
 
 import { FunnelProps, FunnelSteps } from 'app/trip-planner/page';
+import TripieIcon from 'shared/components/TripieIcon/TripieIcon';
 import Clouds from '../../../../shared/components/Clouds';
 import Layout from '../Layout/Layout';
 import CityList from './CityList';
@@ -41,7 +42,7 @@ const CityStep = ({
         </>
       }
       decor={<Clouds rows={3} length={6} />}
-      refreshIcon={<Icon.Refresh onTapStart={() => setSelected([])} />}
+      refreshIcon={<TripieIcon variant="refresh" onTapStart={() => setSelected([])} />}
       listItems={<CityList cities={cities} selected={selected} setSelected={setSelected} />}
       disabled={selected.length == 0}
       submitButtonChildren={
@@ -50,7 +51,7 @@ const CityStep = ({
             '다중 선택이 가능해요.'
           ) : (
             <>
-              다음 <Icon />
+              다음 <TripieIcon />
             </>
           )}
         </>

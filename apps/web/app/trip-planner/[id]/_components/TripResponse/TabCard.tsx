@@ -54,7 +54,12 @@ const TabCard = ({
         cycle(`${trip.day - 1}-${index}`);
       }}
     >
-      <Card sizes={'full'} margin="none" ref={current === `${trip.day - 1}-${index}` ? ref : null}>
+      <Card
+        cloudinaryUrl="https://media.tripie-api.shop"
+        sizes={'full'}
+        margin="none"
+        ref={current === `${trip.day - 1}-${index}` ? ref : null}
+      >
         <Card.Header margin="sm">
           <Stack alignItems={'center'} gap="default" margin="none">
             <Chip.Marker variant={label}>{index + 1}</Chip.Marker>

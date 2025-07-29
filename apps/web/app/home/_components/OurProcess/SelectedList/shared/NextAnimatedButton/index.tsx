@@ -1,9 +1,9 @@
 'use client';
 import { FlickTextButton } from '@tripie-pyotato/design-system/@components';
-import Icon from '@tripie-pyotato/design-system/@components/Icon';
 import Container from '@tripie-pyotato/design-system/@core/Container';
 import { classNames, InView } from '@tripie-pyotato/design-system/@wrappers';
 import { ReactNode } from 'react';
+import TripieIcon from 'shared/components/TripieIcon/TripieIcon';
 import Style from './next-animated-button.module.scss';
 
 const cx = classNames.bind(Style);
@@ -22,7 +22,7 @@ const NextButton = ({ children }: { children: ReactNode }) => {
             <span className={cx('flex-text')}>{children}</span>
           </FlickTextButton>
           <Container margin="none">
-            <Icon.Cursor hovered={inView ? 'hover' : ''} className={cx('all-info-cursor')} />
+            <TripieIcon variant="cursor" hovered={inView ? 'hover' : ''} className={cx('all-info-cursor')} />
           </Container>
         </Container>
       )}

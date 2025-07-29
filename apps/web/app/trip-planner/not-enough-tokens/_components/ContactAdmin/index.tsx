@@ -1,5 +1,5 @@
 'use client';
-import { FlickTextButton, Icon, TextUnderLineAnimation } from '@tripie-pyotato/design-system/@components';
+import { FlickTextButton, TextUnderLineAnimation } from '@tripie-pyotato/design-system/@components';
 import { Background, Container, Headings, Stack, Text } from '@tripie-pyotato/design-system/@core';
 
 import { classNames } from '../../../../../wrapper/classNames';
@@ -8,6 +8,7 @@ import RegionSelect from 'app/home/_components/OurService/RegionList';
 import ROUTE from 'constants/routes';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import TripieIcon from 'shared/components/TripieIcon/TripieIcon';
 import Style from './contact-admin.module.scss';
 
 const cx = classNames.bind(Style);
@@ -27,7 +28,7 @@ const ContactAdmin = () => {
             className={cx('link-wrap')}
             href="mailto:pyotato.dev@gmail.com?subject=Hello&body=Can I have extra tokens?"
           >
-            <Text.Accented noGapUnderText={true}>@관리자</Text.Accented>에게 토큰 요청하기 <Icon />
+            <Text.Accented noGapUnderText={true}>@관리자</Text.Accented>에게 토큰 요청하기 <TripieIcon />
           </Link>
         </TextUnderLineAnimation>
 

@@ -1,7 +1,8 @@
 'use client';
 
-import { FlickTextButton, Icon } from '@tripie-pyotato/design-system/@components';
+import { FlickTextButton } from '@tripie-pyotato/design-system/@components';
 import Text from '@tripie-pyotato/design-system/@core/Text';
+import TripieIcon from 'shared/components/TripieIcon/TripieIcon';
 
 const OAuthButton = ({ provider, name }: { provider: { name: string }; name: string }) => {
   return (
@@ -9,7 +10,7 @@ const OAuthButton = ({ provider, name }: { provider: { name: string }; name: str
       <Text noGapUnderText={true} gap={'sm'}>
         Sign in with {provider.name} &nbsp;
       </Text>
-      <Icon.Auth src={name} />
+      <TripieIcon variant="auth" src={name} />
     </FlickTextButton>
   );
 };

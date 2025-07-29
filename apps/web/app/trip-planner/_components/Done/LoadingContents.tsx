@@ -4,7 +4,6 @@ import {
   AnimatedText,
   BlurImageOnLoad,
   Card,
-  Icon,
   MotionSlideUp,
 } from '@tripie-pyotato/design-system/@components';
 import { Background, Container, Stack, Text } from '@tripie-pyotato/design-system/@core';
@@ -13,6 +12,7 @@ import { classNames } from '../../.../../../../wrapper/classNames';
 import { CONTINENTS } from 'constants/continents';
 import { TripPlanner } from 'models/Aws';
 import { useSession } from 'next-auth/react';
+import TripieIcon from 'shared/components/TripieIcon/TripieIcon';
 import Clouds from '../../../../shared/components/Clouds';
 import Style from './trip-planner.module.scss';
 
@@ -133,7 +133,7 @@ export default function LoadingContents({ context }: Readonly<{ context: TripPla
         </Card.Description>
         <Card.Description margin="none" padding="m" justifyContent={'center'} display="inline-flex">
           <Container justifyContent={'center'} display="inline-flex" alignItems="center" gap="default">
-            <Icon.Loading sizes="large" />
+            <TripieIcon variant="loading" sizes="large" />
             <Text bold={true}>
               <AnimatedText.Jump>여행&nbsp;일정&nbsp;생성&nbsp;중...</AnimatedText.Jump>
             </Text>

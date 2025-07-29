@@ -21,7 +21,7 @@ export default function Layout({
           zIndex="default"
         >
           <Container fillAvailable={false} margin="none" padding="none">
-            <Card sizes="large">
+            <Card sizes="large" cloudinaryUrl="https://media.tripie-api.shop">
               <Stack direction="column" gap="default" margin="none" display="inline-flex" alignItems="center">
                 <Text.Accented>
                   <Headings.H2>Welcome</Headings.H2>

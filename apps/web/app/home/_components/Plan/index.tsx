@@ -2,7 +2,6 @@
 
 import Card from '@tripie-pyotato/design-system/@components/Card';
 // import FlickTextButton from '@tripie-pyotato/design-system/@components/FlickTextButton';
-import Icon from '@tripie-pyotato/design-system/@components/Icon';
 import MotionSlideUp from '@tripie-pyotato/design-system/@components/MotionSlideUp';
 import Background from '@tripie-pyotato/design-system/@core/Background';
 import Container from '@tripie-pyotato/design-system/@core/Container';
@@ -14,6 +13,7 @@ import Text from '@tripie-pyotato/design-system/@core/Text';
 
 import { FlickTextButton } from '@tripie-pyotato/design-system/@components';
 import PLANS from 'app/home/_components/Plan/constants';
+import TripieIcon from 'shared/components/TripieIcon/TripieIcon';
 
 export default function Plan() {
   return (
@@ -51,7 +51,7 @@ export default function Plan() {
                 <List view={'column'} gap={'default'}>
                   {PLANS[key].items.map(({ label, description, icon }) => (
                     <List.Item justifyContent={'flex-start'} alignItems={'center'} key={label}>
-                      {icon === 'X' ? <Icon.X /> : <Icon.Check />}
+                      {icon === 'X' ? <TripieIcon variant="x" /> : <TripieIcon variant="check" />}
                       <Text crossOut={icon === 'X'}> {description}</Text>
                     </List.Item>
                   ))}

@@ -1,10 +1,11 @@
 'use client';
-import { Calendar, Icon, NavigationButton } from '@tripie-pyotato/design-system/@components';
+import { Calendar, NavigationButton } from '@tripie-pyotato/design-system/@components';
 import { Text } from '@tripie-pyotato/design-system/@core';
 
 import { useCalendar } from '@tripie-pyotato/design-system/@hooks';
 import useServerTime from 'hooks/useServerTime';
 import { useCallback } from 'react';
+import TripieIcon from 'shared/components/TripieIcon/TripieIcon';
 import { localeString2Date } from 'utils/date';
 import { FunnelProps, FunnelSteps } from '../page';
 import Layout from './Layout/Layout';
@@ -77,7 +78,7 @@ const DurationStep = ({
             <Text size="small">여행의 시작과 끝나는 날짜를 선택해주세요.</Text>
           ) : (
             <Text>
-              다음 <Icon />
+              다음 <TripieIcon />
             </Text>
           )}
         </>

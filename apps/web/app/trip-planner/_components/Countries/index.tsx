@@ -1,7 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { classNames } from '@tripie-pyotato/design-system/@wrappers';
 
-import { AnimatedText, Icon, NavigationButton } from '@tripie-pyotato/design-system/@components';
+import { AnimatedText, NavigationButton } from '@tripie-pyotato/design-system/@components';
 import { Container, Text } from '@tripie-pyotato/design-system/@core';
 import { FunnelProps, FunnelSteps } from 'app/trip-planner/page';
 import API from 'constants/api-routes';
@@ -10,6 +10,7 @@ import useCountries from 'hooks/query/useCountries';
 import { ContinentKeys } from 'models/Continent';
 import { Country } from 'models/Country';
 import { useState } from 'react';
+import TripieIcon from 'shared/components/TripieIcon/TripieIcon';
 import Layout from '../Layout/Layout';
 import Style from './countries.module.scss';
 import { CountryList } from './CountryList';
@@ -88,7 +89,7 @@ export default function CountryStep({
             <>여행할 나라를 선택해주세요.</>
           ) : (
             <>
-              "{selectedCountry}"로 보기 <Icon />
+              "{selectedCountry}"로 보기 <TripieIcon />
             </>
           )}
         </>

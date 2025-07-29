@@ -2,7 +2,6 @@
 
 import AnimatedText from '@tripie-pyotato/design-system/@components/AnimatedText';
 import Calendar from '@tripie-pyotato/design-system/@components/Calendar';
-import Icon from '@tripie-pyotato/design-system/@components/Icon';
 import Container from '@tripie-pyotato/design-system/@core/Container';
 import Stack from '@tripie-pyotato/design-system/@core/Stack';
 import { useCalendar } from '@tripie-pyotato/design-system/@hooks';
@@ -10,6 +9,7 @@ import { useCalendar } from '@tripie-pyotato/design-system/@hooks';
 import NextButton from 'app/home/_components/OurProcess/SelectedList/shared/NextAnimatedButton';
 import useServerTime from 'hooks/useServerTime';
 import { useMemo } from 'react';
+import TripieIcon from 'shared/components/TripieIcon/TripieIcon';
 import { classNames } from '../../../../../../wrapper/classNames';
 import Style from './duration.module.scss';
 
@@ -51,7 +51,7 @@ const DurationSelect = () => {
           justifyContent="center"
           fillAvailable={false}
         >
-          <Icon.Loading />
+          <TripieIcon variant="loading" />
           <AnimatedText.Jump>Loading...</AnimatedText.Jump>
         </Stack>
       </Container>
@@ -65,7 +65,7 @@ const DurationSelect = () => {
       </Container>
       <NextButton>
         다음&nbsp;
-        <Icon />
+        <TripieIcon />
       </NextButton>
     </>
   );

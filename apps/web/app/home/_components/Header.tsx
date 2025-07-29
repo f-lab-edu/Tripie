@@ -2,7 +2,6 @@
 
 import { FlickTextButton, ParticleBackground, RotatingBlur } from '@tripie-pyotato/design-system/@components';
 // import FlickTextButton from '@tripie-pyotato/design-system/@components/FlickTextButton';
-import Icon from '@tripie-pyotato/design-system/@components/Icon';
 // import ParticleBackground from '@tripie-pyotato/design-system/@components/ParticleBackground';
 // import RotatingBlur from '@tripie-pyotato/design-system/@components/RotatingBlur';
 import Container from '@tripie-pyotato/design-system/@core/Container';
@@ -13,6 +12,7 @@ import Text from '@tripie-pyotato/design-system/@core/Text';
 import ROUTE from 'constants/routes';
 
 import { useRouter } from 'next/navigation';
+import TripieIcon from 'shared/components/TripieIcon/TripieIcon';
 
 const PageTitle = () => {
   return (
@@ -33,7 +33,7 @@ const ShortCutButtons = () => {
       link: ROUTE.CONTACT.href,
       contents: (
         <>
-          Get in touch <Icon sizes="icon" />
+          Get in touch <TripieIcon sizes="icon" />
         </>
       ),
     },

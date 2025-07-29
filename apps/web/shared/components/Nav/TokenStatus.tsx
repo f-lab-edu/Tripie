@@ -1,10 +1,10 @@
 'use client';
 
-import { Icon } from '@tripie-pyotato/design-system/@components';
 import AnimatedText from '@tripie-pyotato/design-system/@components/AnimatedText';
 import Text from '@tripie-pyotato/design-system/@core/Text';
 
 import useChatToken from 'hooks/useChatToken';
+import TripieIcon from '../TripieIcon/TripieIcon';
 
 const TokenStatus = () => {
   const { remainingToken, isAdmin, usedGptToken, status } = useChatToken();
@@ -12,7 +12,7 @@ const TokenStatus = () => {
   if (status === 'loading') {
     return (
       <Text size="tiny" applyMargin="all" margin="sm">
-        <Icon.Loading /> <AnimatedText.Jump>토큰 확인중...</AnimatedText.Jump>
+        <TripieIcon variant="loading" /> <AnimatedText.Jump>토큰 확인중...</AnimatedText.Jump>
       </Text>
     );
   }

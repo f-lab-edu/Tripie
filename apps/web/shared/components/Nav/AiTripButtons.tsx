@@ -3,10 +3,11 @@
 import ROUTE from 'constants/routes';
 import useChatToken from 'hooks/useChatToken';
 
-import { Icon, Link, Menu, Tooltip } from '@tripie-pyotato/design-system/@components';
+import { Link, Menu, Tooltip } from '@tripie-pyotato/design-system/@components';
 import { usePathname } from 'next/navigation';
 import { useMemo } from 'react';
 import TokenStatus from 'shared/components/Nav/TokenStatus';
+import TripieIcon from '../TripieIcon/TripieIcon';
 
 // ai 일정짜기 버튼, 토큰이 없는 경우 /not-enough-tokens로 이동
 const AiTripButton = ({ isOpen }: { isOpen: boolean }) => {
@@ -32,7 +33,7 @@ const AiTripButton = ({ isOpen }: { isOpen: boolean }) => {
         <Menu.Item>
           <Link href={url}>
             AI 추천 맞춤일정
-            <Icon />
+            <TripieIcon />
           </Link>
         </Menu.Item>
       }

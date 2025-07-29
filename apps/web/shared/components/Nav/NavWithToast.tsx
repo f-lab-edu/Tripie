@@ -1,7 +1,6 @@
 'use client';
 import { AnimatedText, AppBar, Card, FlickTextButton, Toast } from '@tripie-pyotato/design-system/@components';
 
-// import FlickTextButton from '@tripie-pyotato/design-system/@components/FlickTextButton';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 import { Stack } from '@tripie-pyotato/design-system/@core';
@@ -98,7 +97,7 @@ function withToast<P>(
             position="top-center"
             animate={isOpen ? 'animate' : 'initial'}
           >
-            <Card margin="none">
+            <Card margin="none" cloudinaryUrl="https://media.tripie-api.shop">
               <Stack direction="column" margin="none" alignItems="center">
                 <Text bold={true}>선택 사항이 초기화 됩니다!</Text>
                 <Stack gap="l">

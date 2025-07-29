@@ -1,8 +1,8 @@
 'use client';
-import { Icon } from '@tripie-pyotato/design-system/@components';
 import { Container } from '@tripie-pyotato/design-system/@core';
 import classNames from 'classnames/bind';
 import { ReactNode } from 'react';
+import TripieIcon from '../TripieIcon/TripieIcon';
 import Style from './cloud.module.scss';
 
 const cx = classNames.bind(Style);
@@ -14,7 +14,7 @@ const Clouds = ({ rows = 1, length = 13, children }: { rows?: number; length?: n
       {Array.from({ length: rows }, (_, rowIndex) => (
         <Container key={rowIndex + 'cloud-row'} margin="none" padding="none" zIndex="hide">
           {Array.from({ length }, (_, index) => (
-            <Icon.Cloud key={index} index={index} delay={Math.random() * (index + rowIndex)} />
+            <TripieIcon variant="cloud" key={index} index={index} delay={Math.random() * (index + rowIndex)} />
           ))}
         </Container>
       ))}
@@ -25,7 +25,7 @@ const Clouds = ({ rows = 1, length = 13, children }: { rows?: number; length?: n
 export const PlaneInClouds = () => {
   return (
     <Clouds rows={3}>
-      <Icon.Plane />
+      <TripieIcon variant="plane" />
     </Clouds>
   );
 };

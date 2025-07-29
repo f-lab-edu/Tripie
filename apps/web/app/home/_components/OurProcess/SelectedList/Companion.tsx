@@ -1,10 +1,10 @@
 'use client';
 import { Button } from '@tripie-pyotato/design-system/@components/Button';
-import Icon from '@tripie-pyotato/design-system/@components/Icon';
 import Stack from '@tripie-pyotato/design-system/@core/Stack';
 
 import NextButton from 'app/home/_components/OurProcess/SelectedList/shared/NextAnimatedButton';
 import COMPANION_LIST from 'constants/companions';
+import TripieIcon from 'shared/components/TripieIcon/TripieIcon';
 import { SELECTED_COMPANION } from './constants/selected';
 
 const CompanionSelect = () => {
@@ -34,7 +34,7 @@ const CompanionSelect = () => {
       </Stack>
 
       <NextButton>
-        다음 <Icon />
+        다음 <TripieIcon />
       </NextButton>
     </>
   );

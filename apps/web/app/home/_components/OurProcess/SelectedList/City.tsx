@@ -1,9 +1,9 @@
 'use client';
 import { Button } from '@tripie-pyotato/design-system/@components/Button';
-import Icon from '@tripie-pyotato/design-system/@components/Icon';
 import Stack from '@tripie-pyotato/design-system/@core/Stack';
 
 import NextButton from 'app/home/_components/OurProcess/SelectedList/shared/NextAnimatedButton';
+import TripieIcon from 'shared/components/TripieIcon/TripieIcon';
 import { KOR_CITIES, SELECTED_CITY } from './constants/selected';
 
 const CitySelect = () => {
@@ -26,7 +26,7 @@ const CitySelect = () => {
         ))}
       </Stack>
       <NextButton>
-        "{SELECTED_CITY}"로 보기 <Icon />
+        "{SELECTED_CITY}"로 보기 <TripieIcon />
       </NextButton>{' '}
     </>
   );

@@ -34,21 +34,18 @@ export default async function Layout({
   children: ReactNode;
 }>) {
   return (
-    <>
-      {/* <Nav /> */}
-      <Container fillAvailable={true} display="inline-flex" justifyContent="center">
-        <Container
-          withBorder={true}
-          margin="xl"
-          display="inline-flex"
-          alignItems="center"
-          applyMargin="top-bottom"
-          padding="l"
-          className={cx('fit-content')}
-        >
-          {children}
-        </Container>
+    <Container fillAvailable={true} display="inline-flex" justifyContent="center">
+      <Container
+        withBorder={true}
+        margin="xl"
+        display="inline-flex"
+        alignItems="center"
+        applyMargin="top-bottom"
+        padding="l"
+        className={cx('fit-content')}
+      >
+        {children}
       </Container>
-    </>
+    </Container>
   );
 }

@@ -1,6 +1,5 @@
 'use client';
 import { Button } from '@tripie-pyotato/design-system/@components/Button';
-import Icon from '@tripie-pyotato/design-system/@components/Icon';
 import Stack from '@tripie-pyotato/design-system/@core/Stack';
 
 import { classNames } from '../../../../../wrapper/classNames';
@@ -14,6 +13,7 @@ import { SELECTED_CONTINENT_NAME, SELECTED_COUNTRY } from './constants/selected'
 
 import { AnimatedText } from '@tripie-pyotato/design-system/@components';
 import { Container } from '@tripie-pyotato/design-system/@core';
+import TripieIcon from 'shared/components/TripieIcon/TripieIcon';
 import Style from './country.module.scss';
 
 const cx = classNames.bind(Style);
@@ -66,7 +66,7 @@ const CountrySelect = () => {
       </Stack>
 
       <NextButton>
-        "{regionNameToLocal({ regionCode: selected.code })}"로 보기 <Icon />
+        "{regionNameToLocal({ regionCode: selected.code })}"로 보기 <TripieIcon />
       </NextButton>
     </>
   );

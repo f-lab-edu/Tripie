@@ -1,11 +1,12 @@
 'use client';
-import { Icon, NavigationButton } from '@tripie-pyotato/design-system/@components';
+import { NavigationButton } from '@tripie-pyotato/design-system/@components';
 import Text from '@tripie-pyotato/design-system/@core/Text';
 
 import COMPANION_LIST from 'constants/companions';
 
 import { FunnelProps, FunnelSteps } from 'app/trip-planner/page';
 import { useCallback, useState } from 'react';
+import TripieIcon from 'shared/components/TripieIcon/TripieIcon';
 import Clouds from '../../../../shared/components/Clouds';
 import Layout from '../Layout/Layout';
 import CompanionList from './CompanionList';
@@ -45,7 +46,7 @@ const CompanionStep = ({
       }
       disabled={selected.length === 0}
       decor={<Clouds.WithPlane />}
-      refreshIcon={<Icon.Refresh onTapStart={() => setSelected([])} />}
+      refreshIcon={<TripieIcon variant="refresh" onTapStart={() => setSelected([])} />}
       listItems={<CompanionList context={context} selected={selected} setSelected={setSelected} />}
       submitButtonChildren={
         <>
@@ -53,7 +54,7 @@ const CompanionStep = ({
             '다중 선택이 가능해요.'
           ) : (
             <>
-              다음 <Icon />
+              다음 <TripieIcon />
             </>
           )}
         </>
