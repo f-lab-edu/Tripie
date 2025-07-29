@@ -8,7 +8,8 @@ import Loading from 'shared/components/Loading';
 import Nav from 'shared/components/Nav';
 import { sharedMetaData } from './shared-metadata';
 
-import './global.scss';
+import '@tripie-pyotato/design-system/font';
+import '@tripie-pyotato/design-system/global';
 
 export const metadata: Metadata = {
   title: sharedMetaData?.title,

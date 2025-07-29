@@ -1,7 +1,7 @@
 'use client';
-import { AnimatedText, AppBar, Card, Toast } from '@tripie-pyotato/design-system/@components';
+import { AnimatedText, AppBar, Card, FlickTextButton, Toast } from '@tripie-pyotato/design-system/@components';
 
-import FlickTextButton from '@tripie-pyotato/design-system/@components/FlickTextButton';
+// import FlickTextButton from '@tripie-pyotato/design-system/@components/FlickTextButton';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 import { Stack } from '@tripie-pyotato/design-system/@core';

@@ -92,6 +92,7 @@ const defaultConfig: Partial<Options> = {
   format: ['cjs', 'esm'],
   clean: true,
   dts: true,
+  // onSuccess: 'node ./scripts/inject-css.js && node ./scripts/inject-use-client.js && node ./scripts/copy-scss.js',
   onSuccess: 'node ./scripts/inject-css.js && node ./scripts/inject-use-client.js',
   // onSuccess: 'node ./scripts/inject-css.js',
   // onSuccess: 'node ./scripts/inject-use-client.js',
@@ -105,9 +106,13 @@ const defaultConfig: Partial<Options> = {
         basedir: './dist',
       }),
     }),
+    // sassPlugin({
+    //   filter: /\.scss$/,
+    //   // type: 'style',
+    //   type: 'css',
+    // }),
     sassPlugin({
       filter: /\.scss$/,
-      // type: 'style',
       type: 'css',
     }),
     // esbuildUseClient(),

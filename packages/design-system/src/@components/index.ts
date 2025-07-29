@@ -16,6 +16,7 @@ export { default as SplashScreen } from './feedback/SplashScreen/SplashScreen.cl
 export { default as Toast } from './feedback/Toast/Toast.client';
 export { default as Switch } from './inputs/Switch';
 export { default as AnimatedButton } from './inputs/TripieButton/Animated';
+export { default as FlickTextButton } from './inputs/TripieButton/Flick';
 export { default as UnstyledButton } from './inputs/TripieButton/Unstyled';
 export { default as NavigationButton } from './navigation/Button';
 export { default as Drawer } from './navigation/Drawer/Drawer.client';

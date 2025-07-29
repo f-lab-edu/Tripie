@@ -11,7 +11,7 @@ export { default as BlurImageOnLoad } from './Image';
 export * from './TextFillAnimation/TextFillAnimation.client';
 export { default as TextFillAnimation } from './TextFillAnimation/TextFillAnimation.client';
 export * from './TextUnderlineAnimation';
-export { default as TextUnderLineAnimation } from './TextUnderlineAnimation';
+export { default as TextUnderLineAnimation } from './TextUnderlineAnimation/TextUnderlineAnimation.client';
 export * from './Tooltip';
 export { default as Tooltip } from './Tooltip';
 export * from './TripieIcon';
