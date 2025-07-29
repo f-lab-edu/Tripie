@@ -78,8 +78,9 @@ export const AccordionIcon = ({ src, cloudinaryUrl, className, sizes = 'icon' }:
   const { current } = useContext(AccordionContext);
   return (
     <Icon
-      src={cloudinaryUrl != null ? src?.replace('https://res.cloudinary.com', cloudinaryUrl) : src}
+      src={src}
       sizes={sizes}
+      cloudinaryUrl={cloudinaryUrl}
       variants={ACCORDION_VARIANTS.BUTTON}
       animate={current}
       className={cx(className)}

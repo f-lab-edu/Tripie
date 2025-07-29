@@ -20,7 +20,7 @@ export default function Faq() {
                 <Accordion>
                   <Accordion.Header>
                     <Container justifyContent="start" margin="none" gap="sm">
-                      <Accordion.Icon />
+                      <Accordion.Icon cloudinaryUrl={'https://media.tripie-api.shop'} />
                       {header}
                     </Container>
                   </Accordion.Header>

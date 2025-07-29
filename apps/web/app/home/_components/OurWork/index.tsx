@@ -32,7 +32,7 @@ export default function OurWork() {
                     <Text size="h3" noGapUnderText={true} bold={true}>
                       {header}
                     </Text>
-                    <Accordion.Icon sizes="large" cloudinaryUrl="https://media.tripie-api.shop" />
+                    <Accordion.Icon sizes="large" cloudinaryUrl={'https://media.tripie-api.shop'} />
                   </Container>
                 </Accordion.Header>
                 <Accordion.Divider />
