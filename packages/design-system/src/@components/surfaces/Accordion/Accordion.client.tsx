@@ -74,10 +74,16 @@ export const AccordionHeader = ({
   );
 };
 
-export const AccordionIcon = ({ src, className, sizes = 'icon' }: IconProps) => {
+export const AccordionIcon = ({ src, cloudinaryUrl, className, sizes = 'icon' }: IconProps) => {
   const { current } = useContext(AccordionContext);
   return (
-    <Icon src={src} sizes={sizes} variants={ACCORDION_VARIANTS.BUTTON} animate={current} className={cx(className)} />
+    <Icon
+      src={cloudinaryUrl != null ? src?.replace('https://res.cloudinary.com', cloudinaryUrl) : src}
+      sizes={sizes}
+      variants={ACCORDION_VARIANTS.BUTTON}
+      animate={current}
+      className={cx(className)}
+    />
   );
 };
 

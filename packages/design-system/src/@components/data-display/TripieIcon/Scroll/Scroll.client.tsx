@@ -11,6 +11,7 @@ const ScrollIcon = ({
   transition,
   onTapStart,
   sizes = 'icon',
+  cloudinaryUrl,
   ...args
 }: Readonly<IconProps> & {
   hovered?: string;
@@ -19,6 +20,7 @@ const ScrollIcon = ({
   return (
     <Icon
       initial={'initial'}
+      cloudinaryUrl={cloudinaryUrl}
       onTapStart={onTapStart}
       animate={hovered}
       transition={transition}

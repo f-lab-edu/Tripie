@@ -5,11 +5,20 @@ import Icon, { IconProps } from '../Icon.client';
 import { ICON_RESOURCE_ICON, ICON_SIZES } from '../../../../shared/resource';
 import variants from './variants';
 
-const RefreshIcon = ({ onTapStart, animate, transition, sizes = 'icon', isButton, ...args }: Readonly<IconProps>) => {
+const RefreshIcon = ({
+  onTapStart,
+  cloudinaryUrl,
+  animate,
+  transition,
+  sizes = 'icon',
+  isButton,
+  ...args
+}: Readonly<IconProps>) => {
   return (
     <Icon
       onTapStart={onTapStart}
       whileTap={'hover'}
+      cloudinaryUrl={cloudinaryUrl}
       whileHover={'hover'}
       variants={variants('undo')}
       transition={transition}

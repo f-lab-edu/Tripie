@@ -18,12 +18,13 @@ const RotatingGlobe = ({
   height = 500,
   width = 500,
   display = 'inline-flex',
+  cloudinaryUrl,
   fallback = <LoadingIcon />,
   backgroundColor = COLORS['100000'],
   hexPolygonColor = () => COLORS[50],
   globeImageUrl = CLOUDINARY_URL() + 'f_auto,q_auto/' + RESOURCE.EARTH,
   ...args
-}: GlobeProps & { fallback?: ReactNode } & Pick<TripieContainerProps, 'display'>) => {
+}: GlobeProps & { fallback?: ReactNode; cloudinaryUrl?: string } & Pick<TripieContainerProps, 'display'>) => {
   const globeRef = useRef<GlobeMethods>();
   const { ref, inView } = useInView();
   const [isRotating, setIsRotating] = useState(false);
@@ -62,7 +63,9 @@ const RotatingGlobe = ({
         width={width}
         ref={globeRef}
         backgroundColor={backgroundColor}
-        globeImageUrl={globeImageUrl}
+        globeImageUrl={
+          cloudinaryUrl != null ? globeImageUrl?.replace('https://res.cloudinary.com', cloudinaryUrl) : globeImageUrl
+        }
         hexPolygonsData={Countries.features}
         hexPolygonColor={hexPolygonColor}
         atmosphereColor={COLORS[50]}

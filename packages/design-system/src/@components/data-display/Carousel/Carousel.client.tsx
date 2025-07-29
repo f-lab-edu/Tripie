@@ -12,11 +12,12 @@ const cx = classNames.bind(Style);
 const Carousel = ({
   items,
   className,
+  cloudinaryUrl,
   gap = 'default',
   display = 'inline-flex',
   justifyContent = 'start',
   alignItems = 'stretch',
-}: { items: ReactElement[]; className?: string } & Partial<TripieContainerProps>) => {
+}: { items: ReactElement[]; className?: string; cloudinaryUrl?: string } & Partial<TripieContainerProps>) => {
   const [focusedIndex, setFocusedIndex] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -47,7 +48,7 @@ const Carousel = ({
     <TripieContainer margin="none" className={cx('carousel')}>
       {items.length > 1 && focusedIndex != 0 ? (
         <BasicButton name="previous" onclick={() => handleScrollButton('prev')}>
-          <Icon.Scroll className={cx('scroll-icon', 'next-icon')} next={false} />
+          <Icon.Scroll className={cx('scroll-icon', 'next-icon')} next={false} cloudinaryUrl={cloudinaryUrl} />
         </BasicButton>
       ) : null}
       <TripieContainer margin="none" className={cx('flex-items', 'carousel-inner')}>
@@ -74,7 +75,7 @@ const Carousel = ({
       </TripieContainer>
       {items.length > 1 && focusedIndex != items.length - 1 ? (
         <BasicButton name="next" onclick={() => handleScrollButton('next')}>
-          <Icon.Scroll className={cx('scroll-icon', 'prev-icon')} />
+          <Icon.Scroll className={cx('scroll-icon', 'prev-icon')} cloudinaryUrl={cloudinaryUrl} />
         </BasicButton>
       ) : null}
     </TripieContainer>

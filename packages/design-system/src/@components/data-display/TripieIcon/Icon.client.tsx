@@ -40,6 +40,7 @@ export type IconProps = {
   whileTap?: MotionProps['TargetAndTransition'] | MotionProps['VariantLabels'];
   whileHover?: MotionProps['TargetAndTransition'] | MotionProps['VariantLabels'];
   initial?: boolean | MotionProps['VariantLabels'] | MotionProps['Target'];
+  cloudinaryUrl?: string;
 };
 
 const Icon = ({
@@ -50,6 +51,7 @@ const Icon = ({
   sizes = 'icon',
   variants = ICON_VARIANTS.DEFAULT,
   transition,
+  cloudinaryUrl,
   alt,
   width = ICON_SIZES['icon'],
   height = ICON_SIZES['icon'],
@@ -64,7 +66,7 @@ const Icon = ({
       variants={variants}
       transition={transition}
       animate={animate}
-      src={src}
+      src={cloudinaryUrl != null ? src.replace('https://res.cloudinary.com', cloudinaryUrl) : src}
       initial={initial}
       alt={alt == null ? `${src} icon` : alt}
       crossOrigin="anonymous"

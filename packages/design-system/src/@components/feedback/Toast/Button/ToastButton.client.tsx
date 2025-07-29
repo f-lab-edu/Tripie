@@ -14,9 +14,10 @@ export type ToastButtonProps = {
   position: ToastBtnPosition;
   isOpen?: boolean;
   toggleOpen: (index?: number) => void;
+  cloudinaryUrl?: string;
 };
 
-const ToastButton = ({ position, toggleOpen, isOpen }: ToastButtonProps) => {
+const ToastButton = ({ position, toggleOpen, isOpen, cloudinaryUrl }: ToastButtonProps) => {
   return (
     <Motion.Button
       className={cx(`toast-toggle-btn`)}
@@ -25,7 +26,7 @@ const ToastButton = ({ position, toggleOpen, isOpen }: ToastButtonProps) => {
       style={{ position: 'absolute', ...toastBtnPosition[position] }}
       aria-label={`${isOpen ? 'close' : 'open'} toast`}
     >
-      <Icon.X />
+      <Icon.X cloudinaryUrl={cloudinaryUrl} />
     </Motion.Button>
   );
 };
