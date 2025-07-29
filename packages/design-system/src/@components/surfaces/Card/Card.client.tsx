@@ -9,13 +9,18 @@ import { BlurImageOnLoad, Divider, DividerProps, ImageProps, ImageSizes } from '
 
 import TripieContainer, { TripieContainerProps } from '@core/layout/TripieContainer';
 import { MutableRefObject } from 'react';
-import { CLOUDINARY_URL } from 'shared';
+import { CLOUDINARY_URL, RESOURCE } from 'shared';
 import { CustomAnimationProps } from '../AnimatedCard';
 import Style from './card.module.scss';
 
 const cx = classNames.bind(Style);
 
-export type CardProps = { withNoise?: boolean; sizes?: ImageSizes } & Partial<TripieContainerProps>;
+export type CardProps = {
+  withNoise?: boolean;
+  sizes?: ImageSizes;
+  cardBackgroundURL?: string;
+  cloudinaryUrl?: string;
+} & Partial<TripieContainerProps>;
 
 const CardContent = ({
   children,
@@ -61,6 +66,23 @@ const CardDivider = ({ className, applyMargin = 'left-right', ...args }: CardDiv
 };
 
 export type CardHeaderProps = Omit<TextProps, 'noGapUnderText'> & Partial<TripieContainerProps>;
+
+const CardNoise = ({ cardBackgroundURL = CLOUDINARY_URL() + RESOURCE.STATIC_BACKGROUND, cloudinaryUrl }: CardProps) => {
+  return (
+    <TripieContainer
+      margin="none"
+      padding="none"
+      className={cx('noise')}
+      style={{
+        backgroundRepeat: 'repeat',
+        backgroundPosition: 'left top',
+        backgroundSize: '128px auto',
+        backgroundImage: `url(${cloudinaryUrl != null ? cardBackgroundURL.replace('https://res.cloudinary.com/', cloudinaryUrl + '/') : cardBackgroundURL})`,
+      }}
+      zIndex="base"
+    ></TripieContainer>
+  );
+};
 
 const CardHeader = ({
   children,
@@ -130,6 +152,7 @@ const CardWithImage = ({
   padding = 'none',
   style,
   cloudinaryUrl = CLOUDINARY_URL(),
+  cardBackgroundURL,
   ...args
 }: CardWithImageProps) => {
   return (
@@ -167,22 +190,26 @@ const CardWithImage = ({
         </TripieContainer>
         {children}
       </Stack>
-      {withNoise ? (
-        <TripieContainer margin="none" padding="none" className={cx('noise')} zIndex="base"></TripieContainer>
-      ) : null}
+      {withNoise ? <CardNoise cloudinaryUrl={cloudinaryUrl} cardBackgroundURL={cardBackgroundURL} /> : null}
     </TripieContainer>
   );
 };
 
-const Card = ({ children, className, withNoise = true, sizes = 'card', ...args }: CardProps) => {
+const Card = ({
+  children,
+  className,
+  withNoise = true,
+  sizes = 'card',
+  cloudinaryUrl,
+  cardBackgroundURL,
+  ...args
+}: CardProps) => {
   return (
     <TripieContainer withBorder={true} {...args} className={cx('outer-wrap', `card-size-${sizes}`, className)}>
       <Stack zIndex="default" direction="column" className={cx('inner-wrap', className)}>
         {children}
       </Stack>
-      {withNoise ? (
-        <TripieContainer margin="none" padding="none" className={cx('noise')} zIndex="base"></TripieContainer>
-      ) : null}
+      {withNoise ? <CardNoise cloudinaryUrl={cloudinaryUrl} cardBackgroundURL={cardBackgroundURL} /> : null}
     </TripieContainer>
   );
 };
@@ -192,5 +219,6 @@ Card.WithImage = CardWithImage;
 Card.Header = CardHeader;
 Card.Description = CardDescription;
 Card.Divider = CardDivider;
+Card.Noise = CardNoise;
 
 export default Card;

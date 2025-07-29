@@ -1,8 +1,6 @@
 @use '../../../variables/tripie-theme' as *;
 @use '../../../variables/card-size-map' as *;
 @use '../../../functions/z-index' as *;
-@use '../../../mixins/background-static' as *;
-@use '../../../mixins/noise-container' as *;
 
 @mixin card-size($size) {
   width: $size;
@@ -31,7 +29,16 @@
 }
 
 .noise {
-  @include noise-container;
+  position: absolute;
+  border-radius: inherit;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border: 0;
+  opacity: 0.2;
+  filter: brightness(50%);
+  z-index: z(base);
 }
 
 .img-wrap {

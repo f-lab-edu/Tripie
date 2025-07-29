@@ -8,6 +8,7 @@ $settings: map.deep-merge(
     // The paths to use for the images, icons and fonts.
     'paths': (
         'fonts': '/static/fonts',
+        'images': '/static/images',
       )
   ),
   $settings

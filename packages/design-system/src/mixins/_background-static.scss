@@ -1,9 +1,0 @@
-$static-background-image-path: 'https://res.cloudinary.com/dbzzletpw/image/upload/f_auto/v1753510934';
-
-@mixin background-static {
-  background-repeat: repeat;
-  background-position: left top;
-  background-size: 128px auto;
-  background-image: url('#{$static-background-image-path}/static-background_pz1ojq');
-  filter: brightness(50%);
-}

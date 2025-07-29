@@ -88,8 +88,15 @@ const defaultConfig: Partial<Options> = {
   minify: true,
   // splitting: true,
   splitting: false, // ✅ Disable this
-  external: [...Object.keys(dependencies || {}), ...Object.keys(peerDependencies || {})],
+  external: [
+    ...Object.keys(dependencies || {}),
+    ...Object.keys(peerDependencies || {}),
+    // './static/images/static-background.avif',
+    // './static/images/static-background.webp',
+    // './static/images/static-background.png',
+  ],
   format: ['cjs', 'esm'],
+
   clean: true,
   dts: true,
   // onSuccess: 'node ./scripts/inject-css.js && node ./scripts/inject-use-client.js && node ./scripts/copy-scss.js',
@@ -115,6 +122,15 @@ const defaultConfig: Partial<Options> = {
       filter: /\.scss$/,
       type: 'css',
     }),
+    // {
+    //   name: 'external-static-assets',
+    //   setup(build) {
+    //     build.onResolve({ filter: /^\/static\// }, args => ({
+    //       path: args.path,
+    //       external: true,
+    //     }));
+    //   },
+    // },
     // esbuildUseClient(),
     // autoImportScssModulePlugin(),
   ],

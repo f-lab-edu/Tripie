@@ -25,6 +25,7 @@ export const RESOURCE = {
   KAKAO: 'v1743150194/kakao',
   GITHUB: 'v1743150199/github',
   EARTH: 'v1744014709/earth-dark_evevy1',
+  STATIC_BACKGROUND: 'v1753510934/f_auto/static-background_pz1ojq',
 };
 
 export const ICON_SIZES = { icon: 32, large: 48 };
