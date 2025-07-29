@@ -1,6 +1,6 @@
 {
   "name": "@tripie-pyotato/design-system",
-  "version": "0.2.23",
+  "version": "0.2.24",
   "description": "트리피에 사용되는 디자인 시스템",
   "main": "index.js",
   "type": "module",
@@ -435,14 +435,14 @@
         "default": "./dist/@components/inputs/TripieButton/Animated/AnimatedButton.client.js"
       }
     },
-    "./@components/UnstyledButton": {
+    "./@components/BasicButton": {
       "require": {
-        "types": "./dist/@components/inputs/TripieButton/Unstyled/index.d.cts",
-        "default": "./dist/@components/inputs/TripieButton/Unstyled/UnstyledButton.client.cjs"
+        "types": "./dist/@components/inputs/TripieButton/Basic/index.d.cts",
+        "default": "./dist/@components/inputs/TripieButton/Basic/BasicButton.client.cjs"
       },
       "import": {
-        "types": "./dist/@components/inputs/TripieButton/Unstyled/index.d.ts",
-        "default": "./dist/@components/inputs/TripieButton/Unstyled/UnstyledButton.client.js"
+        "types": "./dist/@components/inputs/TripieButton/Basic/index.d.ts",
+        "default": "./dist/@components/inputs/TripieButton/Basic/BasicButton.client.js"
       }
     },
     "./@components/NavigationButton": {

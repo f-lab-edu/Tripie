@@ -159,7 +159,7 @@ export default defineConfig(options => [
         './src/@components/inputs/TripieButton/Accented/index.ts',
         './src/@components/inputs/TripieButton/Animated/index.ts',
         './src/@components/inputs/TripieButton/Flick/index.ts',
-        './src/@components/inputs/TripieButton/Unstyled/index.ts',
+        './src/@components/inputs/TripieButton/Basic/index.ts',
         './src/@components/navigation/index.ts',
         './src/@components/navigation/Drawer/index.ts',
         './src/@components/navigation/Button/index.ts',

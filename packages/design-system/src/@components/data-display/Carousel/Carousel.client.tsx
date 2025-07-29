@@ -4,7 +4,7 @@ import { classNames, useInView } from '../../../wrappers';
 import { ReactElement, ReactNode, RefObject, useCallback, useEffect, useRef, useState } from 'react';
 
 import TripieContainer, { TripieContainerProps } from '@core/layout/TripieContainer';
-import UnstyledButton from '../../inputs/TripieButton/Unstyled/UnstyledButton.client';
+import BasicButton from '../../inputs/TripieButton/Basic/BasicButton.client';
 import Icon from '../TripieIcon/Icon.client';
 import Style from './carousel.module.scss';
 const cx = classNames.bind(Style);
@@ -46,9 +46,9 @@ const Carousel = ({
   return (
     <TripieContainer margin="none" className={cx('carousel')}>
       {items.length > 1 && focusedIndex != 0 ? (
-        <UnstyledButton name="previous" onclick={() => handleScrollButton('prev')}>
+        <BasicButton name="previous" onclick={() => handleScrollButton('prev')}>
           <Icon.Scroll className={cx('scroll-icon', 'next-icon')} next={false} />
-        </UnstyledButton>
+        </BasicButton>
       ) : null}
       <TripieContainer margin="none" className={cx('flex-items', 'carousel-inner')}>
         <TripieContainer
@@ -73,9 +73,9 @@ const Carousel = ({
         </TripieContainer>
       </TripieContainer>
       {items.length > 1 && focusedIndex != items.length - 1 ? (
-        <UnstyledButton name="next" onclick={() => handleScrollButton('next')}>
+        <BasicButton name="next" onclick={() => handleScrollButton('next')}>
           <Icon.Scroll className={cx('scroll-icon', 'prev-icon')} />
-        </UnstyledButton>
+        </BasicButton>
       ) : null}
     </TripieContainer>
   );
