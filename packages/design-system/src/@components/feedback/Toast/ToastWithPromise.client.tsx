@@ -1,25 +1,7 @@
 'use client';
 
-import { TripieContainerProps } from '@core/layout/TripieContainer';
 import { useEffect, useState } from 'react';
-import Toast from './Toast.client';
-
-export type ToastPosition = 'top-center' | 'top-left' | 'top-right' | 'bottom-center' | 'bottom-left' | 'bottom-right';
-export type ToastBtnPosition = ToastPosition | 'left-center' | 'right-center';
-
-export type ToastProps = Readonly<
-  {
-    position?: ToastPosition;
-    full?: boolean;
-    visualDuration?: number;
-    toastColor?: string;
-    withCloseButton?: boolean;
-    btnPosition?: ToastBtnPosition;
-    isOpen?: boolean;
-    autoHideDuration?: number;
-    toggleOpen?: (index?: number) => void;
-  } & Partial<TripieContainerProps>
->;
+import Toast, { ToastProps } from './Toast.client';
 
 export type ToastWithPromiseProps = Readonly<
   {

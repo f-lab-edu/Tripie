@@ -4,7 +4,7 @@ import ROUTE from 'constants/routes';
 import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 
-import { Menu, UnStyledButton } from '@tripie-pyotato/design-system/@components';
+import { Menu, UnstyledButton } from '@tripie-pyotato/design-system/@components';
 
 // 로그인 로그아웃 버튼
 const AuthButton = () => {
@@ -16,7 +16,7 @@ const AuthButton = () => {
     </Menu.Item>
   ) : (
     <Menu.Item key={`${data?.user?.name}-authenticated-signout`}>
-      <UnStyledButton onclick={() => signOut()}>Sign out</UnStyledButton>
+      <UnstyledButton onclick={() => signOut()}>Sign out</UnstyledButton>
     </Menu.Item>
   );
 };

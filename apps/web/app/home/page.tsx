@@ -8,14 +8,12 @@ import OurProcess from 'app/home/_components/OurProcess';
 import OurService from 'app/home/_components/OurService';
 import OurWork from 'app/home/_components/OurWork';
 import Plan from 'app/home/_components/Plan';
-// import TanstackQuery from 'provider/TanstackQueryProvider';
+
 import Loading from 'shared/components/Loading';
-// import Nav from 'shared/components/Nav';
+
 export default function Home() {
   return (
-    // <TanstackQuery>
     <>
-      {/* <Nav /> */}
       <Loading />
       <Header />
       <AboutUs />
@@ -27,6 +25,5 @@ export default function Home() {
       <Faq />
       <Footer />
     </>
-    // </TanstackQuery>
   );
 }

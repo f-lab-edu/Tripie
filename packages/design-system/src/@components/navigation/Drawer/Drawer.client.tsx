@@ -81,8 +81,9 @@ const Drawer = ({
           zIndex="base"
           margin="none"
           padding="none"
+          fillAvailable={false}
           className={cx(`backdrop-filter-${filter}`, 'drawer-backdrop', 'full', 'max')}
-        ></Container>
+        />
       ) : null}
       <DrawerContent
         {...drawerContent}

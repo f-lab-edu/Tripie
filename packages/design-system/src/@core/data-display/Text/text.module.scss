@@ -9,7 +9,6 @@
 @use '../../../variables/direction-map' as *;
 @use '../../../functions/typography' as *;
 @use '../../../functions/color' as *;
-// @use '../../../mixins/flex' as *;
 @use '../../../mixins/accented' as *;
 @use '../../../mixins/margins' as *;
 @use '../../../mixins/paddings' as *;
@@ -53,7 +52,6 @@
 }
 
 .flex {
-  // @include flex;
   width: fit-content;
 }
 

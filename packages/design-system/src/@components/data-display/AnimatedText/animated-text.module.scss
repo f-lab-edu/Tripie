@@ -1,9 +1,8 @@
-@use '../../../base/' as *;
 @use '../../../variables/tripie-theme' as *;
 @use '../../../functions/color' as *;
 @use '../../../functions/typography' as *;
-@use '../../../generator/' as *;
 @use '../../../mixins/text' as *;
+@use '../../../mixins/z-index' as *;
 
 @use 'sass:map';
 
@@ -20,7 +19,7 @@
 }
 
 .flick {
-  z-index: z(mask);
+  @include z-index(mask);
   font-size: inherit;
   color: inherit;
 }

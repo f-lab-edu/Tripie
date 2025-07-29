@@ -1,7 +1,5 @@
-@use '../base/' as *;
-@use '../functions/' as *;
+@use '../base/theme' as *;
 @use '../mixins/' as *;
-@use '../mixins/index.scss' as *;
 
 /// 모든 스타일 생성
 @mixin generate-styles {

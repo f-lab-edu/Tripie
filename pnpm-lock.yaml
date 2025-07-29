@@ -125,8 +125,8 @@ importers:
   apps/docs:
     dependencies:
       '@tripie-pyotato/design-system':
-        specifier: 0.2.13
-        version: 0.2.13(@base-ui-components/react@1.0.0-beta.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer@2.4.1(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(maplibre-gl@4.7.1)(next@15.1.7(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.85.0))(react-calendar@5.1.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-globe.gl@2.33.2(react@18.3.1))(react-intersection-observer@9.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-map-gl@7.1.9(maplibre-gl@4.7.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(usehooks-ts@3.1.1(react@18.3.1))
+        specifier: workspace:*
+        version: link:../../packages/design-system
       '@tripie-pyotato/hooks':
         specifier: ^0.0.2
         version: 0.0.2(react@18.3.1)
@@ -294,8 +294,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/database
       '@tripie-pyotato/design-system':
-        specifier: ^0.2.21
-        version: 0.2.21(@base-ui-components/react@1.0.0-beta.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer@2.4.1(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(maplibre-gl@4.7.1)(next@15.3.5(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6))(react-calendar@5.1.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-globe.gl@2.33.2(react@18.3.1))(react-intersection-observer@9.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-map-gl@7.1.9(maplibre-gl@4.7.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(usehooks-ts@3.1.1(react@18.3.1))
+        specifier: ^0.2.22
+        version: 0.2.22(@base-ui-components/react@1.0.0-beta.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer@2.4.1(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(maplibre-gl@4.7.1)(next@15.3.5(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6))(react-calendar@5.1.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-globe.gl@2.33.2(react@18.3.1))(react-intersection-observer@9.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-map-gl@7.1.9(maplibre-gl@4.7.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(usehooks-ts@3.1.1(react@18.3.1))
       '@tripie-pyotato/hooks':
         specifier: ^0.0.3
         version: 0.0.3(react@18.3.1)
@@ -4125,24 +4125,8 @@ packages:
   '@tootallnate/quickjs-emscripten@0.23.0':
     resolution: {integrity: sha512-C5Mc6rdnsaJDjO3UpGW/CQTHtCKaYlScZTly4JIu97Jxo/odCiH0ITnDXSJPTOrEKk/ycSZ0AOgTmkDtkOsvIA==}
 
-  '@tripie-pyotato/design-system@0.2.13':
-    resolution: {integrity: sha512-Pt2chtL6rGhNRzBrq5XBGsGmeEgsjcamRxRDE1rprC5GbpkS8fbkJcPm8NIR4km27hU1ChqiZw0q1dEAn34B7w==}
-    peerDependencies:
-      '@base-ui-components/react': 1.0.0-beta.0
-      framer: ^2.4.1
-      framer-motion: ^11.11.17
-      maplibre-gl: ^4.7.1
-      next: '*'
-      react: '*'
-      react-calendar: ^5.0.0
-      react-dom: ^18.3.1
-      react-globe.gl: ^2.27.2
-      react-intersection-observer: 9.13.1
-      react-map-gl: ^7.1.7
-      usehooks-ts: ^3.1.0
-
-  '@tripie-pyotato/design-system@0.2.21':
-    resolution: {integrity: sha512-HslS15MZqt0gnTWhzvF8sZYl8qXZqzXTwn3Dl3sFHc4r+t2vmS31vzsV9R3WSOKdMos5FHk2pePeXnaxq4aCKg==}
+  '@tripie-pyotato/design-system@0.2.22':
+    resolution: {integrity: sha512-7QqJMcO+WfwKm2TZ+pWdDJutxLAJGakE6NvoTQVfl0VmW+jowmSjpoqxtvFtuAb6hrha6C4u9wdLdxwaAMcY8A==}
     peerDependencies:
       '@base-ui-components/react': 1.0.0-beta.0
       framer: ^2.4.1
@@ -15846,26 +15830,7 @@ snapshots:
 
   '@tootallnate/quickjs-emscripten@0.23.0': {}
 
-  '@tripie-pyotato/design-system@0.2.13(@base-ui-components/react@1.0.0-beta.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer@2.4.1(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(maplibre-gl@4.7.1)(next@15.1.7(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.85.0))(react-calendar@5.1.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-globe.gl@2.33.2(react@18.3.1))(react-intersection-observer@9.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-map-gl@7.1.9(maplibre-gl@4.7.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(usehooks-ts@3.1.1(react@18.3.1))':
-    dependencies:
-      '@base-ui-components/react': 1.0.0-beta.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@tripie-pyotato/hooks': 0.0.3(react@18.3.1)
-      '@tripie-pyotato/utils': 0.0.3(react@18.3.1)
-      classnames: 2.5.1
-      date-fns: 4.1.0
-      framer: 2.4.1(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      framer-motion: 11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      maplibre-gl: 4.7.1
-      next: 15.1.7(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.85.0)
-      react: 18.3.1
-      react-calendar: 5.1.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-dom: 18.3.1(react@18.3.1)
-      react-globe.gl: 2.33.2(react@18.3.1)
-      react-intersection-observer: 9.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-map-gl: 7.1.9(maplibre-gl@4.7.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      usehooks-ts: 3.1.1(react@18.3.1)
-
-  '@tripie-pyotato/design-system@0.2.21(@base-ui-components/react@1.0.0-beta.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer@2.4.1(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(maplibre-gl@4.7.1)(next@15.3.5(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6))(react-calendar@5.1.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-globe.gl@2.33.2(react@18.3.1))(react-intersection-observer@9.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-map-gl@7.1.9(maplibre-gl@4.7.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(usehooks-ts@3.1.1(react@18.3.1))':
+  '@tripie-pyotato/design-system@0.2.22(@base-ui-components/react@1.0.0-beta.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer@2.4.1(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(maplibre-gl@4.7.1)(next@15.3.5(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6))(react-calendar@5.1.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-globe.gl@2.33.2(react@18.3.1))(react-intersection-observer@9.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-map-gl@7.1.9(maplibre-gl@4.7.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(usehooks-ts@3.1.1(react@18.3.1))':
     dependencies:
       '@base-ui-components/react': 1.0.0-beta.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tripie-pyotato/hooks': 0.0.3(react@18.3.1)

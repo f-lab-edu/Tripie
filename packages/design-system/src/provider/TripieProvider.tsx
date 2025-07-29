@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import { ReactNode } from 'react';
-import { CLOUDINARY_URL } from 'shared';
 
 export default function TripieThemeProvider({
   links,
@@ -12,7 +11,7 @@ export default function TripieThemeProvider({
   return (
     <>
       <Head>
-        <link rel="preload" as="image" href={CLOUDINARY_URL()} />
+        <link rel="preload" as="image" href={'https://res.cloudinary.com/'} />
         {links?.map(link => <link key={link} rel="preload" as="image" href={link} />)}
       </Head>
       {children}

@@ -5,7 +5,7 @@ import { ReactNode } from 'react';
 import { classNames, Motion, MotionProps } from '../../../wrappers';
 
 import Divider from '@components/data-display/Divider';
-import Style from './text-underline.module.scss';
+import Style from './text-underline-animation.module.scss';
 import { TEXT_UNDERLINE_VARIANTS } from './variants';
 
 const cx = classNames.bind(Style);

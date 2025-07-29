@@ -16,10 +16,18 @@ const DrawerBody = ({
   content,
   margin = 'none',
   padding = 'none',
+  fillAvailable = false,
   ...props
 }: TripieContainerProps) => {
   return (
-    <TripieContainer zIndex={zIndex} className={cx('drawer', className)} margin={margin} padding={padding} {...props}>
+    <TripieContainer
+      zIndex={zIndex}
+      className={cx('drawer', className)}
+      fillAvailable={fillAvailable}
+      margin={margin}
+      padding={padding}
+      {...props}
+    >
       {children}
     </TripieContainer>
   );

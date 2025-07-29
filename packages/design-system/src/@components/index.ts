@@ -8,7 +8,7 @@ export * from './x';
 export { default as AnimatedText } from './data-display/AnimatedText/AnimatedText.client';
 export { default as Carousel } from './data-display/Carousel/Carousel.client';
 export { default as Chip } from './data-display/Chip/Chip.client';
-export { default as TextFillAnimation } from './data-display/TextFill/TextFillAnimation.client';
+export { default as TextFillAnimation } from './data-display/TextFillAnimation';
 export { default as TextUnderLineAnimation } from './data-display/TextUnderlineAnimation';
 export { default as Icon } from './data-display/TripieIcon/Icon.client';
 export { default as Notification } from './feedback/Notification';
@@ -16,7 +16,7 @@ export { default as SplashScreen } from './feedback/SplashScreen/SplashScreen.cl
 export { default as Toast } from './feedback/Toast/Toast.client';
 export { default as Switch } from './inputs/Switch';
 export { default as AnimatedButton } from './inputs/TripieButton/Animated';
-export { default as UnStyledButton } from './inputs/TripieButton/UnStyled';
+export { default as UnstyledButton } from './inputs/TripieButton/Unstyled';
 export { default as NavigationButton } from './navigation/Button';
 export { default as Drawer } from './navigation/Drawer/Drawer.client';
 export { default as Link } from './navigation/Link/Link.client';

@@ -3,9 +3,12 @@ import type { Metadata } from 'next';
 import { ReactNode, Suspense } from 'react';
 import Provider from '../provider/layout';
 
+import Head from 'next/head';
 import Loading from 'shared/components/Loading';
 import Nav from 'shared/components/Nav';
 import { sharedMetaData } from './shared-metadata';
+
+import './global.scss';
 
 export const metadata: Metadata = {
   title: sharedMetaData?.title,
@@ -20,7 +23,9 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <head />
+      <Head>
+        <link rel="preload" as="image" href={'https://res.cloudinary.com/'} />
+      </Head>
       <body>
         {/* useSearchParams() should be wrapped in a suspense boundary: https://github.com/vercel/next.js/discussions/61654#discussioncomment-8820940 */}
         <Suspense fallback={<Loading />}>

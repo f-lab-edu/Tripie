@@ -1,8 +1,5 @@
 'use client';
 import { useAppTheme } from '@tripie-pyotato/design-system/@hooks';
-
-import '@tripie-pyotato/design-system/global';
-import { TripieProvider } from '@tripie-pyotato/design-system/provider';
 import { ReactNode } from 'react';
 
 export default function ThemeProvider({
@@ -11,5 +8,5 @@ export default function ThemeProvider({
   children: ReactNode;
 }>) {
   useAppTheme();
-  return <TripieProvider>{children}</TripieProvider>;
+  return <>{children}</>;
 }

@@ -1,6 +1,6 @@
 {
   "name": "@tripie-pyotato/design-system",
-  "version": "0.2.21",
+  "version": "0.2.22",
   "description": "트리피에 사용되는 디자인 시스템",
   "main": "index.js",
   "type": "module",
@@ -120,6 +120,14 @@
       },
       "import": {
         "default": "./dist/global.css"
+      }
+    },
+    "./font": {
+      "require": {
+        "default": "./dist/font.css"
+      },
+      "import": {
+        "default": "./dist/font.css"
       }
     },
     "./styles": {
@@ -307,14 +315,14 @@
         "default": "./dist/@components/data-display/Image/Image.client.js"
       }
     },
-    "./@components/TextFill": {
+    "./@components/TextFillAnimation": {
       "require": {
-        "types": "./dist/@components/data-display/TextFill/index.d.cts",
-        "default": "./dist/@components/data-display/TextFill/TextFillAnimation.client.cjs"
+        "types": "./dist/@components/data-display/TextFillAnimation/index.d.cts",
+        "default": "./dist/@components/data-display/TextFillAnimation/TextFillAnimation.client.cjs"
       },
       "import": {
-        "types": "./dist/@components/data-display/TextFill/index.d.ts",
-        "default": "./dist/@components/data-display/TextFill/TextFillAnimation.client.js"
+        "types": "./dist/@components/data-display/TextFillAnimation/index.d.ts",
+        "default": "./dist/@components/data-display/TextFillAnimation/TextFillAnimation.client.js"
       }
     },
     "./@components/TextUnderlineAnimation": {
@@ -427,14 +435,14 @@
         "default": "./dist/@components/inputs/TripieButton/Animated/AnimatedButton.client.js"
       }
     },
-    "./@components/UnStyledButton": {
+    "./@components/UnstyledButton": {
       "require": {
-        "types": "./dist/@components/inputs/TripieButton/UnStyled/index.d.cts",
-        "default": "./dist/@components/inputs/TripieButton/UnStyled/UnStyledButton.client.cjs"
+        "types": "./dist/@components/inputs/TripieButton/Unstyled/index.d.cts",
+        "default": "./dist/@components/inputs/TripieButton/Unstyled/UnstyledButton.client.cjs"
       },
       "import": {
-        "types": "./dist/@components/inputs/TripieButton/UnStyled/index.d.ts",
-        "default": "./dist/@components/inputs/TripieButton/UnStyled/UnStyledButton.client.js"
+        "types": "./dist/@components/inputs/TripieButton/Unstyled/index.d.ts",
+        "default": "./dist/@components/inputs/TripieButton/Unstyled/UnstyledButton.client.js"
       }
     },
     "./@components/NavigationButton": {

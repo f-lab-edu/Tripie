@@ -93,6 +93,7 @@ const defaultConfig: Partial<Options> = {
   clean: true,
   dts: true,
   onSuccess: 'node ./scripts/inject-css.js && node ./scripts/inject-use-client.js',
+  // onSuccess: 'node ./scripts/inject-css.js',
   // onSuccess: 'node ./scripts/inject-use-client.js',
   esbuildPlugins: [
     sassPlugin({
@@ -100,7 +101,7 @@ const defaultConfig: Partial<Options> = {
       // type: 'style',
       type: 'css',
       transform: postcssModules({
-        generateScopedName: '[local]__[hash:base64:5]',
+        // generateScopedName: '[local]__[hash:base64:5]',
         basedir: './dist',
       }),
     }),
@@ -138,7 +139,7 @@ export default defineConfig(options => [
         './src/@components/data-display/Chip/index.ts',
         './src/@components/data-display/Divider/index.ts',
         './src/@components/data-display/Image/index.ts',
-        './src/@components/data-display/TextFill/index.ts',
+        './src/@components/data-display/TextFillAnimation/index.ts',
         './src/@components/data-display/Tooltip/index.ts',
         './src/@components/data-display/TextUnderlineAnimation/index.ts',
         './src/@components/data-display/TripieIcon/index.ts',
@@ -153,7 +154,7 @@ export default defineConfig(options => [
         './src/@components/inputs/TripieButton/Accented/index.ts',
         './src/@components/inputs/TripieButton/Animated/index.ts',
         './src/@components/inputs/TripieButton/Flick/index.ts',
-        './src/@components/inputs/TripieButton/UnStyled/index.ts',
+        './src/@components/inputs/TripieButton/Unstyled/index.ts',
         './src/@components/navigation/index.ts',
         './src/@components/navigation/Drawer/index.ts',
         './src/@components/navigation/Button/index.ts',

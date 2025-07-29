@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { UnStyledButton } from '@tripie-pyotato/design-system/@components';
+import { UnstyledButton } from '@tripie-pyotato/design-system/@components';
 import { useAppTheme } from '@tripie-pyotato/design-system/@hooks';
 
-const meta: Meta<typeof UnStyledButton> = {
+const meta: Meta<typeof UnstyledButton> = {
   title: 'tripie-design/Button/NoStyle',
-  component: UnStyledButton,
+  component: UnstyledButton,
   tags: ['autodocs'],
   argTypes: {},
   decorators: [

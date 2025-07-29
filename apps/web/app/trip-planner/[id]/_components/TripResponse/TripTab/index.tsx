@@ -29,6 +29,7 @@ const TripTab = ({
     <Stack
       direction="column"
       gap="l"
+      fillAvailable={false}
       margin="m"
       alignItems="start"
       applyMargin="all"

@@ -3,11 +3,11 @@
 import { TripieContainerProps } from '@core/layout/TripieContainer';
 import { ButtonHTMLAttributes, DetailedHTMLProps } from 'react';
 import { classNames } from '../../../../wrappers';
-import Style from './unstyled-button.module.scss';
+import Style from './Unstyled-button.module.scss';
 
 const cx = classNames.bind(Style);
 
-const UnStyledButton = ({
+const UnstyledButton = ({
   onclick,
   children,
   name = 'no-style-button',
@@ -49,4 +49,4 @@ const UnStyledButton = ({
   );
 };
 
-export default UnStyledButton;
+export default UnstyledButton;

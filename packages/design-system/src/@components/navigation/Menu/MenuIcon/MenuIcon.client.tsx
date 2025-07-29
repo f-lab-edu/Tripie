@@ -3,7 +3,7 @@ import { classNames, Motion, MotionProps } from '../../../../wrappers';
 
 import { COLORS } from '../../../../shared/colors';
 
-import UnStyledButton from '../../../inputs/TripieButton/UnStyled/UnStyledButton.client';
+import UnstyledButton from '../../../inputs/TripieButton/Unstyled/UnstyledButton.client';
 import Style from './menu.module.scss';
 
 const cx = classNames.bind(Style);
@@ -13,7 +13,7 @@ export const Path = (props: MotionProps['svgProps']) => (
 );
 
 const MenuIcon = ({ toggle }: { toggle: () => void }) => (
-  <UnStyledButton
+  <UnstyledButton
     onclick={() => toggle()}
     className={cx('menu-toggle')}
     padding="sm"
@@ -43,7 +43,7 @@ const MenuIcon = ({ toggle }: { toggle: () => void }) => (
         }}
       />
     </svg>
-  </UnStyledButton>
+  </UnstyledButton>
 );
 
 export default MenuIcon;

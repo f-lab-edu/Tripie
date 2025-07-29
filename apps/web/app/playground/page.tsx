@@ -1,6 +1,8 @@
 // // 'use client';
 'use client';
 
+import { Toast } from '@tripie-pyotato/design-system/@components';
+
 // import API from 'constants/api-routes';
 
 // import { Globe } from '@tripie-pyotato/design-system/@components';
@@ -135,7 +137,7 @@ const selected = {
 // });
 // };
 
-const Playground = async () => {
+const Playground = () => {
   // const res = await pureRegionArticles('일본');
   // const res = await firestoreService.getItem('region-articles2', '00aab92a-b38a-42b5-bad7-db203c89c5ef');
   // const res = await fetch(`${API.BASE_URL}/api/region-articles?regionId=00aab92a-b38a-42b5-bad7-db203c89c5ef`).then(v =>
@@ -144,14 +146,17 @@ const Playground = async () => {
   // const user = useSession();
   // return <LoadingContents context={selected} />;
   return (
-    <pre>
-      {' '}
-      {/* {JSON.stringify(res)} */}
-      {JSON.stringify(selected)}
-      {/* playground */}
-      {/* <button onClick={() => handleSubmit(user.data.user.id)}>send</button> */}
-      {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
-    </pre>
+    <>
+      <Toast>
+        <pre>
+          {/* {JSON.stringify(res)} */}
+          {JSON.stringify(selected)}
+          {/* playground */}
+          {/* <button onClick={() => handleSubmit(user.data.user.id)}>send</button> */}
+          {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
+        </pre>
+      </Toast>
+    </>
   );
 };
 

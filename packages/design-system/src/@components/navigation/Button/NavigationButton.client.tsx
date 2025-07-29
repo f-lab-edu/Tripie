@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { Motion, classNames } from 'wrappers';
 
-import Style from './icon.module.scss';
+import Style from './navigation-button.module.scss';
 
 import NavigateIcon, {
   NavigationDirection,

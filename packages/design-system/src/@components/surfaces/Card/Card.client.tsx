@@ -128,6 +128,7 @@ const CardWithImage = ({
   withImageBorder,
   sourceUrl,
   padding = 'none',
+  style,
   cloudinaryUrl = CLOUDINARY_URL(),
   ...args
 }: CardWithImageProps) => {
@@ -136,9 +137,10 @@ const CardWithImage = ({
       withBorder={true}
       padding={padding}
       {...args}
+      style={style}
       className={cx('outer-wrap', `card-size-${sizes}`, className)}
     >
-      <Stack zIndex="default" margin="none" direction="column" className={cx('inner-wrap', className)}>
+      <Stack zIndex="default" margin="none" direction="column" className={cx('inner-wrap')}>
         <TripieContainer margin="none" className={cx('img-wrap')}>
           <TripieContainer margin={cover ? 'none' : 'm'} padding={cover ? 'none' : padding}>
             {sourceUrl == null ? (

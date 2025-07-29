@@ -1,6 +1,6 @@
 'use client';
 
-import { TextUnderLineAnimation } from '@tripie-pyotato/design-system/@components/data-display';
+// import { TextUnderLineAnimation } from '@tripie-pyotato/design-system/@components/data-display';
 import Divider from '@tripie-pyotato/design-system/@components/Divider';
 import Container from '@tripie-pyotato/design-system/@core/Container';
 import Headings from '@tripie-pyotato/design-system/@core/Headings';
@@ -29,11 +29,11 @@ export default function Footer() {
     <footer>
       <Container margin="m" applyMargin="left-right-bottom" applyPadding="bottom" padding="m">
         <Headings.H2>
-          <TextUnderLineAnimation>
-            <Text noGapUnderText={true}>
-              mail <Text.Accented noGapUnderText={true}>@</Text.Accented>tripie.com
-            </Text>
-          </TextUnderLineAnimation>
+          {/* <TextUnderLineAnimation> */}
+          <Text noGapUnderText={true}>
+            mail <Text.Accented noGapUnderText={true}>@</Text.Accented>tripie.com
+          </Text>
+          {/* </TextUnderLineAnimation> */}
         </Headings.H2>
         <Divider />
         <List view="column" gap="l">
@@ -49,7 +49,8 @@ export default function Footer() {
         <List view="column" gap="l">
           {LANDING_SECTION.map(({ label, href }) => (
             <List.Item key={href}>
-              <TextUnderLineAnimation onClick={() => router.push(href)}>{label}</TextUnderLineAnimation>
+              {label}
+              {/* <TextUnderLineAnimation onClick={() => router.push(href)}>{label}</TextUnderLineAnimation> */}
             </List.Item>
           ))}
         </List>

@@ -41,7 +41,6 @@ const Text = ({
         className={cx(
           `${!noGapUnderText ? 'not-btn-' : ''}text`,
           bold ? 'bold' : '',
-          // size,
           `font-size-${size}`,
           crossOut ? 'cross' : '',
           `align-items-${alignItems}`,

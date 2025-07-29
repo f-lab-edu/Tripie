@@ -18,19 +18,19 @@ export default function OurService() {
             Our <Text.Accented>services</Text.Accented>
           </Headings.H2>
         </Container>
+        <Stack
+          margin="none"
+          gap="l"
+          gridWrapOn={{ 'wrap-md': 1 }}
+          display="grid"
+          gridRepeat={{ 'wrap-lg': 2 }}
+          stretchGridLastChild={true}
+        >
+          {serviceList.map(({ label, content, description }) => (
+            <ServiceCard key={label} label={label} content={content} description={description} />
+          ))}
+        </Stack>
       </MotionSlideUp>
-      <Stack
-        margin="none"
-        gap="l"
-        gridWrapOn={{ 'wrap-md': 1 }}
-        display="grid"
-        gridRepeat={{ 'wrap-lg': 2 }}
-        stretchGridLastChild={true}
-      >
-        {serviceList.map(({ label, content, description }) => (
-          <ServiceCard key={label} label={label} content={content} description={description} />
-        ))}
-      </Stack>
     </Background>
   );
 }

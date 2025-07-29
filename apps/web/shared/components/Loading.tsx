@@ -1,6 +1,10 @@
 'use client';
-import { AnimatedText, Icon, SplashScreen, TextFillAnimation } from '@tripie-pyotato/design-system/@components';
-import { Stack } from '@tripie-pyotato/design-system/@core';
+// import { AnimatedText, Icon, SplashScreen, TextFillAnimation } from '@tripie-pyotato/design-system/@components';
+import AnimatedText from '@tripie-pyotato/design-system/@components/AnimatedText';
+import Icon from '@tripie-pyotato/design-system/@components/Icon';
+import SplashScreen from '@tripie-pyotato/design-system/@components/SplashScreen';
+import TextFillAnimation from '@tripie-pyotato/design-system/@components/TextFillAnimation';
+import Stack from '@tripie-pyotato/design-system/@core/Stack';
 
 const Loading = () => {
   return (

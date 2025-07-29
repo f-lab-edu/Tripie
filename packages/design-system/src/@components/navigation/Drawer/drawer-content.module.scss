@@ -1,0 +1,31 @@
+@use '../../../mixins/z-index' as *;
+@use '../../../mixins/backdrop' as *;
+
+@use 'sass:map';
+
+.drawer-content {
+  @include z-index(default);
+  height: -moz-available;
+  height: stretch; // spec has changed
+  height: -webkit-fill-available;
+}
+
+.full {
+  max-width: 100vw;
+  max-height: 100vh;
+  height: stretch; // spec has changed
+  height: -moz-available;
+  height: -webkit-fill-available;
+  width: 100%;
+  overflow: hidden;
+}
+
+.max {
+  height: stretch; // spec has changed
+  height: -moz-available;
+  height: -webkit-fill-available;
+}
+
+$drawer-position-map: (left, top, right, bottom);
+
+$percentage-map: ();

@@ -1,0 +1,8 @@
+.card-wrap {
+  @media (max-width: 466px) {
+    max-width: 16rem;
+  }
+  @media (max-width: 365px) {
+    max-width: 13rem;
+  }
+}

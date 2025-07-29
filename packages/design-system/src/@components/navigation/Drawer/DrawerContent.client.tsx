@@ -73,8 +73,8 @@ const DrawerContent = ({
           </Card.Description>
         </Card>
       ) : (
-        <TripieContainer margin="none">
-          <TripieContainer margin={margin} {...args}>
+        <TripieContainer margin="none" fillAvailable={false}>
+          <TripieContainer margin={margin} {...args} fillAvailable={false}>
             {children}
           </TripieContainer>
         </TripieContainer>

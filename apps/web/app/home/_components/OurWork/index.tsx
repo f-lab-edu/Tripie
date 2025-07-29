@@ -9,7 +9,7 @@ import ourWorkList from './constants';
 export default function OurWork() {
   return (
     <Background applyPadding="top-left-right" padding="m" variant={5} id="Work">
-      <Container margin="none">
+      <Container padding="l" applyPadding="top" margin="none">
         <MotionSlideUp>
           <Headings.H2>
             Our <Text.Accented>work</Text.Accented>

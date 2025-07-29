@@ -1,13 +1,7 @@
-@use '../../../mixins/backdrop' as *;
-@use '../../../mixins/with-border' as *;
-@use '../../../mixins/z-index' as *;
-@use '../../../variables/tripie-theme' as *;
+@use '../../../../mixins/with-border' as *;
+@use '../../../../mixins/z-index' as *;
+@use '../../../../variables/tripie-theme' as *;
 
-.background {
-  @include backdrop;
-  width: 100vw;
-  height: 100vh;
-}
 .with-border {
   @include with-border;
 }

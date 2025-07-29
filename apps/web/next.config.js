@@ -12,27 +12,15 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // turbopack: {},
   sassOptions: {
     includePaths: [
       path.join(__dirname, 'styles'),
-      path.join(
-        __dirname,
-        // '../../packages/design-system/src'
-        './node_modules/@tripie-pyotato/design-system/src'
-      ),
+      path.join(__dirname, './node_modules/@tripie-pyotato/design-system/src'),
     ],
     silenceDeprecations: ['legacy-js-api'],
   },
 
   // transpilePackages: ['@tripie-pyotato/design-system'],
-
-  // experimental: {
-  //   // serverActions: true,
-  //   serverComponentsExternalPackages: [],
-  //   // reactRoot: true,
-  //   // disableReactRoot: true // disables streaming
-  // },
 
   outputFileTracingIncludes: {
     '/api/gpt': ['node_modules/.prisma/client/**', 'node_modules/@prisma/engines/**'],
@@ -46,69 +34,6 @@ const nextConfig = {
       },
     ];
   },
-
-  // images: {
-  //   dangerouslyAllowSVG: true,
-  //   contentDispositionType: 'attachment',
-  //   contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-  //   remotePatterns: [
-  //     {
-  //       protocol: 'https',
-  //       hostname: 'placehold.co',
-  //       pathname: '/**',
-  //     },
-  //     {
-  //       protocol: 'https',
-  //       hostname: 'eu.ui-avatars.com',
-  //       pathname: '/api/**',
-  //     },
-  //     {
-  //       protocol: 'https',
-  //       hostname: 'media.triple.guide',
-  //       pathname: '/triple-cms/**',
-  //     },
-  //     {
-  //       protocol: 'https',
-  //       hostname: 'blogthumb.pstatic.net',
-  //       pathname: '/**',
-  //     },
-  //     {
-  //       protocol: 'http',
-  //       hostname: 'blogthumb.pstatic.net',
-  //       pathname: '/**',
-  //     },
-  //     {
-  //       protocol: 'http',
-  //       hostname: 'blogthumb2.naver.net',
-  //       pathname: '/**',
-  //     },
-  //     {
-  //       protocol: 'https',
-  //       hostname: 'blogthumb2.naver.net',
-  //       pathname: '/**',
-  //     },
-  //     {
-  //       protocol: 'https',
-  //       hostname: 'continentl.com',
-  //       pathname: '/storage/country_flag_image/**',
-  //     },
-  //     {
-  //       protocol: 'https',
-  //       hostname: 'upload.wikimedia.org',
-  //       pathname: '/wikipedia/**',
-  //     },
-  //     {
-  //       protocol: 'https',
-  //       hostname: 'res.cloudinary.com',
-  //       pathname: '/**',
-  //     },
-  //     {
-  //       protocol: 'https',
-  //       hostname: 'media.tripie-api.shop',
-  //       pathname: '/image/**',
-  //     },
-  //   ],
-  // },
 };
 
 export default nextConfig;

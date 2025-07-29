@@ -3,4 +3,4 @@ export { default as AccentedButton } from './TripieButton/Accented/Accented.clie
 export { default as AnimatedButton } from './TripieButton/Animated';
 export { default as Button } from './TripieButton/Button.client';
 export { default as FlickTextButton } from './TripieButton/Flick/Flick.client';
-export { default as UnStyledButton } from './TripieButton/UnStyled';
+export { default as UnstyledButton } from './TripieButton/Unstyled';

@@ -10,6 +10,11 @@ import useImgAlt from 'hooks/useImgAlt';
 import POI_TYPE from 'constants/triple';
 import { Poi } from 'models/Aws';
 
+import { classNames } from 'wrapper/classNames';
+import Style from './poi-card.module.scss';
+
+const cx = classNames.bind(Style);
+
 const PoiCard = ({
   poi,
   selected,
@@ -44,6 +49,7 @@ const PoiCard = ({
   return (
     <AnimatedCard selected={selected} onClick={action} ref={cardRef}>
       <Card.WithImage
+        className={cx('card-wrap')}
         sizes={length > 2 ? 'card' : 'full'}
         margin={'none'}
         src={poi.source.image?.sizes.full.url.replace('https://res.cloudinary.com', 'https://media.tripie-api.shop')}

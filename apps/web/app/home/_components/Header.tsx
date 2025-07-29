@@ -3,6 +3,8 @@
 import { ParticleBackground, RotatingBlur } from '@tripie-pyotato/design-system/@components';
 import FlickTextButton from '@tripie-pyotato/design-system/@components/FlickTextButton';
 import Icon from '@tripie-pyotato/design-system/@components/Icon';
+// import ParticleBackground from '@tripie-pyotato/design-system/@components/ParticleBackground';
+// import RotatingBlur from '@tripie-pyotato/design-system/@components/RotatingBlur';
 import Container from '@tripie-pyotato/design-system/@core/Container';
 import Headings from '@tripie-pyotato/design-system/@core/Headings';
 import Stack from '@tripie-pyotato/design-system/@core/Stack';

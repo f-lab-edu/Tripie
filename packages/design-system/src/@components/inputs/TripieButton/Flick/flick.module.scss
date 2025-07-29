@@ -1,4 +1,4 @@
-@use '../../../../variables' as *;
+@use '../../../../variables/tripie-theme' as *;
 @use '../../../../mixins/z-index' as *;
 @use '../../../../functions/typography' as *;
 @use '../../../../mixins/margins' as *;
@@ -41,7 +41,6 @@ $btn-font-size-map: (
 
 @each $key, $val in $btn-font-size-map {
   $gap: ($val / 2);
-  // + ($val * 0.125);
 
   .button-gap-#{$key} {
     gap: $gap;
