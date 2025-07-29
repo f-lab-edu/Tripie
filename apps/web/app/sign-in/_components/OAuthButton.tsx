@@ -1,7 +1,6 @@
 'use client';
 
-import { Icon } from '@tripie-pyotato/design-system/@components';
-import FlickTextButton from '@tripie-pyotato/design-system/@components/FlickTextButton';
+import { FlickTextButton, Icon } from '@tripie-pyotato/design-system/@components';
 import Text from '@tripie-pyotato/design-system/@core/Text';
 
 const OAuthButton = ({ provider, name }: { provider: { name: string }; name: string }) => {
