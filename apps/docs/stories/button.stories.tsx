@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { UnstyledButton } from '@tripie-pyotato/design-system/@components';
+import { BasicButton } from '@tripie-pyotato/design-system/@components';
 
-const meta: Meta<typeof UnstyledButton> = {
+const meta: Meta<typeof BasicButton> = {
   title: 'tripie-design/Button/No style',
-  component: UnstyledButton,
+  component: BasicButton,
   argTypes: {
     type: {
       control: { type: 'radio' },
@@ -14,17 +14,17 @@ const meta: Meta<typeof UnstyledButton> = {
 
 export default meta;
 
-type Story = StoryObj<typeof UnstyledButton>;
+type Story = StoryObj<typeof BasicButton>;
 
 export const Primary: Story = {
   render: () => (
-    <UnstyledButton
+    <BasicButton
       onclick={(): void => {
         alert('Hello from Turborepo!');
       }}
     >
       Hello
-    </UnstyledButton>
+    </BasicButton>
   ),
   name: 'Button',
   args: {

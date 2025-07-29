@@ -1,6 +1,6 @@
 {
   "name": "@tripie-pyotato/design-system",
-  "version": "0.2.24",
+  "version": "0.2.25",
   "description": "트리피에 사용되는 디자인 시스템",
   "main": "index.js",
   "type": "module",

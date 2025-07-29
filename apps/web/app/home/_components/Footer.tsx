@@ -51,7 +51,6 @@ export default function Footer() {
         <List view="column" gap="l">
           {LANDING_SECTION.map(({ label, href }) => (
             <List.Item key={href}>
-              {label}
               <TextUnderLineAnimation onClick={() => router.push(href)}>{label}</TextUnderLineAnimation>
             </List.Item>
           ))}

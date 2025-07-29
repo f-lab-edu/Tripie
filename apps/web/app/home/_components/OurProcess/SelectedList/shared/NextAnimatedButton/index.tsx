@@ -1,5 +1,4 @@
 'use client';
-// import FlickTextButton from '@tripie-pyotato/design-system/@components/FlickTextButton';
 import { FlickTextButton } from '@tripie-pyotato/design-system/@components';
 import Icon from '@tripie-pyotato/design-system/@components/Icon';
 import Container from '@tripie-pyotato/design-system/@core/Container';

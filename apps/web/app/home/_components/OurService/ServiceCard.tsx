@@ -15,7 +15,7 @@ export default function ServiceCard({
   description: string;
 }>) {
   return (
-    <Card sizes={'full'} margin="none" padding="sm">
+    <Card sizes={'full'} margin="none" padding="sm" cloudinaryUrl="https://media.tripie-api.shop">
       <Stack direction="column" margin="none" gap="l" justifyContent="start" alignItems="start">
         {content}
         <Card.Content padding={'none'}>

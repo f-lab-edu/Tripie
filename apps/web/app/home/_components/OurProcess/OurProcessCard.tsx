@@ -7,7 +7,7 @@ import { Process } from '.';
 
 export default function OurProcessCard({ content, description, label, index }: Readonly<Process>) {
   return (
-    <Card sizes={'full'} margin="none">
+    <Card sizes={'full'} margin="none" cloudinaryUrl="https://media.tripie-api.shop">
       <Stack direction="column" margin="none" gap="l" justifyContent="start" alignItems="start">
         <Card.Description margin="none" padding={'m'}>
           {content}

@@ -2,15 +2,10 @@
 import { Button } from '@tripie-pyotato/design-system/@components/Button';
 import Icon from '@tripie-pyotato/design-system/@components/Icon';
 import Stack from '@tripie-pyotato/design-system/@core/Stack';
-import { classNames } from '../../../../../wrapper/classNames';
 
 import NextButton from 'app/home/_components/OurProcess/SelectedList/shared/NextAnimatedButton';
 import COMPANION_LIST from 'constants/companions';
 import { SELECTED_COMPANION } from './constants/selected';
-
-import Style from './shared/selected-list.module.scss';
-
-const cx = classNames.bind(Style);
 
 const CompanionSelect = () => {
   return (
@@ -29,7 +24,6 @@ const CompanionSelect = () => {
           <Button
             sizes="large"
             key={tagName.tag}
-            className={cx('button-chip')}
             selected={new Set(SELECTED_COMPANION).has(
               Object.keys(COMPANION_LIST)[index] as keyof typeof COMPANION_LIST
             )}

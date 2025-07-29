@@ -2,14 +2,9 @@
 import { Button } from '@tripie-pyotato/design-system/@components/Button';
 import Icon from '@tripie-pyotato/design-system/@components/Icon';
 import Stack from '@tripie-pyotato/design-system/@core/Stack';
-import { classNames } from '../../../../../wrapper/classNames';
 
 import NextButton from 'app/home/_components/OurProcess/SelectedList/shared/NextAnimatedButton';
 import { KOR_CITIES, SELECTED_CITY } from './constants/selected';
-
-import Style from './shared/selected-list.module.scss';
-
-const cx = classNames.bind(Style);
 
 const CitySelect = () => {
   return (
@@ -25,7 +20,7 @@ const CitySelect = () => {
         margin="sm"
       >
         {KOR_CITIES.map((city: string) => (
-          <Button sizes="large" selected={SELECTED_CITY === city} className={cx('button-chip')} key={city}>
+          <Button sizes="large" selected={SELECTED_CITY === city} key={city}>
             {city}
           </Button>
         ))}

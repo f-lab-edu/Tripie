@@ -12,7 +12,9 @@ import { useMemo, useState } from 'react';
 import { regionNameToLocal } from 'utils/lang';
 import { SELECTED_CONTINENT_NAME, SELECTED_COUNTRY } from './constants/selected';
 
-import Style from './shared/selected-list.module.scss';
+import { AnimatedText } from '@tripie-pyotato/design-system/@components';
+import { Container } from '@tripie-pyotato/design-system/@core';
+import Style from './country.module.scss';
 
 const cx = classNames.bind(Style);
 
@@ -31,10 +33,20 @@ const CountrySelect = () => {
     }
     return [];
   }, [data, isLoading]);
+  if (isLoading || selected?.code == null) {
+    return (
+      <>
+        <Container alignItems="center" display="inline-flex" justifyContent="center" className={cx('country')}>
+          <AnimatedText.Jump>loading...</AnimatedText.Jump>
+        </Container>
+        <NextButton>
+          <AnimatedText.Jump>loading...</AnimatedText.Jump>
+        </NextButton>
+      </>
+    );
+  }
 
-  return isLoading || selected?.code == null ? (
-    <>?</>
-  ) : (
+  return (
     <>
       <Stack
         display="grid"
@@ -47,16 +59,12 @@ const CountrySelect = () => {
         }}
       >
         {countries.map((country: Country) => (
-          <Button
-            selected={SELECTED_COUNTRY === country.name}
-            className={cx('button-chip')}
-            key={JSON.stringify(country.code)}
-            sizes="large"
-          >
+          <Button selected={SELECTED_COUNTRY === country.name} key={JSON.stringify(country.code)} sizes="large">
             {country?.code != null && regionNameToLocal({ regionCode: country?.code })}
           </Button>
         ))}
       </Stack>
+
       <NextButton>
         "{regionNameToLocal({ regionCode: selected.code })}"로 보기 <Icon />
       </NextButton>
