@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: ParamProps): Promise<Metadata
     openGraph: {
       title,
       description,
-      images,
+      images: images.replace('e_blur:2000,q_1', 'q_auto'),
       url: `${API.BASE_URL}${ROUTE.REGIONS.href}/${id}/${path}/${articleId}`,
     },
   };

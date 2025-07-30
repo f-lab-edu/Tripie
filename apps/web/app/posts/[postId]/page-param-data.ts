@@ -17,7 +17,7 @@ const PAGE = {
 
 // https://nextjs.org/docs/app/building-your-application/optimizing/metadata
 export async function pageParamData({ params }: ParamProps) {
-  const defaultBlurSize = CLOUDINARY_URL() + 'f_auto,e_blur:2000,q_1,c_limit,f_auto,h_2048,w_2048/';
+  const defaultBlurSize = CLOUDINARY_URL() + 'e_blur:2000,q_1,c_limit,f_auto,h_2048,w_2048/';
 
   const key = (await params).category as keyof typeof PAGE;
   const postId = (await params).postId;
@@ -50,7 +50,7 @@ export async function pageParamData({ params }: ParamProps) {
       metadataContents,
       description,
       body,
-      images: recommendationImageUrl.replace('e_blur:2000,q_1,', ',q_auto'),
+      images: recommendationImageUrl,
     };
   }
 
