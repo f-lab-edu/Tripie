@@ -1,6 +1,5 @@
-// import { CHAT_CACHE_DB_NAME, DB_NAME } from 'constants/auth';
 import { TripPlanner } from 'models/Aws';
-// import firestoreService from '../firebase';
+
 import { CHAT_CACHE_DB_NAME, DB_NAME } from 'constants/auth';
 import firestoreService from '../firebase';
 import { SuccessResponse } from './getTripPlan';
@@ -11,7 +10,6 @@ async function incrementedTokenId(
   data: SuccessResponse['data'],
   serverTime: string
 ) {
-  // return null;
   await firestoreService.increment(DB_NAME, id, 'usedTokens');
   const {
     duration,

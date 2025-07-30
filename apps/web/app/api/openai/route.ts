@@ -25,6 +25,6 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: `Error incrementing Token: ${err}` }, { status: 500 });
     }
   } catch (error) {
-    return NextResponse.json({ error: 'Something went wrong' }, { status: 500 });
+    return NextResponse.json({ error: `Something went wrong :${error}` }, { status: 500 });
   }
 }

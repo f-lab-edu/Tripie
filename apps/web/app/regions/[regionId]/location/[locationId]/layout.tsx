@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: RegionParamProps): Promise<Me
       ...sharedMetaData,
       title,
       description,
-      url: `${API.BASE_URL}${ROUTE.REGIONS.href}/${regionId}/location/${locationId}`,
+      url: `${API.BASE_URL}${ROUTE.REGIONS.href}${regionId}/location/${locationId}`,
       images,
     },
   };
