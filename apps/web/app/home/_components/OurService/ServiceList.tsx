@@ -7,12 +7,14 @@ import RegionList from './RegionList';
 import Subscription from './Subscription';
 
 import dynamic from 'next/dynamic';
+import TripieIcon from 'shared/components/TripieIcon/TripieIcon';
 import Style from './service-list.module.scss';
 
 const cx = classNames.bind(Style);
 
 const TripieGlobe = dynamic(() => import('@tripie-pyotato/design-system/@components/Globe').then(mod => mod.default), {
   ssr: false,
+  loading: () => <TripieIcon variant="loading" />,
 });
 
 const serviceList = [
@@ -30,7 +32,12 @@ const serviceList = [
     label: 'AI 추천 맞춤 일정',
     content: (
       <Card.Description className={cx('content-wrap')} padding={'none'} margin={'none'}>
-        <TripieGlobe width={250} height={300} cloudinaryUrl={'https://media.tripie-api.shop'} />
+        <TripieGlobe
+          fallback={<TripieIcon variant="loading" />}
+          width={250}
+          height={300}
+          cloudinaryUrl={'https://media.tripie-api.shop'}
+        />
       </Card.Description>
     ),
     description: '트리피 회원이신가요? 취향에 맞게 일정을 추천해 드립니다!\n 순식간에 여행 준비 끝!',

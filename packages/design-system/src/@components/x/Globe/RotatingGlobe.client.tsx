@@ -12,7 +12,6 @@ import Countries from './countries.json';
 // https://github.com/vasturiano/react-globe.gl/issues/1#issuecomment-1710898408
 const Globe = dynamic(() => import('react-globe.gl').then(mod => mod.default), {
   ssr: false,
-  loading: () => <LoadingIcon />,
 });
 
 const RotatingGlobe = ({

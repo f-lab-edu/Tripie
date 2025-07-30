@@ -10,9 +10,8 @@ import OurService from 'app/home/_components/OurService';
 import OurWork from 'app/home/_components/OurWork';
 import Plan from 'app/home/_components/Plan';
 
-import Loading from 'shared/components/Loading';
-
 import '@tripie-pyotato/design-system/global';
+import Loading from 'shared/components/Loading';
 
 export default function Home() {
   return (
