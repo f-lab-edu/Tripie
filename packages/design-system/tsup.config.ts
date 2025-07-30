@@ -75,7 +75,7 @@ const defaultConfig: Partial<Options> = {
 
   esbuildOptions(options) {
     options.jsx = 'automatic'; // https://github.com/egoist/tsup/issues/792
-    options.inject = [path.resolve(__dirname, './react-import.ts')]; // !!THIS IS A WORKAROUND !! solution https://github.com/egoist/tsup/issues/792 is not working!!
+    options.inject = [path.resolve(__dirname, './scripts/react-import.ts')]; // !!THIS IS A WORKAROUND !! solution https://github.com/egoist/tsup/issues/792 is not working!!
   },
   loader: {
     '.scss': 'css', // 'css' OR 'file' depending on structure
