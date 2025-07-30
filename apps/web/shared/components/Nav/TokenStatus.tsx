@@ -9,7 +9,7 @@ import TripieIcon from '../TripieIcon/TripieIcon';
 const TokenStatus = () => {
   const { remainingToken, isAdmin, usedGptToken, status } = useChatToken();
 
-  if (status === 'loading') {
+  if (status === 'loading' || remainingToken == null) {
     return (
       <Text size="tiny" applyMargin="all" margin="sm">
         <TripieIcon variant="loading" /> <AnimatedText.Jump>토큰 확인중...</AnimatedText.Jump>
