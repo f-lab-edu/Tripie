@@ -20,7 +20,7 @@ const nextConfig = {
     silenceDeprecations: ['legacy-js-api'],
   },
 
-  // transpilePackages: ['@tripie-pyotato/design-system'],
+  transpilePackages: ['@tripie-pyotato/design-system'],
 
   outputFileTracingIncludes: {
     '/api/gpt': ['node_modules/.prisma/client/**', 'node_modules/@prisma/engines/**'],

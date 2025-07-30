@@ -7,6 +7,8 @@ import { AttractionArticle } from 'models/Attraction';
 import { BodyItemProps, ParamProps } from 'models/Props';
 import getParamData from './cachedParamData';
 
+import '@tripie-pyotato/design-system/global';
+
 const Articles = async ({ params }: ParamProps) => {
   const { postId, category } = await params;
   const { id, metadataContents, images, body, title, data } = await getParamData({ params });

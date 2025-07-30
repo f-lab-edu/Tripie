@@ -26,44 +26,6 @@ interface ESBuildUseClientOptions {
   filter?: RegExp;
 }
 
-// export function autoImportScssModulePlugin(): Plugin {
-//   return {
-//     name: 'auto-import-scss-module',
-//     async setup(build) {
-//       build.onLoad({ filter: /\.tsx$/ }, async args => {
-//         const source = await fs.readFile(args.path, 'utf8');
-//         const dir = path.dirname(args.path);
-
-//         // Find .module.scss files in the same folder
-//         const files = await fs.readdir(dir);
-//         const scssModuleFile = files.find(f => f.endsWith('.module.scss'));
-
-//         if (!scssModuleFile) {
-//           return { contents: source, loader: 'tsx' };
-//         }
-
-//         // Check if the source already imports it (to avoid duplicates)
-//         if (source.includes(`from './${scssModuleFile}'`)) {
-//           return { contents: source, loader: 'tsx' };
-//         }
-
-//         // Prepend import statement
-//         // const newSource = `import styles from './${scssModuleFile}';\n${source}`;
-
-//         const newSource = `import Style from './${scssModuleFile}';\n${source}`;
-
-//         return {
-//           contents: newSource,
-//           loader: 'tsx',
-//         };
-//       });
-//     },
-//   };
-// }
-
-// https://github.com/evanw/esbuild/issues/3196
-// export const esbuildUseClient = ({ filter = /\.(ts|tsx|js|jsx)$/ }: ESBuildUseClientOptions = {}): Plugin => ({
-
 export const esbuildUseClient = ({ filter = /\/.client\.tsx?$/ }: ESBuildUseClientOptions = {}): Plugin => ({
   name: 'use-client',
   setup(build): void {
@@ -88,21 +50,13 @@ const defaultConfig: Partial<Options> = {
   minify: true,
   // splitting: true,
   splitting: false, // ✅ Disable this
-  external: [
-    ...Object.keys(dependencies || {}),
-    ...Object.keys(peerDependencies || {}),
-    // './static/images/static-background.avif',
-    // './static/images/static-background.webp',
-    // './static/images/static-background.png',
-  ],
+  external: [...Object.keys(dependencies || {}), ...Object.keys(peerDependencies || {})],
   format: ['cjs', 'esm'],
 
   clean: true,
   dts: true,
   // onSuccess: 'node ./scripts/inject-css.js && node ./scripts/inject-use-client.js && node ./scripts/copy-scss.js',
   onSuccess: 'node ./scripts/inject-css.js && node ./scripts/inject-use-client.js',
-  // onSuccess: 'node ./scripts/inject-css.js',
-  // onSuccess: 'node ./scripts/inject-use-client.js',
   esbuildPlugins: [
     sassPlugin({
       filter: /\.module\.scss$/,
@@ -113,26 +67,10 @@ const defaultConfig: Partial<Options> = {
         basedir: './dist',
       }),
     }),
-    // sassPlugin({
-    //   filter: /\.scss$/,
-    //   // type: 'style',
-    //   type: 'css',
-    // }),
     sassPlugin({
       filter: /\.scss$/,
       type: 'css',
     }),
-    // {
-    //   name: 'external-static-assets',
-    //   setup(build) {
-    //     build.onResolve({ filter: /^\/static\// }, args => ({
-    //       path: args.path,
-    //       external: true,
-    //     }));
-    //   },
-    // },
-    // esbuildUseClient(),
-    // autoImportScssModulePlugin(),
   ],
 
   esbuildOptions(options) {
@@ -140,8 +78,7 @@ const defaultConfig: Partial<Options> = {
     options.inject = [path.resolve(__dirname, './react-import.ts')]; // !!THIS IS A WORKAROUND !! solution https://github.com/egoist/tsup/issues/792 is not working!!
   },
   loader: {
-    // '.scss': 'file', // OR 'css' depending on structure
-    '.scss': 'css',
+    '.scss': 'css', // 'css' OR 'file' depending on structure
   },
 };
 

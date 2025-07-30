@@ -23,6 +23,8 @@ import DoneStep from './_components/Done';
 import DurationStep from './_components/Duration';
 import PreferenceStep from './_components/Preference';
 
+import '@tripie-pyotato/design-system/global';
+
 export type TripPlannerSuccessReponse = { data: { id: string } } & Response;
 
 export type FunnelSteps = {

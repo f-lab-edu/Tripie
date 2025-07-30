@@ -6,6 +6,8 @@ import RegionList from './_components/RegionList';
 import RegionTitle from './_components/RegionTitle';
 import pureRegionArticles from './cache';
 
+import '@tripie-pyotato/design-system/global';
+
 const currentRegionId = Object.keys(TRIPIE_REGION_BY_LOCATION)[0];
 const selectedRegion = Object.keys(TRIPIE_REGION_IDS).filter(
   item =>

@@ -5,12 +5,12 @@ import Calendar from '@tripie-pyotato/design-system/@components/Calendar';
 import Container from '@tripie-pyotato/design-system/@core/Container';
 import Stack from '@tripie-pyotato/design-system/@core/Stack';
 import { useCalendar } from '@tripie-pyotato/design-system/@hooks';
-// import { classNames } from '@tripie-pyotato/design-system/@wrappers';
-import NextButton from 'app/home/_components/OurProcess/SelectedList/shared/NextAnimatedButton';
+
 import useServerTime from 'hooks/useServerTime';
 import { useMemo } from 'react';
 import TripieIcon from 'shared/components/TripieIcon/TripieIcon';
 import { classNames } from '../../../../../../wrapper/classNames';
+import NextButton from '../shared/NextAnimatedButton';
 import Style from './duration.module.scss';
 
 const cx = classNames.bind(Style);

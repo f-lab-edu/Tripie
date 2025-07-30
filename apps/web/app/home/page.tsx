@@ -1,4 +1,5 @@
 'use client';
+
 import AboutUs from 'app/home/_components/AboutUs';
 import Contacts from 'app/home/_components/contacts';
 import Faq from 'app/home/_components/Faqs/Faq';
@@ -10,6 +11,8 @@ import OurWork from 'app/home/_components/OurWork';
 import Plan from 'app/home/_components/Plan';
 
 import Loading from 'shared/components/Loading';
+
+import '@tripie-pyotato/design-system/global';
 
 export default function Home() {
   return (

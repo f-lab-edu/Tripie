@@ -6,6 +6,8 @@ import OAuthButton from './_components/OAuthButton';
 import { classNames } from '../../wrapper/classNames';
 import Style from './sign-in.module.scss';
 
+import '@tripie-pyotato/design-system/global';
+
 const cx = classNames.bind(Style);
 
 // https://authjs.dev/guides/pages/signin

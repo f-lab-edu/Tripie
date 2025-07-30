@@ -1,5 +1,5 @@
 'use client';
-import { FlickTextButton } from '@tripie-pyotato/design-system/@components';
+import FlickTextButton from '@tripie-pyotato/design-system/@components/FlickTextButton';
 import Container from '@tripie-pyotato/design-system/@core/Container';
 import { classNames, InView } from '@tripie-pyotato/design-system/@wrappers';
 import { ReactNode } from 'react';

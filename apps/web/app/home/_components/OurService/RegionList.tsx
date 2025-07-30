@@ -4,10 +4,53 @@ import { TRIPIE_REGION_BY_LOCATION, TRIPIE_REGION_IDS } from 'constants/tripie-c
 
 import Stack from '@tripie-pyotato/design-system/@core/Stack';
 
+import { AnimatedCard, AnimatedText, Card } from '@tripie-pyotato/design-system/@components';
 import RegionCard from 'app/regions/_components/RegionCard';
+import API from 'constants/api-routes';
 import useCountryArticle from 'hooks/query/useCountryArticles';
 import { RegionArticleInfo } from 'models/Article';
 import { useMemo } from 'react';
+
+const LoadingRegionCardList = () => {
+  return (
+    <Stack
+      cols={2}
+      gridWrapOn={{ 'wrap-xs': 1 }}
+      gridRepeat={{
+        'wrap-md': 4,
+        'wrap-xl': 6,
+      }}
+      display="grid"
+      gap="l"
+      applyMargin="top-bottom"
+    >
+      {Array.from({ length: 15 }, (_, index) => index).map(article => (
+        <AnimatedCard key={article}>
+          <Card.WithImage
+            margin="none"
+            alignItems="stretch"
+            cover={true}
+            sizes={'full'}
+            imgSize={'full'}
+            aspectRatio={'square'}
+            src={API.BASE_URL + '/tripie-image.png'}
+            alt={'place-holder'}
+            cloudinaryUrl="https://media.tripie-api.shop"
+          >
+            <Card.Header size={'large'} bold={true}>
+              <AnimatedText.Jump>제목 로딩 중...</AnimatedText.Jump>
+            </Card.Header>
+            <Card.Divider />
+            <Card.Content padding="m">
+              <AnimatedText.Jump>내용 로딩 중...</AnimatedText.Jump>
+              <AnimatedText.Jump>내용 로딩 중...</AnimatedText.Jump>
+            </Card.Content>
+          </Card.WithImage>
+        </AnimatedCard>
+      ))}
+    </Stack>
+  );
+};
 
 const RegionList = () => {
   const currentRegionId = useMemo(() => {
@@ -29,10 +72,10 @@ const RegionList = () => {
     )?.[0];
   }, [currentRegionId]);
 
-  const { data: regionList } = useCountryArticle(selectedRegionId);
+  const { data: regionList, isLoading, isFetching } = useCountryArticle(selectedRegionId);
 
-  if (regionList == null) {
-    return <>...</>;
+  if (isLoading || isFetching || regionList == null) {
+    return <LoadingRegionCardList />;
   }
 
   if (regionList.length === 0) {
@@ -40,8 +83,6 @@ const RegionList = () => {
   }
 
   return (
-    // <Suspense fallback={<>loading...</>}>
-
     <Stack
       cols={2}
       gridWrapOn={{ 'wrap-xs': 1 }}
@@ -59,7 +100,6 @@ const RegionList = () => {
         regionList?.data.map((article: RegionArticleInfo) => <RegionCard article={article} key={article.id} />)
       )}
     </Stack>
-    // </Suspense>
   );
 };
 export default RegionList;
