@@ -40,7 +40,11 @@ export async function generateMetadata({ params }: RegionParamProps): Promise<Me
 
   const description = `${preview.map((item: RegionArticleInfo) => '📌 ' + item.source.title).join('\n')}...\n👉 "${place}"에 대해서 트리피에서 자세히 알아보기!`;
 
-  const images = preview.map((item: RegionArticleInfo) => item.source.image.sizes.large.url);
+  const images = preview.map((item: RegionArticleInfo) =>
+    item.source.image.sizes.large.url
+      .replace('https://res.cloudinary.com', 'https://www.tripie-api.shop')
+      .replace('e_blur:2000,q_1', 'q_auto')
+  );
 
   return {
     title,
@@ -60,10 +64,5 @@ export default async function Layout({
 }: Readonly<{
   children: ReactNode;
 }>) {
-  // const posts = (await firestoreService.getList('region-articles2')).flatMap((res: RegionArticleData) =>
-  //   res.data.map(data => data.id)
-  // );
-
-  // console.log(posts);
   return <>{children}</>;
 }
