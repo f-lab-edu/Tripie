@@ -1,14 +1,25 @@
-import { Globe } from '@tripie-pyotato/design-system/@components';
-import { Text } from '@tripie-pyotato/design-system/@core';
+// import { Globe } from '@tripie-pyotato/design-system/@components';
+import { Container, Text } from '@tripie-pyotato/design-system/@core';
 import { CONTINENTS } from 'constants/continents';
 
 import { ContinentKeys } from 'models/Continent';
 import { useMemo, useState } from 'react';
 
+import { useInView } from '@tripie-pyotato/design-system/@wrappers';
 import { FunnelProps, FunnelSteps } from 'app/trip-planner/page';
+import dynamic from 'next/dynamic';
 import TripieIcon from 'shared/components/TripieIcon/TripieIcon';
+import { classNames } from 'wrapper/classNames';
 import Layout from '../Layout/Layout';
+import Style from './continent.module.scss';
 import { ContinentList } from './ContinentLIst';
+
+const cx = classNames.bind(Style);
+
+const TripieGlobe = dynamic(() => import('../../../../shared/components/TripieGlobe').then(mod => mod.default), {
+  ssr: false,
+  loading: () => <TripieIcon variant="loading" />,
+});
 
 export default function ContinentStep({
   context,
@@ -20,6 +31,7 @@ export default function ContinentStep({
   onNext: (country: { continent?: ContinentKeys }) => void;
 }> &
   Omit<FunnelProps, 'onPrev'>) {
+  const { ref, inView } = useInView({ threshold: 0 });
   const [selectedContinent, setSelectedContinent] = useState<ContinentKeys | 'ALL'>(() =>
     context?.continent == null
       ? 'ALL'
@@ -49,7 +61,9 @@ export default function ContinentStep({
       }
       clickAction={() => onNext({ continent: CONTINENTS[selectedContinent]['id'] as ContinentKeys })}
     >
-      <Globe cloudinaryUrl={'https://media.tripie-api.shop'} width={300} height={300} />
+      <Container margin="l" applyMargin="bottom" padding="none" ref={ref} className={cx('globe-space')}>
+        {inView ? <TripieGlobe /> : <></>}
+      </Container>
     </Layout>
   );
 }

@@ -1,14 +1,17 @@
 'use client';
 
 import { Divider } from '@tripie-pyotato/design-system/@components';
-import { AwsMap } from '@tripie-pyotato/design-system/@components/x';
 import { Container } from '@tripie-pyotato/design-system/@core/layout';
-import { API_KEY } from 'constants/maps';
 import { AttractionArticle } from 'models/Attraction';
 import { Geolocation } from 'models/Geo';
+import dynamic from 'next/dynamic';
 import ArticleHeading from '../ArticleLayout/Header';
 import ArticleText from '../ArticleLayout/Text/Text';
 import BasicInfo, { BasicInfoProps } from './BasicInfo';
+
+const AwsMap = dynamic(() => import('../../../../shared/components/AwsMap').then(mod => mod.default), {
+  ssr: false,
+});
 
 const BasicInfoSection = ({
   coordinates,
@@ -25,7 +28,6 @@ const BasicInfoSection = ({
     <>
       <ArticleHeading item={{ type: 'heading2', value: { text: '기본정보' } }} />
       <AwsMap
-        apiKey={API_KEY}
         locationMarker={[
           {
             lat: coordinates[1],
@@ -36,7 +38,7 @@ const BasicInfoSection = ({
             parent: '0',
           },
         ]}
-        style={{ height: '40vh' }}
+        height="40vh"
         center={{
           longitude: coordinates[0],
           latitude: coordinates[1],

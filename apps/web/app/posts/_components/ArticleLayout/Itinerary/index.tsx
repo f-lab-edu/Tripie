@@ -1,14 +1,17 @@
 'use client';
 
-import { AwsMap } from '@tripie-pyotato/design-system/@components/x';
 import { MapProvider } from '@tripie-pyotato/design-system/@wrappers';
 
-import { API_KEY } from 'constants/maps';
 import useItinerary from 'hooks/useItinerary';
 import { ItineraryProps } from 'models/Props';
 import { useMemo } from 'react';
 
+import dynamic from 'next/dynamic';
 import MapWithCarousel from './MapWithCarousel';
+
+const AwsMap = dynamic(() => import('../../../../../shared/components/AwsMap').then(mod => mod.default), {
+  ssr: false,
+});
 
 const ArticleItinerary = ({ item }: { item: ItineraryProps }) => {
   const {
@@ -35,8 +38,7 @@ const ArticleItinerary = ({ item }: { item: ItineraryProps }) => {
     <MapProvider>
       <MapWithCarousel item={mapItem} current={current} setCurrent={setCurrent} />
       <AwsMap
-        apiKey={API_KEY}
-        style={{ height: '30vh' }}
+        height="30vh"
         locationMarker={coordinates}
         center={center}
         currentMarker={current}

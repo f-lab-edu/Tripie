@@ -1,13 +1,17 @@
 'use client';
-import { AwsMap, Carousel } from '@tripie-pyotato/design-system/@components';
+import { Carousel } from '@tripie-pyotato/design-system/@components';
 import { Container } from '@tripie-pyotato/design-system/@core';
 import { MapProvider } from '@tripie-pyotato/design-system/@wrappers';
 
-import { API_KEY } from 'constants/maps';
 import usePoi from 'hooks/usePoi';
 import { PoisProps } from 'models/Props';
+import dynamic from 'next/dynamic';
 import { createRef, useEffect, useRef } from 'react';
 import PoiCard from './PoiCard';
+
+const AwsMap = dynamic(() => import('../../../../shared/components/AwsMap').then(mod => mod.default), {
+  ssr: false,
+});
 
 const PoiList = ({ item }: { item: PoisProps }) => {
   const { pois } = item.value;
@@ -42,8 +46,7 @@ const PoiList = ({ item }: { item: PoisProps }) => {
         </Container>
         {coordinates.length === 0 ? null : (
           <AwsMap
-            style={{ height: '30vh' }}
-            apiKey={API_KEY}
+            height="30vh"
             locationMarker={coordinates}
             center={center}
             currentMarker={current}

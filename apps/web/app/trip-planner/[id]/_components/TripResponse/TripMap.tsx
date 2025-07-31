@@ -1,11 +1,15 @@
 'use client';
-import { AwsMap } from '@tripie-pyotato/design-system/@components/x';
+
 import { AiTripPlanResponse } from 'app/api/openai/getTripPlan';
-import { API_KEY } from 'constants/maps';
 import useAwsMap from 'hooks/awsMap/useAwsMap';
 import { Coordinate } from 'models/Geo';
+import dynamic from 'next/dynamic';
 import { useContext, useEffect } from 'react';
 import { SelectedDateContext, TabContext } from '.';
+
+const AwsMap = dynamic(() => import('../../../../../shared/components/AwsMap').then(mod => mod.default), {
+  ssr: false,
+});
 
 export type ChatResponseData = {
   plans: AiTripPlanResponse;
@@ -25,16 +29,7 @@ const TripMap = ({ data, coordinates }: { data: ChatResponseData['plans']; coord
     cycle(`${currentDate}-0`);
   }, [currentDate]);
 
-  return (
-    <AwsMap.WithContext
-      apiKey={API_KEY}
-      style={{ height: '100vh', border: 'none' }}
-      interactive={true}
-      center={center[currentDate]}
-      TabContext={TabContext}
-      locationMarker={locationMarker[currentDate]}
-    />
-  );
+  return <AwsMap center={center[currentDate]} TabContext={TabContext} locationMarker={locationMarker[currentDate]} />;
 };
 
 export default TripMap;

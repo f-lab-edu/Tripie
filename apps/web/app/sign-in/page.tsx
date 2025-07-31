@@ -6,13 +6,11 @@ import OAuthButton from './_components/OAuthButton';
 import { classNames } from '../../wrapper/classNames';
 import Style from './sign-in.module.scss';
 
-import '@tripie-pyotato/design-system/global';
-
 const cx = classNames.bind(Style);
 
 // https://authjs.dev/guides/pages/signin
 // https://nextjs.org/docs/messages/sync-dynamic-apis
-export default async function SignIn(props: Readonly<{ searchParams: { callbackUrl?: string } }>) {
+export default async function SignIn(props: Readonly<Promise<{ searchParams: { callbackUrl?: string } }>>) {
   const { searchParams } = await props;
 
   return Object.values(providerMap).map(provider => (
@@ -30,7 +28,6 @@ export default async function SignIn(props: Readonly<{ searchParams: { callbackU
           // not existing, or the user not having the correct role.
           // In some cases, you may want to redirect to a custom error
           if (error instanceof AuthError) {
-            // return redirect(`${SIGNIN_ERROR_URL}?error=${error.type}`);
             return redirect(`/error?error=${(error as AuthError).type}`);
           }
 

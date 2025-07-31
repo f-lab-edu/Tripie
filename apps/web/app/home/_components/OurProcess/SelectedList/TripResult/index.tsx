@@ -1,14 +1,12 @@
 'use client';
 import Carousel from '@tripie-pyotato/design-system/@components/Carousel';
 import Chip from '@tripie-pyotato/design-system/@components/Chip';
-import { AwsMap } from '@tripie-pyotato/design-system/@components/x';
 import Container from '@tripie-pyotato/design-system/@core/Container';
 import Stack from '@tripie-pyotato/design-system/@core/Stack';
 import Text from '@tripie-pyotato/design-system/@core/Text';
-// import { classNames } from '@tripie-pyotato/design-system/@wrappers'
 import TabList from 'app/trip-planner/[id]/_components/TripResponse/TabList';
-import { API_KEY } from 'constants/maps';
 import useAwsMap from 'hooks/awsMap/useAwsMap';
+import dynamic from 'next/dynamic';
 import { classNames } from '../../../../../../wrapper/classNames';
 import { AI_PLAN } from '../constants/selected';
 import Style from './trip-results.module.scss';
@@ -16,6 +14,10 @@ import Style from './trip-results.module.scss';
 const cx = classNames.bind(Style);
 
 const currentDate = 0;
+
+const AwsMap = dynamic(() => import('../../../../../../shared/components/AwsMap').then(mod => mod.default), {
+  ssr: false,
+});
 
 const TripResultExample = () => {
   const { center, locationMarker } = useAwsMap({
@@ -46,14 +48,10 @@ const TripResultExample = () => {
         </Stack>
       </Container>
       <AwsMap
-        apiKey={API_KEY}
         center={center[currentDate]}
         interactive={false}
-        style={{ height: '48vh' }}
-        initialViewState={{
-          zoom: 9,
-          ...center[currentDate],
-        }}
+        height="48vh"
+        zoom={9}
         locationMarker={locationMarker[currentDate]}
         currentMarker={'0-0'}
         setCurrentMarker={() => null}

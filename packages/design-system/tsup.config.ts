@@ -55,7 +55,7 @@ const defaultConfig: Partial<Options> = {
 
   clean: true,
   dts: true,
-  onSuccess: 'node ./scripts/inject-css.js && node ./scripts/inject-use-client.js && node ./scripts/copy-scss.js',
+  onSuccess: 'node ./scripts/inject-css.js && node ./scripts/inject-use-client.js',
   esbuildPlugins: [
     sassPlugin({
       filter: /\.module\.scss$/,

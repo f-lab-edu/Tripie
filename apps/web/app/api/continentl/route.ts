@@ -17,6 +17,5 @@ export async function GET(request: Request) {
   }
 
   const filtered = res?.filter((place: Continentl) => place?.id === country);
-  // const filtered = res?.filter((place: Continentl) => place?.name === decodeURIComponent(country));
   return NextResponse.json(filtered, { status: 200 });
 }
