@@ -8,6 +8,7 @@ import Lines from '../Lines/Lines.client';
 import { Marker } from '../Marker';
 import { COLOR_SCHEME, FULL_MAP_STYLE, MAP_ID, REGION, STYLE_TYPE } from './constants';
 import { LocationMarker } from './Map.client';
+import MapTerms from './MapTerms.client';
 
 export type Coordinate = [number, number];
 
@@ -68,11 +69,14 @@ function MapWithContext({
           ...center,
           ...initialViewState,
         }}
+        attributionControl={false}
         interactive={interactive}
         style={{ ...FULL_MAP_STYLE, ...style }}
         mapStyle={mapStyle}
         reuseMaps={reuseMaps}
-      />
+      >
+        <MapTerms />
+      </Map>
     );
   }
 
@@ -87,6 +91,7 @@ function MapWithContext({
       interactive={interactive}
       style={{ ...FULL_MAP_STYLE, ...style }}
       mapStyle={mapStyle}
+      attributionControl={false}
       reuseMaps={reuseMaps}
     >
       {TabContext != null ? (
@@ -97,6 +102,7 @@ function MapWithContext({
         />
       ) : null}
       <Lines locationMarker={locationMarker} />
+      <MapTerms />
     </Map>
   );
 }

@@ -7,6 +7,7 @@ import { LngLatBoundsLike, Map, PaddingOptions, PointLike, ViewState } from '../
 import Lines from '../Lines/Lines.client';
 import TripieMarker from '../Marker/TripieMarker.client';
 import { COLOR_SCHEME, FULL_MAP_STYLE, MAP_ID, REGION, STYLE_TYPE } from './constants';
+import MapTerms from './MapTerms.client';
 import MapWithContext from './MapWithContext.client';
 
 export type Activity = {
@@ -104,6 +105,7 @@ function AwsMap({
         reuseMaps={reuseMaps}
       >
         {children != null ? children : null}
+        <MapTerms />
       </Map>
     );
   }
@@ -119,6 +121,7 @@ function AwsMap({
       interactive={interactive}
       style={{ ...FULL_MAP_STYLE, ...style }}
       mapStyle={mapStyle}
+      attributionControl={false}
       reuseMaps={reuseMaps}
     >
       {currentMarker != null
@@ -136,6 +139,7 @@ function AwsMap({
           ))
         : null}
       <Lines locationMarker={locationMarker} />
+      <MapTerms />
     </Map>
   );
 }
