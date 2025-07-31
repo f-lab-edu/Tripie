@@ -1,13 +1,14 @@
 'use client';
 
-import 'maplibre-gl/dist/maplibre-gl.css';
-
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { Layer, LayerProps, Source } from 'wrappers';
 import { LocationMarker } from '../Map/Map.client';
 import lineLayerStyle from './line-layer-style';
 
 function Lines({ locationMarker }: Readonly<{ locationMarker: LocationMarker[] }>) {
+  useEffect(() => {
+    import('maplibre-gl/dist/maplibre-gl.css');
+  }, []);
   const geojson = useMemo(() => {
     return {
       type: 'FeatureCollection',

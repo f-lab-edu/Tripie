@@ -53,9 +53,6 @@ const GridList = ({
   gap = 'none',
 }: Omit<ListProps, 'view'>) => {
   return (
-    // <TripieContainer margin="m" className={cx(className)} applyMargin="top-bottom">
-    //   <ul className={cx('list', 'wrap')}>{children}</ul>
-    // </TripieContainer>
     <TripieContainer margin="m" applyMargin="top-bottom">
       <ul
         className={cx(

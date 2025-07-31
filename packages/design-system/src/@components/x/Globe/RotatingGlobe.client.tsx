@@ -7,7 +7,6 @@ import { CLOUDINARY_URL, COLORS, RESOURCE, useInView } from '../../../shared';
 import { GlobeMethods, GlobeProps } from '../../../wrappers/react-globe';
 
 import LoadingIcon from '@components/data-display/TripieIcon/Loading.client';
-import Countries from './countries.json';
 
 // https://github.com/vasturiano/react-globe.gl/issues/1#issuecomment-1710898408
 const Globe = dynamic(() => import('react-globe.gl').then(mod => mod.default), {
@@ -19,6 +18,7 @@ const RotatingGlobe = ({
   width = 500,
   display = 'inline-flex',
   cloudinaryUrl,
+  hexPolygonsData,
   fallback = <LoadingIcon />,
   backgroundColor = COLORS['100000'],
   hexPolygonColor = () => COLORS[50],
@@ -34,8 +34,6 @@ const RotatingGlobe = ({
   useEffect(() => {
     const interval = setInterval(() => {
       if (globeRef.current && !isRotating && inView) {
-        // const coutryList = import('./countries.json');
-
         const globe = globeRef.current;
         const controls = globe.controls();
         controls.enableZoom = false; // zoom 비활성화
@@ -68,7 +66,7 @@ const RotatingGlobe = ({
         globeImageUrl={
           cloudinaryUrl != null ? globeImageUrl?.replace('https://res.cloudinary.com', cloudinaryUrl) : globeImageUrl
         }
-        hexPolygonsData={Countries.features}
+        hexPolygonsData={hexPolygonsData}
         hexPolygonColor={hexPolygonColor}
         atmosphereColor={COLORS[50]}
         {...args}

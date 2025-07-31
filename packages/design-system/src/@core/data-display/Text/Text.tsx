@@ -136,7 +136,6 @@ const AccentedText = ({
         `gap-${gap}`,
         preserveWhiteSpace ? 'preserve-white-space' : '',
         'accented',
-        // size,
         `font-size-${size}`,
         bold ? 'bold' : '',
         className

@@ -1,3 +1,4 @@
+import React from 'react';
 import { classNames } from '../../../wrappers';
 import Text, { TextProps } from '../Text/Text';
 import Style from './headings.module.scss';
@@ -12,73 +13,26 @@ const Heading = ({ children, preserveWhiteSpace = 'none', className, ...args }: 
 
 export type HeadingProps = Partial<TextProps> & { hasHeadline?: boolean };
 
-const H1 = ({ children, preserveWhiteSpace = 'none', className, hasHeadline = false }: HeadingProps) => {
-  return (
-    <h1
-      className={style(
-        'typography',
-        'h1',
-        `preserve-white-space-${preserveWhiteSpace}`,
-        hasHeadline ? 'has-headline' : '',
-        className
-      )}
-    >
-      {children}
-    </h1>
-  );
-};
+const createHeading = (tag: 'h1' | 'h2' | 'h3' | 'h4') =>
+  function ({ children, preserveWhiteSpace = 'none', className, hasHeadline = false }: HeadingProps) {
+    return React.createElement(
+      tag,
+      {
+        className: style(
+          tag,
+          'typography',
+          `preserve-white-space-${preserveWhiteSpace}`,
+          hasHeadline && 'has-headline',
+          className
+        ),
+      },
+      children
+    );
+  };
 
-const H2 = ({ children, preserveWhiteSpace = 'none', className, hasHeadline }: HeadingProps) => {
-  return (
-    <h2
-      className={style(
-        'h2',
-        'typography',
-        `preserve-white-space-${preserveWhiteSpace}`,
-        hasHeadline ? 'has-headline' : '',
-        className
-      )}
-    >
-      {children}
-    </h2>
-  );
-};
-
-const H3 = ({ children, preserveWhiteSpace = 'none', className, hasHeadline }: HeadingProps) => {
-  return (
-    <h3
-      className={style(
-        'h3',
-        'typography',
-        `preserve-white-space-${preserveWhiteSpace}`,
-        hasHeadline ? 'has-headline' : '',
-        className
-      )}
-    >
-      {children}
-    </h3>
-  );
-};
-
-const H4 = ({ children, preserveWhiteSpace = 'none', className, hasHeadline = false }: HeadingProps) => {
-  return (
-    <h4
-      className={style(
-        'h4',
-        'typography',
-        `preserve-white-space-${preserveWhiteSpace}`,
-        hasHeadline ? 'has-headline' : '',
-        className
-      )}
-    >
-      {children}
-    </h4>
-  );
-};
-
-Heading.H1 = H1;
-Heading.H2 = H2;
-Heading.H3 = H3;
-Heading.H4 = H4;
+Heading.H1 = createHeading('h1');
+Heading.H2 = createHeading('h2');
+Heading.H3 = createHeading('h3');
+Heading.H4 = createHeading('h4');
 
 export default Heading;

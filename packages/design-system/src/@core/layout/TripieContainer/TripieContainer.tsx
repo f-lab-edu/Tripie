@@ -88,7 +88,6 @@ const TripieContainer = ({
   zIndex = 'base',
   display = 'inline-block',
   fillAvailable = true,
-  // wrap = 'nowrap',
   ...props
 }: TripieContainerProps) => {
   return (
@@ -97,7 +96,6 @@ const TripieContainer = ({
       className={cx(
         fillAvailable ? 'layout-fill-available' : '',
         `container-display-${display}`,
-        // `container-wrap-${wrap}`,
         `align-items-${alignItems}`,
         `with${withBorder ? '' : '-no'}-border`,
         alignItems != 'none' || gap !== 'none' || justifyContent !== 'none' ? 'flex' : '',

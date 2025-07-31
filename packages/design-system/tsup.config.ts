@@ -55,13 +55,11 @@ const defaultConfig: Partial<Options> = {
 
   clean: true,
   dts: true,
-  // onSuccess: 'node ./scripts/inject-css.js && node ./scripts/inject-use-client.js && node ./scripts/copy-scss.js',
-  onSuccess: 'node ./scripts/inject-css.js && node ./scripts/inject-use-client.js',
+  onSuccess: 'node ./scripts/inject-css.js && node ./scripts/inject-use-client.js && node ./scripts/copy-scss.js',
   esbuildPlugins: [
     sassPlugin({
       filter: /\.module\.scss$/,
-      // type: 'style',
-      type: 'css',
+      type: 'css', // type: 'style',
       transform: postcssModules({
         // generateScopedName: '[local]__[hash:base64:5]',
         basedir: './dist',

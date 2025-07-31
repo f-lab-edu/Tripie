@@ -21,7 +21,6 @@ const TripieBackground = ({
   applyPadding = 'all',
   textAlign,
   ...args
-  // preserveWhiteSpace,
 }: TripieBackgroundProps) => {
   return (
     <section
