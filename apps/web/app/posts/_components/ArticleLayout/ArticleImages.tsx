@@ -1,6 +1,7 @@
 'use client';
 import { BlurImageOnLoad, Carousel } from '@tripie-pyotato/design-system/@components';
 import Container from '@tripie-pyotato/design-system/@core/Container';
+import API from 'constants/api-routes';
 import { ImageProps } from 'models/Props';
 
 const ArticleImages = ({ item }: { item: ImageProps }) => {
@@ -13,13 +14,11 @@ const ArticleImages = ({ item }: { item: ImageProps }) => {
           return (
             <BlurImageOnLoad.WithSourceUrl
               sizes="large"
-              cloudinaryUrl="https://media.tripie-api.shop"
+              cloudinaryUrl={API.MEDIA_URL}
               withBorder={true}
               key={item.sizes.full.url + index}
               alt={item.sizes.full.url}
-              src={item.sizes.full.url
-                .replace('https://res.cloudinary.com', 'https://media.tripie-api.shop')
-                .replace('.jpeg', '')}
+              src={item.sizes.full.url.replace('https://res.cloudinary.com', API.MEDIA_URL).replace('.jpeg', '')}
               sourceUrl={item.sourceUrl}
             />
           );

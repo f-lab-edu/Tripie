@@ -3,11 +3,12 @@ import Headings from '@tripie-pyotato/design-system/@core/Headings';
 import Stack from '@tripie-pyotato/design-system/@core/Stack';
 
 import Text from '@tripie-pyotato/design-system/@core/Text';
+import API from 'constants/api-routes';
 import { Process } from '.';
 
 export default function OurProcessCard({ content, description, label, index }: Readonly<Process>) {
   return (
-    <Card sizes={'full'} margin="none" cloudinaryUrl="https://media.tripie-api.shop">
+    <Card sizes={'full'} margin="none" cloudinaryUrl={API.MEDIA_URL}>
       <Stack direction="column" margin="none" gap="l" justifyContent="start" alignItems="start">
         <Card.Description margin="none" padding={'m'}>
           {content}

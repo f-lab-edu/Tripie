@@ -4,6 +4,7 @@ import Background from '@tripie-pyotato/design-system/@core/Background';
 import Container from '@tripie-pyotato/design-system/@core/Container';
 import Headings from '@tripie-pyotato/design-system/@core/Headings';
 import Text from '@tripie-pyotato/design-system/@core/Text';
+import API from 'constants/api-routes';
 import ourWorkList from './constants';
 
 export default function OurWork() {
@@ -32,7 +33,7 @@ export default function OurWork() {
                     <Text size="h3" noGapUnderText={true} bold={true}>
                       {header}
                     </Text>
-                    <Accordion.Icon sizes="large" cloudinaryUrl={'https://media.tripie-api.shop'} />
+                    <Accordion.Icon sizes="large" cloudinaryUrl={API.MEDIA_URL} />
                   </Container>
                 </Accordion.Header>
                 <Accordion.Divider />

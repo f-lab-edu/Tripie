@@ -1,6 +1,7 @@
 'use client';
 import { Card, Divider, ParticleBackground } from '@tripie-pyotato/design-system/@components';
 import { Container, Headings, Stack, Text } from '@tripie-pyotato/design-system/@core';
+import API from 'constants/api-routes';
 import { ReactNode } from 'react';
 
 export default function Layout({
@@ -21,7 +22,7 @@ export default function Layout({
           zIndex="default"
         >
           <Container fillAvailable={false} margin="none" padding="none">
-            <Card sizes="large" cloudinaryUrl="https://media.tripie-api.shop">
+            <Card sizes="large" cloudinaryUrl={API.MEDIA_URL}>
               <Stack direction="column" gap="default" margin="none" display="inline-flex" alignItems="center">
                 <Text.Accented>
                   <Headings.H2>Welcome</Headings.H2>

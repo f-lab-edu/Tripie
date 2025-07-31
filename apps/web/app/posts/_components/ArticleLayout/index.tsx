@@ -3,6 +3,7 @@ import { BlurImageOnLoad, Card } from '@tripie-pyotato/design-system/@components
 import Container from '@tripie-pyotato/design-system/@core/Container';
 import { classNames } from '@tripie-pyotato/design-system/@wrappers';
 
+import API from 'constants/api-routes';
 import { ReactNode } from 'react';
 import ArticleTitle from './ArticleTitle';
 import Style from './article-layout.module.scss';
@@ -38,11 +39,9 @@ const ArticleLayout = ({
           <BlurImageOnLoad
             withBorder={true}
             aspectRatio={'cinematic'}
-            src={thumbNailSrc
-              ?.replace('https://res.cloudinary.com', 'https://media.tripie-api.shop')
-              .replace('.jpeg', '')}
+            src={thumbNailSrc?.replace('https://res.cloudinary.com', API.MEDIA_URL).replace('.jpeg', '')}
             sizes="large"
-            cloudinaryUrl="https://media.tripie-api.shop"
+            cloudinaryUrl={API.MEDIA_URL}
             alt={thumbNailAlt ?? `${thumbNailSrc}`}
           />
         </Container>

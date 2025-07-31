@@ -6,6 +6,7 @@ import ArticleLink from './Link';
 import ArticleNote from './Note';
 import ArticleText from './Text/Text';
 
+import API from 'constants/api-routes';
 import { BodyItemProps, ImageProps } from 'models/Props';
 
 const ArticleCard = ({
@@ -35,10 +36,8 @@ const ArticleCard = ({
                   <BlurImageOnLoad.WithSourceUrl
                     aspectRatio={'photo'}
                     sourceUrl={sourceUrl}
-                    cloudinaryUrl={'https://media.tripie-api.shop'}
-                    src={sizes.full.url
-                      .replace('https://res.cloudinary.com', 'https://media.tripie-api.shop')
-                      .replace('.jpeg', '')}
+                    cloudinaryUrl={API.MEDIA_URL}
+                    src={sizes.full.url.replace('https://res.cloudinary.com', API.MEDIA_URL).replace('.jpeg', '')}
                     alt={sizes.full.url}
                     key={`${index}-${sizes.full.url}-${imgIndex}`}
                     withBorder={true}

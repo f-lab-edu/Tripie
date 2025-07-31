@@ -7,6 +7,7 @@ import { Stack } from '@tripie-pyotato/design-system/@core';
 import Text from '@tripie-pyotato/design-system/@core/Text';
 
 import { COLORS } from '@tripie-pyotato/design-system/shared';
+import API from 'constants/api-routes';
 import ROUTE from 'constants/routes';
 import { ComponentType, Dispatch, SetStateAction, useEffect, useState } from 'react';
 import MenuWithNotification from './MenuWithNotification';
@@ -97,7 +98,7 @@ function withToast<P>(
             position="top-center"
             animate={isOpen ? 'animate' : 'initial'}
           >
-            <Card margin="none" cloudinaryUrl="https://media.tripie-api.shop">
+            <Card margin="none" cloudinaryUrl={API.MEDIA_URL}>
               <Stack direction="column" margin="none" alignItems="center">
                 <Text bold={true}>선택 사항이 초기화 됩니다!</Text>
                 <Stack gap="l">

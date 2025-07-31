@@ -6,6 +6,7 @@ import Background from '@tripie-pyotato/design-system/@core/Background';
 import Container from '@tripie-pyotato/design-system/@core/Container';
 import Headings from '@tripie-pyotato/design-system/@core/Headings';
 import Text from '@tripie-pyotato/design-system/@core/Text';
+import API from 'constants/api-routes';
 import FAQS from './constants';
 
 export default function Faq() {
@@ -20,7 +21,7 @@ export default function Faq() {
                 <Accordion>
                   <Accordion.Header>
                     <Container justifyContent="start" margin="none" gap="sm">
-                      <Accordion.Icon cloudinaryUrl={'https://media.tripie-api.shop'} />
+                      <Accordion.Icon cloudinaryUrl={API.MEDIA_URL} />
                       {header}
                     </Container>
                   </Accordion.Header>

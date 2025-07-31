@@ -1,5 +1,6 @@
 import type { Preview } from '@storybook/react';
 
+import '@tripie-pyotato/design-system/font';
 import '@tripie-pyotato/design-system/global';
 
 const preview: Preview = {

@@ -1,8 +1,7 @@
 'use client';
 import { Icon, IconProps } from '@tripie-pyotato/design-system/@components';
+import API from 'constants/api-routes';
 import { Transport } from 'models/Itinery';
-
-const CLOUDINARY_URL = 'https://media.tripie-api.shop';
 
 const iconMap = {
   cloud: Icon.Cloud,
@@ -34,10 +33,10 @@ const TripieIcon = ({
   const Component = iconMap[variant as Variant];
 
   if (Component) {
-    return <Component {...args} index={index} cloudinaryUrl={CLOUDINARY_URL} />;
+    return <Component {...args} index={index} cloudinaryUrl={API.MEDIA_URL} />;
   }
 
-  return <Icon {...args} cloudinaryUrl={CLOUDINARY_URL} />;
+  return <Icon {...args} cloudinaryUrl={API.MEDIA_URL} />;
 };
 
 export default TripieIcon;

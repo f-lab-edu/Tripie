@@ -8,6 +8,7 @@ import { openNewTab } from '@tripie-pyotato/utils';
 import { Activity, TripContent } from 'models/Aws';
 import { useContext, useEffect, useRef } from 'react';
 
+import API from 'constants/api-routes';
 import { TabContext } from '.';
 
 const TabCard = ({
@@ -55,7 +56,7 @@ const TabCard = ({
       }}
     >
       <Card
-        cloudinaryUrl="https://media.tripie-api.shop"
+        cloudinaryUrl={API.MEDIA_URL}
         sizes={'full'}
         margin="none"
         ref={current === `${trip.day - 1}-${index}` ? ref : null}

@@ -1,6 +1,7 @@
 'use client';
 import { AnimatedCard, Card } from '@tripie-pyotato/design-system/@components';
 import { Text } from '@tripie-pyotato/design-system/@core';
+import API from 'constants/api-routes';
 // import { useDebounce } from '@tripie-pyotato/hooks';
 import useImgAlt from 'hooks/useImgAlt';
 import { RegionArticleInfo } from 'models/Article';
@@ -75,10 +76,10 @@ const RegionCard = ({
           imgSize={'full'}
           aspectRatio={'square'}
           src={article.source.image.sizes.small_square.url
-            .replace('https://res.cloudinary.com', 'https://media.tripie-api.shop')
+            .replace('https://res.cloudinary.com', API.MEDIA_URL)
             .replace('.jpeg', '')}
           alt={alt}
-          cloudinaryUrl="https://media.tripie-api.shop"
+          cloudinaryUrl={API.MEDIA_URL}
         >
           <Card.Header size={'large'} bold={true}>
             <Text size="small">{article?.source?.title}</Text>

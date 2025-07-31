@@ -3,6 +3,7 @@
 import Card from '@tripie-pyotato/design-system/@components/Card';
 import Stack from '@tripie-pyotato/design-system/@core/Stack';
 import Text from '@tripie-pyotato/design-system/@core/Text';
+import API from 'constants/api-routes';
 import { ReactNode } from 'react';
 
 export default function ServiceCard({
@@ -15,7 +16,7 @@ export default function ServiceCard({
   description: string;
 }>) {
   return (
-    <Card sizes={'full'} margin="none" padding="sm" cloudinaryUrl="https://media.tripie-api.shop">
+    <Card sizes={'full'} margin="none" padding="sm" cloudinaryUrl={API.MEDIA_URL}>
       <Stack direction="column" margin="none" gap="l" justifyContent="start" alignItems="start">
         {content}
         <Card.Content padding={'none'}>

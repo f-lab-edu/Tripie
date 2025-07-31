@@ -2,6 +2,7 @@
 import { AnimatedCard, BlurImageOnLoad, Card, Divider } from '@tripie-pyotato/design-system/@components';
 import { Stack } from '@tripie-pyotato/design-system/@core';
 
+import API from 'constants/api-routes';
 import { ExternalLink } from 'models/Link';
 import { useRouter } from 'next/navigation';
 import ArticleHeading from '../ArticleLayout/Header';
@@ -18,11 +19,9 @@ const ExternalLinkCard = ({ link, index }: { link: ExternalLink; index: number }
             withBorder={true}
             aspectRatio={'square'}
             sizes="card"
-            src={link?.imageUrl
-              .replace('https://res.cloudinary.com', 'https://media.tripie-api.shop')
-              .replace('.jpeg', '')}
+            src={link?.imageUrl.replace('https://res.cloudinary.com', API.MEDIA_URL).replace('.jpeg', '')}
             alt={link.imageUrl}
-            cloudinaryUrl={'https://media.tripie-api.shop'}
+            cloudinaryUrl={API.MEDIA_URL}
           />
           <Card.Content margin="none">
             <ArticleHeading item={{ type: 'heading4', value: { text: link.title } }} />

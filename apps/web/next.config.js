@@ -1,17 +1,23 @@
 // @ts-check
 
-// /**
-//  * https://nextjs.org/docs/app/building-your-application/styling/sass#customizing-sass-options
-//  */
-
+import createBundleAnalyzer from '@next/bundle-analyzer';
+import withPlugins from 'next-compose-plugins';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
 /** For __dirname in ES modules */
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const withBundleAnalyzer = createBundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+  openAnalyzer: true,
+});
+
+// Add other plugins here in the array if needed
+const nextConfig = withPlugins([[withBundleAnalyzer]], {
+  /**
+   * https://nextjs.org/docs/app/building-your-application/styling/sass#customizing-sass-options
+   */
   sassOptions: {
     includePaths: [
       path.join(__dirname, 'styles'),
@@ -34,6 +40,6 @@ const nextConfig = {
       },
     ];
   },
-};
+});
 
 export default nextConfig;

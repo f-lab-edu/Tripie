@@ -35,7 +35,7 @@ const LoadingRegionCardList = () => {
             aspectRatio={'square'}
             src={API.BASE_URL + '/tripie-image.png'}
             alt={'place-holder'}
-            cloudinaryUrl="https://media.tripie-api.shop"
+            cloudinaryUrl={API.MEDIA_URL}
           >
             <Card.Header size={'large'} bold={true}>
               <AnimatedText.Jump>제목 로딩 중...</AnimatedText.Jump>

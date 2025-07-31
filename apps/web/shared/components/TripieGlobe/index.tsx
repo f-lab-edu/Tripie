@@ -1,5 +1,6 @@
 'use client';
 
+import API from 'constants/api-routes';
 import dynamic from 'next/dynamic';
 import TripieIcon from '../TripieIcon/TripieIcon';
 import Countries from './countries.json';
@@ -16,7 +17,7 @@ const Globe = () => {
       width={250}
       height={300}
       hexPolygonsData={Countries.features}
-      cloudinaryUrl={'https://media.tripie-api.shop'}
+      cloudinaryUrl={API.MEDIA_URL}
     />
   );
 };

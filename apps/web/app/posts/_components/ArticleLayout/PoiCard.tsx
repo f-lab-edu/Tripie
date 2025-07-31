@@ -10,6 +10,7 @@ import useImgAlt from 'hooks/useImgAlt';
 import POI_TYPE from 'constants/triple';
 import { Poi } from 'models/Aws';
 
+import API from 'constants/api-routes';
 import { classNames } from 'wrapper/classNames';
 import Style from './poi-card.module.scss';
 
@@ -52,9 +53,9 @@ const PoiCard = ({
         className={cx('card-wrap')}
         sizes={length > 2 ? 'card' : 'full'}
         margin={'none'}
-        src={poi.source.image?.sizes.full.url.replace('https://res.cloudinary.com', 'https://media.tripie-api.shop')}
+        src={poi.source.image?.sizes.full.url.replace('https://res.cloudinary.com', API.MEDIA_URL)}
         alt={alt}
-        cloudinaryUrl="https://media.tripie-api.shop"
+        cloudinaryUrl={API.MEDIA_URL}
         padding={'none'}
         imgSize={'card'}
         sourceUrl={poi.source.image.sourceUrl}

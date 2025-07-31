@@ -13,6 +13,7 @@ import Text from '@tripie-pyotato/design-system/@core/Text';
 
 import { FlickTextButton } from '@tripie-pyotato/design-system/@components';
 import PLANS from 'app/home/_components/Plan/constants';
+import API from 'constants/api-routes';
 import TripieIcon from 'shared/components/TripieIcon/TripieIcon';
 
 export default function Plan() {
@@ -26,13 +27,7 @@ export default function Plan() {
         </Container>
         <Stack margin="l" applyMargin="bottom" flexWrapOn="wrap-md" gap="l">
           {Object.keys(PLANS).map(key => (
-            <Card
-              key={PLANS[key].label}
-              margin="none"
-              sizes="full"
-              padding="m"
-              cloudinaryUrl="https://media.tripie-api.shop"
-            >
+            <Card key={PLANS[key].label} margin="none" sizes="full" padding="m" cloudinaryUrl={API.MEDIA_URL}>
               <Card.Header margin="none">
                 <Stack direction="column" margin="none" alignItems="start">
                   <Text size="tiny" noGapUnderText={true}>
