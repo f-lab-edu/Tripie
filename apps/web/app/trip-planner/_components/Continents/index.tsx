@@ -1,4 +1,3 @@
-// import { Globe } from '@tripie-pyotato/design-system/@components';
 import { Container, Text } from '@tripie-pyotato/design-system/@core';
 import { CONTINENTS } from 'constants/continents';
 

@@ -1,6 +1,7 @@
 'use client';
 
-import { FlickTextButton, ParticleBackground, RotatingBlur } from '@tripie-pyotato/design-system/@components';
+import { FlickTextButton, ParticleField, RotatingBlur } from '@tripie-pyotato/design-system/@components';
+import TripieBackground from '@tripie-pyotato/design-system/@core/Background';
 import Container from '@tripie-pyotato/design-system/@core/Container';
 import Headings from '@tripie-pyotato/design-system/@core/Headings';
 import Stack from '@tripie-pyotato/design-system/@core/Stack';
@@ -55,12 +56,14 @@ const ShortCutButtons = () => {
 
 export default function Header() {
   return (
-    <ParticleBackground>
+    <TripieBackground variant={0} isFullScreen={true}>
       <RotatingBlur />
+      <ParticleField />
       <Stack alignItems="center" zIndex={'default'} direction="column" gap="l" margin="none">
         <PageTitle />
         <ShortCutButtons />
       </Stack>
-    </ParticleBackground>
+      <TripieBackground variant={7} isFullScreen={true} position={'absolute'} zIndex="base" />
+    </TripieBackground>
   );
 }
