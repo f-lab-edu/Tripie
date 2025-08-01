@@ -40,6 +40,21 @@ const nextConfig = withPlugins([[withBundleAnalyzer]], {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'tripie-mauve.vercel.app',
+          },
+        ],
+        destination: 'https://www.tripie-api.shop/:path*',
+        permanent: true,
+      },
+    ];
+  },
 });
 
 export default nextConfig;

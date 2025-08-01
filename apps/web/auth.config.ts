@@ -1,6 +1,5 @@
 import API from 'constants/api-routes';
 import { GITHUB_ID, GITHUB_SECRET, KAKAO_ID, KAKAO_SECRET, NEXT_AUTH_SECRET } from 'constants/auth';
-// import { GITHUB_ID, GITHUB_SECRET, KAKAO_ID, KAKAO_SECRET, NEXT_AUTH_SECRET } from 'constants/auth';
 import { User } from 'models/User';
 import type { NextAuthConfig } from 'next-auth';
 import GitHub from 'next-auth/providers/github';
