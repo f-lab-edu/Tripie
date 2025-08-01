@@ -49,11 +49,8 @@ const DurationStep = ({
           }}
         />
       }
-      heading={
-        <>
-          여행 <Text.Accented>기간</Text.Accented>은? {progress}
-        </>
-      }
+      heading={{ text: '기간', particle: '은' }}
+      progress={progress}
       listItems={
         <Calendar
           calendar={calendar}

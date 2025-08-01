@@ -1,8 +1,8 @@
 'use client';
-import Text from '@tripie-pyotato/design-system/@core/Text';
 
 import COMPANION_LIST from 'constants/companions';
 
+import Text from '@tripie-pyotato/design-system/@core/Text';
 import { FunnelProps, FunnelSteps } from 'app/trip-planner/page';
 import { useCallback, useState } from 'react';
 import NavButton from 'shared/components/NavButton';
@@ -38,11 +38,14 @@ const CompanionStep = ({
           }}
         />
       }
-      heading={
-        <>
-          <Text.Accented>누구</Text.Accented>와 떠나나요? {progress}
-        </>
-      }
+      heading={{
+        custom: (
+          <>
+            <Text.Accented>누구</Text.Accented>와 떠나나요?{' '}
+          </>
+        ),
+      }}
+      progress={progress}
       disabled={selected.length === 0}
       decor={<Clouds.WithPlane />}
       refreshIcon={<TripieIcon variant="refresh" onTapStart={() => setSelected([])} />}

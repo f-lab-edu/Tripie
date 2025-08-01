@@ -1,5 +1,4 @@
 'use client';
-import { Text } from '@tripie-pyotato/design-system/@core';
 import PREFERENCE_LIST from 'constants/preferences';
 
 import { useMemo, useState } from 'react';
@@ -34,12 +33,8 @@ const CityStep = ({
           }}
         />
       }
-      heading={
-        <>
-          내가 여행하고 싶은 <Text.Accented>{'\n'}도시</Text.Accented>는?&nbsp;
-          {progress}
-        </>
-      }
+      heading={{ text: '도시', particle: '는' }}
+      progress={progress}
       decor={<Clouds rows={3} length={6} />}
       refreshIcon={<TripieIcon variant="refresh" onTapStart={() => setSelected([])} />}
       listItems={<CityList cities={cities} selected={selected} setSelected={setSelected} />}

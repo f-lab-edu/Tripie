@@ -1,4 +1,3 @@
-'use client';
 import { ReactNode } from 'react';
 
 export default function Layout({
@@ -6,10 +5,5 @@ export default function Layout({
 }: Readonly<{
   children: ReactNode;
 }>) {
-  return (
-    <>
-      {/* <Nav /> */}
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }

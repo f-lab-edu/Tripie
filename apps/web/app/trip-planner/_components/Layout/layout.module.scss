@@ -1,7 +1,11 @@
 @use 'mixins' as *;
 
+.total-wrap {
+  height: 100vh;
+}
+
 .decor-wrap {
-  height: 20%;
+  height: 10%;
 }
 
 .list {
@@ -14,15 +18,4 @@
 
 .list-wrap-with-decor {
   height: 50%;
-}
-
-.total-wrap {
-  height: 100vh;
-}
-
-.btn-wrap {
-  height: 15%;
-}
-.title-wrap {
-  height: 20%;
 }

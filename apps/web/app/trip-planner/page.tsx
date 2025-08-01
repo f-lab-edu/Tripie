@@ -12,6 +12,7 @@ import ROUTE from 'constants/routes';
 import { TripPlanner } from 'models/Aws';
 import { ContinentKeys } from 'models/Continent';
 import { useSession } from 'next-auth/react';
+// import dynamic from 'next/dynamic';
 import { useRouter } from 'next/navigation';
 import { ReactNode } from 'react';
 import api from 'utils/ky';
@@ -89,13 +90,18 @@ export type FunnelProps = {
   progress: ReactNode;
 };
 
+// const ContinentStep = dynamic(import('./_components/Continents/index'), { ssr: false });
+// const CountryStep = dynamic(import('./_components/Countries/index'), { ssr: false });
+// const DurationStep = dynamic(import('./_components/Duration'), { ssr: false });
+// const CompanionStep = dynamic(import('./_components/Companion/index'), { ssr: false });
+// const PreferenceStep = dynamic(import('./_components/Preference/index'), { ssr: false });
+// const DoneStep = dynamic(import('./_components/Done/index'), { ssr: false });
+
 const handleSubmit = async (chatItems: TripPlanner, id: string) => {
   if (id == null) {
     return null;
   }
-
   const res: TripPlannerSuccessReponse = await api.post('openai', { json: { ...chatItems, id } }).json();
-
   return res?.data?.id;
 };
 

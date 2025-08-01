@@ -35,11 +35,14 @@ const PreferenceStep = ({ context, onNext, onPrev, progress }: Props & FunnelPro
           }}
         />
       }
-      heading={
-        <>
-          내가 선호하는 여행 <Text.Accented>{'\n'}스타일</Text.Accented>은?{progress}
-        </>
-      }
+      heading={{
+        custom: (
+          <>
+            내가 선호하는 여행 <Text.Accented>{'\n'}스타일</Text.Accented>은?
+          </>
+        ),
+      }}
+      progress={progress}
       decor={<Clouds.WithPlane />}
       refreshIcon={<TripieIcon variant="refresh" onTapStart={() => setSelected([])} />}
       listItems={<PreferenceList selected={selected} setSelected={setSelected} />}

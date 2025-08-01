@@ -1,4 +1,4 @@
-import { Container, Text } from '@tripie-pyotato/design-system/@core';
+// import { Container } from '@tripie-pyotato/design-system/@core';
 import { CONTINENTS } from 'constants/continents';
 
 import { ContinentKeys } from 'models/Continent';
@@ -6,7 +6,10 @@ import { useMemo, useState } from 'react';
 
 import { useInView } from '@tripie-pyotato/design-system/@wrappers';
 import { FunnelProps, FunnelSteps } from 'app/trip-planner/page';
-import dynamic from 'next/dynamic';
+// import dynamic from 'next/dynamic';
+// import TripieGlobe from 'shared/components/TripieGlobe';
+import { Container } from '@tripie-pyotato/design-system/@core';
+import TripieGlobe from 'shared/components/TripieGlobe';
 import TripieIcon from 'shared/components/TripieIcon/TripieIcon';
 import { classNames } from 'wrapper/classNames';
 import Layout from '../Layout/Layout';
@@ -15,10 +18,10 @@ import { ContinentList } from './ContinentLIst';
 
 const cx = classNames.bind(Style);
 
-const TripieGlobe = dynamic(() => import('../../../../shared/components/TripieGlobe').then(mod => mod.default), {
-  ssr: false,
-  loading: () => <TripieIcon variant="loading" />,
-});
+// const TripieGlobe = dynamic(() => import('../../../../shared/components/TripieGlobe').then(mod => mod.default), {
+//   ssr: false,
+//   loading: () => <TripieIcon variant="loading" sizes="large" />,
+// });
 
 export default function ContinentStep({
   context,
@@ -47,11 +50,8 @@ export default function ContinentStep({
 
   return (
     <Layout
-      heading={
-        <>
-          떠나고 싶은 <Text.Accented noGapUnderText>지역</Text.Accented>은? {progress}
-        </>
-      }
+      heading={{ text: '지역', particle: '은' }}
+      progress={progress}
       listItems={<ContinentList selectedContinent={selectedContinent} action={setSelectedContinent} />}
       submitButtonChildren={
         <>
@@ -60,7 +60,16 @@ export default function ContinentStep({
       }
       clickAction={() => onNext({ continent: CONTINENTS[selectedContinent]['id'] as ContinentKeys })}
     >
-      <Container margin="l" applyMargin="bottom" padding="none" ref={ref} className={cx('globe-space')}>
+      <Container
+        margin={'l'}
+        applyMargin="bottom"
+        padding="none"
+        ref={ref}
+        className={cx('globe-space')}
+        display="inline-flex"
+        alignItems="center"
+        justifyContent="center"
+      >
         {inView ? <TripieGlobe /> : <></>}
       </Container>
     </Layout>

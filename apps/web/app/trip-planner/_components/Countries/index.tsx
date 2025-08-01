@@ -2,7 +2,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import { classNames } from '@tripie-pyotato/design-system/@wrappers';
 
 import { AnimatedText } from '@tripie-pyotato/design-system/@components';
-import { Container, Text } from '@tripie-pyotato/design-system/@core';
+import { Container } from '@tripie-pyotato/design-system/@core';
 import { FunnelProps, FunnelSteps } from 'app/trip-planner/page';
 import API from 'constants/api-routes';
 import useContinentl from 'hooks/query/useContinentl';
@@ -70,11 +70,8 @@ export default function CountryStep({
           }}
         />
       }
-      heading={
-        <>
-          떠나고 싶은 <Text.Accented noGapUnderText={true}>나라</Text.Accented>는? {progress}
-        </>
-      }
+      heading={{ text: '나라', particle: '는' }}
+      progress={progress}
       listItems={
         isLoading ? (
           <AnimatedText.Jump>로딩 중...</AnimatedText.Jump>
