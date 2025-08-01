@@ -1,9 +1,9 @@
 'use client';
-import NavigationButton from '@tripie-pyotato/design-system/@components/NavigationButton';
 import { Stack } from '@tripie-pyotato/design-system/@core';
 import Text from '@tripie-pyotato/design-system/@core/Text';
 import { classNames } from '../../../wrapper/classNames';
 
+import NavButton from 'shared/components/NavButton';
 import Style from './region-title.module.scss';
 
 const cx = classNames.bind(Style);
@@ -37,7 +37,7 @@ const RegionTitle = ({
         alignItems="center"
         justifyContent="start"
       >
-        {withNavigation ? <NavigationButton sizes="large" /> : null}
+        {withNavigation ? <NavButton /> : null}
         <Text size="h2" bold={true} noGapUnderText={true}>
           도시 별&nbsp;
         </Text>

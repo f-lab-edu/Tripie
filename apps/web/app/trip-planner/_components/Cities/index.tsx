@@ -1,11 +1,11 @@
 'use client';
-import { NavigationButton } from '@tripie-pyotato/design-system/@components';
 import { Text } from '@tripie-pyotato/design-system/@core';
 import PREFERENCE_LIST from 'constants/preferences';
 
 import { useMemo, useState } from 'react';
 
 import { FunnelProps, FunnelSteps } from 'app/trip-planner/page';
+import NavButton from 'shared/components/NavButton';
 import TripieIcon from 'shared/components/TripieIcon/TripieIcon';
 import Clouds from '../../../../shared/components/Clouds';
 import Layout from '../Layout/Layout';
@@ -28,8 +28,7 @@ const CityStep = ({
   return (
     <Layout
       navigateIcon={
-        <NavigationButton
-          sizes={'large'}
+        <NavButton
           onTapStart={() => {
             onPrev();
           }}

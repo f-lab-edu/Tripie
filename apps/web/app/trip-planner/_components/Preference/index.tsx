@@ -1,10 +1,9 @@
-import { NavigationButton } from '@tripie-pyotato/design-system/@components';
-
 import PREFERENCE_LIST from 'constants/preferences';
 
 import { Text } from '@tripie-pyotato/design-system/@core';
 import { FunnelProps, FunnelSteps } from 'app/trip-planner/page';
 import { useCallback, useState } from 'react';
+import NavButton from 'shared/components/NavButton';
 import TripieIcon from 'shared/components/TripieIcon/TripieIcon';
 import Clouds from '../../../../shared/components/Clouds';
 import Layout from '../Layout/Layout';
@@ -30,8 +29,7 @@ const PreferenceStep = ({ context, onNext, onPrev, progress }: Props & FunnelPro
   return (
     <Layout
       navigateIcon={
-        <NavigationButton
-          sizes={'large'}
+        <NavButton
           onTapStart={() => {
             onPrev();
           }}

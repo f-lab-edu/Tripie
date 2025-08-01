@@ -1,7 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { classNames } from '@tripie-pyotato/design-system/@wrappers';
 
-import { AnimatedText, NavigationButton } from '@tripie-pyotato/design-system/@components';
+import { AnimatedText } from '@tripie-pyotato/design-system/@components';
 import { Container, Text } from '@tripie-pyotato/design-system/@core';
 import { FunnelProps, FunnelSteps } from 'app/trip-planner/page';
 import API from 'constants/api-routes';
@@ -10,6 +10,7 @@ import useCountries from 'hooks/query/useCountries';
 import { ContinentKeys } from 'models/Continent';
 import { Country } from 'models/Country';
 import { useState } from 'react';
+import NavButton from 'shared/components/NavButton';
 import TripieIcon from 'shared/components/TripieIcon/TripieIcon';
 import Layout from '../Layout/Layout';
 import Style from './countries.module.scss';
@@ -63,8 +64,7 @@ export default function CountryStep({
   return (
     <Layout
       navigateIcon={
-        <NavigationButton
-          sizes={'large'}
+        <NavButton
           onTapStart={() => {
             onPrev({ country: selectedCountry });
           }}

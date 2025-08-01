@@ -7,7 +7,6 @@ import Loading from 'shared/components/Loading';
 import Nav from 'shared/components/Nav';
 import { sharedMetaData } from './shared-metadata';
 
-import '@tripie-pyotato/design-system/font';
 import Head from 'next/head';
 
 export const metadata: Metadata = {

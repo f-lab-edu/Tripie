@@ -12,12 +12,12 @@ const NavigateIcon = ({
   direction = 'back',
   src,
   sizes = 'icon',
-  cloudinaryUrl,
   variants = navigationVariants(direction),
+  ...args
 }: Readonly<NavigationIconProps>) => {
   return (
     <Icon
-      cloudinaryUrl={cloudinaryUrl}
+      {...args}
       src={src ?? ICON_RESOURCE_ICON('ARROW', ICON_SIZES[sizes])}
       alt={`${direction == 'back' ? '뒤로' : '앞으로 '}가기 버튼`}
       sizes={sizes}

@@ -1,10 +1,11 @@
 'use client';
-import { Calendar, NavigationButton } from '@tripie-pyotato/design-system/@components';
+import { Calendar } from '@tripie-pyotato/design-system/@components';
 import { Text } from '@tripie-pyotato/design-system/@core';
 
 import { useCalendar } from '@tripie-pyotato/design-system/@hooks';
 import useServerTime from 'hooks/useServerTime';
 import { useCallback } from 'react';
+import NavButton from 'shared/components/NavButton';
 import TripieIcon from 'shared/components/TripieIcon/TripieIcon';
 import { localeString2Date } from 'utils/date';
 import { FunnelProps, FunnelSteps } from '../page';
@@ -42,8 +43,7 @@ const DurationStep = ({
   return (
     <Layout
       navigateIcon={
-        <NavigationButton
-          sizes={'large'}
+        <NavButton
           onTapStart={() => {
             onPrev();
           }}

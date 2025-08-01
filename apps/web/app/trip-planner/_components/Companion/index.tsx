@@ -1,11 +1,11 @@
 'use client';
-import { NavigationButton } from '@tripie-pyotato/design-system/@components';
 import Text from '@tripie-pyotato/design-system/@core/Text';
 
 import COMPANION_LIST from 'constants/companions';
 
 import { FunnelProps, FunnelSteps } from 'app/trip-planner/page';
 import { useCallback, useState } from 'react';
+import NavButton from 'shared/components/NavButton';
 import TripieIcon from 'shared/components/TripieIcon/TripieIcon';
 import Clouds from '../../../../shared/components/Clouds';
 import Layout from '../Layout/Layout';
@@ -32,8 +32,7 @@ const CompanionStep = ({
   return (
     <Layout
       navigateIcon={
-        <NavigationButton
-          sizes={'large'}
+        <NavButton
           onTapStart={() => {
             onPrev();
           }}
