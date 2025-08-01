@@ -3,7 +3,7 @@
 import { API_KEY } from 'constants/maps';
 import { LocationMarker } from 'models/Geo';
 import dynamic from 'next/dynamic';
-import { Context, Dispatch, SetStateAction } from 'react';
+import { Context, Dispatch, ReactNode, SetStateAction } from 'react';
 
 const AwsMap = dynamic(() => import('@tripie-pyotato/design-system/@components/Map').then(mod => mod.default), {
   ssr: false,
@@ -29,25 +29,30 @@ export default function TripieMap({
   interactive = true,
   TabContext,
   zoom = 9,
+  reuseMaps,
   height = '100vh',
   locationMarker,
   border = 'none',
   currentMarker = '0-0',
   setCurrentMarker,
+  children,
 }: Readonly<{
   center?: MapCenter;
   interactive?: boolean;
   zoom?: number;
+  reuseMaps?: boolean;
   height?: string;
   TabContext?: TabContext;
   locationMarker?: LocationMarker[];
   border?: string;
   currentMarker?: string;
   setCurrentMarker?: Dispatch<SetStateAction<string>>;
+  children?: ReactNode;
 }>) {
   if (TabContext) {
     return (
       <AwsMapWithContext
+        reuseMaps={reuseMaps}
         apiKey={API_KEY}
         initialViewState={{
           zoom,
@@ -76,6 +81,8 @@ export default function TripieMap({
       locationMarker={locationMarker}
       currentMarker={currentMarker}
       setCurrentMarker={setCurrentMarker}
-    />
+    >
+      {children}
+    </AwsMap>
   );
 }

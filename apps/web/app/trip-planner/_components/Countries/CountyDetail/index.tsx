@@ -1,10 +1,9 @@
 'use client';
 
-import Map from '@tripie-pyotato/design-system/@components/Map';
 import Marker from '@tripie-pyotato/design-system/@components/MapMarker';
-import { API_KEY } from 'constants/maps';
 import useContinentl from 'hooks/query/useContinentl';
 import { useEffect, useMemo, useState } from 'react';
+import TripieMap from 'shared/components/AwsMap';
 import dmsToDecimalLatLng from 'utils/coordinate';
 import CountryInfoPopup from './CountryInfoPopup';
 
@@ -28,29 +27,15 @@ const CountryDetail = ({ selectedCountry }: { selectedCountry: string }) => {
   }, [selectedCountry]);
 
   if (countryDetail == null || isLoading || coordinates == null) {
-    return (
-      <Map
-        apiKey={API_KEY}
-        style={{
-          height: '40vh',
-        }}
-        reuseMaps={true}
-      />
-    );
+    return <TripieMap height="40vh" reuseMaps={true} />;
   }
 
   return (
-    <Map
-      apiKey={API_KEY}
-      style={{
-        height: '40vh',
-      }}
+    <TripieMap
+      height="40vh"
       reuseMaps={true}
-      initialViewState={{
-        zoom: 2,
-        latitude: coordinates.lat,
-        longitude: coordinates.lng,
-      }}
+      zoom={2}
+      center={{ latitude: coordinates.lat, longitude: coordinates.lng }}
     >
       <CountryInfoPopup
         name={countryDetail.name}
@@ -62,7 +47,7 @@ const CountryDetail = ({ selectedCountry }: { selectedCountry: string }) => {
         officialLanguage={countryDetail.official_language}
       />
       <Marker coordinates={coordinates} onClick={() => setShowPopup(true)} />
-    </Map>
+    </TripieMap>
   );
 };
 export default CountryDetail;
