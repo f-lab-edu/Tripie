@@ -2,68 +2,14 @@
 import { AnimatedCard, Card } from '@tripie-pyotato/design-system/@components';
 import { Text } from '@tripie-pyotato/design-system/@core';
 import API from 'constants/api-routes';
-// import { useDebounce } from '@tripie-pyotato/hooks';
 import useImgAlt from 'hooks/useImgAlt';
 import { RegionArticleInfo } from 'models/Article';
 import Link from 'next/link';
-// import { useRouter } from 'next/navigation';
-// import { Dispatch, SetStateAction, startTransition } from 'react';
-// import { startTransition } from 'react';
 
 export type RegionArticleData = { regionId: string; data: RegionArticleInfo[] };
 
-const RegionCard = ({
-  article,
-  // setSplash,
-}: {
-  // setSplash?: Dispatch<SetStateAction<boolean>>;
-  article: RegionArticleInfo;
-}) => {
-  // const [splash, setSplash] = useState(false);
-  // const router = useRouter();
+const RegionCard = ({ article }: { article: RegionArticleInfo }) => {
   const { alt } = useImgAlt({ imgUrl: article.source.image.sizes.full.url });
-
-  // const handleClick = debounce(() => {
-  // console.log(`/posts/${article.source.regionId}/articles/${article.id}`);
-  //   if (!setSplash) {
-  //     router.push(`/posts/${article.source.regionId}/articles/${article.id}`);
-  //     return;
-  //   }
-
-  //   let didNavigate = false;
-  //   const timeout = setTimeout(() => {
-  //     if (!didNavigate) {
-  //       setSplash(true);
-  //     }
-  //   }, 0); // Customize threshold
-
-  // startTransition(() => {
-  // router.push(`/posts/${article.source.regionId}/articles/${article.id}`);
-  // didNavigate = true;
-  // clearTimeout(timeout);
-  // });
-  // });
-
-  // const handleClick = useDebounce(() => {
-  //   console.log(`/posts/${article.source.regionId}/articles/${article.id}`);
-  //   //   if (!setSplash) {
-  //   //     router.push(`/posts/${article.source.regionId}/articles/${article.id}`);
-  //   //     return;
-  //   //   }
-
-  //   //   let didNavigate = false;
-  //   //   const timeout = setTimeout(() => {
-  //   //     if (!didNavigate) {
-  //   //       setSplash(true);
-  //   //     }
-  //   //   }, 0); // Customize threshold
-
-  //   // startTransition(() => {
-  //   router.push(`/posts/${article.source.regionId}/articles/${article.id}`);
-  //   // didNavigate = true;
-  //   // clearTimeout(timeout);
-  //   // });
-  // });
 
   return (
     <Link href={`/posts/${article.source.regionId}/articles/${article.id}`}>

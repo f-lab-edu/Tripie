@@ -1,8 +1,6 @@
 // // 'use client';
 'use client';
 
-import { Toast } from '@tripie-pyotato/design-system/@components';
-
 // import API from 'constants/api-routes';
 
 // import { Globe } from '@tripie-pyotato/design-system/@components';
@@ -145,19 +143,7 @@ const Playground = () => {
   // );
   // const user = useSession();
   // return <LoadingContents context={selected} />;
-  return (
-    <>
-      <Toast>
-        <pre>
-          {/* {JSON.stringify(res)} */}
-          {JSON.stringify(selected)}
-          {/* playground */}
-          {/* <button onClick={() => handleSubmit(user.data.user.id)}>send</button> */}
-          {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
-        </pre>
-      </Toast>
-    </>
-  );
+  return <>{JSON.stringify(selected)}</>;
 };
 
 export default Playground;

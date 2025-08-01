@@ -7,6 +7,7 @@ import RegionTitle from './_components/RegionTitle';
 import pureRegionArticles from './cache';
 
 import '@tripie-pyotato/design-system/global';
+import { RegionArticleInfo } from 'models/Article';
 
 const currentRegionId = Object.keys(TRIPIE_REGION_BY_LOCATION)[0];
 const selectedRegion = Object.keys(TRIPIE_REGION_IDS).filter(
@@ -15,7 +16,7 @@ const selectedRegion = Object.keys(TRIPIE_REGION_IDS).filter(
     TRIPIE_REGION_BY_LOCATION[currentRegionId as keyof typeof TRIPIE_REGION_BY_LOCATION][0]
 )?.[0];
 
-const data = await pureRegionArticles(selectedRegion);
+const data: RegionArticleInfo[] = await pureRegionArticles(selectedRegion);
 
 const Articles = () => {
   return (
