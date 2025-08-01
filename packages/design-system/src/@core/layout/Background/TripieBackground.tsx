@@ -4,6 +4,7 @@ import Style from './tripie-background.module.scss';
 
 export type TripieBackgroundProps = {
   variant: number;
+  position?: 'absolute' | 'relative' | 'static' | 'sticky' | 'fixed';
   isFullScreen?: boolean;
 } & Partial<TripieContainerProps>;
 
@@ -20,6 +21,8 @@ const TripieBackground = ({
   padding = 'none',
   applyPadding = 'all',
   textAlign,
+  zIndex,
+  position = 'relative',
   ...args
 }: TripieBackgroundProps) => {
   return (
@@ -32,6 +35,8 @@ const TripieBackground = ({
         `text-align-${textAlign}`,
         `justify-content-${justifyContent}`,
         `gap-${gap}`,
+        `z-index-${zIndex}`,
+        `position-${position}`,
         'layout-fill-available',
         isFullScreen ? 'full-screen' : '',
         className

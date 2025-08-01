@@ -80,5 +80,8 @@ $container-display-map: (inline-flex, grid, inline-block);
 @each $key in $z-index-map {
   .z-index-#{$key} {
     @include z-index($key);
+    @if ($key==absolute) {
+      inset: 0;
+    }
   }
 }
