@@ -19,6 +19,7 @@ const NavigateButton = ({
   disabled,
   onTapStart,
   navigateUrl,
+  cloudinaryUrl,
 }: Readonly<NavigationIconProps>) => {
   const navigate = useRouter();
 
@@ -37,7 +38,7 @@ const NavigateButton = ({
       }}
       className={cx('btn-icon', classNames)}
     >
-      <NavigateIcon direction={direction} sizes={sizes} src={src} />
+      <NavigateIcon cloudinaryUrl={cloudinaryUrl} direction={direction} sizes={sizes} src={src} />
     </Motion.Button>
   );
 };
