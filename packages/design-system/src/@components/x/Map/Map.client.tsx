@@ -99,6 +99,7 @@ function AwsMap({
           ...center,
           ...initialViewState,
         }}
+        attributionControl={false}
         interactive={interactive}
         style={{ ...FULL_MAP_STYLE, ...style }}
         mapStyle={mapStyle}
