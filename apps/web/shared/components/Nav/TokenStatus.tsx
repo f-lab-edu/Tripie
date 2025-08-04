@@ -32,12 +32,10 @@ const TokenStatus = () => {
     );
   }
 
-  if (status === 'loading') {
-    return (
-      <Text size="tiny" applyMargin="all" margin="sm">
-        <TripieIcon variant="loading" /> <AnimatedText.Jump>토큰 확인중...</AnimatedText.Jump>
-      </Text>
-    );
-  }
+  return (
+    <Text size="tiny" applyMargin="all" margin="sm">
+      <TripieIcon variant="loading" /> <AnimatedText.Jump>토큰 확인중...</AnimatedText.Jump>
+    </Text>
+  );
 };
 export default TokenStatus;
