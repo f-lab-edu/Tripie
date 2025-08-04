@@ -3,7 +3,7 @@
   "extends": "./nextjs.json",
   "compilerOptions": {
     "jsx": "react-jsx",
-    "module": "ESNext",
+    "module": "esnext",
     "target": "es6"
   }
 }

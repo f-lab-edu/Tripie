@@ -1,7 +1,5 @@
 'use client';
 
-import 'maplibre-gl/dist/maplibre-gl.css';
-
 import { Chip } from '../../data-display';
 import { LocationMarker } from '../Map/Map.client';
 import Marker, { MarkerAnchor } from './Marker.client';

@@ -52,7 +52,7 @@ const defaultConfig: Partial<Options> = {
   splitting: false, // ✅ Disable this
   external: [...Object.keys(dependencies || {}), ...Object.keys(peerDependencies || {})],
   format: ['cjs', 'esm'],
-
+  target: ['es2022', 'es2020'],
   clean: true,
   dts: true,
   onSuccess: 'node ./scripts/inject-css.js && node ./scripts/inject-use-client.js',

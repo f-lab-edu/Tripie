@@ -1,6 +1,6 @@
 {
   "name": "@tripie-pyotato/design-system",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "description": "트리피에 사용되는 디자인 시스템",
   "main": "index.js",
   "type": "module",
@@ -22,7 +22,7 @@
     "@testing-library/react": "^16.0.1",
     "@testing-library/user-event": "^14.4.3",
     "@tripie-pyotato/eslint-config": "^0.0.1",
-    "@tripie-pyotato/typescript-config": "^0.0.2",
+    "@tripie-pyotato/typescript-config": "workspace:*",
     "@turbo/gen": "^2.0.11",
     "@types/fs-extra": "^11.0.4",
     "@types/jest": "^29.5.12",

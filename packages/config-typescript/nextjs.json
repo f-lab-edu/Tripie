@@ -3,7 +3,7 @@
   "extends": "./base.json",
   "compilerOptions": {
     "plugins": [{ "name": "next" }],
-    "target": "ESNext",
+    "target": "esnext",
     "lib": ["dom", "es2017", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,

@@ -1,7 +1,5 @@
 'use client';
 
-import 'maplibre-gl/dist/maplibre-gl.css';
-
 import { Context, CSSProperties, Dispatch, SetStateAction } from 'react';
 import { LngLatBoundsLike, Map, PaddingOptions, PointLike, ViewState } from '../../../wrappers';
 import Lines from '../Lines/Lines.client';

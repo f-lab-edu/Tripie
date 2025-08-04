@@ -50,10 +50,17 @@ const nextConfig = withPlugins([[withBundleAnalyzer]], {
             value: 'tripie-mauve.vercel.app',
           },
         ],
-        destination: 'https://www.tripie-api.shop/:path*',
+        destination: 'https://media.tripie-api.shop/:path*',
         permanent: true,
       },
     ];
+  },
+  images: {
+    remotePatterns: [new URL('https://media.tripie-api.shop/**'), new URL('https://res.cloudinary.com/**')],
+  },
+
+  turbopack: {
+    resolveExtensions: ['.tsx', '.ts', '.jsx', '.js', '.mjs', '.json'],
   },
 });
 

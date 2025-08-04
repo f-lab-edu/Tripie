@@ -1,6 +1,7 @@
 'use client';
 
 import 'maplibre-gl/dist/maplibre-gl.css';
+
 import { Context, Dispatch, SetStateAction, useContext, useEffect } from 'react';
 import Style from './marker.module.scss';
 

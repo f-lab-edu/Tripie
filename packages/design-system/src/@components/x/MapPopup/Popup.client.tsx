@@ -1,7 +1,5 @@
 'use client';
 
-import 'maplibre-gl/dist/maplibre-gl.css';
-
 import { ReactNode } from 'react';
 import TripieContainer from '../../../@core/layout/TripieContainer';
 import { Popup, PopupEvent, PopupType, classNames } from '../../../wrappers';

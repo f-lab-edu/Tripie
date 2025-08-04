@@ -36,6 +36,12 @@ const preloadImage = (src: string) =>
     img.onerror = reject;
   });
 
+const getSize = (src: string) => {
+  const height = +String(src.match(/h_\d+/g)?.[0]?.replace('h_', ''));
+  const width = +String(src.match(/w_\d+/g)?.[0]?.replace('w_', ''));
+  return { height: Number.isNaN(height) ? 'auto' : height, width: Number.isNaN(width) ? '100%' : width };
+};
+
 const BlurImageOnLoad = ({
   src,
   refs,
@@ -46,11 +52,23 @@ const BlurImageOnLoad = ({
   aspectRatio,
   className,
   alt,
+  fillAvailable = true,
   cloudinaryUrl = CLOUDINARY_URL(),
   ...args
 }: ImageProps) => {
   const [loaded, setLoaded] = useState(false);
   const { ref, inView } = useInView();
+
+  const [dimension, setDimension] = useState<{
+    width: string | number;
+    height: string | number;
+  }>({ width: '100%', height: 'auto' });
+
+  useEffect(() => {
+    if (src != null && !fillAvailable) {
+      setDimension(getSize(src));
+    }
+  }, [src]);
 
   useEffect(() => {
     let isMounted = true;
@@ -78,7 +96,8 @@ const BlurImageOnLoad = ({
     <TripieContainer
       margin="none"
       ref={ref}
-      className={cx('tripie-image', 'img-wrap', sizes, `image-ratio-${aspectRatio}`, className)}
+      style={{ ...dimension }}
+      className={cx('tripie-image', sizes, `image-ratio-${aspectRatio}`, className)}
       {...args}
     >
       <Motion.Img
@@ -86,8 +105,8 @@ const BlurImageOnLoad = ({
         alt=""
         crossOrigin="anonymous"
         referrerPolicy="no-referrer"
-        width={'100%'}
-        height={'auto'}
+        width={dimension.width}
+        height={dimension.height}
         style={{
           position: 'absolute',
           inset: 0,
@@ -97,7 +116,7 @@ const BlurImageOnLoad = ({
           zIndex: 1,
         }}
         transition={{ duration: 0.4, ease: 'easeOut' }}
-        className={cx('tripie-image', 'img-wrap', sizes, `with${withBorder ? '' : '-no'}-border`, className)}
+        className={cx('tripie-image', sizes, `with${withBorder ? '' : '-no'}-border`, className)}
       />
       {!loaded ? null : (
         <Motion.Img
@@ -105,13 +124,13 @@ const BlurImageOnLoad = ({
           loading={loading}
           alt={alt}
           ref={refs}
-          width={'100%'}
-          height={'auto'}
+          width={dimension.width}
+          height={dimension.height}
           crossOrigin="anonymous"
           referrerPolicy="no-referrer"
           animate={{ opacity: loaded ? 1 : 0, zIndex: loaded ? 2 : 0 }}
           transition={{ duration: 0.4, ease: 'easeIn' }}
-          className={cx('tripie-image', 'img-wrap', sizes, withBorder && 'with-border', className)}
+          className={cx('tripie-image', sizes, withBorder && 'with-border', className)}
           style={{
             display: 'block',
             objectFit: 'cover',
@@ -138,10 +157,12 @@ const ImageWithSourceUrl = ({
   aspectRatio = 'standard',
   cloudinaryUrl = CLOUDINARY_URL(),
   preload = true,
+  padding = 'none',
+  display = 'inline-block',
   ...args
 }: ImageWithSourceUrlProps) => {
   return (
-    <TripieContainer margin="none" {...args} className={cx('img-wrap', className)}>
+    <TripieContainer margin="none" {...args} display={display} padding={padding} className={cx(className)}>
       <BlurImageOnLoad
         withBorder={withBorder}
         src={src}
@@ -153,7 +174,7 @@ const ImageWithSourceUrl = ({
         cloudinaryUrl={cloudinaryUrl}
         aspectRatio={aspectRatio}
       />
-      <Text className={cx('source-url', 'img-source')}>{`출처 ${sourceUrl}`}</Text>
+      <Text className={cx('source-url')}>{`출처 ${sourceUrl}`}</Text>
     </TripieContainer>
   );
 };

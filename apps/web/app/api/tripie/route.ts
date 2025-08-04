@@ -1,8 +1,8 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 const ids = { attractions: 'attractionId', restaurant: 'restaurantId', article: 'articleId' };
 
-export async function GET(request: NextResponse) {
+export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const regionId = searchParams.get('regionId');
 

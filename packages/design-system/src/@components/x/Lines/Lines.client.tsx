@@ -1,6 +1,5 @@
 'use client';
 
-import 'maplibre-gl/dist/maplibre-gl.css';
 import { useMemo } from 'react';
 import { Layer, LayerProps, Source } from 'wrappers';
 import { LocationMarker } from '../Map/Map.client';

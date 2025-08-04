@@ -1,149 +1,67 @@
-// // 'use client';
-'use client';
+import API from 'constants/api-routes';
+import Image from 'next/image';
 
-// import API from 'constants/api-routes';
+import { Container } from '@tripie-pyotato/design-system/@core';
 
-// import { Globe } from '@tripie-pyotato/design-system/@components';
+const Playground = async () => {
+  const urls = [
+    // 'https://res.cloudinary.com/dbzzletpw/image/upload/f_auto,q_auto,c_fill,w_256,h_256/fl_keep_iptc/fl_attachment/67557e76-66eb-44b1-bd7a-7b44e006a3c9',
+    'https://media.tripie-api.shop/dbzzletpw/image/upload/q_auto,c_fill,f_auto,h_256,w_256/67557e76-66eb-44b1-bd7a-7b44e006a3c9',
+    'https://media.tripie-api.shop/dbzzletpw/image/upload/q_auto,c_fill,f_auto,h_256,w_256/6f50e645-a145-4b59-8b10-8fa0795c353c',
+    'https://media.tripie-api.shop/dbzzletpw/image/upload/q_auto,c_fill,f_auto,h_256,w_256/4e1c207d-c18c-4bc4-9b1b-580eed5b13b4',
+    'https://media.tripie-api.shop/dbzzletpw/image/upload/q_auto,c_fill,f_auto,h_256,w_256/b76cbacc-4aa1-4c68-ad09-de7cb1c0c3c3',
+    'https://media.tripie-api.shop/dbzzletpw/image/upload/q_auto,c_fill,f_auto,h_256,w_256/1a509128-a476-4f89-aef5-fcf74636555b',
+    // 'https://media.tripie-api.shop/dbzzletpw/image/upload/q_auto,c_fill,f_auto,h_256,w_256/7e64d2ff-8dec-423f-9a9c-81955022a5a2',
+    // 'https://media.tripie-api.shop/dbzzletpw/image/upload/q_auto,c_fill,f_auto,h_256,w_256/cf78a008-234d-484d-8187-b10ed3802897',
+    // 'https://media.tripie-api.shop/dbzzletpw/image/upload/q_auto,c_fill,f_auto,h_256,w_256/303c550e-dd14-444a-8247-5c3f49d5ac30',
+    // 'https://media.tripie-api.shop/dbzzletpw/image/upload/q_auto,c_fill,f_auto,h_256,w_256/5e5b3445-8325-47ed-8da9-dbddb45f9ada',
+    // 'https://media.tripie-api.shop/dbzzletpw/image/upload/q_auto,c_fill,f_auto,h_256,w_256/bac16850-40f0-45c2-bd7a-2e65c0ef2860',
+    ///
+    // 'https://media.tripie-api.shop/dbzzletpw/image/upload/q_auto,c_fill,f_auto,h_256,w_256/3d5a78b2-4e00-465a-9b6b-27ef89cebb10',
+    // 'https://media.tripie-api.shop/dbzzletpw/image/upload/q_auto,c_fill,f_auto,h_256,w_256/d18573e4-abaa-4ab5-8803-b9a12d3e5240',
+    // 'https://media.tripie-api.shop/dbzzletpw/image/upload/q_auto,c_fill,f_auto,h_256,w_256/339baf17-96f4-4dfe-bb5b-dcaf575b9203',
+    // 'https://media.tripie-api.shop/dbzzletpw/image/upload/q_auto,c_fill,f_auto,h_256,w_256/2aa2973c-e79b-4bfd-bb1a-dc82be5171c1',
+    // 'https://media.tripie-api.shop/dbzzletpw/image/upload/q_auto,c_fill,f_auto,h_256,w_256/67557e76-66eb-44b1-bd7a-7b44e006a3c9',
+    // 'https://media.tripie-api.shop/dbzzletpw/image/upload/q_auto,c_fill,f_auto,h_256,w_256/41b0d9ae-99d1-483a-9142-a82f73f5de12',
+    // 'https://media.tripie-api.shop/dbzzletpw/image/upload/q_auto,c_fill,f_auto,h_256,w_256/7ce101b7-1335-4f3a-90ed-a3ab5cfb5cd0',
+    // 'https://media.tripie-api.shop/dbzzletpw/image/upload/q_auto,c_fill,f_auto,h_256,w_256/98d44e22-91bf-4dde-a8ed-ca32dab5ae37',
+    // 'https://media.tripie-api.shop/dbzzletpw/image/upload/q_auto,c_fill,f_auto,h_256,w_256/4343c3e1-7c99-4595-a1fe-2279e8ca873a',
+    // 'https://media.tripie-api.shop/dbzzletpw/image/upload/q_auto,c_fill,f_auto,h_256,w_256/8f9323ff-c4cb-4888-a210-b33662359920',
+  ];
 
-// import db from 'firebase/config';
+  const imageBlurUrls = await Promise.all(
+    urls.map(
+      url =>
+        fetch(`${API.BASE_URL}/api/blur-image?url=${encodeURIComponent(url)}`)
+          .then(res => res.json())
+          .then(data => data.data) // assuming the blur SVG is in `data.data`
+    )
+  );
 
-// import { initAdmin } from 'firebase/firebaseAdmin';
-
-// import db from 'firebase/store';
-
-// import { AnimatedText } from '@tripie-pyotato/design-system/@components';
-// import { Stack } from '@tripie-pyotato/design-system/@core';
-
-// import db from 'firebase/store';
-
-// import { Metadata } from 'next';
-
-// export const generateMetadata = async (): Promise<Metadata> => {
-//   return {
-//     title: 'Metadata Test Page',
-//     description: 'This should appear in the <head>!',
-//   };
-// };
-
-// 'use server';
-
-// export const dynamic = 'force-static';
-
-// const Playground = async () => {
-//   // const snapshot = await db.collection('region-articles2').get();
-
-//   // const docs = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-//   // console.log('doc', docs);
-//   await new Promise(r => setTimeout(r, 10_000));
-
-//   return (
-//     <>
-//       <div>Hello world</div>
-//       playground
-//       {/* <pre>{JSON.stringify(docs[0])}</pre> */}
-//     </>
-//     // <Stack alignItems="center" display="inline-flex">
-//     //   <div>Hello from test page!</div>
-//     //   <AnimatedText.Jump>????</AnimatedText.Jump>
-//     // </Stack>
-//     // <Stack direction="column">
-//     //   <AnimatedText.Jump>jump 1</AnimatedText.Jump>
-//     //   <AnimatedText.Jump>jump 2</AnimatedText.Jump>
-//     //   <AnimatedText.Jump>jump 3</AnimatedText.Jump>
-//     //   <AnimatedText.Jump>jump 4</AnimatedText.Jump>
-//     // </Stack>
-//   );
-// };
-
-// export default Playground;
-
-// 'use server';
-
-// const Playground = () => {
-//   // const res = await fetch(`${API.BASE_URL}/api/hello`, { cache: 'no-store' }); // or ISR if needed
-//   // const data = await res.json();
-
-//   return (
-//     <>
-//       playground
-//       <Globe />
-//       {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
-//     </>
-//   );
-// };
-
-// import { headers } from 'next/headers';
-
-const selected = {
-  continent: 'North America',
-  country: 'Canada',
-  city: {
-    all: [
-      'Alberta',
-      'British Columbia',
-      'Manitoba',
-      'New Brunswick',
-      'Newfoundland and Labrador',
-      'Northwest Territories',
-      'Nova Scotia',
-      'Nunavut',
-      'Ontario',
-      'Prince Edward Island',
-      'Quebec',
-      'Saskatchewan',
-      'Yukon Territory',
-    ],
-    selected: [
-      'Alberta',
-      'British Columbia',
-      'Manitoba',
-      'New Brunswick',
-      'Newfoundland and Labrador',
-      'Northwest Territories',
-      'Nova Scotia',
-      'Nunavut',
-      'Ontario',
-      'Prince Edward Island',
-      'Quebec',
-      'Saskatchewan',
-      'Yukon Territory',
-    ],
-  },
-  duration: '8/20/2025 12:00:00 AM ~ 8/22/2025 11:59:59 PM',
-  companion: 'PARTNER',
-  preference: 'MUST_TOURIST_ATTRACTION,VACATION_VIBES,NATURE_FRIENDLY',
-};
-
-// const handleSubmit = async (id: string) => {
-// const res: TripPlannerSuccessReponse = await api.post('openai', { json: { ...selected, id } }).json();
-
-// console.log(res);
-// const user = await firestoreService.getItem(DB_NAME, id);
-// if (user == null) {
-//   return null;
-// }
-
-// return await firestoreService.getListWithIds('continentl').then(async () => {
-// const res: TripPlannerSuccessReponse = await api.post('openai', { json: { ...chatItems, id } }).json();
-
-// if (res?.data == null) {
-//   return null;
-// }
-
-// return '053qXJ2nIE8163bZpykY';
-// return res?.data?.id;
-// });
-// };
-
-const Playground = () => {
-  // const res = await pureRegionArticles('일본');
-  // const res = await firestoreService.getItem('region-articles2', '00aab92a-b38a-42b5-bad7-db203c89c5ef');
-  // const res = await fetch(`${API.BASE_URL}/api/region-articles?regionId=00aab92a-b38a-42b5-bad7-db203c89c5ef`).then(v =>
-  //   v.json()
-  // );
-  // const user = useSession();
-  // return <LoadingContents context={selected} />;
-  return <>{JSON.stringify(selected)}</>;
+  return (
+    <>
+      <Container display="inline-flex">
+        {urls.map((item, index) => (
+          <Image
+            src={item}
+            key={item}
+            alt={`${item} 이미지`}
+            placeholder="blur"
+            // loading={index >= 2 ? 'lazy' : 'eager'}
+            // priority={index < 2}
+            blurDataURL={imageBlurUrls[index]}
+            width={256}
+            height={256}
+          />
+        ))}
+      </Container>
+      {/* <Container display="inline-flex">
+        {urls.map((item, index) => (
+          <TripieBlurImage src={item.replace('q_auto,', 'e_blur:2000,q_1,')} key={item} index={index} />
+        ))}
+      </Container> */}
+    </>
+  );
 };
 
 export default Playground;

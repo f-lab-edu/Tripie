@@ -1,7 +1,5 @@
 'use client';
 
-import 'maplibre-gl/dist/maplibre-gl.css';
-
 import { Key, ReactNode } from 'react';
 import { COLORS } from 'shared';
 import { MapLibreMarker, classNames } from '../../../wrappers';

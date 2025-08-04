@@ -1,12 +1,12 @@
 'use client';
 
 import Card from '@tripie-pyotato/design-system/@components/Card';
-// import FlickTextButton from '@tripie-pyotato/design-system/@components/FlickTextButton';
+
 import MotionSlideUp from '@tripie-pyotato/design-system/@components/MotionSlideUp';
 import Background from '@tripie-pyotato/design-system/@core/Background';
 import Container from '@tripie-pyotato/design-system/@core/Container';
 import Headings from '@tripie-pyotato/design-system/@core/Headings';
-// import List from '@tripie-pyotato/design-system/@core/List';
+
 import { List } from '@tripie-pyotato/design-system/@core';
 import Stack from '@tripie-pyotato/design-system/@core/Stack';
 import Text from '@tripie-pyotato/design-system/@core/Text';
