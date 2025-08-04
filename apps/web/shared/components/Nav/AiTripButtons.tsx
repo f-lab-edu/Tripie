@@ -11,18 +11,20 @@ import TripieIcon from '../TripieIcon/TripieIcon';
 
 // ai 일정짜기 버튼, 토큰이 없는 경우 /not-enough-tokens로 이동
 const AiTripButton = ({ isOpen }: { isOpen: boolean }) => {
-  const { isEligible, status } = useChatToken();
+  const { isEligible, status, remainingToken } = useChatToken();
   const pathName = usePathname();
 
   const url = useMemo(() => {
-    if (status === 'authenticated' && isEligible) {
+    if (status === 'loading') {
+      return '';
+    } else if (status === 'authenticated' && !Number.isNaN(remainingToken)) {
       return ROUTE.TRIP_PLANNER.href;
     } else if (!isEligible) {
       return `${ROUTE.TRIP_PLANNER.href}/not-enough-tokens`;
     } else {
       return ROUTE.SIGN_IN.href;
     }
-  }, [isEligible, status]);
+  }, [isEligible, status, remainingToken]);
 
   return (
     <Tooltip

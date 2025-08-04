@@ -9,14 +9,6 @@ import TripieIcon from '../TripieIcon/TripieIcon';
 const TokenStatus = () => {
   const { remainingToken, isAdmin, usedGptToken, status } = useChatToken();
 
-  if (status === 'loading' && remainingToken != null) {
-    return (
-      <Text size="tiny" applyMargin="all" margin="sm">
-        <TripieIcon variant="loading" /> <AnimatedText.Jump>토큰 확인중...</AnimatedText.Jump>
-      </Text>
-    );
-  }
-
   if (status === 'unauthenticated') {
     return (
       <Text size="tiny" margin="sm" applyMargin="all">
@@ -32,10 +24,20 @@ const TokenStatus = () => {
     );
   }
 
-  return (
-    <Text size="tiny" margin="sm" applyMargin="all">
-      {remainingToken} 토큰
-    </Text>
-  );
+  if (Number.isInteger(remainingToken)) {
+    return (
+      <Text size="tiny" margin="sm" applyMargin="all">
+        {remainingToken} 토큰
+      </Text>
+    );
+  }
+
+  if (status === 'loading') {
+    return (
+      <Text size="tiny" applyMargin="all" margin="sm">
+        <TripieIcon variant="loading" /> <AnimatedText.Jump>토큰 확인중...</AnimatedText.Jump>
+      </Text>
+    );
+  }
 };
 export default TokenStatus;
