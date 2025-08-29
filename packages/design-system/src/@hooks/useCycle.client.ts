@@ -13,6 +13,7 @@ import { useState } from 'react';
 const useCycle = (...states: any[]) => {
   const [possibleStates] = useState(states);
 
+  // console.log('possibleStates', possibleStates);
   const [current, setCurrent] = useState(possibleStates[0]);
 
   const toggleState = (index?: number) => {

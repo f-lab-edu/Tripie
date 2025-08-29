@@ -1,0 +1,17 @@
+@use '../variables/unit-map' as *;
+@use 'sass:map';
+$size-map: ();
+
+@for $i from 0 through 100 {
+  @each $key, $unit in $unit-map {
+    $map-key: '#{$i}#{$key}';
+    $map-value: #{$i}#{$unit};
+
+    $size-map: map.merge(
+      $size-map,
+      (
+        $map-key: $map-value,
+      )
+    );
+  }
+}

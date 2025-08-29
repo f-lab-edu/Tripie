@@ -3,8 +3,8 @@
 import { classNames } from '../../../../wrappers';
 
 import TripieContainer from '@core/layout/TripieContainer';
-import { Dispatch, SetStateAction, useEffect } from 'react';
 
+import { Dispatch, SetStateAction, useEffect } from 'react';
 import { ToastProps } from '../Toast.client';
 import Style from './toast-background.module.scss';
 
@@ -13,8 +13,10 @@ const cx = classNames.bind(Style);
 const ToastBackGround = ({
   className,
   toggleOpen,
+  // onClose,
   isOpen,
   autoHideDuration = Infinity, // in milliseconds
+  // }: ToastProps
 }: Omit<ToastProps, 'toggleOpen'> & { toggleOpen: Dispatch<SetStateAction<boolean>> }) => {
   // autoHideDuration를 설정하면 해당 시간 경과 후 사라지도록 디폴트로는 닫기 버튼을 누르기 전까지는 사라지지 않는다.
   useEffect(() => {

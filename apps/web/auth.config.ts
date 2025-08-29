@@ -4,6 +4,7 @@ import { User } from 'models/User';
 import type { NextAuthConfig } from 'next-auth';
 import GitHub from 'next-auth/providers/github';
 import Kakao from 'next-auth/providers/kakao';
+import { MEDIA_URL } from 'shared/image';
 
 export default {
   providers: [
@@ -21,11 +22,20 @@ export default {
     async session({ session, token }: User) {
       const { picture, email, name, sub, ...others } = token;
       session.token = others;
-      session.user = { id: sub, name, email, picture };
 
       await fetch(`${API.BASE_URL}/api/token?sub=${sub}`).then(res => res.json());
+      const res = await fetch(`${API.BASE_URL}/api/profile-avatar?picture=${picture}`).then(res => res.json());
 
-      return session;
+      session.user = {
+        id: sub,
+        name,
+        email,
+        picture: MEDIA_URL + 'q_auto,w_32,h_32/' + res?.res,
+      };
+
+      return {
+        ...session,
+      };
     },
   },
 } satisfies NextAuthConfig;

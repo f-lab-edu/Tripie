@@ -1,9 +1,10 @@
 'use client';
-import { Calendar, Toast } from '@tripie-pyotato/design-system/@components';
+
+import { Calendar, ToastWithControl } from '@tripie-pyotato/design-system/@components';
 import { Container, Text } from '@tripie-pyotato/design-system/@core';
 
 import { useCalendar } from '@tripie-pyotato/design-system/@hooks';
-import { COLORS } from '@tripie-pyotato/design-system/shared';
+import { COLORS, LooseValue } from '@tripie-pyotato/design-system/shared';
 import useServerTime from 'hooks/useServerTime';
 import { useCallback, useState } from 'react';
 import NavButton from 'shared/components/NavButton';
@@ -12,7 +13,7 @@ import { localeString2Date } from 'utils/date';
 import { FunnelProps, FunnelSteps } from '../page';
 import Layout from './Layout/Layout';
 
-const MAX_DAYS_IN_MILLI_SEC = 1_209_600_000;
+const MAX_DAYS_IN_MILLI_SEC = 1_295_999_999;
 
 const DurationStep = ({
   context,
@@ -21,7 +22,7 @@ const DurationStep = ({
   progress,
 }: { context: FunnelSteps['DURATION']; onNext: (duration: string) => void } & FunnelProps) => {
   const { serverTime } = useServerTime(context?.duration?.split(' ~ ')[0]);
-  const [openToast, setOpenToast] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const { setSelected, duration, calendar, selected } = useCalendar({
     serverTime,
     isValidTime: context?.duration != null,
@@ -46,10 +47,16 @@ const DurationStep = ({
 
   return (
     <>
-      {openToast ? (
-        <Toast position={'bottom-right'} toastColor={COLORS[800]}>
+      {isOpen ? (
+        <ToastWithControl
+          isOpen={isOpen}
+          position={'bottom-right'}
+          toastColor={COLORS[800]}
+          toggleOpen={setIsOpen}
+          // onToggle={() => setIsOpen()}
+        >
           <Container>기간은 최대 2주로 설정 가능합니다.</Container>
-        </Toast>
+        </ToastWithControl>
       ) : null}
 
       <Layout
@@ -65,18 +72,16 @@ const DurationStep = ({
         listItems={
           <Calendar
             calendar={calendar}
-            // @ts-ignore
-            onChange={value => {
+            onChange={(value: LooseValue) => {
               if (Array.isArray(value) && value.length === 2) {
-                const [start, end] = value;
+                const [start, end] = value.map(date => new Date(date as unknown as number).getTime());
+                const dayCount = Math.abs(end - start);
+                const invalidRange = MAX_DAYS_IN_MILLI_SEC < dayCount;
 
-                if (start != null && end != null) {
-                  const diff_milli_sec: number = Math.abs(+start - +end);
-                  console.log(diff_milli_sec);
-                  if (diff_milli_sec > MAX_DAYS_IN_MILLI_SEC) {
-                    setOpenToast(true);
-                    return;
-                  }
+                if (invalidRange) {
+                  console.log(`${invalidRange ? 'In' : 'Is '}valid range`, value, dayCount);
+                  setIsOpen(true);
+                  return;
                 }
               }
               setSelected((Array.isArray(value) ? value : [value]) as Date[]);

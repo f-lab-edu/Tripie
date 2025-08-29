@@ -34,14 +34,15 @@ const CalendarBody = ({
   activeStartDate,
   showNavigation,
   showNeighboringMonth,
+  tileContent,
 }: CustomCalendarProps) => {
   const selectedRange = useCallback(
     ({ date }: { date: Date }) => {
       // range 선택
-
       if (Array.isArray(value)) {
         if (value.length === 2) {
           const [start, end] = value;
+
           if (start != null && end != null) {
             const isSingleDayTrip = differenceInCalendarDays(start, end) === 0;
             const selectedStartDate = differenceInCalendarDays(date, start) === 0;
@@ -127,6 +128,7 @@ const CalendarBody = ({
         showNavigation={showNavigation}
         // tileClassName={({ date }) => addSelectedTileClassName({ date, value: selectedRange })}
         tileClassName={({ date }) => selectedRange({ date })}
+        tileContent={tileContent}
       />
     </TripieContainer>
   );

@@ -14,6 +14,8 @@
 @use '../../../variables/align-text-values' as *;
 @use '../../../variables/gap-space-map' as *;
 @use '../../../variables/space-map' as *;
+@use '../../../variables/size-map' as *;
+@use '../../../mixins/size' as *;
 
 $container-display-map: (inline-flex, grid, inline-block);
 
@@ -83,5 +85,22 @@ $container-display-map: (inline-flex, grid, inline-block);
     @if ($key==absolute) {
       inset: 0;
     }
+  }
+}
+
+$apply-map: ('w', 'h', 'maxw', 'maxh', 'minh', 'minw');
+
+@each $apply-key in $apply-map {
+  @each $size-key, $size-val in $size-map {
+    .#{$apply-key}-#{$size-key}-ctn {
+      @include size($apply-key, $size-key);
+    }
+  }
+}
+
+$over-flow-map: ('auto', 'hidden', 'scroll', 'visible');
+@each $key in $over-flow-map {
+  .over-fl-#{key} {
+    overflow: $key;
   }
 }

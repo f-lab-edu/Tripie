@@ -11,22 +11,21 @@ export const VARIANTS = {
       y: '-3.85rem',
       transition: {
         bounce: 0,
+        z: 200,
       },
     },
   },
   TEXT: (fontSize = 1) => ({
     rest: {
       opacity: 1,
-      y: `${fontSize + 0.125}rem`,
-      // y: '150%',
-      // y: `${fontSize / 2 + fontSize * 0.125}rem`,
-      // y: `${fontSize / 2}rem`,
+      // y: `${fontSize + 0.125}rem`,
+      y: '100%',
     },
     hover: {
       opacity: 1,
-      y: `-${fontSize + 0.125}rem`,
-      // y: '-150%',
-      // y: `-${fontSize / 2}rem`,
+      // y: `-${fontSize + 0.125}rem`,
+      // y: `-${fontSize + 0.125}rem`,
+      y: `-100%`,
       transition: {
         bounce: 0,
       },

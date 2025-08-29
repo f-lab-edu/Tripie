@@ -49,6 +49,7 @@ export const esbuildUseClient = ({ filter = /\/.client\.tsx?$/ }: ESBuildUseClie
 const defaultConfig: Partial<Options> = {
   minify: true,
   // splitting: true,
+  sourcemap: true,
   splitting: false, // ✅ Disable this
   external: [...Object.keys(dependencies || {}), ...Object.keys(peerDependencies || {})],
   format: ['cjs', 'esm'],
@@ -61,7 +62,7 @@ const defaultConfig: Partial<Options> = {
       filter: /\.module\.scss$/,
       type: 'css', // type: 'style',
       transform: postcssModules({
-        // generateScopedName: '[local]__[hash:base64:5]',
+        generateScopedName: '[local]__[hash:base64:5]',
         basedir: './dist',
       }),
     }),

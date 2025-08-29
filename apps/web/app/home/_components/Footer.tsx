@@ -3,12 +3,9 @@
 import { TextUnderLineAnimation } from '@tripie-pyotato/design-system/@components/data-display';
 import Divider from '@tripie-pyotato/design-system/@components/Divider';
 import { List } from '@tripie-pyotato/design-system/@core';
-// import TextUnderLineAnimation from '@tripie-pyotato/design-system/@components/TextUnderlineAnimation';
 import Container from '@tripie-pyotato/design-system/@core/Container';
 import Headings from '@tripie-pyotato/design-system/@core/Headings';
-// import {List} from '@tripie-pyotato/design-system/@core/List';
 import Text from '@tripie-pyotato/design-system/@core/Text';
-
 import { LANDING_SECTION } from 'constants/routes';
 import { useRouter } from 'next/navigation';
 

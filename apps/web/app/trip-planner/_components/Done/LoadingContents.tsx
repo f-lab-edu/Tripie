@@ -1,11 +1,5 @@
 'use client';
-import {
-  AnimatedContainer,
-  AnimatedText,
-  BlurImageOnLoad,
-  Card,
-  MotionSlideUp,
-} from '@tripie-pyotato/design-system/@components';
+import { AnimatedContainer, AnimatedText, Card, MotionSlideUp } from '@tripie-pyotato/design-system/@components';
 import { Background, Container, Stack, Text } from '@tripie-pyotato/design-system/@core';
 import { classNames } from '../../.../../../../wrapper/classNames';
 
@@ -14,12 +8,13 @@ import { TripPlanner } from 'models/Aws';
 import { useSession } from 'next-auth/react';
 import TripieIcon from 'shared/components/TripieIcon/TripieIcon';
 import Clouds from '../../../../shared/components/Clouds';
+import Avatar from './Avatar';
 import Style from './trip-planner.module.scss';
 
 const cx = classNames.bind(Style);
 
 export default function LoadingContents({ context }: Readonly<{ context: TripPlanner }>) {
-  const { data, status } = useSession();
+  const { data } = useSession();
 
   const {
     preference,
@@ -85,15 +80,7 @@ export default function LoadingContents({ context }: Readonly<{ context: TripPla
                       justifyContent="start"
                       alignItems="start"
                     >
-                      <BlurImageOnLoad
-                        fillAvailable={false}
-                        src={
-                          'https://res.cloudinary.com/dbzzletpw/image/upload/f_auto,q_auto:good,w_32,h_32,dpr_auto/v1744014743/tripie-image_anglvk'
-                        }
-                        alt={'tripie-icon'}
-                        sizes={'avatar'}
-                        aspectRatio="square"
-                      />
+                      <Avatar />
                       <Card applyMargin={'left'} sizes={'large'}>
                         <AnimatedText.Type delay={delays[index]}>{text.prompt}</AnimatedText.Type>
                       </Card>
@@ -112,17 +99,7 @@ export default function LoadingContents({ context }: Readonly<{ context: TripPla
                         <Card applyMargin={'right'}>
                           <AnimatedText.Type delay={delays[index]}>{text.answer}</AnimatedText.Type>
                         </Card>
-                        <BlurImageOnLoad
-                          fillAvailable={false}
-                          src={
-                            status === 'loading'
-                              ? 'https://res.cloudinary.com/dbzzletpw/image/upload/f_auto,q_auto:good,w_32,h_32,dpr_auto/v1744014743/tripie-image_anglvk'
-                              : data?.user?.picture
-                          }
-                          alt={'유저 이미지'}
-                          sizes={'avatar'}
-                          aspectRatio="square"
-                        />
+                        <Avatar src={data?.user?.picture} />
                       </Container>
                     </Stack>
                   </Container>

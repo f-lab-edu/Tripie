@@ -5,6 +5,9 @@ import { ReactNode } from 'react';
 import { classNames } from 'wrapper/classNames';
 
 import { FlickTextButton } from '@tripie-pyotato/design-system/@components';
+import ROUTE from 'constants/routes';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 import Style from './layout.module.scss';
 
 const cx = classNames.bind(Style);
@@ -32,6 +35,11 @@ const Layout = ({
   children?: ReactNode;
   progress?: ReactNode;
 }) => {
+  const { status } = useSession();
+  const navigate = useRouter();
+  if (status === 'unauthenticated') {
+    navigate.replace(ROUTE.SIGN_IN.href);
+  }
   return (
     <Stack
       className={cx('total-wrap')}

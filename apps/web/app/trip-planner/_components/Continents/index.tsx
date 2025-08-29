@@ -1,4 +1,3 @@
-// import { Container } from '@tripie-pyotato/design-system/@core';
 import { CONTINENTS } from 'constants/continents';
 
 import { ContinentKeys } from 'models/Continent';
@@ -11,12 +10,8 @@ import { FunnelProps, FunnelSteps } from 'app/trip-planner/page';
 import { Container } from '@tripie-pyotato/design-system/@core';
 import TripieGlobe from 'shared/components/TripieGlobe';
 import TripieIcon from 'shared/components/TripieIcon/TripieIcon';
-import { classNames } from 'wrapper/classNames';
 import Layout from '../Layout/Layout';
-import Style from './continent.module.scss';
 import { ContinentList } from './ContinentLIst';
-
-const cx = classNames.bind(Style);
 
 // const TripieGlobe = dynamic(() => import('../../../../shared/components/TripieGlobe').then(mod => mod.default), {
 //   ssr: false,
@@ -65,7 +60,18 @@ export default function ContinentStep({
         applyMargin="bottom"
         padding="none"
         ref={ref}
-        className={cx('globe-space')}
+        dimension={[
+          {
+            apply: 'w',
+            size: 300,
+            unit: 'pixel',
+          },
+          {
+            apply: 'h',
+            size: 250,
+            unit: 'pixel',
+          },
+        ]}
         display="inline-flex"
         alignItems="center"
         justifyContent="center"

@@ -2,7 +2,7 @@
 
 import AboutUs from 'app/home/_components/AboutUs';
 import Contacts from 'app/home/_components/contacts';
-import Faq from 'app/home/_components/Faqs/Faq';
+import Faq from 'app/home/_components/Faqs';
 import Footer from 'app/home/_components/Footer';
 import Header from 'app/home/_components/Header';
 import OurProcess from 'app/home/_components/OurProcess';

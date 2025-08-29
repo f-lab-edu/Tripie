@@ -5,16 +5,29 @@
   display: none !important;
 }
 
+// :global(.in-selected-range) {
+//   background: $theme-100000 !important;
+//   & > abbr {
+//     color: white !important;
+//     border: 1px solid $theme-100;
+//     background-color: $theme-100 !important;
+//     border-radius: 100%;
+//     width: 2.4rem;
+//     height: 2.4rem;
+//     padding: 0.3rem 0.55rem !important;
+//   }
+// }
+
 :global(.in-selected-range) {
-  background: $theme-100000 !important;
+  background: $theme-100000;
   & > abbr {
-    color: white !important;
+    color: white;
     border: 1px solid $theme-100;
-    background-color: $theme-100 !important;
+    background-color: $theme-100;
     border-radius: 100%;
     width: 2.4rem;
     height: 2.4rem;
-    padding: 0.3rem 0.55rem !important;
+    padding: 0.3rem 0.55rem;
   }
 }
 

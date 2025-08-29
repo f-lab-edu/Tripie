@@ -4,7 +4,10 @@
   "description": "트리피에 사용되는 디자인 시스템",
   "main": "index.js",
   "type": "module",
-  "sideEffects": false,
+  "sideEffects": [
+    "*.css",
+    "**/*.css"
+  ],
   "scripts": {
     "build": "NODE_OPTIONS='--max-old-space-size=12288' tsup",
     "metafile": "tsup --format cjs,esm",
@@ -383,6 +386,16 @@
       "import": {
         "types": "./dist/@components/feedback/Toast/index.d.ts",
         "default": "./dist/@components/feedback/Toast/Toast.js"
+      }
+    },
+    "./@components/ToastWithControl": {
+      "require": {
+        "types": "./dist/@components/feedback/ToastWithControl/index.d.cts",
+        "default": "./dist/@components/feedback/ToastWithControl/Toast.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/feedback/ToastWithControl/index.d.ts",
+        "default": "./dist/@components/feedback/ToastWithControl/Toast.js"
       }
     },
     "./@components/Switch": {

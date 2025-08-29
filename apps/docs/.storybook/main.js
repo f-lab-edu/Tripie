@@ -5,6 +5,7 @@ function getAbsolutePath(value) {
 
 const config = {
   stories: [
+    '../stories/_new/*.stories.tsx',
     '../stories/*.stories.tsx',
     '../stories/**/*.stories.tsx',
     '../stories/@core/*.stories.tsx',

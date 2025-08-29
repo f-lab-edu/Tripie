@@ -4,6 +4,7 @@ import { classNames, Motion } from '../../../wrappers';
 import Style from './rotating-blur.module.scss';
 
 const cx = classNames.bind(Style);
+const segments = Array.from({ length: 3 }, (_, i) => `segment-${i + 1}`);
 
 const RotatingBlur = ({ className }: { className?: string }) => {
   return (
@@ -19,9 +20,9 @@ const RotatingBlur = ({ className }: { className?: string }) => {
       }}
       style={{ x: '-50%' }}
     >
-      <Motion.Div className={cx('segment', 'segment-1')}></Motion.Div>
-      <Motion.Div className={cx('segment', 'segment-2')}></Motion.Div>
-      <Motion.Div className={cx('segment', 'segment-3')}></Motion.Div>
+      {segments.map(segment => (
+        <Motion.Div className={cx('segment', segment)} key={segment} />
+      ))}
     </Motion.Div>
   );
 };

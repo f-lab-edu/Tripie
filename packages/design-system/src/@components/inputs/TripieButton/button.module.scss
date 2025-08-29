@@ -5,14 +5,14 @@
 @use '../../../mixins/theme-color' as *;
 @use '../../../functions/typography' as *;
 
+.button {
+  cursor: pointer;
+  border: none;
+}
 .with-border {
   @include with-border;
   border-radius: 10px;
   color: inherit;
-}
-
-.button {
-  cursor: pointer;
 }
 
 .disabled:disabled {

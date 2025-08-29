@@ -34,7 +34,6 @@ const SemiTransparentLoader = ({ loading }: { loading: boolean }) => {
 };
 
 Loading.Controlled = ControlledLoader;
-
 Loading.SemiTransparent = SemiTransparentLoader;
 
 export default Loading;

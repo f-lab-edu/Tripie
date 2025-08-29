@@ -13,8 +13,36 @@ const withBundleAnalyzer = createBundleAnalyzer({
   openAnalyzer: true,
 });
 
+const withPurgeCss = [
+  'postcss-flexbugs-fixes',
+  [
+    'postcss-preset-env',
+    {
+      autoprefixer: {
+        flexbox: 'no-2009',
+      },
+      stage: 3,
+      features: {
+        'custom-properties': false,
+      },
+    },
+  ],
+  [
+    '@fullhuman/postcss-purgecss',
+    {
+      content: [
+        './components/**/*.{js,jsx,ts,tsx}',
+        './shared/**/*.{js,ts,jsx,tsx}',
+        './app/**/*.{js,ts,jsx,tsx,mdx}', // if you're using the App Router
+      ],
+      defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
+      safelist: ['html', 'body'],
+    },
+  ],
+];
+
 // Add other plugins here in the array if needed
-const nextConfig = withPlugins([[withBundleAnalyzer]], {
+const nextConfig = withPlugins([[withBundleAnalyzer, withPurgeCss]], {
   /**
    * https://nextjs.org/docs/app/building-your-application/styling/sass#customizing-sass-options
    */
@@ -32,6 +60,7 @@ const nextConfig = withPlugins([[withBundleAnalyzer]], {
     '/api/gpt': ['node_modules/.prisma/client/**', 'node_modules/@prisma/engines/**'],
   },
 
+  // compress: false,
   async rewrites() {
     return [
       {
@@ -56,7 +85,11 @@ const nextConfig = withPlugins([[withBundleAnalyzer]], {
     ];
   },
   images: {
-    remotePatterns: [new URL('https://media.tripie-api.shop/**'), new URL('https://res.cloudinary.com/**')],
+    remotePatterns: [
+      new URL('https://media.tripie-api.shop/dbzzletpw/**'),
+      new URL('https://res.cloudinary.com/dbzzletpw/**'),
+    ],
+    // minimumCacheTTL: 60 * 60 * 24 * 365, // 1 year in seconds
   },
 
   turbopack: {

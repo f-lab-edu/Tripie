@@ -1,0 +1,28 @@
+@use 'sass:map';
+@use 'sass:meta';
+@use 'sass:math';
+@use '../base/' as *;
+
+/// 주어진 space 값에 해당되는 간격을 픽셀로 리턴
+/// @param {string} $space : 필요한 간격
+/// @param {map} $map : 필요한 간격을 찾을 map
+/// @return {number} : $map에서 필요한 간격을 px 단위로 리턴
+@function size($space: default, $map: $config-space) {
+  @if map.has-key($map, $space) {
+    @return map.get($map, $space);
+  }
+
+  @if meta.type-of($space) == number {
+    @if $space == 0 {
+      @return 0;
+    }
+
+    @if math.is-unitless($space) {
+      @return $space * 1px;
+    } @else {
+      @return $space;
+    }
+  } @else {
+    @error "Spacing variant `#{$space}` not found. Available variants: #{$map}";
+  }
+}

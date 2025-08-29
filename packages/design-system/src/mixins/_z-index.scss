@@ -1,4 +1,4 @@
-@use "../functions/" as *;
+@use '../functions/z-index' as *;
 
 /// z-index 설정 믹스인
 /// @param {string} $layer : `$z-indexes` 맵의 값

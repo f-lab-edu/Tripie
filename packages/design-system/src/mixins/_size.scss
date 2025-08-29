@@ -1,0 +1,25 @@
+@use 'sass:map';
+@use '../variables/size-map' as *;
+
+@mixin size($apply: 'w', $size) {
+  $lookup-key: '#{$size}';
+  $value: map.get($size-map, $lookup-key);
+
+  @if $value == null {
+    @error "Invalid size: #{$size},lookup-key: #{lookup-key}";
+  }
+
+  @if $apply == 'w' {
+    width: $value;
+  } @else if $apply == 'h' {
+    height: $value;
+  } @else if $apply == 'minh' {
+    min-height: $value;
+  } @else if $apply == 'minw' {
+    min-width: $value;
+  } @else if $apply == 'maxh' {
+    max-height: $value;
+  } @else if $apply == 'maxw' {
+    max-width: $value;
+  }
+}

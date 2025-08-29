@@ -40,7 +40,7 @@ $drawer-position-map: (left, top, right, bottom);
 $percentage-map: ();
 
 @for $i from 1 through 100 {
-  $percentage-map: map-merge(
+  $percentage-map: map.merge(
     $percentage-map,
     (
       $i: $i + px,

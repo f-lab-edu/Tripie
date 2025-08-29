@@ -19,9 +19,7 @@
     "***/**/*.tsx",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/api/auth/[...nextauth]",
-    "../../packages/design-system/tsup.config.ts",
-    "../../packages/utils/src/random.ts"
+    "app/api/auth/[...nextauth]"
   ],
   "exclude": ["node_modules", "dist", ".next", "out", "*.mjs", "*.cjs"]
 }

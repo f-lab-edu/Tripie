@@ -14,6 +14,7 @@ const ToastWithPromise = ({
   full = false,
   position = 'bottom-right',
   children,
+  toggleOpen,
   className,
   visualDuration = 0.5,
   promise,
@@ -34,7 +35,18 @@ const ToastWithPromise = ({
 
   if (!visible) return null;
   return (
-    <Toast visualDuration={visualDuration} full={full} position={position} className={className}>
+    <Toast
+      visualDuration={visualDuration}
+      // onClose={(_, reason) => {
+      //   if (reason == 'clickaway') {
+      //     setVisible(prev => !prev);
+      //   }
+      // }}
+      toggleOpen={toggleOpen}
+      full={full}
+      position={position}
+      className={className}
+    >
       {children}
     </Toast>
   );

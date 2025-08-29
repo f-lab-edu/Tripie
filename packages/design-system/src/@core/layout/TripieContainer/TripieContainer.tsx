@@ -2,6 +2,12 @@ import { ComponentProps, ReactNode, RefObject } from 'react';
 import { classNames } from '../../../wrappers';
 import Style from './tripie-container.module.scss';
 
+export type Dimension = {
+  apply: 'w' | 'h' | 'maxw' | 'maxh' | 'minh' | 'minw';
+  size: number;
+  unit: 'rem' | 'em' | 'pixel' | 'percent' | 'vw' | 'vh';
+};
+
 export type TripieContainerProps = {
   margin?: 'xl' | 'l' | 'm' | 'sm' | 'xsm' | 'none';
   padding?: 'xl' | 'l' | 'm' | 'sm' | 'xsm' | 'none';
@@ -29,7 +35,7 @@ export type TripieContainerProps = {
     | 'right'
     | 'top'
     | 'bottom';
-
+  dimension?: Dimension[];
   alignItems?: 'none' | 'normal' | 'center' | 'start' | 'stretch' | 'end' | 'flex-start' | 'flex-end';
   children?: ReactNode;
   refs?: RefObject<HTMLDivElement>;
@@ -65,8 +71,8 @@ export type TripieContainerProps = {
     | 'notification'
     | 'tooltip'
     | 'above-all';
-  // wrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
   fillAvailable?: boolean;
+  overFlow?: '';
 } & Omit<ComponentProps<'div'>, 'children'>;
 
 const cx = classNames.bind(Style);
@@ -88,6 +94,8 @@ const TripieContainer = ({
   zIndex = 'base',
   display = 'inline-block',
   fillAvailable = true,
+  overFlow = '',
+  dimension,
   ...props
 }: TripieContainerProps) => {
   return (
@@ -106,6 +114,7 @@ const TripieContainer = ({
         `gap-${gap}`,
         preserveWhiteSpace ? 'preserve-white-space' : '',
         `z-index-${zIndex}`,
+        ...(dimension?.map(item => `${item.apply}-${item.size}${item.unit}-ctn`) ?? []),
         className
       )}
       {...props}

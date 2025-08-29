@@ -7,17 +7,12 @@ import RegionList from './RegionList';
 import Subscription from './Subscription';
 
 import { Container } from '@tripie-pyotato/design-system/@core';
-// import dynamic from 'next/dynamic';
+
 import TripieGlobe from 'shared/components/TripieGlobe';
-// import TripieIcon from 'shared/components/TripieIcon/TripieIcon';
+
 import Style from './service-list.module.scss';
 
 const cx = classNames.bind(Style);
-
-// const TripieGlobe = dynamic(() => import('../../../../shared/components/TripieGlobe').then(mod => mod.default), {
-//   ssr: false,
-//   loading: () => <TripieIcon variant="loading" />,
-// });
 
 function GlobeCard() {
   const { ref, inView } = useInView({ threshold: 0 });

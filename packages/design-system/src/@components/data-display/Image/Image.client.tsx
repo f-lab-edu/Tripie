@@ -90,23 +90,43 @@ const BlurImageOnLoad = ({
     return () => {
       isMounted = false;
     };
-  }, [src, inView]);
+  }, [src, inView, preload]);
+
+  // const qAutoSrc = useMemo(() => {
+  //   if (cloudinaryUrl == null || src == null) {
+  //     return src;
+  //   }
+
+  //   const qualities = src.match(/upload\/([^\/]+)\//g)?.[1];
+
+  //   if (qualities != null) {
+  //     const qs = qualities.split(',');
+  //     const qBlurRemoved = [...qs].reduce((acc, curr, index) => {
+  //       const eBlur = curr.match(/e_blur:\d/g)?.[0];
+  //       const qLow = curr.match(/q_\d/g)?.[0];
+  //       if (index == 0) {
+  //         return (acc += curr);
+  //       }
+  //       if (eBlur == null || qLow == null) {
+  //         return (acc += `,${curr}`);
+  //       }
+  //       return (acc += `,${eBlur != null ? '' : 'q_auto'}`);
+  //     }, '');
+  //     return qBlurRemoved;
+  //   }
+  // }, [src, cloudinaryUrl]);
 
   return (
     <TripieContainer
       margin="none"
       ref={ref}
+      display="inline-block"
       style={{ ...dimension }}
       className={cx('tripie-image', sizes, `image-ratio-${aspectRatio}`, className)}
       {...args}
     >
-      <Motion.Img
+      <Motion.Picture
         ref={refs}
-        alt=""
-        crossOrigin="anonymous"
-        referrerPolicy="no-referrer"
-        width={dimension.width}
-        height={dimension.height}
         style={{
           position: 'absolute',
           inset: 0,
@@ -114,29 +134,31 @@ const BlurImageOnLoad = ({
           backgroundSize: 'cover',
           opacity: 1,
           zIndex: 1,
+          ...dimension,
         }}
         transition={{ duration: 0.4, ease: 'easeOut' }}
         className={cx('tripie-image', sizes, `with${withBorder ? '' : '-no'}-border`, className)}
-      />
-      {!loaded ? null : (
-        <Motion.Img
-          src={src?.replace('e_blur:2000,q_1,', 'q_auto,')}
-          loading={loading}
-          alt={alt}
-          ref={refs}
-          width={dimension.width}
-          height={dimension.height}
-          crossOrigin="anonymous"
-          referrerPolicy="no-referrer"
-          animate={{ opacity: loaded ? 1 : 0, zIndex: loaded ? 2 : 0 }}
-          transition={{ duration: 0.4, ease: 'easeIn' }}
-          className={cx('tripie-image', sizes, withBorder && 'with-border', className)}
-          style={{
-            display: 'block',
-            objectFit: 'cover',
-          }}
-        />
-      )}
+      >
+        {!loaded ? null : (
+          <Motion.Img
+            src={src?.replace('e_blur:2000,', '')?.replace('q_1', 'q_auto')}
+            loading={inView ? 'eager' : loading}
+            alt={alt}
+            ref={refs}
+            width={dimension.width}
+            height={dimension.height}
+            crossOrigin="anonymous"
+            referrerPolicy="no-referrer"
+            animate={{ opacity: loaded ? 1 : 0, zIndex: loaded ? 2 : 0 }}
+            transition={{ duration: 0.4, ease: 'easeIn' }}
+            className={cx('tripie-image', sizes, withBorder && 'with-border', className)}
+            style={{
+              display: 'block',
+              objectFit: 'cover',
+            }}
+          />
+        )}
+      </Motion.Picture>
     </TripieContainer>
   );
 };

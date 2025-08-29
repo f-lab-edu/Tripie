@@ -9,11 +9,7 @@ import { useCalendar } from '@tripie-pyotato/design-system/@hooks';
 import useServerTime from 'hooks/useServerTime';
 import { useMemo } from 'react';
 import TripieIcon from 'shared/components/TripieIcon/TripieIcon';
-import { classNames } from '../../../../../../wrapper/classNames';
-import NextButton from '../shared/NextAnimatedButton';
-import Style from './duration.module.scss';
-
-const cx = classNames.bind(Style);
+import NextButton from './shared/NextAnimatedButton';
 
 const DurationSelect = () => {
   const { today, serverTime, isValidTime } = useServerTime();
@@ -36,7 +32,10 @@ const DurationSelect = () => {
     return (
       <Container
         display="inline-flex"
-        className={cx('loading-wrap')}
+        dimension={[
+          { apply: 'h', size: 34, unit: 'rem' },
+          { apply: 'w', size: 100, unit: 'percent' },
+        ]}
         margin="none"
         alignItems="center"
         gap="sm"

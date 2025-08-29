@@ -26,8 +26,20 @@ const TripResultExample = () => {
   });
 
   return (
-    <Stack margin="none" className={cx('tab-wrap')} gap="l" flexWrapOn={'wrap-md'}>
-      <Container margin="none" padding="none" withBorder={true} className={cx('chat-tab-wrap')}>
+    <Stack
+      margin="none"
+      dimension={[{ apply: 'h', size: 48, unit: 'vh' }]}
+      className={cx('tab-wrap')}
+      gap="l"
+      flexWrapOn={'wrap-md'}
+    >
+      <Container
+        margin="none"
+        padding="none"
+        withBorder={true}
+        className={cx('chat-tab-wrap')}
+        dimension={[{ apply: 'h', size: 48, unit: 'vh' }]}
+      >
         <Stack direction="column" gap="l" margin="none" alignItems="start" padding="m">
           <Text size={'h2'} bold={true}>
             {AI_PLAN.plans.name}

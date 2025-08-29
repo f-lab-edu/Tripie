@@ -1,4 +1,5 @@
 @use '../../../variables/tripie-theme' as *;
+@use '../../../mixins/z-index' as *;
 
 .calendar-wrap {
   height: 100%;
@@ -30,6 +31,7 @@
   & > abbr {
     color: $theme-300 !important;
     border: none !important;
+    @include z-index(default);
     background-color: $theme-100000 !important;
   }
 }
@@ -43,6 +45,7 @@
   & > abbr {
     display: inline-flex !important;
     align-items: center;
+    @include z-index(default);
     justify-content: center;
   }
 }
@@ -55,6 +58,7 @@
     border: 1px solid $theme-50;
     border-radius: 100%;
     width: 2.4rem;
+    @include z-index(default);
     height: 2.4rem;
     padding: 0.3rem 0.55rem !important;
   }
@@ -67,68 +71,41 @@
       border: 1px solid $theme-50;
       border-radius: 100%;
       width: 2.4rem;
+      @include z-index(default);
       height: 2.4rem;
       padding: 0.3rem 0.55rem !important;
     }
-  }
-}
-
-/** 시작 선택 */
-:global(.selected-start),
-:global(.selected-end) {
-  & > abbr {
-    color: white !important;
-    border: 1px solid $theme-100;
-    background-color: $theme-100;
-    border-radius: 100%;
-    width: 2.4rem;
-    height: 2.4rem;
-    padding: 0.3rem 0.55rem !important;
-  }
-  &:global(.react-calendar__tile--now) {
-    & > abbr {
-      color: $theme-50 !important;
-      border: 1px solid $theme-50;
-      background-color: $theme-100 !important;
-      border-radius: 100%;
-      width: 2.4rem;
-      height: 2.4rem;
-      padding: 0.3rem 0.55rem !important;
-    }
-  }
-}
-
-:global(.react-calendar__tile:enabled:hover),
-:global(.react-calendar__tile:enabled:focus),
-:global(.react-calendar__tile--hover) {
-  background-color: $theme-100000 !important;
-  & > abbr {
-    color: $theme-100 !important;
-    border: 1px solid $theme-50;
-    background-color: $theme-50 !important;
-    border-radius: 100%;
-    width: 2.4rem;
-    height: 2.4rem;
-    padding: 0.3rem 0.55rem !important;
   }
 }
 
 :global(.react-calendar__tile--active) {
-  background-color: $theme-100000 !important;
-  & > abbr {
-    color: $theme-100;
-    border: 1px solid $theme-100;
-    background-color: $theme-50;
-    border-radius: 100%;
-    width: 2.4rem;
-    height: 2.4rem;
-    padding: 0.3rem 0.55rem !important;
-  }
+  background: none !important;
 }
 
-:global(.react-calendar__tile--hasActive) {
-  background-color: $theme-100000 !important;
-  & > abbr {
-    border: 1px solid white;
-  }
-}
+// :global(.selected-start) {
+//   background-color: pink !important;
+//   border-top-left-radius: 30px !important;
+//   border-bottom-left-radius: 30px !important;
+// }
+
+// :global(.selected-end) {
+//   background-color: pink !important;
+//   border-top-right-radius: 30px !important;
+//   border-bottom-right-radius: 30px !important;
+// }
+
+// :global(.react-calendar__tile--active.more-than-one-day-trip.in-selected-range) {
+//   background-color: pink !important;
+// }
+// :global(.react-calendar__tile:enabled:hover) {
+//   background: none !important;
+//   & > abbr {
+//     color: pink;
+//     border: 1px solid pink;
+//     border-radius: 100%;
+//     background: none;
+//     width: 2.4rem;
+//     height: 2.4rem;
+//     padding: 0.3rem 0.55rem !important;
+//   }
+// }

@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/next';
 import type { Metadata } from 'next';
 
 import { ReactNode, Suspense } from 'react';
@@ -24,6 +25,9 @@ export default async function RootLayout({
   return (
     <html lang="ko">
       <Head>
+        {/* http://localhost:3000/_next/static/chunks/_d41a2fc5._.css */}
+        {/* <link rel="preload" href="/_next/static/chunks/_d41a2fc5.css" as="style" /> */}
+        {/* <link rel="preload" href="/_next/static/chunks/_9befec6e.css" as="style" /> */}
         {/* https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/?utm_source=lighthouse&utm_medium=devtools */}
         <link rel="preconnect" href="https://maps.geo.ap-northeast-1.amazonaws.com" />
         <link rel="dns-prefetch" href="https://maps.geo.ap-northeast-1.amazonaws.com" />.
@@ -36,6 +40,7 @@ export default async function RootLayout({
           <Provider>
             <Nav />
             {children}
+            <Analytics />
           </Provider>
         </Suspense>
       </body>

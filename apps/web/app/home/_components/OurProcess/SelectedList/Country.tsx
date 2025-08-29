@@ -2,8 +2,6 @@
 import { Button } from '@tripie-pyotato/design-system/@components/Button';
 import Stack from '@tripie-pyotato/design-system/@core/Stack';
 
-import { classNames } from '../../../../../wrapper/classNames';
-
 import NextButton from 'app/home/_components/OurProcess/SelectedList/shared/NextAnimatedButton';
 import useCountries from 'hooks/query/useCountries';
 import { Country } from 'models/Country';
@@ -14,9 +12,6 @@ import { SELECTED_CONTINENT_NAME, SELECTED_COUNTRY } from './constants/selected'
 import { AnimatedText } from '@tripie-pyotato/design-system/@components';
 import { Container } from '@tripie-pyotato/design-system/@core';
 import TripieIcon from 'shared/components/TripieIcon/TripieIcon';
-import Style from './country.module.scss';
-
-const cx = classNames.bind(Style);
 
 const CountrySelect = () => {
   const { data, isLoading } = useCountries(SELECTED_CONTINENT_NAME.id);
@@ -36,7 +31,12 @@ const CountrySelect = () => {
   if (isLoading || selected?.code == null) {
     return (
       <>
-        <Container alignItems="center" display="inline-flex" justifyContent="center" className={cx('country')}>
+        <Container
+          alignItems="center"
+          display="inline-flex"
+          justifyContent="center"
+          dimension={[{ apply: 'h', size: 5, unit: 'rem' }]}
+        >
           <AnimatedText.Jump>loading...</AnimatedText.Jump>
         </Container>
         <NextButton>

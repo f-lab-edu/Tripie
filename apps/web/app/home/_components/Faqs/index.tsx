@@ -1,3 +1,12 @@
+'use client';
+
+import MotionSlideUp from '@tripie-pyotato/design-system/@components/MotionSlideUp';
+import Background from '@tripie-pyotato/design-system/@core/Background';
+import Container from '@tripie-pyotato/design-system/@core/Container';
+import Headings from '@tripie-pyotato/design-system/@core/Headings';
+
+import FaqItem from './Faq';
+
 const FAQS = [
   {
     tag: '트리피는 어떤 서비스를 제공하나요?',
@@ -18,4 +27,19 @@ const FAQS = [
   },
 ];
 
-export default FAQS;
+export default function Faq() {
+  return (
+    <Background variant={1} padding="m" applyPadding="left-right">
+      <Container applyMargin="top-bottom" margin="xl">
+        <MotionSlideUp>
+          <Headings.H2>FAQ</Headings.H2>
+          <Container applyMargin="bottom">
+            {FAQS.map(({ tag, header, details }) => (
+              <FaqItem tag={tag} header={header} details={details} key={tag} />
+            ))}
+          </Container>
+        </MotionSlideUp>
+      </Container>
+    </Background>
+  );
+}

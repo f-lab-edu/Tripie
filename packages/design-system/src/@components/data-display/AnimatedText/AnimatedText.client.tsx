@@ -28,13 +28,19 @@ export const FlickText = ({
 
 export const FlickText2 = ({
   children,
+  sizes = 1,
   className,
 }: Readonly<{
   children: ReactNode;
+  sizes?: number;
   className?: string;
 }>) => {
   return (
-    <Motion.Span className={cx('text', 'flick', className)} variants={VARIANTS['FLICK_TEXT']}>
+    <Motion.Span
+      className={cx('text', 'flick', className)}
+      // variants={VARIANTS['FLICK_TEXT']}
+      variants={VARIANTS['TEXT'](sizes)}
+    >
       {children}
     </Motion.Span>
   );
@@ -67,7 +73,7 @@ export const AnimatedText = ({
       onTap={action}
     >
       <FlickText2>{children}</FlickText2>
-      <TripieContainer className={cx('empty')}> </TripieContainer>
+      <p className={cx('empty', 'text')}>&nbsp;</p>
       <FlickText2 className={cx('hovered')}>{otherChild}</FlickText2>
     </Motion.Div>
   );

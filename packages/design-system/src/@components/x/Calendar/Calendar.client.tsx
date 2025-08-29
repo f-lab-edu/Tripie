@@ -25,6 +25,7 @@ const Calendar = ({
   allowPartialRange = false,
   showNavigation = false,
   showNeighboringMonth = true,
+  tileContent,
 }: Partial<CustomCalendarProps> & {
   calendar?: {
     days: Date;
@@ -54,6 +55,7 @@ const Calendar = ({
               allowPartialRange={allowPartialRange}
               showNeighboringMonth={showNeighboringMonth}
               activeStartDate={days}
+              tileContent={tileContent}
               showNavigation={showNavigation}
             />
           ))}

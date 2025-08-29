@@ -2,6 +2,7 @@ import Divider from '@tripie-pyotato/design-system/@components/Divider';
 import Link from '@tripie-pyotato/design-system/@components/Link';
 import Container from '@tripie-pyotato/design-system/@core/Container';
 import Text from '@tripie-pyotato/design-system/@core/Text';
+
 import { ReactNode } from 'react';
 import TripieIcon from 'shared/components/TripieIcon/TripieIcon';
 

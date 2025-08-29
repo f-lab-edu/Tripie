@@ -2,7 +2,6 @@
 @use '../../../functions/color' as *;
 @use '../../../functions/typography' as *;
 @use '../../../mixins/text' as *;
-@use '../../../mixins/z-index' as *;
 
 @use 'sass:map';
 
@@ -19,7 +18,6 @@
 }
 
 .flick {
-  @include z-index(mask);
   font-size: inherit;
   color: inherit;
 }
@@ -40,7 +38,7 @@
   overflow-y: hidden;
   color: inherit;
   display: inline-flex;
-  height: 2rem;
+  max-height: 2.25rem;
   flex-direction: column;
   &:hover {
     cursor: pointer;

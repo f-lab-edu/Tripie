@@ -1,11 +1,11 @@
 'use client';
-// https://mui.com/joy-ui/react-snackbar/ 참고
+// https://mui.com/joy-ui/api/snackbar/ 참고
 import { MotionProps } from '../../../wrappers';
 
 import { TripieContainerProps } from '@core/layout/TripieContainer';
-import { useCycle } from '@hooks';
-import { useMemo } from 'react';
+import { Dispatch, SetStateAction, useMemo } from 'react';
 
+import { useCycle } from '@hooks';
 import ToastBackGround from './Background/ToastBackground';
 import ToastButton from './Button/ToastButton.client';
 import ToastBody from './ToastBody';
@@ -18,6 +18,7 @@ export type ToastBtnPosition = ToastPosition | 'left-center' | 'right-center';
 
 export type ToastProps = Readonly<
   {
+    initial?: boolean;
     position?: ToastPosition;
     interactable?: boolean;
     full?: boolean;
@@ -26,13 +27,14 @@ export type ToastProps = Readonly<
     withCloseButton?: boolean;
     btnPosition?: ToastBtnPosition;
     isOpen?: boolean;
+    toggleOpen: Dispatch<SetStateAction<boolean>>;
+    // onClose: (event: SyntheticEvent | Event, reason: 'timeout' | 'clickaway' | 'escapeKeyDown') => void;
     autoHideDuration?: number;
     animate?:
       | boolean
       | MotionProps['VariantLabels']
       | MotionProps['AnimationControls']
       | MotionProps['TargetAndTransition'];
-    toggleOpen?: (index?: number) => void;
   } & Partial<TripieContainerProps>
 >;
 
@@ -42,11 +44,13 @@ const Toast = ({
   children,
   withCloseButton = true,
   btnPosition,
+  initial = false,
+  // isOpen,
+  // onClose,
   autoHideDuration = Infinity, // in milliseconds
   ...args
 }: ToastProps) => {
   const [isOpen, toggleOpen] = useCycle([true, false]);
-
   const defaultBtnPosition = useMemo(() => {
     if (btnPosition == null) {
       switch (position) {
@@ -70,15 +74,36 @@ const Toast = ({
   return (
     <>
       {!interactable && isOpen ? (
-        <ToastBackGround isOpen={isOpen} toggleOpen={toggleOpen} autoHideDuration={autoHideDuration} />
+        <ToastBackGround
+          isOpen={isOpen}
+          // onClose={onClose}
+          toggleOpen={toggleOpen}
+          autoHideDuration={autoHideDuration}
+        />
       ) : null}
-      <ToastWrap {...args} isOpen={isOpen} toggleOpen={toggleOpen}>
+      <ToastWrap
+        position={position}
+        {...args}
+        isOpen={isOpen}
+        // onClose={onClose}
+        toggleOpen={toggleOpen}
+      >
         {withCloseButton && (defaultBtnPosition.startsWith('top') || defaultBtnPosition === 'right-center') ? (
-          <ToastButton position={defaultBtnPosition} toggleOpen={toggleOpen} isOpen={isOpen} />
+          <ToastButton
+            position={defaultBtnPosition}
+            toggleOpen={toggleOpen}
+            // onClose={onClose}
+            isOpen={isOpen}
+          />
         ) : null}
         <ToastBody>{children}</ToastBody>
         {withCloseButton && (defaultBtnPosition.startsWith('bottom') || defaultBtnPosition === 'left-center') ? (
-          <ToastButton position={defaultBtnPosition} toggleOpen={toggleOpen} isOpen={isOpen} />
+          <ToastButton
+            position={defaultBtnPosition}
+            toggleOpen={toggleOpen}
+            //  onClose={onClose}
+            isOpen={isOpen}
+          />
         ) : null}
       </ToastWrap>
     </>

@@ -2,15 +2,12 @@
 
 .tab-wrap {
   overflow: hidden;
-  height: 48vh;
   @media (max-width: 800px) {
     flex-wrap: wrap;
-
     @include scroll;
   }
 }
 
 .chat-tab-wrap {
-  height: 48vh;
   overflow: hidden;
 }

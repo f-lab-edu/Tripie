@@ -1,4 +1,4 @@
-@use "../functions" as *;
+@use '../functions/shape' as *;
 
 /// border-radius으로 모양 설정하는 믹스인
 /// @param {string} $size : `$config-shape` 맵에서 사이즈 혹은 숫자인 border 사이즈
