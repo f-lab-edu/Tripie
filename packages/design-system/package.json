@@ -1,6 +1,6 @@
 {
   "name": "@tripie-pyotato/design-system",
-  "version": "0.3.8",
+  "version": "0.3.10",
   "description": "트리피에 사용되는 디자인 시스템",
   "main": "index.js",
   "type": "module",
@@ -44,7 +44,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
     "lit-element": "^4.1.1",
-    "next": "^15.0.3",
+    "next": "15.1.11",
     "postcss": "^8.5.3",
     "postcss-cli": "^11.0.1",
     "postcss-copy-assets": "^0.3.1",
@@ -398,6 +398,16 @@
         "default": "./dist/@components/feedback/ToastWithControl/Toast.js"
       }
     },
+    "./@components/Input": {
+      "require": {
+        "types": "./dist/@components/inputs/Input/index.d.cts",
+        "default": "./dist/@components/inputs/Input/Input.client.cjs"
+      },
+      "import": {
+        "types": "./dist/@components/inputs/Input/index.d.ts",
+        "default": "./dist/@components/inputs/Input/Input.client.js"
+      }
+    },
     "./@components/Switch": {
       "require": {
         "types": "./dist/@components/inputs/Switch/index.d.cts",
@@ -681,11 +691,11 @@
     "./@core/Text": {
       "require": {
         "types": "./dist/@cor/data-display/Text/index.d.cts",
-        "default": "./dist/@core/data-display/Text/index.cjs"
+        "default": "./dist/@core/data-display/Text/Text.cjs"
       },
       "import": {
         "types": "./dist/@core/data-display/Text/index.d.ts",
-        "default": "./dist/@core/data-display/Text/index.js"
+        "default": "./dist/@core/data-display/Text/Text.js"
       }
     },
     "./@core/Skeleton": {

@@ -80,7 +80,7 @@ const ToolTip = ({
   sideOffset?: number;
   title?: ReactNode;
   description?: ReactNode;
-  children: ReactElement;
+  children?: ReactElement;
   tooltipPosition?: ToolTipPosition;
   renderDescription?: ReactElement;
   renderClose?: ReactElement;

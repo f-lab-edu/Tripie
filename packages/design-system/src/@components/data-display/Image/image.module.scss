@@ -36,34 +36,34 @@ $opacity-map: (0, 100);
   display: inline-block;
 }
 
-.small {
-  height: 4rem;
+$size-map: (small, medium, card, icon, avatar, default, large);
+
+@mixin image-position($size: 'default') {
+  @if ($size== 'small') {
+    height: 4rem;
+  } @else if($size== 'medium') {
+    height: 9rem;
+  } @else if($size== 'large') {
+    height: 24rem;
+  } @else if($size== 'card') {
+    height: 12rem;
+  } @else if($size== 'icon') {
+    height: 1rem;
+    width: 1rem;
+  } @else if($size== 'avatar') {
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 100%;
+  } @else if($size== 'default') {
+    height: 24rem;
+    width: 24rem;
+  }
 }
 
-.medium {
-  height: 9rem;
-}
-.card {
-  height: 12rem;
-}
-
-.icon {
-  height: 1rem;
-  width: 1rem;
-}
-.avatar {
-  height: 1.5rem;
-  width: 1.5rem;
-  border-radius: 100%;
-}
-
-.default {
-  width: 24rem;
-  height: 24rem;
-}
-
-.large {
-  height: 24rem;
+@each $size in $size-map {
+  .size-#{$size} {
+    @include image-position($size);
+  }
 }
 
 .tripie-image {
@@ -100,4 +100,8 @@ $image-ratio-map: (
   .image-ratio-#{$key} {
     aspect-ratio: $value;
   }
+}
+
+.image-with-url {
+  position: relative;
 }

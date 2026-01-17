@@ -1,0 +1,60 @@
+@use '../../../variables/tripie-theme' as *;
+@use '../../../mixins/z-index' as *;
+@use '../../../mixins/with-border' as *;
+@use '../../../variables/direction-map' as *;
+@use '../../../mixins/margins' as *;
+@use '../../../mixins/paddings' as *;
+@use '../../../variables/space-map' as *;
+@use '../../../variables/size-map' as *;
+
+$switch-background1: #181c17;
+$switch-background2: #0f0f0f;
+
+@each $direction-key, $direction in $direction-map {
+  @each $key, $value in $space-map {
+    .margins_#{$key}_to_#{$direction-key} {
+      @include margins($direction, $value);
+    }
+    .paddings_#{$key}_to_#{$direction-key} {
+      @include paddings($direction, $value);
+    }
+  }
+}
+
+.input {
+  width: fit-content;
+  min-width: 5rem;
+  overflow: hidden;
+  height: 2.5rem;
+  border: none;
+  position: relative;
+  cursor: pointer;
+}
+.background {
+  @include with-border;
+  background: radial-gradient(150% 150% at 50% 50%, $switch-background1 0%, $switch-background2 100%);
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  border-radius: 100px;
+}
+
+.button {
+  background-color: $theme-50;
+  border-radius: 100%;
+  overflow: hidden;
+  position: absolute;
+  bottom: 0.5rem;
+  right: 3.2rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  z-index: z(1);
+}
+
+.switch-text {
+  border-radius: 100px;
+  position: absolute;
+  top: 25%;
+  left: 14%;
+  @include z-index(1);
+}

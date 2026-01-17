@@ -60,10 +60,20 @@
     .margins_#{$key}_to_#{$direction-key} {
       @include margins($direction, $value);
     }
+    @if ($key== 'none') {
+      .margins_#{$key} {
+        margin: 0px !important;
+      }
+    }
   }
   @each $key, $value in $space-map {
     .paddings_#{$key}_to_#{$direction-key} {
       @include paddings($direction, $value);
+    }
+    @if ($key== 'none') {
+      .paddings_#{$key} {
+        padding: 0px !important;
+      }
     }
   }
 }

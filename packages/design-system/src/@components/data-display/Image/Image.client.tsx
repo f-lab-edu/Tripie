@@ -122,7 +122,7 @@ const BlurImageOnLoad = ({
       ref={ref}
       display="inline-block"
       style={{ ...dimension }}
-      className={cx('tripie-image', sizes, `image-ratio-${aspectRatio}`, className)}
+      className={cx('tripie-image', `size-${sizes}`, `image-ratio-${aspectRatio}`, className)}
       {...args}
     >
       <Motion.Picture
@@ -137,7 +137,8 @@ const BlurImageOnLoad = ({
           ...dimension,
         }}
         transition={{ duration: 0.4, ease: 'easeOut' }}
-        className={cx('tripie-image', sizes, `with${withBorder ? '' : '-no'}-border`, className)}
+        // className={cx('tripie-image', sizes, `with${withBorder ? '' : '-no'}-border`, className)}
+        className={cx('tripie-image', `size-${sizes}`, `with${withBorder ? '' : '-no'}-border`, className)}
       >
         {!loaded ? null : (
           <Motion.Img
@@ -184,7 +185,13 @@ const ImageWithSourceUrl = ({
   ...args
 }: ImageWithSourceUrlProps) => {
   return (
-    <TripieContainer margin="none" {...args} display={display} padding={padding} className={cx(className)}>
+    <TripieContainer
+      margin="none"
+      {...args}
+      display={display}
+      padding={padding}
+      className={cx('image-with-url', className)}
+    >
       <BlurImageOnLoad
         withBorder={withBorder}
         src={src}

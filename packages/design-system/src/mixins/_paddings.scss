@@ -3,6 +3,8 @@
     padding: $size 0;
   } @else if ($direction == 'left-right') {
     padding: 0 $size;
+  } @else if ($direction == 'left-right') {
+    padding: 0 $size;
   } @else if ($direction == 'top-left-right') {
     padding: $size;
     padding-bottom: 0;

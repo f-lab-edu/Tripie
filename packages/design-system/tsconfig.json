@@ -3,9 +3,21 @@
   "compilerOptions": {
     "rootDir": ".",
     "outDir": "./dist",
-    "baseUrl": "./src",
     "incremental": false,
-    "jsxImportSource": "react"
+    "jsxImportSource": "react",
+    "paths": {
+      "@/*": ["./*"],
+      "~/*": ["./src/*"],
+      "wrappers": ["./src/wrappers/index.tsx"],
+      "wrappers/*": ["./src/wrappers/*"],
+      "variables/*": ["./src/variables/*"],
+      "shared": ["./src/shared/index.ts"],
+      "@core/*": ["./src/@core/*"],
+      "@core": ["./src/@core/index.ts"],
+      "@hooks/*": ["./src/@hooks/*"],
+      "@hooks": ["./src/@hooks/index.ts"],
+      "@components/*": ["./src/@components/*"]
+    }
   },
   "include": ["**/*.ts", "**/*.tsx", "../../typings", "jest.setup.cjs", "~/*.ts", "~/*.tsx"],
   "exclude": ["dist"]

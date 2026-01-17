@@ -10,6 +10,7 @@ import AuthIcon from './Auth/Auth.client';
 import CheckIcon from './Check.client';
 import CloudIcon from './Cloud/Cloud.client';
 import CursorIcon from './Cursor/Cursor.client';
+import LinkIcon from './Link';
 import LoadingIcon from './Loading.client';
 import NavigateIcon from './Navigation/Navigation.client';
 import PlaneIcon from './Plane/Plane.client';
@@ -88,5 +89,6 @@ Icon.Scroll = ScrollIcon;
 Icon.X = XIcon;
 Icon.Auth = AuthIcon;
 Icon.Check = CheckIcon;
+Icon.Link = LinkIcon;
 
 export default Icon;

@@ -1,3 +1,4 @@
+export { default as Input } from './Input/Input.client';
 export { default as Switch } from './Switch';
 export { default as AccentedButton } from './TripieButton/Accented/Accented.client';
 export { default as AnimatedButton } from './TripieButton/Animated';

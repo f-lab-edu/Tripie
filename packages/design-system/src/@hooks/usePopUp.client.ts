@@ -2,7 +2,7 @@
 
 import { LocationMarker } from '@components/x/Map/Map.client';
 import { useEffect, useMemo, useState } from 'react';
-import { MapRef, useMap } from 'wrappers';
+import { type MapRef, useMap } from 'wrappers';
 
 export type UsePopUpReturn = {
   popupMarkers: LocationMarker[];
