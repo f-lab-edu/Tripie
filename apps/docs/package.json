@@ -16,7 +16,7 @@
   "dependencies": {
     "@tripie-pyotato/design-system": "^0.3.2",
     "@tripie-pyotato/hooks": "^0.0.2",
-    "next": "^15.0.3",
+    "next": "15.0.7",
     "path": "^0.12.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

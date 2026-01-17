@@ -41,7 +41,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
     "lit-element": "^4.1.1",
-    "next": "^15.0.3",
+    "next": "15.0.7",
     "postcss": "^8.5.3",
     "postcss-cli": "^11.0.1",
     "postcss-copy-assets": "^0.3.1",
