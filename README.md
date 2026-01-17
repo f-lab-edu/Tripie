@@ -164,6 +164,12 @@
 - 404 에러
   <img width="1154" alt="image" src="https://github.com/user-attachments/assets/6452f2d4-e400-406b-b504-b68246932b4f" />
 
+### 테스트 계정
+
+로그인 테스트 계정
+아이디 : test
+비밀번호 = test12345!
+
 ### Development Process
 
 <!-- - 자세한 구현 과정은 [블로그](https://pyotato-dev.tistory.com/entry/spotify-api-VINYLIFY-%EC%8A%A4%ED%8F%AC%ED%8B%B0%ED%8C%8C%EC%9D%B4-api%ED%99%9C%EC%9A%A9%ED%95%9C-%EA%B2%80%EC%83%89-%EC%9E%AC%EC%83%9D-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8)에서 살펴보실 수 있습니다. (업데이트 중, COMING SOON!)
