@@ -10,12 +10,6 @@ const ROUTE = {
   ERROR: { label: 'error', href: '/error' },
 };
 
-export const LANDING_SECTION = [
-  { label: 'Process', href: '/home#Process' },
-  ROUTE.SERVICES,
-  { label: 'Work', href: '/home#Work' },
-  { label: 'Plans', href: '/home#Plans' },
-  ROUTE.CONTACT,
-];
+export const LANDING_SECTION = [ROUTE.SERVICES, { label: 'Plans', href: '/home#Plans' }, ROUTE.CONTACT];
 
 export default ROUTE;
