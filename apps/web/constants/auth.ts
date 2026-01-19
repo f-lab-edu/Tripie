@@ -9,5 +9,10 @@ export const NEXT_AUTH_SECRET = process.env.NEXTAUTH_SECRET as string;
 export const GPT_API_KEY = process.env.NEXT_PUBLIC_GPT_API_KEY as string;
 
 export const DB_NAME = process.env.NEXT_PUBLIC_USER_TOKEN_DB_NAME as string;
+export const USER_DB_NAME = process.env.NEXT_PUBLIC_USER_DB_NAME as string;
 
 export const CHAT_CACHE_DB_NAME = process.env.NEXT_PUBLIC_CHAT_CACHE_DB_NAME as string;
+export const IP_TOKEN_DB_NAME = process.env.NEXT_PUBLIC_IP_TOKEN_DB_NAME as string;
+
+export const TEST_USER_ID = process.env.NEXT_PUBLIC_TEST_USER_ID as string;
+export const TEST_USER_PWD = process.env.NEXT_PUBLIC_TEST_USER_PWD as string;
