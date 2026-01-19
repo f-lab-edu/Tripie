@@ -12,7 +12,7 @@ const cx = classNames.bind(Style);
 
 export type TextFillAnimation = Partial<CustomAnimationProps> &
   Partial<TextProps> & {
-    isTitle: boolean;
+    isTitle?: boolean;
   };
 
 const TextFillAnimation = ({

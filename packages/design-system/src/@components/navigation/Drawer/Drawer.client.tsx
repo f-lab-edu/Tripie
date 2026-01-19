@@ -37,18 +37,18 @@ const Drawer = ({
   closeOutFocusedDrawer = true,
   ...props
 }: Partial<TripieContainerProps> & {
-  drawerBody: {
+  drawerBody: Partial<{
     filter?: number; // overlay blur over content under the drawer
     className?: string;
     children?: ReactNode;
     zIndex: TripieContainerProps['zIndex'];
-  };
+  }>;
   drawerContent: Partial<TripieContainerProps> & {
     className?: string;
     children?: ReactNode;
     zIndex?: TripieContainerProps['zIndex'];
     sizes?: CardProps['sizes'];
-    position: 'top' | 'bottom' | 'left' | 'right';
+    position?: 'top' | 'bottom' | 'left' | 'right';
     exposePercentage?: number;
     customDrawer?: boolean;
   };

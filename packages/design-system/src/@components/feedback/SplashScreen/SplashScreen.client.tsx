@@ -16,6 +16,7 @@ export type SplashScreenProps = Readonly<{
   className?: string;
   variant?: 'default' | 'backdrop';
   centerItems?: boolean;
+  lock?: boolean;
 }>;
 
 const SplashScreen = ({
@@ -26,6 +27,7 @@ const SplashScreen = ({
   loading = true,
   delay = 0,
   centerItems = true,
+  lock = false,
 }: SplashScreenProps) => {
   const [shouldAnimateOut, setShouldAnimateOut] = useState(false);
 
@@ -36,9 +38,26 @@ const SplashScreen = ({
     }
   }, [loading, delay]);
 
+  // Lock body scroll when splash is visible
+  useEffect(() => {
+    if (lock && loading) {
+      const originalStyle = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = originalStyle;
+      };
+    }
+  }, [lock, loading]);
+
   return (
     <Motion.Div
-      className={cx('splash-full-screen', centerItems ? `center` : '', `variant-${variant}`, className)}
+      className={cx(
+        'splash-full-screen',
+        centerItems ? `center` : '',
+        `variant-${variant}`,
+        `${lock ? 'locked' : ''}`,
+        className
+      )}
       initial={{ y: '0%' }}
       animate={shouldAnimateOut ? { y: '-100%' } : { y: '0%' }}
       transition={{ duration }}
@@ -55,10 +74,28 @@ const ControlledSplashScreen = ({
   className,
   centerItems = true,
   display = 'inline-flex',
+  lock = false,
 }: SplashScreenProps & Pick<TripieContainerProps, 'display'>) => {
+  // Lock body scroll when splash is visible
+  useEffect(() => {
+    if (lock) {
+      const originalStyle = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = originalStyle;
+      };
+    }
+  }, [lock]);
+
   return (
     <Motion.Div
-      className={cx(`variant-${variant}`, 'splash-full-screen', centerItems ? `center` : '', className)}
+      className={cx(
+        `variant-${variant}`,
+        'splash-full-screen',
+        centerItems ? `center` : '',
+        `${lock ? 'locked' : ''}`,
+        className
+      )}
       initial={{ opacity: 1, y: 0 }}
     >
       <TripieContainer alignItems="center" justifyContent="center" display={display}>

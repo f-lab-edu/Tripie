@@ -22,6 +22,16 @@ const drawerDirection = (d: 'top' | 'bottom' | 'right' | 'left') => {
   return dirs[d];
 };
 
+export type DrawerContentProps = Partial<TripieContainerProps> & {
+  exposePercentage?: number;
+  position?: 'top' | 'bottom' | 'left' | 'right';
+  initial?: boolean;
+  isOpen?: boolean;
+  customDrawer?: boolean;
+  sizes?: CardProps['sizes'];
+  toggleOpen: (index?: number) => void;
+};
+
 const DrawerContent = ({
   children,
   isOpen,
@@ -35,17 +45,9 @@ const DrawerContent = ({
   customDrawer = false,
   sizes = 'full',
   ...args
-}: TripieContainerProps & {
-  exposePercentage?: number;
-  position: 'top' | 'bottom' | 'left' | 'right';
-  initial: boolean;
-  isOpen?: boolean;
-  customDrawer?: boolean;
-  sizes?: CardProps['sizes'];
-  toggleOpen: (index?: number) => void;
-}) => {
+}: DrawerContentProps) => {
   if (exposePercentage > 100 || exposePercentage < 0) {
-    throw Error(
+    throw new Error(
       `exposePercentage should be between 0 and 100. exposePercentage value of ${exposePercentage} may cause style breaks!`
     );
   }

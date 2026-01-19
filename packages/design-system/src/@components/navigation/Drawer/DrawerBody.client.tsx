@@ -18,7 +18,7 @@ const DrawerBody = ({
   padding = 'none',
   fillAvailable = false,
   ...props
-}: TripieContainerProps) => {
+}: Partial<TripieContainerProps>) => {
   return (
     <TripieContainer
       zIndex={zIndex}
