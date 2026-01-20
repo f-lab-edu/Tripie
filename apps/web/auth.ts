@@ -1,11 +1,11 @@
-import NextAuth from 'next-auth';
+import NextAuth, { NextAuthResult } from 'next-auth';
 
 import { PrismaAdapter } from '@auth/prisma-adapter';
 import { prisma } from '@tripie-pyotato/db';
 
-import authConfig from './auth.config';
+import authConfig, { providers } from './auth.config';
 
-export const providerMap = authConfig.providers
+export const providerMap = (authConfig.providers as typeof providers)
   .map(provider => {
     if (typeof provider === 'function') {
       const providerData = provider();
@@ -16,7 +16,7 @@ export const providerMap = authConfig.providers
   })
   .filter(provider => provider.id !== 'credentials');
 
-export const { auth, handlers, signIn, signOut } = NextAuth({
+export const result = NextAuth({
   adapter: PrismaAdapter(prisma),
   session: { strategy: 'jwt' },
   pages: {
@@ -35,3 +35,8 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
   // },
   ...authConfig,
 });
+
+export const handlers: NextAuthResult['handlers'] = result.handlers;
+export const auth: NextAuthResult['auth'] = result.auth;
+export const signIn: NextAuthResult['signIn'] = result.signIn;
+export const signOut: NextAuthResult['signOut'] = result.signOut;
