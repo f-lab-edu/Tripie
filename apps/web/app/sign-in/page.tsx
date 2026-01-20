@@ -10,8 +10,8 @@ const cx = classNames.bind(Style);
 
 // https://authjs.dev/guides/pages/signin
 // https://nextjs.org/docs/messages/sync-dynamic-apis
-export default async function SignIn(props: Readonly<Promise<{ searchParams: { callbackUrl?: string } }>>) {
-  const { searchParams } = await props;
+export default async function SignIn({ params }: { params: { callbackUrl?: string } }) {
+  const { callbackUrl } = params;
 
   return Object.values(providerMap).map(provider => (
     <form
@@ -21,8 +21,9 @@ export default async function SignIn(props: Readonly<Promise<{ searchParams: { c
         'use server';
         try {
           await signIn(provider.id, {
-            redirectTo: searchParams?.callbackUrl ?? '',
+            redirectTo: callbackUrl ?? '',
           });
+          // }
         } catch (error) {
           // Signin can fail for a number of reasons, such as the user
           // not existing, or the user not having the correct role.
