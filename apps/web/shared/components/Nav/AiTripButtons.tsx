@@ -39,7 +39,7 @@ const AiTripButton = ({ isOpen }: { isOpen: boolean }) => {
           </Link>
         </Menu.Item>
       }
-      renderDescription={() => <TokenStatus />}
+      renderDescription={<TokenStatus />}
     />
   );
 };

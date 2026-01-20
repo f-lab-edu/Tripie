@@ -3,17 +3,29 @@
 import AnimatedText from '@tripie-pyotato/design-system/@components/AnimatedText';
 import Text from '@tripie-pyotato/design-system/@core/Text';
 
+import { Divider, Link } from '@tripie-pyotato/design-system/@components';
+import { Container } from '@tripie-pyotato/design-system/@core';
 import useChatToken from 'hooks/useChatToken';
 import TripieIcon from '../TripieIcon/TripieIcon';
 
 const TokenStatus = () => {
   const { remainingToken, isAdmin, usedGptToken, status } = useChatToken();
 
+  if (status === 'loading') {
+    return (
+      <Text size="tiny" applyMargin="all" margin="sm">
+        <TripieIcon variant="loading" /> <AnimatedText.Jump>토큰 확인중...</AnimatedText.Jump>
+      </Text>
+    );
+  }
   if (status === 'unauthenticated') {
     return (
-      <Text size="tiny" margin="sm" applyMargin="all">
-        로그인 후 추천받기
-      </Text>
+      <Container margin="none">
+        <Link href={'/sign-in'}>
+          <Text size="tiny">로그인 후 추천받기</Text>
+        </Link>
+        <Divider />
+      </Container>
     );
   }
   if (isAdmin && usedGptToken != null) {

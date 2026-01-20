@@ -37,29 +37,6 @@ const NavBar = ({
       padding={'m'}
       applyPadding={'top-left-right'}
     >
-      {/* <AnimatedText
-        action={() => {
-          if (params.get('trip-plan.step') != null) {
-            setTouched(true);
-            setIsOpen(true);
-            setNavigateUrl(ROUTE.HOME.href);
-            return;
-          }
-          navigate.push(ROUTE.HOME.href);
-        }}
-      >
-        <Text.Accented
-          noGapUnderText={true}
-          zIndex="fixed"
-          bold={true}
-          gap="none"
-          padding="none"
-          margin="none"
-          size="h4"
-        >
-          Tripie
-        </Text.Accented>
-      </AnimatedText> */}
       <FlickTextButton
         stretched={false}
         onClick={() => {
@@ -72,6 +49,7 @@ const NavBar = ({
           navigate.push(ROUTE.HOME.href);
         }}
         withBorder={false}
+        style={{ padding: '0' }}
       >
         <Text.Accented
           noGapUnderText={true}

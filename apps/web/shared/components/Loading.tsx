@@ -1,5 +1,4 @@
 'use client';
-// import { AnimatedText, Icon, SplashScreen, TextFillAnimation } from '@tripie-pyotato/design-system/@components';
 import AnimatedText from '@tripie-pyotato/design-system/@components/AnimatedText';
 import SplashScreen from '@tripie-pyotato/design-system/@components/SplashScreen';
 import TextFillAnimation from '@tripie-pyotato/design-system/@components/TextFillAnimation';
