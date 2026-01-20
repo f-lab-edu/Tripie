@@ -1,10 +1,11 @@
 import NextAuth from 'next-auth';
-import { NextRequest, NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+import { NextResponse } from 'next/server';
 import authConfig from './auth.config';
 
 const { auth } = NextAuth(authConfig);
 
-export default auth(async function middleware(request: NextRequest) {
+export default async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Your custom middleware logic goes here
@@ -60,7 +61,7 @@ export default auth(async function middleware(request: NextRequest) {
       headers: requestHeaders,
     },
   });
-});
+}
 
 export const config = {
   matcher: [
