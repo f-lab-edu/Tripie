@@ -42,6 +42,7 @@ const ArticleCard = ({
                     key={`${index}-${sizes.full.url}-${imgIndex}`}
                     withBorder={true}
                     sizes={'card'}
+                    style={{ maxHeight: '8rem', minWidth: '16rem' }}
                   />
                 ))}
               />

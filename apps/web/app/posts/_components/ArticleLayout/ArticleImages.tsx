@@ -13,7 +13,8 @@ const ArticleImages = ({ item }: { item: ImageProps }) => {
         items={images.map((item, index) => {
           return (
             <BlurImageOnLoad.WithSourceUrl
-              sizes="large"
+              sizes="medium"
+              aspectRatio="landscape"
               cloudinaryUrl={API.MEDIA_URL}
               withBorder={true}
               key={item.sizes.full.url + index}

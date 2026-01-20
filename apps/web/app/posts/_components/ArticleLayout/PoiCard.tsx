@@ -3,7 +3,7 @@ import { AnimatedCard, Card } from '@tripie-pyotato/design-system/@components';
 import { Stack, Text } from '@tripie-pyotato/design-system/@core';
 import { useMap } from '@tripie-pyotato/design-system/@wrappers';
 
-import { RefObject, useEffect } from 'react';
+import { RefObject, useEffect, useRef } from 'react';
 
 import useImgAlt from 'hooks/useImgAlt';
 
@@ -31,8 +31,14 @@ const PoiCard = ({
 }) => {
   const { alt } = useImgAlt({ imgUrl: poi.source.image?.sizes.full.url });
   const { tripieMap } = useMap();
+  const isFirstRender = useRef(true);
 
   useEffect(() => {
+    // 첫 렌더링 시에는 스크롤하지 않음
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
     // 선택한 카드로 이동
     if (selected && cardRef.current != null) {
       cardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -60,7 +66,8 @@ const PoiCard = ({
         imgSize={'card'}
         sourceUrl={poi.source.image.sourceUrl}
         withImageBorder={true}
-        aspectRatio={'photo'}
+        style={{ width: '24rem' }}
+        aspectRatio={'landscape'}
       >
         <Card.Header applyMargin="left-right" size="tiny">
           <Text.Accented noGapUnderText={true}>{poi.source.areas[0]?.name ?? poi.source.areas[0]?.name}</Text.Accented>
