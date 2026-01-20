@@ -3,8 +3,9 @@ import getRegionArticles from 'app/api/articles/region';
 import { parseParams } from 'app/parse-params';
 import { TRIPIE_REGION_BY_LOCATION, TRIPIE_REGION_IDS } from 'constants/tripie-country';
 import { RegionParamProps } from 'models/Props';
+import { cache } from 'react';
 
-export default async function regionPageParamData({ params }: RegionParamProps) {
+const regionPageParamData = cache(async function ({ params }: RegionParamProps) {
   const { regionId, locationId } = await parseParams(params);
   if (locationId == null) {
     const selectedRegion = Object.keys(TRIPIE_REGION_IDS).filter(
@@ -25,4 +26,6 @@ export default async function regionPageParamData({ params }: RegionParamProps) 
     const dynamicBlurDataUrl = await getRegionArticles(locationId);
     return { regionId, locationId, dynamicBlurDataUrl, selectedRegion };
   }
-}
+});
+
+export default regionPageParamData;

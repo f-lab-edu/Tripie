@@ -1,14 +1,12 @@
 import { RegionParamProps } from 'models/Props';
 import { ReactNode } from 'react';
 
-import firestoreService from 'app/api/firebase';
 import { parseParams } from 'app/parse-params';
-import { RegionArticleData } from 'app/regions/_components/RegionCard';
 import regionPageParamData from 'app/regions/regions-page-param.data';
 import { sharedMetaData } from 'app/shared-metadata';
 import API from 'constants/api-routes';
 import ROUTE from 'constants/routes';
-import { TRIPIE_REGION_IDS } from 'constants/tripie-country';
+import { TRIPIE_REGION_BY_LOCATION, TRIPIE_REGION_IDS } from 'constants/tripie-country';
 import { RegionArticleInfo } from 'models/Article';
 import { Metadata } from 'next';
 
@@ -18,13 +16,21 @@ export async function pageParamData({ params }: RegionParamProps) {
 }
 
 export async function generateStaticParams() {
-  const posts = (await firestoreService.getList('region-articles2')).flatMap((res: RegionArticleData) =>
-    res.data.map(data => data.id)
-  );
+  // Generate all regionId + locationId combinations for static generation
+  const params: { regionId: string; locationId: string }[] = [];
 
-  return posts.map(id => ({
-    id: String(id),
-  }));
+  for (const [regionId, locations] of Object.entries(TRIPIE_REGION_BY_LOCATION)) {
+    for (const location of locations) {
+      const locationId = Object.keys(TRIPIE_REGION_IDS).find(
+        key => TRIPIE_REGION_IDS[key as keyof typeof TRIPIE_REGION_IDS] === location
+      );
+      if (locationId) {
+        params.push({ regionId, locationId });
+      }
+    }
+  }
+
+  return params;
 }
 
 export async function generateMetadata({ params }: RegionParamProps): Promise<Metadata> {

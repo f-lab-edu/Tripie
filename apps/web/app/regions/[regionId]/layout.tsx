@@ -1,4 +1,3 @@
-import firestoreService from 'app/api/firebase';
 import { sharedMetaData } from 'app/shared-metadata';
 import API from 'constants/api-routes';
 import ROUTE from 'constants/routes';
@@ -10,10 +9,9 @@ import { RegionArticleData } from '../_components/RegionCard';
 import pureRegionArticles from '../cache';
 
 export async function generateStaticParams() {
-  const posts: RegionArticleData[] = await firestoreService.getList('region-articles2');
-
-  return posts.map(post => ({
-    id: String(post.regionId),
+  // Generate all regionId combinations for static generation
+  return Object.keys(TRIPIE_REGION_BY_LOCATION).map(regionId => ({
+    regionId,
   }));
 }
 

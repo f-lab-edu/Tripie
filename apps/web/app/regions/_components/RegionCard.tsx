@@ -1,18 +1,39 @@
 'use client';
+
 import { AnimatedCard, Card } from '@tripie-pyotato/design-system/@components';
 import { Text } from '@tripie-pyotato/design-system/@core';
 import API from 'constants/api-routes';
 import useImgAlt from 'hooks/useImgAlt';
 import { RegionArticleInfo } from 'models/Article';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { Dispatch, SetStateAction, useEffect } from 'react';
 
 export type RegionArticleData = { regionId: string; data: RegionArticleInfo[] };
 
-const RegionCard = ({ article }: { article: RegionArticleInfo }) => {
+type RegionCardProps = {
+  article: RegionArticleInfo;
+  setSplash?: Dispatch<SetStateAction<boolean>>;
+};
+
+const RegionCard = ({ article, setSplash }: RegionCardProps) => {
   const { alt } = useImgAlt({ imgUrl: article.source.image.sizes.full.url });
+  const router = useRouter();
+  const href = `/posts/${article.source.regionId}/articles/${article.id}`;
+
+  // Prefetch on mount for faster navigation
+  useEffect(() => {
+    router.prefetch(href);
+  }, [router, href]);
+
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setSplash?.(true);
+    router.push(href);
+  };
 
   return (
-    <Link href={`/posts/${article.source.regionId}/articles/${article.id}`}>
+    <Link href={href} onClick={handleClick}>
       <AnimatedCard>
         <Card.WithImage
           margin="none"
@@ -27,7 +48,7 @@ const RegionCard = ({ article }: { article: RegionArticleInfo }) => {
           alt={alt}
           cloudinaryUrl={API.MEDIA_URL}
         >
-          <Card.Header size={'large'} bold={true}>
+          <Card.Header size={'h3'} bold={true}>
             <Text size="small">{article?.source?.title}</Text>
           </Card.Header>
           <Card.Divider />

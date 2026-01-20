@@ -7,7 +7,7 @@ import { classNames } from '@tripie-pyotato/design-system/@wrappers';
 import { TRIPIE_REGION_BY_LOCATION, TRIPIE_REGION_IDS } from 'constants/tripie-country';
 
 import { useRouter } from 'next/navigation';
-import { Dispatch, SetStateAction, startTransition } from 'react';
+import { Dispatch, SetStateAction, startTransition, useEffect } from 'react';
 import Style from './sub-region-select.module.scss';
 
 const cx = classNames.bind(Style);
@@ -23,15 +23,28 @@ const SubRegions = ({
 }) => {
   const navigate = useRouter();
 
+  // Prefetch all sub-region routes on mount for instant navigation
+  useEffect(() => {
+    const locations = TRIPIE_REGION_BY_LOCATION[selected as keyof typeof TRIPIE_REGION_BY_LOCATION] || [];
+    locations.forEach(place => {
+      const locationId = Object.keys(TRIPIE_REGION_IDS).find(
+        key => TRIPIE_REGION_IDS[key as keyof typeof TRIPIE_REGION_IDS] === place
+      );
+      if (locationId) {
+        navigate.prefetch(`/regions/${selected}/location/${locationId}`);
+      }
+    });
+  }, [selected, navigate]);
+
   // 상위 항목의 하위 항목 선택 -> 해당 상위/location/하위 route로 이동
   const handleRegionSelect = (place: string) => {
-    const selectedLocation = Object.keys(TRIPIE_REGION_IDS).filter(
+    const selectedLocation = Object.keys(TRIPIE_REGION_IDS).find(
       key => TRIPIE_REGION_IDS[key as keyof typeof TRIPIE_REGION_IDS] === place
-    )?.[0];
+    );
+    setSplash(true);
     startTransition(() => {
       navigate.push(`/regions/${selected}/location/${selectedLocation}`);
     });
-    setSplash(true);
   };
 
   return (
