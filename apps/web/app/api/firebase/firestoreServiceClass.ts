@@ -5,6 +5,9 @@ import { AttractionData } from 'models/Attraction';
 import { RestaurantData } from 'models/Restaurant';
 import { TripieArticle } from 'models/Triple';
 
+type UserWithDocId = { ip: string; createdAt: Date; pwd: string; id: string; docId: string };
+type IpToken = { ip: string; usedTokens: number };
+
 class FirestoreService {
   private readonly db;
 
@@ -50,6 +53,34 @@ class FirestoreService {
     }
   }
 
+  async getTestUser(collectionName: string, id: string, pwd: string, ip: string): Promise<any> {
+    try {
+      const snapshot = await this.db.collection(collectionName).get();
+      const users = snapshot.docs.map((doc: FirestoreService['db']) => ({ ...doc.data(), docId: doc.id }));
+      const user = users.find((user: UserWithDocId) => user.id === id && user.pwd === pwd && user.ip === ip);
+      if (!user) {
+        return null;
+      }
+
+      return user;
+    } catch (error) {
+      console.error('Error fetching test user:', error);
+    }
+  }
+
+  async addTestUser(collectionName: string, item: any): Promise<void> {
+    try {
+      const docRef = await this.db.collection(collectionName).add({
+        ...item,
+        name: 'tester',
+        createdAt: new Date(),
+      });
+      return docRef.id;
+    } catch (error) {
+      console.error('Error adding document:', error);
+    }
+  }
+
   async getArticleDetails(collectionName: string, id: string, articleId: string): Promise<any> {
     try {
       const articles = await this.getList(collectionName);
@@ -64,6 +95,29 @@ class FirestoreService {
       return null;
     } catch (error) {
       console.error('Error fetching article details:', error);
+    }
+  }
+
+  async updateArticleBody(collectionName: string, regionId: string, articleId: string, newBody: any): Promise<void> {
+    try {
+      const docRef = this.db.collection(collectionName).doc(regionId);
+      const docSnap = await docRef.get();
+
+      if (!docSnap.exists) return;
+
+      const data = docSnap.data();
+      const articles = data?.articles || [];
+
+      const updatedArticles = articles.map((a: TripieArticle) => {
+        if (a.placeId === articleId || a.id === articleId) {
+          return { ...a, body: JSON.stringify(newBody) };
+        }
+        return a;
+      });
+
+      await docRef.update({ articles: updatedArticles });
+    } catch (error) {
+      console.error('Error updating article body:', error);
     }
   }
 
@@ -128,6 +182,60 @@ class FirestoreService {
       await this.db.collection(collectionName).doc(itemId).delete();
     } catch (error) {
       console.error('Error deleting document:', error);
+    }
+  }
+
+  // IP-based token methods for test users
+  async getIpToken(collectionName: string, ip: string): Promise<IpToken | null> {
+    try {
+      const docSnap = await this.db.collection(collectionName).doc(ip).get();
+      return docSnap.exists ? (docSnap.data() as IpToken) : null;
+    } catch (error) {
+      console.error('Error fetching IP token:', error);
+      return null;
+    }
+  }
+
+  async addOrUpdateIpToken(collectionName: string, ip: string, usedTokens: number): Promise<void> {
+    try {
+      const docRef = this.db.collection(collectionName).doc(ip);
+      await docRef.set({ ip, usedTokens }, { merge: true });
+    } catch (error) {
+      console.error('Error adding/updating IP token:', error);
+    }
+  }
+
+  async incrementIpToken(collectionName: string, ip: string, counter = 1): Promise<void> {
+    try {
+      const docRef = this.db.collection(collectionName).doc(ip);
+      const docSnap = await docRef.get();
+
+      if (docSnap.exists) {
+        await docRef.update({ usedTokens: FieldValue.increment(counter) });
+      } else {
+        await docRef.set({ ip, usedTokens: counter });
+      }
+    } catch (error) {
+      console.error('Error incrementing IP token:', error);
+    }
+  }
+
+  async resetAllIpTokens(collectionName: string): Promise<number> {
+    try {
+      const snapshot = await this.db.collection(collectionName).get();
+      const batch = this.db.batch();
+      let count = 0;
+
+      snapshot.docs.forEach((doc: FirestoreService['db']) => {
+        batch.update(doc.ref, { usedTokens: 0 });
+        count++;
+      });
+
+      await batch.commit();
+      return count;
+    } catch (error) {
+      console.error('Error resetting IP tokens:', error);
+      return 0;
     }
   }
 }

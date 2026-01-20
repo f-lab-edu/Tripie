@@ -17,6 +17,15 @@ export type CloudinaryPostResponse = {
   message: string;
 };
 
+// Helper function to get Cloudinary URL, skipping if already transformed
+async function getCloudinaryUrl(imageUrl: string | undefined): Promise<string> {
+  if (!imageUrl) return defaultBlurSize;
+  if (imageUrl.startsWith(CLOUDINARY_URL())) return imageUrl;
+
+  const postRes: CloudinaryPostResponse = await backendApi.post('cloudinary', { json: { imageUrl } }).json();
+  return defaultBlurSize + postRes.message;
+}
+
 const getArticleDetail = async <T extends 'article' | 'attraction' | 'retaurant'>(
   db: T,
   regionId: string,
@@ -27,6 +36,7 @@ const getArticleDetail = async <T extends 'article' | 'attraction' | 'retaurant'
 
   if (db === 'article') {
     let data = (await firestoreService.getArticleDetails(DB_NAME, regionId, articleId)) as ArticleData;
+    let needsUpdate = false;
 
     const articlewithCloudinaryImgs = await Promise.all(
       data?.body.map(async v => {
@@ -37,12 +47,12 @@ const getArticleDetail = async <T extends 'article' | 'attraction' | 'retaurant'
               images: await Promise.all(
                 v.value.images.map(async image => {
                   const imageUrl = image?.sizes?.full?.url;
-                  let articleCloudinaryImageUrl = defaultBlurSize;
-                  const postRes: CloudinaryPostResponse = await backendApi
-                    .post('cloudinary', { json: { imageUrl } })
-                    .json();
-                  articleCloudinaryImageUrl += postRes.message;
-
+                  // Skip if already transformed
+                  if (imageUrl?.startsWith(CLOUDINARY_URL())) {
+                    return image;
+                  }
+                  needsUpdate = true;
+                  const articleCloudinaryImageUrl = await getCloudinaryUrl(imageUrl);
                   return {
                     ...image,
                     sizes: {
@@ -64,11 +74,12 @@ const getArticleDetail = async <T extends 'article' | 'attraction' | 'retaurant'
               pois: await Promise.all(
                 v.value.pois.map(async poi => {
                   const imageUrl = poi?.source?.image?.sizes.full.url;
-                  let articleCloudinaryImageUrl = defaultBlurSize;
-                  const postRes: CloudinaryPostResponse = await backendApi
-                    .post('cloudinary', { json: { imageUrl } })
-                    .json();
-                  articleCloudinaryImageUrl += postRes.message;
+                  // Skip if already transformed
+                  if (imageUrl?.startsWith(CLOUDINARY_URL())) {
+                    return poi;
+                  }
+                  needsUpdate = true;
+                  const articleCloudinaryImageUrl = await getCloudinaryUrl(imageUrl);
                   return {
                     ...poi,
                     source: {
@@ -98,12 +109,13 @@ const getArticleDetail = async <T extends 'article' | 'attraction' | 'retaurant'
                 ...v.value.itinerary,
                 items: await Promise.all(
                   v.value.itinerary.items.map(async itineraryItem => {
-                    const imageUrl = itineraryItem.poi.source.image.sizes.full.url;
-                    let articleCloudinaryImageUrl = defaultBlurSize;
-                    const postRes: CloudinaryPostResponse = await backendApi
-                      .post('cloudinary', { json: { imageUrl } })
-                      .json();
-                    articleCloudinaryImageUrl += postRes.message;
+                    const imageUrl = itineraryItem?.poi.source?.image?.sizes?.full.url;
+                    // Skip if already transformed
+                    if (imageUrl?.startsWith(CLOUDINARY_URL())) {
+                      return itineraryItem;
+                    }
+                    needsUpdate = true;
+                    const articleCloudinaryImageUrl = await getCloudinaryUrl(imageUrl);
                     return {
                       ...itineraryItem,
                       poi: {
@@ -134,7 +146,16 @@ const getArticleDetail = async <T extends 'article' | 'attraction' | 'retaurant'
       })
     );
 
-    return { data: { ...data, body: articlewithCloudinaryImgs } } as any;
+    const result = { ...data, body: articlewithCloudinaryImgs };
+
+    // Cache transformed URLs in Firestore for next time
+    if (needsUpdate) {
+      firestoreService
+        .updateArticleBody(DB_NAME, regionId, articleId, articlewithCloudinaryImgs)
+        .catch((err: Error) => console.error('Failed to cache transformed URLs:', err));
+    }
+
+    return { data: result } as any;
   }
 
   // attraction과 restaurant 데이터

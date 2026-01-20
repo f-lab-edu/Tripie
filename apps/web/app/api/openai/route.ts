@@ -5,7 +5,7 @@ import incrementedTokenId from './incrementedTokenId';
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { id, ...args } = body;
+    const { id, ip, ...args } = body;
 
     const res = await getTripPlan({ ...args });
 
@@ -18,7 +18,8 @@ export async function POST(req: NextRequest) {
         { ...args },
         id,
         res?.data as SuccessResponse['data'],
-        new Date().toISOString()
+        new Date().toISOString(),
+        ip // Pass IP for test users
       );
       return NextResponse.json({ message: 'Success', data: { id: increaseId } });
     } catch (err) {
