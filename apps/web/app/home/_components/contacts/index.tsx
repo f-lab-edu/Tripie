@@ -31,7 +31,7 @@ const contacts = {
 
 export default function Contacts() {
   return (
-    <Background variant={1} applyPadding="left-right" id={ROUTE.CONTACT.label} padding="m">
+    <Background variant={3} applyPadding="left-right" id={ROUTE.CONTACT.label} padding="m">
       <Container margin="l" applyMargin="top">
         <MotionSlideUp>
           <Container margin="sm" applyMargin="top">

@@ -35,7 +35,7 @@ const serviceList = [
       </Card.Description>
     ),
     description:
-      'Basic 플랜으로 ai가 추천해주는 맛보기 일정을 이용해보세요!\nPro 플랜으로 새 일정을 하루에 최대 X개 추천받아보실 수 있습니다.',
+      'Free 플랜으로 ai가 추천해주는 맛보기 일정을 이용해보세요! \nUnlimited 플랜으로 새 일정을 하루에 최대 100개 추천받아보실 수 있습니다.',
   },
   {
     label: 'AI 추천 맞춤 일정',

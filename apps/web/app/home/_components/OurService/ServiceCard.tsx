@@ -27,7 +27,7 @@ export default function ServiceCard({
           ) : null}
         </Card.Content>
         <Card.Content padding={'none'}>
-          <Text preserveWhiteSpace="xl">{description}</Text>
+          <Text preserveWhiteSpace="lg">{description}</Text>
         </Card.Content>
       </Stack>
     </Card>

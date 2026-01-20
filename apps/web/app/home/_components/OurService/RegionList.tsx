@@ -10,6 +10,7 @@ import API from 'constants/api-routes';
 import useCountryArticle from 'hooks/query/useCountryArticles';
 import { RegionArticleInfo } from 'models/Article';
 import { useMemo } from 'react';
+import { useSplash } from '../SplashContext';
 
 const LoadingRegionCardList = () => {
   return (
@@ -37,7 +38,7 @@ const LoadingRegionCardList = () => {
             alt={'place-holder'}
             cloudinaryUrl={API.MEDIA_URL}
           >
-            <Card.Header size={'large'} bold={true}>
+            <Card.Header size={'h3'} bold={true}>
               <AnimatedText.Jump>제목 로딩 중...</AnimatedText.Jump>
             </Card.Header>
             <Card.Divider />
@@ -53,6 +54,8 @@ const LoadingRegionCardList = () => {
 };
 
 const RegionList = () => {
+  const { setSplash } = useSplash();
+
   const currentRegionId = useMemo(() => {
     const randomIndex = Math.floor(Math.random() * 10);
     return Object.keys(TRIPIE_REGION_BY_LOCATION).filter((_, index) => {
@@ -97,7 +100,9 @@ const RegionList = () => {
       {regionList == null ? (
         <>지역 정보가 없습니다.</>
       ) : (
-        regionList?.data.map((article: RegionArticleInfo) => <RegionCard article={article} key={article.id} />)
+        regionList?.data.map((article: RegionArticleInfo) => (
+          <RegionCard setSplash={setSplash} article={article} key={article.id} />
+        ))
       )}
     </Stack>
   );

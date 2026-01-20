@@ -18,7 +18,7 @@ import TripieIcon from 'shared/components/TripieIcon/TripieIcon';
 
 export default function Plan() {
   return (
-    <Background variant={3} id="Plans" applyPadding="top-left-right" padding="m">
+    <Background variant={5} id="Plans" applyPadding="top-left-right" padding="m">
       <MotionSlideUp>
         <Container applyMargin="top" margin="l">
           <Headings.H2>
@@ -55,7 +55,12 @@ export default function Plan() {
                   withBorder={true}
                   sizes="large"
                   stretched={true}
-                  onClick={() => alert(`chose ${PLANS[key].label}`)}
+                  otherChild={
+                    <>
+                      Get started with <Text.Accented>{PLANS[key].label}</Text.Accented>
+                    </>
+                  }
+                  // onClick={() => alert(`chose ${PLANS[key].label}`)}
                 >
                   Get started with {PLANS[key].label}
                 </FlickTextButton>

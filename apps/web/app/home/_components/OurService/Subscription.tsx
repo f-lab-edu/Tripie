@@ -36,9 +36,9 @@ export default function Subscription() {
         padding="m"
         alignItems="center"
       >
-        <Chip>Basic</Chip>
+        <Chip>Free</Chip>
         <AccentedButton current={current} cycle={cycle}>
-          Pro
+          Unlimited
         </AccentedButton>
         <Chip>Custom</Chip>
       </Container>

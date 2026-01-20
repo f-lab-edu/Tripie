@@ -16,7 +16,7 @@ const FaqItem = ({ tag, header, details }: { tag: string; header: string; detail
           </Container>
         </Accordion.Header>
         <Accordion.Divider />
-        <Accordion.Body padding={'default'} applyPadding="top-bottom">
+        <Accordion.Body padding={'sm'} applyPadding="top-bottom">
           <Container margin="l" applyMargin="top">
             <Text preserveWhiteSpace={'xl'}>{details}</Text>
           </Container>

@@ -10,53 +10,64 @@ type PlanList = {
 const PLANS = {
   BASIC: {
     label: 'Basic',
-    price: '€1.997',
+    price: 'Free',
     items: [
-      { label: '1 dedicated developer', description: '1 dedicated developer', icon: 'CHECK' },
       {
-        label: 'Custom workflow automations',
-        description: 'Custom workflow automations',
+        label: '여행 정보 열람 무제한',
+        description: '여행 정보 열람 무제한',
         icon: 'CHECK',
       },
-      { label: 'Unlimited requests', description: 'Unlimited requests', icon: 'CHECK' },
-      { label: 'Unlimited revisions', description: 'Unlimited revisions', icon: 'CHECK' },
-      { label: 'Business consulting', description: 'Business consulting', icon: 'X' },
-      { label: 'Custom chatbots', description: 'Custom chatbots', icon: 'X' },
-      { label: 'Cancel & pause anytime', description: 'Cancel & pause anytime', icon: 'CHECK' },
+      { label: 'daily 10 requests', description: '매일 최대 10개의 AI 추천 일정', icon: 'CHECK' },
+      { label: '여행일정 공유', description: '여행일정 공유', icon: 'CHECK' },
+      {
+        label: '여행 일정 추천 결과를 영구 링크로 제공',
+        description: '여행 일정 추천 결과를 영구 링크로 제공',
+        icon: 'CHECK',
+      },
+      { label: '취향을 더 반영한 맞춤 여행 일정', description: '취향을 더 반영한 맞춤 여행 일정', icon: 'X' },
+      { label: '언제든지 구독 취소 & 중단', description: '언제든지 구독 취소 & 중단', icon: 'CHECK' },
     ],
   },
-  PRO: {
-    label: 'Pro',
-    price: '€3.997',
+  UNLIMITED: {
+    label: 'Unlimited',
+    price: '₩3,600',
     items: [
-      { label: '2 dedicated developers', description: '2 dedicated developers', icon: 'CHECK' },
       {
-        label: 'Custom workflow automations',
-        description: 'Custom workflow automations',
+        label: '여행 정보 열람 무제한',
+        description: '여행 정보 열람 무제한',
         icon: 'CHECK',
       },
-      { label: 'Unlimited requests', description: 'Unlimited requests', icon: 'CHECK' },
-      { label: 'Unlimited revisions', description: 'Unlimited revisions', icon: 'CHECK' },
-      { label: 'Business consulting', description: 'Business consulting', icon: 'CHECK' },
-      { label: 'Custom chatbots', description: 'Custom chatbots', icon: 'CHECK' },
-      { label: 'Cancel & pause anytime', description: 'Cancel & pause anytime', icon: 'CHECK' },
+      { label: 'daily 100 requests', description: '매일 최대 100개의 AI 추천 일정', icon: 'CHECK' },
+
+      { label: '여행일정 공유', description: '여행일정 공유', icon: 'CHECK' },
+      {
+        label: '여행 일정 추천 결과를 영구 링크로 제공',
+        description: '여행 일정 추천 결과를 영구 링크로 제공',
+        icon: 'CHECK',
+      },
+      { label: '취향을 더 반영한 맞춤 여행 일정', description: '취향을 더 반영한 맞춤 여행 일정', icon: 'CHECK' },
+      { label: '언제든지 구독 취소 & 중단', description: '언제든지 구독 취소 & 중단', icon: 'CHECK' },
     ],
   },
   CUSTOM: {
-    label: 'Enterprise',
+    label: 'Custom',
     price: 'Custom',
     items: [
-      { label: 'X dedicated developers', description: 'X dedicated developers', icon: 'CHECK' },
       {
-        label: 'Custom workflow automations',
-        description: 'Custom workflow automations',
+        label: '여행 정보 열람 무제한',
+        description: '여행 정보 열람 무제한',
         icon: 'CHECK',
       },
-      { label: 'Unlimited requests', description: 'Unlimited requests', icon: 'CHECK' },
-      { label: 'Unlimited revisions', description: 'Unlimited revisions', icon: 'CHECK' },
-      { label: 'Business consulting', description: 'Business consulting', icon: 'CHECK' },
-      { label: 'Custom chatbots', description: 'Custom chatbots', icon: 'CHECK' },
-      { label: 'Cancel & pause anytime', description: 'Cancel & pause anytime', icon: 'CHECK' },
+      { label: 'daily unlimited requests', description: '매일 무제한 AI 추천 일정', icon: 'CHECK' },
+
+      { label: '여행일정 공유', description: '여행일정 공유', icon: 'CHECK' },
+      {
+        label: '여행 일정 추천 결과를 영구 링크로 제공',
+        description: '여행 일정 추천 결과를 영구 링크로 제공',
+        icon: 'CHECK',
+      },
+      { label: '취향을 더 반영한 맞춤 여행 일정', description: '취향을 더 반영한 맞춤 여행 일정', icon: 'CHECK' },
+      { label: '언제든지 구독 취소 & 중단', description: '언제든지 구독 취소 & 중단', icon: 'CHECK' },
     ],
   },
 } as PlanList;
