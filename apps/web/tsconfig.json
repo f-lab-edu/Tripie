@@ -1,14 +1,25 @@
 {
   "extends": "@tripie-pyotato/typescript-config/nextjs.json",
+
   "compilerOptions": {
-    "baseUrl": ".",
+    // "rootDir": ".",
     "paths": {
-      "~/*": ["./src/*"]
+      "@/*": ["./*"],
+      "~/*": ["./src/*"],
+      "app/*": ["./app/*"],
+      "shared/*": ["./shared/*"],
+      "constants/*": ["./constants/*"],
+      "models/*": ["./models/*"],
+      "hooks/*": ["./hooks/*"],
+      "utils/*": ["./utils/*"],
+      "wrapper/*": ["./wrapper/*"],
+      "firebase/*": ["./firebase/*"]
     },
     "typeRoots": ["./node_modules/@types"],
     "types": ["react", "node", "jest"],
     "preserveSymlinks": true
   },
+
   "include": [
     "next-env.d.ts",
     "typings",
