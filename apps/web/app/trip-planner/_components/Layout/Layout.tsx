@@ -61,12 +61,12 @@ const Layout = ({
         </Headings.H2>
       </Stack>
 
-      {decor != null ? <Container className={cx('decor-wrap')}>{decor}</Container> : null}
-      {refreshIcon != null ? <Container applyMargin="top-bottom">{refreshIcon}</Container> : null}
+      {decor ? <Container className={cx('decor-wrap')}>{decor}</Container> : null}
+      {refreshIcon ? <Container applyMargin="top-bottom">{refreshIcon}</Container> : null}
       <Stack direction="column" alignItems="end" padding="l" applyPadding="bottom" margin="none">
         {children ?? null}
       </Stack>
-      {listItems != null ? (
+      {listItems ? (
         <Container margin="none" className={cx('list', `list-wrap${decor == null ? '' : '-with-decor'}`)}>
           {listItems}
         </Container>
@@ -75,7 +75,6 @@ const Layout = ({
       <Container applyMargin={'top-bottom'} padding="m" applyPadding="bottom">
         <FlickTextButton
           disabled={disabled}
-          colorVariant={disabled ? 'disabled' : 'active'}
           withBorder={true}
           sizes="large"
           onClick={() => {

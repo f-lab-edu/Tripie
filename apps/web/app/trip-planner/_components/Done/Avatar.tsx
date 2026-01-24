@@ -15,6 +15,8 @@ const Avatar = ({
       alt={'tripie-icon'}
       cloudinaryUrl={API.MEDIA_URL}
       sizes={'avatar'}
+      withBorder={true}
+      style={{ maxWidth: '3rem' }}
       aspectRatio="square"
     />
   );

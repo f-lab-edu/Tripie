@@ -3,7 +3,7 @@
 .over-flow-wrap {
   @include scroll;
   @include visible-scroll(false);
-  max-height: 65vh;
+  height: 98%;
 }
 
 .trip-list-wrap {

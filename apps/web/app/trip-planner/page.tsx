@@ -89,11 +89,11 @@ export type FunnelProps = {
   progress: ReactNode;
 };
 
-const handleSubmit = async (chatItems: TripPlanner, id: string) => {
+const handleSubmit = async (chatItems: TripPlanner, id: string, ip?: string) => {
   if (id == null) {
     return null;
   }
-  const res: TripPlannerSuccessReponse = await api.post('openai', { json: { ...chatItems, id } }).json();
+  const res: TripPlannerSuccessReponse = await api.post('openai', { json: { ...chatItems, id, ip } }).json();
   return res?.data?.id;
 };
 
@@ -124,7 +124,9 @@ const TripPlan = () => {
     if (userData?.user.id == null) {
       return;
     }
-    const id = await handleSubmit(funnel.context as TripPlanner, userData?.user?.id);
+    // Pass IP for test users (credential login) to enable IP-based token tracking
+    const ip = userData?.token?.ip as string | undefined;
+    const id = await handleSubmit(funnel.context as TripPlanner, userData?.user?.id, ip);
     funnel.history.clear();
 
     if (id != null) {

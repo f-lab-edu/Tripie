@@ -1,5 +1,6 @@
 .trip-tab-content-wrap {
   width: min(24rem, 60vw);
+  height: 96%;
 }
 .trip-tab-day-button {
   min-width: max-content;
@@ -8,5 +9,5 @@
 .sticky {
   position: sticky;
   top: 0;
-  height: 100%;
+  height: max(24%, fit-content);
 }

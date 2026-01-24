@@ -3,12 +3,13 @@ import { Button, Carousel, Divider } from '@tripie-pyotato/design-system/@compon
 import { Headings, Stack, Text } from '@tripie-pyotato/design-system/@core';
 import { classNames } from '@tripie-pyotato/design-system/@wrappers';
 
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import { AiTripPlanResponse } from 'app/api/openai/getTripPlan';
 import { SelectedDateContext } from '..';
 import TabList from '../TabList';
 
+import ShareLinkButton from '../../ShareLinkButton';
 import Style from './trip-tab.module.scss';
 
 const cx = classNames.bind(Style);
@@ -24,6 +25,13 @@ const TripTab = ({
 }) => {
   // 일정 중 선택한 여행 날짜 컨텍스트
   const { currentDate, dateCycle } = useContext(SelectedDateContext);
+  const [location, setLocation] = useState<null | string>(null);
+
+  useEffect(() => {
+    if (globalThis?.window?.location?.href != null) {
+      setLocation(globalThis.window.location.href);
+    }
+  }, []);
 
   return (
     <Stack
@@ -47,6 +55,9 @@ const TripTab = ({
         applyPadding="top"
       >
         <Headings.H2>{data.name}</Headings.H2>
+
+        <ShareLinkButton url={location ?? '.'} />
+
         <Carousel.Controlled>
           {data.trips.map(trip => (
             <Button
