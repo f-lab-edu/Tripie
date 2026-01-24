@@ -43,7 +43,7 @@ const PoiCard = ({
     if (selected && cardRef.current != null) {
       cardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
-  }, [selected, cardRef]);
+  }, [selected, cardRef, globalThis]);
 
   useEffect(() => {
     // https://visgl.github.io/react-map-gl/docs/api-reference/maplibre/use-map

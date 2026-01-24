@@ -20,8 +20,7 @@ export async function GET(request: NextRequest) {
   </svg>
 `;
 
-  const toBase64 = (str: string) =>
-    typeof window === 'undefined' ? Buffer.from(str).toString('base64') : window.btoa(str);
+  const toBase64 = (str: string) => (globalThis.window ? Buffer.from(str).toString('base64') : globalThis.btoa(str));
 
   return NextResponse.json({ data: `data:image/svg+xml;base64,${toBase64(blurSvg)}` }, { status: 200 });
 }
