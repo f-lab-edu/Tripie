@@ -79,14 +79,14 @@ const DurationStep = ({
                 const invalidRange = MAX_DAYS_IN_MILLI_SEC < dayCount;
 
                 if (invalidRange) {
-                  console.log(`${invalidRange ? 'In' : 'Is '}valid range`, value, dayCount);
+                  // console.log(`${invalidRange ? 'In' : 'Is '}valid range`, value, dayCount);
                   setIsOpen(true);
                   return;
                 }
               }
               setSelected((Array.isArray(value) ? value : [value]) as Date[]);
             }}
-            selected={selected}
+            selected={selected as LooseValue}
             onClickDay={setSelected}
             selectRange={true}
             allowPartialRange={false}
