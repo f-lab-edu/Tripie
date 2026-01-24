@@ -4,13 +4,13 @@ import Card from '@tripie-pyotato/design-system/@components/Card';
 import { classNames, useInView } from '@tripie-pyotato/design-system/@wrappers';
 
 import RegionList from './RegionList';
-import Subscription from './Subscription';
 
 import { Container } from '@tripie-pyotato/design-system/@core';
 
 import TripieGlobe from 'shared/components/TripieGlobe';
 
 import Style from './service-list.module.scss';
+import Subscription from './Subscription';
 
 const cx = classNames.bind(Style);
 
@@ -19,7 +19,7 @@ function GlobeCard() {
 
   return (
     <Container margin="none" padding="none" ref={ref}>
-      <Card.Description className={cx('content-wrap')} padding={'none'} margin={'none'}>
+      <Card.Description display="inline-block" className={cx('content-wrap')} padding={'none'} margin={'none'}>
         {inView ? <TripieGlobe /> : <></>}
       </Card.Description>
     </Container>
@@ -30,7 +30,7 @@ const serviceList = [
   {
     label: '구독하기',
     content: (
-      <Card.Description padding={'m'}>
+      <Card.Description display="inline-block" className={cx('info-wrap')} padding={'m'} margin={'none'}>
         <Subscription />
       </Card.Description>
     ),

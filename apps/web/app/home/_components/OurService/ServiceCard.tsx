@@ -16,15 +16,15 @@ export default function ServiceCard({
   description: string;
 }>) {
   return (
-    <Card sizes={'full'} margin="none" padding="sm" cloudinaryUrl={API.MEDIA_URL}>
+    <Card sizes={'full'} margin="none" padding="none" cloudinaryUrl={API.MEDIA_URL}>
       <Stack direction="column" margin="none" gap="l" justifyContent="start" alignItems="start">
         {content}
         <Card.Content padding={'none'}>
-          {label != null ? (
+          {label == null ? null : (
             <Text size="h3" bold={true}>
               {label}
             </Text>
-          ) : null}
+          )}
         </Card.Content>
         <Card.Content padding={'none'}>
           <Text preserveWhiteSpace="lg">{description}</Text>

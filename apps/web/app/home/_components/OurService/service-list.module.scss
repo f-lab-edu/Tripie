@@ -4,11 +4,9 @@
   height: 12.5rem;
   overflow: hidden;
   position: relative;
-  display: inline-block;
 }
 
 .info-wrap {
-  height: 30rem;
-  overflow: scroll;
-  @include visible-scroll(false);
+  overflow: hidden;
+  position: relative;
 }
