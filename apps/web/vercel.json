@@ -1,0 +1,8 @@
+{
+  "crons": [
+    {
+      "path": "/api/cron/reset-ip-tokens",
+      "schedule": "0 0 * * *"
+    }
+  ]
+}
