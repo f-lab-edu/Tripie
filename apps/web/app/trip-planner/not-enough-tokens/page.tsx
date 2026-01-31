@@ -1,5 +1,3 @@
-'use server';
-
 import ContactAdmin from './_components/ContactAdmin';
 
 const NotEnoughTokens = () => {
