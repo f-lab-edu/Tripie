@@ -1,6 +1,6 @@
 {
   "name": "tripie",
-  "packageManager": "pnpm@10.28.0",
+  "packageManager": "pnpm@10.28.2",
   "repository": "git://github.com/Pyotato/Tripie.git",
   "main": "index.js",
   "type": "module",

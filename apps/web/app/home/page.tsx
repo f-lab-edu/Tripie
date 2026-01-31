@@ -1,5 +1,6 @@
 'use client';
 
+import { useSplash } from '@/hooks/useSplash';
 import { AnimatedText, Icon, SplashScreen } from '@tripie-pyotato/design-system/@components';
 import { Stack } from '@tripie-pyotato/design-system/@core';
 import AboutUs from 'app/home/_components/AboutUs';
@@ -9,8 +10,8 @@ import Footer from 'app/home/_components/Footer';
 import Header from 'app/home/_components/Header';
 import Plan from 'app/home/_components/Plan';
 import Loading from 'shared/components/Loading';
+import { SplashProvider } from '../../shared/components/SplashContext';
 import OurService from './_components/OurService';
-import { SplashProvider, useSplash } from './_components/SplashContext';
 
 function HomeContent() {
   const { splash } = useSplash();

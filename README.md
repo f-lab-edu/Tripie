@@ -167,8 +167,9 @@
 ### 테스트 계정
 
 로그인 테스트 계정
-아이디 : test
-비밀번호 = test12345!
+
+- 아이디 : test
+- 비밀번호 = test12345!
 
 ### Development Process
 

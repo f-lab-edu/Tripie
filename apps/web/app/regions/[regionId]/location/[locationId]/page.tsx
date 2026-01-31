@@ -1,9 +1,7 @@
-import { Container } from '@tripie-pyotato/design-system/@core';
 import { Params } from 'app/parse-params';
 
-import RegionList from 'app/regions/_components/RegionList';
-import RegionTitle from 'app/regions/_components/RegionTitle';
-import RegionSelect from 'app/regions/_components/Select';
+import RegionContents from '@/app/regions/_components/RegionContents';
+import { Container } from '@tripie-pyotato/design-system/@core';
 import regionPageParamData from 'app/regions/regions-page-param.data';
 import { TRIPIE_REGION_BY_LOCATION, TRIPIE_REGION_IDS } from 'constants/tripie-country';
 import { pageParamData } from './layout';
@@ -21,13 +19,14 @@ const Articles = async ({ params }: { params: Promise<Params> }) => {
     locationId == null ? TRIPIE_REGION_BY_LOCATION[regionId as keyof typeof TRIPIE_REGION_BY_LOCATION][0] : locationId;
 
   return (
-    <>
-      <Container margin="xl" applyMargin="top" padding="none">
-        <RegionTitle regionId={regionId} city={TRIPIE_REGION_IDS[selectedRegion as keyof typeof TRIPIE_REGION_IDS]} />
-      </Container>
-      <RegionSelect selected={regionId} selectedRegion={selectedRegion} />
-      <RegionList data={dynamicBlurDataUrl} />
-    </>
+    <Container margin="xl" applyMargin="top" padding="none">
+      <RegionContents
+        data={dynamicBlurDataUrl}
+        currentRegionId={regionId}
+        selectedRegion={selectedRegion}
+        city={TRIPIE_REGION_IDS[selectedRegion as keyof typeof TRIPIE_REGION_IDS]}
+      />
+    </Container>
   );
 };
 

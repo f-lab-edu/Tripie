@@ -4,13 +4,13 @@ import { TRIPIE_REGION_BY_LOCATION, TRIPIE_REGION_IDS } from 'constants/tripie-c
 
 import Stack from '@tripie-pyotato/design-system/@core/Stack';
 
+import { useSplash } from '@/hooks/useSplash';
 import { AnimatedCard, AnimatedText, Card } from '@tripie-pyotato/design-system/@components';
 import RegionCard from 'app/regions/_components/RegionCard';
 import API from 'constants/api-routes';
 import useCountryArticle from 'hooks/query/useCountryArticles';
 import { RegionArticleInfo } from 'models/Article';
 import { useMemo } from 'react';
-import { useSplash } from '../SplashContext';
 
 const LoadingRegionCardList = () => {
   return (
@@ -58,14 +58,14 @@ const RegionList = () => {
 
   const currentRegionId = useMemo(() => {
     const randomIndex = Math.floor(Math.random() * 10);
-    return Object.keys(TRIPIE_REGION_BY_LOCATION).filter((_, index) => {
+    return Object.keys(TRIPIE_REGION_BY_LOCATION).find((_, index) => {
       if (randomIndex === index) {
         return true;
       }
       if (randomIndex < 0 || randomIndex >= Object.keys(TRIPIE_REGION_BY_LOCATION).length) {
         return true;
       }
-    })[0];
+    });
   }, []);
 
   const selectedRegionId = useMemo(() => {

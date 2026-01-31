@@ -10,11 +10,11 @@ import pureRegionArticles from '../cache';
 export default async function Page({ params }: { params: { regionId: string } }) {
   const { regionId } = await params;
   const parsedRegionId = decodeURIComponent(regionId);
-  const selectedRegion = Object.keys(TRIPIE_REGION_IDS).filter(
+  const selectedRegion = Object.keys(TRIPIE_REGION_IDS).find(
     item =>
       TRIPIE_REGION_IDS[item as keyof typeof TRIPIE_REGION_IDS] ===
       TRIPIE_REGION_BY_LOCATION[parsedRegionId as keyof typeof TRIPIE_REGION_BY_LOCATION]?.[0]
-  )?.[0];
+  );
 
   const data = await pureRegionArticles(selectedRegion);
 

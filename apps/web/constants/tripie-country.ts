@@ -89,7 +89,7 @@ export const TRIPIE_REGION_IDS = {
   '9a643db8-5e53-4e78-a0ae-221580a27e88': '시애틀',
   '765cc008-e4f7-49c6-85c5-173676829009': '마닐라',
   // 'a352b9f0-6983-412b-8df1-49f3b4e07c39':'자그레브'
-};
+} as const;
 
 export const TRIPIE_REGION_BY_LOCATION = {
   일본: [
@@ -174,4 +174,4 @@ export const TRIPIE_REGION_BY_LOCATION = {
   중남미: ['칸쿤'],
   미주: ['밴쿠버', '샌프란시스코', '시애틀', '토론토', '하와이', '뉴욕', '로스앤젤레스'],
   남태평양: ['시드니', '멜버른', '괌', '사이판'],
-};
+} as const;

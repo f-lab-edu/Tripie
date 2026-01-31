@@ -19,6 +19,7 @@ export default function RegionList({
   if (!data) {
     return <Loading.SemiTransparent loading={true} />;
   }
+
   return (
     <Stack
       gridWrapOn={{ 'wrap-md': 2 }}
