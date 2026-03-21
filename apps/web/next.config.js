@@ -2,8 +2,8 @@
 
 import createBundleAnalyzer from '@next/bundle-analyzer';
 import withPlugins from 'next-compose-plugins';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 /** For __dirname in ES modules */
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
@@ -35,7 +35,7 @@ const withPurgeCss = [
         './shared/**/*.{js,ts,jsx,tsx}',
         './app/**/*.{js,ts,jsx,tsx,mdx}', // if you're using the App Router
       ],
-      defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
+      defaultExtractor: (/** @type {string} */ content) => content.match(/[\w-/:]+(?<!:)/g) || [],
       safelist: ['html', 'body'],
     },
   ],
@@ -48,6 +48,10 @@ const nextConfig = withPlugins([[withBundleAnalyzer, withPurgeCss]], {
    */
   sassOptions: {
     includePaths: [
+      path.join(__dirname, 'styles'),
+      path.join(__dirname, './node_modules/@tripie-pyotato/design-system/src'),
+    ],
+    loadPaths: [
       path.join(__dirname, 'styles'),
       path.join(__dirname, './node_modules/@tripie-pyotato/design-system/src'),
     ],

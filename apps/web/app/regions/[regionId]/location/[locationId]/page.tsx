@@ -19,7 +19,7 @@ const Articles = async ({ params }: { params: Promise<Params> }) => {
     locationId == null ? TRIPIE_REGION_BY_LOCATION[regionId as keyof typeof TRIPIE_REGION_BY_LOCATION][0] : locationId;
 
   return (
-    <Container margin="xl" applyMargin="top" padding="none">
+    <Container margin="none" padding="none">
       <RegionContents
         data={dynamicBlurDataUrl}
         currentRegionId={regionId}
