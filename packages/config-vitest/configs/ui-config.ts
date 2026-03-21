@@ -8,5 +8,12 @@ export const uiConfig = mergeConfig(
     test: {
       environment: 'jsdom',
     },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern', // api: 'modern-compiler', // or "modern"
+        },
+      },
+    },
   })
 );

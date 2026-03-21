@@ -1,6 +1,4 @@
 // https://github.com/vercel/turborepo/blob/main/examples/with-vitest/packages/vitest-config/configs/base-config.ts
-// import react from '@vitejs/plugin-react';
-// import tsconfigPaths from 'vite-tsconfig-paths';
 import { defineConfig } from 'vitest/config';
 
 export const baseConfig = defineConfig({
@@ -18,8 +16,4 @@ export const baseConfig = defineConfig({
       enabled: true,
     },
   },
-  // plugins: [
-  //   tsconfigPaths()
-  //   react(),
-  // ],
 });
