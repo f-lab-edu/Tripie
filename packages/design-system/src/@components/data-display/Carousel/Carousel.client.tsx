@@ -97,10 +97,8 @@ const CarouselItem = ({
   focusedIndex: number;
   threshold?: number;
 }) => {
-  const { ref, inView } = useInView({
-    threshold: threshold, // 60% 보여야 동작
-    triggerOnce: false, // 가시성 체크
-  });
+  const ref = useRef(null);
+  const inView = useInView(ref, { amount: threshold, once: false }); // 60% 보여야 동작, 가시성 체크X
 
   // 보이면 스크롤한 인덱스로 이동
   useEffect(() => {

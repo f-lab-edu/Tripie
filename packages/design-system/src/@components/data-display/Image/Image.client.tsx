@@ -3,7 +3,7 @@
 import { Text } from '@core';
 import TripieContainer, { TripieContainerProps } from '@core/layout/TripieContainer';
 
-import { ImgHTMLAttributes, useEffect, useState } from 'react';
+import { ImgHTMLAttributes, useEffect, useRef, useState } from 'react';
 import { CLOUDINARY_URL } from 'shared';
 import { classNames, Motion, useInView } from '../../../wrappers';
 import Style from './image.module.scss';
@@ -57,7 +57,8 @@ const BlurImageOnLoad = ({
   ...args
 }: ImageProps) => {
   const [loaded, setLoaded] = useState(false);
-  const { ref, inView } = useInView();
+  const ref = useRef(null);
+  const inView = useInView(ref);
 
   const [dimension, setDimension] = useState<{
     width: string | number;

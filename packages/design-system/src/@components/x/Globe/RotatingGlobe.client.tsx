@@ -26,7 +26,8 @@ const RotatingGlobe = ({
   ...args
 }: GlobeProps & { fallback?: ReactNode; cloudinaryUrl?: string } & Pick<TripieContainerProps, 'display'>) => {
   const globeRef = useRef<GlobeMethods>();
-  const { ref, inView } = useInView();
+  const ref = useRef(null);
+  const inView = useInView(ref);
   const [isRotating, setIsRotating] = useState(false);
 
   // Globe 가 충분히 로드될때까지 초기화 대기

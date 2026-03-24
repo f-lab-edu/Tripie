@@ -1,27 +1,26 @@
 import classNames from './classNames';
-import Motion, {
-  MotionAnimationProps,
-  MotionProps,
-  MotionStyleProps,
-  MotionSVGProps,
-  MotionVariant,
-  MotionVariants,
+import Motion from './motion-wrapper';
+export {
+  useInView,
+  type MotionAnimationProps,
+  type MotionProps,
+  type MotionStyleProps,
+  type MotionSVGProps,
+  type MotionVariant,
+  type MotionVariants,
 } from './motion-wrapper';
-import { ReactCalendar, type CalendarProps, type LooseValue } from './react-calendar';
-import { type GlobeMethods, type GlobeProps } from './react-globe';
-import { InView, useInView } from './react-intersection-observer';
-import {
+export { ReactCalendar, type CalendarProps, type LooseValue } from './react-calendar';
+export { type GlobeMethods, type GlobeProps } from './react-globe';
+export {
   Layer,
   Map,
+  Marker as MapLibreMarker,
   MapProvider,
-  Marker,
   Popup,
   Source,
   useMap,
   type LayerProps,
   type LngLatBoundsLike,
-  // type MapCollection,
-  // type MaplibreMap,
   type MapRef,
   type PaddingOptions,
   type PointLike,
@@ -30,36 +29,4 @@ import {
   type ViewState,
 } from './react-map-gl';
 
-// Type error: Re-exporting a type when 'isolatedModules' is enabled requires using 'export type'.
-export {
-  classNames,
-  InView,
-  Layer,
-  Map,
-  Marker as MapLibreMarker,
-  MapProvider,
-  Motion,
-  Popup,
-  ReactCalendar,
-  Source,
-  useInView,
-  useMap,
-  type CalendarProps,
-  type GlobeMethods,
-  type GlobeProps,
-  type LayerProps,
-  type LngLatBoundsLike,
-  type LooseValue,
-  type MapRef,
-  type MotionAnimationProps,
-  type MotionProps,
-  type MotionStyleProps,
-  type MotionSVGProps,
-  type MotionVariant,
-  type MotionVariants,
-  type PaddingOptions,
-  type PointLike,
-  type PopupEvent,
-  type PopupType,
-  type ViewState,
-};
+export { classNames, Motion };

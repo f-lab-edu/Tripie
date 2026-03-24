@@ -9,7 +9,7 @@
     "**/*.css"
   ],
   "scripts": {
-    "build": "NODE_OPTIONS='--max-old-space-size=12288' tsup",
+    "build": "rm -rf ./dist && NODE_OPTIONS='--max-old-space-size=6144' tsup",
     "metafile": "tsup --format cjs,esm",
     "build:pkg": "tsc",
     "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
@@ -82,7 +82,6 @@
     "react-calendar": "^5.0.0",
     "react-dom": "^18.3.1",
     "react-globe.gl": "^2.27.2",
-    "react-intersection-observer": "9.13.1",
     "react-map-gl": "^7.1.7",
     "usehooks-ts": "^3.1.0"
   },

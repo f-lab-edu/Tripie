@@ -11,15 +11,18 @@ const coreEntries = fg.sync(path.resolve(__dirname, 'src/@core/**/*.{ts,tsx}'), 
   ignore: ['**/*.client.ts', '**/*.client.tsx'],
 });
 
-// hooks marked with "use client;"
-const clientHookEntries = fg.sync(path.resolve(__dirname, 'src/@hooks/*.client.{ts,tsx}'));
+// hooks: index + "use client;" hooks
+const clientHookEntries = fg.sync(path.resolve(__dirname, 'src/@hooks/*.{ts,tsx}'));
 
-// components marked with "use client;"
-const clientComponentEntries = fg.sync(path.resolve(__dirname, 'src/@components/**/*.client.{ts,tsx}'));
+// components: index files + "use client;" components
+const clientComponentEntries = fg.sync([
+  path.resolve(__dirname, 'src/@components/**/*.client.{ts,tsx}'),
+  path.resolve(__dirname, 'src/@components/**/index.ts'),
+]);
 
-// other entries
+// other entries — exclude dirs already handled by dedicated builds
 const otherEntries = fg.sync(path.resolve(__dirname, 'src/**/*.{ts,tsx,scss}'), {
-  ignore: ['**/*.client.ts', '**/*.client.tsx'],
+  ignore: ['**/*.client.ts', '**/*.client.tsx', '**/src/@core/**', '**/src/@components/**', '**/src/@hooks/**'],
 });
 
 interface ESBuildUseClientOptions {
@@ -54,13 +57,14 @@ const defaultConfig: Partial<Options> = {
   external: [...Object.keys(dependencies || {}), ...Object.keys(peerDependencies || {})],
   format: ['cjs', 'esm'],
   target: ['es2022', 'es2020'],
-  clean: true,
+  clean: false,
   dts: true,
   onSuccess: 'node ./scripts/inject-css.js && node ./scripts/inject-use-client.js',
   esbuildPlugins: [
     sassPlugin({
       filter: /\.module\.scss$/,
       type: 'css', // type: 'style',
+      cache: true,
       transform: postcssModules({
         generateScopedName: '[local]__[hash:base64:5]',
         basedir: './dist',
@@ -69,6 +73,7 @@ const defaultConfig: Partial<Options> = {
     sassPlugin({
       filter: /\.scss$/,
       type: 'css',
+      cache: true,
     }),
   ],
 

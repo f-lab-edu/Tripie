@@ -1,10 +1,11 @@
 'use client';
-import { classNames, InView, Motion, MotionProps } from '../../../wrappers';
+import { classNames, Motion, MotionProps, useInView } from '../../../wrappers';
 
 import { COLORS } from '../../../shared/colors';
 
 import { CustomAnimationProps } from '@components/surfaces/AnimatedCard';
 import TripieContainer from '@core/layout/TripieContainer';
+import { useRef } from 'react';
 import Text, { TextProps } from '../../../@core/data-display/Text';
 import Style from './text-fill-animation.module.scss';
 
@@ -26,61 +27,57 @@ const TextFillAnimation = ({
   children,
   replays = true,
 }: TextFillAnimation) => {
+  const titleRef = useRef(null);
+  const titleInView = useInView(titleRef);
+  const ref = useRef(null);
+  const inView = useInView(ref);
   if (isTitle) {
     return (
-      <InView>
-        {({ inView, ref }) => (
-          <div className={cx('animation', 'pre-title', 'default')} ref={ref}>
-            <span className={cx('wrap')}>
-              {children}
-              <Motion.Span
-                className={cx('text', 'title')}
-                animate={inView ? 'visible' : 'hidden'}
-                initial={{ width: '0%' }}
-                variants={{
-                  visible: { width: '100%' },
-                  hidden: { width: '0%' },
-                }}
-                transition={{ repeat: 1, duration }}
-              >
-                {children}
-              </Motion.Span>
-            </span>
-          </div>
-        )}
-      </InView>
+      <div className={cx('animation', 'pre-title', 'default')} ref={titleRef}>
+        <span className={cx('wrap')}>
+          {children}
+          <Motion.Span
+            className={cx('text', 'title')}
+            animate={titleInView ? 'visible' : 'hidden'}
+            initial={{ width: '0%' }}
+            variants={{
+              visible: { width: '100%' },
+              hidden: { width: '0%' },
+            }}
+            transition={{ repeat: 1, duration }}
+          >
+            {children}
+          </Motion.Span>
+        </span>
+      </div>
     );
   }
   return (
-    <InView>
-      {({ inView, ref }) => (
-        <TripieContainer
-          preserveWhiteSpace={'none'}
-          margin="none"
-          className={cx('animation', 'wrap', baseColor == null ? 'default' : '')}
-          ref={ref}
-        >
-          <Text size={size}>{text}</Text>
-          <Motion.Span
-            className={cx('text')}
-            style={
-              {
-                color: baseColor ?? endColor,
-              } as MotionProps['motionStyle']
-            }
-            animate={inView ? 'visible' : 'hidden'}
-            initial={{ width: '0%' }}
-            variants={{
-              visible: { width: 'fit-content' },
-              hidden: { width: '0%' },
-            }}
-            transition={{ baseColor, endColor, duration, delay, replays }}
-          >
-            <Text size={size}>{text}</Text>
-          </Motion.Span>
-        </TripieContainer>
-      )}
-    </InView>
+    <TripieContainer
+      preserveWhiteSpace={'none'}
+      margin="none"
+      className={cx('animation', 'wrap', baseColor == null ? 'default' : '')}
+      ref={ref}
+    >
+      <Text size={size}>{text}</Text>
+      <Motion.Span
+        className={cx('text')}
+        style={
+          {
+            color: baseColor ?? endColor,
+          } as MotionProps['motionStyle']
+        }
+        animate={inView ? 'visible' : 'hidden'}
+        initial={{ width: '0%' }}
+        variants={{
+          visible: { width: 'fit-content' },
+          hidden: { width: '0%' },
+        }}
+        transition={{ baseColor, endColor, duration, delay, replays }}
+      >
+        <Text size={size}>{text}</Text>
+      </Motion.Span>
+    </TripieContainer>
   );
 };
 

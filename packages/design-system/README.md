@@ -21,7 +21,6 @@ Under the hood, tripie's design system have peer dependencies as stated below.
   "react-map-gl": "^7.1.7", // for aws map
   "react-globe.gl": "^2.27.2", // for globe mesh
   "react-calendar": "^5.0.0", // for calendar
-  "react-intersection-observer": "9.13.1",
   "usehooks-ts": "^3.1.0",
   "@base-ui-components/react": "1.0.0-beta.0" // for tool-tip
 }
@@ -32,7 +31,7 @@ To use those features, install peer dependencies.
 ## Installation
 
 ```bash
- $pnpm i framer framer-motion maplibre-gl react-globe.gl react-calendar react-intersection-observer usehooks-ts @base-ui-components/react
+ $pnpm i framer framer-motion maplibre-gl react-globe.gl react-calendar usehooks-ts @base-ui-components/react
  $pnpm i @tripie-pyotato/design-system
 ```
 

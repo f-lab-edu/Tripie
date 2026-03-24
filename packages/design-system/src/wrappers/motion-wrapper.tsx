@@ -13,7 +13,7 @@ import {
   VariantLabels,
   Variants,
 } from 'framer-motion';
-
+export { useInView } from 'framer-motion';
 export type MotionVariant = Variant;
 export type MotionVariants = Variants;
 export type MotionAnimationProps = AnimationProps;

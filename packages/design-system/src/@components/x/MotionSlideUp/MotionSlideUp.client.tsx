@@ -1,7 +1,7 @@
 'use client';
 
-import { ReactNode } from 'react';
-import { InView, Motion, MotionProps } from '../../../wrappers';
+import { ReactNode, useRef } from 'react';
+import { Motion, MotionProps, useInView } from '../../../wrappers';
 
 export type MotionSlideUpProps = Partial<MotionProps['animationProps']> & { children?: ReactNode; className?: string };
 
@@ -19,20 +19,18 @@ export type CustomMotionSlideUpProps = Partial<
 >;
 
 const MotionSlideUp = ({ duration = 1, delay = 0, replays = true, children, className }: CustomMotionSlideUpProps) => {
+  const ref = useRef(null);
+  const inView = useInView(ref);
   return (
-    <InView>
-      {({ inView, ref }) => (
-        <Motion.Div
-          animate={inView ? 'visible' : 'hidden'}
-          ref={ref}
-          variants={cardMotion}
-          transition={{ duration, delay, damping: 2, stiffness: 10, replays }}
-          className={className}
-        >
-          {children}
-        </Motion.Div>
-      )}
-    </InView>
+    <Motion.Div
+      animate={inView ? 'visible' : 'hidden'}
+      ref={ref}
+      variants={cardMotion}
+      transition={{ duration, delay, damping: 2, stiffness: 10, replays }}
+      className={className}
+    >
+      {children}
+    </Motion.Div>
   );
 };
 export default MotionSlideUp;
