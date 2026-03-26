@@ -20,10 +20,12 @@ const meta: Meta<typeof Switch> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const SwitchDemo = () => {
+  const [current, cycle] = useCycle('off', 'on');
+  return <Switch current={current} cycle={cycle} text={current} />;
+};
+
 export const Default: Story = {
   name: 'Particle',
-  render: () => {
-    const [current, cycle] = useCycle('off', 'on');
-    return <Switch current={current} cycle={cycle} text={current} />;
-  },
+  render: () => <SwitchDemo />,
 };
