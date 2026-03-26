@@ -33,12 +33,12 @@
     "dotenv": "^16.4.7",
     "express": "^5.0.1",
     "morgan": "^1.10.0",
+    "resend": "^6.9.4",
     "zod": "^3.23.8"
   },
   "devDependencies": {
     "@jest/globals": "^29.7.0",
     "@tripie-pyotato/eslint-config": "^0.0.1",
-    "eslint-plugin-storybook": "^0.8.0",
     "@tripie-pyotato/typescript-config": "^0.0.2",
     "@types/body-parser": "^1.19.5",
     "@types/cors": "^2.8.17",
