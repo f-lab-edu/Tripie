@@ -19,9 +19,6 @@ export const config = [
     ignores: ['!.storybook'],
   },
   {
-    devDependencies: ['vitest.config.ts'],
-  },
-  {
     languageOptions: {
       ...pluginReact.configs.flat.recommended.languageOptions,
       globals: {
