@@ -72,6 +72,9 @@ importers:
       morgan:
         specifier: ^1.10.0
         version: 1.10.0
+      resend:
+        specifier: ^6.9.4
+        version: 6.9.4
       zod:
         specifier: ^3.23.8
         version: 3.24.2
@@ -125,8 +128,8 @@ importers:
   apps/docs:
     dependencies:
       '@tripie-pyotato/design-system':
-        specifier: ^0.3.2
-        version: 0.3.2(@base-ui-components/react@1.0.0-beta.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer@2.4.1(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(maplibre-gl@4.7.1)(next@16.1.6(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.85.0))(react-calendar@5.1.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-globe.gl@2.33.2(react@18.3.1))(react-intersection-observer@9.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-map-gl@7.1.9(maplibre-gl@4.7.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(usehooks-ts@3.1.1(react@18.3.1))
+        specifier: ^0.3.17
+        version: 0.3.17(@base-ui-components/react@1.0.0-beta.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer@2.4.1(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(maplibre-gl@4.7.1)(next@16.1.6(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.85.0))(react-calendar@5.1.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-globe.gl@2.32.0(react@18.3.1))(react-map-gl@7.1.9(maplibre-gl@4.7.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(usehooks-ts@3.1.1(react@18.3.1))
       '@tripie-pyotato/hooks':
         specifier: ^0.0.2
         version: 0.0.2(react@18.3.1)
@@ -189,11 +192,11 @@ importers:
         specifier: ^14.4.3
         version: 14.6.1(@testing-library/dom@10.4.0)
       '@tripie-pyotato/eslint-config':
-        specifier: ^0.0.1
-        version: 0.0.1
+        specifier: workspace:*
+        version: link:../../packages/config-eslint
       '@tripie-pyotato/typescript-config':
-        specifier: ^0.0.2
-        version: 0.0.2
+        specifier: workspace:*
+        version: link:../../packages/config-typescript
       '@tripie-pyotato/vitest-config':
         specifier: ^0.0.2
         version: 0.0.2
@@ -291,8 +294,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/database
       '@tripie-pyotato/design-system':
-        specifier: 0.3.16
-        version: 0.3.16(@base-ui-components/react@1.0.0-beta.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer@2.4.1(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(maplibre-gl@4.7.1)(next@16.1.6(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6))(react-calendar@5.1.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-globe.gl@2.33.2(react@18.3.1))(react-intersection-observer@9.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-map-gl@7.1.9(maplibre-gl@4.7.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(usehooks-ts@3.1.1(react@18.3.1))
+        specifier: ^0.3.17
+        version: 0.3.17(@base-ui-components/react@1.0.0-beta.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer@2.4.1(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(maplibre-gl@4.7.1)(next@16.1.6(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6))(react-calendar@5.1.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-globe.gl@2.32.0(react@18.3.1))(react-map-gl@7.1.9(maplibre-gl@4.7.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(usehooks-ts@3.1.1(react@18.3.1))
       '@tripie-pyotato/hooks':
         specifier: ^0.0.3
         version: 0.0.3(react@18.3.1)
@@ -323,9 +326,6 @@ importers:
       framer-motion:
         specifier: ^11.11.17
         version: 11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      iso-3166:
-        specifier: ^4.3.0
-        version: 4.3.0
       ky:
         specifier: ^1.7.2
         version: 1.7.5
@@ -359,9 +359,6 @@ importers:
       react-geocode:
         specifier: 1.0.0-alpha.1
         version: 1.0.0-alpha.1
-      react-intersection-observer:
-        specifier: 9.13.1
-        version: 9.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       usehooks-ts:
         specifier: ^3.1.0
         version: 3.1.1(react@18.3.1)
@@ -393,12 +390,6 @@ importers:
       '@tripie-pyotato/vitest-config':
         specifier: ^0.0.2
         version: 0.0.2
-      '@types/geojson':
-        specifier: ^7946.0.14
-        version: 7946.0.16
-      '@types/google.maps':
-        specifier: ^3.55.12
-        version: 3.58.1
       '@types/jest':
         specifier: ^29.5.12
         version: 29.5.14
@@ -417,9 +408,6 @@ importers:
       babel-jest:
         specifier: ^29.7.0
         version: 29.7.0(@babel/core@7.26.9)
-      geojson:
-        specifier: ^0.5.0
-        version: 0.5.0
       jest:
         specifier: ^29.7.0
         version: 29.7.0(@types/node@20.17.19)(ts-node@10.9.2(@swc/core@1.11.13(@swc/helpers@0.5.15))(@types/node@20.17.19)(typescript@5.8.2))
@@ -603,9 +591,6 @@ importers:
       react-globe.gl:
         specifier: ^2.27.2
         version: 2.32.0(react@18.3.1)
-      react-intersection-observer:
-        specifier: 9.13.1
-        version: 9.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-map-gl:
         specifier: ^7.1.7
         version: 7.1.9(maplibre-gl@4.7.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -3943,6 +3928,9 @@ packages:
     resolution: {integrity: sha512-piUTHyp2Axx3p/kc2CIJkYSv0BAaheBQmbACZgQSSfWUumWNW+R1lL+H9PDBxKJkvOeEX+hKYEFiwO8xagL8AQ==}
     engines: {node: '>=18.0.0'}
 
+  '@stablelib/base64@1.0.1':
+    resolution: {integrity: sha512-1bnPQqSxSuc3Ii6MhBysoWCg58j97aUjuCSZrGSmDxNqtytIi0k8utUenAwTZN4V5mXXYGsVUI9zeBqy+jBOSQ==}
+
   '@storybook/addon-actions@8.6.11':
     resolution: {integrity: sha512-7VORphqmxJf2J2a8tRgCAIeaMQ1JjYZwmwsrOwXBt77NjJbAC2qx9KecN1fsKKCyRVSk/wAICvOLStKM15+v2g==}
     peerDependencies:
@@ -4415,8 +4403,8 @@ packages:
   '@tootallnate/quickjs-emscripten@0.23.0':
     resolution: {integrity: sha512-C5Mc6rdnsaJDjO3UpGW/CQTHtCKaYlScZTly4JIu97Jxo/odCiH0ITnDXSJPTOrEKk/ycSZ0AOgTmkDtkOsvIA==}
 
-  '@tripie-pyotato/design-system@0.3.16':
-    resolution: {integrity: sha512-4c3Mu97cXgSC/wBg55DHv5tePwy6SBFzmabaPR7i4b9bezogPNqFvsqAHufih6FCteAbeTv5X9pjWQtMMlyReA==}
+  '@tripie-pyotato/design-system@0.3.17':
+    resolution: {integrity: sha512-kIaBN/vcwvwhWGe3FepEv73Udu4X8p4BjDira+6fEUsdJ1gI3brIIeyfV+Kd+Rwcw9lMTNWMTovWz3fw2etrpw==}
     peerDependencies:
       '@base-ui-components/react': 1.0.0-beta.0
       framer: ^2.4.1
@@ -4427,23 +4415,6 @@ packages:
       react-calendar: ^5.0.0
       react-dom: ^18.3.1
       react-globe.gl: ^2.27.2
-      react-intersection-observer: 9.13.1
-      react-map-gl: ^7.1.7
-      usehooks-ts: ^3.1.0
-
-  '@tripie-pyotato/design-system@0.3.2':
-    resolution: {integrity: sha512-oWNDH9bHqu8XtGDbIa3UtH7BG4RAs8ah/waEHtooFtucfFgxXs16KRf0iYVj1f89lwylqQqhB60bj7UMUhfZzA==}
-    peerDependencies:
-      '@base-ui-components/react': 1.0.0-beta.0
-      framer: ^2.4.1
-      framer-motion: ^11.11.17
-      maplibre-gl: ^4.7.1
-      next: '*'
-      react: '*'
-      react-calendar: ^5.0.0
-      react-dom: ^18.3.1
-      react-globe.gl: ^2.27.2
-      react-intersection-observer: 9.13.1
       react-map-gl: ^7.1.7
       usehooks-ts: ^3.1.0
 
@@ -4597,9 +4568,6 @@ packages:
 
   '@types/glob@7.2.0':
     resolution: {integrity: sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==}
-
-  '@types/google.maps@3.58.1':
-    resolution: {integrity: sha512-X9QTSvGJ0nCfMzYOnaVs/k6/4L+7F5uCS+4iUmkLEls6J9S/Phv+m/i3mDeyc49ZBgwab3EFO1HEoBY7k98EGQ==}
 
   '@types/graceful-fs@4.1.9':
     resolution: {integrity: sha512-olP3sd1qOEe5dXTSaFvQG+02VdRXcdytWLAZsAq1PecU8uqQAhkrnbli7DagjtXKW/Bl7YJbUsa8MPcuc8LHEQ==}
@@ -7216,6 +7184,9 @@ packages:
   fast-safe-stringify@2.1.1:
     resolution: {integrity: sha512-W+KJc2dmILlPplD/H4K9l9LcAHAfPtP6BY84uVLXQ6Evcz9Lcg33Y2z1IVblT6xdY54PXYVHEv+0Wpq8Io6zkA==}
 
+  fast-sha256@1.3.0:
+    resolution: {integrity: sha512-n11RGP/lrWEFI/bWdygLxhI+pVeo1ZYIVwvvPkW7azl/rOy+F3HYRZ2K5zeE9mmkhQppyv9sQFx0JM9UabnpPQ==}
+
   fast-uri@3.0.6:
     resolution: {integrity: sha512-Atfo14OibSv5wAp4VWNsFYE1AchQRTv9cBGWET4pZWHzYshFSS9NQI6I57rdKn9croWVMbYFbLhJ+yJvmZIIHw==}
 
@@ -7468,10 +7439,6 @@ packages:
   geojson-vt@4.0.2:
     resolution: {integrity: sha512-AV9ROqlNqoZEIJGfm1ncNjEXfkz2hdFlZf0qkVfmkwdKa8vj7H16YUOT81rJw1rdFhyEDlN2Tds91p/glzbl5A==}
 
-  geojson@0.5.0:
-    resolution: {integrity: sha512-/Bx5lEn+qRF4TfQ5aLu6NH+UKtvIv7Lhc487y/c8BdludrCTpiWf9wyI0RTyqg49MFefIAvFDuEi5Dfd/zgNxQ==}
-    engines: {node: '>= 0.10'}
-
   get-caller-file@2.0.5:
     resolution: {integrity: sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==}
     engines: {node: 6.* || 8.* || >= 10.*}
@@ -7578,10 +7545,6 @@ packages:
 
   globe.gl@2.40.0:
     resolution: {integrity: sha512-X59Ja0KlloqNPx1nDGdBudczGT/KVWYH21tl2imHGFiEQu0tM/tTwHJf/G0qQzruQzOrBbFrgaXFeYN/yRYjXw==}
-    engines: {node: '>=12'}
-
-  globe.gl@2.41.6:
-    resolution: {integrity: sha512-ImQFYA8rEL80V0eJlR3GUv1R7uqLO0kh7IXzMfWUvxnjSKokMQFooo7uOn1waKjoIkB2BhzMRhivODQ3fIVKZQ==}
     engines: {node: '>=12'}
 
   globrex@0.1.2:
@@ -8159,9 +8122,6 @@ packages:
   isexe@3.1.1:
     resolution: {integrity: sha512-LpB/54B+/2J5hqQ7imZHfdU31OlgQqx7ZicVlkm9kzg9/w8GKLEcFfJl/t7DCEDueOyBAD6zCCwTO6Fzs0NoEQ==}
     engines: {node: '>=16'}
-
-  iso-3166@4.3.0:
-    resolution: {integrity: sha512-H4kM/sVbxTjSl9xnQCYOrNWdpN0R8Uz26j1BuXI9E6U+kw5wmd3HyPgr/v4+NCuvV/NcvwTfZxd5XZ4lPKvBNA==}
 
   isobject@3.0.1:
     resolution: {integrity: sha512-WhB9zCku7EGTj/HQQRz5aUQEUeoQZH2bWcltRErOpymJ4boYE6wL9Tbr23krRPSZ+C5zqNSrSw+Cc7sZZ4b7vg==}
@@ -9615,6 +9575,9 @@ packages:
     resolution: {integrity: sha512-/+5VFTchJDoVj3bhoqi6UeymcD00DAwb1nJwamzPvHEszJ4FpF6SNNbUbOS8yI56qHzdV8eK0qEfOSiodkTdxg==}
     engines: {node: '>= 0.4'}
 
+  postal-mime@2.7.3:
+    resolution: {integrity: sha512-MjhXadAJaWgYzevi46+3kLak8y6gbg0ku14O1gO/LNOuay8dO+1PtcSGvAdgDR0DoIsSaiIA8y/Ddw6MnrO0Tw==}
+
   postcss-attribute-case-insensitive@7.0.1:
     resolution: {integrity: sha512-Uai+SupNSqzlschRyNx3kbCTWgY/2hcwtHEI/ej2LJWc9JJ77qKgGptd8DHwY1mXtZ7Aoh4z4yxfwMBue9eNgw==}
     engines: {node: '>=18'}
@@ -10159,21 +10122,6 @@ packages:
     peerDependencies:
       react: '*'
 
-  react-globe.gl@2.33.2:
-    resolution: {integrity: sha512-+keFNBxw4B45nyPm9fq2IeZNKgK6qfEivKXtaG6mSe6PRZF1QL5UeFxUZs07fSraY4GDPt2hL7xhlk2GunyZiA==}
-    engines: {node: '>=12'}
-    peerDependencies:
-      react: '*'
-
-  react-intersection-observer@9.13.1:
-    resolution: {integrity: sha512-tSzDaTy0qwNPLJHg8XZhlyHTgGW6drFKTtvjdL+p6um12rcnp8Z5XstE+QNBJ7c64n5o0Lj4ilUleA41bmDoMw==}
-    peerDependencies:
-      react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-      react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-    peerDependenciesMeta:
-      react-dom:
-        optional: true
-
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
@@ -10343,6 +10291,15 @@ packages:
 
   requires-port@1.0.0:
     resolution: {integrity: sha512-KigOCHcocU3XODJxsu8i/j8T9tzT4adHiecwORRQ0ZZFcp7ahwXuRU1m+yuO90C5ZUyGeGfocHDI14M3L3yDAQ==}
+
+  resend@6.9.4:
+    resolution: {integrity: sha512-/M3dsJzu5OgozqVsA4Psd/1L7EdePgOIIxClas453GOQYFG3VHc2ZyCHZFlvqsc9aZCCd2BJRRqZgWC8D9c7/g==}
+    engines: {node: '>=20'}
+    peerDependencies:
+      '@react-email/render': '*'
+    peerDependenciesMeta:
+      '@react-email/render':
+        optional: true
 
   resolve-cwd@3.0.0:
     resolution: {integrity: sha512-OrZaX2Mb+rJCpH/6CpSqt9xFVpN++x01XnN2ie9g6P5/3xelLAkXWVADpdz1IHD/KFfEXyE6V0U01OQ3UO2rEg==}
@@ -10922,6 +10879,9 @@ packages:
   stackframe@1.3.4:
     resolution: {integrity: sha512-oeVtt7eWQS+Na6F//S4kJ2K2VbRlS9D43mAlMyVpVWovy9o+jfgH8O9agzANzaiLjclA0oYzUXEM4PurhSUChw==}
 
+  standardwebhooks@1.0.0:
+    resolution: {integrity: sha512-BbHGOQK9olHPMvQNHWul6MYlrRTAOKn03rOe4A8O3CLWhNf4YHBqq2HJKKC+sfqpxiBY52pNeesD6jIiLDz8jg==}
+
   statuses@2.0.1:
     resolution: {integrity: sha512-RwNA9Z/7PrK06rYLIzFMlaF+l73iwpzsqRIFgbMLbTcLD6cOao82TaWefPXQvB2fOC4AjuYSEndS7N/mTCbkdQ==}
     engines: {node: '>= 0.8'}
@@ -11124,6 +11084,9 @@ packages:
     resolution: {integrity: sha512-aYXJreNUiyTob0QOzRZeBXZMGeFZDch6SrSRV8QTncZb6zj0O3BEdUzPpojuHQ1pTvk+KX7I6rZCXPUf8pTPxA==}
     engines: {node: '>=18'}
 
+  svix@1.86.0:
+    resolution: {integrity: sha512-/HTvXwjLJe1l/MsLXAO1ddCYxElJk4eNR4DzOjDOEmGrPN/3BtBE8perGwMAaJ2sT5T172VkBYzmHcjUfM1JRQ==}
+
   swap-case@1.1.2:
     resolution: {integrity: sha512-BAmWG6/bx8syfc6qXPprof3Mn5vQgf5dwdUNJhsNqU9WdPt5P+ES/wQ5bxfijy8zwZgZZHslC3iAsxsuQMCzJQ==}
 
@@ -11227,12 +11190,6 @@ packages:
 
   three-globe@2.41.12:
     resolution: {integrity: sha512-4vZUsEAgdpxcIQKlsfqCo/PFLS2NzQ5rGPbDTLyINPu2o4i+hikHW0YDLEB7X51w8oxG9lKKwB77NjkiNo+bog==}
-    engines: {node: '>=12'}
-    peerDependencies:
-      three: '>=0.154'
-
-  three-globe@2.42.11:
-    resolution: {integrity: sha512-pfeWb0MlmOzMqBXKTxCbiKVyEAbg2yOmCXM6P+Az/VLtNnzJK7SEnD6Jad4xj3/KDJlqcXpTB9YnPGjM/fSDqA==}
     engines: {node: '>=12'}
     peerDependencies:
       three: '>=0.154'
@@ -11789,6 +11746,10 @@ packages:
   utils-merge@1.0.1:
     resolution: {integrity: sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==}
     engines: {node: '>= 0.4.0'}
+
+  uuid@10.0.0:
+    resolution: {integrity: sha512-8XkAphELsDnEGrDxUOHB3RGvXz6TeuYSGEZBOjtTtPm2lwhGBjLgOzLHB63IUWfBpNucQjND6d3AOudO+H3RWQ==}
+    hasBin: true
 
   uuid@11.1.0:
     resolution: {integrity: sha512-0/A9rDy9P7cJ+8w1c9WD9V//9Wj15Ce2MPz8Ri6032usz+NfePxx5AcN3bN+r6ZL6jEo066/yNYB3tn4pQEx+A==}
@@ -15964,6 +15925,8 @@ snapshots:
       '@smithy/types': 4.1.0
       tslib: 2.8.1
 
+  '@stablelib/base64@1.0.1': {}
+
   '@storybook/addon-actions@8.6.11(storybook@8.6.11(prettier@3.5.2))':
     dependencies:
       '@storybook/global': 5.0.0
@@ -16571,7 +16534,7 @@ snapshots:
 
   '@tootallnate/quickjs-emscripten@0.23.0': {}
 
-  '@tripie-pyotato/design-system@0.3.16(@base-ui-components/react@1.0.0-beta.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer@2.4.1(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(maplibre-gl@4.7.1)(next@16.1.6(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6))(react-calendar@5.1.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-globe.gl@2.33.2(react@18.3.1))(react-intersection-observer@9.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-map-gl@7.1.9(maplibre-gl@4.7.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(usehooks-ts@3.1.1(react@18.3.1))':
+  '@tripie-pyotato/design-system@0.3.17(@base-ui-components/react@1.0.0-beta.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer@2.4.1(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(maplibre-gl@4.7.1)(next@16.1.6(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6))(react-calendar@5.1.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-globe.gl@2.32.0(react@18.3.1))(react-map-gl@7.1.9(maplibre-gl@4.7.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(usehooks-ts@3.1.1(react@18.3.1))':
     dependencies:
       '@base-ui-components/react': 1.0.0-beta.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tripie-pyotato/hooks': 0.0.3(react@18.3.1)
@@ -16585,12 +16548,11 @@ snapshots:
       react: 18.3.1
       react-calendar: 5.1.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-dom: 18.3.1(react@18.3.1)
-      react-globe.gl: 2.33.2(react@18.3.1)
-      react-intersection-observer: 9.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-globe.gl: 2.32.0(react@18.3.1)
       react-map-gl: 7.1.9(maplibre-gl@4.7.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       usehooks-ts: 3.1.1(react@18.3.1)
 
-  '@tripie-pyotato/design-system@0.3.2(@base-ui-components/react@1.0.0-beta.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer@2.4.1(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(maplibre-gl@4.7.1)(next@16.1.6(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.85.0))(react-calendar@5.1.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-globe.gl@2.33.2(react@18.3.1))(react-intersection-observer@9.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-map-gl@7.1.9(maplibre-gl@4.7.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(usehooks-ts@3.1.1(react@18.3.1))':
+  '@tripie-pyotato/design-system@0.3.17(@base-ui-components/react@1.0.0-beta.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer@2.4.1(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(maplibre-gl@4.7.1)(next@16.1.6(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.85.0))(react-calendar@5.1.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-globe.gl@2.32.0(react@18.3.1))(react-map-gl@7.1.9(maplibre-gl@4.7.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(usehooks-ts@3.1.1(react@18.3.1))':
     dependencies:
       '@base-ui-components/react': 1.0.0-beta.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tripie-pyotato/hooks': 0.0.3(react@18.3.1)
@@ -16604,8 +16566,7 @@ snapshots:
       react: 18.3.1
       react-calendar: 5.1.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-dom: 18.3.1(react@18.3.1)
-      react-globe.gl: 2.33.2(react@18.3.1)
-      react-intersection-observer: 9.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-globe.gl: 2.32.0(react@18.3.1)
       react-map-gl: 7.1.9(maplibre-gl@4.7.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       usehooks-ts: 3.1.1(react@18.3.1)
 
@@ -16825,8 +16786,6 @@ snapshots:
     dependencies:
       '@types/minimatch': 5.1.2
       '@types/node': 20.17.19
-
-  '@types/google.maps@3.58.1': {}
 
   '@types/graceful-fs@4.1.9':
     dependencies:
@@ -20231,6 +20190,8 @@ snapshots:
 
   fast-safe-stringify@2.1.1: {}
 
+  fast-sha256@1.3.0: {}
+
   fast-uri@3.0.6: {}
 
   fast-xml-parser@4.4.1:
@@ -20547,8 +20508,6 @@ snapshots:
 
   geojson-vt@4.0.2: {}
 
-  geojson@0.5.0: {}
-
   get-caller-file@2.0.5: {}
 
   get-intrinsic@1.3.0:
@@ -20686,15 +20645,6 @@ snapshots:
       kapsule: 1.16.0
       three: 0.173.0
       three-globe: 2.41.12(three@0.173.0)
-      three-render-objects: 1.39.0(three@0.173.0)
-
-  globe.gl@2.41.6:
-    dependencies:
-      '@tweenjs/tween.js': 25.0.0
-      accessor-fn: 1.5.1
-      kapsule: 1.16.0
-      three: 0.173.0
-      three-globe: 2.42.11(three@0.173.0)
       three-render-objects: 1.39.0(three@0.173.0)
 
   globrex@0.1.2: {}
@@ -21282,8 +21232,6 @@ snapshots:
   isexe@2.0.0: {}
 
   isexe@3.1.1: {}
-
-  iso-3166@4.3.0: {}
 
   isobject@3.0.1: {}
 
@@ -23488,6 +23436,8 @@ snapshots:
 
   possible-typed-array-names@1.1.0: {}
 
+  postal-mime@2.7.3: {}
+
   postcss-attribute-case-insensitive@7.0.1(postcss@8.5.3):
     dependencies:
       postcss: 8.5.3
@@ -24114,19 +24064,6 @@ snapshots:
       react: 18.3.1
       react-kapsule: 2.5.6(react@18.3.1)
 
-  react-globe.gl@2.33.2(react@18.3.1):
-    dependencies:
-      globe.gl: 2.41.6
-      prop-types: 15.8.1
-      react: 18.3.1
-      react-kapsule: 2.5.6(react@18.3.1)
-
-  react-intersection-observer@9.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
-    dependencies:
-      react: 18.3.1
-    optionalDependencies:
-      react-dom: 18.3.1(react@18.3.1)
-
   react-is@16.13.1: {}
 
   react-is@17.0.2: {}
@@ -24334,6 +24271,11 @@ snapshots:
   requireindex@1.2.0: {}
 
   requires-port@1.0.0: {}
+
+  resend@6.9.4:
+    dependencies:
+      postal-mime: 2.7.3
+      svix: 1.86.0
 
   resolve-cwd@3.0.0:
     dependencies:
@@ -25000,6 +24942,11 @@ snapshots:
 
   stackframe@1.3.4: {}
 
+  standardwebhooks@1.0.0:
+    dependencies:
+      '@stablelib/base64': 1.0.1
+      fast-sha256: 1.3.0
+
   statuses@2.0.1: {}
 
   std-env@3.8.0: {}
@@ -25251,6 +25198,11 @@ snapshots:
       magic-string: 0.30.17
       zimmerframe: 1.1.2
 
+  svix@1.86.0:
+    dependencies:
+      standardwebhooks: 1.0.0
+      uuid: 10.0.0
+
   swap-case@1.1.2:
     dependencies:
       lower-case: 1.1.4
@@ -25364,27 +25316,6 @@ snapshots:
       three: 0.173.0
 
   three-globe@2.41.12(three@0.173.0):
-    dependencies:
-      '@tweenjs/tween.js': 25.0.0
-      accessor-fn: 1.5.1
-      d3-array: 3.2.4
-      d3-color: 3.1.0
-      d3-geo: 3.1.1
-      d3-interpolate: 3.0.1
-      d3-scale: 4.0.2
-      d3-scale-chromatic: 3.1.0
-      data-bind-mapper: 1.0.1
-      frame-ticker: 1.0.3
-      h3-js: 4.1.0
-      index-array-by: 1.4.2
-      kapsule: 1.16.0
-      three: 0.173.0
-      three-conic-polygon-geometry: 2.1.2(three@0.173.0)
-      three-geojson-geometry: 2.1.1(three@0.173.0)
-      three-slippy-map-globe: 1.0.3(three@0.173.0)
-      tinycolor2: 1.6.0
-
-  three-globe@2.42.11(three@0.173.0):
     dependencies:
       '@tweenjs/tween.js': 25.0.0
       accessor-fn: 1.5.1
@@ -26068,6 +25999,8 @@ snapshots:
   utila@0.4.0: {}
 
   utils-merge@1.0.1: {}
+
+  uuid@10.0.0: {}
 
   uuid@11.1.0: {}
 

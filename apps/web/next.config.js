@@ -1,7 +1,6 @@
 // @ts-check
 
 import createBundleAnalyzer from '@next/bundle-analyzer';
-import withPlugins from 'next-compose-plugins';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -13,36 +12,7 @@ const withBundleAnalyzer = createBundleAnalyzer({
   openAnalyzer: true,
 });
 
-const withPurgeCss = [
-  'postcss-flexbugs-fixes',
-  [
-    'postcss-preset-env',
-    {
-      autoprefixer: {
-        flexbox: 'no-2009',
-      },
-      stage: 3,
-      features: {
-        'custom-properties': false,
-      },
-    },
-  ],
-  [
-    '@fullhuman/postcss-purgecss',
-    {
-      content: [
-        './components/**/*.{js,jsx,ts,tsx}',
-        './shared/**/*.{js,ts,jsx,tsx}',
-        './app/**/*.{js,ts,jsx,tsx,mdx}', // if you're using the App Router
-      ],
-      defaultExtractor: (/** @type {string} */ content) => content.match(/[\w-/:]+(?<!:)/g) || [],
-      safelist: ['html', 'body'],
-    },
-  ],
-];
-
-// Add other plugins here in the array if needed
-const nextConfig = withPlugins([[withBundleAnalyzer, withPurgeCss]], {
+const nextConfig = withBundleAnalyzer({
   /**
    * https://nextjs.org/docs/app/building-your-application/styling/sass#customizing-sass-options
    */
@@ -55,7 +25,6 @@ const nextConfig = withPlugins([[withBundleAnalyzer, withPurgeCss]], {
       path.join(__dirname, 'styles'),
       path.join(__dirname, './node_modules/@tripie-pyotato/design-system/src'),
     ],
-    silenceDeprecations: ['legacy-js-api'],
   },
 
   transpilePackages: ['@tripie-pyotato/design-system'],
