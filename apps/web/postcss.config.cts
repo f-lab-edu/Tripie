@@ -8,15 +8,10 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
   safelist: ['html', 'body'],
 });
 
-const cssnano = require('cssnano')({
-  preset: 'default',
-});
-
 module.exports = {
   plugins: [
     'postcss-flexbugs-fixes',
     'postcss-preset-env',
     ...(process.env.NODE_ENV === 'production' ? [purgecss] : []),
-    cssnano,
   ],
 };
