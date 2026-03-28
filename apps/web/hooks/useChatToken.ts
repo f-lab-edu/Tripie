@@ -1,13 +1,11 @@
 'use client';
 
-import API from 'constants/api-routes';
-import { MAX_TOKEN } from 'constants/chat';
-
+import { MAX_TOKEN } from '@/constants/chat';
 import ROUTE from 'constants/routes';
-import { User } from 'models/User';
 import { useSession } from 'next-auth/react';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
+import useToken from './query/useToken';
 
 /**
  * 악의적인 챗지피티 사용 제한하기 위한 조치
@@ -15,12 +13,13 @@ import { useEffect, useMemo, useState } from 'react';
  */
 const useChatToken = () => {
   const { data, status } = useSession();
+
   const pathname = usePathname();
   const navigate = useRouter();
-  const [isAdmin, setIsAdmin] = useState<boolean>();
-  const [usedGptToken, setUsedGptToken] = useState<number>();
-  const [remainingToken, setRemainingToken] = useState<number>();
-
+  const [isAdmin, setIsAdmin] = useState<boolean>(false);
+  const [usedGptToken, setUsedGptToken] = useState<number>(0);
+  const [remainingToken, setRemainingToken] = useState<number>(0);
+  const { data: tokenData } = useToken(data?.token?.id, data?.token?.ip);
   // 만약 사용자가 로그인하지 않은 채로 지피티를 사용하고자 한다면 로그인 페이지로 이동
   // 🤔 여기말고 페이지 단위에서 차단하는 방법이 있을듯?
   useEffect(() => {
@@ -30,32 +29,6 @@ const useChatToken = () => {
     }
   }, [status, pathname]);
 
-  // firebase 에 저장해둔 유저의 챗지피지티 이용 사항을 확인해
-  // 사용한 토큰 개수, 남은 토큰 개수, 어드민 여부의 state를 적용.
-  useEffect(() => {
-    const checkEligibility = async () => {
-      const id = data?.user?.id as User['session']['user']['id'];
-
-      if (id != null) {
-        // 테스트 계정
-
-        const userStatus = await fetch(
-          `${API.BASE_URL}/api/user-status?${data?.token?.ip ? 'ip=' + data?.token?.ip + '&' : ''}id=${id}`
-        ).then(res => res.json());
-
-        if (userStatus?.user?.isAdmin) {
-          setIsAdmin(true);
-        }
-        if (userStatus?.user?.usedTokens != null) {
-          setUsedGptToken(userStatus?.user.usedTokens);
-          const tokens = MAX_TOKEN - userStatus?.user.usedTokens;
-          setRemainingToken(Math.max(tokens, 0));
-        }
-      }
-    };
-    checkEligibility();
-  }, [data, status]);
-
   // 어드민 계정일 경우, 토큰을 모두 사용해도 지피티 이용이 가능하도록
   const isEligible = useMemo(() => {
     if (status !== 'unauthenticated') {
@@ -63,6 +36,15 @@ const useChatToken = () => {
     }
     return 'loading';
   }, [status, isAdmin, remainingToken]);
+
+  // firebase 에 저장해둔 유저의 챗지피지티 이용 사항을 확인해
+  // 사용한 토큰 개수, 남은 토큰 개수, 어드민 여부의 state를 적용.
+  useEffect(() => {
+    setIsAdmin(tokenData?.user?.isAdmin === true);
+    const usedTokens = tokenData?.user?.usedTokens ?? 0;
+    setUsedGptToken(usedTokens);
+    setRemainingToken(Math.max(MAX_TOKEN - usedTokens, 0));
+  }, [data, status]);
 
   return { isAdmin, usedGptToken, remainingToken, isEligible, status };
 };
