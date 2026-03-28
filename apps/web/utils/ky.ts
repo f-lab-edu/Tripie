@@ -13,7 +13,6 @@ const api = ky.extend({
         } else if (res?.status === 429) {
           console.log('too many requests..');
         }
-        // console.log(res);
       },
     ],
   },
@@ -30,7 +29,6 @@ export const awsApi = ky.extend({
         } else if (res?.status === 429) {
           console.log('too many requests..');
         }
-        // console.log(res);
       },
     ],
   },
