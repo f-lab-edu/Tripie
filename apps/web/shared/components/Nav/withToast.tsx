@@ -10,6 +10,7 @@ import { COLORS } from '@tripie-pyotato/design-system/shared';
 import API from 'constants/api-routes';
 import { ComponentType, Dispatch, SetStateAction, useState } from 'react';
 
+// withToast: 퍼널 이탈 시 확인 Toast 상태를 관리하고 원본 컴포넌트에 setter를 주입
 function withToast<P>(
   Component: ComponentType<
     P & {
