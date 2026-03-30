@@ -1,5 +1,5 @@
 'use client';
-import { ParticleBackground } from '@tripie-pyotato/design-system/@components';
+import ParticleBackground from '@tripie-pyotato/design-system/@components/ParticleBackground';
 import AccentedButton from '@tripie-pyotato/design-system/@components/AccentedButton';
 import { Headings, Stack, Text } from '@tripie-pyotato/design-system/@core';
 
