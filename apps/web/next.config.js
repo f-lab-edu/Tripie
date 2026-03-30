@@ -27,6 +27,13 @@ const nextConfig = withBundleAnalyzer({
     ],
   },
 
+  productionBrowserSourceMaps: process.env.ANALYZE === 'true',
+
+  experimental: {
+    optimizePackageImports: ['@tripie-pyotato/design-system'],
+    optimizeCss: true,
+  },
+
   transpilePackages: ['@tripie-pyotato/design-system'],
 
   outputFileTracingIncludes: {
@@ -64,10 +71,10 @@ const nextConfig = withBundleAnalyzer({
     ],
     // minimumCacheTTL: 60 * 60 * 24 * 365, // 1 year in seconds
   },
-
   turbopack: {
     resolveExtensions: ['.tsx', '.ts', '.jsx', '.js', '.mjs', '.json'],
   },
+
 });
 
 export default nextConfig;
