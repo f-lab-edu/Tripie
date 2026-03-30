@@ -12,6 +12,7 @@ import TripieIcon from '../TripieIcon/TripieIcon';
 import AiTripButton from './AiTripButtons';
 import AuthButton from './AuthButton';
 
+// withNotification: 토큰 자격 여부에 따라 Notification 뱃지를 조건부로 래핑
 function withNotification<P extends {}>(Component: ComponentType<P>): ComponentType<P> {
   return function WrappedWithNotification(props: P) {
     const { isEligible } = useChatToken();
@@ -52,11 +53,6 @@ const MenuBar = () => {
             <AuthButton />
           </>
         )}
-        {process.env.NODE_ENV === 'development' ? (
-          <Menu.Item key={'dev'}>
-            <Link href={ROUTE.PLAYGROUND.href}>{ROUTE.PLAYGROUND.label}</Link>
-          </Menu.Item>
-        ) : null}
       </Menu.List>
     </Menu>
   );
