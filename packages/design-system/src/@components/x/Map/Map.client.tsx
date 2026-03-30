@@ -104,7 +104,7 @@ function AwsMap({
         mapStyle={mapStyle}
         reuseMaps={reuseMaps}
       >
-        {children != null ? children : null}
+        {children ?? null}
         <MapTerms />
       </Map>
     );

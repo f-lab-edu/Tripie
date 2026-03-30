@@ -7,12 +7,13 @@ export {
   Popup,
   Source,
   useMap,
-  type ViewState,
   type LayerProps,
   type LngLatBoundsLike,
+  type MapRef,
   type PaddingOptions,
   type PointLike,
-  type MapRef,
+  type PopupProps,
+  type ViewState,
 } from 'react-map-gl/maplibre';
 
 export { Popup as PopupType } from 'maplibre-gl';
