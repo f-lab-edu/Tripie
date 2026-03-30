@@ -3,9 +3,9 @@ import firestoreService from '../firebase';
 
 const getRegionArticles = async (selectedRegion: string) => {
   const data = await firestoreService.getList('region-articles2');
-  const regionData = data.filter((item: RegionArticleData) => item.regionId === selectedRegion)?.[0]?.data;
+  const regionData = data.find((item: RegionArticleData) => item.regionId === selectedRegion)?.data;
 
-  return regionData;
+  return regionData ?? [];
 };
 
 export default getRegionArticles;
