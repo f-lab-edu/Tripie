@@ -3,7 +3,8 @@
 import Globe from '@tripie-pyotato/design-system/@components/Globe';
 import API from 'constants/api-routes';
 import TripieIcon from '../TripieIcon/TripieIcon';
-import Countries from './countries.json';
+
+const Countries = (await import('./countries.json')).default; // lazy load
 
 const TripieGlobe = ({ width = 250, height = 300 }: { width?: number; height?: number }) => {
   return (
