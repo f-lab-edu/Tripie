@@ -7,15 +7,19 @@ import RegionList from './RegionList';
 
 import { Container } from '@tripie-pyotato/design-system/@core';
 
-import TripieGlobe from 'shared/components/TripieGlobe';
+import dynamic from 'next/dynamic';
 
+import { useRef } from 'react';
+
+const TripieGlobe = dynamic(() => import('shared/components/TripieGlobe'), { ssr: false });
 import Style from './service-list.module.scss';
 import Subscription from './Subscription';
 
 const cx = classNames.bind(Style);
 
 function GlobeCard() {
-  const { ref, inView } = useInView({ threshold: 0 });
+  const ref = useRef(null);
+  const inView = useInView(ref, { amount: 0 });
 
   return (
     <Container margin="none" padding="none" ref={ref}>

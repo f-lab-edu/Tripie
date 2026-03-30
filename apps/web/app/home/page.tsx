@@ -4,14 +4,17 @@ import { useSplash } from '@/hooks/useSplash';
 import { AnimatedText, Icon, SplashScreen } from '@tripie-pyotato/design-system/@components';
 import { Stack } from '@tripie-pyotato/design-system/@core';
 import AboutUs from 'app/home/_components/AboutUs';
-import Contacts from 'app/home/_components/contacts';
-import Faq from 'app/home/_components/Faqs';
 import Footer from 'app/home/_components/Footer';
 import Header from 'app/home/_components/Header';
-import Plan from 'app/home/_components/Plan';
+import dynamic from 'next/dynamic';
 import Loading from 'shared/components/Loading';
 import { SplashProvider } from '../../shared/components/SplashContext';
-import OurService from './_components/OurService';
+
+// below-the-fold 컴포넌트 lazy load
+const OurService = dynamic(() => import('./_components/OurService'));
+const Plan = dynamic(() => import('./_components/Plan'));
+const Contacts = dynamic(() => import('./_components/contacts'));
+const Faq = dynamic(() => import('./_components/Faqs'));
 
 function HomeContent() {
   const { splash } = useSplash();
