@@ -1,6 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { classNames } from '@tripie-pyotato/design-system/@wrappers';
 
+import { Continentl } from '@/models/Continentl';
 import { AnimatedText } from '@tripie-pyotato/design-system/@components';
 import { Container } from '@tripie-pyotato/design-system/@core';
 import { FunnelProps, FunnelSteps } from 'app/trip-planner/page';
@@ -40,11 +41,16 @@ export default function CountryStep({
 
   // 국가 내의 도시/시 정보 가져오기
   const getCitys = (country: string) => {
+    const prevDate: Continentl[] | undefined = queryClient.getQueryData(useContinentl.queryKey(country));
+    if (prevDate) {
+      return prevDate;
+    }
     return queryClient.ensureQueryData({
       queryKey: useContinentl.queryKey(country),
       queryFn: async () => {
-        const data = await fetch(`${API.BASE_URL}/api/continentl?country=${country}`).then(res => res.json());
-        console.log('data', data);
+        const data: Continentl[] = await fetch(`${API.BASE_URL}/api/continentl?country=${country}`).then(res =>
+          res.json()
+        );
         return data;
       },
     });

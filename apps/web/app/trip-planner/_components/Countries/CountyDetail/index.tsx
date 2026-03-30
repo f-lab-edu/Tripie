@@ -2,16 +2,18 @@
 
 import Marker from '@tripie-pyotato/design-system/@components/MapMarker';
 import useContinentl from 'hooks/query/useContinentl';
+import dynamic from 'next/dynamic';
 import { useEffect, useMemo, useState } from 'react';
-import TripieMap from 'shared/components/AwsMap';
 import dmsToDecimalLatLng from 'utils/coordinate';
 import CountryInfoPopup from './CountryInfoPopup';
+
+const TripieMap = dynamic(() => import('shared/components/AwsMap'), { ssr: false });
 
 const CountryDetail = ({ selectedCountry }: { selectedCountry: string }) => {
   const { data, isLoading } = useContinentl(selectedCountry);
   const [showPopup, setShowPopup] = useState<boolean>(true);
 
-  const countryDetail = useMemo(() => (data != null ? data[0] : null), [selectedCountry, data]);
+  const countryDetail = useMemo(() => (data == null ? null : data[0]), [selectedCountry, data]);
 
   const coordinates = useMemo(() => {
     if (countryDetail?.coordinates?.length === 2) {

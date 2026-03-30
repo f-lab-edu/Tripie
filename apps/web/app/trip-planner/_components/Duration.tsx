@@ -84,6 +84,17 @@ const DurationStep = ({
                   return;
                 }
               }
+
+              // 완전한 선택이 있고 시작 날짜가 오늘 이후인 경우 deselect 방지
+              const isDeselecting = !Array.isArray(value) || value.length < 2 || value[1] == null;
+              if (isDeselecting && duration.end !== '') {
+                const today = new Date(serverTime);
+                const startDate = new Date(duration.start);
+                if (today <= startDate) {
+                  return;
+                }
+              }
+
               setSelected((Array.isArray(value) ? value : [value]) as Date[]);
             }}
             selected={selected as LooseValue}

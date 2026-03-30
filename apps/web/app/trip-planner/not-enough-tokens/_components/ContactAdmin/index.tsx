@@ -23,6 +23,7 @@ const ContactAdmin = () => {
           <Text.Accented>다 사용했네요!</Text.Accented>
         </Headings.H2>
 
+        <Text>토큰은 내일 다시 충전됩니다.</Text>
         <TextUnderLineAnimation>
           <Link
             className={cx('link-wrap')}

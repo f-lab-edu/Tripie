@@ -22,8 +22,10 @@ const CityList = ({ cities, selected, setSelected }: CityListProps) => {
     const selectedSet = new Set(selected);
     // city 파람을 전달하지 않은 경우 전체 선택을 클릭
     if (city == null) {
-      // 모든 도시 선택이 된 상태? 전체 해제 :  전체 선택
-      cities.every(city => selectedSet.has(city)) ? setSelected([]) : setSelected(cities);
+      // 모든 도시 선택이 된 상태면 유지, 아닐 시 전체 선택
+      if (!cities.every(city => selectedSet.has(city))) {
+        setSelected(cities);
+      }
       return;
     }
     // 특정 도시 선택
