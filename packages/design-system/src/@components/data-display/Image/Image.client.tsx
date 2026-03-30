@@ -3,7 +3,7 @@
 import { Text } from '@core';
 import TripieContainer, { TripieContainerProps } from '@core/layout/TripieContainer';
 
-import { ImgHTMLAttributes, useEffect, useRef, useState } from 'react';
+import { ImgHTMLAttributes, useEffect, useMemo, useRef, useState } from 'react';
 import { CLOUDINARY_URL } from 'shared';
 import { classNames, Motion, useInView } from '../../../wrappers';
 import Style from './image.module.scss';
@@ -36,6 +36,21 @@ const preloadImage = (src: string) =>
     img.onerror = reject;
   });
 
+const toOptimizedSrc = (src?: string) => {
+  if (!src) return src;
+  const noBlur = src.replace('e_blur:2000,', '').replace(/q_\w+/, 'q_auto:good');
+  if (noBlur.includes('f_auto')) return noBlur;
+  return noBlur.replace('/upload/', '/upload/f_auto,');
+};
+
+// blur placeholder: already low quality visually, use aggressive compression
+const toBlurSrc = (src?: string) => {
+  if (!src) return src;
+  const compressed = src.replace(/q_\w+/, 'q_auto:low');
+  if (compressed.includes('f_auto')) return compressed;
+  return compressed.replace('/upload/', '/upload/f_auto,');
+};
+
 const getSize = (src: string) => {
   const height = +String(src.match(/h_\d+/g)?.[0]?.replace('h_', ''));
   const width = +String(src.match(/w_\d+/g)?.[0]?.replace('w_', ''));
@@ -54,9 +69,10 @@ const BlurImageOnLoad = ({
   alt,
   fillAvailable = true,
   cloudinaryUrl = CLOUDINARY_URL(),
+  fetchPriority,
   ...args
 }: ImageProps) => {
-  const [loaded, setLoaded] = useState(false);
+  const [loaded, setLoaded] = useState(!preload);
   const ref = useRef(null);
   const inView = useInView(ref);
 
@@ -78,7 +94,7 @@ const BlurImageOnLoad = ({
       return;
     }
 
-    if (src != null && src.startsWith(cloudinaryUrl) && inView && !loaded) {
+    if (src?.startsWith(cloudinaryUrl) && inView && !loaded) {
       preloadImage(src)
         .then(() => {
           if (isMounted) setLoaded(true);
@@ -93,29 +109,12 @@ const BlurImageOnLoad = ({
     };
   }, [src, inView, preload]);
 
-  // const qAutoSrc = useMemo(() => {
-  //   if (cloudinaryUrl == null || src == null) {
-  //     return src;
-  //   }
-
-  //   const qualities = src.match(/upload\/([^\/]+)\//g)?.[1];
-
-  //   if (qualities != null) {
-  //     const qs = qualities.split(',');
-  //     const qBlurRemoved = [...qs].reduce((acc, curr, index) => {
-  //       const eBlur = curr.match(/e_blur:\d/g)?.[0];
-  //       const qLow = curr.match(/q_\d/g)?.[0];
-  //       if (index == 0) {
-  //         return (acc += curr);
-  //       }
-  //       if (eBlur == null || qLow == null) {
-  //         return (acc += `,${curr}`);
-  //       }
-  //       return (acc += `,${eBlur != null ? '' : 'q_auto'}`);
-  //     }, '');
-  //     return qBlurRemoved;
-  //   }
-  // }, [src, cloudinaryUrl]);
+  const srcLoading = useMemo(() => {
+    if (loading === 'lazy') {
+      return loading;
+    }
+    return inView ? 'eager' : loading;
+  }, [inView, loading]);
 
   return (
     <TripieContainer
@@ -131,26 +130,26 @@ const BlurImageOnLoad = ({
         style={{
           position: 'absolute',
           inset: 0,
-          backgroundImage: `url(${src})`,
+          backgroundImage: `url(${toBlurSrc(src)})`,
           backgroundSize: 'cover',
           opacity: 1,
           zIndex: 1,
           ...dimension,
         }}
         transition={{ duration: 0.4, ease: 'easeOut' }}
-        // className={cx('tripie-image', sizes, `with${withBorder ? '' : '-no'}-border`, className)}
         className={cx('tripie-image', `size-${sizes}`, `with${withBorder ? '' : '-no'}-border`, className)}
       >
-        {!loaded ? null : (
+        {loaded ? (
           <Motion.Img
-            src={src?.replace('e_blur:2000,', '')?.replace('q_1', 'q_auto')}
-            loading={inView ? 'eager' : loading}
+            src={toOptimizedSrc(src)}
+            loading={srcLoading}
             alt={alt}
             ref={refs}
             width={dimension.width}
             height={dimension.height}
             crossOrigin="anonymous"
             referrerPolicy="no-referrer"
+            fetchPriority={fetchPriority}
             animate={{ opacity: loaded ? 1 : 0, zIndex: loaded ? 2 : 0 }}
             transition={{ duration: 0.4, ease: 'easeIn' }}
             className={cx('tripie-image', sizes, withBorder && 'with-border', className)}
@@ -159,7 +158,7 @@ const BlurImageOnLoad = ({
               objectFit: 'cover',
             }}
           />
-        )}
+        ) : null}
       </Motion.Picture>
     </TripieContainer>
   );
@@ -183,6 +182,7 @@ const ImageWithSourceUrl = ({
   preload = true,
   padding = 'none',
   display = 'inline-block',
+  fetchPriority,
   ...args
 }: ImageWithSourceUrlProps) => {
   return (
@@ -203,6 +203,7 @@ const ImageWithSourceUrl = ({
         loading={loading}
         cloudinaryUrl={cloudinaryUrl}
         aspectRatio={aspectRatio}
+        fetchPriority={fetchPriority}
       />
       <Text className={cx('source-url')}>{`출처 ${sourceUrl}`}</Text>
     </TripieContainer>

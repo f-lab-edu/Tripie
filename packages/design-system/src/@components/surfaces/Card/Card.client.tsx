@@ -68,6 +68,10 @@ const CardDivider = ({ className, applyMargin = 'left-right', ...args }: CardDiv
 export type CardHeaderProps = Omit<TextProps, 'noGapUnderText'> & Partial<TripieContainerProps>;
 
 const CardNoise = ({ cardBackgroundURL = CLOUDINARY_URL() + RESOURCE.STATIC_BACKGROUND, cloudinaryUrl }: CardProps) => {
+  const resolvedUrl =
+    cloudinaryUrl == null
+      ? cardBackgroundURL
+      : cardBackgroundURL.replace('https://res.cloudinary.com/', cloudinaryUrl + '/').replace('.jpeg', '');
   return (
     <TripieContainer
       margin="none"
@@ -77,7 +81,7 @@ const CardNoise = ({ cardBackgroundURL = CLOUDINARY_URL() + RESOURCE.STATIC_BACK
         backgroundRepeat: 'repeat',
         backgroundPosition: 'left top',
         backgroundSize: '128px auto',
-        backgroundImage: `url(${cloudinaryUrl != null ? cardBackgroundURL.replace('https://res.cloudinary.com/', cloudinaryUrl + '/') : cardBackgroundURL})`,
+        backgroundImage: `url(${resolvedUrl})`,
       }}
       zIndex="base"
     ></TripieContainer>
@@ -153,6 +157,9 @@ const CardWithImage = ({
   style,
   cloudinaryUrl = CLOUDINARY_URL(),
   cardBackgroundURL,
+  preload,
+  loading,
+  fetchPriority,
   ...args
 }: CardWithImageProps) => {
   return (
@@ -174,6 +181,9 @@ const CardWithImage = ({
                 src={src}
                 alt={alt}
                 withBorder={!cover}
+                preload={preload}
+                loading={loading}
+                fetchPriority={fetchPriority}
               />
             ) : (
               <BlurImageOnLoad.WithSourceUrl
@@ -184,6 +194,9 @@ const CardWithImage = ({
                 src={src}
                 alt={alt}
                 withBorder={!cover}
+                preload={preload}
+                loading={loading}
+                fetchPriority={fetchPriority}
               />
             )}
           </TripieContainer>

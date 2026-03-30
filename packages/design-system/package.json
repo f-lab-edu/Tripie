@@ -31,6 +31,7 @@
     "@types/jest": "^29.5.12",
     "@types/node": "^20.11.24",
     "@types/react": "^18.3.3",
+    "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.0",
     "babel-jest": "^29.7.0",
@@ -104,6 +105,16 @@
       "import": {
         "types": "./dist/shared/index.d.ts",
         "default": "./dist/shared/index.js"
+      }
+    },
+    "./resource-constants": {
+      "require": {
+        "types": "./dist/shared/resource-constants.d.cts",
+        "default": "./dist/shared/resource-constants.cjs"
+      },
+      "import": {
+        "types": "./dist/shared/resource-constants.d.ts",
+        "default": "./dist/shared/resource-constants.js"
       }
     },
     "./provider": {

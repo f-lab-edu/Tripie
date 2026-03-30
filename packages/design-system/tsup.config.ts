@@ -183,6 +183,7 @@ export default defineConfig(options => [
       entry: [
         './src/index.ts',
         './src/shared/index.ts',
+        './src/shared/resource-constants.ts',
         './src/wrappers/index.tsx',
         './src/@hooks/index.ts',
         './src/provider/index.ts',
