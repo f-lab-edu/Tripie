@@ -14,9 +14,10 @@ export type RegionArticleData = { regionId: string; data: RegionArticleInfo[] };
 type RegionCardProps = {
   article: RegionArticleInfo;
   setSplash?: Dispatch<SetStateAction<boolean>>;
+  highPriority?: boolean;
 };
 
-const RegionCard = ({ article, setSplash }: RegionCardProps) => {
+const RegionCard = ({ article, setSplash, highPriority }: RegionCardProps) => {
   const { alt } = useImgAlt({ imgUrl: article.source.image.sizes.full.url });
   const router = useRouter();
   const href = `/posts/${article.source.regionId}/articles/${article.id}`;
@@ -40,11 +41,14 @@ const RegionCard = ({ article, setSplash }: RegionCardProps) => {
           alignItems="stretch"
           cover={true}
           sizes={'full'}
+          loading={highPriority ? 'eager' : 'lazy'}
           imgSize={'full'}
           aspectRatio={'square'}
+          fetchPriority={highPriority ? 'high' : 'auto'}
           src={article.source.image.sizes.small_square.url
             .replace('https://res.cloudinary.com', API.MEDIA_URL)
             .replace('.jpeg', '')}
+          preload={!highPriority}
           alt={alt}
           cloudinaryUrl={API.MEDIA_URL}
         >

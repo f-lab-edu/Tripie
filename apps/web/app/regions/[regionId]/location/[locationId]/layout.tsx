@@ -9,6 +9,7 @@ import ROUTE from 'constants/routes';
 import { TRIPIE_REGION_BY_LOCATION, TRIPIE_REGION_IDS } from 'constants/tripie-country';
 import { RegionArticleInfo } from 'models/Article';
 import { Metadata } from 'next';
+import { preload } from 'react-dom';
 
 export async function pageParamData({ params }: RegionParamProps) {
   const { regionId, locationId } = await parseParams(params);
@@ -49,8 +50,15 @@ export async function generateMetadata({ params }: RegionParamProps): Promise<Me
   const images = preview.map((item: RegionArticleInfo) =>
     item.source.image.sizes.large.url
       .replace('https://res.cloudinary.com', 'https://www.tripie-api.shop')
-      .replace('e_blur:2000,q_1', 'q_auto')
+      .replace('e_blur:2000,q_1', 'q_auto:good')
+      .replace('.jpeg', '')
   );
+
+  const firstImage = images[0];
+
+  if (firstImage) {
+    preload(firstImage, { as: 'image', fetchPriority: 'high' });
+  }
 
   return {
     title,
@@ -61,6 +69,9 @@ export async function generateMetadata({ params }: RegionParamProps): Promise<Me
       description,
       url: `${API.BASE_URL}${ROUTE.REGIONS.href}${regionId}/location/${locationId}`,
       images,
+    },
+    other: {
+      'link-preload-image': firstImage,
     },
   };
 }

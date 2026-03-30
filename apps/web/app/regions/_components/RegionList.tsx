@@ -31,7 +31,9 @@ export default function RegionList({
       {data == null ? (
         <>지역 정보가 없습니다.</>
       ) : (
-        data.map(article => <RegionCard setSplash={setSplash} article={article} key={article.id} />)
+        data.map((article, i) => (
+          <RegionCard setSplash={setSplash} article={article} key={article.id} highPriority={i === 0} />
+        ))
       )}
     </Stack>
   );

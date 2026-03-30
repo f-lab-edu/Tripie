@@ -14,9 +14,7 @@ const Articles = async ({ params }: { params: Promise<Params> }) => {
   }
 
   const { dynamicBlurDataUrl } = await regionPageParamData({ params });
-
-  const selectedRegion =
-    locationId == null ? TRIPIE_REGION_BY_LOCATION[regionId as keyof typeof TRIPIE_REGION_BY_LOCATION][0] : locationId;
+  const selectedRegion = locationId ?? TRIPIE_REGION_BY_LOCATION[regionId as keyof typeof TRIPIE_REGION_BY_LOCATION][0];
 
   return (
     <Container margin="none" padding="none">
