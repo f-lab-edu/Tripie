@@ -8,8 +8,8 @@ import Loading from 'shared/components/Loading';
 import Nav from 'shared/components/Nav';
 import { sharedMetaData } from './shared-metadata';
 
+import { CARD_NOISE_URL } from '@tripie-pyotato/design-system/resource-constants';
 import API from 'constants/api-routes';
-import Head from 'next/head';
 
 export const metadata: Metadata = {
   title: sharedMetaData?.title,
@@ -24,16 +24,15 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <Head>
-        {/* http://localhost:3000/_next/static/chunks/_d41a2fc5._.css */}
-        {/* <link rel="preload" href="/_next/static/chunks/_d41a2fc5.css" as="style" /> */}
-        {/* <link rel="preload" href="/_next/static/chunks/_9befec6e.css" as="style" /> */}
+      <head>
         {/* https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/?utm_source=lighthouse&utm_medium=devtools */}
         <link rel="preconnect" href="https://maps.geo.ap-northeast-1.amazonaws.com" />
-        <link rel="dns-prefetch" href="https://maps.geo.ap-northeast-1.amazonaws.com" />.
-        <link rel="preconnect" href={API.MEDIA_URL}></link>
-        <link rel="dns-prefetch" href={API.MEDIA_URL}></link>
-      </Head>
+        <link rel="dns-prefetch" href="https://maps.geo.ap-northeast-1.amazonaws.com" />
+        <link rel="preconnect" href={API.MEDIA_URL} />
+        <link rel="dns-prefetch" href={API.MEDIA_URL} />
+        {/* CardNoise CSS background-image — used on every Card, preload here since client components can't inject into SSR <head> */}
+        <link rel="preload" as="image" href={CARD_NOISE_URL(API.MEDIA_URL + '/')} fetchPriority="high" />
+      </head>
       <body>
         {/* useSearchParams() should be wrapped in a suspense boundary: https://github.com/vercel/next.js/discussions/61654#discussioncomment-8820940 */}
         <Suspense fallback={<Loading />}>
