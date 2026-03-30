@@ -44,7 +44,7 @@ const useChatToken = () => {
     const usedTokens = tokenData?.user?.usedTokens ?? 0;
     setUsedGptToken(usedTokens);
     setRemainingToken(Math.max(MAX_TOKEN - usedTokens, 0));
-  }, [data, status]);
+  }, [tokenData, status]);
 
   return { isAdmin, usedGptToken, remainingToken, isEligible, status };
 };
