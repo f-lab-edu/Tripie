@@ -17,11 +17,11 @@ const AiTripButton = ({ isOpen }: { isOpen: boolean }) => {
   const url = useMemo(() => {
     if (status === 'loading') {
       return '';
-    } else if (status === 'authenticated' && !Number.isNaN(remainingToken)) {
-      return ROUTE.TRIP_PLANNER.href;
     }
     if (!isEligible) {
       return `${ROUTE.TRIP_PLANNER.href}/not-enough-tokens`;
+    } else if (status === 'authenticated' && !Number.isNaN(remainingToken)) {
+      return ROUTE.TRIP_PLANNER.href;
     }
     return ROUTE.SIGN_IN.href;
   }, [isEligible, status, remainingToken]);
