@@ -1,4 +1,4 @@
-import { FieldValue } from 'firebase-admin/firestore';
+import { FieldValue, Transaction } from 'firebase-admin/firestore';
 import db from 'firebase/config';
 
 import { AttractionData } from 'models/Attraction';
@@ -218,6 +218,33 @@ class FirestoreService {
     } catch (error) {
       console.error('Error incrementing IP token:', error);
     }
+  }
+
+  async checkRateLimit(
+    collectionName: string,
+    identifier: string,
+    config: { windowMs: number; maxRequests: number }
+  ): Promise<{ allowed: boolean; remaining: number; resetTime: number; retryAfterMs?: number }> {
+    const docRef = this.db.collection(collectionName).doc(identifier);
+    const now = Date.now();
+
+    return this.db.runTransaction(async (transaction: Transaction) => {
+      const docSnap = await transaction.get(docRef);
+      const record = docSnap.exists ? (docSnap.data() as { count: number; resetTime: number }) : null;
+
+      if (!record || now > record.resetTime) {
+        const resetTime = now + config.windowMs;
+        transaction.set(docRef, { count: 1, resetTime });
+        return { allowed: true, remaining: config.maxRequests - 1, resetTime };
+      }
+
+      if (record.count >= config.maxRequests) {
+        return { allowed: false, remaining: 0, resetTime: record.resetTime, retryAfterMs: record.resetTime - now };
+      }
+
+      transaction.update(docRef, { count: record.count + 1 });
+      return { allowed: true, remaining: config.maxRequests - (record.count + 1), resetTime: record.resetTime };
+    });
   }
 
   async resetAllIpTokens(collectionName: string): Promise<number> {
