@@ -1,7 +1,8 @@
-import noRawHtmlElements from './rules/no-raw-html-elements';
-import useDesignToken from './rules/use-design-token';
-import requireStackGapToken from './rules/require-stack-gap-token';
 import noIneffectiveApplyProp from './rules/no-ineffective-apply-prop';
+import noRawHtmlElements from './rules/no-raw-html-elements';
+import requireCardNoisePreload from './rules/require-card-noise-preload';
+import requireStackGapToken from './rules/require-stack-gap-token';
+import useDesignToken from './rules/use-design-token';
 
 const plugin = {
   meta: {
@@ -13,6 +14,7 @@ const plugin = {
     'use-design-token': useDesignToken,
     'require-stack-gap-token': requireStackGapToken,
     'no-ineffective-apply-prop': noIneffectiveApplyProp,
+    'require-card-noise-preload': requireCardNoisePreload,
   },
   configs: {} as Record<string, unknown>,
 };
@@ -25,6 +27,7 @@ plugin.configs['recommended'] = {
     'tripie/use-design-token': 'warn',
     'tripie/require-stack-gap-token': 'warn',
     'tripie/no-ineffective-apply-prop': 'warn',
+    'tripie/require-card-noise-preload': 'warn',
   },
 };
 
