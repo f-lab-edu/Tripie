@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "turbo build",
-    "build:storybook-docs": "turbo run build:storybook-docs --filter=docs",
+    "build:docs": "turbo run build --filter=docs",
     "chromatic": "turbo run chromatic -- --force-rebuild --filter=docs",
     "build:api": "turbo run build:api --filter=api",
     "dev": "turbo dev",

@@ -51,7 +51,7 @@
     "eslint-plugin-storybook": "^0.8.0",
     "postcss": "^8",
     "serve": "^14.2.1",
-    "storybook": "^8.6.11",
+    "storybook": "^8.6.17",
     "typescript": "^5",
     "vite": "^5.1.4",
     "vitest": "^3.0.7"
