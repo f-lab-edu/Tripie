@@ -4,7 +4,7 @@ import AnimatedText from '@tripie-pyotato/design-system/@components/AnimatedText
 import Text from '@tripie-pyotato/design-system/@core/Text';
 
 import ROUTE from '@/constants/routes';
-import { Divider } from '@tripie-pyotato/design-system/@components';
+import Divider from '@tripie-pyotato/design-system/@components/Divider';
 import UnstyledLink from '@tripie-pyotato/design-system/@components/Link';
 import { Container } from '@tripie-pyotato/design-system/@core';
 import { COLORS } from '@tripie-pyotato/design-system/shared';

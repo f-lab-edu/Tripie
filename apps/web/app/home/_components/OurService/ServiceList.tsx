@@ -1,7 +1,8 @@
 'use client';
 
 import Card from '@tripie-pyotato/design-system/@components/Card';
-import { classNames, useInView } from '@tripie-pyotato/design-system/@wrappers';
+import { useInView } from '@tripie-pyotato/design-system/@wrappers';
+import { classNames } from 'wrapper/classNames';
 
 import RegionList from './RegionList';
 

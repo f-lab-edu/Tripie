@@ -1,7 +1,7 @@
 'use client';
 
 import { Container, Stack } from '@tripie-pyotato/design-system/@core';
-import { classNames } from '@tripie-pyotato/design-system/@wrappers';
+import { classNames } from 'wrapper/classNames';
 
 import { TripContent } from 'models/Aws';
 import TabCard from '../TabCard';

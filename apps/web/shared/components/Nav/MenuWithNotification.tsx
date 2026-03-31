@@ -1,5 +1,5 @@
 'use client';
-import { Menu } from '@tripie-pyotato/design-system/@components';
+import Menu from '@tripie-pyotato/design-system/@components/Menu';
 import Notification from '@tripie-pyotato/design-system/@components/Notification';
 import ROUTE, { LANDING_SECTION } from 'constants/routes';
 import { usePathname } from 'next/navigation';

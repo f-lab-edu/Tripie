@@ -2,15 +2,17 @@
 
 import { Divider } from '@tripie-pyotato/design-system/@components';
 
+import dynamic from 'next/dynamic';
 import { BodyItemProps } from 'models/Props';
 import ArticleImages from './ArticleImages';
 import ArticleEmbedded from './Embedded';
 import ArticleHeading from './Header';
-import ArticleItinerary from './Itinerary';
 import ArticleLink from './Link';
 import ArticleNote from './Note';
 import PoiList from './PoiList';
 import ArticleText from './Text/Text';
+
+const ArticleItinerary = dynamic(() => import('./Itinerary'), { ssr: false });
 
 const DefaultArticleBody = ({
   items,

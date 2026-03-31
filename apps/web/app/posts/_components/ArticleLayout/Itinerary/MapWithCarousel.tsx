@@ -2,7 +2,7 @@
 
 import { Carousel, Chip, Divider } from '@tripie-pyotato/design-system/@components';
 import { Container, Stack } from '@tripie-pyotato/design-system/@core/layout';
-import { classNames } from '@tripie-pyotato/design-system/@wrappers';
+import { classNames } from 'wrapper/classNames';
 
 import { Dispatch, SetStateAction, createRef, useMemo, useRef } from 'react';
 

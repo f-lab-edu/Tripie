@@ -3,7 +3,9 @@
 import ROUTE from 'constants/routes';
 import useChatToken from 'hooks/useChatToken';
 
-import { Link, Menu, Tooltip } from '@tripie-pyotato/design-system/@components';
+import Link from '@tripie-pyotato/design-system/@components/Link';
+import Menu from '@tripie-pyotato/design-system/@components/Menu';
+import Tooltip from '@tripie-pyotato/design-system/@components/Tooltip';
 import { usePathname } from 'next/navigation';
 import { useMemo } from 'react';
 import TokenStatus from 'shared/components/Nav/TokenStatus';

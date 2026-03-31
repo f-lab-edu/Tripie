@@ -1,13 +1,14 @@
 'use client';
-import { AnimatedCard, Card, Chip, TextUnderLineAnimation } from '@tripie-pyotato/design-system/@components';
+import AnimatedCard from '@tripie-pyotato/design-system/@components/AnimatedCard';
+import Card from '@tripie-pyotato/design-system/@components/Card';
+import TextUnderLineAnimation from '@tripie-pyotato/design-system/@components/TextUnderlineAnimation';
 import { Stack, Text } from '@tripie-pyotato/design-system/@core';
-// import Stack from '@tripie-pyotato/design-system/@core/Stack';
-// import Text from '@tripie-pyotato/design-system/@core/Text';
 import { openNewTab } from '@tripie-pyotato/utils';
 
 import { Activity, TripContent } from 'models/Aws';
 import { useContext, useEffect, useRef } from 'react';
 
+import { Chip } from '@tripie-pyotato/design-system/@components';
 import API from 'constants/api-routes';
 import { TabContext } from '.';
 

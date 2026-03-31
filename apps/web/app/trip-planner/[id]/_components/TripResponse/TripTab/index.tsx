@@ -1,7 +1,7 @@
 'use client';
 import { Button, Carousel, Divider } from '@tripie-pyotato/design-system/@components';
 import { Headings, Stack, Text } from '@tripie-pyotato/design-system/@core';
-import { classNames } from '@tripie-pyotato/design-system/@wrappers';
+import { classNames } from 'wrapper/classNames';
 
 import { useContext, useEffect, useState } from 'react';
 

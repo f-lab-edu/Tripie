@@ -1,5 +1,6 @@
 'use client';
 
+import AwsMap from '@tripie-pyotato/design-system/@components/Map';
 import { API_KEY } from 'constants/maps';
 import { LocationMarker } from 'models/Geo';
 import dynamic from 'next/dynamic';
@@ -8,11 +9,6 @@ import { Context, Dispatch, ReactNode, SetStateAction } from 'react';
 const DefaultMap = dynamic(() => import('@tripie-pyotato/design-system/@components/Map').then(res => res), {
   ssr: false,
 });
-
-export const MapWithContext = dynamic(
-  () => import('@tripie-pyotato/design-system/@components').then(res => res.AwsMap.WithContext),
-  { ssr: false }
-);
 
 type MapCenter = {
   longitude: number;
@@ -52,7 +48,7 @@ export default function TripieMap({
 }>) {
   if (TabContext) {
     return (
-      <MapWithContext
+      <AwsMap.WithContext
         reuseMaps={reuseMaps}
         apiKey={API_KEY}
         initialViewState={{

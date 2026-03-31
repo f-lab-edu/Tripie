@@ -1,6 +1,9 @@
-import { Card, MapPopup } from '@tripie-pyotato/design-system/@components';
+import { Card } from '@tripie-pyotato/design-system/@components';
+import MapPopup from '@tripie-pyotato/design-system/@components/MapPopup';
+
 import { Container, Stack, Table, Text } from '@tripie-pyotato/design-system/@core';
-import { classNames, useMap } from '@tripie-pyotato/design-system/@wrappers';
+import { useMap } from '@tripie-pyotato/design-system/@wrappers';
+import { classNames } from 'wrapper/classNames';
 
 import { Continentl } from 'models/Continentl';
 

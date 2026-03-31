@@ -4,7 +4,8 @@ import ROUTE from 'constants/routes';
 import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 
-import { BasicButton, Menu } from '@tripie-pyotato/design-system/@components';
+import BasicButton from '@tripie-pyotato/design-system/@components/BasicButton';
+import Menu from '@tripie-pyotato/design-system/@components/Menu';
 
 // 로그인 로그아웃 버튼
 const AuthButton = () => {

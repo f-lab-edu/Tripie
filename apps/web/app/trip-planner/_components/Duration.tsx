@@ -1,10 +1,12 @@
 'use client';
 
-import { Calendar, ToastWithControl } from '@tripie-pyotato/design-system/@components';
+import { ToastWithControl } from '@tripie-pyotato/design-system/@components';
+import Calendar from '@tripie-pyotato/design-system/@components/Calendar';
 import { Container, Text } from '@tripie-pyotato/design-system/@core';
 
 import { useCalendar } from '@tripie-pyotato/design-system/@hooks';
-import { COLORS, LooseValue } from '@tripie-pyotato/design-system/shared';
+import { LooseValue } from '@tripie-pyotato/design-system/@wrappers';
+import { COLORS } from '@tripie-pyotato/design-system/shared';
 import useServerTime from 'hooks/useServerTime';
 import { useCallback, useState } from 'react';
 import NavButton from 'shared/components/NavButton';

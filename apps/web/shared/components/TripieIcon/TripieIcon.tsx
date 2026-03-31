@@ -1,5 +1,5 @@
 'use client';
-import { Icon, IconProps } from '@tripie-pyotato/design-system/@components';
+import Icon, { IconProps } from '@tripie-pyotato/design-system/@components/Icon';
 import API from 'constants/api-routes';
 import { Transport } from 'models/Itinery';
 

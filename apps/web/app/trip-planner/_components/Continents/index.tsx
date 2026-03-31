@@ -7,8 +7,10 @@ import { useInView } from '@tripie-pyotato/design-system/@wrappers';
 import { FunnelProps, FunnelSteps } from 'app/trip-planner/page';
 
 import { Container } from '@tripie-pyotato/design-system/@core';
-import TripieGlobe from 'shared/components/TripieGlobe';
+import dynamic from 'next/dynamic';
 import TripieIcon from 'shared/components/TripieIcon/TripieIcon';
+
+const TripieGlobe = dynamic(() => import('shared/components/TripieGlobe'), { ssr: false });
 import Layout from '../Layout/Layout';
 import { ContinentList } from './ContinentLIst';
 

@@ -1,7 +1,7 @@
 'use client';
 
 import { Stack, Text } from '@tripie-pyotato/design-system/@core';
-import { classNames } from '@tripie-pyotato/design-system/@wrappers';
+import { classNames } from 'wrapper/classNames';
 
 import { ArticleTextProps } from 'models/Props';
 import decodeUnicodes from 'utils/string/decodeUnicodes';

@@ -1,5 +1,7 @@
 'use client';
-import { Card, FlickTextButton, ToastWithControl } from '@tripie-pyotato/design-system/@components';
+import Card from '@tripie-pyotato/design-system/@components/Card';
+import FlickTextButton from '@tripie-pyotato/design-system/@components/FlickTextButton';
+import ToastWithControl from '@tripie-pyotato/design-system/@components/ToastWithControl';
 
 import { useRouter, useSearchParams } from 'next/navigation';
 

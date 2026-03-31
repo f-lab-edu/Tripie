@@ -14,15 +14,17 @@ import { useQueryClient } from '@tanstack/react-query';
 import useToken from 'hooks/query/useToken';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import dynamic from 'next/dynamic';
 import { ReactNode, useRef } from 'react';
 import CityStep from './_components/Cities';
 import CompanionStep from './_components/Companion';
 import ContinentStep from './_components/Continents';
-import CountryStep from './_components/Countries';
 import DoneStep from './_components/Done';
-import DurationStep from './_components/Duration';
 import PreferenceStep from './_components/Preference';
 import { submitTripPlan } from './api';
+
+const CountryStep = dynamic(() => import('./_components/Countries'), { ssr: false });
+const DurationStep = dynamic(() => import('./_components/Duration'), { ssr: false });
 
 export type FunnelSteps = {
   CONTINENT: {

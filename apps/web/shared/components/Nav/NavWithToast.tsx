@@ -1,5 +1,6 @@
 'use client';
-import { AppBar, FlickTextButton } from '@tripie-pyotato/design-system/@components';
+import AppBar from '@tripie-pyotato/design-system/@components/AppBar';
+import FlickTextButton from '@tripie-pyotato/design-system/@components/FlickTextButton';
 
 import { useRouter, useSearchParams } from 'next/navigation';
 

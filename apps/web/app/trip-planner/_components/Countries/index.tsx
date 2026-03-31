@@ -1,5 +1,5 @@
 import { useQueryClient } from '@tanstack/react-query';
-import { classNames } from '@tripie-pyotato/design-system/@wrappers';
+import { classNames } from 'wrapper/classNames';
 
 import { Continentl } from '@/models/Continentl';
 import { AnimatedText } from '@tripie-pyotato/design-system/@components';
