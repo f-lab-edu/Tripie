@@ -1,12 +1,11 @@
 'use client';
 import { differenceInCalendarDays } from 'date-fns';
 import { RefAttributes, useCallback, useMemo } from 'react';
-import { CalendarProps, ReactCalendar } from '../../../wrappers';
+import { CalendarProps, classNames, ReactCalendar } from '../../../wrappers';
 
 import { Headings } from '@core';
 import TripieContainer from '@core/layout/TripieContainer';
 
-import { classNames } from 'shared';
 import Style from './calendar-body.module.scss';
 const cx = classNames.bind(Style);
 

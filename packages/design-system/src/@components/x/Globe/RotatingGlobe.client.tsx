@@ -3,10 +3,11 @@
 import dynamic from 'next/dynamic';
 import { ReactNode, useEffect, useRef, useState } from 'react';
 import TripieContainer, { TripieContainerProps } from '../../../@core/layout/TripieContainer';
-import { CLOUDINARY_URL, COLORS, RESOURCE, useInView } from '../../../shared';
+import { CLOUDINARY_URL, COLORS, RESOURCE } from '../../../shared';
 import { GlobeMethods, GlobeProps } from '../../../wrappers/react-globe';
 
 import LoadingIcon from '@components/data-display/TripieIcon/Loading.client';
+import { useInView } from 'framer-motion';
 
 // https://github.com/vasturiano/react-globe.gl/issues/1#issuecomment-1710898408
 const Globe = dynamic(() => import('react-globe.gl').then(mod => mod.default), {

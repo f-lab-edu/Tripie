@@ -6,7 +6,7 @@ import TripieContainer from '@core/layout/TripieContainer';
 import { yearlyCalendar } from '@tripie-pyotato/utils/@date';
 import { useMemo } from 'react';
 
-import { classNames } from 'shared';
+import classNames from 'classnames';
 import Style from './calendar.module.scss';
 import CalendarBody, { CustomCalendarProps } from './CalendarBody.client';
 import CalendarHeader from './CalendarHeader.client';

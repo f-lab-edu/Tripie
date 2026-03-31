@@ -5,9 +5,8 @@ import TripieContainer from '@core/layout/TripieContainer';
 import { RefAttributes } from 'react';
 import 'react-calendar/dist/Calendar.css';
 
-import { CalendarProps, ReactCalendar } from '../../../wrappers';
+import { CalendarProps, ReactCalendar, classNames } from '../../../wrappers';
 
-import { classNames } from 'shared';
 import Style from './calendar-header.module.scss';
 
 const cx = classNames.bind(Style);

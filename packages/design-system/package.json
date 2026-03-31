@@ -1,6 +1,6 @@
 {
   "name": "@tripie-pyotato/design-system",
-  "version": "0.3.18",
+  "version": "0.3.19",
   "description": "트리피에 사용되는 디자인 시스템",
   "main": "index.js",
   "type": "module",
@@ -401,11 +401,11 @@
     "./@components/ToastWithControl": {
       "require": {
         "types": "./dist/@components/feedback/ToastWithControl/index.d.cts",
-        "default": "./dist/@components/feedback/ToastWithControl/Toast.cjs"
+        "default": "./dist/@components/feedback/ToastWithControl/Toast.client.cjs"
       },
       "import": {
         "types": "./dist/@components/feedback/ToastWithControl/index.d.ts",
-        "default": "./dist/@components/feedback/ToastWithControl/Toast.js"
+        "default": "./dist/@components/feedback/ToastWithControl/Toast.client.js"
       }
     },
     "./@components/Input": {
