@@ -49,7 +49,7 @@ export async function generateMetadata({ params }: RegionParamProps): Promise<Me
 
   const images = preview.map((item: RegionArticleInfo) =>
     item.source.image.sizes.large.url
-      .replace('https://res.cloudinary.com', 'https://www.tripie-api.shop')
+      .replace('https://res.cloudinary.com', API.BASE_URL as string)
       .replace('e_blur:2000,q_1', 'q_auto:good')
       .replace('.jpeg', '')
   );
