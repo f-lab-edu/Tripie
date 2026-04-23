@@ -66,7 +66,7 @@ const nextConfig = withBundleAnalyzer({
   },
   images: {
     remotePatterns: [
-      new URL('https://media.tripie-api.shop/dbzzletpw/**'),
+      new URL('https://media.tripie.site/dbzzletpw/**'),
       new URL('https://res.cloudinary.com/dbzzletpw/**'),
     ],
     // minimumCacheTTL: 60 * 60 * 24 * 365, // 1 year in seconds
@@ -74,7 +74,6 @@ const nextConfig = withBundleAnalyzer({
   turbopack: {
     resolveExtensions: ['.tsx', '.ts', '.jsx', '.js', '.mjs', '.json'],
   },
-
 });
 
 export default nextConfig;
